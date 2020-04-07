@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="By now you have seen a lot of different learning algorithms. And if you’ve been following along these videos you should consider yourself an expert on many state-of-the-art machine learning techniques">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10_advice-for-applying-machine-learning note10">
+<meta property="og:url" content="https://snakecoding.com/2018/01/10/10_advice-for-applying-machine-learning/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="By now you have seen a lot of different learning algorithms. And if you’ve been following along these videos you should consider yourself an expert on many state-of-the-art machine learning techniques">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/1.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/2.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/3.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/4.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/5.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/6.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/7.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/8.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/9.png">
+<meta property="article:published_time" content="2018-01-09T18:30:00.000Z">
+<meta property="article:modified_time" content="2020-04-06T14:55:25.943Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2018/01/10/10_advice-for-applying-machine-learning/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>10_advice-for-applying-machine-learning note10 | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">60</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/10/10_advice-for-applying-machine-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          10_advice-for-applying-machine-learning note10
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-10 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-10T00:00:00+05:30">2018-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:25" itemprop="dateModified" datetime="2020-04-06T20:25:25+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>By now you have seen a lot of different learning algorithms. And if you’ve been following along these videos you should consider yourself an expert on many state-of-the-art machine learning techniques. <strong>But even among people that know a certain learning algorithm. There’s often a huge difference between someone that really knows how to powerfully and effectively apply that algorithm, versus someone that’s less familiar with some of the material that I’m about to teach and who doesn’t really understand how to apply these algorithms and can end up wasting a lot of their time trying things out that don’t really make sense.</strong></p>
+<p>What I would like to do is make sure that if you are developing machine learning systems, that you know how to choose one of the most promising avenues to spend your time pursuing. And on this and the next few videos I’m going to give a number of practical suggestions, advice, guidelines on how to do that. </p>
+<p>And concretely what we’d focus on is the problem of, suppose you are developing a machine learning system or trying to improve the performance of a machine learning system, how do you go about deciding what are the proxy avenues to try next? </p>
+<p>To explain this, let’s continue using our example of learning to predict housing prices. And let’s say you’ve implement and regularize linear regression. Thus minimizing that cost function j.  Now suppose that after you take your learn parameters, if you test your hypothesis on the new set of houses, suppose you find that this is making huge errors in this prediction of the housing prices. The question is what should you then try mixing in order to improve the learning algorithm? </p>
+<p>There are many things that one can think of that could improve the performance of the learning algorithm. </p>
+<p>One thing they could try, is to get more training examples. And concretely, you can imagine, maybe, you know, setting up phone surveys, going door to door, to try to get more data on how much different houses sell for. And the sad thing is I’ve seen a lot of people spend a lot of time collecting more training examples, thinking oh, if we have twice as much or ten times as much training data, that is certainly going to help, right? <strong>But sometimes getting more training data doesn’t actually help and in the next few videos we will see why, and we will see how you can avoid spending a lot of time collecting more training data in settings where it is just not going to help.</strong> </p>
+<p>Other things you might try are to well maybe try a smaller set of features. So if you have some set of features such as x1, x2, x3 and so on, maybe a large number of features. Maybe you want to spend time carefully selecting some small subset of them to prevent overfitting. Or maybe you need to get additional features. Maybe the current set of features aren’t informative enough and you want to collect more data in the sense of getting more features. </p>
+<p>And once again this is the sort of project that can scale up the huge projects can you imagine getting phone surveys to find out more houses, or extra land surveys to find out more about the pieces of land and so on, so a huge project. And once again it would be nice to know in advance if this is going to help before we spend a lot of time doing something like this. We can also try adding polynomial features things like x2 square x2 square and product features x1, x2. We can still spend quite a lot of time thinking about that and we can also try other things like decreasing lambda, the regularization parameter or increasing lambda. Given a menu of options like these, some of which can easily scale up to six month or longer projects. </p>
+<p><strong>Unfortunately, the most common method that people use to pick one of these is to go by</strong> <strong><em>gut feeling</em></strong>. In which what many people will do is sort of randomly pick one of these options and maybe say, “Oh, lets go and get more training data.” And easily spend six months collecting more training data or maybe someone else would rather be saying, “Well, let’s go collect a lot more features on these houses in our data set.” And I have a lot of times, sadly seen people spend, you know, literally 6 months doing one of these avenues that they have sort of at random only to discover six months later that that really wasn’t a promising avenue to pursue. </p>
+<p><strong>Fortunately, there is a pretty simple technique that can let you very quickly rule out half of the things on this list as being potentially promising things to pursue.</strong> And there is a very simple technique, that if you run, can easily rule out many of these options, and potentially save you a lot of time pursuing something that’s just is not going to work. </p>
+<p>In the next two videos after this, I’m going to first talk about <strong>how to evaluate learning algorithms</strong>. And in the next few videos after that, I’m going to talk about these techniques, which are called <strong>the machine learning diagnostics</strong>. And what a diagnostic is, is a test you can run, to get insight into what is or isn’t working with an algorithm, and which will often give you insight as to what are promising things to try to improve a learning algorithm’s performance. We’ll talk about specific diagnostics later in this video sequence. But I should mention in advance that diagnostics can take time to implement and can sometimes, you know, take quite a lot of time to implement and understand but doing so can be a very good use of your time when you are developing learning algorithms because they can often save you from spending many months pursuing an avenue that you could have found out much earlier just was not going to be fruitful. So in the next few videos, I’m going to first talk about how evaluate your learning algorithms and after that I’m going to talk about some of these diagnostics which will hopefully let you much more effectively select more of the useful things to try mixing if your goal to improve the machine learning system.</p>
+<h1 id="01-evaluating-a-learning-algorithm"><a href="#01-evaluating-a-learning-algorithm" class="headerlink" title="01_evaluating-a-learning-algorithm"></a>01_evaluating-a-learning-algorithm</h1><h2 id="Evaluating-a-Hypothesis"><a href="#Evaluating-a-Hypothesis" class="headerlink" title="Evaluating a Hypothesis"></a>Evaluating a Hypothesis</h2><p>Once we have done some trouble shooting for errors in our predictions by:</p>
+<ul>
+<li><p>Getting more training examples</p>
+</li>
+<li><p>Trying smaller sets of features</p>
+</li>
+<li><p>Trying additional features</p>
+</li>
+<li><p>Trying polynomial features</p>
+</li>
+<li><p>Increasing or decreasing λ</p>
+<p>We can move on to evaluate our new hypothesis.</p>
+</li>
+</ul>
+<p>A hypothesis may have a low error for the training examples but still be inaccurate (because of overfitting). Thus, to evaluate a hypothesis, given a dataset of training examples, we can split up the data into two sets: a <strong>training set</strong> and a <strong>test set</strong> . Typically, the training set consists of 70 % of your data and the test set is the remaining 30 %.</p>
+<p>The new procedure using these two sets is then:</p>
+<ol>
+<li>Learn $\Theta$ and minimize $J_{train}(\Theta)$  using the training set</li>
+<li>Compute the test set error $J_{test}(\Theta)$</li>
+</ol>
+<p>The test set error For linear regression: $J_{test}(\Theta) = \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}}(h_\Theta(x^{(i)}<em>{test}) - y^{(i)}</em>{test})^2$</p>
+<p>For classification ~ Misclassification error (aka 0/1 misclassification error):  </p>
+<p> $$err(h_\Theta(x),y) = \begin{cases} 1 &amp; \mbox{if } h_\Theta(x) \geq 0.5\ and\ y = 0\ or\ h_\Theta(x) &lt; 0.5\ and\ y = 1\newline 0 &amp; \mbox otherwise \end{cases}$$</p>
+<p>This gives us a binary 0 or 1 error result based on a misclassification. The average test error for the test set is:</p>
+<p>$$\text{Test Error} = \dfrac{1}{m_{test}} \sum^{m_{test}}<em>{i=1} err(h_\Theta(x^{(i)}</em>{test}), y^{(i)}_{test})$$</p>
+<p>This gives us the proportion of the test data that was misclassified.</p>
+<h2 id="Model-Selection-and-Train-Validation-Test-Sets"><a href="#Model-Selection-and-Train-Validation-Test-Sets" class="headerlink" title="Model Selection and Train/Validation/Test Sets"></a>Model Selection and Train/Validation/Test Sets</h2><p>Just because a learning algorithm fits a training set well, that does not mean it is a good hypothesis. It could <strong><em>overfit</em></strong> and as a result your predictions on the test set would be poor. <strong><em>The error of your hypothesis as measured on the data set with which you trained the parameters will be lower than the error on any other data set.</em></strong></p>
+<p><strong>Given many models with different polynomial degrees, we can use a systematic approach to identify the ‘best’ function. In order to choose the model of your hypothesis, you can test each degree of polynomial and look at the error result.</strong> </p>
+<p>One way to break down our dataset into the three sets is:  </p>
+<ul>
+<li>​    Training set: 60%   </li>
+<li>​    Cross validation set: 20%   </li>
+<li>​    Test set: 20%   </li>
+</ul>
+<p>We can now calculate three separate error values for the three different sets using the following method: </p>
+<ol>
+<li>​    Optimize the parameters in $Θ $ using the training set for each polynomial degree.   </li>
+<li>​    Find the polynomial degree d with the least error using the cross validation set.   </li>
+<li>​    Estimate the generalization error using the test set with $J_{test}(Θ^{(d)})$, (d = theta from polynomial with lower error);   </li>
+</ol>
+<p><strong>This way, the degree of the polynomial d has not been trained using the test set.</strong></p>
+<p><em>Training error:</em><br>$$J_{train}\left(\theta\right) = \frac{1}{2m}\sum_\limits{i=1}^{m}\left(h_{\theta}\left(x^{(i)}\right)-y^{(i)}\right)^2$$<br><em>Cross Validation error:</em><br>$$J_{cv}\left(\theta\right) = \frac{1}{2m_{cv}}\sum_\limits{i=1}^{m}\left(h_{\theta}\left(x^{(i)}<em>{cv}\right)-y^{(i)}</em>{cv}\right)^2$$<br><em>Test error:</em><br>$$J_{cv}\left(\theta\right) = \frac{1}{2m_{cv}}\sum_\limits{i=1}^{m}\left(h_{\theta}\left(x^{(i)}<em>{cv}\right)-y^{(i)}</em>{cv}\right)^2$$</p>
+<h1 id="02-bias-vs-variance"><a href="#02-bias-vs-variance" class="headerlink" title="02_bias-vs-variance"></a>02_bias-vs-variance</h1><h2 id="Diagnosing-Bias-vs-Variance"><a href="#Diagnosing-Bias-vs-Variance" class="headerlink" title="Diagnosing Bias vs. Variance"></a>Diagnosing Bias vs. Variance</h2><p>In this section we examine the relationship between the degree of the polynomial d and the underfitting or overfitting of our hypothesis.</p>
+<ul>
+<li>We need to distinguish whether <strong>bias</strong> or <strong>variance</strong> is the problem contributing to bad predictions.   </li>
+<li>High bias is underfitting and high variance is overfitting. Ideally, we need to find a golden mean between these two.   </li>
+</ul>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/1.png" alt="img"></p>
+<p>The training error will tend to <strong>decrease</strong> as we increase the degree d of the polynomial. </p>
+<p>At the same time, the cross validation error will tend to <strong>decrease</strong> as we increase d up to a point, and then it will <strong>increase</strong> as d is increased, forming a convex curve. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/2.png" alt="high_bias_and_high_variance"></p>
+<p><strong>High bias (underfitting)</strong>: both $J_{train}(Θ)$ and $J_{CV}(Θ)$ will be high. Also, $J_{CV}(Θ)≈J_{train}(Θ)$. </p>
+<p><strong>High variance (overfitting)</strong>: $J_{train}(Θ)$ will be low and $J_{CV}(Θ)$ will be much greater than $J_{train}(Θ)$. </p>
+<p>The is summarized in the figure below: </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/3.png" alt="img"></p>
+<h2 id="Regularization-and-Bias-Variance"><a href="#Regularization-and-Bias-Variance" class="headerlink" title="Regularization and Bias/Variance"></a>Regularization and Bias/Variance</h2><p><strong>Note:</strong>    [The regularization term below and through out the video should be $\frac \lambda {2m} \sum _{j=1}^n \theta_j ^2$ and     <strong>NOT</strong>    $\frac \lambda {2m} \sum _{j=1}^m \theta_j ^2$]  </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/4.png" alt="3_kinds_of_Linear_regression_with_regularization"></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/5.png" alt="img"></p>
+<p>In the figure above, we see that as $\lambda$ increases, our fit becomes more rigid. On the other hand, as $\lambda$ approaches 0, we tend to over overfit the data. So how do we choose our parameter $\lambda$ to get it ‘just right’ ? In order to choose the model and the regularization term $λ$ , we need to: </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/6.png" alt="img"></p>
+<ol>
+<li>Create a list of lambdas (i.e.$ λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24}$);   </li>
+<li>Create a set of models with different degrees or any other variants.   </li>
+<li><strong><em>Iterate through the $\lambda$s and for each $\lambda$ go through all the models to learn some $\Theta$ .</em></strong></li>
+<li>Compute the cross validation error using the learned $Θ$ (computed with $λ$) on the $J_{CV}(\Theta)$ <strong>without</strong> regularization or $λ = 0$.   </li>
+<li>Select the best combo that produces the lowest error on the cross validation set.   </li>
+<li>Using the best combo $Θ$ and λ, apply it on $J_{test}(\Theta)$ to see if it has a good generalization of the problem.</li>
+</ol>
+<h2 id="Learning-Curves"><a href="#Learning-Curves" class="headerlink" title="Learning Curves"></a>Learning Curves</h2><p>Training an algorithm on a very few number of data points (such as 1, 2 or 3) will easily have 0 errors because we can always find a quadratic curve that touches exactly those number of points. Hence:</p>
+<p>As the training set gets larger, the error for a quadratic function increases.</p>
+<p>The error value will plateau out after a certain m, or training set size.</p>
+<p><strong>Experiencing high bias:</strong></p>
+<p><strong>Low training set size</strong>  : causes $J_{train}(\Theta)$ to be low and $J_{CV}(\Theta)$ to be high. </p>
+<p><strong>Large training set size</strong> : causes both $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ to be high with $J_{train}(\Theta)$≈$J_{CV}(\Theta)$.</p>
+<p>If a learning algorithm is suffering from <strong>high bias</strong>, getting more training data will not <strong>(by itself)</strong> help much.</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/7.png" alt="high_bias_on_training_size"></p>
+<p><strong>Experiencing high variance:</strong></p>
+<p><strong>Low training set size</strong> : $J_{train}(\Theta)$ will be low and $J_{CV}(\Theta)$ will be high.</p>
+<p><strong>Large training set size</strong>: $J_{train}(\Theta)$ increases with training set size and $J_{CV} (\Theta$) continues to decrease without leveling off. Also, $J_{train}(\Theta)$ &lt; $J_{CV}(\Theta)$ but the difference between them remains significant.</p>
+<p>If a learning algorithm is suffering from <strong>high variance</strong>, getting more training data is likely to help.</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/8.png" alt="high_variance_on_training_size"></p>
+<h2 id="Deciding-What-to-Do-Next-Revisited"><a href="#Deciding-What-to-Do-Next-Revisited" class="headerlink" title="Deciding What to Do Next Revisited"></a>Deciding What to Do Next Revisited</h2><p> Our decision process can be broken down as follows: </p>
+<ul>
+<li>​         <strong>Getting more training examples:</strong> Fixes high variance   </li>
+</ul>
+<ul>
+<li>​         <strong>Trying smaller sets of features:</strong> Fixes high variance   </li>
+</ul>
+<ul>
+<li>​         <strong>Adding features:</strong> Fixes high bias   </li>
+</ul>
+<ul>
+<li>​         <strong>Adding polynomial features:</strong> Fixes high bias   </li>
+</ul>
+<ul>
+<li>​         <strong>Decreasing λ:</strong>  Fixes high bias   </li>
+</ul>
+<ul>
+<li>​         <strong>Increasing λ:</strong>  Fixes high variance.   </li>
+</ul>
+<h2 id="Diagnosing-Neural-Networks"><a href="#Diagnosing-Neural-Networks" class="headerlink" title="Diagnosing Neural Networks"></a>Diagnosing Neural Networks</h2><ul>
+<li>A neural network with fewer parameters is <strong>prone to underfitting</strong>. It is also <strong>computationally cheaper</strong>. </li>
+<li>A large neural network with more parameters is <strong>prone to overfitting</strong>. It is also <strong>computationally expensive</strong>. In this case you can use regularization (increase λ) to address the overfitting.   </li>
+</ul>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/10/9.png" alt="Neural_networks_and_overfitting"></p>
+<p>Using a single hidden layer is a good starting default. You can train your neural network on a number of hidden layers using your cross validation set. You can then select the one that performs best. </p>
+<p><strong>Model Complexity Effects:</strong>    </p>
+<ul>
+<li>Lower-order polynomials (low model complexity) have high bias and low variance. In this case, the model fits poorly consistently.   </li>
+<li>Higher-order polynomials (high model complexity) fit the training data extremely well and the test data extremely poorly. These have low bias on the training data, but very high variance.   </li>
+<li>In reality, we would want to choose a model somewhere in between, that can generalize well but also fits the data reasonably well.</li>
+</ul>
+<h2 id="Model-Selection"><a href="#Model-Selection" class="headerlink" title="Model Selection"></a>Model Selection</h2><p>Choosing M the order of polynomials.<br>How can we tell which parameters Θ to leave in the model (known as “model selection”)?<br>There are several ways to solve this problem: </p>
+<ul>
+<li>Get more data (very difficult). </li>
+<li>Choose the model which best fits the data without overfitting (very difficult). </li>
+<li>Reduce the opportunity for overfitting through regularization .</li>
+</ul>
+<p><strong>Bias: approximation error (Difference between expected value and optimal value)</strong></p>
+<ul>
+<li>High Bias = UnderFitting (BU) </li>
+<li>$J_{train}(\Theta)$ and $J_{CV}(\Theta)$ both will be high and $J_{train}(\Theta)$ ≈ $J_{CV}(\Theta)$ </li>
+</ul>
+<p><strong>Variance: estimation error due to finite data</strong></p>
+<ul>
+<li>High Variance = OverFitting (VO) </li>
+<li>$J_{train}(\Theta)$ is low and $J_{CV}(\Theta)$ ≫$J_{train}(\Theta)$ </li>
+</ul>
+<p><strong>Intuition for the bias-variance trade-off:</strong></p>
+<ul>
+<li>Complex model =&gt; sensitive to data =&gt; much affected by changes in X =&gt; high variance, low bias. </li>
+<li>Simple model =&gt; more rigid =&gt; does not change as much with changes in X =&gt; low variance, high bias. </li>
+</ul>
+<p>One of the most important goals in learning: finding a model that is just right in the bias-variance trade-off. </p>
+<p><strong>Regularization Effects:</strong> </p>
+<ul>
+<li>Small values of λ allow model to become finely tuned to noise leading to large variance =&gt; overfitting. </li>
+<li>Large values of λ pull weight parameters to zero leading to large bias =&gt; underfitting. </li>
+</ul>
+<p><strong>Model Complexity Effects:</strong></p>
+<ul>
+<li>Lower-order polynomials (low model complexity) have high bias and low variance. In this case, the model fits poorly consistently. </li>
+<li>Higher-order polynomials (high model complexity) fit the training data extremely well and the test data extremely poorly. These have low bias on the training data, but very high variance. </li>
+<li>In reality, we would want to choose a model somewhere in between, that can generalize well but also fits the data reasonably well. </li>
+</ul>
+<p><strong>A typical rule of thumb when running diagnostics is:</strong></p>
+<ul>
+<li>More training examples fixes high variance but not high bias. </li>
+<li>Fewer features fixes high variance but not high bias. </li>
+<li>Additional features fixes high bias but not high variance. </li>
+<li>The addition of polynomial and interaction features fixes high bias but not high variance. </li>
+<li>When using gradient descent, decreasing lambda can fix high bias and increasing lambda can fix high variance (lambda is the regularization parameter). </li>
+<li>When using neural networks, small neural networks are more prone to under-fitting and big neural networks are prone to over-fitting. Cross-validation of network size is a way to choose alternatives. </li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>Donate comment here.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/01/09/09_neural-networks-learning/" rel="prev" title="09_neural-networks-learning note9">
+      <i class="fa fa-chevron-left"></i> 09_neural-networks-learning note9
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/01/11/11_machine-learning-system-design/" rel="next" title="11_machine-learning-system-design note11">
+      11_machine-learning-system-design note11 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#01-evaluating-a-learning-algorithm"><span class="nav-number">1.</span> <span class="nav-text">01_evaluating-a-learning-algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluating-a-Hypothesis"><span class="nav-number">1.1.</span> <span class="nav-text">Evaluating a Hypothesis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-Selection-and-Train-Validation-Test-Sets"><span class="nav-number">1.2.</span> <span class="nav-text">Model Selection and Train&#x2F;Validation&#x2F;Test Sets</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#02-bias-vs-variance"><span class="nav-number">2.</span> <span class="nav-text">02_bias-vs-variance</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Diagnosing-Bias-vs-Variance"><span class="nav-number">2.1.</span> <span class="nav-text">Diagnosing Bias vs. Variance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regularization-and-Bias-Variance"><span class="nav-number">2.2.</span> <span class="nav-text">Regularization and Bias&#x2F;Variance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Curves"><span class="nav-number">2.3.</span> <span class="nav-text">Learning Curves</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deciding-What-to-Do-Next-Revisited"><span class="nav-number">2.4.</span> <span class="nav-text">Deciding What to Do Next Revisited</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diagnosing-Neural-Networks"><span class="nav-number">2.5.</span> <span class="nav-text">Diagnosing Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-Selection"><span class="nav-number">2.6.</span> <span class="nav-text">Model Selection</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : 'e362cc8735d8c59314f50e94e3ec39da',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

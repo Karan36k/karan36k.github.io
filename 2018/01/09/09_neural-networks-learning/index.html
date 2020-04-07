@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="NoteThis personal note is written after studying the opening course on the coursera website, Machine Learning by Andrew NG. And images, audios of this note all comes from the opening course.  01_cost-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="09_neural-networks-learning note9">
+<meta property="og:url" content="https://snakecoding.com/2018/01/09/09_neural-networks-learning/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="NoteThis personal note is written after studying the opening course on the coursera website, Machine Learning by Andrew NG. And images, audios of this note all comes from the opening course.  01_cost-">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/1.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/2.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/3.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/4.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/5.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/6.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/7.png">
+<meta property="article:published_time" content="2018-01-08T18:30:00.000Z">
+<meta property="article:modified_time" content="2020-04-06T14:55:25.429Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2018/01/09/09_neural-networks-learning/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>09_neural-networks-learning note9 | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">60</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/09/09_neural-networks-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          09_neural-networks-learning note9
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-09 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-09T00:00:00+05:30">2018-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:25" itemprop="dateModified" datetime="2020-04-06T20:25:25+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>This personal note is written after studying the opening course on <a href="https://www.coursera.org" target="_blank" rel="noopener">the coursera website</a>, <a href="https://www.coursera.org/learn/machine-learning/home/welcome" target="_blank" rel="noopener">Machine Learning by Andrew NG</a>. And images, audios of this note all comes from the opening course. </p>
+<h1 id="01-cost-function-and-backpropagation"><a href="#01-cost-function-and-backpropagation" class="headerlink" title="01_cost-function-and-backpropagation"></a>01_cost-function-and-backpropagation</h1><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/1.png" alt="img"></p>
+<h2 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h2><p>Let’s first define a few variables that we will need to use: </p>
+<ul>
+<li>​    L = total number of layers in the network   </li>
+<li>​    $s_l$ = number of units (not counting bias unit) in layer l   </li>
+<li>​    K = number of output units/classes   </li>
+</ul>
+<p>Recall that in neural networks, we may have many output nodes. We denote $h_Θ(x)<em>k$ as being a hypothesis that results in the $k^{th}$output. Our cost function for neural networks is going to be a generalization of the one we used for logistic regression. Recall that the cost function for regularized logistic regression was :<br>$$<br>J(\theta) = - \frac{1}{m} \sum</em>{i=1}^m [ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2<br>$$<br>For neural networks, it is going to be slightly more complicated :<br>$$<br>\begin{gather<em>} J(\Theta) = - \frac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[y^{(i)}<em>k \log ((h_\Theta (x^{(i)}))_k) + (1 - y^{(i)}_k)\log (1 - (h_\Theta(x^{(i)}))_k)\right] + \frac{\lambda}{2m}\sum</em>{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} ( \Theta_{j,i}^{(l)})^2\end{gather</em>}<br>$$<br>We have added a few nested summations to account for our multiple output nodes. In the first part of the equation, before the square brackets, we have an additional nested summation that loops through the number of output nodes. </p>
+<p><strong>In the regularization part, after the square brackets, we must account for multiple theta matrices. The number of columns in our current theta matrix is equal to the number of nodes in our current layer (including the bias unit). The number of rows in our current theta matrix is equal to the number of nodes in the next layer (excluding the bias unit).</strong> As before with logistic regression, we square every term. </p>
+<p>Note:  </p>
+<ul>
+<li><strong><em>the double sum simply adds up the logistic regression costs calculated for each cell in the output layer</em></strong>   </li>
+<li><strong><em>the triple sum simply adds up the squares of all the individual $Θ_s$ in the entire network.</em></strong></li>
+<li>the i in the triple sum does <strong>not</strong> refer to training example i .</li>
+</ul>
+<h2 id="Backpropagation-Algorithm"><a href="#Backpropagation-Algorithm" class="headerlink" title="Backpropagation Algorithm"></a>Backpropagation Algorithm</h2><p>“Backpropagation” is neural-network terminology for minimizing our cost function, just like what we were doing with gradient descent in logistic and linear regression. Our goal is to compute:<br>$$<br>\min_\Theta J(\Theta)<br>$$<br>That is, we want to minimize our cost function $J$ using an optimal set of parameters in theta. In this section we’ll look at the equations we use to compute the partial derivative of $J(Θ)$:<br>$$<br>\dfrac{\partial}{\partial \Theta_{i,j}^{(l)}}J(\Theta)<br>$$<br>To do so, we use the following algorithm:</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/2.png" alt="backpropagation_algorithm"></p>
+<p><strong>Back propagation Algorithm</strong>   </p>
+<p>Given training set $\lbrace (x^{(1)}, y^{(1)}) \cdots (x^{(m)}, y^{(m)})\rbrace$</p>
+<p>Set $\Delta^{(l)}_{i,j}$ := 0 for all (l,i,j), (hence you end up having a matrix full of zeros)   </p>
+<p> For training example t =1 to m: </p>
+<ol>
+<li>Set $a^{(1)} := x^{(t)}$</li>
+<li>Perform forward propagation to compute $a^{(l)}$ for l=2,3,…,L   </li>
+</ol>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/3.png" alt="forward_propagation"><br>3.  Using $y^{(t)}$, compute $\delta^{(L)} = a^{(L)} - y^{(t)}$ </p>
+<p>Where L is our total number of layers and $a^{(L)}$ is the vector of outputs of the activation units for the last layer. So our “error values” for the last layer are simply the differences of our actual results in the last layer and the correct outputs in y. To get the delta values of the layers before the last layer, we can use an equation that steps us back from right to left :<br>4.  Compute $\delta^{(L-1)}, \delta^{(L-2)},\dots,\delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)})\ .<em>\ a^{(l)}\ .</em>\ (1 - a^{(l)})$ </p>
+<p>The delta values of layer l are calculated by multiplying the delta values in the next layer with the theta matrix of layer l. We then element-wise multiply that with a function called g’, or g-prime, which is the derivative of the activation function g evaluated with the input values given by $z^{(l)}$. </p>
+<p>  The g-prime derivative terms can also be written out as: </p>
+<p>$$g’(z^{(l)}) = a^{(l)}\ .*\ (1 - a^{(l)})$$<br>5. $\Delta^{(l)}<em>{i,j} := \Delta^{(l)}</em>{i,j} + a_j^{(l)} \delta_i^{(l+1)}$ or with vectorization, $\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^T$ </p>
+<p>  Hence we update our new $\Delta$ matrix. </p>
+<ul>
+<li><p>$D^{(l)}<em>{i,j} := \dfrac{1}{m}\left(\Delta^{(l)}</em>{i,j} + \lambda\Theta^{(l)}_{i,j}\right)$, if j≠0.   </p>
+</li>
+<li><p>$D^{(l)}<em>{i,j} := \dfrac{1}{m}\Delta^{(l)}</em>{i,j}$ If j=0   </p>
+<p>The capital-delta matrix D is used as an “accumulator” to add up our values as we go along and eventually compute our partial derivative. Thus we get $\frac \partial {\partial \Theta_{ij}^{(l)}} J(\Theta)$= $D_{ij}^{(l)}$</p>
+</li>
+</ul>
+<h2 id="Backpropagation-Intuition"><a href="#Backpropagation-Intuition" class="headerlink" title="Backpropagation Intuition"></a>Backpropagation Intuition</h2><p><strong>Note:</strong>    [4:39, the last term for the calculation for $z^3_1$ (three-color handwritten formula) should be $a^2_2$ instead of $a^2_1$. 6:08 - the equation for cost(i) is incorrect. The first term is missing parentheses for the log() function, and the second term should be $(1-y^{(i)})\log(1-h{_\theta}{(x^{(i)}}))$. 8:50 - $\delta^{(4)} = y - a^{(4)}$ is incorrect and should be $\delta^{(4)} = a^{(4)} - y$.]  </p>
+<p>Recall that the cost function for a neural network is:  </p>
+<p>$$\begin{gather<em>}J(\Theta) = - \frac{1}{m} \sum_{t=1}^m\sum_{k=1}^K \left[ y^{(t)}<em>k \ \log (h_\Theta (x^{(t)}))_k + (1 - y^{(t)}_k)\ \log (1 - h_\Theta(x^{(t)})_k)\right] + \frac{\lambda}{2m}\sum</em>{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_l+1} ( \Theta_{j,i}^{(l)})^2\end{gather</em>}$$</p>
+<p>If we consider simple non-multiclass classification (k = 1) and disregard regularization, the cost is computed with: </p>
+<p>$$cost(t) =y^{(t)} \ \log (h_\Theta (x^{(t)})) + (1 - y^{(t)})\ \log (1 - h_\Theta(x^{(t)}))$$  </p>
+<p>Intuitively, $\delta_j^{(l)}$ is the “error” for $a^{(l)}_j$ (unit j in layer l). More formally, the delta values are actually the derivative of the cost function:  </p>
+<p>$$\delta_j^{(l)} = \dfrac{\partial}{\partial z_j^{(l)}} cost(t)$$ </p>
+<p>Recall that our derivative is the slope of a line tangent to the cost function, so the steeper the slope the more incorrect we are. Let us consider the following neural network below and see how we could calculate some $\delta_j^{(l)}$: </p>
+<p> <img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/4.png" alt="backward propagation intuition1"></p>
+<p>In the image above, to calculate $\delta_2^{(2)}$, we multiply the weights $\Theta_{12}^{(2)}$ and $\Theta_{22}^{(2)}$ by their respective $\delta$ values found to the right of each edge. So we get $\delta_2^{(2)}$= $\Theta_{12}^{(2)}$<em>$\delta_1^{(3)}$+$\Theta_{22}^{(2)}$</em>$\delta_2^{(3)}$. To calculate every single possible $\delta_j^{(l)}$, we could start from the right of our diagram. We can think of our edges as our $\Theta_{ij}$. Going from right to left, to calculate the value of $\delta_j^{(l)}$, you can just take the over all sum of each weight times the $\delta$ it is coming from. Hence, another example would be $\delta_2^{(3)}$=$\Theta_{12}^{(3)}$*$\delta_1^{(4)}$.</p>
+<h1 id="02-backpropagation-in-practice"><a href="#02-backpropagation-in-practice" class="headerlink" title="02_backpropagation-in-practice"></a>02_backpropagation-in-practice</h1><h2 id="Implementation-Note-Unrolling-Parameters"><a href="#Implementation-Note-Unrolling-Parameters" class="headerlink" title="Implementation Note: Unrolling Parameters"></a>Implementation Note: Unrolling Parameters</h2><p>With neural networks, we are working with sets of matrices: </p>
+<p> $$\begin{align*} \Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}, \dots \newline D^{(1)}, D^{(2)}, D^{(3)}, \dots \end{align*}$$</p>
+<p>In order to use optimizing functions such as “fminunc()”, we will want to “unroll” all the elements and put them into one long vector: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thetaVector &#x3D; [ Theta1(:); Theta2(:); Theta3(:); ]</span><br><span class="line">deltaVector &#x3D; [ D1(:); D2(:); D3(:) ]</span><br></pre></td></tr></table></figure>
+
+<p>If the dimensions of Theta1 is 10x11, Theta2 is 10x11 and Theta3 is 1x11, then we can get back our original matrices from the “unrolled” versions as follows: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Theta1 &#x3D; reshape(thetaVector(1:110),10,11)</span><br><span class="line">Theta2 &#x3D; reshape(thetaVector(111:220),10,11)</span><br><span class="line">Theta3 &#x3D; reshape(thetaVector(221:231),1,11)</span><br></pre></td></tr></table></figure>
+
+<p>To summarize:</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/5.png" alt="neural_network_learning_theta"></p>
+<h2 id="Gradient-Checking"><a href="#Gradient-Checking" class="headerlink" title="Gradient Checking"></a>Gradient Checking</h2><p>Gradient checking will assure that our backpropagation works as intended. We can approximate the derivative of our cost function with:<br>$$<br>\dfrac{\partial}{\partial\Theta}J(\Theta) \approx \dfrac{J(\Theta + \epsilon) - J(\Theta - \epsilon)}{2\epsilon}<br>$$<br>With multiple theta matrices, we can approximate the derivative with respect to  $Θ_j$ as follows:<br>$$<br>\dfrac{\partial}{\partial\Theta_j}J(\Theta) \approx \dfrac{J(\Theta_1, \dots, \Theta_j + \epsilon, \dots, \Theta_n) - J(\Theta_1, \dots, \Theta_j - \epsilon, \dots, \Theta_n)}{2\epsilon}<br>$$<br>A small value for ϵ (epsilon) such as $ϵ=10^{−4}$ , guarantees that the math works out properly. If the value for ϵ is too small, we can end up with numerical problems. </p>
+<p>Hence, we are only adding or subtracting epsilon to the $Θ_j$ matrix. In octave we can do it as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">epsilon &#x3D; 1e-4;</span><br><span class="line">for i &#x3D; 1:n,</span><br><span class="line">  thetaPlus &#x3D; theta;</span><br><span class="line">  thetaPlus(i) +&#x3D; epsilon;</span><br><span class="line">  thetaMinus &#x3D; theta;</span><br><span class="line">  thetaMinus(i) -&#x3D; epsilon;</span><br><span class="line">  gradApprox(i) &#x3D; (J(thetaPlus) - J(thetaMinus))&#x2F;(2*epsilon)</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<p>We previously saw how to calculate the deltaVector. So once we compute our gradApprox vector, we can check that gradApprox ≈ deltaVector. </p>
+<p>Once you have verified once that your backpropagation algorithm is correct, you don’t need to compute gradApprox again. The code to compute gradApprox can be very slow.</p>
+<h2 id="Random-Initialization"><a href="#Random-Initialization" class="headerlink" title="Random Initialization"></a>Random Initialization</h2><p>Initializing all theta weights to zero does not work with neural networks. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our ΘΘ matrices using the following method:</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/6.png" alt="random_initialization_on_nn"></p>
+<p>Hence, we initialize each $Θ^{(l)}_{ij}$ to a random value between $[−ϵ,ϵ]$ .  Using the above formula guarantees that we get the desired bound. The same procedure applies to all the $Θ’s$. Below is some working code you could use to experiment.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If the dimensions of Theta1 is 10x11, Theta2 is 10x11 and Theta3 is 1x11.</span><br><span class="line"></span><br><span class="line">Theta1 &#x3D; rand(10,11) * (2 * INIT_EPSILON) - INIT_EPSILON;</span><br><span class="line">Theta2 &#x3D; rand(10,11) * (2 * INIT_EPSILON) - INIT_EPSILON;</span><br><span class="line">Theta3 &#x3D; rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;</span><br></pre></td></tr></table></figure>
+
+<p>rand(x,y) is just a function in octave that will initialize a matrix of random real numbers between 0 and 1. </p>
+<p>(Note: the epsilon used above is unrelated to the epsilon from Gradient Checking)</p>
+<h2 id="Putting-it-Together"><a href="#Putting-it-Together" class="headerlink" title="Putting it Together"></a>Putting it Together</h2><p>First, pick a network architecture; choose the layout of your neural network, including how many hidden units in each layer and how many layers in total you want to have. </p>
+<ul>
+<li>Number of input units = dimension of features $x^{(i)}$</li>
+<li>Number of output units = number of classes   </li>
+<li>Number of hidden units per layer = usually more the better (must balance with cost of computation as it increases with more hidden units)   </li>
+<li>Defaults: 1 hidden layer. If you have more than 1 hidden layer, then it is recommended that you have the same number of units in every hidden layer.   </li>
+</ul>
+<p><strong>Training a Neural Network</strong>   </p>
+<ol>
+<li><p>​    Randomly initialize the weights   </p>
+</li>
+<li><p>​    Implement forward propagation to get $h_Θ(x^{(i)})$ for any $x^{(i)}$   </p>
+</li>
+<li><p>​    Implement the cost function   </p>
+</li>
+<li><p>​    Implement backpropagation to compute partial derivatives   </p>
+</li>
+<li><p>​    Use gradient checking to confirm that your backpropagation works. Then disable gradient checking.   </p>
+</li>
+<li><p>​    Use gradient descent or a built-in optimization function to minimize the cost function with the weights in theta.   </p>
+<p>When we perform forward and back propagation, we loop on every training example:</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for i &#x3D; 1:m,</span><br><span class="line">   Perform forward propagation and backpropagation using example (x(i),y(i))</span><br><span class="line">   (Get activations a(l) and delta terms d(l) for l &#x3D; 2,...,L</span><br></pre></td></tr></table></figure>
+
+<p>The following image gives us an intuition of what is happening as we are implementing our neural network:</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/09/7.png" alt=""></p>
+<p>Ideally, you want $h_Θ(x^{(i)}) ≈ y(i)$ . This will minimize our cost function. However, keep in mind that $J(Θ)$ is not convex and thus we can end up in a local minimum instead.</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>Donate comment here.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/01/08/08_neural-networks-representation/" rel="prev" title="08_neural-networks-representation note8">
+      <i class="fa fa-chevron-left"></i> 08_neural-networks-representation note8
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/01/10/10_advice-for-applying-machine-learning/" rel="next" title="10_advice-for-applying-machine-learning note10">
+      10_advice-for-applying-machine-learning note10 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#01-cost-function-and-backpropagation"><span class="nav-number">2.</span> <span class="nav-text">01_cost-function-and-backpropagation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cost-Function"><span class="nav-number">2.1.</span> <span class="nav-text">Cost Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backpropagation-Algorithm"><span class="nav-number">2.2.</span> <span class="nav-text">Backpropagation Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backpropagation-Intuition"><span class="nav-number">2.3.</span> <span class="nav-text">Backpropagation Intuition</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#02-backpropagation-in-practice"><span class="nav-number">3.</span> <span class="nav-text">02_backpropagation-in-practice</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Implementation-Note-Unrolling-Parameters"><span class="nav-number">3.1.</span> <span class="nav-text">Implementation Note: Unrolling Parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradient-Checking"><span class="nav-number">3.2.</span> <span class="nav-text">Gradient Checking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-Initialization"><span class="nav-number">3.3.</span> <span class="nav-text">Random Initialization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Putting-it-Together"><span class="nav-number">3.4.</span> <span class="nav-text">Putting it Together</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : '8d1a1311f3ef11b40f39d92591ce622d',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

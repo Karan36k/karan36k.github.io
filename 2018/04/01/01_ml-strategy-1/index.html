@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="NoteThis is my personal note after studying the course of the first week  Structuring Machine Learning Projects and the copyright belongs to deeplearning.ai. 01_introduction-to-ml-strategy01_why-ml-st">
+<meta property="og:type" content="article">
+<meta property="og:title" content="01_ml-strategy-1">
+<meta property="og:url" content="https://snakecoding.com/2018/04/01/01_ml-strategy-1/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="NoteThis is my personal note after studying the course of the first week  Structuring Machine Learning Projects and the copyright belongs to deeplearning.ai. 01_introduction-to-ml-strategy01_why-ml-st">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/1.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/2.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/3.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/4.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/5.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/6.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/7.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/8.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/9.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/10.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/11.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/12.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/13.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/14.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/15.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/16.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/17.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/18.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/19.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/21.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/22.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/23.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/24.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/25.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/26.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/27.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/28.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/29.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/30.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/35.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/36.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/31.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/32.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/33.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/34.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/38.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/39.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/37.png">
+<meta property="article:published_time" content="2018-03-31T18:30:00.000Z">
+<meta property="article:modified_time" content="2020-04-06T14:55:14.615Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="deep learning">
+<meta property="article:tag" content="Structuring Machine Learning Projects">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2018/04/01/01_ml-strategy-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>01_ml-strategy-1 | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">60</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/04/01/01_ml-strategy-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          01_ml-strategy-1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-04-01T00:00:00+05:30">2018-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:14" itemprop="dateModified" datetime="2020-04-06T20:25:14+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note after studying the course of the first week  <a href="https://www.coursera.org/learn/machine-learning-projects" target="_blank" rel="noopener">Structuring Machine Learning Projects</a> and the copyright belongs to <a href="https://www.deeplearning.ai/" target="_blank" rel="noopener">deeplearning.ai</a>.</p>
+<h2 id="01-introduction-to-ml-strategy"><a href="#01-introduction-to-ml-strategy" class="headerlink" title="01_introduction-to-ml-strategy"></a>01_introduction-to-ml-strategy</h2><h3 id="01-why-ml-strategy"><a href="#01-why-ml-strategy" class="headerlink" title="01_why-ml-strategy"></a>01_why-ml-strategy</h3><p>Hi, welcome to this course on how to structure your machine learning project, that is on machine learning strategy. I hope that through this course you will learn how to much more quickly and efficiently get your machine learning systems working. So, what is machine learning strategy.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/1.png" alt=""><br>Let’s start with a motivating example. Let’s say you are working on your cat cost file. And after working it for some time, you’ve gotten your system to have 90% accuracy, but this isn’t good enough for your application. You might then have a lot of ideas as to how to improve your system. For example, you might think well let’s collect more data, more training data. Or you might say, maybe your training set isn’t diverse enough yet, you should collect images of cats in more diverse poses, or maybe a more diverse set of negative examples. Well maybe you want to train the algorithm longer with gradient descent. Or maybe you want to try a different optimization algorithm, like the Adam optimization algorithm. Or maybe trying a bigger network or a smaller network or maybe you want to try to dropout or maybe L2 regularization. Or maybe you want to change the network architecture such as changing activation functions, changing the number of hidden units and so on and so on. </p>
+<p><strong>When trying to improve a deep learning system, you often have a lot of ideas or things you could try. And the problem is that if you choose poorly, it is entirely possible that you end up spending six months charging in some direction only to realize after six months that that didn’t do any good</strong>. For example, I’ve seen some teams spend literally six months collecting more data only to realize after six months that it barely improved the performance of their system. So, assuming you don’t have six months to waste on your problem, won’t it be nice if you had quick and effective ways to figure out which of all of these ideas and maybe even other ideas, are worth pursuing and which ones you can safely discard. </p>
+<p><strong>So what I hope to do in this course is teach you a number of strategies, that is, ways of analyzing a machine learning problem that will point you in the direction of the most promising things to try. What I will do in this course also is share with you a number of lessons I’ve learned through building and shipping large number of deep learning products</strong>. And I think these materials are actually quite unique to this course. I don’t see a lot of these ideas being taught in universities’ deep learning courses for example. It turns out also that machine learning strategy is changing in the era of deep learning because the things you could do are now different with deep learning algorithms than with previous generation of machine learning algorithms. I hope that these ideas will help you become much more effective at getting your deep learning systems to work.</p>
+<h3 id="02-orthogonalization"><a href="#02-orthogonalization" class="headerlink" title="02_orthogonalization"></a>02_orthogonalization</h3><p>One of the challenges with building machine learning systems is that there’s so many things you could try, so many things you could change. Including, for example, so many hyperparameters you could tune. One of the things I’ve noticed is about the most effective machine learning people is they’re very clear-eyed about what to tune in order to try to achieve one effect. This is a process we call orthogonalization. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/2.png" alt=""><br>Let me tell you what I mean. Here’s a picture of an old school television, with a lot of knobs that you could tune to adjust the picture in various ways. So for these old TV sets, maybe there was one knob to adjust how <strong>tall</strong> vertically your image is and another knob to adjust how <strong>wide</strong> it is. Maybe another knob to adjust how <strong>trapezoidal</strong> it is, another knob to adjust how much to move the picture <strong>left and right</strong>, another one to adjust how much the picture’s <strong>rotated</strong>, and so on. And what TV designers had spent a lot of time doing was to build the circuitry, really often analog circuitry back then, to make sure each of the knobs had a relatively interpretable function. Such as one knob to tune this  (height), one knob to tune this (width), one knob to tune this (trapezoidal), and so on. <strong>In contrast, imagine if you had a knob that</strong> tunes 0.1 x how tall the image is, + 0.3 x how wide the image is,- 1.7 x how trapezoidal the image is, + 0.8 times the position of the image on the horizontal axis, and so on(that is conbining all various functions). <strong>If you tune this knob, then the height of the image, the width of the image, how trapezoidal it is, how much it shifts, it all changes all at the same time. If you have a knob like that, it’d be almost impossible to tune the TV so that the picture gets centered in the display area. So in this context, orthogonalization refers to that the TV designers had designed the knobs so that each knob kind of does only one thing. And this makes it much easier to tune the TV, so that the picture gets centered where you want it to be</strong>. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/3.png" alt=""><br>Here’s another example of orthogonalization. If you think about learning to drive a car, a car has three main controls, which are steering, the steering wheel decides how much you go left or right, acceleration, and braking. <strong>So these three controls, or really one control for steering and another two controls for your speed. it makes it relatively interpretable, what your different actions through different controls will do to your car</strong>. But now imagine if someone were to build a car so that there was a joystick, where one axis of the joystick controls 0.3 x your steering angle,- 0.8 x your speed. And you had a different control that controls 2 x the steering angle, + 0.9 x the speed of your car. In theory, by tuning these two knobs, you could get your car to steer at the angle and at the speed you want. But it’s much harder than if you had just one single control for controlling the steering angle, and a separate, distinct set of controls for controlling the speed. <strong>So the concept of orthogonalization refers to that, if you think of one dimension of what you want to do as controlling a steering angle, and another dimension as controlling your speed. Then you want one knob to just affect the steering angle as much as possible, and another knob, in the case of the car, is really acceleration and braking, that controls your speed. But if you had a control that mixes the two together, like a control like this one that affects both your steering angle and your speed, something that changes both at the same time, then it becomes much harder to set the car to the speed and angle you want.</strong> And by having orthogonal, orthogonal means at <strong>90 degrees</strong> to each other. By having orthogonal controls that are ideally aligned with the things you actually want to control, it makes it much easier to tune the knobs you have to tune. To tune the steering wheel angle, and your accelerator, your braking, to get the car to do what you want. <strong>So how does this relate to machine learning?</strong></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/4.png" alt=""><br><strong>For a supervised learning system to do well, you usually need to tune the knobs of your system to make sure that four things hold true. First, is that you usually have to make sure that you’re at least doing well on the training set. So performance on the training set needs to pass some acceptability assessment.</strong> For some applications, this might mean doing comparably to human level performance. But this will depend on your application, and we’ll talk more about comparing to human level performance next week. But after doing well on the training sets, you then hope that this leads to also doing well on the dev set. And you then hope that this also does well on the test set. And finally, you hope that doing well on the test set on the cost function results in your system performing in the real world. So you hope that this resolves in happy cat picture app users, for example. </p>
+<p><strong>So to relate back to the TV tuning example, if the picture of your TV was either too wide or too narrow, you wanted one knob to tune in order to adjust that. You don’t want to have to carefully adjust five different knobs, which also affect different things. You want one knob to just affect the width of your TV image. So in a similar way, if your algorithm is not fitting the training set well on the cost function, you want one knob, yes, that’s my attempt to draw a knob. Or maybe one specific set of knobs that you can use, to make sure you can tune your algorithm to make it fit well on the training set.</strong> So the knobs you use to tune this are, you might train a bigger network. Or you might switch to a better optimization algorithm, like the Adam optimization algorithm, and so on, into some other options we’ll discuss later this week and next week. In contrast, if you find that the algorithm is not fitting the dev set well, then there’s a separate set of knobs. Yes, that’s my not very artistic rendering of another knob, you want to have a distinct set of knobs to try. So for example, if your algorithm is not doing well on the dev set, it’s doing well on the training set but not on the dev set, then you have a set of knobs around regularization that you can use to try to make it satisfy the second criteria. So the analogy is, now that you’ve tuned the width of your TV set, if the height of the image isn’t quite right, then you want a different knob in order to tune the height of the TV image. And you want to do this hopefully without affecting the width of your TV image too much. And getting a bigger training set would be another knob you could use, that helps your learning algorithm generalize better to the dev set. Now, having adjusted the width and height of your TV image, <strong>well, what if it doesn’t meet the third criteria? What if you do well on the dev set but not on the test set? If that happens, then the knob you tune is, you probably want to get a bigger dev set. Because if it does well on the dev set but not the test set, it probably means you’ve overtuned to your dev set, and you need to go back and find a bigger dev set. And finally, if it does well on the test set, but it isn’t delivering to you a happy cat picture app user, then what that means is that you want to go back and change either the dev set or the cost function. Because if doing well on the test set according to some cost function doesn’t correspond to your algorithm doing what you need it to do in the real world, then <em>it means that either your dev test set distribution isn’t set correctly, or your cost function isn’t measuring the right thing</em>.</strong> I know I’m going over these examples quite quickly, but we’ll go much more into detail on these specific knobs later this week and next week. So if you aren’t following all the details right now, don’t worry about it. But I want to give you a sense of this orthogonalization process, that you want to be very clear about which of these maybe four issues, the different things you could tune, are trying to address. </p>
+<p>And when I train a neural network, I tend not to use early stopping. It’s not a bad technique, quite a lot of people do it. But I personally find early stopping difficult to think about. Because this is an op that simultaneously affects how well you fit the training set, because if you stop early, you fit the training set less well. It also simultaneously is often done to improve your dev set performance. So this is one knob that is less orthogonalized, because it simultaneously affects two things. It’s like a knob that simultaneously affects both the width and the height of your TV image. And it doesn’t mean that it’s bad, not to use, you can use it if you want. But when you have more orthogonalized controls, such as these other ones that I’m writing down here, then it just makes the process of tuning your network much easier. </p>
+<p>So I hope that gives you a sense of what orthogonalization means. Just like when you look at the TV image, it’s nice if you can say, my TV image is too wide, so I’m going to tune this knob, or it’s too tall, so I’m going to tune that knob, or it’s too trapezoidal, so I’m going to have to tune that knob. In machine learning, it’s nice if you can look at your system and say, this piece of it is wrong. It does not do well on the training set, it does not do well on the dev set, it does not do well on the test set, or it’s doing well on the test set but just not in the real world. <strong>But figure out exactly what’s wrong, and then have exactly one knob, or a specific set of knobs that helps to just solve that problem that is limiting the performance of machine learning system. So what we’re going to do this week and next week is go through how to diagnose what exactly is the bottleneck to your system’s performance. As well as identify the specific set of knobs you could use to tune your system to improve that aspect of its performance.</strong> So let’s start going more into the details of this process. </p>
+<h4 id="Orthogonalization"><a href="#Orthogonalization" class="headerlink" title="Orthogonalization"></a>Orthogonalization</h4><p>Orthogonalization or orthogonality is a system design property that assures that modifying an instruction or a component of an algorithm will not create or propagate side effects to other components of the system. It becomes easier to verify the algorithms independently from one another, it reduces testing and development time. When a supervised learning system is design, these are the 4 assumptions that needs to be true and orthogonal.</p>
+<ol>
+<li>Fit training set well in cost function<ul>
+<li>If it doesn’t fit well, the use of a bigger neural network or switching to a better optimization algorithm might help.</li>
+</ul>
+</li>
+<li>Fit development set well on cost function<ul>
+<li>If it doesn’t fit well, regularization or using bigger training set might help.</li>
+</ul>
+</li>
+<li>Fit test set well on cost function<ul>
+<li>If it doesn’t fit well, the use of a bigger development set might help</li>
+</ul>
+</li>
+<li>Performs well in real world<ul>
+<li>If it doesn’t perform well, the development test set is not set correctly or the cost function is not evaluating the right thing.</li>
+</ul>
+</li>
+</ol>
+<h2 id="02-setting-up-your-goal"><a href="#02-setting-up-your-goal" class="headerlink" title="02_setting-up-your-goal"></a>02_setting-up-your-goal</h2><h3 id="01-single-number-evaluation-metric"><a href="#01-single-number-evaluation-metric" class="headerlink" title="01_single-number-evaluation-metric"></a>01_single-number-evaluation-metric</h3><p>Whether you’re tuning hyperparameters, or trying out different ideas for learning algorithms, or just trying out different options for building your machine learning system. <strong>You’ll find that your progress will be much faster if you have a single real number evaluation metric that lets you quickly tell if the new thing you just tried is working better or worse than your last idea</strong>. So when teams are starting on a machine learning project, I often recommend that you set up a single real number evaluation metric for your problem. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/5.png" alt=""><br>Let’s look at an example. You’ve heard me say before that applied machine learning is a very empirical process. We often have an idea, code it up, run the experiment to see how it did, and then use the outcome of the experiment to refine your ideas. And then keep going around this loop as you keep on improving your algorithm. So let’s say for your classifier, you had previously built some classifier A. And by changing the hyperparameters and the training sets or some other thing, you’ve now trained a new classifier, B. So one reasonable way to evaluate the performance of your classifiers is to look at its precision and recall. The exact details of what’s precision and recall don’t matter too much for this example. But briefly, the definition of precision is, of the examples that your classifier recognizes as cats, What percentage actually are cats? So if classifier A has 95% precision, this means that when classifier A says something is a cat, there’s a 95% chance it really is a cat. And recall is, of all the images that really are cats, what percentage were correctly recognized by your classifier? So what percentage of actual cats, Are correctly recognized? So if classifier A is 90% recall, this means that of all of the images in, say, your dev sets that really are cats, classifier A accurately pulled out 90% of them. So don’t worry too much about the definitions of precision and recall. It turns out that there’s often a tradeoff between precision and recall, and you care about both. You want that, when the classifier says something is a cat, there’s a high chance it really is a cat. But of all the images that are cats, you also want it to pull a large fraction of them as cats. So it might be reasonable to try to evaluate the classifiers in terms of its precision and its recall. The problem with using precision recall as your evaluation metric is that if classifier A does better on recall, which it does here, the classifier B does better on precision, then you’re not sure which classifier is better. And if you’re trying out a lot of different ideas, a lot of different hyperparameters, you want to rather quickly try out not just two classifiers, but maybe a dozen classifiers and quickly pick out the, quote, best ones, so you can keep on iterating from there. And with two evaluation metrics, it is difficult to know how to quickly pick one of the two or quickly pick one of the ten. So what I recommend is rather than using two numbers, precision and recall, to pick a classifier, you just have to find a new evaluation metric that combines precision and recall. In the machine learning literature, the standard way to combine precision and recall is something called an F1 score. And the details of F1 score aren’t too important, but informally, you can think of this as the average of precision, P, and recall, R. Formally, the F1 score is defined by this formula, it’s 2/ 1/P + 1/R. And in mathematics, this function is called the harmonic mean of precision P and recall R. But less formally, you can think of this as some way that averages precision and recall. Only instead of taking the arithmetic mean, you take the harmonic mean, which is defined by this formula. And it has some advantages in terms of trading off precision and recall. But in this example, you can then see right away that classifier A has a better F1 score. And assuming F1 score is a reasonable way to combine precision and recall, you can then quickly select classifier A over classifier B. So what I found for a lot of machine learning teams is that having a well-defined dev set, which is how you’re measuring precision and recall, plus a single number evaluation metric, sometimes I’ll call it single real number. Evaluation metric allows you to quickly tell if classifier A or classifier B is better, and <strong>therefore having a dev set plus single number evaluation metric distance to speed up iterating. It speeds up this iterative process of improving your machine learning algorithm</strong>. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/6.png" alt=""><br>Let’s look at another example. Let’s say you’re building a cat app for cat lovers in four major geographies, the US, China, India, and other, the rest of the world. And let’s say that your two classifiers achieve different errors in data from these four different geographies. So algorithm A achieves 3% error on pictures submitted by US users and so on. So it might be reasonable to keep track of how well your classifiers do in these different markets or these different geographies. But by tracking four numbers, it’s very difficult to look at these numbers and quickly decide if algorithm A or algorithm B is superior. And if you’re testing a lot of different classifiers, then it’s just difficult to look at all these numbers and quickly pick one. So what I recommend in this example is, <strong>in addition to tracking your performance in the four different geographies, to also compute the average. And assuming that average performance is a reasonable single real number evaluation metric, by computing the average, you can <em>quickly</em> tell that it looks like algorithm C has a lowest average error. And you might then go ahead with that one. You have to pick an algorithm to keep on iterating from.</strong> </p>
+<p>So your work load machine learning is often, you have an idea, you implement it try it out, and you want to know whether your idea helped. So what was seen in this video is that having a single number evaluation metric can really improve your efficiency or the efficiency of your team in making those decisions. Now we’re not yet done with the discussion on how to effectively set up evaluation metrics. In the next video, I’m going to share with you how to set up optimizing, as well as satisfying matrix. So let’s take a look at the next video. </p>
+<h3 id="02-satisficing-and-optimizing-metric"><a href="#02-satisficing-and-optimizing-metric" class="headerlink" title="02_satisficing-and-optimizing-metric"></a>02_satisficing-and-optimizing-metric</h3><p>It’s not always easy to combine all the things you care about into a single real number evaluation metric. In those cases I’ve found it sometimes useful to set up satisficing as well as optimizing matrix. Let me show you what I mean. </p>
+<p>Let’s say that you’ve decided you care about the classification accuracy of your cat’s classifier, this could have been F1 score or some other measure of accuracy, but let’s say that in addition to accuracy you also care about <strong>the running time</strong>.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/7.png" alt=""><br>So how long it takes to classify an image and classifier A takes 80 milliseconds, B takes 95 milliseconds, and C takes 1,500 milliseconds, that’s 1.5 seconds to classify an image. So one thing you could do is combine accuracy and running time into an overall evaluation metric. And so the costs such as maybe the overall cost is accuracy minus 0.5 times running time. But maybe it seems a bit artificial to combine accuracy and running time using a formula like this, like a linear weighted sum of these two things. <strong>So here’s something else you could do instead which is that you might want to choose a classifier that maximizes accuracy but subject to that the running time, that is the time it takes to classify an image</strong>, that that has to be less than or equal to 100 milliseconds. So in this case we would say that accuracy is <strong>an optimizing metric</strong> because you want to maximize accuracy. You want to do as well as possible on accuracy but that running time is what we call <strong>a satisficing metric</strong>. <strong>Meaning that it just has to be good enough, it just needs to be less than 100 milliseconds and beyond that you don’t really care, or at least you don’t care that much. So this will be a pretty reasonable way to trade off or to put together accuracy as well as running time. And it may be the case that so long as the running time is less that 100 milliseconds, your users won’t care that much whether it’s 100 milliseconds or 50 milliseconds or even faster.</strong> And by defining optimizing as well as satisficing matrix, this gives you a clear way to pick the, quote, best classifier, which in this case would be classifier B because of all the ones with a running time better than 100 milliseconds it has the best accuracy. <strong>So more generally, if you have N matrix that you care about it’s sometimes reasonable to pick one of them to be optimizing. So you want to do as well as is possible on that one. And then N minus 1 to be satisficing, meaning that so long as they reach some threshold such as running times faster than 100 milliseconds, but so long as they reach some threshold, you don’t care how much better it is in that threshold, but they have to reach that threshold.</strong> </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/8.png" alt=""><br>Here’s another example. Let’s say you’re building a system to detect wake words, also called trigger words. So this refers to the voice control devices like the Amazon Echo where you wake up by saying Alexa or some Google devices which you wake up by saying okay Google or some Apple devices which you wake up by saying Hey Siri or some Baidu devices we should wake up by saying you ni hao Baidu. Oh I guess, you want to read the Chinese, that’s ni hao Baidu. Right, so these are the wake words you use to tell one of these voice control devices to wake up and listen to something you want to say. And for these other Chinese characters for ni hao Baidu. So you might care about the accuracy of your trigger word detection system. So when someone says one of these trigger words, how likely are you to actually wake up your device, and you might also care about the number of false positives. So when no one actually said this trigger word, how often does it randomly wake up? So in this case maybe one reasonable way of combining these two evaluation matrix might be to maximize accuracy, so when someone says one of the trigger words, maximize the chance that your device wakes up. And subject to that, you have at most one false positive every 24 hours of operation, right? So that your device randomly wakes up only once per day on average when no one is actually talking to it. So in this case accuracy is the optimizing metric and a number of false positives every 24 hours is the satisficing metric where you’d be satisfied so long as there is at most one false positive every 24 hours. </p>
+<p><strong>To summarize, if there are multiple things you care about by say there’s one as the optimizing metric that you want to do as well as possible on and one or more as satisficing metrics were you’ll be satisfice. Almost it does better than some threshold you can now have an almost automatic way of quickly looking at multiple core size and picking the, quote, best one.</strong> Now these evaluation matrix must be evaluated or calculated on a training set or a development set or maybe on the test set. So one of the things you also need to do is set up training, dev or development, as well as test sets. In the next video, I want to share with you some guidelines for how to set up training, dev, and test sets. So let’s go on to the next.</p>
+<h4 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h4><p><strong>Satisficing and optimizing metric</strong></p>
+<p>There are different metrics to evaluate the performance of a classifier, they are called evaluation matrices.They can be categorized as satisficing and optimizing matrices. It is important to note that these evaluation matrices must be evaluated on a training set, a development set or on the test set.</p>
+<p>Example: Cat vs Non-cat<br>|Classifier|Accuracy|Running time|<br>|:-:|:-:|:-:|<br>|A|90%|80ms|<br>|B|92%|95ms|<br>|C|95%|1500ms|</p>
+<p>In this case, accuracy and running time are the evaluation matrices. Accuracy is the optimizing metric, because you want the classifier to correctly detect a cat image as accurately as possible. The running time which is set to be under 100 ms in this example, is the satisficing metric which mean that the metric has to meet expectation set.</p>
+<p>The general rule is:<br>$$N_{metric}:\cases{1 &amp; \text{Optimizing metric} \ N_{metric}-1 &amp; \text{Satisficing metric}}$$</p>
+<h3 id="03-train-dev-test-distributions"><a href="#03-train-dev-test-distributions" class="headerlink" title="03_train-dev-test-distributions"></a>03_train-dev-test-distributions</h3><p><strong>The way you set up your training dev, or development sets and test sets, can have a huge impact on how rapidly you or your team can make progress on building machine learning application. The same teams, even teams in very large companies, set up hese data sets in ways that really slows down, rather than speeds up, the progress of the team.</strong> Let’s take a look at how you can set up these data sets to maximize your team’s efficiency. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/9.png" alt=""><br>In this video, I want to focus on how you set up your <strong>dev and test sets</strong>. So, that dev set is also called <strong>the development set</strong>, or sometimes called the <strong>hold out cross validation set</strong>. And, workflow in machine learning is that you try a lot of ideas, train up different models on the training set, and then use the dev set to evaluate the different ideas and pick one. And, keep innovating to improve dev set performance until, finally, you have one clause that you’re happy with that you then evaluate on your test set. Now, let’s say, by way of example, that you’re building a cat crossfire, and you are operating in these regions: in the U.S, U.K, other European countries, South America, India, China, other Asian countries, and Australia. So, how do you set up your dev set and your test set? Well, one way you could do so is to pick four of these regions. I’m going to use these four but it could be four randomly chosen regions. And say, that data from these four regions will go into the dev set. And, the other four regions, I’m going to use these four, could be randomly chosen four as well, that those will go into the test set. It turns out, this is a very bad idea because in this example, your dev and test sets come from different distributions. <strong>I would, instead, recommend that you find a way to make your dev and test sets come from the same distribution. So, here’s what I mean. One picture to keep in mind is that, I think, setting up your dev set, plus, your single role number evaluation metric</strong>, that’s like placing a target and telling your team where you think is the bull’s eye you want to aim at. <strong>Because, what happen once you’ve established that dev set and the metric is that, the team can innovate very quickly, try different ideas, run experiments and very quickly use the dev set and the metric to evaluate classifier and try to pick the best one</strong>. So, machine learning teams are often very good at shooting different arrows into targets and innovating to get closer and closer to hitting the bullseye. So, doing well on your metric on your dev sets. And, the problem with how we’ve set up the dev and test sets in the example on the left is that, your team might spend months innovating to do well on the dev set only to realize that, when you finally go to test them on the test set, that data from these four countries or these four regions at the bottom, might be very different than the regions in your dev set. So, you might have a nasty surprise and realize that, all the months of work you spent optimizing to the dev set, is not giving you good performance on the test set. So, having dev and test sets from different distributions is like setting a target, having your team spend months trying to aim closer and closer to bull’s eye, only to realize after months of work that, you’ll say, “Oh wait, to test it, I’m going to move target over here.” And, the team might say, “Well, why did you make us spend months optimizing for a different bull’s eye when suddenly, you can move the bull’s eye to a different location somewhere else?” So, to avoid this, what I recommend instead is that, you take all this randomly shuffled data into the dev and test set. So that, both the dev and test sets have data from all eight regions and that <strong>the dev and test sets really come from the same distribution, which is the distribution of all of your data mixed together</strong>. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/10.png" alt=""><br>Here’s another example. This is a, actually, true story but with some details changed. So, I know a machine learning team that actually spent several months optimizing on a dev set which was comprised of loan approvals for medium income zip codes. So, the specific machine learning problem was, “Given an input X about a loan application, can you predict why and which is, whether or not, they’ll repay the loan?” So, this helps you decide whether or not to approve a loan. And so, the dev set came from loan applications. They came from medium income zip codes. Zip codes is what we call postal codes in the United States. But, after working on this for a few months, the team then, suddenly decided to test this on data from low income zip codes or low income postal codes. And, of course, the distributional data for medium income and low income zip codes is very different. And, the crossfire, that they spend so much time optimizing in the former case, just didn’t work well at all on the latter case. And so, this particular team actually wasted about three months of time and had to go back and really re-do a lot of work. And, what happened here was, the team spent three months aiming for one target, and then, after three months, the manager asked, “Oh, how are you doing on hitting this other target?” This is a totally different location. And, it just was a very frustrating experience for the team. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/11.png" alt=""><br>So, what I recommand for setting up a dev set and test set is, choose a dev set and test set to reflect data you expect to get in future and consider important to do well on. And, in particular, the dev set and the test set here, should come from the same distribution. So, whatever type of data you expect to get in the future, and once you do well on, try to get data that looks like that. And, whatever that data is, put it into both your dev set and your test set. Because that way, you’re putting the target where you actually want to hit and you’re having the team innovate very efficiently to hitting that same target, hopefully, the same targets well. Since we haven’t talked yet about how to set up a training set, we’ll talk about the training set in a later video. But, the important take away from this video is that, setting up the dev set, as well as the validation metric, is really defining what target you want to aim at. And hopefully, by setting the dev set and the test set to the same distribution, you’re really aiming at whatever target you hope your machine learning team will hit. <strong>The way you choose your training set will affect how well you can actually hit that target</strong>. But, we can talk about that separately in a later video. </p>
+<p>So, I know some machine learning teams that could literally have saved themselves months of work could they follow the guidelines in this video. So, I hope these guidelines will help you, too. Next, it turns out, that the size of your dev and test sets, how to choose the size of them, is also changing the area of deep learning. Let’s talk about that in the next video.</p>
+<h4 id="summary-1"><a href="#summary-1" class="headerlink" title="summary"></a>summary</h4><p><strong>Training, development and test distributions</strong></p>
+<p>Setting up the training, development and test sets have a huge impact on productivity. It is important to choose the development and test sets from the same distribution and it must be taken randomly from all the data.</p>
+<p><strong>Guideline</strong></p>
+<p>Choose a development set and test set to reflect data you expect to get in the future and consider important to do well.</p>
+<h3 id="04-size-of-the-dev-and-test-sets"><a href="#04-size-of-the-dev-and-test-sets" class="headerlink" title="04_size-of-the-dev-and-test-sets"></a>04_size-of-the-dev-and-test-sets</h3><p>In the last video, you saw how your dev and test sets should come from the same distribution, but how long should they be? The guidelines to help set up your dev and test sets are changing in the Deep Learning era. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/12.png" alt=""><br>Let’s take a look at some best practices. You might have heard of the rule of thumb in machine learning of taking all the data you have and using a 70/30 split into a train and test set, or have you had to set up train dev and test sets maybe, you would use a 60% training and 20% dev and 20% tests. <strong>In earlier eras of machine learning, this was pretty reasonable, especially back when data set sizes were just smaller.</strong> So if you had a hundred examples in total, these 70/30 or 60/20/20 rule of thumb would be pretty reasonable. If you had thousand examples, maybe if you had ten thousand examples, these things are not unreasonable. But in the modern machine learning era, we are now used to working with much larger data set sizes. So let’s say you have a million training examples, it might be quite reasonable to set up your data so that you have 98% in the training set, 1% dev, and 1% test. And when you use DNT to abbreviate dev and test sets. Because if you have a million examples, then 1% of that, is 10,000 examples, and that might be plenty enough for a dev set or for a test set. So, in the modern Deep Learning era where sometimes we have much larger data sets, It’s quite reasonable to use a much smaller than 20 or 30% of your data for a dev set or a test set. And because Deep Learning algorithms have such a huge hunger for data, I’m seeing that, the problems we have large data sets that have much larger fraction of it goes into the training set. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/13.png" alt=""><br>So, how about the test set? Remember the purpose of your test set is that, after you finish developing a system, the test set helps evaluate how good your final system is. The guideline is, to set your test set to big enough to give high confidence in the overall performance of your system. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/14.png" alt=""><br>So, unless you need to have a very accurate measure of how well your final system is performing, maybe you don’t need millions and millions of examples in a test set, and maybe for your application if you think that having 10,000 examples gives you enough confidence to find the performance on maybe 100,000 or whatever it is, that might be enough. And this could be much less than, say 30% of the overall data set, depend on how much data you have. For some applications, maybe you don’t need a high confidence in the overall performance of your final system. Maybe all you need is a train and dev set, And I think, not having a test set might be okay. In fact, what sometimes happened was, people were talking about using train test splits but what they were actually doing was iterating on the test set. So rather than test set, what they had was a train dev split and no test set. If you’re actually tuning to this set, to this dev set and this test set, It’s better to call the dev set. Although I think in the history of machine learning, not everyone has been completely clean and completely records of about calling the dev set when it really should be treated as test set. But, if all you care about is having some data that you train on, and having some data to tune to, and you’re just going to shake the final system and not worry too much about how it was actually doing, I think it will be healthy and just call the train dev set and acknowledge that you have no test set. This a bit unusual? I’m definitely not recommending not having a test set when building a system. I do find it reassuring to have a separate test set you can use to get an unbiased estimate of how I was doing before you shift it, but if you have a very large dev set so that you think you won’t overfit the dev set too badly. Maybe it’s not totally unreasonable to just have a train dev set, although it’s not what I usually recommend. </p>
+<p>So to summarize, in the era of big data, I think the old rule of thumb of a 70/30 is that, that no longer applies. And the trend has been to use more data for training and less for dev and test, especially when you have a very large data sets. And the rule of thumb is really to try to set the dev set to big enough for its purpose, which helps you evaluate different ideas and pick this up from AOP better. And the purpose of test set is to help you evaluate your final cost buys. You just have to set your test set big enough for that purpose, and that could be much less than 30% of the data. So, I hope that gives some guidance or some suggestions on how to set up your dev and test sets in the Deep Learning era. Next, it turns out that sometimes, part way through a machine learning problem, you might want to change your evaluation metric, or change your dev and test sets. Let’s talk about it when you might want to do.</p>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/15.png" alt=""></p>
+<h3 id="05-when-to-change-dev-test-sets-and-metrics"><a href="#05-when-to-change-dev-test-sets-and-metrics" class="headerlink" title="05_when-to-change-dev-test-sets-and-metrics"></a>05_when-to-change-dev-test-sets-and-metrics</h3><p>You’ve seen how sets of a dev set and evaluation metric is like placing a target somewhere for your team to aim at. But sometimes partway through a project you might realize you put your target in the wrong place. In that case you should move your target. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/16.png" alt=""><br>Let’s take a look at an example. Let’s say you build a cat classifier to try to find lots of pictures of cats to show to your cat loving users and the metric that you decided to use is classification error. So algorithms A and B have, respectively, 3 percent error and 5 percent error, so <strong>it seems like Algorithm A is doing better</strong>. But let’s say you try out these algorithms, you look at these algorithms and <strong>Algorithm A, for some reason, is letting through a lot of the pornographic images</strong>. So if you shift Algorithm A the users would see more cat images because you’ll see 3 percent error and identify cats, but it also shows the users some pornographic images which is totally unacceptable both for your company, as well as for your users. <strong>In contrast, Algorithm B has 5 percent error so this classifies fewer images but it doesn’t have pornographic images</strong>. So from your company’s point of view, as well as from a user acceptance point of view, <strong>Algorithm B is actually a much better algorithm because it’s not letting through any pornographic images</strong>. So, what has happened in this example is that Algorithm A is doing better on evaluation metric. It’s getting 3 percent error but it is actually a worse algorithm. <strong>In this case, the evaluation metric plus the dev set prefers Algorithm A because they’re saying, look, Algorithm A has lower error which is the metric you’re using but you and your users prefer Algorithm B because it’s not letting through pornographic images. So when this happens, when your evaluation metric is no longer correctly rank ordering preferences between algorithms, in this case is mispredicting that Algorithm A is a better algorithm, then that’s a sign that you should change your evaluation metric or perhaps your development set or test set.</strong> In this case the misclassification error metric that you’re using can be written as follows: this one over m, a number of examples in your development set, of sum from i equals 1 to mdev, number of examples in this development set of indicator of whether or not the prediction of example i in your development set is not equal to the actual label i, where they use this notation to denote their predictive value. Right. So these are zero. And this, $I\left{\right}$ , indicates a function notation, counts up the number of examples on which this thing inside it’s true. So this formula just counts up the number of misclassified examples. The problem with this evaluation metric is that they treat pornographic and non-pornographic images equally but you really want your classifier to not mislabel pornographic images, like maybe you recognize a pornographic image in cat image and therefore show it to unsuspecting user, therefore very unhappy with unexpectedly seeing porn. One way to change this evaluation metric would be if you add the weight term here, we call this w(i) where w(i) is going to be equal to 1 if x(i) is non-porn and maybe 10 or maybe even large number like a 100 if x(i) is porn. So this way you’re giving a much larger weight to examples that are pornographic so that the error term goes up much more if the algorithm makes a mistake on classifying a pornographic image as a cat image. In this example you giving 10 times bigger weights to classify pornographic images correctly. If you want this normalization constant, technically this becomes sum over i of w(i), so then this error would still be between zero and one. The details of this weighting aren’t important and actually to implement this weighting, you need to actually go through your dev and test sets, so label the pornographic images in your dev and test sets so you can implement this weighting function. <strong>But the high level of take away is, if you find that evaluation metric is not giving the correct rank order preference for what is actually better algorithm, then there’s a time to think about defining a new evaluation metric. And this is just one possible way that you could define an evaluation metric. The goal of the evaluation metric is accurately tell you, given two classifiers, which one is better for your application. For the purpose of this video, don’t worry too much about the details of how we define a new error metric, the point is that if you’re not satisfied with your old error metric then don’t keep coasting with an error metric you’re unsatisfied with, instead try to define a new one that you think better captures your preferences in terms of what’s actually a better algorithm.</strong></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/17.png" alt=""><br>One thing you might notice is that so far we’ve only talked about how to define a metric to evaluate classifiers. That is, we’ve defined an evaluation metric that helps us better rank order classifiers when they are performing at varying levels in terms of streaming of porn. <strong>And this is actually an example of an orthogonalization where I think you should take a machine learning problem and break it into distinct steps</strong>. One step is to figure out how to define a metric that captures what you want to do, and I would worry separately about how to actually do well on this metric. So think of the machine learning task as two distinct steps. To use the target analogy, the first step is to place the target. So define where you want to aim and then as a completely separate step, this is one you can tune which is how do you place the target as a completely separate problem. Think of it as a separate step to tune in terms of how to do well at this algorithm, how to aim accurately or how to shoot at the target. Defining the metric is step one and you do something else for step two. In terms of shooting at the target, maybe your learning algorithm is optimizing some cost function that looks like this, where you are minimizing some of losses on your training set. One thing you could do is to also modify this in order to incorporate these weights and maybe end up changing this normalization constant as well. So it just 1 over a sum of w(i). Again, the details of how you define J aren’t important, but <strong>the point was with the philosophy of orthogonalization think of placing the target as one step and aiming and shooting at a target as a distinct step which you do separately. In other words I encourage you to think of, defining the metric as one step and only after you define a metric, figure out how to do well on that metric which might be changing the cost function J that your neural network is optimizing.</strong> </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/18.png" alt=""><br>Before going on, let’s look at just one more example. Let’s say that your two cat classifiers A and B have, respectively, 3 percent error and 5 percent error as evaluated on your dev set. Or maybe even on your test set which are images downloaded off the internet, so high quality well framed images. But maybe when you deploy your algorithm product, you find that algorithm B actually looks like it’s performing better, even though it’s doing better on your dev set. And you find that you’ve been training off very nice high quality images downloaded off the Internet but when you deploy those on the mobile app, users are uploading all sorts of pictures, they’re much less framed, you haven’t only covered the cat, the cats have funny facial expressions, maybe images are much blurrier, and when you test out your algorithms you find that Algorithm B is actually doing better. So this would be another example of your metric and dev test sets falling down. The problem is that you’re evaluating on the dev and test sets a very nice, high resolution, well-framed images but what your users really care about is you have them doing well on images they are uploading, which are maybe less professional shots and blurrier and less well framed. So the guideline is, if doing well on your metric and your current dev sets or dev and test sets’ distribution, if that does not correspond to doing well on the application you actually care about, then change your metric and your dev test set. In other words, if we discover that your dev test set has these very high quality images but evaluating on this dev test set is not predictive of how well your app actually performs, because your app needs to deal with lower quality images, then that’s a good time to change your dev test set so that your data better reflects the type of data you actually need to do well on. But the overall guideline is if your current metric and data you are evaluating on doesn’t correspond to doing well on what you actually care about, then change your metrics and/or your dev/test set to better capture what you need your algorithm to actually do well on. </p>
+<p>Having an evaluation metric and the dev set allows you to much more quickly make decisions about is Algorithm A or Algorithm B better. It really speeds up how quickly you and your team can iterate. <strong>So my recommendation is, even if you can’t define the perfect evaluation metric and dev set, just set something up quickly and use that to drive the speed of your team iterating. And if later down the line you find out that it wasn’t a good one, you have better idea, change it at that time, it’s perfectly okay. But what I recommend against for the most teams is to run for too long without any evaluation metric and dev set up because that can slow down the efficiency of what your team can iterate and improve your algorithm</strong>. So that says on when to change your evaluation metric and/or dev and test sets. I hope that these guidelines help you set up your whole team to have a well-defined target that you can iterate efficiently towards improving performance.</p>
+<h3 id="summary-2"><a href="#summary-2" class="headerlink" title="summary"></a>summary</h3><p><strong>When to change development/test sets and metrics</strong></p>
+<p>Example: Cat vs Non-cat</p>
+<p>A cat classifier tries to find a great amount of cat images to show to cat loving users. The evaluation metric used is a classification error.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Algorithm</th>
+<th align="center">Classification error [%]</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center">3%</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center">5%</td>
+</tr>
+</tbody></table>
+<p>It seems that Algorithm A is better than Algorithm B since there is only a 3% error, however for some reason, Algorithm A is letting through a lot of the pornographic images. </p>
+<p>Algorithm B has 5% error thus it classifies fewer images but it doesn’t have pornographic images. From a company’s point of view, as well as from a user acceptance point of view, Algorithm B is actually a better algorithm. The evaluation metric fails to correctly rank order preferences between algorithms. The evaluation metric or the development set or test set should be changed. </p>
+<p>The misclassification error metric can be written as a function as follow:</p>
+<p>$$Error:\frac{1}{m_{dev}}\sum\limits^{m_{dev}}_{i=1}\mathcal{L}{\hat{y}^{(i)}\ne y^{(i)}}$$</p>
+<p>This function counts up the number of misclassified examples.</p>
+<p>The problem with this evaluation metric is that it treats pornographic vs non-pornographic images equally. On way to change this evaluation metric is to add the weight term $w^{(i)}$</p>
+<p>$$W^{(i)}=\cases{1 &amp; \text{if x^{(i)} is non-porngraphic} \ 10 &amp; \text{if x^{(i)} is porngraphic} }$$</p>
+<p>The function becomes:</p>
+<p>$$Error:\frac{1}{\sum w^{(i)}}\sum\limits^{m_{dev}}_{i=1}w^{(i)}\mathcal{L}{\hat{y}^{(i)}\ne y^{(i)}}$$</p>
+<p>Guideline</p>
+<ol>
+<li>Define correctly an evaluation metric that helps better rank order classifiers</li>
+<li>Optimize the evaluation metric.</li>
+</ol>
+<h2 id="03-comparing-to-human-level-performance"><a href="#03-comparing-to-human-level-performance" class="headerlink" title="03_comparing-to-human-level-performance"></a>03_comparing-to-human-level-performance</h2><h3 id="01-why-human-level-performance"><a href="#01-why-human-level-performance" class="headerlink" title="01_why-human-level-performance"></a>01_why-human-level-performance</h3><p>In the last few years, <strong>a lot more machine learning teams have been talking about comparing the machine learning systems to human level performance. Why is this? I think there are two main reasons</strong>. <strong>First</strong> is that because of advances in deep learning, machine learning algorithms are suddenly working much better and so it has become much more feasible in a lot of application areas for machine learning algorithms to actually become competitive with human-level performance. <strong>Second</strong>, it turns out that the workflow of designing and building a machine learning system, the workflow is much more efficient when you’re trying to do something that humans can also do. So in those settings, it becomes natural to talk about comparing, or trying to mimic human-level performance. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/19.png" alt=""><br>Let’s see a couple examples of what this means. I’ve seen on a lot of machine learning tasks that as you work on a problem over time, so the x-axis, time, this could be many months or even many years over which some team or some research community is working on a problem. Progress tends to be relatively rapid as you approach human level performance. But then after a while, the algorithm surpasses human-level performance and then progress and accuracy actually slows down. And maybe it keeps getting better but after surpassing human level performance it can still get better, but performance, the slope of how rapid the accuracy’s going up, often that slows down. And the hope is it achieves some theoretical optimum level of performance. And over time, as you keep training the algorithm, maybe bigger and bigger models on more and more data, the performance approaches but never surpasses some theoretical limit, which is called the Bayes optimal error. So Bayes optimal error, think of this as the best possible error. And that’s just the way for any function mapping from x to y to surpass a certain level of accuracy. So for example, for speech recognition, if x is audio clips, some audio is just so noisy it is impossible to tell what is in the correct transcription. So the perfect error may not be 100%. Or for cat recognition. Maybe some images are so blurry, that it is just impossible for anyone or anything to tell whether or not there’s a cat in that picture. So, the perfect level of accuracy may not be 100%. And Bayes optimal error, or Bayesian optimal error, or sometimes Bayes error for short, is the very best theoretical function for mapping from x to y. That can never be surpassed. So it should be no surprise that this purple line, no matter how many years you work on a problem you can never surpass Bayes error, Bayes optimal error. And it turns out that progress is often quite fast until you surpass human level performance. And it sometimes slows down after you surpass human level performance. And I think there are two reasons for that, for why progress often slows down when you surpass human level performance. One reason is that human level performance is for many tasks not that far from Bayes’ optimal error. People are very good at looking at images and telling if there’s a cat or listening to audio and transcribing it. So, by the time you surpass human level performance maybe there’s not that much head room to still improve. But the second reason is that so long as your performance is worse than human level performance, then there are actually certain tools you could use to improve performance that are harder to use once you’ve surpassed human level performance. So here’s what I mean. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/21.png" alt=""><br>For tasks that humans are quite good at, and this includes looking at pictures and recognizing things, or listening to audio, or reading language, really natural data tasks humans tend to be very good at. For tasks that humans are good at, so long as your machine learning algorithm is still worse than the human, you can get labeled data from humans. That is you can ask people, ask higher humans, to label examples for you so that you can have more data to feed your learning algorithm. Something we’ll talk about next week is manual error analysis. But so long as humans are still performing better than any other algorithm, you can ask people to look at examples that your algorithm’s getting wrong, and try to gain insight in terms of why a person got it right but the algorithm got it wrong. And we’ll see next week that this helps improve your algorithm’s performance. And you can also get a better analysis of bias and variance which we’ll talk about in a little bit. But so long as your algorithm is still doing worse then humans you have these important tactics for improving your algorithm. Whereas once your algorithm is doing better than humans, then these three tactics are harder to apply. So, this is maybe another reason why comparing to human level performance is helpful, especially on tasks that humans do well. And why machine learning algorithms tend to be really good at trying to replicate tasks that people can do and kind of catch up and maybe slightly surpass human level performance. </p>
+<p>In particular, even though you know what is bias and what is variance it turns out that knowing how well humans can do on a task can help you understand better how much you should try to reduce bias and how much you should try to reduce variance. I want to show you an example of this in the next video. </p>
+<h4 id="summary-3"><a href="#summary-3" class="headerlink" title="summary"></a>summary</h4><p><strong>Why human-level performance?</strong></p>
+<p>Today, machine learning algorithms can compete with human-level performance since they are more productive and more feasible in a lot of application. Also, the workflow of designing and building a machine learning system, is much more efficient than before. </p>
+<p>Moreover, some of the tasks that humans do are close to “perfection”, which is why machine learning tries to mimic human-level performance. </p>
+<p>The graph below shows the performance of humans and machine learning over time.</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/22.png" alt=""></p>
+<p>Machine learning progresses slowly when it surpasses human-level performance. One of the reason is that human-level performance can be close to Bayes optimal error, especially for natural perception problem.</p>
+<p>Bayes optimal error is defined as the best possible error. In other words, it means that any functions mapping from x to y can’t surpass a certain level of accuracy.</p>
+<p>Also, when the performance of machine learning is worse than the performance of humans, you can improve it with different tools. They are harder to use once its surpasses human-level performance.</p>
+<p>These tools are:</p>
+<ul>
+<li>Get labeled data from humans</li>
+<li>Gain insight from manual error analysis: Why did a person get this right?</li>
+<li>Better analysis of bias/variance.</li>
+</ul>
+<h3 id="02-avoidable-bias"><a href="#02-avoidable-bias" class="headerlink" title="02_avoidable-bias"></a>02_avoidable-bias</h3><p>We talked about how you want your learning algorithm to do well on the training set but sometimes you don’t actually want to do too well and knowing what human level performance is, can tell you exactly how well but not too well you want your algorithm to do on the training set. Let me show you what I mean. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/23.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/24.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/25.png" alt=""><br>We have used Cat classification a lot and given a picture, let’s say humans have near-perfect accuracy so the human level error is one percent. In that case, if your learning algorithm achieves 8 percent training error and 10 percent dev error, then maybe you wanted to do better on the training set. So the fact that there’s a huge gap between how well your algorithm does on your training set versus how humans do shows that your algorithm isn’t even fitting the training set well. So in terms of tools to reduce <strong>bias or variance</strong>, in this case I would say focus on reducing bias. So you want to do things like train a bigger neural network or run training set longer, just try to do better on the training set. But now let’s look at the same training error and dev error and imagine that human level performance was not 1%. So this copy is over but you know in a different application or maybe on a different data set, let’s say that human level error is actually 7.5%. Maybe the images in your data set are so blurry that even humans can’t tell whether there’s a cat in this picture. This example is maybe slightly contrived because humans are actually very good at looking at pictures and telling if there’s a cat in it or not. But for the sake of this example, let’s say your data sets images are so blurry or so low resolution that even humans get 7.5% error. In this case, even though your training error and dev error are the same as the other example, you see that maybe you’re actually doing just fine on the training set. It’s doing only a little bit worse than human level performance. And in this second example, you would maybe want to focus on reducing this component, reducing the variance in your learning algorithm. So you might try regularization to try to bring your dev error closer to your training error for example. So in the earlier courses discussion on bias and variance, we were mainly assuming that there were tasks where Bayes error is nearly zero. So to explain what just happened here, for our Cat classification example, think of human level error as a proxy or as a estimate for Bayes error or for Bayes optimal error. And for computer vision tasks, this is a pretty reasonable proxy because humans are actually very good at computer vision and so whatever a human can do is maybe not too far from Bayes error. By definition, human level error is worse than Bayes error because nothing could be better than Bayes error but human level error might not be too far from Bayes error. So the surprising thing we saw here is that depending on what human level error is or really this is really approximately Bayes error or so we assume it to be, but depending on what we think is achievable, with the same training error and dev error in these two cases, we decided to focus on bias reduction tactics or on variance reduction tactics. And what happened is in the example on the left, 8% training error is really high when you think you could get it down to 1% and so bias reduction tactics could help you do that. Whereas in the example on the right, if you think that Bayes error is 7.5% and here we’re using human level error as an estimate or as a proxy for Bayes error, but you think that Bayes error is close to seven point five percent then you know there’s not that much headroom for reducing your training error further down. You don’t really want it to be that much better than 7.5% because you could achieve that only by maybe starting to offer further training so, and instead, there’s much more room for improvement in terms of taking this 2% gap and trying to reduce that by using variance reduction techniques such as regularization or maybe getting more training data. So to give these things a couple of names, this is not widely used terminology but I found this useful terminology and a useful way of thinking about it, which is I’m going to call the difference between Bayes error or approximation of Bayes error and the training error to be <strong>the avoidable bias</strong>. So what you want is maybe keep improving your training performance until you get down to Bayes error but you don’t actually want to do better than Bayes error. You can’t actually do better than Bayes error unless you’re overfitting. And this, the difference between your training area and the dev error, there’s a measure still of the variance problem of your algorithm. And the term avoidable bias acknowledges that there’s some bias or some minimum level of error that you just cannot get below which is that if Bayes error is 7.5%, you don’t actually want to get below that level of error. So rather than saying that if you’re training error is 8%, then the 8% is a measure of bias in this example, you’re saying that the avoidable bias is maybe 0.5% or 0.5% is a measure of the avoidable bias whereas 2% is a measure of the variance and so there’s much more room in reducing this 2% than in reducing this 0.5%. Whereas in contrast in the example on the left, this 7% is a measure of the avoidable bias, whereas 2% is a measure of how much variance you have. And so in this example on the left, there’s much more potential in focusing on reducing that avoidable bias. </p>
+<p>So in this example, understanding human level error, understanding your estimate of Bayes error really causes you in different scenarios to focus on different tactics, whether bias avoidance tactics or variance avoidance tactics. There’s quite a lot more nuance in how you factor in human level performance into how you make decisions in choosing what to focus on. Thus in the next video, go deeper into understanding of what human level performance really mean.</p>
+<h4 id="summary-4"><a href="#summary-4" class="headerlink" title="summary"></a>summary</h4><p><strong>Avoidable bias</strong><br>By knowing what the human-level performance is, it is possible to tell when a training set is performing well or not.</p>
+<p><strong>Example: Cat vs Non-Cat</strong><br>In this case, the human level error as a proxy for Bayes error since humans are good to identify images. If you want to improve the performance of the training set but you can’t do better than the Bayes error otherwise the training set is overfitting. By knowing the Bayes error, it is easier to focus on whether bias or variance avoidance tactics will improve the performance of the model.</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/26.png" alt=""></p>
+<p><strong>Scenario A</strong><br>There is a 7% gap between the performance of the training set and the human level error. It means that the algorithm isn’t fitting well with the training set since the target is around 1%. To resolve the issue, we use bias reduction technique such as training a bigger neural network or running the training set longer.</p>
+<p><strong>Scenario B</strong><br>The training set is doing good since there is only a 0.5% difference with the human level error. The difference between the training set and the human level error is called avoidable bias. The focus here is to reduce the variance since the difference between the training error and the development error is 2%. To resolve the issue, we use variance reduction technique such as regularization or have a bigger training set.</p>
+<h3 id="03-understanding-human-level-performance"><a href="#03-understanding-human-level-performance" class="headerlink" title="03_understanding-human-level-performance"></a>03_understanding-human-level-performance</h3><p>The term human-level performance is sometimes used casually in research articles. But let me show you how we can define it a bit more precisely. And in particular, use the definition of the phrase, human-level performance, that is most useful for helping you drive progress in your machine learning project. </p>
+<p>So remember from our last video that one of the uses of this phrase, human-level error, is that it gives us a way of estimating Bayes error. What is the best possible error any function could, either now or in the future, ever, ever achieve? So bearing that in mind, let’s look at a medical image classification example.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/27.png" alt=""><br>Let’s say that you want to look at a radiology image like this, and make a diagnosis classification decision. And suppose that a typical human, untrained human, achieves 3% error on this task. A typical doctor, maybe a typical radiologist doctor, achieves 1% error. An experienced doctor does even better, 0.7% error. And a team of experienced doctors, that is if you get a team of experienced doctors and have them all look at the image and discuss and debate the image, together their consensus opinion achieves 0.5% error. So the question I want to pose to you is, how should you define human-level error? Is human-level error 3%, 1%, 0.7% or 0.5%? Feel free to pause this video to think about it if you wish. And to answer that question, I would urge you to bear in mind that one of the most useful ways to think of human error is as a proxy or an estimate for Bayes error. So please feel free to pause this video to think about it for a while if you wish. <strong>But here’s how I would define human-level error. Which is if you want a proxy or an estimate for Bayes error, then given that a team of experienced doctors discussing and debating can achieve 0.5% error, we know that Bayes error is less than equal to 0.5%. So because some system, team of these doctors can achieve 0.5% error, so by definition, this directly, optimal error has got to be 0.5% or lower. We don’t know how much better it is, maybe there’s a even larger team of even more experienced doctors who could do even better, so maybe it’s even a little bit better than 0.5%. But we know the optimal error cannot be higher than 0.5%. So what I would do in this setting is use 0.5% as our estimate for Bayes error. So I would define human-level performance as 0.5%. At least if you’re hoping to use human-level error in the analysis of bias and variance as we saw in the last video.</strong> </p>
+<p><strong>Now, for the purpose of publishing a research paper or for the purpose of deploying a system, maybe there’s a different definition of human-level error</strong> that you can use which is so long as you surpass the performance of a typical doctor. That seems like maybe a very useful result if accomplished, and maybe surpassing a single radiologist, a single doctor’s performance might mean the system is good enough to deploy in some context. So maybe the takeaway from this is to be clear about what your purpose is in defining the term human-level error. And if it is to show that you can surpass a single human and therefore argue for deploying your system in some context, maybe this is the appropriate definition. <strong>But if your goal is the proxy for Bayes error, then this is the appropriate definition.</strong> To see why this matters, let’s look at an error analysis example. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/28.png" alt=""><br>Let’s say, for a medical imaging diagnosis example, that your training error is 5% and your dev error is 6%. And in the example from the previous slide, our human-level performance, and I’m going to think of this as proxy for Bayes error. Depending on whether you defined it as a typical doctor’s performance or experienced doctor or team of doctors, you would have either 1% or 0.7% or 0.5% for this. And remember also our definitions from the previous video, that this gap between Bayes error or estimate of Bayes error and training error is calling that a measure of the avoidable bias. And this as a measure or an estimate of how much of a variance problem you have in your learning algorithm. So in this first example, whichever of these choices you make, the measure of avoidable bias will be something like 4%. It will be somewhere between I guess, 4%, if you take that to 4.5%, if you use 0.5%, whereas this is 1%. So in this example, I would say, it doesn’t really matter which of the definitions of human-level error you use, whether you use the typical doctor’s error or the single experienced doctor’s error or the team of experienced doctor’s error. Whether this is 4% or 4.5%, this is clearly bigger than the variance problem. And so in this case, you should focus on bias reduction techniques such as train a bigger network. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/29.png" alt=""><br>Now let’s look at a second example. Let’s see your training error is 1% and your dev error is 5%. Then again it doesn’t really matter, seems but academic whether the human-level performance is 1% or 0.7% or 0.5%. Because whichever of these definitions you use, your measure of avoidable bias will be, I guess somewhere between 0% if you use that, to 0.5%, right? That’s the gap between the human-level performance and your training error, whereas this gap is 4%. So this 4% is going to be much bigger than the avoidable bias either way. And so they’ll just suggest you should focus on variance reduction techniques such as regularization or getting a bigger training set. </p>
+<p>But where it really matters will be if your training error is 0.7%. So you’re doing really well now, and your dev error is 0.8%. In this case, it really matters that you use your estimate for Bayes error as 0.5%. Because in this case, your measure of how much avoidable bias you have is 0.2% which is twice as big as your measure for your variance, which is just 0.1%. And so this suggests that maybe both the bias and variance are both problems but maybe the avoidable bias is a bit bigger of a problem. And in this example, 0.5% as we discussed on the previous slide was the best measure of Bayes error, because a team of human doctors could achieve that performance. If you use 0.7 as your proxy for Bayes error, you would have estimated avoidable bias as pretty much 0%, and you might have missed that. You actually should try to do better on your training set. So I hope this gives a sense also of why making progress in a machine learning problem gets harder as you achieve or as you approach human-level performance. In this example, once you’ve approached 0.7% error, unless you’re very careful about estimating Bayes error, you might not know how far away you are from Bayes error. And therefore how much you should be trying to reduce aviodable bias. In fact, if all you knew was that a single typical doctor achieves 1% error, and it might be very difficult to know if you should be trying to fit your training set even better. And this problem arose only when you’re doing very well on your problem already, only when you’re doing 0.7%, 0.8%, really close to human-level performance. Whereas in the two examples on the left, when you are further away human-level performance, it was easier to target your focus on bias or variance. So this is maybe an illustration of why as your pro human-level performance is actually harder to tease out the bias and variance effects. And therefore why progress on your machine learning project just gets harder as you’re doing really well. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/30.png" alt=""><br>So just to summarize what we’ve talked about. If you’re trying to understand bias and variance where you have an estimate of human-level error for a task that humans can do quite well, you can use human-level error as a proxy or as a approximation for Bayes error. And so the difference between your estimate of Bayes error tells you how much avoidable bias is a problem, how much avoidable bias there is. And the difference between training error and dev error, that tells you how much variance is a problem, whether your algorithm’s able to generalize from the training set to the dev set. And the big difference between our discussion here and what we saw in an earlier course was that instead of comparing training error to 0%, And just calling that the estimate of the bias. In contrast, in this video we have a more nuanced analysis in which there is no particular expectation that you should get 0% error. Because sometimes Bayes error is non zero and sometimes it’s just not possible for anything to do better than a certain threshold of error. And so in the earlier course, we were measuring training error, and seeing how much bigger training error was than zero. And just using that to try to understand how big our bias is. And that turns out to work just fine for problems where Bayes error is nearly 0%, such as recognizing cats. Humans are near perfect for that, so Bayes error is also near perfect for that. So that actually works okay when Bayes error is nearly zero. But for problems where the data is noisy, like speech recognition on very noisy audio where it’s just impossible sometimes to hear what was said and to get the correct transcription. For problems like that, having a better estimate for Bayes error can help you better estimate avoidable bias and variance. And therefore make better decisions on whether to focus on bias reduction tactics, or on variance reduction tactics. </p>
+<p><strong>So to recap, having an estimate of human-level performance gives you an estimate of Bayes error. And this allows you to more quickly make decisions as to whether you should focus on trying to reduce a bias or trying to reduce the variance of your algorithm. And these techniques will tend to work well until you surpass human-level performance, whereupon you might no longer have a good estimate of Bayes error that still helps you make this decision really clearly. Now, one of the exciting developments in deep learning has been that for more and more tasks we’re actually able to surpass human-level performance.</strong> In the next video, let’s talk more about the process of surpassing human-level performance. </p>
+<h4 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h4><p><strong>Understanding human-level performance</strong></p>
+<p>Human-level error gives an estimate of Bayes error.</p>
+<p><strong>Example 1: Medical image classification</strong></p>
+<p>This is an example of a medical image classification in which the input is a radiology image and the output is a diagnosis classification decision.</p>
+<p>The definition of human-level error depends on the purpose of the analysis, in this case, by definition the Bayes error is lower or equal to 0.5%.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/35.png" alt=""></p>
+<p><strong>Example 2: Error analysis</strong></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/36.png" alt=""><br>Scenario A</p>
+<p>In this case, the choice of human-level performance doesn’t have an impact. The avoidable bias is between 4%-4.5% and the variance is 1%. Therefore, the focus should be on bias reduction technique.</p>
+<p>Scenario B</p>
+<p>In this case, the choice of human-level performance doesn’t have an impact. The avoidable bias is between 0%-0.5% and the variance is 4%. Therefore, the focus should be on variance reduction technique.</p>
+<p>Scenario C</p>
+<p>In this case, the estimate for Bayes error has to be 0.5% since you can’t go lower than the human-level performance otherwise the training set is overfitting. Also, the avoidable bias is 0.2% and the variance is 0.1%. Therefore, the focus should be on bias reduction technique. Summary of bias/variance with human-level performance</p>
+<ul>
+<li>Human - level error – proxy for Bayes error</li>
+<li>If the difference between human-level error and the training error is bigger than the difference between the training error and the development error. The focus should be on bias reduction technique</li>
+<li>If the difference between training error and the development error is bigger than the difference between the human-level error and the training error. The focus should be on variance reduction technique</li>
+</ul>
+<p><strong>Example 2: Error analysis</strong></p>
+<h3 id="04-surpassing-human-level-performance"><a href="#04-surpassing-human-level-performance" class="headerlink" title="04_surpassing-human-level-performance"></a>04_surpassing-human-level-performance</h3><p>A lot of teams often find it exciting to surpass human-level performance on the specific recreational classification task. Let’s talk over some of the things you see if you try to accomplish this yourself. We’ve discussed before how machine learning progress gets harder as you approach or even surpass human-level performance. Let’s talk over one more example of why that’s the case. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/31.png" alt=""><br>Let’s say you have a problem where a team of humans discussing and debating achieves 0.5% error, a single human 1% error, and you have an algorithm of 0.6% training error and 0.8% dev error. So in this case, what is the avoidable bias? So this one is relatively easier to answer, 0.5% is your estimate of base error, so your avoidable bias is, you’re not going to use this 1% number as reference, you can use this difference, so maybe you estimate your avoidable bias is at least 0.1% and your variance as 0.2%. So there’s maybe more to do to reduce your variance than your avoidable bias perhaps. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/32.png" alt=""><br>But now let’s take <strong>a harder example</strong>, let’s say, a team of humans and single human performance, the same as before, but your algorithm gets 0.3% training error, and 0.4% dev error. Now, what is the avoidable bias? It’s now actually much harder to answer that. Is the fact that your training error, 0.3%, does this mean you’ve over-fitted by 0.2%, or is base error, actually 0.1%, or maybe is base error 0.2%, or maybe base error is 0.3%? You don’t really know, <strong>but based on the information given in this example, you actually don’t have enough information to tell if you should focus on reducing bias or reducing variance in your algorithm. So that slows down the efficiency where you should make progress. Moreover, if your error is already better than even a team of humans looking at and discussing and debating the right label, for an example, then it’s just also harder to rely on human intuition to tell your algorithm what are ways that your algorithm could still improve the performance</strong>? So in this example, once you’ve surpassed this 0.5% threshold, your options, your ways of making progress on the machine learning problem are just less clear. <strong>It doesn’t mean you can’t make progress, you might still be able to make significant progress, but some of the tools you have for pointing you in a clear direction just don’t work as well</strong>. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/33.png" alt=""><br>Now, there are many problems where machine learning significantly surpasses human-level performance. For example, I think, <strong>online advertising</strong>, estimating how likely someone is to click on that. Probably, learning algorithms do that much better today than any human could, or <strong>making product recommendations</strong>, recommending movies or books to you. I think that web sites today can do that much better than maybe even your closest friends can. All <strong>logistics predicting</strong> how long will take you to drive from A to B or predicting how long to take a delivery vehicle to drive from A to B, or trying to predict whether someone will repay a loan, and therefore, whether or not you should <strong>approve a loan offer</strong>. All of these are problems where I think today machine learning far surpasses a single human’s performance. Notice something about these four examples. <strong>All four of these examples are actually learning from structured data, where you might have a database of what has users clicked on, database of proper support for, databases of how long it takes to get from A to B, database of previous loan applications and their outcomes. And these are not natural perception problems, so these are not computer vision, or speech recognition, or natural language processing task. Humans tend to be very good in natural perception task. So it is possible, but it’s just a bit harder for computers to surpass human-level performance on natural perception task. And finally, all of these are problems where there are teams that have access to huge amounts of data</strong>. So for example, the best systems for all four of these applications have probably looked at far more data of that application than any human could possibly look at. And so, that’s also made it relatively easy for a computer to surpass human-level performance. <strong>Now, the fact that there’s so much data that computer could examine, so it can petrifies that’s called patterns than even the human mind.</strong> Other than these problems, today there are speech recognition systems that can surpass human-level performance. <strong>And there are also some computer vision, some image recognition tasks, where computers have surpassed human-level performance</strong>. But because humans are very good at this natural perception task, I think it was harder for computers to get there. And then there are some <strong>medical tasks</strong>, for example, <strong>reading ECGs or diagnosing skin cancer</strong>, or <strong>certain narrow radiology task</strong>, where computers are getting really good and maybe surpassing a single human-level performance. And I guess one of the exciting things about recent advances in deep learning is that even for these tasks we can now surpass human-level performance in some cases, <strong>but it has been a bit harder because humans tend to be very good at this natural perception task.</strong> </p>
+<p>So surpassing human-level performance is often not easy, but given enough data there’ve been lots of deep learning systems have surpassed human-level performance on a single supervisory problem. So that makes sense for an application you’re working on. I hope that maybe someday you manage to get your deep learning system to also surpass human-level performance.</p>
+<h4 id="summary-5"><a href="#summary-5" class="headerlink" title="summary"></a>summary</h4><p><strong>Surpassing human-level performance</strong></p>
+<p>Example1: Classification task</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/34.png" alt=""></p>
+<p><strong>Scenario A</strong></p>
+<p>In this case, the Bayes error is 0.5%, therefore the available bias is 0.1% et the variance is 0.2%.</p>
+<p><strong>Scenario B</strong></p>
+<p>In this case, there is not enough information to know if bias reduction or variance reduction has to be done on the algorithm. It doesn’t mean that the model cannot be improve, it means that the conventional ways to know if bias reduction or variance reduction are not working in this case.</p>
+<p>There are many problems where machine learning significantly surpasses human-level performance, especially with structured data:</p>
+<ul>
+<li>Online advertising</li>
+<li>Product recommendations</li>
+<li>Logistics (predicting transit time)</li>
+<li>Loan approvals</li>
+</ul>
+<h3 id="05-improving-your-model-performance"><a href="#05-improving-your-model-performance" class="headerlink" title="05_improving-your-model-performance"></a>05_improving-your-model-performance</h3><p>You have heard about orthogonalization. How to set up your dev and test sets, human level performance as a proxy for Bayes’s error and how to estimate your avoidable bias and variance. Let’s pull it all together into a set of guidelines for how to improve the performance of your learning algorithm. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/38.png" alt=""></p>
+<p><strong>So, I think getting a supervised learning algorithm to work well means fundamentally hoping or assuming that you can do two things. First</strong> is that you can fit the training set pretty well and you can think of this as roughly saying that you can achieve low avoidable bias. <strong>And the second</strong> thing you’re assuming can do well is that doing well in the training set generalizes pretty well to the dev set or the test set and this is sort of saying that variance is not too bad. <strong>And in the spirit of thought organization, what you see is that there’s a second set of knobs to fix the avoidable bias issues such as training a bigger network or training longer. And there’s a separate set of things you can use to address variance problems, such as regularization or getting more training data</strong>. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/39.png" alt=""><br>So to summarize of the process seen in the last several videos, if you want to improve the performance of your machine on your system, I would recommend looking at the difference between your training error and your proxy for base error and this gives you a sense of the avoidable bias. In other words, just how much better do you think you should be trying to do on your training set and then look at the difference between your dev error and your training error as an estimate. So, it’s how much of a variance problem you have. In other words, how much harder you should be working to make your performance generalize from the training set to the desk set, that it wasn’t trained on explicitly? So to whatever extent you want to try to reduce avoidable bias, I would try to apply tactics like train a bigger model. So, you can just do better on your training sets or train longer. Use a better optimization algorithm such as. Adds momentum or RMS prop, or use a better algorithm like ADOM. Or one of the thing you could try is to just find a better new nether architecture or better said, hyperparameters and this could include everything from changing the activation functions or changing the number of layers or hidden do this. Although you do that, it would be in the direction of increasing the model size to China other models or other models architectures, such as the current neural network and competitive neural networks which we’ll see in later courses. Whether or not a new neural network architecture will fit your training set better is sometimes hard to tell in events, but sometimes you can get much better results with a better architecture. Next to the extent that you find out variance is a problem. Some of the many of the techniques you could try, then includes the following. You can try to get more data, because getting more data to train on could help you generalize better to dev set data that you didn’t see. You could try regularization. So this includes things like or dropout, or data augmentation which she talks about the in the previous course. Or once again, you can also try various neural network architecture, hyperparameters search to see if that can help you find a new architecture that is better suited for problem. </p>
+<p>I think that this notion of bias or avoidable bias and there is one of those things that easily learned, but tough to master and we’re able to systematically find the concept from this week’s videos. You actually be much more efficient and much more systematic and much more strategic than a lot of machine learning teams in terms of how to systematically go by improving the performance of their machine learning system. So, that this week’s whole work will allow you to practice and exercise more your understanding of these concepts. Best of luck with this homework and I look forward to also seeing you in next week’s videos. Variances are further.</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><p><strong>Improving your model performance</strong></p>
+<p>The two fundamental assumptions of supervised learning </p>
+<p>There are <strong>2 fundamental assumptions</strong> of supervised learning. The <strong>first</strong> one is to have a low avoidable bias which means that the training set fits well. The <strong>second</strong> one is to have a low or acceptable variance which means that the training set performance generalizes well to the development set and test set.</p>
+<p>If the difference between human-level error and the training error is bigger than the difference between the training error and the development error, the focus should be on bias reduction technique which are training a bigger model, training longer or change the neural networks architecture or try various hyperparameters search.</p>
+<p>If the difference between training error and the development error is bigger than the difference between the human-level error and the training error, the focus should be on variance reduction technique which are bigger data set, regularization or change the neural networks architecture or try various hyperparameters search.</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/01_ml-strategy-1/37.png" alt=""></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>Donate comment here.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/deep-learning/" rel="tag"><i class="fa fa-tag"></i> deep learning</a>
+              <a href="/tags/Structuring-Machine-Learning-Projects/" rel="tag"><i class="fa fa-tag"></i> Structuring Machine Learning Projects</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/03/02/02_optimization-algorithms/" rel="prev" title="02_optimization-algorithms">
+      <i class="fa fa-chevron-left"></i> 02_optimization-algorithms
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/04/02/02_ml-strategy-2/" rel="next" title="02_ml-strategy-2">
+      02_ml-strategy-2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#01-introduction-to-ml-strategy"><span class="nav-number">2.</span> <span class="nav-text">01_introduction-to-ml-strategy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-why-ml-strategy"><span class="nav-number">2.1.</span> <span class="nav-text">01_why-ml-strategy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-orthogonalization"><span class="nav-number">2.2.</span> <span class="nav-text">02_orthogonalization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Orthogonalization"><span class="nav-number">2.2.1.</span> <span class="nav-text">Orthogonalization</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-setting-up-your-goal"><span class="nav-number">3.</span> <span class="nav-text">02_setting-up-your-goal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-single-number-evaluation-metric"><span class="nav-number">3.1.</span> <span class="nav-text">01_single-number-evaluation-metric</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-satisficing-and-optimizing-metric"><span class="nav-number">3.2.</span> <span class="nav-text">02_satisficing-and-optimizing-metric</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#summary"><span class="nav-number">3.2.1.</span> <span class="nav-text">summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-train-dev-test-distributions"><span class="nav-number">3.3.</span> <span class="nav-text">03_train-dev-test-distributions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#summary-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-size-of-the-dev-and-test-sets"><span class="nav-number">3.4.</span> <span class="nav-text">04_size-of-the-dev-and-test-sets</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary"><span class="nav-number">3.4.1.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#05-when-to-change-dev-test-sets-and-metrics"><span class="nav-number">3.5.</span> <span class="nav-text">05_when-to-change-dev-test-sets-and-metrics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#summary-2"><span class="nav-number">3.6.</span> <span class="nav-text">summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-comparing-to-human-level-performance"><span class="nav-number">4.</span> <span class="nav-text">03_comparing-to-human-level-performance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-why-human-level-performance"><span class="nav-number">4.1.</span> <span class="nav-text">01_why-human-level-performance</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#summary-3"><span class="nav-number">4.1.1.</span> <span class="nav-text">summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-avoidable-bias"><span class="nav-number">4.2.</span> <span class="nav-text">02_avoidable-bias</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#summary-4"><span class="nav-number">4.2.1.</span> <span class="nav-text">summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-understanding-human-level-performance"><span class="nav-number">4.3.</span> <span class="nav-text">03_understanding-human-level-performance</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-surpassing-human-level-performance"><span class="nav-number">4.4.</span> <span class="nav-text">04_surpassing-human-level-performance</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#summary-5"><span class="nav-number">4.4.1.</span> <span class="nav-text">summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#05-improving-your-model-performance"><span class="nav-number">4.5.</span> <span class="nav-text">05_improving-your-model-performance</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">4.5.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : '9ce889bd16d745b5e750c2a0a1192250',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

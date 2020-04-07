@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="In the next few videos I’d like to talk about machine learning system design. These videos will touch on the main issues that you may face when designing a complex machine learning system, and will ac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="11_machine-learning-system-design note11">
+<meta property="og:url" content="https://snakecoding.com/2018/01/11/11_machine-learning-system-design/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="In the next few videos I’d like to talk about machine learning system design. These videos will touch on the main issues that you may face when designing a complex machine learning system, and will ac">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/1.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/2.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/3.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/4.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/5.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/6.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/7.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/8.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/9.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/10.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/11.png">
+<meta property="article:published_time" content="2018-01-10T18:30:00.000Z">
+<meta property="article:modified_time" content="2020-04-06T14:55:26.448Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2018/01/11/11_machine-learning-system-design/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>11_machine-learning-system-design note11 | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">60</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/11/11_machine-learning-system-design/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          11_machine-learning-system-design note11
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-11 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-11T00:00:00+05:30">2018-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:26" itemprop="dateModified" datetime="2020-04-06T20:25:26+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>In the next few videos I’d like to talk about <strong>machine learning system design</strong>. These videos will touch on <strong>the main issues that you may face when designing a complex machine learning system, and will actually try to give advice on how to strategize putting together a complex machine learning system.</strong> </p>
+<p>In case this next set of videos seems a little disjointed that’s because these videos will touch on a range of the different issues that you may come across when designing complex learning systems. And <strong><em>even though the next set of videos may seem somewhat less mathematical, I think that this material may turn out to be very useful, and potentially huge time savers when you’re building big machine learning systems.</em></strong> </p>
+<h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>This personal note is written after studying the opening course on <a href="https://www.coursera.org" target="_blank" rel="noopener">the coursera website</a>, <a href="https://www.coursera.org/learn/machine-learning/home/welcome" target="_blank" rel="noopener">Machine Learning by Andrew NG</a> . And images, audios of this note all comes from the opening course. </p>
+<h1 id="01-building-a-spam-classifier"><a href="#01-building-a-spam-classifier" class="headerlink" title="01_building-a-spam-classifier"></a>01_building-a-spam-classifier</h1><h2 id="Prioritizing-What-to-Work-On"><a href="#Prioritizing-What-to-Work-On" class="headerlink" title="Prioritizing What to Work On"></a>Prioritizing What to Work On</h2><p>Concretely, I’d like to begin with the issue of prioritizing how to spend your time on what to work on, and I’ll begin with an example on spam classification. </p>
+<p>Let’s say you want to build <strong>a spam classifier</strong>. Here are a couple of examples of obvious spam and non-spam emails. if the one on the left tried to sell things. And notice how spammers will deliberately misspell words, like Vincent with a 1 there, and mortgages. And on the right as maybe an obvious example of non-stamp email, actually email from my younger brother. Let’s say we have a labeled training set of some number of spam emails and some non-spam emails denoted with labels y equals 1 or 0, how do we build a classifier using supervised learning to distinguish between spam and non-spam? </p>
+<p><strong>In order to apply supervised learning, the first decision we must make is how do we want to represent x, that is the features of the email.</strong> Given the features x and the labels y in our training set, we can then train a classifier, for example using logistic regression. Here’s one way to choose a set of features for our emails. We could come up with, say, a list of maybe a hundred words that we think are indicative of whether e-mail is spam or non-spam, for example, if a piece of e-mail contains the word ‘deal’ maybe it’s more likely to be spam if it contains the word  ‘buy’ maybe more likely to be spam, a word like ‘discount’ is more likely to be spam, whereas if a piece of email contains my name, Andrew, maybe that means the person actually knows who I am and that might mean it’s less likely to be spam. And maybe for some reason I think the word “now” may be indicative of non-spam because I get a lot of urgent emails, and so on, and maybe we choose a hundred words or so. <strong>Given a piece of email, we can then take this piece of email and encode it into a feature vector as follows.</strong> I’m going to take my list of a hundred words and sort them in alphabetical order say. It doesn’t have to be sorted. But, you know, here’s a, here’s my list of words, just count and so on, until eventually I’ll get down to now, and so on and given a piece of e-mail like that shown on the right, I’m going to check and see whether or not each of these words appears in the e-mail and then I’m going to define a feature vector x where in this piece of an email on the right, my name doesn’t appear so I’m gonna put a zero there. The word “by” does appear, so I’m gonna put a one there and I’m just gonna put one’s or zeroes. I’m gonna put a one even though the word “by” occurs twice. I’m not gonna recount how many times the word occurs. The word “due” appears, I put a one there. The word “discount” doesn’t appear, at least not in this this little short email, and so on. The word “now” does appear and so on. <strong>So I put ones and zeroes in this feature vector depending on whether or not a particular word appears.</strong> </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/1.png" alt="example_of_spam-email_and_non-spam-email"></p>
+<p><strong>And in this example my feature vector would have to mention one hundred, if I have a hundred, if if I chose a hundred words to use for this representation and each of my features $X_j$ will basically be $1$ if you have a particular word that, we’ll call this word j, appears in the email and $X_j$ would be $0$ otherwise.</strong></p>
+<p>Okay. So that gives me a feature representation of a piece of email. By the way, even though I’ve described this process as manually picking a hundred words, in practice what’s most commonly done is to look through a training set, and in the training set depict the most frequently occurring n words where n is usually between ten thousand and fifty thousand, and use those as your features. So rather than manually picking a hundred words, here you look through the training examples and pick the most frequently occurring words like ten thousand to fifty thousand words, and those form the features that you are going to use to represent your email for spam classification. </p>
+<p><strong>Now, if you’re building a spam classifier, one question that you may face is, what’s the best use of your time in order to make your spam classifier have higher accuracy, you have lower error.</strong> One natural inclination is going to collect lots of data. Right? And in fact there’s this tendency to think that, well the more data we have the better the algorithm will do. And in fact, in the email spam domain, there are actually pretty serious projects called Honey Pot Projects, which create fake email addresses and try to get these fake email addresses into the hands of spammers and use that to try to collect tons of spam email, and therefore you know, get a lot of spam data to train learning algorithms. But we’ve already seen in the previous sets of videos that getting lots of data will often help, but not all the time. But for most machine learning problems, there are a lot of other things you could usually imagine doing to improve performance. For spam, one thing you might think of is to develop more sophisticated features on the email, maybe based on the email routing information. And this would be information contained in the email header. So, when spammers send email, very often they will try to obscure the origins of the email, and maybe use fake email headers. Or send email through very unusual sets of computer service. Through very unusual routes, in order to get the spam to you. And some of this information will be reflected in the email header. And so one can imagine, looking at the email headers and trying to develop more sophisticated features to capture this sort of email routing information to identify if something is spam. Something else you might consider doing is to look at the email message body, that is the email text, and try to develop more sophisticated features. For example, should the word ‘discount’ and the word ‘discounts’ be treated as the same words or should we have treat the words ‘deal’ and ‘dealer’ as the same word? Maybe even though one is lower case and one in capitalized in this example. Or do we want more complex features about punctuation because maybe spam is using exclamation marks a lot more. I don’t know. And along the same lines, maybe we also want to develop more sophisticated algorithms to detect and maybe to correct to deliberate misspellings, like mortgage, medicine, watches. Because spammers actually do this, because if you have watches with a 4 in there then well, with the simple technique that we talked about just now, the spam classifier might not equate this as the same thing as the word “watches,” and so it may have a harder time realizing that something is spam with these deliberate misspellings. And this is why spammers do it. While working on a machine learning problem, very often you can brainstorm lists of different things to try, like these. By the way, I’ve actually worked on the spam problem myself for a while. And I actually spent quite some time on it. And even though I kind of understand the spam problem, I actually know a bit about it, I would actually have a very hard time telling you of these four options which is the best use of your time so what happens, frankly what happens far too often is that a research group or product group will randomly fixate on one of these options. And sometimes that turns out not to be the most fruitful way to spend your time depending, you know, on which of these options someone ends up randomly fixating on. By the way, in fact, if you even get to the stage where you brainstorm a list of different options to try, you’re probably already ahead of the curve. Sadly, what most people do is instead of trying to list out the options of things you might try, what far too many people do is wake up one morning and, for some reason, just, you know, have a weird gut feeling that, “Oh let’s have a huge honeypot project to go and collect tons more data” and for whatever strange reason just sort of wake up one morning and randomly fixate on one thing and just work on that for six months. But I think we can do better. And in particular what I’d like to do in the next video is tell you about the concept of error analysis and talk about the way where you can try to have a more systematic way to choose amongst the options of the many different things you might work, and therefore be more likely to select what is actually a good way to spend your time, you know for the next few weeks, or next few days or the next few months.</p>
+<p><strong>System Design Example:</strong>   </p>
+<p>Given a data set of emails, we could construct a vector for each email. Each entry in this vector represents a word. The vector normally contains 10,000 to 50,000 entries gathered by finding the most frequently used words in our data set.  If a word is to be found in the email, we would assign its respective entry a 1, else if it is not found, that entry would be a 0. Once we have all our x vectors ready, we train our algorithm and finally, we could use it to classify if an email is a spam or not. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/2.png" alt="Building_a_spam_classifier"></p>
+<p>So how could you spend your time to improve the accuracy of this classifier? </p>
+<ul>
+<li><p>Collect lots of data (for example “honeypot” project but doesn’t always work)   </p>
+</li>
+<li><p>Develop sophisticated features (for example: using email header data in spam emails)   </p>
+</li>
+<li><p>Develop sophisticated features for message body (for example: should“discount” and “discounts” be treated as the same word? How about “deal” and “Dealer”? Features about punctuation)? </p>
+</li>
+<li><p>Develop algorithms to process your input in different ways (recognizing misspellings in spam, for example, med1cine, m0rtgage, w4tches).   </p>
+<p>It is difficult to tell which of the options will be most helpful.</p>
+</li>
+</ul>
+<h2 id="Error-Analysis"><a href="#Error-Analysis" class="headerlink" title="Error Analysis"></a>Error Analysis</h2><p>The recommended approach to solving machine learning problems is to:  </p>
+<ul>
+<li><strong><em>Start with a simple algorithm, implement it quickly, and test it early on your cross validation data.</em></strong>   </li>
+<li><strong><em>Plot learning curves to decide if more data, more features, etc. are likely to help.</em></strong>   </li>
+<li><strong><em>Manually examine the errors on examples in the cross validation set and try to spot a trend where most of the errors were made.</em></strong>   </li>
+</ul>
+<p>For example, assume that we have 500 emails and our algorithm misclassifies a 100 of them. We could manually analyze the 100 emails and categorize them based on what type of emails they are. We could then try to come up with new cues and features that would help us classify these 100 emails correctly. Hence, if most of our misclassified emails are those which try to steal passwords, then we could find some features that are particular to those emails and add them to our model. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/3.png" alt="error_analysis"></p>
+<p>We could also see how classifying each word according to its root changes our error rate:</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/4.png" alt="The_importance_of_numerical_evaluation"></p>
+<p>It is very important to get error results as a single, numerical value. Otherwise it is difficult to assess your algorithm’s performance. For example if we use stemming, which is the process of treating the same word with different forms (fail/failing/failed) as one word (fail), and get a 3% error rate instead of 5%, then we should definitely add it to our model. However, if we try to distinguish between upper case and lower case letters and end up getting a 3.2% error rate instead of 3%, then we should avoid using this new feature.  Hence, we should try new things, get a numerical value for our error rate, and based on our result decide whether we want to keep the new feature or not.</p>
+<h1 id="02-handling-skewed-data"><a href="#02-handling-skewed-data" class="headerlink" title="02_handling-skewed-data"></a>02_handling-skewed-data</h1><h2 id="01-error-metrics-for-skewed-classes"><a href="#01-error-metrics-for-skewed-classes" class="headerlink" title="01_error-metrics-for-skewed-classes"></a>01_error-metrics-for-skewed-classes</h2><p>In the previous video, I talked about error analysis and the importance of having error metrics, that is of having a single real number evaluation metric for your learning algorithm to tell how well it’s doing. </p>
+<p>In the context of evaluation and of error metrics, there is one important case, where it’s particularly tricky to come up with an appropriate error metric, or evaluation metric, for your learning algorithm. That case is the case of what’s called <strong>skewed classes</strong>. Let me tell you what that means. </p>
+<p>Consider the problem of cancer classification, where we have features of medical patients and we want to decide whether or not they have cancer. So this is like the malignant versus benign tumor classification example that we had earlier. So let’s say y equals 1 if the patient has cancer and y equals 0 if they do not. We have trained the progression classifier and let’s say we test our classifier on a test set and find that we get 1 percent error. So, we’re making 99% correct diagnosis. Seems like a really impressive result, right. We’re correct 99% percent of the time. </p>
+<p>But now, let’s say we find out that only 0.5 percent of patients in our training test sets actually have cancer. So only half a percent of the patients that come through our screening process have cancer. In this case, the 1% error no longer looks so impressive.</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/5.png" alt="cancer_classification_example_of_skewed-class"></p>
+<p>And in particular, here’s a piece of code, here’s actually a piece of non learning code that takes this input of features x and it ignores it. <strong><em>It just sets y equals 0 and always predicts, you know, nobody has cancer and this algorithm would actually get 0.5 percent error. So this is even better than the 1% error that we were getting just now and this is a non learning algorithm that you know, it is just predicting y equals 0 all the time. So this setting of when the ratio of positive to negative examples is very close to one of two extremes, where, in this case, the number of positive examples is much, much smaller than the number of negative examples because y equals one so rarely, this is what we call the case of skewed classes.</em></strong> </p>
+<p>We just have a lot more of examples from one class than from the other class. And by just predicting y equals 0 all the time, or maybe our predicting y equals 1 all the time, an algorithm can do pretty well. So the problem with using classification error or classification accuracy as our evaluation metric is the following. </p>
+<p>Let’s say you have one joining algorithm that’s getting 99.2% accuracy. So, that’s a 0.8% error. Let’s say you make a change to your algorithm and you now are getting 99.5% accuracy. That is 0.5% error. So, is this an improvement to the algorithm or not? One of the nice things about having a single real number evaluation metric is this helps us to quickly decide if we just need a good change to the algorithm or not. <strong>By going from 99.2% accuracy to 99.5% accuracy. You know, did we just do something useful or did we just replace our code with something that just predicts y equals zero more often?  So, if you have very skewed classes it becomes much harder to use just classification accuracy, because you can get very high classification accuracies or very low errors, and it’s not always clear if doing so is really improving the quality of your classifier because predicting y equals 0 all the time doesn’t seem like a particularly good classifier.</strong> But just predicting y equals 0 more often can bring your error down to, you know, maybe as low as 0.5%. </p>
+<p>When we’re faced with such a skewed classes therefore we would want to come up with a different error metric or a different evaluation metric. One such evaluation metric are what’s called <strong>precision and recall</strong>. Let me explain what that is. Let’s say we are evaluating a classifier on the test set. For the examples in the test set the actual class of that example in the test set is going to be either one or zero, right, if there is a binary classification problem. And what our learning algorithm will do is it will, you know, predict some value for the class and our learning algorithm will predict the value for each example in my test set and the predicted value will also be either one or zero. So let me draw a two by two table as follows, depending on a full of these entries depending on what was the actual class and what was the predicted class. If we have an example where the actual class is one and the predicted class is one then that’s called an example that’s a <strong><em>true positive</em></strong>, meaning our algorithm predicted that it’s positive and in reality the example is positive. If our learning algorithm predicted that something is negative, class zero, and the actual class is also class zero then that’s what’s called a <strong><em>true negative</em></strong>. We predicted zero and it actually is zero. To find the other two boxes, if our learning algorithm predicts that the class is one but the actual class is zero, then that’s called a <strong><em>false positive</em></strong>. So that means our algorithm for the patient is cancelled out in reality if the patient does not. And finally, the last box is a zero, one. That’s called a <strong><em>false negative</em></strong> because our algorithm predicted zero, but the actual class was one. And so, we have this little sort of two by two table based on what was the actual class and what was the predicted class. So here’s a different way of evaluating the performance of our algorithm. We’re going to compute two numbers. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/6.png" alt="definitions_of_precision_and_recall"></p>
+<p>The first is called <strong><em>precision</em></strong> - and what that says is, of all the patients where we’ve predicted that they have cancer, what fraction of them actually have cancer? So let me write this down, the precision of a classifier is the number of true positives divided by the number that we predicted as positive, right? So of all the patients that we went to those patients and we told them, “We think you have cancer.” Of all those patients, what fraction of them actually have cancer? So that’s called precision. <strong>And another way to write this would be true positives and then in the denominator is the number of predicted positives, and so that would be the sum of the, you know, entries in this first row of the table. So it would be true positives divided by positives. I’m going to abbreviate positive as POS and then plus false positives, again abbreviating positive using POS.</strong> So that’s called precision, and as you can tell high precision would be good. That means that all the patients that we went to and we said, “You know, we’re very sorry. We think you have cancer,” <strong><em>high precision</em></strong> means that of that group of patients most of them we had actually made accurate predictions on them and they do have cancer. </p>
+<p>The second number we’re going to compute is called <strong><em>recall</em></strong>, and what recall say is, if all the patients in, let’s say, in the test set or the cross-validation set, but if all the patients in the data set that actually have cancer, what fraction of them that we correctly detect as having cancer. So if all the patients have cancer, how many of them did we actually go to them and you know, correctly told them that we think they need treatment. <strong>So, writing this down, recall is defined as the number of positives, the number of true positives, meaning the number of people that have cancer and that we correctly predicted have cancer and we take that and divide that by, divide that by the number of actual positives, so this is the right number of actual positives of all the people that do have cancer.</strong> What fraction do we directly flag and you know, send the treatment. So, to rewrite this in a different form, the denominator would be the number of actual positives as you know, is the sum of the entries in this first column over here. And so writing things out differently, this is therefore, the number of true positives, divided by the number of true positives plus the number of false negatives. And so once again, having a high recall would be a good thing. </p>
+<p>So by computing precision and recall this will usually give us a better sense of how well our classifier is doing. And in particular if we have a learning algorithm that predicts y equals zero all the time, if it predicts no one has cancer, then this classifier will have a recall equal to zero, because there won’t be any true positives and so that’s a quick way for us to recognize that, you know, a classifier that predicts y equals 0 all the time, just isn’t a very good classifier. And more generally, even for settings where we have very skewed classes, it’s not possible for an algorithm to sort of “cheat” and somehow get a very high precision and a very high recall by doing some simple thing like predicting y equals 0 all the time or predicting y equals 1 all the time. <strong>And so we’re much more sure that a classifier of a high precision or high recall actually is a good classifier, and this gives us a more useful evaluation metric that is a more direct way to actually understand whether, you know, our algorithm may be doing well.</strong> So one final note in the definition of precision and recall, that we would define precision and recall, usually we use the convention that y is equal to 1, in the presence of the more rare class. So if we are trying to detect. rare conditions such as cancer, hopefully that’s a rare condition, precision and recall are defined setting y equals 1, rather than y equals 0, to be sort of that the presence of that rare class that we’re trying to detect. And by using precision and recall, we find, what happens is that even if we have very skewed classes, it’s not possible for an algorithm to you know, “cheat” and predict y equals 1 all the time, or predict y equals 0 all the time, and get high precision and recall. And in particular, if a classifier is getting high precision and high recall, then we are actually confident that the algorithm has to be doing well, even if we have very skewed classes. <strong><em>So for the problem of skewed classes precision recall gives us more direct insight into how the learning algorithm is doing and this is often a much better way to evaluate our learning algorithms, than looking at classification error or classification accuracy, when the classes are very skewed.</em></strong></p>
+<h2 id="02-trading-off-precision-and-recall"><a href="#02-trading-off-precision-and-recall" class="headerlink" title="02_trading-off-precision-and-recall"></a>02_trading-off-precision-and-recall</h2><p>In the last video,we talked about precision and recall as an evaluation metric for classification problems with skewed constants. <strong>For many applications, we’ll want to somehow control the trade-off between precision and recall.</strong> Let me tell you how to do that and also show you some even more effective ways to use precision and recall as an evaluation metric for learning algorithms.</p>
+<p>As a reminder,here are the definitions of precision and recall from the previous video. Let’s continue our cancer classification example, where y equals 1 if the patient has cancer and y equals 0 otherwise. And let’s say we’re trained in logistic regression classifier which outputs probability between 0 and 1. So, as usual, we’re going to predict 1, y equals 1, if h(x) is greater or equal to 0.5. And predict 0 if the hypothesis outputs a value less than 0.5. And this classifier may give us some value for precision and some value for recall. But now, suppose we want to predict that the patient has cancer only if we’re very confident that they really do. Because if you go to a patient and you tell them that they have cancer, it’s going to give them a huge shock. What we give is a seriously bad news, and they may end up going through a pretty painful treatment process and so on. And so maybe we want to tell someone that we think they have cancer only if they are very confident. One way to do this would be to modify the algorithm, so that instead of setting this threshold at 0.5, we might instead say that we will predict that y is equal to 1 only if h(x) is greater or equal to 0.7. So this is like saying, we’ll tell someone they have cancer only if we think there’s a greater than or equal to, 70% chance that they have cancer. And, if you do this, then you’re predicting someone has cancer<br>only when you’re more confident and so you end up with a classifier that has higher precision. Because all of the patients that you’re going to and saying, we think you have cancer, although those patients are now ones that you’re pretty confident actually have cancer. And <strong>so a higher fraction of the patients that you predict have cancer will actually turn out to have cancer because making those predictions only if we’re pretty confident. But in contrast this classifier will have lower recall because now we’re going to make predictions, we’re going to predict y = 1 on a smaller number of patients.</strong> Now, can even take this further. Instead of setting the threshold at 0.7, we can set this at 0.9. Now we’ll predict y=1 only if we are more than 90% certain that the patient has cancer. And so, a large fraction of those patients will turn out to have cancer. And so this would be a higher precision classifier will have lower recall because we want to correctly detect that those patients have cancer. <strong>Now consider a different example. Suppose we want to avoid missing too many actual cases of cancer, so we want to avoid false negatives. In particular, if a patient actually has cancer, but we fail to tell them that they have cancer then that can be really bad. Because if we tell a patient that they don’t have cancer, then they’re not going to go for treatment. And if it turns out that they have cancer, but we fail to tell them they have cancer, well, they may not get treated at all. And so that would be a really bad outcome because they die because we told them that they don’t have cancer. They fail to get treated, but it turns out they actually have cancer.</strong> So, suppose that, when in doubt, we want to predict that y=1. So, when in doubt, we want to predict that they have cancer so that at least they look further into it, and these can get treated in case they do turn out to have cancer. <strong>In this case, rather than setting higher probability threshold, we might instead take this value and instead set it to a lower value.</strong> So maybe 0.3 like so, right? And by doing so, we’re saying that,you know what, if we think there’s more than a 30% chance that they have cancer we better be more conservative and tell them that they may have cancer so that they can seek treatment if necessary. <strong>And in this case what we would have is going to be a higher recall classifier, because we’re going to be correctly flagging a higher fraction of all of the patients that actually do have cancer.</strong> But we’re going to end up with lower precision because a higher fraction of the patients that we said have cancer, a high fraction of them will turnout not to have cancer after all. And by the way, just as a sider, when I talk about this to other students, I’ve been told before, it’s pretty amazing, some of my students say, is how I can tell the story both ways. <strong>Why we might want to have higher precision or higher recall and the story actually seems to work both ways. But I hope the details of the algorithm is true and the more general principle is depending on where you want, whether you want higher precision- lower recall, or higher recall- lower precision.</strong> </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/7.png" alt="trading-off_precision_and_recall"></p>
+<p>You can end up predicting y=1 when h(x) is greater than some threshold. And so in general, for most classifiers there is going to be a trade off between precision and recall, and as you vary the value of this threshold that we join here, you can actually plot out some curve that trades off precision and recall. Where a value up here, this would correspond to a very high value of the threshold, maybe threshold equals 0.99. So that’s saying, predict y=1 only if we’re more than 99% confident, at least 99% probability this one. So that would be a high precision, relatively low recall. Where as the point down here, will correspond to a value of the threshold that’s much lower, maybe equal 0.01, meaning, when in doubt at all, predict y=1, and if you do that, you end up with a much lower precision, higher recall classifier. And as you vary the threshold, if you want you can actually trace of a curve for your classifier to see the range of different values you can get for precision recall. And by the way, the precision-recall curve can look like many different shapes. Sometimes it will look like this, sometimes it will look like that. Now there are many different possible shapes for the precision-recall curve, depending on the details of the classifier.</p>
+<p><strong>So, this raises another interesting question which is, is there a way to choose this threshold automatically? Or more generally, if we have a few different algorithms or a few different ideas for algorithms, how do we compare different precision recall numbers? Concretely, suppose we have three different learning algorithms. So actually, maybe these are three different learning algorithms, maybe these are the same algorithm but just with different values for the threshold. How do we decide which of these algorithms is best?</strong></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/8.png" alt="F1_score"></p>
+<h1 id="03-using-large-data-sets"><a href="#03-using-large-data-sets" class="headerlink" title="03_using-large-data-sets"></a>03_using-large-data-sets</h1><p>In the previous video, we talked about evaluation metrics. In this video, I’d like to switch tracks a bit and touch on another important aspect of machine learning system design, which will often come up, which is <strong>the issue of how much data to train on</strong>.  </p>
+<p>Now, in some earlier videos, <strong><em>I had cautioned against blindly going out and just spending lots of time collecting lots of data, because it’s only sometimes that that would actually help.</em></strong> But it turns out that under certain conditions, and I will say in this video what those conditions are, <strong><em>getting a lot of data and training on a certain type of learning algorithm, can be a very effective way to get a learning algorithm to do very good performance. And this arises often enough that if those conditions hold true for your problem and if you’re able to get a lot of data, this could be a very good way to get a very high performance learning algorithm.</em></strong> So in this video, let’s talk more about that. Let me start with a story. </p>
+<h2 id="Michelle-Banko-and-Eric-Broule"><a href="#Michelle-Banko-and-Eric-Broule" class="headerlink" title="Michelle Banko and Eric Broule"></a>Michelle Banko and Eric Broule</h2><p>Many, many years ago, two researchers that I know, Michelle Banko and Eric Broule ran the following fascinating study. They were interested in studying the effect of using different learning algorithms versus trying them out on different training set sciences, they were considering the problem of classifying between confusable words, so for example, in the sentence: for breakfast I ate, should it be to, two or too? Well, for this example, for breakfast I ate two, 2 eggs. So, this is one example of a set of confusable words and that’s a different set. So they took machine learning problems like these, sort of supervised learning problems to try to categorize what is the appropriate word to go into a certain position in an English sentence. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/9.png" alt="img"> </p>
+<p>They took a few different learning algorithms which were, you know, sort of considered state of the art back in the day, when they ran the study in 2001, so they took a variance, roughly a variance on logistic regression called the Perceptron. They also took some of their algorithms that were fairly out back then but somewhat less used now so when the algorithm also very similar to which is a regression but different in some ways, much used somewhat less, used not too much right now took what’s called a memory based learning algorithm again used somewhat less now. But I’ll talk a little bit about that later. And they used a naive based algorithm, which is something they’ll actually talk about in this course. The exact algorithms of these details aren’t important. Think of this as, you know, just picking four different classification algorithms and really the exact algorithms aren’t important. <strong>But what they did was they varied the training set size and tried out these learning algorithms on the range of training set sizes and that’s the result they got.</strong></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/10.png" alt="img"> </p>
+<p>And the trends are very clear, right? </p>
+<ol>
+<li>first, most of these algorithms give remarkably similar performance. </li>
+<li>And second, as the training set size increases, on the horizontal axis is the training set size in millions go from, you know, a hundred thousand up to a thousand million that is a billion training examples. The performance of the algorithms all pretty much monotonically increase and the fact that if you pick any algorithm, may be pick a “inferior algorithm”, but if you give that “inferior algorithm” more data, then from these examples, it looks like it will most likely beat even a “superior algorithm”. </li>
+</ol>
+<p>So since this original study which is very influential, <strong>there’s been a range of many different studies showing similar results that show that many different learning algorithms you know tend to, can sometimes, depending on details, can give pretty similar ranges of performance, but what can really drive performance is you can give the algorithm a ton of training data.</strong> And this is, results like these has led to a saying in machine learning that often in machine learning <strong>it’s not who has the best algorithm that wins, it’s who has the most data So when is this true and when is this not true?</strong> Because we have a learning algorithm for which this is true then getting a lot of data is often maybe the best way to ensure that we have an algorithm with very high performance rather than you know, debating worrying about exactly which of these items to use.</p>
+<h2 id="the-features-x-have-sufficient-information"><a href="#the-features-x-have-sufficient-information" class="headerlink" title="the features x have sufficient information"></a>the features x have sufficient information</h2><p>Let’s try to lay out a set of assumptions under which having a massive training set we think will be able to help. Let’s assume that in our machine learning problem, the features x have sufficient information, with which we can use to predict y accurately. </p>
+<p>For example, if we take the confusable words all of them that we had on the previous slide. Let’s say that it features x capture what are the surrounding words around the blank that we’re trying to fill in. So the features capture then we want to have, sometimes for breakfast I have black eggs. Then yeah that is pretty much information to tell me that the word I want in the middle is TWO and that is not word TO and its not the word TOO. <strong>So the features capture, you know, one of these surrounding words then that gives me enough information to pretty unambiguously decide what is the label y or in other words what is the word that I should be using to fill in that blank out of this set of three confusable words.</strong> So that’s an example what the futures x has sufficient information for specific y. </p>
+<p>For a counter example. <strong>Consider a problem of predicting the price of a house from only the size of the house and from no other features.</strong> So if you imagine I tell you that a house is, you know, 500 square feet but I don’t give you any other features. I don’t tell you that the house is in an expensive part of the city. Or if I don’t tell you that the house, the number of rooms in the house, or how nicely furnished the house is, or whether the house is new or old. If I don’t tell you anything other than that this is a 500 square foot house, well there’s so many other factors that would affect the price of a house other than just the size of a house that if all you know is the size, it’s actually very difficult to predict the price accurately. So that would be a counter example to this assumption that the features have sufficient information to predict the price to the desired level of accuracy. </p>
+<h2 id="domain-knowledge"><a href="#domain-knowledge" class="headerlink" title="domain knowledge"></a>domain knowledge</h2><p>The way I think about testing this assumption, one way I often think about it is, how often I ask myself. Given the input features x, given the features, given the same information available as well as learning algorithm. If we were to go to <strong>human expert in this domain</strong>. Can a human experts actually or can human expert confidently predict the value of y. <strong><em>For this first example if we go to, you know an expert human English speaker.</em></strong> You go to someone that speaks English well, right, then a human expert in English just read most people like you and me will probably we would probably be able to predict what word should go in here, to a good English speaker can predict this well, and so this gives me confidence that x allows us to predict y accurately, but in contrast if we go to <strong><em>an expert in house prices.</em></strong> Like maybe an expert realtor, right, someone who sells houses for a living. If I just tell them the size of a house and I tell them what the price is well even an expert in pricing or selling houses wouldn’t be able to tell me and so this is fine that for the housing price example knowing only the size doesn’t give me enough information to predict the price of the house. So, let’s say, this assumption holds. Let’s see then, when having a lot of data could help. Suppose the features have enough information to predict the value of y. </p>
+<p>And let’s suppose we use a learning algorithm with a large number of parameters so maybe logistic regression or linear regression with a large number of features. Or one thing that I sometimes do, one thing that I often do actually is using neural network with many hidden units. That would be another learning algorithm with a lot of parameters. So these are all powerful learning algorithms with a lot of parameters that can fit very complex functions. So, I’m going to call these, I’m going to think of these as low-bias algorithms because you know we can fit very complex functions and because we have a very powerful learning algorithm, they can fit very complex functions. Chances are, if we run these algorithms on the data sets, it will be able to fit the training set well, and so hopefully the training error will be slow. </p>
+<h2 id="Large-data-rationale"><a href="#Large-data-rationale" class="headerlink" title="Large data rationale"></a>Large data rationale</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/11/11.png" alt="img"> </p>
+<p><strong>Now let’s say, we use a massive, massive training set, in that case, if we have a huge training set, then hopefully even though we have a lot of parameters but if the training set is sort of even much larger than the number of parameters then hopefully these albums will be unlikely to overfit.</strong> Right, <strong>because we have such a massive training set and by unlikely to overfit what that means is that the training error will hopefully be close to the test error.</strong> Finally putting these two together that the train set error is small and the test set error is close to the training error what this two together imply is that hopefully the test set error will also be small. </p>
+<p><strong>Another way to think about this is that in order to have a high performance learning algorithm we want it not to have high bias and not to have high variance. So the bias problem we’re going to address by making sure we have a learning algorithm with many parameters and so that gives us a low bias algorithm and by using a very large training set, this ensures that we don’t have a variance problem here.</strong> So hopefully our algorithm will have no variance and so is by pulling these two together, that we end up with a low bias and a low variance learning algorithm and this allows us to do well on the test set. And fundamentally it’s a key ingredients of assuming that the features have enough information and we have a rich class of functions that’s why it guarantees low bias, and then it having a massive training set that that’s what guarantees more variance. So this gives us a set of conditions rather hopefully some understanding of what’s the sort of problem where if you have a lot of data and you train a learning algorithm with lot of parameters, that might be a good way to give a high performance learning algorithm </p>
+<h2 id="The-Key-Test"><a href="#The-Key-Test" class="headerlink" title="The Key Test"></a>The Key Test</h2><p>and really, I think <strong>the key test</strong> that I often ask myself are <strong>first</strong>, can a human experts look at the features x and confidently predict the value of y. Because that’s sort of a certification that y can be predicted accurately from the features x and <strong>second</strong>, can we actually get a large training set, and train the learning algorithm with a lot of parameters in the training set and if you can’t do both then that’s more often give you a very kind performance learning algorithm.</p>
+<h1 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h1><h2 id="Prioritizing-What-to-Work-On-1"><a href="#Prioritizing-What-to-Work-On-1" class="headerlink" title="Prioritizing What to Work On"></a>Prioritizing What to Work On</h2><p>Different ways we can approach a machine learning problem: </p>
+<ul>
+<li>Collect lots of data (for example “honeypot” project but doesn’t always work) </li>
+<li>Develop sophisticated features (for example: using email header data in spam emails) </li>
+<li>Develop algorithms to process your input in different ways (recognizing misspellings in spam). </li>
+</ul>
+<p>It is difficult to tell which of the options will be helpful. </p>
+<h2 id="Error-Analysis-1"><a href="#Error-Analysis-1" class="headerlink" title="Error Analysis"></a>Error Analysis</h2><p>The recommended approach to solving machine learning problems is: </p>
+<ul>
+<li>Start with a simple algorithm, implement it quickly, and test it early. </li>
+<li>Plot learning curves to decide if more data, more features, etc. will help </li>
+<li>Error analysis: manually examine the errors on examples in the cross validation set and try to spot a trend. </li>
+</ul>
+<p>It’s important to get error results as a single, numerical value. Otherwise it is difficult to assess your algorithm’s performance.<br>You may need to process your input before it is useful. For example, if your input is a set of words, you may want to treat the same word with different forms (fail/failing/failed) as one word, so must use “stemming software” to recognize them all as one.</p>
+<h2 id="Error-Metrics-for-Skewed-Classes"><a href="#Error-Metrics-for-Skewed-Classes" class="headerlink" title="Error Metrics for Skewed Classes"></a>Error Metrics for Skewed Classes</h2><p>It is sometimes difficult to tell whether a reduction in error is actually an improvement of the algorithm. </p>
+<p>For example: In predicting a cancer diagnoses where 0.5% of the examples have cancer, we find our learning algorithm has a 1% error. However, if we were to simply classify every single example as a 0, then our error would reduce to 0.5% even though we did not improve the algorithm. </p>
+<p>This usually happens with <strong>skewed classes</strong> ; that is, when our class is very rare in the entire data set.<br>Or to say it another way, when we have lot more examples from one class than from the other class.<br>For this we can use <strong>Precision/Recall</strong> . </p>
+<ul>
+<li>Predicted: 1, Actual: 1 — True positive </li>
+<li>Predicted: 0, Actual: 0 — True negative </li>
+<li>Predicted: 0, Actual, 1 — False negative </li>
+<li>Predicted: 1, Actual: 0 — False positive </li>
+</ul>
+<p><strong>Precision</strong> : of all patients we predicted where y=1, what fraction actually has cancer?<br>$$\dfrac{\text{True Positives}}{\text{Total number of predicted positives}} = \dfrac{\text{True Positives}}{\text{True Positives}+\text{False positives}}$$<br><strong>Recall</strong> : Of all the patients that actually have cancer, what fraction did we correctly detect as having cancer?<br>$$\dfrac{\text{True Positives}}{\text{Total number of actual positives}}= \dfrac{\text{True Positives}}{\text{True Positives}+\text{False negatives}}$$<br>These two metrics give us a better sense of how our classifier is doing. We want both precision and recall to be high.<br>In the example at the beginning of the section, if we classify all patients as 0, then our <strong>recall</strong> will be $\dfrac{0}{0 + f} = 0$, so despite having a lower error percentage, we can quickly see it has worse recall.<br>Accuracy = $\frac {true\ positive + true\ negative} {total\ population}$<br>Note 1: if an algorithm predicts only negatives like it does in one of exercises, the precision is not defined, it is impossible to divide by 0. F1 score will not be defined too. </p>
+<h2 id="Trading-Off-Precision-and-Recall"><a href="#Trading-Off-Precision-and-Recall" class="headerlink" title="Trading Off Precision and Recall"></a>Trading Off Precision and Recall</h2><p>We might want a <strong>confident prediction</strong> of two classes using logistic regression. One way is to increase our threshold:<br>Predict 1 if: $h_\theta(x) \geq 0.7$<br>Predict 0 if: $h_\theta(x) &lt; 0.7$<br>This way, we only predict cancer if the patient has a 70% chance.<br>Doing this, we will have <strong>higher precision</strong> but <strong>but lower recall</strong>(refer to the definitions in the previous section).<br>In the opposite example, we can lower our threshold:<br>Predict 1 if: $h_\theta(x) \geq 0.3$<br>Predict 0 if: $h_\theta(x) &lt; 0.3$<br>That way, we get a very <strong>safe prediction</strong>. This will cause higher recall but lower precision .<br>The greater the threshold, the greater the precision and the lower the recall.<br>The lower the threshold, the greater the recall and the lower the precision.<br>In order to turn these two metrics into one single number, we can take the <strong>F value</strong> .<br>One way is to take the <strong>average</strong> :<br>$$\dfrac{P+R}{2}$$<br>This does not work well. If we predict all y=0 then that will bring the average up despite having 0 recall. If we predict all examples as y=1, then the very high recall will bring up the average despite having 0 precision.<br>A better way is to compute the F Score (or <strong>F1 score</strong>):<br>$$\text{F Score} = 2\dfrac{PR}{P + R}$$<br>In order for the F Score to be large, both precision and recall must be large.<br>We want to train precision and recall on <strong>the cross validation</strong> set so as not to bias our test set. </p>
+<h2 id="Data-for-Machine-Learning"><a href="#Data-for-Machine-Learning" class="headerlink" title="Data for Machine Learning"></a>Data for Machine Learning</h2><p>How much data should we train on?<br>In certain cases, an “inferior algorithm,” if given enough data, can outperform a superior algorithm with less data.<br>We must choose our features to have <strong>enough</strong> information. A useful test is: Given input x, would a human expert be able to confidently predict y?<br><strong>Rationale for large data</strong> : if we have a low bias algorithm (many features or hidden units making a very complex function), then the larger the training set we use, the less we will have overfitting (and the more accurate the algorithm will be on the test set). </p>
+<h2 id="Quiz-instructions"><a href="#Quiz-instructions" class="headerlink" title="Quiz instructions"></a>Quiz instructions</h2><p>When the quiz instructions tell you to enter a value to “two decimal digits”, what it really means is “two significant digits”. So, just for example, the value 0.0123 should be entered as “0.012”, not “0.01”.<br>References:<br><a href="https://class.coursera.org/ml/lecture/index" target="_blank" rel="noopener">https://class.coursera.org/ml/lecture/index</a><br><a href="http://www.cedar.buffalo.edu/~srihari/CSE555/Chap9.Part2.pdf" target="_blank" rel="noopener">http://www.cedar.buffalo.edu/~srihari/CSE555/Chap9.Part2.pdf</a><br><a href="http://blog.stephenpurpura.com/post/13052575854/managing-bias-variance-tradeoff-in-machine-learning" target="_blank" rel="noopener">http://blog.stephenpurpura.com/post/13052575854/managing-bias-variance-tradeoff-in-machine-learning</a><br><a href="http://www.cedar.buffalo.edu/~srihari/CSE574/Chap3/Bias-Variance.pdf" target="_blank" rel="noopener">http://www.cedar.buffalo.edu/~srihari/CSE574/Chap3/Bias-Variance.pdf</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>Donate comment here.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/01/10/10_advice-for-applying-machine-learning/" rel="prev" title="10_advice-for-applying-machine-learning note10">
+      <i class="fa fa-chevron-left"></i> 10_advice-for-applying-machine-learning note10
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/01/12/12_support-vector-machines/" rel="next" title="12_support-vector-machines note12">
+      12_support-vector-machines note12 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#01-building-a-spam-classifier"><span class="nav-number">2.</span> <span class="nav-text">01_building-a-spam-classifier</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prioritizing-What-to-Work-On"><span class="nav-number">2.1.</span> <span class="nav-text">Prioritizing What to Work On</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Analysis"><span class="nav-number">2.2.</span> <span class="nav-text">Error Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#02-handling-skewed-data"><span class="nav-number">3.</span> <span class="nav-text">02_handling-skewed-data</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-error-metrics-for-skewed-classes"><span class="nav-number">3.1.</span> <span class="nav-text">01_error-metrics-for-skewed-classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-trading-off-precision-and-recall"><span class="nav-number">3.2.</span> <span class="nav-text">02_trading-off-precision-and-recall</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#03-using-large-data-sets"><span class="nav-number">4.</span> <span class="nav-text">03_using-large-data-sets</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Michelle-Banko-and-Eric-Broule"><span class="nav-number">4.1.</span> <span class="nav-text">Michelle Banko and Eric Broule</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-features-x-have-sufficient-information"><span class="nav-number">4.2.</span> <span class="nav-text">the features x have sufficient information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#domain-knowledge"><span class="nav-number">4.3.</span> <span class="nav-text">domain knowledge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Large-data-rationale"><span class="nav-number">4.4.</span> <span class="nav-text">Large data rationale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Key-Test"><span class="nav-number">4.5.</span> <span class="nav-text">The Key Test</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#summary"><span class="nav-number">5.</span> <span class="nav-text">summary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prioritizing-What-to-Work-On-1"><span class="nav-number">5.1.</span> <span class="nav-text">Prioritizing What to Work On</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Analysis-1"><span class="nav-number">5.2.</span> <span class="nav-text">Error Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Metrics-for-Skewed-Classes"><span class="nav-number">5.3.</span> <span class="nav-text">Error Metrics for Skewed Classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trading-Off-Precision-and-Recall"><span class="nav-number">5.4.</span> <span class="nav-text">Trading Off Precision and Recall</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-for-Machine-Learning"><span class="nav-number">5.5.</span> <span class="nav-text">Data for Machine Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quiz-instructions"><span class="nav-number">5.6.</span> <span class="nav-text">Quiz instructions</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : '93e2c1c359f6474d1442e4573f7f1020',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

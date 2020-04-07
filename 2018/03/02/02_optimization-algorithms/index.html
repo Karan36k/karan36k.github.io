@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="NoteThis is my personal note at the first week after studying the course Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization and the copyright belongs to deeplearnin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="02_optimization-algorithms">
+<meta property="og:url" content="https://snakecoding.com/2018/03/02/02_optimization-algorithms/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="NoteThis is my personal note at the first week after studying the course Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization and the copyright belongs to deeplearnin">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/1.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/2.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/3.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/4.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/5.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/6.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/7.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/8.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/9.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/10.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/12.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/14.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/13.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/15.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/16.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/17.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/18.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/15.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/19.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/20.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/21.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/22.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/23.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/24.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/26.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/25.png">
+<meta property="article:published_time" content="2018-03-01T18:30:00.000Z">
+<meta property="article:modified_time" content="2020-04-06T14:55:19.462Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="deep learning">
+<meta property="article:tag" content="Improving Deep Neural Networks">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2018/03/02/02_optimization-algorithms/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>02_optimization-algorithms | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">60</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/03/02/02_optimization-algorithms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          02_optimization-algorithms
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-03-02 00:00:00" itemprop="dateCreated datePublished" datetime="2018-03-02T00:00:00+05:30">2018-03-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:19" itemprop="dateModified" datetime="2020-04-06T20:25:19+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note at the first week after studying the course <a href="https://www.coursera.org/learn/deep-neural-network/" target="_blank" rel="noopener">Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization</a> and the copyright belongs to <a href="https://www.deeplearning.ai/" target="_blank" rel="noopener">deeplearning.ai</a>.</p>
+<h2 id="01-mini-batch-gradient-descent"><a href="#01-mini-batch-gradient-descent" class="headerlink" title="01_mini-batch-gradient-descent"></a>01_mini-batch-gradient-descent</h2><p>Hello, and welcome back. In this week, you learn about optimization algorithms that will enable you to train your neural network much faster. You’ve heard me say before that applying machine learning is a highly empirical process, is highly iterative process. In which you just had to train a lot of models to find one that works really well. So, it really helps to really train models quickly. <strong>One thing that makes it more difficult is that Deep Learning does not work best in a regime of big data. We are able to train neural networks on a huge data set and training on a large data set is just slow.</strong> So, what you find is that having fast optimization algorithms, having good <strong>optimization algorithms</strong> can really speed up the efficiency of you and your team. So, let’s get started by talking about <strong>mini-batch gradient descent</strong>. </p>
+<p>You’ve learned previously that vectorization allows you to efficiently compute on all m examples, that allows you to process your whole training set without an explicit formula. That’s why we would take our training examples and stack them into these huge matrix capsule Xs. X1, X2, X3, and then eventually it goes up to X, M training samples. And similarly for Y this is Y1 and Y2, Y3 and so on up to YM. So, the dimension of X was an X by M and this was 1 by M. Vectorization allows you to process all M examples relatively quickly if M is very large then it can still be slow. For example what if M was 5 million or 50 million or even bigger. With the implementation of gradient descent on your whole training set, what you have to do is, you have to process your entire training set before you take one little step of gradient descent. And then you have to process your entire training sets of five million training samples again before you take another little step of gradient descent. So, it turns out that you can get a faster algorithm if you let gradient descent start to make some progress even before you finish processing your entire, your giant training sets of 5 million examples. In particular, here’s what you can do. Let’s say that you split up your training set into smaller, little baby training sets and these baby training sets are called <strong>mini-batches</strong>. </p>
+<p>And let’s say each of your baby training sets have just 1,000 examples each. So, you take X1 through X1,000 and you call that your first little baby training set, also call the mini-batch. And then you take home the next 1,000 examples. X1,001 through X2,000 and then X1,000 examples and come next one and so on. I’m going to introduce a new notation I’m going to call this X superscript with curly braces, 1 and I am going to call this, X superscript with curly braces, 2. Now, if you have 5 million training samples total and each of these little mini batches has a thousand examples, that means you have 5,000 of these because you know 5,000 times 1,000 equals 5 million. Altogether you would have 5,000 of these mini batches. So it ends with X superscript curly braces 5,000 and then similarly you do the same thing for Y. You would also split up your training data for Y accordingly. So, call that Y1 then this is Y1,001 through Y2,000. This is called, Y2 and so on until you have Y5,000.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/1.png" alt=""><br>Now, mini batch number T is going to be comprised of X, T and Y, T. And that is a thousand training samples with the corresponding input output pairs. Before moving on, just to make sure my notation is clear, we have previously used superscript round brackets I to index in the training set so X I, is the I training sample. We use superscript, square brackets L to index into the different layers of the neural network. So, ZL comes from the Z value, the L layer of the neural network and here we are introducing the curly brackets T to index into different mini batches. So, you have XT, YT and to check your understanding of these, what is the dimension of XT and YT? Well, X is an X by M. So, if X1 is a thousand training examples or the X values for a thousand examples, then this dimension should be MX by 1,000 and X2 should also be an X by 1,000 and so on. So, all of these should have dimension MX by 1,000 and these should have dimension 1 by 1,000. To explain the name of this algorithm, batch gradient descent, refers to the gradient descent algorithm we have been talking about previously. Where you process your entire training set all at the same time. And the name comes from viewing that as processing your entire batch of training samples all at the same time. I know it’s not a great name but that’s just what it’s called. Mini-batch gradient descent in contrast, refers to algorithm which we’ll talk about on the next slide and which you process is single mini batch XT, YT at the same time rather than processing your entire training set XY the same time. </p>
+<p><strong>So, let’s see how mini-batch gradient descent works</strong>. To run mini-batch gradient descent on your training sets you run for T equals 1 to 5,000 because we had 5,000 mini batches as high as 1,000 each. What are you going to do inside the for loop is basically implement one step of gradient descent using XT comma YT. It is as if you had a training set of size 1,000 examples and it was as if you were to implement the overall you are already familiar with but just on this little training set size of M equals 1,000 rather than having an explicit for loop over all 1,000 examples, you would use vectorization to process all 1,000 examples sort of all at the same time. Let us write this out first, you implemented for a prop on the inputs. So just on XT and you do that by implementing Z1 equals W1.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/2.png" alt=""><br>Previously, we would just have X there, right? But now you are processing the entire training set, you are just processing the first mini-batch so that it becomes XT when you’re processing mini-batch T. Then you will have A1 equals G1 of Z1, a capital Z since this is actually a vectorizing connotation and so on until you end up with AL, answer is GL of ZL and then this is your prediction. And you notice that here you should use a vectorized implementation. It’s just that this vectorized implementation processes 1,000 examples at a time rather than 5 million examples. Next you compute the cost function J which I’m going to write as one over 1,000 since here 1,000 is the size of your little training set. Sum from I equals one through L of really the loss of YI and this notation for clarity, refers to examples from the mini batch XT YT. And if you’re using regularization, you can also have this regularization term. Move it to the denominator times sum of L, Frobenius on the way makes it a square. Because this is really the cost on just one mini-batch, I’m going to index as cost J with a superscript T in curly braces. You notice that everything we are doing is exactly the same as when we were previously implementing gradient descent except that instead of doing it on XY, you’re not doing it on XT YT. Next, you implement that prop to compute gradients with respect to JT, you are still using only XT YT and then you update the weights W, read WL gets updated as WL minus alpha D WL and similarly for B. This is one pass through your training set using mini-batch gradient descent. The code I have written down here is also called doing <strong>one epoch of training</strong> and <strong>epoch is a word that means a single pass through the training set</strong>. Whereas with batch gradient descent, a single pass through the training allows you to take only one gradient descent step. With mini-batch gradient descent, a single pass through the training set, that is one epoch, allows you to take 5,000 gradient descent steps. </p>
+<p>Now of course you want to take multiple passes through the training set which you usually want to, you might want another for loop for another while loop out there. So you keep taking passes through the training set until hopefully you converge with approximately converge. </p>
+<p>When you have a lost training set, mini-batch gradient descent runs much faster than batch gradient descent and that’s pretty much what everyone in Deep Learning will use when you’re training on a large data set. In the next video, let’s delve deeper into mini-batch gradient descent so you can get a better understanding of what it is doing and why it works so.</p>
+<h2 id="02-understanding-mini-batch-gradient-descent"><a href="#02-understanding-mini-batch-gradient-descent" class="headerlink" title="02_understanding-mini-batch-gradient-descent"></a>02_understanding-mini-batch-gradient-descent</h2><p>In the previous video, you saw how you can use mini-batch gradient descent to start making progress and start taking gradient descent steps, even when you’re just partway through processing your training set even for the first time. <strong>In this video, you learn more details of how to implement gradient descent and gain a better understanding of what it’s doing and why it works</strong>. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/3.png" alt=""><br>With batch gradient descent on every iteration you go through the entire training set and you’d expect the cost to go down on every single iteration. So if we’ve had the cost function j as a function of different iterations it should decrease on every single iteration. And if it ever goes up even on iteration then something is wrong. Maybe you’re running ways to big. On mini batch gradient descent though, if you plot progress on your cost function, then it may not decrease on every iteration. In particular, on every iteration you’re processing some X{t}, Y{t} and so if you plot the cost function J{t}, which is computer using just X{t}, Y{t}. Then it’s as if on every iteration you’re training on a different training set or really training on a different mini batch. So you plot the cross function J, you’re more likely to see something that looks like this. It should trend downwards, but it’s also going to be <strong>a little bit noisier</strong>. So if you plot J{t}, as you’re training mini batch in descent it may be over multiple epochs, you might expect to see a curve like this. So it’s okay if it doesn’t go down on every derivation. But it should trend downwards, and the reason it’ll be a little bit noisy is that, maybe X{1}, Y{1} is just the rows of easy mini batch so your cost might be a bit lower, but then maybe just by chance, X{2}, Y{2} is just a harder mini batch. <strong>Maybe you needed some mislabeled examples in it, in which case the cost will be a bit higher and so on</strong>. So that’s why you get these oscillations as you plot the cost when you’re running mini batch gradient descent. </p>
+<p><strong>Now one of the parameters you need to choose is the size of your mini batch</strong>. So m was the training set size on one extreme, if the mini-batch size, = m, then you just end up with batch gradient descent. All right, so in this extreme you would just have one mini-batch X{1}, Y{1}, and this mini-batch is equal to your entire training set. So setting a mini-batch size m just gives you batch gradient descent. The other extreme would be if your mini-batch size, Were = 1. This gives you an algorithm called <strong>stochastic gradient descent</strong>. And here every example is its own mini-batch. So what you do in this case is you look at the first mini-batch, so X{1}, Y{1}, but when your mini-batch size is one, this just has your first training example, and you take gradient descent to sense that your first training example. And then you next take a look at your second mini-batch, which is just your second training example, and take your gradient descent step with that, and then you do it with the third training example and so on <strong>looking at just one single training sample at the time</strong>. </p>
+<p>So let’s look at what these two extremes will do on optimizing this cost function. If these are the contours of the cost function you’re trying to minimize so your minimum is there. <strong>Then batch gradient descent might start somewhere and be able to take relatively low noise, relatively large steps</strong>. And you could just keep matching to the minimum.(Tip: The blue line shows this situation on the following slide)<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/4.png" alt=""><br><strong>In contrast with stochastic gradient descent</strong>, If you start somewhere let’s pick a different starting point. Then on every iteration you’re taking gradient descent with just a single strain example so most of the time you hit around at the global minimum. But sometimes you hit in the wrong direction if that one example happens to point you in a bad direction. So <strong>stochastic gradient descent can be extremely noisy. And on average, it’ll take you in a good direction, but sometimes it’ll head in the wrong direction as well. As stochastic gradient descent won’t ever converge, it’ll always just kind of oscillate and wander around the region of the minimum</strong>. But it won’t ever just head to the minimum and stay there.(Tip: The purple line shows this situation on the following slide)  </p>
+<p>In practice, the mini-batch size you use will be somewhere in between. Somewhere between in 1 and m and 1 and m are respectively too small and too large. And here’s why. If you use batch grading descent, So this is your mini batch size equals m. Then you’re processing a huge training set on every iteration. So <strong>the main disadvantage of this is that it takes too much time too long per iteration assuming you have a very long training set. If you have a small training set then batch gradient descent is fine</strong>. If you go to the opposite, <strong>if you use stochastic gradient descent, Then it’s nice that you get to make progress after processing just tone example that’s actually not a problem. And the noisiness can be ameliorated or can be reduced by just using a smaller learning rate. But a huge disadvantage to stochastic gradient descent is that you lose almost all your speed up from vectorization. Because, here you’re processing a single training example at a time. The way you process each example is going to be very inefficient.</strong> </p>
+<p><strong>So what works best in practice is something in between where you have some, Mini-batch size not to big or too small</strong>. And this gives you in practice the fastest learning. And you notice that <strong>this has two good things going for it. One is that you do get a lot of vectorization</strong>. So in the example we used on the previous video, if your mini batch size was 1000 examples then, you might be able to vectorize across 1000 examples which is going to be much faster than processing the examples one at a time. <strong>And second, you can also make progress, Without needing to wait til you process the entire training set</strong>. So again using the numbers we have from the previous video, each epoco each part your training set allows you to see 5,000 gradient descent steps. So in practice they’ll be some in-between mini-batch size that works best. And so with mini-batch gradient descent we’ll start here, maybe one iteration does this, two iterations, three, four. And It’s not guaranteed to always head toward the minimum but it tends to head more consistently in direction of the minimum than the consequent descent. And then it doesn’t always exactly convert or oscillate in a very small region. If that’s an issue you can always reduce the learning rate slowly. We’ll talk more about learning rate decay or how to reduce the learning rate in a later video. </p>
+<p><strong>So if the mini-batch size should not be m and should not be 1 but should be something in between, how do you go about choosing it?</strong> Well, here are some guidelines. <strong>First</strong>, if you have a small training set, Just use batch gradient descent. If you have a small training set then no point using mini-batch gradient descent you can process a whole training set quite fast. So you might as well use batch gradient descent. What a small training set means, I would say if it’s less than maybe 2000 it’d be perfectly fine to just use batch gradient descent. <strong>Otherwise</strong>, if you have a bigger training set, typical mini batch sizes would be, Anything from 64 up to maybe 512 are quite typical. And <strong>because of the way computer memory is layed out and accessed, sometimes your code runs faster if your mini-batch size is a power of 2</strong>. All right, so 64 is 2 to the 6th, is 2 to the 7th, 2 to the 8, 2 to the 9, so often I’ll implement my mini-batch size to be a power of 2. I know that in a previous video I used a mini-batch size of 1000, if you really wanted to do that I would recommend you just use your 1024, which is 2 to the power of 10. And you do see mini batch sizes of size 1024, it is a bit more rare. This range of mini batch sizes(from 64 up to maybe 512), a little bit more common.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/5.png" alt=""><br><strong>One last tip is to make sure that your mini batch, All of your X{t}, Y{t} that that fits in CPU/GPU memory</strong>. And this really depends on your application and how large a single training sample is. But if you ever process a mini-batch that doesn’t actually fit in CPU, GPU memory, whether you’re using the process, the data. Then you find that the performance suddenly falls of a cliff and is suddenly much worse. So I hope this gives you a sense of the typical range of mini batch sizes that people use. <strong>In practice of course the mini batch size is another hyper parameter that you might do a quick search over to try to figure out which one is most sufficient of reducing the cost function j. So what i would do is just try several different values. Try a few different powers of two and then see if you can pick one that makes your gradient descent optimization algorithm as efficient as possible</strong>. But hopefully this gives you a set of guidelines for how to get started with that hyper parameter search. </p>
+<p>You now know how to implement mini-batch gradient descent and make your algorithm run much faster, especially when you’re training on a large training set. But it turns out there’re even more efficient algorithms than gradient descent or mini-batch gradient descent. Let’s start talking about them in the next few videos. </p>
+<h2 id="03-exponentially-weighted-averages"><a href="#03-exponentially-weighted-averages" class="headerlink" title="03_exponentially-weighted-averages"></a>03_exponentially-weighted-averages</h2><p>I want to show you a few optimization algorithms. They are faster than gradient descent. In order to understand those algorithms, you need to be able they use something called <strong>exponentially weighted averages</strong>. Also called <strong>exponentially weighted moving averages in statistics</strong>. Let’s first talk about that, and then we’ll use this to build up to more sophisticated optimization algorithms. </p>
+<p>So, even though I now live in the United States, I was born in London. So, for this example I got the daily temperature from London from last year. So, on January 1, temperature was 40 degrees Fahrenheit. Now, I know most of the world uses a Celsius system, but I guess I live in United States which uses Fahrenheit. So that’s four degrees Celsius. And on January 2, it was nine degrees Celsius and so on. And then about halfway through the year, a year has 365 days so, that would be, sometime day number 180 will be sometime in late May, I guess. It was 60 degrees Fahrenheit which is 15 degrees Celsius, and so on. So, it start to get warmer, towards summer and it was colder in January. So, you plot the data you end up with this.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/6.png" alt=""><br>Where day one being sometime in January, that you know, being the, beginning of summer, and that’s the end of the year, kind of late December. So, this would be January, January 1, is the middle of the year approaching summer, and this would be the data from the end of the year. </p>
+<p>So, <strong>this data looks a little bit noisy and if you want to compute the trends</strong>, the local average or a moving average of the temperature, here’s what you can do. Let’s initialize $V_0$ equals zero. And then, on every day, we’re going to average it with a weight of 0.9 times whatever appears as value, plus 0.1 times that day temperature. So, theta one here would be the temperature from the first day. And on the second day, we’re again going to take a weighted average. 0.9 times the previous value plus 0.1 times today’s temperature and so on. Day two plus 0.1 times theta three and so on. <strong>And the more general formula is V on a given day is 0.9 times V from the previous day, plus 0.1 times the temperature of that day</strong>. So, if you compute this and plot it in red, this is what you get. You get a moving average of what’s called an <strong>exponentially weighted average of the daily temperature</strong>.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/7.png" alt=""></p>
+<p>So, let’s look at the equation we had from the previous slide, it was $V_t$ equals, previously we had 0.9. We’ll now turn that to prime to $\beta$,  $\beta \times V_{t-1} $ plus and it previously, was 0.1, I’m going to turn that into one minus beta times theta T, so, previously you had beta equals 0.9. <strong>It turns out that for reasons we are going to later, when you compute this you can think of $V_t$ as approximately averaging over, something like one over one minus beta, day’s temperature ($\frac{1}{1-\beta}\text{  days}$)</strong>. So, for example when beta goes 0.9 you could think of this as averaging over the last 10 days temperature. And that was the red line.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/8.png" alt=""><br>Now, let’s try something else. Let’s set beta to be very close to one, let’s say it’s 0.98. <strong>Then, if you look at ${1\over 1 - 0.98}$, this is equal to 50. So, this is, you know, think of this as averaging over roughly, the last 50 days temperature. And if you plot that you get this green line</strong>. So, notice a couple of things with this very high value of beta. <strong>The plot you get is much smoother because you’re now averaging over more days of temperature.</strong> So, the curve is just, you know, <strong>less wavy</strong> is now smoother, <strong>but on the flip side the curve has now shifted further to the right because you’re now averaging over a much larger window of temperatures</strong>. And by averaging over a larger window, this formula, this exponentially weighted average formula. <strong>It adapts more slowly, when the temperature changes. So, there’s just a bit more latency. And the reason for that is when Beta 0.98 then it’s giving a lot of weight to the previous value and a much smaller weight just 0.02, to whatever you’re seeing right now. So, when the temperature changes, when temperature goes up or down, there’s exponentially weighted average. Just adapts more slowly when beta is so large</strong>. </p>
+<p>Now, let’s try another value. <strong>If you set beta to another extreme, let’s say it is 0.5, then this by the formula we have on the right. This is something like averaging over just two days temperature, and you plot that you get this yellow line</strong>. And by averaging only over two days temperature, you have a much, as if <strong>you’re averaging over much shorter window. So, you’re much more noisy, much more susceptible to outliers. But this adapts much more quickly to what the temperature changes</strong>. So, this formula is highly implemented, exponentially weighted average. Again, it’s called an exponentially weighted, moving average in the statistics literature. We’re going to call it exponentially weighted average for short and <strong>by varying this parameter or later we’ll see such a hyper parameter if you’re learning algorithm you can get slightly different effects</strong> and there will usually be some value in between that works best. That gives you the red curve which you know maybe looks like a beta average of the temperature than either the green or the yellow curve. </p>
+<p>You now know the basics of how to compute exponentially weighted averages. In the next video, let’s get a bit more intuition about what it’s doing.</p>
+<h2 id="04-understanding-exponentially-weighted-averages"><a href="#04-understanding-exponentially-weighted-averages" class="headerlink" title="04_understanding-exponentially-weighted-averages"></a>04_understanding-exponentially-weighted-averages</h2><p>In the last video, we talked about exponentially weighted averages. <strong>This will turn out to be a key component of several optimization algorithms that you used to train your neural networks. So, in this video, I want to delve a little bit deeper into intuitions for what this algorithm is really doing</strong>. </p>
+<p>Recall that this is a key equation for implementing exponentially weighted averages. And so, if beta equals 0.9 you got the red line. If it was much closer to one, if it was 0.98, you get the green line. And it it’s much smaller, maybe 0.5, you get the yellow line.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/9.png" alt=""><br>Let’s look a bit more than that to understand how this is computing averages of the daily temperature. So here’s that equation again, and <strong>let’s set beta equals 0.9</strong> and write out a few equations that this corresponds to. So whereas, when you’re implementing it you have T going from zero to one, to two to three, increasing values of T. To analyze it, I’ve written it with decreasing values of T. And this goes on.</p>
+$$v_{100} = 0.9v_{99}+0.1\theta_{100}\\v_{99} = 0.9v_{98}+0.1\theta_{99}\\v_{98} = 0.9v_{97}+0.1\theta_{98}\\ \ldots$$
+
+<p>So let’s take this first equation here, and understand what V100 really is. So V100 is going to be, let me reverse these two terms, it’s going to be 0.1 times theta 100, plus 0.9 times whatever the value was on the previous day. Now, but what is V99? Well, we’ll just plug it in from this equation. So this is just going to be 0.1 times theta 99, and again I’ve reversed these two terms, plus 0.9 times V98. But then what is V98? Well, you just get that from here. So you can just plug in here, 0.1 times theta 98, plus 0.9 times V97, and so on. And if you multiply all of these terms out, you can show that V100 is 0.1 times theta 100 plus. Now, let’s look at coefficient on theta 99, it’s going to be 0.1 times 0.9, times theta 99. Now, let’s look at the coefficient on theta 98, there’s a 0.1 here times 0.9, times 0.9. So if we expand out the Algebra, this become 0.1 times 0.9 squared, times theta 98. And, if you keep expanding this out, you find that this becomes 0.1 times 0.9 cubed, theta 97 plus 0.1, times 0.9 to the fourth, times theta 96, plus dot dot dot. </p>
+$$v_{100}=0.1\theta_{100}+0.9(0.1\theta_{99}+0.9(0.1\theta_{98}+0.9v_{97}))+\cdots\\=0.1\theta_{100}+0.1\times0.9\theta_{99}+0.1\times(0.9)^{2}\theta_{98}+0.1\times(0.9)^{3}\theta_{97}+\cdots$$
+
+<p>So this is really a way to sum and that’s a weighted average of theta 100, which is the current days temperature and we’re looking for a perspective of V100 which you calculate on the 100th day of the year. But those are sum of your theta 100, theta 99, theta 98, theta 97, theta 96, and so on. So one way to draw this in pictures would be if, let’s say we have some number of days of temperature. So this is theta and this is T.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/10.png" alt=""><br>So theta 100 will be sum value, then theta 99 will be sum value, theta 98, so these are, so this is T equals 100, 99, 98, and so on, ratio of sum number of days of temperature. And what we have is then <strong>an exponentially decaying function</strong>. So starting from 0.1 to 0.9, times 0.1 to 0.9 squared, times 0.1, to and so on. So you have this exponentially decaying function. And the way you compute V100, is you take the element wise product between these two functions and sum it up. So you take this value, theta 100 times 0.1, times this value of theta 99 times 0.1 times 0.9, that’s the second term and so on. </p>
+$$v_{100}=0.1\theta_{100}+0.9(0.1\theta_{99}+0.9(0.1\theta_{98}+0.9v_{97}))+\cdots\\=0.1\theta_{100}+0.1\times0.9\theta_{99}+0.1\times(0.9)^{2}\theta_{98}+0.1\times(0.9)^{3}\theta_{97}+\cdots$$
+
+<p><strong>So it’s really taking the daily temperature, multiply with this exponentially decaying function, and then summing it up</strong>. And this becomes your V100. It turns out that, up to details that are for later. But all of these coefficients, add up to one or add up to very close to one, up to a detail called <strong>bias correction</strong> which we’ll talk about in the next video. But because of that, this really is an exponentially weighted average. </p>
+<p><strong>And finally, you might wonder, how many days temperature is this averaging over</strong>. Well, it turns out that 0.9 to the power of 10, is about 0.35 and this turns out to be about one over E,$0.9^{10} \approx 0.35 \approx \frac{1}{\epsilon}$, one of the base of natural algorithms. And, more generally, if you have $1 - \epsilon$, so in this example, $\epsilon$ would be 0.1, so if this was 0.9, then one minus epsilon to the one over epsilon, $(1 - \epsilon)^\frac{1}{\epsilon} \approx {1\over e}\approx 0.34 \text{ or } 0.35$. And so, in other words, it takes about 10 days for the height of this to decay to around 1/3 already one over E of the peak. So it’s because of this, that when beta equals 0.9, we say that, this is as if you’re computing an exponentially weighted average that focuses on just the last 10 days temperature. <strong>Because it’s after 10 days that the weight decays to less than about a third of the weight of the current day</strong>. Whereas, in contrast, if beta was equal to 0.98, then, well, what do you need 0.98 to the power of in order for this to really small? Turns out that 0.98 to the power of 50 will be approximately equal to one over E, $0.98^{50} = \frac{1}{e}, \epsilon=0.02$. So the way to be pretty big will be bigger than one over E for the first 50 days, and then they’ll decay quite rapidly over that. So intuitively, this is the hard and fast thing, you can think of this as averaging over about 50 days temperature. Because, in this example, to use the notation here on the left, it’s as if epsilon is equal to 0.02, so one over epsilon is 50, $(1 - 0.02)^{\frac{1}{0.02}} = {1 \over e}$. And this, by the way, is how we got the formula, that we’re averaging over one minus beta or so days. Right here, epsilon replace a row of 1 minus beta. <strong>It tells you, up to some constant roughly how many days temperature you should think of this as averaging over. But this is just a rule of thumb for how to think about it, and it isn’t a formal mathematical statement</strong>. </p>
+<p>Finally, let’s talk about how you actually implement this. Recall that we start over V0 initialized as zero, then compute V one on the first day, V2, and so on. Now, to explain the algorithm, it was useful to write down V0, V1, V2, and so on as distinct variables. But if you’re implementing this in practice, this is what you do: you initialize V to be called to zero, and then on day one, you would set V equals beta, times V, plus one minus beta, times theta one. And then on the next day, you add update V, to be called to beta V, plus 1 minus beta, theta 2, and so on. And some of it uses notation V subscript theta to denote that V is computing this exponentially weighted average of the parameter theta. So just to say this again but for a new format, you set V theta equals zero, and then, repeatedly, have one each day, you would get next theta T, and then set to V, theta gets updated as beta, times the old value of V theta, plus one minus beta, times the current value of V theta.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/12.png" alt=""><br><strong>So one of the advantages of this exponentially weighted average formula, is that it takes very little memory. You just need to keep just one row number in computer memory, and you keep on overwriting it with this formula based on the latest values that you got</strong>. And it’s really this reason, the efficiency, it just takes up one line of code basically and just storage and memory for a single row number to compute this exponentially weighted average. <strong>It’s really not the best way, not the most accurate way to compute an average. If you were to compute a moving window, where you explicitly sum over the last 10 days, the last 50 days temperature and just divide by 10 or divide by 50, that usually gives you a better estimate. But the disadvantage of that, of explicitly keeping all the temperatures around and sum of the last 10 days is it requires more memory, and it’s just more complicated to implement and is computationally more expensive</strong>. So for things, we’ll see some examples on the next few videos, where you need to compute averages of a lot of variables. This is a very efficient way to do so both from computation and memory efficiency point of view which is why it’s used in a lot of machine learning. Not to mention that there’s just one line of code which is, maybe, another advantage. </p>
+<p>So, now, you know how to implement exponentially weighted averages. There’s one more technical detail that’s worth for you knowing about called bias correction. Let’s see that in the next video, and then after that, you will use this to build a better optimization algorithm than the straight forward create.</p>
+<h2 id="05-bias-correction-in-exponentially-weighted-averages"><a href="#05-bias-correction-in-exponentially-weighted-averages" class="headerlink" title="05_bias-correction-in-exponentially-weighted-averages"></a>05_bias-correction-in-exponentially-weighted-averages</h2><p>You’ve learned how to implement exponentially weighted averages. <strong>There’s one technical detail called biased correction that can make you computation of these averages more accurately</strong>. Let’s see how that works. </p>
+<p>In a previous video, you saw this figure for beta = 0.9. This figure for beta = 0.98. But it turns out that if you implement the formula as written here, you won’t actually get the green curve when, say, beta = 0.98. You actually get the purple curve here.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/14.png" alt=""><br>And <strong>you notice that the purple curve starts off really low</strong>. So let’s see how it affects that. When you’re implementing a moving average, you initialize it with v0 = 0, and then v1 = 0.98 V0 + 0.02 theta 1. But V0 is equal to 0 so that term just goes away. So V1 is just 0.02 times theta 1. So that’s why if the first day’s temperature is, say 40 degrees Fahrenheit, then v1 will be 0.02 times 40, which is 8. So you get a much lower value down here. <strong>So it’s not a very good estimate of the first day’s temperature</strong>. v2 will be 0.98 times v1 + 0.02 times theta 2. And if you plug in v1, which is this down here and multiply it out, then you find that v2 is actually equal to 0.98 times 0.02 times theta 1 + 0.02 times theta 2. And that 0.0 196 theta1 + 0.02 theta2. So again, assuming theta1 and theta2 are positive numbers, when you compute this v2 will be much less than theta1 or theta2. <strong>So v2 isn’t a very good estimate of the first two days’ temperature of the year.</strong></p>
+<p><strong>So it turns out that there is a way to modify this estimate that makes it much better, that makes it more accurate, especially during this initial phase of your estimate. Which is that, instead of taking $V_t$, take $V_t$ divided by 1- Beta to the power of t , ${V_t \over 1 - \beta^t}$, where t is the current data here on</strong>. So let’s take a concrete example. When t = 2, 1- beta to the power of t is 1- 0.98 squared and it urns out that this is 0.0396 $1-\beta^t=1-(0.98)^2 = 0.0396, \frac{V_2}{0.0396}=\frac{0.0196\theta_1+0.02\theta_2}{0.0396}$. And so your estimate of the tempature on day 2 becomes v2 divided by 0.0396 and this is going to be 0.0196 times theta 1 + 0.02 theta 2. You notice that these two things adds up to the denominator 0.03 and 6. And so this becomes a weighted average of theta 1 and theta 2 and this removes this bias.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/13.png" alt=""><br>So you notice that <strong>as t becomes large, beta to the t will approach 0 which is why when t is large enough, the bias correction makes almost no difference. This is why when t is large, the purple line and the green line pretty much overlap. But during this initial phase of learning when you’re still warming up your estimates when the bias correction can help you to obtain a better estimate of this temperature. And it is this bias correction that helps you go from the purple line to the green line.</strong></p>
+<p>So in machine learning, for most implementations of the exponential weighted average, people don’t often bother to implement bias corrections. Because most people would rather just wait that initial period and have a slightly more biased estimate and go from there. But if you are concerned about the bias during this initial phase, while your exponentially weighted moving average is still warming up. Then bias correction can help you get a better estimate early on. So you now know how to implement exponentially weighted moving averages. Let’s go on and use this to build some better optimization algorithms. </p>
+<h2 id="06-gradient-descent-with-momentum"><a href="#06-gradient-descent-with-momentum" class="headerlink" title="06_gradient-descent-with-momentum"></a>06_gradient-descent-with-momentum</h2><p>There’s an algorithm called momentum, or gradient descent with momentum that almost always works faster than the standard gradient descent algorithm. <strong>In one sentence, the basic idea is to compute an exponentially weighted average of your gradients, and then use that gradient to update your weights instead</strong>. In this video, let’s unpack that one sentence description and see how you can actually implement this. </p>
+<p>As a example let’s say that you’re trying to optimize a cost function which has contours like this. So the red dot denotes the position of the minimum. Maybe you start gradient descent here<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/15.png" alt=""><br>and if you take one iteration of gradient descent either or descent maybe end up -heading there. But now you’re on the other side of this ellipse, and if you take another step of gradient descent maybe you end up doing that. And then another step, another step, and so on. And you see that gradient descents will sort of take a lot of steps, right? Just slowly oscillate toward the minimum. And this up and down oscillations slows down gradient descent and prevents you from using a much larger learning rate (just like the blue line above the slide). In particular, if you were to use a much larger learning rate you might end up over shooting and end up diverging like so. And so the need to prevent the oscillations from getting too big forces you to use a learning rate that’s not itself too large. <strong>Another way of viewing this problem is that on the vertical axis you want your learning to be a bit slower, because you don’t want those oscillations. But on the horizontal axis, you want faster learning. Right, because you want it to aggressively move from left to right, toward that minimum, toward that red dot</strong>. </p>
+<p>So here’s what you can do if you implement gradient descent with momentum. On each iteration, or more specifically, during iteration t you would compute the usual derivatives dw, db. I’ll omit the superscript square bracket l’s but you compute dw, db on the current mini-batch. And if you’re using batch gradient descent, then the current mini-batch would be just your whole batch. And this works as well off a batch gradient descent. So if your current mini-batch is your entire training set, this works fine as well. And then what you do is you compute vdW to be Beta vdw plus 1 minus Beta dW. So this is similar to when we’re previously computing the theta equals beta v theta plus 1 minus beta theta t. Right, so <strong>it’s computing a moving average of the derivatives for w you’re getting</strong>. And then you similarly compute vdb equals that plus 1 minus Beta times db. And then you would update your weights using W gets updated as W minus the learning rate times, instead of updating it with dW, with the derivative, you update it with vdW. And similarly, b gets updated as b minus alpha times vdb. <strong>So what this does is smooth out the steps of gradient descent</strong>. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/16.png" alt=""><br>For example, let’s say that in the last few derivatives you computed were this, this, this, this, this. <strong>If you average out these gradients, you find that the oscillations in the vertical direction will tend to average out to something closer to zero. So, in the vertical direction, where you want to slow things down, this will average out positive and negative numbers, so the average will be close to zero. Whereas, on the horizontal direction, all the derivatives are pointing to the right of the horizontal direction, so the average in the horizontal direction will still be pretty big</strong>. So that’s why with this algorithm, with a few iterations you find that the gradient descent with momentum ends up eventually just taking steps that are much smaller oscillations in the vertical direction, but are more directed to just moving quickly in the horizontal direction. And <strong>so this allows your algorithm to take a more straightforward path, or to damp out the oscillations in this path to the minimum (jsut like the red line on the above slide)</strong>. </p>
+<p><strong>One intuition for this momentum which works for some people</strong>, but not everyone is that if you’re trying to minimize your bowl shape function, right? This is really the contours of a bowl. I guess I’m not very good at drawing.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/17.png" alt=""><br>They kind of minimize this type of bowl shaped function then these derivative terms you can think of as providing <strong>acceleration</strong> to a ball that you’re rolling down hill. And these momentum terms you can think of as representing the <strong>velocity</strong>. And so imagine that you have a bowl, and you take a ball and the derivative imparts acceleration to this little ball as the little ball is rolling down this hill, right? And so it rolls faster and faster, because of acceleration. And Beta, because this number a little bit less than one, displays a row of <strong>friction</strong> and it prevents your ball from speeding up without limit. <strong>But so rather than gradient descent, just taking every single step independently of all previous steps. Now, your little ball can roll downhill and gain momentum, but it can accelerate down this bowl and therefore gain momentum</strong>. I find that this ball rolling down a bowl analogy, it seems to work for some people who enjoy physics intuitions. But it doesn’t work for everyone, so if this analogy of a ball rolling down the bowl doesn’t work for you, don’t worry about it. </p>
+<p>Finally, let’s look at some details on how you implement this. Here’s the algorithm and <strong>so you now have two hyperparameters of the learning rate alpha, as well as this parameter Beta, which controls your exponentially weighted average</strong>. The most common value for Beta is 0.9. We’re averaging over the last ten days temperature. So it is averaging of the last ten iteration’s gradients. And in practice, Beta equals 0.9 works very well. <strong>Feel free to try different values and do some hyperparameter search, but 0.9 appears to be a pretty robust value</strong>. Well, and <strong>how about bias correction</strong>, right? So do you want to take vdW and vdb and divide it by 1 minus beta to the t. <strong>In practice, people don’t usually do this because after just ten iterations, your moving average will have warmed up and is no longer a bias estimate. So in practice, I don’t really see people bothering with bias correction when implementing gradient descent or momentum.</strong><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/18.png" alt=""><br>And of course this process initialize the $v_{dW}$ equals 0. Note that this is a matrix of zeroes with the same dimension as dW, which has the same dimension as $W$. And $Vdb$ is also initialized to a vector of zeroes. So, the same dimension as db, which in turn has same dimension as b. Finally, I just want to mention that if you read the literature on gradient descent with momentum often you see it with this term, $(1- \beta)$, omitted, with this 1 minus Beta term omitted. So you end up with $v_{dW} = \beta v_{dW}+ dW$. <strong>And the net effect of using this version in purple is that $vdW$ ends up being scaled by a factor of $1-\beta$, or really ${1 \over 1-\beta}$. And so when you’re performing these gradient descent updates, $\alpha$ just needs to change by a corresponding value of ${1 \over 1-\beta}$. In practice, both of these will work just fine, it just affects what’s the best value of the learning rate $\alpha$. But I find that this particular formulation is a little less intuitive. Because one impact of this is that if you end up tuning the hyperparameter Beta, then this affects the scaling of $vdW$ and $vdb$ as well. And so you end up needing to retune the learning rate, $alpha$, as well, maybe. So I personally prefer the formulation that I have written here on the left, rather than leaving out the $1-\beta$ term. But, so I tend to use the formula on the left, the printed formula with the $1-\beta$ term. But both versions having Beta equal 0.9 is a common choice of hyper parameter.</strong> It’s just at alpha the learning rate would need to be tuned differently for these two different versions. </p>
+<p>So that’s it for gradient descent with momentum. This will <strong>almost always</strong> work better than the straightforward gradient descent algorithm without momentum. But there’s still other things we could do to speed up your learning algorithm. Let’s continue talking about these in the next couple videos. </p>
+<h2 id="07-rmsprop"><a href="#07-rmsprop" class="headerlink" title="07_rmsprop"></a>07_rmsprop</h2><p>You’ve seen how using momentum can speed up gradient descent. There’s another algorithm called <strong>RMSprop</strong>, which stands for <strong>root mean square prop</strong>, that can also speed up gradient descent. Let’s see how it works. </p>
+<p>Recall our example from before, that if you implement gradient descent, you can end up with huge oscillations in the vertical direction, even while it’s trying to make progress in the horizontal direction.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/15.png" alt=""><br><strong>In order to provide intuition for this example, let’s say that the vertical axis is the parameter b and horizontal axis is the parameter w</strong>. It could be w1 and w2 where some of the center parameters was named as b and w for the sake of intuition. <strong>And so, you want to slow down the learning in the b direction, or in the vertical direction. And speed up learning, or at least not slow it down in the horizontal direction. So this is what the RMSprop algorithm does to accomplish this</strong>. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/19.png" alt=""></p>
+
+$$
+\begin{align*}
+\text{Compute dW, db on current mini-batch : }\\
+SdW &= \beta SdW + (1 - \beta)(dW)^2 \\
+Sdb &= \beta Sdb + (1 - \beta)(db)^2 \\
+W &:= W - \alpha \frac{dW}{\sqrt{SdW + \epsilon}} \\
+b &:= b - \alpha \frac{db}{\sqrt{Sdb + \epsilon}}
+\end{align*}
+$$
+
+
+<p>On iteration t, it will compute as usual the derivative dW, db on the current mini-batch. So I was going to keep this exponentially weighted average. Instead of $VdW$, I’m going to use the new notation $SdW$. So $SdW$ is equal to beta times their previous value + 1- beta times dW squared , $SdW = \beta SdW + (1-\beta) (dW)^2$. Sometimes write this $dW ^ 2$ to explain exponenation. So for clarity, this squaring operation is an element-wise squaring operation. <strong>So what this is doing is really keeping an exponentially weighted average of the squares of the derivatives</strong>. And similarly, we also have $Sdb = \beta Sdb + 1 - \beta (db)^2$. And again, <strong>the squaring is an element-wise operation</strong>. <strong>Next, RMSprop then updates the parameters as follows</strong>. W gets updated as W minus the learning rate, and whereas previously we had alpha times dW, now it’s dW divided by square root of SdW. And b gets updated as b minus the learning rate times, instead of just the gradient, this is also divided by, now divided by Sdb.</p>
+<p>So let’s <strong>gain some intuition</strong> about how this works. Recall that <strong>in the horizontal direction or in this example, in the W direction we want learning to go pretty fast. Whereas in the vertical direction or in this example in the b direction, we want to slow down all the oscillations into the vertical direction. So with this terms SdW an Sdb, what we’re hoping is that SdW will be relatively small, so that here we’re dividing by relatively small number. Whereas Sdb will be relatively large, so that here we’re dividing yt relatively large number in order to slow down the updates on a vertical dimension</strong>. And indeed if you look at the derivatives, <strong>these derivatives are much larger in the vertical direction than in the horizontal direction</strong>. So the slope is very large in the b direction, right? So with derivatives like this, this is a very large db and a relatively small dw. <strong>Because the function is sloped much more steeply in the vertical direction than as in the horizontal direction</strong>, than in the w direction, than in b direction. </p>
+<p><strong>And so, db squared will be relatively large. So Sdb will relatively large, whereas compared to that dW will be smaller, or dW squared will be smaller, and so SdW will be smaller</strong>. So the net effect of this is that your updates in the vertical direction are divided by a much larger number, and so that helps damp out the oscillations. Whereas the updates in the horizontal direction are divided by a smaller number. <strong>So the net impact of using RMSprop is that your updates will end up looking more like this. That your updates in the, Vertical direction and then horizontal direction you can keep going. And one effect of this is also that you can therefore use a larger learning rate alpha, and get faster learning without diverging in the vertical direction</strong>. </p>
+<p><strong>Now just for the sake of clarity, I’ve been calling the vertical and horizontal directions b and w, just to illustrate this</strong>. In practice, you’re in a very high dimensional space of parameters, so maybe the vertical dimensions where you’re trying to damp the oscillation is a sum set of parameters, w1, w2, w17. And the horizontal dimensions might be w3, w4 and so on, right?. And so, the separation there’s a W and b is just an illustration. <strong>In practice, dW is a very high-dimensional parameter vector. db is also very high-dimensional parameter vector, but your intuition is that in dimensions where you’re getting these oscillations, you end up computing a larger sum. A weighted average for these squares and derivatives, and so you end up dumping out the directions in which there are these oscillations.</strong> </p>
+<p>So that’s RMSprop, and it stands for root mean squared prop, because here you’re squaring the derivatives, and then you take the square root here at the end. </p>
+<p>So finally, just a couple last details on this algorithm before we move on. <strong>In the next video, we’re actually going to combine RMSprop together with momentum. So rather than using the hyperparameter beta, which we had used for momentum, I’m going to call this hyperparameter beta 2 just to not clash the same hyperparameter for both momentum and for RMSprop</strong>. </p>
+<p><strong>And also to make sure that your algorithm doesn’t divide by 0. What if square root of SdW, right, is very close to 0. Then things could blow up. Just to ensure numerical stability, when you implement this in practice you add a very, very small epsilon to the denominator. It doesn’t really matter what epsilon is used. 10 to the -8 would be a reasonable default, but this just ensures slightly greater numerical stability that for numerical round off or whatever reason, that you don’t end up dividing by a very, very small number</strong>. </p>
+<p><strong>So that’s RMSprop, and similar to momentum, has the effects of damping out the oscillations in gradient descent, in mini-batch gradient descent. And allowing you to maybe use a larger learning rate alpha. And certainly speeding up the learning speed of your algorithm</strong>. </p>
+<p>So now you know to implement RMSprop, and this will be another way for you to speed up your learning algorithm. One fun fact about RMSprop, it was actually first proposed not in an academic research paper, but in a Coursera course that Jeff Hinton had taught on Coursera many years ago. I guess Coursera wasn’t intended to be a platform for dissemination of novel academic research, but it worked out pretty well in that case. And was really from the Coursera course that RMSprop started to become widely known and it really took off. We talked about momentum. We talked about RMSprop. It turns out that if you put them together you can get an even better optimization algorithm. Let’s talk about that in the next video. </p>
+<h2 id="08-adam-optimization-algorithm"><a href="#08-adam-optimization-algorithm" class="headerlink" title="08_adam-optimization-algorithm"></a>08_adam-optimization-algorithm</h2><p><strong>During the history of deep learning, many researchers including some very well-known researchers, sometimes proposed optimization algorithms and showed that they worked well in a few problems. But those optimization algorithms subsequently were shown not to really generalize that well to the wide range of neural networks you might want to train</strong>. So over time, I think the deep learning community actually developed some amount of skepticism about new optimization algorithms. <strong>And a lot of people felt that gradient descent with momentum really works well, was difficult to propose things that work much better. So, rms prop and the Adam optimization algorithm, which we’ll talk about in this video, is one of those rare algorithms that has really stood up, and has been shown to work well across a wide range of deep learning architectures So, this is one of the algorithms that I wouldn’t hesitate to recommend you try because many people have tried it and seen it work well on many problems. And the Adam optimization algorithm is basically taking momentum and rms prop and putting them together</strong>. So, let’s see how that works. </p>
+<ol>
+<li>initialization: $V_{dw} = 0, S_{dw}=0, V_{db}=0, S_{db} = 0$</li>
+<li>on the t iteration:<br> Compute dw，db on the current mini-batch:<ul>
+<li>Momentum: $V_{dw}=\beta_{1}V_{dw}+(1-\beta_{1})dw, V_{db}=\beta_{1}V_{db}+(1-\beta_{1})db$</li>
+<li>RMSprop: $S_{dw}=\beta_{2}S_{dw}+(1-\beta_{2})(dw)^{2},S_{db}=\beta_{2}S_{db}+(1-\beta_{2})(db)^{2}$</li>
+<li>bias correction: $V_{dw}^{corrected} = V_{dw}/(1-\beta_{1}^{t}),V_{db}^{corrected} = V_{db}/(1-\beta_{1}^{t})$ </li>
+<li>bias correction: $S_{dw}^{corrected} = S_{dw}/(1-\beta_{2}^{t}),S_{db}^{corrected} = S_{db}/(1-\beta_{2}^{t})$</li>
+<li>update parameters: $w:=w-\alpha\dfrac{V_{dw}^{corrected}}{\sqrt{S_{dw}^{corrected}}+\varepsilon},b:=b-\alpha\dfrac{V_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\varepsilon}$ </li>
+</ul>
+</li>
+</ol>
+<p>To implement Adam you would initialize: Vdw=0, Sdw=0, and similarly Vdb, Sdb=0. And then on iteration T, you would compute the derivatives: compute dw, db using current mini-batch. So usually, you do this with mini-batch gradient descent. And then you do the momentum exponentially weighted average. So Vdw = ß. But now I’m going to this ß1 to distinguish it from the hyper parameter ß2 we’ll use for the rms prop proportion of this. So, this is exactly what we had when we’re implementing momentum except it now called hyper parameter ß1 instead of ß. And similarly, you have VDB as follows: 1 - ß1 x db. And then you do the rms prop update as well. So now, you have a different hyperparemeter ß2 plus one minus ß2 dw². And again, the squaring there is element y squaring of your derivatives dw. And then sdb is equal to this plus one minus ß2 times db. So this is the momentum like update with hyper parameter ß1 and this is the rms prop like update with hyper parameter ß2. In the typical implementation of Adam, you do implement bias correction. So you’re going to have v corrected. Corrected means after bias correction. Dw = vdw divided by 1 minus ß1 to the power of T if you’ve done T iterations. And similarly, vdb corrected equals vdb divided by 1 minus ß1 to the power of T. And then similarly, you implement this bias correction on S as well. So, that’s sdw divided by one minus ß2 to the T and sdb corrected equals sdb divided by 1 minus ß2 to the T. Finally, you perform the update. So W gets updated as W minus alpha times. So if you’re just implementing momentum you’d use vdw, vw or maybe vdw corrected. But now, we add in the rms prop portion of this. So we’re also going to divide by square roots of sdw corrected plus epsilon. And similarly, B gets updated as a similar formula, vdb corrected, divided by square root S, corrected, db, plus epsilon. <strong>And so, this algorithm combines the effect of gradient descent with momentum together with gradient descent with rms prop. And this is a commonly used learning algorithm that is proven to be very effective for many different neural networks of a very wide variety of architectures</strong>. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/20.png" alt=""></p>
+<p>So, this algorithm has a number of hyper parameters. The learning with hyper parameter alpha is still important and usually needs to be tuned. So you just have to try a range of values and see what works. A common choice really the default choice for ß1 is 0.9. So this is a moving average, weighted average of dw right this is the momentum light term. The hyper parameter for ß2, the authors of the Adam paper, inventors of the Adam algorithm recommend 0.999. Again this is computing the moving weighted average of dw2 as well as db squares. And then Epsilon, the choice of epsilon doesn’t matter very much. But the authors of the Adam paper recommended it 10 to the minus 8. But this parameter you really don’t need to set it and it doesn’t affect performance much at all. But when implementing Adam, what people usually do is just use the default value. So, ß1 and ß2 as well as epsilon. <strong>I don’t think anyone ever really tunes $\epsilon$. And then, try a range of values of $\alpha$ to see what works best. You could also tune $\beta_1$ and $\beta_2$ but it’s not done that often among the practitioners I know.</strong></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/21.png" alt=""><br>So, where does the term ‘Adam’ come from? <strong>Adam stands for Adaptive Moment Estimation</strong>. So ß1 is computing the mean of the derivatives. This is called the first moment. And ß2 is used to compute exponentially weighted average of the ²s and that’s called the second moment. So that gives rise to the name adaptive moment estimation. But everyone just calls it the Adam authorization algorithm. And, by the way, one of my long term friends and collaborators is call Adam Coates. As far as I know, this algorithm doesn’t have anything to do with him, except for the fact that I think he uses it sometimes. But sometimes I get asked that question, so just in case you’re wondering. </p>
+<p>So, that’s it for the Adam optimization algorithm. With it, I think you will be able to train your neural networks much more quickly. But before we wrap up for this week, let’s keep talking about hyper parameter tuning, as well as gain some more intuitions about what the optimization problem for neural networks looks like. In the next video, we’ll talk about learning rate decay.</p>
+<h2 id="09-learning-rate-decay"><a href="#09-learning-rate-decay" class="headerlink" title="09_learning-rate-decay"></a>09_learning-rate-decay</h2><p>One of the things that might help speed up your learning algorithm, is to <strong>slowly reduce your learning rate over time</strong>. We call this learning rate decay. </p>
+<p>Let’s see how you can implement this. Let’s start with an example of why you might want to implement learning rate decay. Suppose you’re implementing mini-batch gradient descent, with a reasonably small mini-batch. Maybe a mini-batch has just 64, 128 examples. Then as you iterate, your steps will be a little bit noisy. And it will tend towards this minimum over here, but it won’t exactly converge. But your algorithm might just end up wandering around, and never really converge, because you’re using some fixed value for alpha. And there’s just some noise in your different mini-batches.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/22.png" alt=""><br>But if you were to slowly reduce your learning rate alpha, then during the initial phases, while your learning rate alpha is still large, you can still have relatively fast learning. But then as alpha gets smaller, your steps you take will be slower and smaller. And so you end up oscillating in a tighter region around this minimum, rather than wandering far away, even as training goes on and on. So the intuition behind slowly reducing alpha, is that maybe during the initial steps of learning, you could afford to take much bigger steps. But then as learning approaches converges, then having a slower learning rate allows you to take smaller steps. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/23.png" alt=""><br>So here’s how you can implement learning rate decay. Recall that one epoch is one pass, Through the data, right? So if you have a training set as follows, maybe you break it up into different mini-batches. Then the first pass through the training set is called the first epoch, and then the second pass is the second epoch, and so on. So one thing you could do, is set your learning rate alpha = 1 / 1 + a parameter, which I’m going to call the decay rate, Times the epoch-num. And this is going to be times some initial learning rate alpha 0. Note that the decay rate here becomes another hyper-parameter, which you might need to tune. So here’s a concrete example. If you take several epochs, so several passes through your data. If alpha 0 = 0.2, and the decay-rate = 1, then during your first epoch, alpha will be 1 / 1 + 1 * alpha 0. So your learning rate will be 0.1. That’s just evaluating this formula, when the decay-rate is equal to 1, and the the epoch-num is 1. On the second epoch, your learning rate decays to 0.67. On the third, 0.5, on the fourth, 0.4, and so on. And feel free to evaluate more of these values yourself. And get a sense that, as a function of your epoch number, your learning rate gradually decreases, right, according to this formula up on top. So if you wish to use learning rate decay, what you can do, is try a variety of values of both hyper-parameter alpha 0. As well as this decay rate hyper-parameter, and then try to find the value that works well. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/24.png" alt=""><br>Other than this formula for learning rate decay, <strong>there are a few other ways</strong> that people use. For example, this is called <strong>exponential decay</strong>. Where alpha is equal to some number less than 1, such as 0.95 times epoch-num, times alpha 0. So this will exponentially quickly decay your learning rate. Other formulas that people use are things like alpha = some constant / epoch-num square root times alpha 0. Or some constant k, another hyper-parameter, over the mini-batch number t, square rooted, times alpha 0. And sometimes you also see people use a learning rate that decreases in discrete steps. Wherefore some number of steps, you have some learning rate, and then after a while you decrease it by one half. After a while by one half. After a while by one half. And so this is a discrete staircase. So so far, we’ve talked about using some formula to govern how alpha, the learning rate, changes over time. One other thing that people sometimes do, is manual decay. And so if you’re training just one model at a time, and if your model takes many hours, or even many days to train. What some people will do, is just watch your model as it’s training over a large number of days. And then manually say, it looks like the learning rate slowed down, I’m going to decrease alpha a little bit. Of course this works, this manually controlling alpha, really tuning alpha by hand, hour by hour, or day by day. This works only if you’re training only a small number of models, but sometimes people do that as well. </p>
+<p>So now you have a few more options for how to control the learning rate alpha. Now, in case you’re thinking, wow, this is a lot of hyper-parameters. How do I select amongst all these different options? I would say, don’t worry about it for now. <strong>In next week, we’ll talk more about how to systematically choose hyper-parameters</strong>. <strong>For me, I would say that learning rate decay is usually lower down on the list of things I try. Setting alpha, just a fixed value of alpha, and getting that to be well tuned, has a huge impact</strong>. Learning rate decay does help. Sometimes it can really help speed up training, but it is a little bit lower down my list in terms of the things I would try. <strong>But next week, when we talk about hyper-parameter tuning, you see more systematic ways to organize all of these hyper-parameters. And how to efficiently search amongst them</strong>. So that’s it for learning rate decay. </p>
+<p>Finally, I was also going to talk a little bit about local optima, and saddle points, in neural networks. So you can have a little bit better intuition about the types of optimization problems your optimization algorithm is trying to solve, when you’re trying to train these neural networks. Let’s go on to the next video to see that. </p>
+<h2 id="10-the-problem-of-local-optima"><a href="#10-the-problem-of-local-optima" class="headerlink" title="10_the-problem-of-local-optima"></a>10_the-problem-of-local-optima</h2><p>In the early days of deep learning, people used to worry a lot about the optimization algorithm getting stuck in bad local optima. But as this theory of deep learning has advanced, our understanding of local optima is also changing. Let me show you how we now think about local optima and problems in the optimization problem in deep learning. </p>
+<p>This was a picture people used to have in mind when they worried about local optima. Maybe you are trying to optimize some set of parameters, we call them W1 and W2, and the height in the surface is the cost function.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/26.png" alt=""><br>In this picture, it looks like there are a lot of local optima in all those places. And it’d be easy for grading the sense, or one of the other algorithms to get stuck in a local optimum rather than find its way to a global optimum. It turns out that if you are plotting a figure like this in two dimensions, then it’s easy to create plots like this with a lot of different local optima. And these very low dimensional plots used to guide their intuition. But this intuition isn’t actually correct. <strong>It turns out if you create a neural network, most points of zero gradients are not local optima like points like this. Instead most points of zero gradient in a cost function are saddle points</strong>. So, that’s a point where the zero gradient, again, just is maybe W1, W2, and the height is the value of the cost function J. </p>
+<p><strong>But informally, a function of very high dimensional space, if the gradient is zero, then in each direction it can either be a convex light function or a concave light function</strong>. And if you are in, say, a 20,000 dimensional space, then for it to be a local optima, all 20,000 directions need to look like this. <strong>And so the chance of that happening is maybe very small, maybe two to the minus 20,000. Instead you’re much more likely to get some directions where the curve bends up like so, as well as some directions where the curve function is bending down rather than have them all bend upwards. So that’s why in very high-dimensional spaces you’re actually much more likely to run into a saddle point like that shown on the right, than the local optimum.</strong> </p>
+<p>As for why the surface is called a saddle point, if you can picture, maybe this is a sort of saddle you put on a horse, right? Maybe this is a horse. This is a head of a horse, this is the eye of a horse. Well, not a good drawing of a horse but you get the idea. Then you, the rider, will sit here in the saddle.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/02_optimization-algorithms/25.png" alt=""><br>That’s why this point here, where the derivative is zero, that point is called a saddle point. There’s really the point on this saddle where you would sit, I guess, and that happens to have derivative zero. And so, <strong>one of the lessons we learned in history of deep learning is that a lot of our intuitions about low-dimensional spaces, like what you can plot on the left, they really don’t transfer to the very high-dimensional spaces that any other algorithms are operating over. Because if you have 20,000 parameters, then J as your function over 20,000 dimensional vector, then you’re much more likely to see saddle points than local optimum</strong>. </p>
+<p>If local optima aren’t a problem, then what is a problem? It turns out that plateaus can really slow down learning and a plateau is a region where the derivative is close to zero for a long time. So if you’re here, then gradient descents will move down the surface, and because the gradient is zero or near zero, the surface is quite flat. You can actually take a very long time, you know, to slowly find your way to maybe this point on the plateau. And then because of a random perturbation of left or right, maybe then finally I’m going to search pen colors for clarity. Your algorithm can then find its way off the plateau. Let it take this very long slope off before it’s found its way here and they could get off this plateau. So the takeaways from this video are, first, you’re actually pretty unlikely to get stuck in bad local optima so long as you’re training a reasonably large neural network, save a lot of parameters, and the cost function J is defined over a relatively high dimensional space. But second, that plateaus are a problem and you can actually make learning pretty slow. And this is where algorithms like momentum or RmsProp or Adam can really help your learning algorithm as well. And these are scenarios where more sophisticated observation algorithms, such as Adam, can actually speed up the rate at which you could move down the plateau and then get off the plateau. </p>
+<p><strong>So because your network is solving optimizations problems over such high dimensional spaces, to be honest, I don’t think anyone has great intuitions about what these spaces really look like, and our understanding of them is still evolving. But I hope this gives you some better intuition about the challenges that the optimization algorithms may face</strong>. </p>
+<p>So that’s congratulations on coming to the end of this week’s content. Please take a look at this week’s quiz as well as the [inaudible] exercise. I hope you enjoy practicing some of these ideas of this week [inaudible] exercise and I look forward to seeing you at the start of next week’s videos.</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>Donate comment here.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/deep-learning/" rel="tag"><i class="fa fa-tag"></i> deep learning</a>
+              <a href="/tags/Improving-Deep-Neural-Networks/" rel="tag"><i class="fa fa-tag"></i> Improving Deep Neural Networks</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/03/02/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/" rel="prev" title="03_hyperparameter-tuning-batch-normalization-and-programming-frameworks">
+      <i class="fa fa-chevron-left"></i> 03_hyperparameter-tuning-batch-normalization-and-programming-frameworks
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/04/01/01_ml-strategy-1/" rel="next" title="01_ml-strategy-1">
+      01_ml-strategy-1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#01-mini-batch-gradient-descent"><span class="nav-number">2.</span> <span class="nav-text">01_mini-batch-gradient-descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-understanding-mini-batch-gradient-descent"><span class="nav-number">3.</span> <span class="nav-text">02_understanding-mini-batch-gradient-descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-exponentially-weighted-averages"><span class="nav-number">4.</span> <span class="nav-text">03_exponentially-weighted-averages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-understanding-exponentially-weighted-averages"><span class="nav-number">5.</span> <span class="nav-text">04_understanding-exponentially-weighted-averages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-bias-correction-in-exponentially-weighted-averages"><span class="nav-number">6.</span> <span class="nav-text">05_bias-correction-in-exponentially-weighted-averages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-gradient-descent-with-momentum"><span class="nav-number">7.</span> <span class="nav-text">06_gradient-descent-with-momentum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#07-rmsprop"><span class="nav-number">8.</span> <span class="nav-text">07_rmsprop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#08-adam-optimization-algorithm"><span class="nav-number">9.</span> <span class="nav-text">08_adam-optimization-algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#09-learning-rate-decay"><span class="nav-number">10.</span> <span class="nav-text">09_learning-rate-decay</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-the-problem-of-local-optima"><span class="nav-number">11.</span> <span class="nav-text">10_the-problem-of-local-optima</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : 'a571b7f976b465db05fa113e08ea5111',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

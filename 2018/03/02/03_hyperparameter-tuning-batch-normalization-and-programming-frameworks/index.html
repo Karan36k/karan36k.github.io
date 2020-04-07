@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="NoteThis is my personal note at the first week after studying the course Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization and the copyright belongs to deeplearnin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03_hyperparameter-tuning-batch-normalization-and-programming-frameworks">
+<meta property="og:url" content="https://snakecoding.com/2018/03/02/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="NoteThis is my personal note at the first week after studying the course Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization and the copyright belongs to deeplearnin">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/1.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/2.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/3.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/4.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/5.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/6.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/7.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/8.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/9.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/10.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/12.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/11.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/13.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/14.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/15.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/16.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/17.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/18.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/19.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/20.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/21.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/22.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/23.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/24.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/25.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/26.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/27.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/28.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/29.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/30.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/31.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/32.png">
+<meta property="article:published_time" content="2018-03-01T18:30:00.000Z">
+<meta property="article:modified_time" content="2020-04-06T14:55:20.000Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="deep learning">
+<meta property="article:tag" content="Improving Deep Neural Networks">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2018/03/02/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>03_hyperparameter-tuning-batch-normalization-and-programming-frameworks | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">60</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/03/02/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          03_hyperparameter-tuning-batch-normalization-and-programming-frameworks
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-03-02 00:00:00" itemprop="dateCreated datePublished" datetime="2018-03-02T00:00:00+05:30">2018-03-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:20" itemprop="dateModified" datetime="2020-04-06T20:25:20+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note at the first week after studying the course <a href="https://www.coursera.org/learn/deep-neural-network/" target="_blank" rel="noopener">Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization</a> and the copyright belongs to <a href="https://www.deeplearning.ai/" target="_blank" rel="noopener">deeplearning.ai</a>.</p>
+<h2 id="01-hyperparameter-tuning"><a href="#01-hyperparameter-tuning" class="headerlink" title="01_hyperparameter-tuning"></a>01_hyperparameter-tuning</h2><h3 id="01-tuning-process"><a href="#01-tuning-process" class="headerlink" title="01_tuning-process"></a>01_tuning-process</h3><p>Hi, and welcome back. You’ve seen by now that changing neural nets can involve setting a lot of different hyperparameters. Now, how do you go about finding a good setting for these hyperparameters? In this video, I want to share with you some guidelines, some tips for how to systematically organize your hyperparameter tuning process, which hopefully will make it more efficient for you to converge on a good setting of the hyperparameters. </p>
+<p>One of the painful things about training deepness is the sheer number of hyperparameters you have to deal with, ranging from the learning rate alpha to the momentum term beta, if using momentum, or the hyperparameters for the Adam Optimization Algorithm which are beta one, beta two, and epsilon. Maybe you have to pick the number of layers, maybe you have to pick the number of hidden units for the different layers, and maybe you want to use learning rate decay, so you don’t just use a single learning rate alpha. And then of course, you might need to choose the mini-batch size. So it turns out, some of these hyperparameters are more important than others.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/1.png" alt=""><br>The most learning applications I would say, alpha, <strong>the learning rate is the most important hyperparameter to tune</strong>. Other than alpha, <strong>a few other hyperparameters I tend to would maybe tune next, would be maybe the momentum term, say, 0.9 is a good default. I’d also tune the mini-batch size to make sure that the optimization algorithm is running efficiently. Often I also fiddle around with the hidden units. Of the ones I’ve circled in orange, these are really the three that I would consider second in importance to the learning rate alpha and then third in importance after fiddling around with the others, the number of layers can sometimes make a huge difference, and so can learning rate decay. And then when using the Adam algorithm I actually pretty much never tuned beta one, beta two, and epsilon. Pretty much I always use 0.9, 0.999 and tenth minus eight although you can try tuning those as well if you wish. But hopefully it does give you some rough sense of what hyperparameters might be more important than others, alpha, most important, for sure, followed maybe by the ones I’ve circle in orange, followed maybe by the ones I circled in purple. But this isn’t a hard and fast rule and I think other deep learning practitioners may well disagree with me or have different intuitions on these.</strong> </p>
+<p>Now, if you’re trying to tune some set of hyperparameters, how do you select a set of values to explore? In earlier generations of machine learning algorithms, if you had two hyperparameters, which I’m calling hyperparameter one and hyperparameter two here, it was common practice to <strong>sample the points in a grid</strong> like so and systematically explore these values. Here I am placing down a five by five grid (Tip: as the left image on the following slide). In practice, it could be more or less than the five by five grid but you try out in this example all 25 points and then pick whichever hyperparameter works best. <strong>And this practice works okay when the number of hyperparameters was relatively small</strong>.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/2.png" alt=""><br><strong>In deep learning, what we tend to do, and what I recommend you do instead, is choose the points at random</strong>. So go ahead and choose maybe of same number of points, right? 25 points and then try out the hyperparameters on this randomly chosen set of points. <strong>And the reason you do that is that it’s difficult to know in advance which hyperparameters are going to be the most important for your problem</strong>. And as you saw in the previous slide, some hyperparameters are actually much more important than others. <strong>So to take an example, let’s say hyperparameter one turns out to be alpha, the learning rate. And to take an extreme example, let’s say that hyperparameter two was that value epsilon that you have in the denominator of the Adam algorithm</strong>. So your choice of alpha matters a lot and your choice of epsilon hardly matters. <strong>So if you sample in the grid then you’ve really tried out five values of alpha and you might find that all of the different values of epsilon give you essentially the same answer. So you’ve now trained 25 models and only got into trial five values for the learning rate alpha, which I think is really important. Whereas in contrast, if you were to sample at random, then you will have tried out 25 distinct values of the learning rate alpha and therefore you be more likely to find a value that works really well</strong>. I’ve explained this example, using just two hyperparameters. In practice, you might be searching over many more hyperparameters than these, so if you have, say, three hyperparameters, I guess instead of searching over a square, you’re searching over a cube where this third dimension is hyperparameter three and then by sampling within this three-dimensional cube you get to try out a lot more values of each of your three hyperparameters.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/3.png" alt=""><br><strong>And in practice you might be searching over even more hyperparameters than three and sometimes it’s just hard to know in advance which ones turn out to be the really important hyperparameters for your application and sampling at random rather than in the grid shows that you are more richly exploring set of possible values for the most important hyperparameters, whatever they turn out to be</strong>. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/4.png" alt=""><br>When you sample hyperparameters, <strong>another common practice is to use a coarse to fine sampling scheme</strong>. So let’s say in this two-dimensional example that you sample these points, and maybe you found that this point work the best and maybe a few other points(circled in blue color on the right down the above slide) around it tended to work really well, then in the course of the final scheme what you might do is zoom in to a smaller region of the hyperparameters and then sample more density within this space. Or maybe again at random, but to then focus more resources on searching within this blue square if you’re suspecting that the best setting, the hyperparameters, may be in this region. So after doing a coarse sample of this entire square, that tells you to then focus on a smaller square. You can then sample more densely into smaller square. So this type of a coarse to fine search is also frequently used. And by trying out these different values of the hyperparameters you can then pick whatever value allows you to do best on your training set objective or does best on your development set or whatever you’re trying to optimize in your hyperparameter search process. </p>
+<p>So I hope this gives you a way to more systematically organize your hyperparameter search process. <strong>The two key takeaways are, use random sampling and adequate search and optionally consider implementing a coarse to fine search process.</strong> But there’s even more to hyperparameter search than this. Let’s talk more in the next video about how to choose the right scale on which to sample your hyperparameters.</p>
+<h3 id="02-using-an-appropriate-scale-to-pick-hyperparameters"><a href="#02-using-an-appropriate-scale-to-pick-hyperparameters" class="headerlink" title="02_using-an-appropriate-scale-to-pick-hyperparameters"></a>02_using-an-appropriate-scale-to-pick-hyperparameters</h3><p>In the last video, you saw how sampling at random, over the range of hyperparameters, can allow you to search over the space of hyperparameters more efficiently. But it turns out that sampling at random doesn’t mean sampling uniformly at random, over the range of valid values. Instead, it’s important to pick the appropriate scale on which to explore the hyperparamaters. In this video, I want to show you how to do that. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/5.png" alt=""><br>Let’s say that you’re trying to choose the number of hidden units, n[l], for a given layer l. And let’s say that you think a good range of values is somewhere from 50 to 100. In that case, if you look at the number line from 50 to 100, maybe picking some number values at random within this number line. There’s a pretty visible way to search for this particular hyperparameter. Or if you’re trying to decide on the number of layers in your neural network, we’re calling that capital L. Maybe you think the total number of layers should be somewhere between 2 to 4. Then sampling uniformly at random, along 2, 3 and 4, might be reasonable. Or even using a grid search, where you explicitly evaluate the values 2, 3 and 4 might be reasonable. <strong>So these were a couple examples where sampling uniformly at random over the range you’re contemplating, might be a reasonable thing to do. But this is not true for all hyperparameters</strong>. </p>
+<p>Let’s look at another example. Say your searching for the hyperparameter alpha, the learning rate. And let’s say that you suspect 0.0001 might be on the low end, or maybe it could be as high as 1. Now if you draw the number line from 0.0001 to 1, and sample values uniformly at random over this number line. Well about 90% of the values you sample would be between 0.1 and 1. So you’re using 90% of the resources to search between 0.1 and 1, and only 10% of the resources to search between 0.0001 and 0.1. So that doesn’t seem right.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/6.png" alt=""><br>Instead, it seems more reasonable to search for hyperparameters on a log scale. Where instead of using a linear scale, you’d have 0.0001 here, and then 0.001, 0.01, 0.1, and then 1. And you instead sample uniformly, at random, on this type of <strong>logarithmic</strong> scale. Now you have more resources dedicated to searching between 0.0001 and 0.001, and between 0.001 and 0.01, and so on. So in Python, the way you implement this, is let r = -4 * np.random.rand(). And then a randomly chosen value of alpha, would be alpha = 10 to the power of r. So after this first line, r will be a random number between -4 and 0. And so alpha here will be between 10 to the -4 and 10 to the 0. So 10 to the -4 is this left thing, this 10 to the -4. And 1 is 10 to the 0. In a more general case, if you’re trying to sample between 10 to the a, to 10 to the b, on the log scale. And in this example, this is 10 to the a. And you can figure out what a is by taking the log base 10 of 0.0001, which is going to tell you a is -4. And this value on the right, this is 10 to the b. And you can figure out what b is, by taking log base 10 of 1, which tells you b is equal to 0. So what you do, is then sample r uniformly, at random, between a and b. So in this case, r would be between -4 and 0. And you can set alpha, on your randomly sampled hyperparameter value, as 10 to the r, okay? So just to recap, to sample on the log scale, you take the low value, take logs to figure out what is a. Take the high value, take a log to figure out what is b. So now you’re trying to sample, from 10 to the a to the b, on a log scale. So you set r uniformly, at random, between a and b. And then you set the hyperparameter to be 10 to the r. So that’s how you implement sampling on this logarithmic scale. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/7.png" alt=""><br><strong>Finally, one other tricky case is sampling the hyperparameter beta, used for computing exponentially weighted averages</strong>. So let’s say you suspect that beta should be somewhere between 0.9 to 0.999. Maybe this is the range of values you want to search over. So remember, that when computing exponentially weighted averages, using 0.9 is like averaging over the last 10 values. kind of like taking the average of 10 days temperature, whereas using 0.999 is like averaging over the last 1,000 values. So similar to what we saw on the last slide, if you want to search between 0.9 and 0.999, it doesn’t make sense to sample on the linear scale, right? Uniformly, at random, between 0.9 and 0.999. So the best way to think about this, is that we want to explore the range of values for 1 minus beta, which is going to now range from 0.1 to 0.001. And so we’ll sample the between beta, taking values from 0.1, to maybe 0.1, to 0.001. So using the method we have figured out on the previous slide, this is 10 to the -1, this is 10 to the -3. Notice on the previous slide, we had the small value on the left, and the large value on the right, but here we have reversed. We have the large value on the left, and the small value on the right. So what you do, is you sample r uniformly, at random, from -3 to -1. And you set 1- beta = 10 to the r, and so beta = 1- 10 to the r. And this becomes your randomly sampled value of your hyperparameter, chosen on the appropriate scale. And hopefully this makes sense, in that this way, you spend as much resources exploring the range 0.9 to 0.99, as you would exploring 0.99 to 0.999. So if you want to study more formal mathematical justification for why we’re doing this, right, <strong>why is it such a bad idea to sample in a linear scale? It is that, when beta is close to 1, the sensitivity of the results you get changes, even with very small changes to beta</strong>. So if beta goes from 0.9 to 0.9005, it’s no big deal, this is <strong>hardly any change</strong> in your results. But if beta goes from 0.999 to 0.9995, this will have <strong>a huge impact</strong> on exactly what your algorithm is doing, right? <strong>In both of these cases, it’s averaging over roughly 10 values. But here it’s gone from an exponentially weighted average over about the last 1,000 examples, to now, the last 2,000 examples</strong>. And it’s because that formula we have, 1 / 1- beta, this is <strong>very sensitive</strong> to small changes in beta, when beta is close to 1. So what this whole sampling process does, is it causes you to sample more densely in the region of when beta is close to 1. Or, alternatively, when 1- beta is close to 0. So that you can be more efficient in terms of how you distribute the samples, to explore the space of possible outcomes more efficiently. </p>
+<p>So I hope this helps you select the right scale on which to sample the hyperparameters. In case you don’t end up making the right scaling decision on some hyperparameter choice, don’t worry to much about it. Even if you sample on the uniform scale, where sum of the scale would have been superior, you might still get okay results. Especially if you use a coarse to fine search, so that in later iterations, you focus in more on the most useful range of hyperparameter values to sample. I hope this helps you in your hyperparameter search. In the next video, I also want to share with you some thoughts of how to organize your hyperparameter search process. That I hope will make your workflow a bit more efficient. </p>
+<h3 id="03-hyperparameters-tuning-in-practice-pandas-vs-caviar"><a href="#03-hyperparameters-tuning-in-practice-pandas-vs-caviar" class="headerlink" title="03_hyperparameters-tuning-in-practice-pandas-vs-caviar"></a>03_hyperparameters-tuning-in-practice-pandas-vs-caviar</h3><p>You have now heard a lot about how to search for good hyperparameters. Before wrapping up our discussion on hyperparameter search, I want to share with you just a couple of final tips and tricks for how to organize your hyperparameter search process. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/8.png" alt=""><br>Deep learning today is applied to many different application areas and that <strong>intuitions about hyperparameter settings from one application area may or may not transfer to a different one. There is a lot of cross-fertilization among different applications’ domains</strong>, so for example, I’ve seen ideas developed in the <strong>computer vision community</strong>, such as <strong>Confonets</strong> or <strong>ResNets</strong>, which we’ll talk about in a later course, successfully applied to speech. I’ve seen ideas that were first developed in speech successfully applied in <strong>NLP</strong>, and so on. <strong>So one nice development in deep learning is that people from different application domains do read increasingly research papers from other application domains to look for inspiration for cross-fertilization</strong>. In terms of your settings for the hyperparameters, though, I’ve seen that intuitions do get stale. So even if you work on just one problem, say logistics, you might have found a good setting for the hyperparameters and kept on developing your algorithm, or maybe seen your data gradually change over the course of several months, or maybe just upgraded servers in your data center. And because of those changes, the best setting of your hyperparameters can get stale. So I recommend maybe just retesting or reevaluating your hyperparameters at least once every several months to make sure that you’re still happy with the values you have. </p>
+<p><strong>Finally, in terms of how people go about searching for hyperparameters, I see maybe two major schools of thought, or maybe two major different ways in which people go about it.</strong> </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/9.png" alt=""><br>One way is if you <strong>babysit one model</strong>. And usually you do this <strong>if you have maybe a huge data set but not a lot of computational resources, not a lot of CPUs and GPUs, so you can basically afford to train only one model or a very small number of models at a time.</strong> In that case you might gradually babysit that model even as it’s training. So, for example, on Day 0 you might initialize your parameter as random and then start training. And you gradually watch your learning curve, maybe the cost function J or your dataset error or something else, gradually decrease over the first day. Then at the end of day one, you might say, gee, looks it’s learning quite well, I’m going to try increasing the learning rate a little bit and see how it does. And then maybe it does better. And then that’s your Day 2 performance. And after two days you say, okay, it’s still doing quite well. Maybe I’ll fill the momentum term a bit or decrease the learning variable a bit now, and then you’re now into Day 3. And every day you kind of look at it and try nudging up and down your parameters. And maybe on one day you found your learning rate was too big. So you might go back to the previous day’s model, and so on. But you’re kind of babysitting the model one day at a time even as it’s training over a course of many days or over the course of several different weeks. So that’s one approach, and people that babysit one model, that is watching performance and patiently nudging the learning rate up or down. But that’s usually what happens if you don’t have enough computational capacity to train a lot of models at the same time. </p>
+<p><strong>The other approach would be if you train many models in parallel</strong>. So you might have some setting of the hyperparameters and just let it run by itself ,either for a day or even for multiple days, and then you get some learning curve like that; and this could be a plot of the cost function J or cost of your training error or cost of your dataset error, but some metric in your tracking. And then <strong>at the same time you might start up a different model with a different setting of the hyperparameters</strong>. And so, your second model might generate a different learning curve, maybe one that looks like that. I will say that one looks better. And at the same time, you might train a third model, which might generate a learning curve that looks like that, and another one that, maybe this one diverges so it looks like that, and so on. Or you might train many different models in parallel, where these orange lines are different models, right, and so this way you can try a lot of different hyperparameter settings and then just maybe quickly at the end pick the one that works best. Looks like in this example it was, maybe this curve that look best. </p>
+<p>So to make an analogy, I’m going to call the approach on the left the panda approach. <strong>When pandas have children, they have very few children, usually one child at a time, and then they really put a lot of effort into making sure that the baby panda survives. So that’s really babysitting</strong>. One model or one baby panda. <strong>Whereas the approach on the right is more like what fish do. I’m going to call this the caviar strategy</strong>. There’s some fish that lay over 100 million eggs in one mating season. But the way fish reproduce is they lay a lot of eggs and don’t pay too much attention to any one of them but just see that hopefully one of them, or maybe a bunch of them, will do well. So I guess, this is really the difference between how mammals reproduce versus how fish and a lot of reptiles reproduce. But I’m going to call it the panda approach versus the caviar approach, since that’s more fun and memorable. So the way to choose between these two approaches is really a function of how much computational resources you have. If you have enough computers to train a lot of models in parallel, then by all means take the caviar approach and try a lot of different hyperparameters and see what works. </p>
+<p>But in some application domains, I see this <strong>in some online advertising settings as well as in some computer vision applications, where there’s just so much data and the models you want to train are so big that it’s difficult to train a lot of models at the same time. It’s really application dependent of course, but I’ve seen those communities use the panda approach a little bit more, where you are kind of babying a single model along and nudging the parameters up and down and trying to make this one model work</strong>. Although, of course, even the panda approach, having trained one model and then seen it work or not work, maybe in the second week or the third week, maybe I should initialize a different model and then baby that one along just like even pandas, I guess, can have multiple children in their lifetime, even if they have only one, or a very small number of children, at any one time. </p>
+<p>So hopefully this gives you a good sense of how to go about the hyperparameter search process. Now, it turns out that there’s one other technique that can make your neural network much more robust to the choice of hyperparameters. It doesn’t work for all neural networks, but when it does, it can make the hyperparameter search much easier and also make training go much faster. Let’s talk about this technique in the next video. </p>
+<h2 id="02-batch-normalization"><a href="#02-batch-normalization" class="headerlink" title="02_batch-normalization"></a>02_batch-normalization</h2><h3 id="01-normalizing-activations-in-a-network"><a href="#01-normalizing-activations-in-a-network" class="headerlink" title="01_normalizing-activations-in-a-network"></a>01_normalizing-activations-in-a-network</h3><p>In the rise of deep learning, one of the most important ideas has been an algorithm called <strong>batch normalization</strong>, created by two researchers, Sergey Ioffe and Christian Szegedy. Batch normalization makes your hyperparameter search problem much easier, makes your neural network much more robust. The choice of hyperparameters is a much bigger range of hyperparameters that work well, and will also enable you to much more easily train even very deep networks. Let’s see how batch normalization works. </p>
+<p>When training a model, such as logistic regression, you might remember that normalizing the input features can speed up learnings in compute the means, subtract off the means from your training sets. Compute the variances. The sum of $x^{(i)}$ squared. This is an element-wise squaring. And then normalize your data set according to the variances. And we saw in an earlier video how this can turn the contours of your learning problem from something that might be very elongated to something that is more round, and easier for an algorithm like gradient descent to optimize. So this works, in terms of normalizing the input feature values to a neural network, alter the regression.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/10.png" alt=""><br>Now, how about a deeper model? You have not just input features x, but in this layer you have activations a1, in this layer, you have activations a2 and so on. So if you want to train the parameters, say w3, b3, then wouldn’t it be nice if you can normalize the mean and variance of a2 to make the training of w3, b3 more efficient? In the case of logistic regression, we saw how normalizing x1, x2, x3 maybe helps you train w and b more efficiently. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/12.png" alt=""><br><strong>So here, the question is, for any hidden layer, can we normalize</strong>, The values of a, let’s say a2, in this example but really any hidden layer, so as to train w3 b3 faster, right? Since a2 is the input to the next layer, that therefore affects your training of w3 and b3. So this is what batch norm does, batch normalization, or batch norm for short, does. Although technically, we’ll actually normalize the values of not a2 but z2. <strong>There are some debates in the deep learning literature about whether you should normalize the value before the activation function, so z2, or whether you should normalize the value after applying the activation function, a2. In practice, normalizing z2 is done much more often. So that’s the version I’ll present and what I would recommend you use as a default choice</strong>. </p>
+<p>So here is how you will implement batch norm. Given some intermediate values, In your neural net, Let’s say that you have some hidden unit values $z^{[1]}$ up to $z^{[m]}$, and this is really from some hidden layer, so it’d be more accurate to write this as $z$ for some hidden layer i for i equals 1 through m. But to reduce writing, I’m going to omit this [l], just to simplify the notation on this line. So given these values, what you do is compute the mean as follows. Okay, and all this is specific to some layer l, but I’m omitting the [l].<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/11.png" alt=""><br>And then you compute the variance using pretty much the formula you would expect and then you would take each the zis and normalize it. So you get $z^{[i]}$ normalized by subtracting off the mean and dividing by the standard deviation. <strong>For numerical stability, we usually add epsilon to the denominator like that just in case sigma squared turns out to be zero in some estimate.</strong> And so now we’ve taken these values z and normalized them to have mean 0 and standard unit variance. So every component of z has mean 0 and variance 1. <strong>But we don’t want the hidden units to always have mean 0 and variance 1. Maybe it makes sense for hidden units to have a different distribution, so what we’ll do instead is compute, I’m going to call this z tilde = gamma zi norm + beta, $\tilde{z}=\gamma z^{[i]}_{norm}+\beta$. And here, $\gamma$ and $\beta$ are learnable parameters of your model.</strong> </p>
+<p>So we’re using gradient descent, or some other algorithm, like the gradient descent of momentum, or RMSprop Adam, you would update the parameters $\gamma$ and $\beta$, just as you would update the weights of your neural network. <strong>Now, notice that the effect of gamma and beta is that it allows you to set the mean of z tilde to be whatever you want it to be. In fact, if $\gamma$ equals square root $\sigma$ squared plus $\epsilon$, $\gamma = \sqrt{\sigma^2+\epsilon}$, so if $\gamma$ were equal to this denominator term. And if $\beta$ were equal to $\mu$, so this value up here, then the effect of $\gamma z_{norm} + \beta$ is that it would exactly invert this equation. So if this is true, then actually z tilde i is equal to zi. And so by an appropriate setting of the parameters gamma and beta, this normalization step, that is, these four equations is just computing essentially the identity function</strong>. But by choosing other values of $\gamma$ and $\beta$, this allows you to make the hidden unit values have other means and variances as well. And so the way you fit this into your neural network is, whereas previously you were using these values $z^{[1]}, z^{[2]}$, and so on, you would now use $\tilde{z}^{[i]}$, Instead of $z^{[i]}$ for the later computations in your neural network. And you want to put back in this [l] to explicitly denote which layer it is in, you can put it back there. So the intuition I hope you’ll take away from this is that we saw how normalizing the input features $x$ can help learning in a neural network. And what batch norm does is it applies that normalization process not just to the input layer, but to the values even deep in some hidden layer in the neural network. So it will apply this type of normalization to normalize the mean and variance of some of your hidden units’ values, $z$. <strong>But one difference between the training input and these hidden unit values is you might not want your hidden unit values be forced to have mean 0 and variance 1.</strong> For example, if you have a sigmoid activation function, you don’t want your values to always be clustered here.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/13.png" alt=""><br>You might want them to have a larger variance or have a mean that’s different than 0, in order to better take advantage of the nonlinearity of the sigmoid function rather than have all your values be in just this linear regime. <strong>So that’s why with the parameters gamma and beta, you can now make sure that your $z^{[i]}$ values have the range of values that you want. But what it does really is it then shows that your hidden units have standardized mean and variance, where the mean and variance are controlled by two explicit parameters $\gamma$ and $\beta$ which the learning algorithm can set to whatever it wants. So what it really does is it normalizes in mean and variance of these hidden unit values, really the $z^{[i]}$s, to have some fixed mean and variance. And that mean and variance could be 0 and 1, or it could be some other value, and it’s controlled by these parameters $\gamma$ and $\beta$.</strong></p>
+<p>So I hope that gives you a sense of the mechanics of how to implement batch norm, at least for a single layer in the neural network. In the next video, I’m going to show you how to fit batch norm into a neural network, even a deep neural network, and how to make it work for the many different layers of a neural network. And after that, we’ll get some more intuition about why batch norm could help you train your neural network. So in case why it works still seems a little bit mysterious, stay with me, and I think in two videos from now we’ll really make that clearer. </p>
+<h3 id="02-fitting-batch-norm-into-a-neural-network"><a href="#02-fitting-batch-norm-into-a-neural-network" class="headerlink" title="02_fitting-batch-norm-into-a-neural-network"></a>02_fitting-batch-norm-into-a-neural-network</h3><p>So you have seen the equations for how to invent Batch Norm for maybe a single hidden layer. Let’s see how it fits into the training of a deep network. </p>
+<p>So, let’s say you have a neural network like this, you’ve seen me say before that you can view each of the unit as computing two things.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/14.png" alt=""></p>
+<p>First, it computes Z and then it applies the activation function to compute A. And so we can think of each of these circles as representing a two step computation. And similarly for the next layer, that is Z2 1, and A2 1, and so on. So, if you were not applying Batch Norm, you would have an input X fit into the first hidden layer, and then first compute Z1, and this is governed by the parameters W1 and B1. And then ordinarily, you would fit Z1 into the activation function to compute A1. But what would do in Batch Norm is take this value Z1, and apply Batch Norm, sometimes abbreviated BN to it, and that’s going to be governed by parameters, Beta 1 and Gamma 1, and this will give you this new normalize value Z1. And then you fit that to the activation function to get A1, which is G1 applied to Z tilde 1. Now, you’ve done the computation for the first layer, where this Batch Norms that really occurs in between the computation from Z and A. Next, you take this value A1 and use it to compute Z2, and so this is now governed by W2, B2. And similar to what you did for the first layer, you would take Z2 and apply it through Batch Norm, and we abbreviate it to BN now. This is governed by Batch Norm parameters specific to the next layer. So Beta 2, Gamma 2, and now this gives you Z tilde 2, and you use that to compute A2 by applying the activation function, and so on. So once again, the Batch Norms that happens between computing Z and computing A. And the intuition is that, instead of using the un-normalized value Z, you can use the normalized value Z tilde, that’s the first layer. </p>
+<p>The second layer as well, instead of using the un-normalized value Z2, you can use the mean and variance normalized values Z tilde 2. So the parameters of your network are going to be W1, B1. It turns out we’ll get rid of the parameters but we’ll see why in the next slide. But for now, imagine the parameters are the usual W1. B1, WL, BL, and we have added to this new network, additional parameters Beta 1, Gamma 1, Beta 2, Gamma 2, and so on, for each layer in which you are applying Batch Norm. <strong>For clarity, note that these Betas here, these have nothing to do with the hyperparameter beta that we had for momentum over the computing the various exponentially weighted averages</strong>. The authors of the Adam paper use Beta on their paper to denote that hyperparameter, the authors of the Batch Norm paper had used Beta to denote this parameter, <strong>but these are two completely different Betas. I decided to stick with Beta in both cases, in case you read the original papers. But the Beta 1, Beta 2, and so on, that Batch Norm tries to learn is a different Beta than the hyperparameter Beta used in momentum and the Adam and RMSprop algorithms.</strong></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/15.png" alt=""><br>So now that these are the new parameters of your algorithm, you would then use whether optimization you want, such as creating descent in order to implement it. For example, you might compute $d\beta^{[L]}$ for a given layer, and then update the parameters $\beta$, gets updated as $\beta-\alpha d\beta^{[L]}$. And you can also use Adam or RMSprop or momentum in order to update the parameters $\beta$ and $\gamma$, not just creating descent. And even though in the previous video, I had explained what the Batch Norm operation does, computes mean and variances and subtracts and divides by them. If they are using a Deep Learning Programming Framework, usually you won’t have to implement the Batch Norm step on Batch Norm layer yourself. So theprogramming  frameworks, that can be something like one line of code. So for example, in terms of flow framework, you can implement Batch Normalization with this function, <code>tf.nn.batch_normlization()</code>. We’ll talk more about programming frameworks later, but in practice you might not end up needing to implement all these details yourself, <strong>knowing how it works so that you can get a better understanding of what your code is doing. But implementing Batch Norm is often one line of code in the deep learning frameworks</strong>.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/16.png" alt=""><br>Now, so far, we’ve talked about Batch Norm as if you were training on your entire training set at the time as if you are using Batch gradient descent. <strong>In practice, Batch Norm is usually applied with mini-batches of your training set</strong>. So the way you actually apply Batch Norm is you take your first mini-batch and compute Z1. Same as we did on the previous slide using the parameters W1, B1 and then you take just this mini-batch and computer mean and variance of the Z1 on just this mini batch and then Batch Norm would subtract by the mean and divide by the standard deviation and then re-scale by Beta 1, Gamma 1, to give you Z1, and all this is on the first mini-batch, then you apply the activation function to get A1, and then you compute Z2 using W2, B2, and so on. So you do all this in order to perform one step of gradient descent on the first mini-batch and then goes to the second mini-batch X2, and you do something similar where you will now compute Z1 on the second mini-batch and then use Batch Norm to compute Z1 tilde. And so here in this Batch Norm step, You would be normalizing Z tilde using just the data in your second mini-batch, so does Batch Norm step here. Let’s look at the examples in your second mini-batch, computing the mean and variances of the Z1’s on just that mini-batch and re-scaling by Beta and Gamma to get Z tilde, and so on. And you do this with a third mini-batch, and keep training. </p>
+<p>Now, there’s one detail to the parameterization that I want to clean up, which is previously, I said that the parameters was WL, BL, for each layer as well as $\beta^{[L]}$, and $\gamma^{[L]}$. Now notice that the way $Z$ was computed is as follows, $Z^{[L]} = W^{[L]} A^{[L-1]} + B^{[L]}$. But what Batch Norm does, is it is going to look at the mini-batch and normalize $Z^{[L]}$ to first of mean 0 and standard variance, and then a rescale by $\beta$ and $\gamma$. <strong>But what that means is that, whatever is the value of $B^{[L]}$ is actually going to just get subtracted out, because during that Batch Normalization step, you are going to compute the means of the $Z^{[L]}$’s and subtract the mean. And so adding any constant to all of the examples in the mini-batch, it doesn’t change anything. Because any constant you add will get cancelled out by the mean subtractions step. So, if you’re using Batch Norm, you can actually eliminate that parameter, or if you want, think of it as setting it permanently to 0</strong>. So then the parameterization becomes ZL is just WL x AL - 1, And then you compute ZL normalized, and we compute Z tilde = Gamma ZL + Beta, you end up using this parameter Beta L in order to decide whats that mean of Z tilde L. Which is why guess post in this layer. So just to recap, because Batch Norm zeroes out the mean of these ZL values in the layer, there’s no point having this parameter BL, and so you must get rid of it, and instead is sort of replaced by Beta L, which is a parameter that controls that ends up affecting the shift or the biased terms. </p>
+<p>Finally, remember that the dimension of ZL, because if you’re doing this on one example, it’s going to be NL by 1, and so BL, a dimension, NL by one, if NL was the number of hidden units in layer L. And so the dimension of Beta L and Gamma L is also going to be NL by 1 because that’s the number of hidden units you have. You have NL hidden units, and so Beta L and Gamma L are used to scale the mean and variance of each of the hidden units to whatever the network wants to set them to. </p>
+<p><strong>So, let’s pull all together and describe how you can implement gradient descent using Batch Norm</strong>.</p>
+<ul>
+<li><p>for t = 1 to number of mini-batches</p>
+<ul>
+<li><p>Compute forward propagation on the min-batch $X^{[t]}$ </p>
+<ul>
+<li>In each hidden layer, use Batch Norm to replace $Z^{[l]}$ with $\tilde{Z}^{[l]}$</li>
+</ul>
+</li>
+<li><p>Use back propagation to compute: $dw^{[l]}, dγ^{[l]}, dβ^{[l]}, dw^{[l]}, dγ^{[l]}, dβ^{[l]}$</p>
+</li>
+<li><p>Update: </p>
+<ul>
+<li>$W^{[l]}:=W^{[l]}−αdW^{[l]}$</li>
+<li>$\Gamma^{[l]}:=\Gamma^{[l]}−αd\Gamma^{[l]}$</li>
+<li>$\beta^{[l]}:=\beta^{[l]}−αd\beta^{[l]}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>As well as mini-batch gradient descent, Batch Norm is used to momentum, RMSprop, Adam gradient descent to update the parameters.</p>
+</li>
+</ul>
+<p>Assuming you’re using mini-batch gradient descent, it rates for T = 1 to the number of many batches. You would implement forward prop on mini-batch XT and doing forward prop in each hidden layer, use Batch Norm to replace ZL with Z tilde L. And so then it shows that within that mini-batch, the value Z end up with some normalized mean and variance and the values and the version of the normalized mean that and variance is Z tilde L. And then, you use back prop to compute DW, DB, for all the values of L, D Beta, D Gamma. Although, technically, since you have got to get rid of B, this actually now goes away. And then finally, you update the parameters. So, W gets updated as W minus the learning rate times, as usual, Beta gets updated as Beta minus learning rate times DB, and similarly for Gamma. And if you have computed the gradient as follows, you could use gradient descent. That’s what I’ve written down here, but this also works with gradient descent with momentum, or RMSprop, or Adam. Where instead of taking this gradient descent update, mini-batch you could use the updates given by these other algorithms as we discussed in the previous week’s videos. Some of these other optimization algorithms as well can be used to update the parameters $\beta$ and $\gamma$ that Batch Norm added to algorithm. </p>
+<p>So, I hope that gives you a sense of how you could implement Batch Norm from scratch if you wanted to. If you’re using one of the Deep Learning Programming frameworks which we will talk more about later, hopefully you can just call someone else’s implementation in the Programming framework which will make using Batch Norm much easier. Now, in case Batch Norm still seems a little bit mysterious if you’re still not quite sure why it speeds up training so dramatically, let’s go to the next video and talk more about why Batch Norm really works and what it is really doing.</p>
+<h3 id="03-why-does-batch-norm-work"><a href="#03-why-does-batch-norm-work" class="headerlink" title="03_why-does-batch-norm-work"></a>03_why-does-batch-norm-work</h3><p>So, why does batch norm work? <strong>Here’s one reason, you’ve seen how normalizing the input features, the X’s, to mean zero and variance one, how that can speed up learning. So rather than having some features that range from zero to one, and some from one to a 1,000, by normalizing all the features, input features X, to take on a similar range of values that can speed up learning. So, one intuition behind why batch norm works is, this is doing a similar thing, but further values in your hidden units and not just for your input there</strong>. Now, this is just a partial picture for what batch norm is doing. There are a couple of further intuitions, that will help you gain a deeper understanding of what batch norm is doing. Let’s take a look at those in this video. </p>
+<p><strong>A second reason why batch norm works, is it makes weights, later or deeper than your network, say the weight on layer 10, more robust to changes to weights in earlier layers of the neural network, say, in layer one.</strong> To explain what I mean, let’s look at this most vivid example. Let’s see a training on network, maybe a shallow network, like logistic regression or maybe a neural network, maybe a shallow network like this regression or maybe a deep network, on our famous cat detection toss.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/17.png" alt=""><br><strong>But let’s say that you’ve trained your data sets on all images of black cats. If you now try to apply this network to data with colored cats where the positive examples are not just black cats like on the left, but to color cats like on the right, then your cosfa might not do very well</strong>. So in pictures, if your training set looks like this (Tip: to see on the left of the following image), where you have positive examples here and negative examples here, but you were to try to generalize it, to a data set where maybe positive examples are here and the negative examples are here, then you might not expect a module trained on the data on the left to do very well on the data on the right. Even though there might be the same function that actually works well, but you wouldn’t expect your learning algorithm to discover that green decision boundary, just looking at the data on the left.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/18.png" alt=""><br>So, this idea of your data distribution changing goes by the somewhat fancy name, <strong>covariate shift</strong>. And the idea is that, if you’ve learned some X to Y mapping, if the distribution of X changes, then you might need to retrain your learning algorithm. And this is true even if the function, the ground true function, mapping from X to Y, remains unchanged, which it is in this example, because the ground true function is, is this picture a cat or not. And the need to retain your function becomes even more acute or it becomes even worse if the ground true function shifts as well.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/19.png" alt=""><br>So, how does this problem of covariate shift apply to a neural network? Consider a deep network like this, and let’s look at the learning process from the perspective of this certain layer, the third hidden layer. So this network has learned the parameters W3 and B3. And from the perspective of the third hidden layer, it gets some set of values from the earlier layers, and then it has to do some stuff to hopefully make the output Y-hat close to the ground true value Y.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/20.png" alt=""><br>So let me cover up the nose on the left for a second. So from the perspective of this third hidden layer, it gets some values, let’s call them A_2_1, A_2_2, A_2_3, and A_2_4. But these values might as well be features X1, X2, X3, X4, and the job of the third hidden layer is to take these values and find a way to map them to Y-hat. So you can imagine doing great intercepts, so that these parameters W_3_B_3 as well as maybe W_4_B_4, and even W_5_B_5, maybe try and learn those parameters, <strong>so the network does a good job, mapping from the values I drew in black on the left to the output values Y-hat</strong>.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/21.png" alt=""><br>But now let’s uncover the left of the network again. <strong>The network is also adapting parameters $W^{[2]}, B^{[2]}$ and $W^{[1]}, B^{[1]}$, and so as these parameters change, these values, $A^{[2]}$, will also change. So from the perspective of the third hidden layer, these hidden unit values are changing all the time, and so it’s suffering from the problem of covariate shift that we talked about on the previous slide. So what batch norm does, is it reduces the amount that the distribution of these hidden unit values shifts around.</strong><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/22.png" alt=""><br>And if it were to plot the distribution of these hidden unit values, maybe this is technically renormalizer $Z$, so this is actually $Z^{[2]}_1$ and $Z^{[2]}_2$, and I also plot two values instead of four values, so we can visualize in 2D. What batch norm is saying is that, the values for $Z^{[2]}_1$ Z and $Z^{[2]}_2$  can change, and indeed they will change when the neural network updates the parameters in the earlier layers. But what batch norm ensures is that no matter how it changes, the mean and variance of $Z^{[2]}_1$ and $Z^{[2]}_2$ will remain the same. So even if the exact values of $Z^{[2]}_1$ and $Z^{[2]}_2$ change, their mean and variance will at least stay same mean zero and variance one. Or, not necessarily mean zero and variance one, but whatever value is governed by $\beta^{[2]}$ and $\gamma^{[2]}$. Which, if the neural networks chooses, can force it to be mean zero and variance one. Or, really, any other mean and variance. But what this does is, it limits the amount to which updating the parameters in the earlier layers can affect the distribution of values that the third layer now sees and therefore has to learn on. <strong>And so, batch norm reduces the problem of the input values changing, it really causes these values to become more stable, so that the later layers of the neural network has more firm ground to stand on. And even though the input distribution changes a bit, it changes less, and what this does is, even as the earlier layers keep learning, the amounts that this forces the later layers to adapt to as early as layer changes is reduced or, if you will, it weakens the coupling between what the early layers parameters has to do and what the later layers parameters have to do. And so it allows each layer of the network to learn by itself, a little bit more independently of other layers, and this has the effect of speeding up of learning in the whole network</strong>.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/23.png" alt=""><br>So I hope this gives some better intuition, but the takeaway is that batch norm means that, especially from the perspective of one of the later layers of the neural network, <strong>the earlier layers don’t get to shift around as much, because they’re constrained to have the same mean and variance. And so this makes the job of learning on the later layers easier. It turns out batch norm has a second effect, it has a slight regularization effect</strong>. So one non-intuitive thing of a batch norm is that each mini-batch, I will say mini-batch X_t, has the values Z_t, has the values Z_l, scaled by <strong>the mean and variance computed on just that one mini-batch</strong>. Now, because the mean and variance computed on just that mini-batch as opposed to computed on the entire data set, that mean and variance has a little bit of noise in it, because it’s computed just on your mini-batch of, say, 64, or 128, or maybe 256 or larger training examples. <strong>So because the mean and variance is a little bit noisy because it’s estimated with just a relatively small sample of data</strong>, the scaling process, going from Z_l to Z_2_l, that process is a little bit noisy as well, because it’s computed, using a slightly noisy mean and variance. So similar to dropout, it adds some noise to each hidden layer’s activations. The way dropout has noises, it takes a hidden unit and it multiplies it by zero with some probability. And multiplies it by one with some probability. And so your dropout has multiple of noise because it’s multiplied by zero or one, whereas batch norm has multiples of noise because of scaling by the standard deviation, as well as additive noise because it’s subtracting the mean. <strong>Well, here the estimates of the mean and the standard deviation are noisy. And so, similar to dropout, batch norm therefore has a slight regularization effect. Because by adding noise to the hidden units, it’s forcing the downstream hidden units not to rely too much on any one hidden unit. And so similar to dropout, it adds noise to the hidden layers and therefore has a very slight regularization effect. Because the noise added is quite small, this is not a huge regularization effect, and you might choose to use batch norm together with dropout, and you might use batch norm together with dropouts if you want the more powerful regularization effect of dropout</strong>. </p>
+<p>And maybe one other slightly non-intuitive effect is that, if you use a bigger mini-batch size, right, so if you use use a mini-batch size of, say, 512 instead of 64, by using a larger mini-batch size, you’re reducing this noise and therefore also reducing this regularization effect. <strong>So that’s one strange property of dropout which is that by using a bigger mini-batch size, you reduce the regularization effect. Having said this, I wouldn’t really use batch norm as a regularizer, that’s really not the intent of batch norm, but sometimes it has this extra intended or unintended effect on your learning algorithm. But, really, don’t turn to batch norm as a regularization. Use it as a way to normalize your hidden units activations and therefore speed up learning. And I think the regularization is an almost unintended side effect</strong>. </p>
+<p>So I hope that gives you better intuition about what batch norm is doing. Before we wrap up the discussion on batch norm, <strong>there’s one more detail I want to make sure you know, which is that batch norm handles data one mini-batch at a time. It computes mean and variances on mini-batches. So at test time, you try and make predictors, try and evaluate the neural network, you might not have a mini-batch of examples, you might be processing one single example at the time. So, at test time you need to do something slightly differently to make sure your predictions make sense. Like in the next and final video on batch norm</strong>, let’s talk over the details of what you need to do in order to take your neural network trained using batch norm to make predictions.</p>
+<h3 id="04-batch-norm-at-test-time"><a href="#04-batch-norm-at-test-time" class="headerlink" title="04_batch-norm-at-test-time"></a>04_batch-norm-at-test-time</h3><p>Batch norm processes your data one mini batch at a time, but the test time you might need to process the examples one at a time. Let’s see how you can adapt your network to do that. </p>
+<p>Recall that during training, here are the equations you’d use to implement batch norm. <strong>Within a single mini batch</strong>, you’d sum over that mini batch of the ZI values to compute the mean. So here, you’re just summing over the examples in one mini batch. I’m using M to denote the number of examples in the mini batch not in the whole training set. Then, you compute the variance and then you compute Z norm by scaling by the mean and standard deviation with Epsilon added for numerical stability. And then Z total is taking Z norm and rescaling by gamma and beta. So, notice that mu and sigma squared which you need for this scaling calculation are computed on the entire mini batch. <strong>But the test time you might not have a mini batch of 6428 or 2056 examples to process at the same time. So, you need some different way of coming up with $\mu$ and $\sigma$ squared. And if you have just one example, taking the mean and variance of that one example, doesn’t make sense.</strong><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/24.png" alt=""><br>So what’s actually done? In order to apply your neural network and test time is to come up with some separate estimate of mu and sigma squared. <strong>And in typical implementations of batch norm, what you do is estimate this using a exponentially weighted average where the average is across the mini batches.</strong> So, to be very concrete here’s what I mean. Let’s pick some layer L and let’s say you’re going through mini batches X1, X2 together with the corresponding values of Y and so on. So, when training on X1 for that layer L, you get some mu L. And in fact, I’m going to write this as mu for the first mini batch and that layer. And then when you train on the second mini batch for that layer and that mini batch,you end up with some second value of mu. And then for the fourth mini batch in this hidden layer, you end up with some third value for mu. So just as we saw how to use a exponentially weighted average to compute the mean of Theta one, Theta two, Theta three when you were trying to compute a exponentially weighted average of the current temperature, you would do that to keep track of what’s the latest average value of this mean vector you’ve seen. So that exponentially weighted average becomes your estimate for what the mean of the Zs is for that hidden layer and similarly, you use an exponentially weighted average to keep track of these values of sigma squared that you see on the first mini batch in that layer, sigma square that you see on second mini batch and so on. So you keep a running average of the mu and the sigma squared that you’re seeing for each layer as you train the neural network across different mini batches. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/25.png" alt=""></p>
+<p>Then finally at test time, what you do is in place of this equation(Tip: the equations in green color above the slide), you would just compute $Z$ norm using whatever value your $Z$ have, and using your exponentially weighted average of the $\mu$ and $\sigma$ square whatever was the latest value you have to do the scaling here. And then you would compute $\tilde{Z}$ on your one test example using that $Z_{norm}$ that we just computed on the left and using the $\beta$ and $\gamma$ parameters that you have learned during your neural network training process. </p>
+<p><strong>So the takeaway from this is that during training time $\mu$ and $\sigma$ squared are computed on an entire mini batch of say 64, 28 or some number of examples. But that test time, you might need to process a single example at a time. So, the way to do that is to estimate $\mu$ and $\sigma^2$ from your training set and there are many ways to do that. You could in theory run your whole training set through your final network to get $\mu$ and $\sigma^2$. But in practice, what people usually do is implement and exponentially weighted average where you just keep track of the $\mu$ and $\sigma^2$ values you’re seeing during training and use and exponentially the weighted average, also sometimes called the running average, to just get a rough estimate of $\mu$ and $\sigma^2$ and then you use those values of $\mu$ and $\sigma^2$ that test time to do the scale and you need the head and unit values Z</strong>. </p>
+<p>In practice, this process is <strong>pretty robust</strong> to the exact way you used to estimate mu and sigma squared. So, I wouldn’t worry too much about exactly how you do this and <strong>if you’re using a deep learning framework, they’ll usually have some default way to estimate the mu and sigma squared that should work reasonably well as well.</strong> But in practice, any reasonable way to estimate the mean and variance of your head and unit values Z should work fine at test. </p>
+<p>So, that’s it for batch norm and using it. I think you’ll be able to train much deeper networks and get your learning algorithm to run much more quickly. Before we wrap up for this week, I want to share with you some thoughts on deep learning frameworks as well. Let’s start to talk about that in the next video. </p>
+<h2 id="03-multi-class-classification"><a href="#03-multi-class-classification" class="headerlink" title="03_multi-class-classification"></a>03_multi-class-classification</h2><h3 id="01-softmax-regression"><a href="#01-softmax-regression" class="headerlink" title="01_softmax-regression"></a>01_softmax-regression</h3><p>So far, the classification examples we’ve talked about have used binary classification, where you had two possible labels, 0 or 1. Is it a cat, is it not a cat? What if we have multiple possible classes? There’s a generalization of logistic regression called Softmax regression. Let’s you make predictions where you’re trying to recognize one of C or one of multiple classes, rather than just recognize two classes. Let’s take a look. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/26.png" alt=""><br>Let’s say that instead of just recognizing cats you want to recognize cats, dogs, and baby chicks. So I’m going to call cats class 1, dogs class 2, baby chicks class 3. And if none of the above, then there’s an other or a none of the above class, which I’m going to call class 0. So here’s an example of the images and the classes they belong to. That’s a picture of a baby chick, so the class is 3. Cats is class 1, dog is class 2, I guess that’s a koala, so that’s none of the above, so that is class 0, class 3 and so on. So the notation we’re going to use is, I’m going to use capital C to denote the number of classes you’re trying to categorize your inputs into. And in this case, you have four possible classes, including the other or the none of the above class. So when you have four classes, the numbers indexing your classes would be 0 through capital C minus one. So in other words, that would be zero, one, two or three. In this case, we’re going to build a new XY, where the upper layer has four, or in this case the variable capital alphabet C upward units. So N, the number of units upper layer which is layer L is going to equal to 4 or in general this is going to equal to C. And what we want is for the number of units in the upper layer to tell us what is the probability of each of these four classes. So the first node here is supposed to output, or we want it to output the probability that is the other class, given the input x, this will output probability there’s a cat. Give an x, this will output probability as a dog. Give an x, that will output the probability. I’m just going to abbreviate baby chick to baby C, given the input x. <strong>So here, the output labels $y$ hat is going to be a four by one dimensional vector, because it now has to output four numbers, giving you these four probabilities. And because probabilities should sum to one, the four numbers in the output $\hat{y}$, they should sum to one.</strong> </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/27.png" alt=""><br>The standard model for getting your network to do this uses what’s called <strong>a Softmax layer</strong>, and the output layer in order to generate these outputs. Then write down the map, then you can come back and get some intuition about what the Softmax there is doing. So in the final layer of the neural network, you are going to compute as usual the linear part of the layers. So z, capital L, that’s the z variable for the final layer. So remember this is layer capital L. So as usual you compute that as wL times the activation of the previous layer plus the biases for that final layer. Now having computer z, you now need to apply what’s called the Softmax activation function. So that activation function is a bit unusual for the Softmax layer, but this is what it does. First, we’re going to computes a temporary variable, which we’re going to call t, which is e to the z L. So this is a part element-wise. So zL here, in our example, zL is going to be four by one. This is a four dimensional vector. So t Itself e to the zL, that’s an element wise exponentiation. T will also be a 4 by 1 dimensional vector. Then the output aL, is going to be basically the vector t will normalized to sum to 1. So aL is going to be e to the zL divided by sum from J equal 1 through 4, because we have four classes of t substitute i. So in other words we’re saying that aL is also a four by one vector, and the i element of this four dimensional vector. Let’s write that, aL substitute i that’s going to be equal to ti over sum of ti, okay? In case this math isn’t clear, we’ll do an example in a minute that will make this clearer. So in case this math isn’t clear, let’s go through a specific example that will make this clearer. </p>
+<p>Let’s say that your computer $Z^{[L]}$, and $Z^{[L]}$ is a four dimensional vector, let’s say is 5, 2, -1, 3. What we’re going to do is use this element-wise exponentiation to compute this vector t. So t is going to be e to the 5, e to the 2, e to the -1, e to the 3. And if you plug that in the calculator, these are the values you get. E to the 5 is 1484, e squared is about 7.4, e to the -1 is 0.4, and e cubed is 20.1. And so, the way we go from the vector t to the vector aL is just to normalize these entries to sum to one. So if you sum up the elements of t, if you just add up those 4 numbers you get 176.3. So finally, aL is just going to be this vector t, as a vector, divided by 176.3. So for example, this first node here, this will output e to the 5 divided by 176.3. And that turns out to be 0.842. So saying that, for this image, if this is the value of z you get, the chance of it being called zero is 84.2%. And then the next nodes outputs e squared over 176.3, that turns out to be 0.042, so this is 4.2% chance. The next one is e to -1 over that, which is 0.042. And the final one is e cubed over that, which is 0.114. So it is 11.4% chance that this is class number three, which is the baby C class, right? So there’s a chance of it being class zero, class one, class two, class three. So the output of the neural network aL, this is also y hat. This is a 4 by 1 vector where the elements of this 4 by 1 vector are going to be these four numbers. Then we just compute it. So this algorithm takes the vector zL and is four probabilities that sum to 1. And if we summarize what we just did to math from zL to aL, this whole computation confusing exponentiation to get this temporary variable t and then normalizing, we can summarize this into a Softmax activation function and say aL equals the activation function g applied to the vector zL. The unusual thing about this particular activation function is that, this activation function g, it takes a input a 4 by 1 vector and it outputs a 4 by 1 vector. <strong>So previously, our activation functions used to take in a single row value input. So for example, the sigmoid and the value activation functions input the real number and output a real number. The unusual thing about the Softmax activation function is, because it needs to normalized across the different possible outputs, and needs to take a vector and puts in outputs of vector.</strong> </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/28.png" alt=""><br>So what other things that a Softmax cross layer can represent, I’m going to show you some examples where you have inputs x1, x2. And these feed directly to a Softmax layer that has three or four, or more output nodes that then output y hat. So I’m going to show you a new network with no hidden layer, and all it does is compute z1 equals w1 times the input x plus b. And then the output a1, or y hat is just the Softmax activation function applied to z1. So in this neural network with no hidden layers, it should give you a sense of the types of things a Softmax function can represent. So here’s one example with just raw inputs x1 and x2. A Softmax layer with C equals 3 upper classes can represent this type of decision boundaries. Notice this kind of several linear decision boundaries, but this allows it to separate out the data into three classes. And in this diagram, what we did was we actually took the training set that’s kind of shown in this figure and train the Softmax cross fire with the upper labels on the data. And then the color on this plot shows fresh holding the upward of the Softmax cross fire, and coloring in the input base on which one of the three outputs have the highest probability. So we can maybe we kind of see that this is like a generalization of logistic regression with sort of linear decision boundaries, but with more than two classes [INAUDIBLE] class 0, 1, the class could be 0, 1, or 2. Here’s another example of the decision boundary that a Softmax cross fire represents when three normal datasets with three classes. And here’s another one, rIght, so this is a, but one intuition is that the decision boundary between any two classes will be more linear. That’s why you see for example that decision boundary between the yellow and the various classes, that’s the linear boundary where the purple and red linear in boundary between the purple and yellow and other linear decision boundary. But able to use these different linear functions in order to separate the space into three classes. Let’s look at some examples with more classes. So it’s an example with C equals 4, so that the green class and Softmax can continue to represent these types of linear decision boundaries between multiple classes. So here’s one more example with C equals 5 classes, and here’s one last example with C equals 6. So this shows the type of things the Softmax crossfire can do when there is no hidden layer of class, even much deeper neural network with x and then some hidden units, and then more hidden units, and so on. Then you can learn even more complex non-linear decision boundaries to separate out multiple different classes. </p>
+<p>So I hope this gives you a sense of what a Softmax layer or the Softmax activation function in the neural network can do. In the next video, let’s take a look at how you can train a neural network that uses a Softmax layer. </p>
+<h3 id="02-training-a-softmax-classifier"><a href="#02-training-a-softmax-classifier" class="headerlink" title="02_training-a-softmax-classifier"></a>02_training-a-softmax-classifier</h3><p>In the last video, you learned about the softmax, the softmax activation function. In this video, you deepen your understanding of softmax classification, and also learn how the training model that uses a softmax layer. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/29.png" alt=""><br>Recall our earlier example where the output layer computes z[L] as follows. So we have four classes, $C = 4$ then $Z^{[L]}$ can be (4,1) dimensional vector and we said we compute t which is this temporary variable that performs element y’s exponentiation. And then finally, if the activation function for your output layer, g[L] is the softmax activation function, then your outputs will be this. It’s basically taking the temporarily variable t and normalizing it to sum to 1. So this then becomes a(L). So you notice that in the z vector, the biggest element was 5, and the biggest probability ends up being this first probability. The name softmax comes from contrasting it to what’s called a hard max which would have taken the vector Z and matched it to this vector. So hard max function will look at the elements of Z and just put a 1 in the position of the biggest element of Z and then 0s everywhere else. And so this is a very hard max where the biggest element gets a output of 1 and everything else gets an output of 0. Whereas in contrast, a softmax is a more gentle mapping from Z to these probabilities. So, I’m not sure if this is a great name but at least, that was the intuition behind why we call it a softmax, all this in contrast to the hard max. And one thing I didn’t really show but had alluded to is that softmax regression or the softmax identification function generalizes the logistic activation function to C classes rather than just two classes. And it turns out that if C = 2, then softmax with C = 2 essentially reduces to logistic regression. And I’m not going to prove this in this video but the rough outline for the proof is that if C = 2 and if you apply softmax, then the output layer, a[L], will output two numbers if C = 2, so maybe it outputs 0.842 and 0.158, right? And these two numbers always have to sum to 1. And because these two numbers always have to sum to 1, they’re actually redundant. And maybe you don’t need to bother to compute two of them, maybe you just need to compute one of them. And it turns out that the way you end up computing that number reduces to the way that logistic regression is computing its single output. So that wasn’t much of a proof but the takeaway from this is that softmax regression is a generalization of logistic regression to more than two classes. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/30.png" alt=""><br>Now let’s look at how you would actually train a neural network with a softmax output layer. So in particular, let’s define the loss functions you use to train your neural network. Let’s take an example. Let’s see of an example in your training set where the target output, the ground true label is 0 1 0 0. So the example from the previous video, this means that this is an image of a cat because it falls into Class 1. And now let’s say that your neural network is currently outputting y hat equals, so y hat would be a vector probability is equal to sum to 1. 0.1, 0.4, so you can check that sums to 1, and this is going to be a[L]. So the neural network’s not doing very well in this example because this is actually a cat and assigned only a 20% chance that this is a cat. So didn’t do very well in this example. So what’s the last function you would want to use to train this neural network? In softmax classification, they’ll ask me to produce this negative sum of j=1 through 4. And it’s really sum from 1 to C in the general case. We’re going to just use 4 here, of yj log y hat of j. So let’s look at our single example above to better understand what happens. Notice that in this example, y1 = y3 = y4 = 0 because those are 0s and only y2 = 1. So if you look at this summation, all of the terms with 0 values of yj were equal to 0. And the only term you’re left with is -y2 log y hat 2, because we use sum over the indices of j, all the terms will end up 0, except when j is equal to 2. And because y2 = 1, this is just -log y hat 2. So what this means is that, if your learning algorithm is trying to make this small because you use gradient descent to try to reduce the loss on your training set. Then the only way to make this small is to make this small. And the only way to do that is to make y hat 2 as big as possible. And these are probabilities, so they can never be bigger than 1. But this kind of makes sense because x for this example is the picture of a cat, then you want that output probability to be as big as possible. So more generally, what this loss function does is it looks at whatever is the ground true class in your training set, and it tries to make the corresponding probability of that class as high as possible. If you’re familiar with maximum likelihood estimation statistics, this turns out to be a form of maximum likelyhood estimation. But if you don’t know what that means, don’t worry about it. The intuition we just talked about will suffice. Now this is the loss on a single training example. How about the cost J on the entire training set. So, the class of setting of the parameters and so on, of all the ways and biases, you define that as pretty much what you’d guess, sum of your entire training sets are the loss, your learning algorithms predictions are summed over your training samples. And so, what you do is use gradient descent in order to try to minimize this class.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/31.png" alt=""><br>Finally, one more implementation detail. Notice that because C is equal to 4, y is a 4 by 1 vector, and y hat is also a 4 by 1 vector. So if you’re using a vectorized limitation, the matrix capital Y is going to be y(1), y(2), through y(m), stacked horizontally. And so for example, if this example up here is your first training example then the first column of this matrix Y will be 0 1 0 0 and then maybe the second example is a dog, maybe the third example is a none of the above, and so on. And then this matrix Y will end up being a 4 by m dimensional matrix. And similarly, Y hat will be y hat 1 stacked up horizontally going through y hat m, so this is actually y hat 1. All the output on the first training example then y hat will these 0.3, 0.2, 0.1, and 0.4, and so on. And y hat itself will also be 4 by m dimensional matrix. Finally, let’s take a look at how you’d implement gradient descent when you have a softmax output layer. So this output layer will compute z[L] which is C by 1 in our example, 4 by 1 and then you apply the softmax attribution function to get a[L], or y hat. And then that in turn allows you to compute the loss. So with talks about how to implement the forward propagation step of a neural network to get these outputs and to compute that loss. How about the back propagation step, or gradient descent? Turns out that the key step or the key equation you need to initialize back prop is this expression, that the derivative with respect to z at the loss layer, this turns out, you can compute this y hat, the 4 by 1 vector, minus y, the 4 by 1 vector. So you notice that all of these are going to be 4 by 1 vectors when you have 4 classes and C by 1 in the more general case. And so this going by our usual definition of what is dz, this is the partial derivative of the class function with respect to z[L]. If you are an expert in calculus, you can derive this yourself. Or if you’re an expert in calculus, you can try to derive this yourself, but using this formula will also just work fine, if you have a need to implement this from scratch. With this, you can then compute dz[L] and then sort of start off the back prop process to compute all the derivatives you need throughout your neural network. But it turns out that in this week’s primary exercise, we’ll start to use one of the deep learning program frameworks and for those primary frameworks, usually it turns out you just need to focus on getting the forward prop right. And so long as you specify it as a primary framework, the forward prop pass, the primary framework will figure out how to do back prop, how to do the backward pass for you. So this expression is worth keeping in mind for if you ever need to implement softmax regression, or softmax classification from scratch. Although you won’t actually need this in this week’s primary exercise because the primary framework you use will take care of this derivative computation for you. </p>
+<p>So that’s it for softmax classification, with it you can now implement learning algorithms to characterized inputs into not just one of two classes, but one of C different classes. Next, I want to show you some of the deep learning programming frameworks which can make you much more efficient in terms of implementing deep learning algorithms. Let’s go on to the next video to discuss that. </p>
+<h3 id="Personal-Tip"><a href="#Personal-Tip" class="headerlink" title="Personal Tip"></a>Personal Tip</h3><p>if you want to go over the details of Softmax regression, please refer to <a href="http://ufldl.stanford.edu/wiki/index.php/Softmax_Regression" target="_blank" rel="noopener"> Softmax regression UFLDL Tutorial</a> </p>
+<h2 id="04-introduction-to-programming-frameworks"><a href="#04-introduction-to-programming-frameworks" class="headerlink" title="04_introduction-to-programming-frameworks"></a>04_introduction-to-programming-frameworks</h2><p>You’ve learned to implement deep learning algorithms more or less from scratch using Python and NumPY. And I’m glad you did that because I wanted you to understand what these deep learning algorithms are really doing. But you find unless you implement more complex models, such as convolutional neural networks or recurring neural networks, or as you start to implement very large models that is increasingly not practical, at least for most people, is not practical to implement everything yourself from scratch. Fortunately, there are now many good deep learning software frameworks that can help you implement these models. To make an analogy, I think that hopefully you understand how to do a matrix multiplication and you should be able to implement how to code, to multiply two matrices yourself. But as you build very large applications, you’ll probably not want to implement your own matrix multiplication function but instead you want to call a numerical linear algebra library that could do it more efficiently for you. But this still helps that you understand how multiplying two matrices work. So I think deep learning has now matured to that point where it’s actually more practical you’ll be more efficient doing some things with some of the deep learning frameworks. So let’s take a look at the frameworks out there. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/32.png" alt=""><br>Today, there are many deep learning frameworks that makes it easy for you to implement neural networks, and here are some of the leading ones. Each of these frameworks has a dedicated user and developer community and I think each of these frameworks is a credible choice for some subset of applications. There are lot of people writing articles comparing these deep learning frameworks and how well these deep learning frameworks changes. And because these frameworks are often evolving and getting better month to month, I’ll leave you to do a few internet searches yourself, if you want to see the arguments on the pros and cons of some of these frameworks. But I think many of these frameworks are evolving and getting better very rapidly. So rather than too strongly endorsing any of these frameworks I want to share with you the criteria I would recommend you use to choose frameworks. One important criteria is the ease of programming, and that means both developing the neural network and iterating on it as well as deploying it for production, for actual use, by thousands or millions or maybe hundreds of millions of users, depending on what you’re trying to do. A second important criteria is running speeds, especially training on large data sets, some frameworks will let you run and train your neural network more efficiently than others. And then, one criteria that people don’t often talk about but I think is important is whether or not the framework is truly open. And for a framework to be truly open, it needs not only to be open source but I think it needs good governance as well. Unfortunately, in the software industry some companies have a history of open sourcing software but maintaining single corporation control of the software. And then over some number of years, as people start to use the software, some companies have a history of gradually closing off what was open source, or perhaps moving functionality into their own proprietary cloud services. So one thing I pay a bit of attention to is how much you trust that the framework will remain open source for a long time rather than just being under the control of a single company, which for whatever reason may choose to close it off in the future even if the software is currently released under open source. But at least in the short term depending on your preferences of language, whether you prefer Python or Java or C++ or something else, and depending on what application you’re working on, whether this can be division or natural language processing or online advertising or something else, I think multiple of these frameworks could be a good choice. So that said on programming frameworks by providing a higher level of abstraction than just a numerical linear algebra library, any of these program frameworks can make you more efficient as you develop machine learning applications.</p>
+<h3 id="02-tensorflow"><a href="#02-tensorflow" class="headerlink" title="02_tensorflow"></a>02_tensorflow</h3><p>Welcome to the last video for this week. There are many great, deep learning programming frameworks. One of them is TensorFlow. I’m excited to help you start to learn to use TensorFlow. What I want to do in this video is show you the basic structure of a TensorFlow program, and then leave you to practice, learn more details, and practice them yourself in this week’s problem exercise. This week’s problem exercise will take some time to do so please be sure to leave some extra time to do it. </p>
+<p>As a motivating problem, let’s say that you have some cost function J that you want to minimize. And for this example, I’m going to use this highly simple cost function J(w) = w squared- 10w + 25. So that’s the cost function. You might notice that this function is actually (w- 5) squared. If you expand out this quadratic, you get the expression above, and so the value of w that minimizes this is w = 5. But let’s say we didn’t know that, and you just have this function. Let’s see how you can implement something in TensorFlow to minimize this. Because a very similar structure of program can be used to train neural networks where you can have some complicated cost function J(w, b) depending on all the parameters of your neural network. And the, similarly, you’ll be able to use TensorFlow so automatically try to find values of w and b that minimize this cost function. But let’s start with the simpler example on the left. So, I’m running Python in my Jupyter notebook and to start up TensorFlow, you import numpy as np and it’s idiomatic to use import tensorflow as tf. Next, let me define the parameter w. So in TensorFlow, you’re going to use tf.Variable to define a parameter. Dtype=tf.float32. And then let’s define the cost function. So remember the cost function was w squared- 10w + 25. So let me use tf.add. So I’m going to have w squared + tf.multiply. So the second term was -10.w. And then I’m going to add that 25. So let me put another tf.add over there. So that defines the cost J that we had. And then, I’m going to write train = tf.train.GradientDescentOptimizer. Let’s use a learning rate of 0.01 and the goal is to minimize the cost. And finally, the following few lines are quite idiomatic. Init = tf.global_variables_initializer and then session = tf.Sessions. So it starts a TensorFlow session. Session.run init to initialize global variables. And then, for TensorFlow’s evaluative variable, we’re going to use sess.run w. We haven’t done anything yet. So with this line above, initialize w to zero and define a cost function. We define train to be our learning algorithm which uses a GradientDescentOptimizer to minimize the cost function. But we haven’t actually run the learning algorithm yet, so session.run, we evaluate w, and let me print(session.run(w). So if we run that, it evaluates w to be equal to 0 because we haven’t run anything yet. Now, let’s do session.run train. So what this will do is run one step of GradientDescent. And then let’s evaluate the value of w after one step of GradientDescent and print that. So we do that of the one set of GradientDescent, w is now 0.1. Let’s now run 1000 iterations of GradientDescent so .run(train). And lets then print(session.run w). So this would run a 1,000 iterations of GradientDescent, and at the end w ends up being 4.9999. Remember, we said that we’re minimizing w- 5 squared so the absolute value of w is 5 and it got very close to this. So hope this gives you a sense of the broad structure of a TensorFlow program. And as you do the following exercise and play with more TensorFlow course yourself, some of these functions that I’m using here will become more familiar. </p>
+<p>Some things to notice about this, <strong>w is the parameter</strong> which I optimize so we’re going to declare that as a variable. And notice that all <strong>we had to do was define a cost function</strong> using these add and multiply and so on functions. And TensorFlow knows automatically how to take derivatives with respect to the add and multiply as was other functions. Which is why you only had to implement basically four prop and it can figure out how to do the back problem or the grading computation. Because that’s already built in to the add and multiply as well as the squaring functions. By the way, in cases notation seems really ugly, TensorFlow actually has overloaded the computation for the usual plus, minus, and so on. So you could also just write this nicer format for the cost and comment that out and rerun this and get the same result. <strong>So once w is declared to be a TensorFlow variable, the squaring, multiplication, adding, and subtraction operations are overloaded</strong>. So you don’t need to use this uglier syntax that I had above. </p>
+<p>Now, there’s just one more feature of TensorFlow that I want to show you, which is this example minimize a fix function of w. One of the function you want to minimize is the function of your training set. So whether you have some training data, x and when you’re training a neural network the training data x can change. So how do you get training data into a TensorFlow program? So I’m going to define t and x which is think of this as train a relevant training data or really the training data with both x and y, but we only have x in this example. So just going to define x with placeholder and it’s going to be a type float32 and let’s make this a [3,1] array. And what I’m going to do is whereas the cost here have fixed coefficients in front of the three terms in this quadratic was 1 times w squared- 10<em>w + 25. We could turn these numbers 1- 10 and 25 into data. So what I’m going to do is replace the cost with cost = x[0][0]</em>w squared + x[1][0]*w + x[2][0]. Well, times 1. So now x becomes sort of like data that controls the coefficients of this quadratic function. And this placeholder function tells TensorFlow that x is something that you provide the values for later. So let’s define another array, coefficient = np.array, [1.], [-10.] and yes, the loss value was [25.]. So that’s going to be the data that we’re going to plug into x. So finally we need a way to get this array coefficients into the variable x and the syntax to do that is just doing the training step. That the values for will need to be provided for x, I’m going to set here, feed_dict = x:coefficients, And I’m going to change this, I’m going to copy and paste put that there as well. All right, hopefully, I didn’t have any syntax errors. Let’s try re-running this and we get the same results hopefully as before. And now, if you want to change the coefficients of this quadratic function, let’s say you take this [-10.] and change it to 20, [-20]. And let’s change this to 100. So this is now a function x- 10 squared. And if I re-run this, hopefully, I find that the value that minimizes x- 10 squared is w = 10. Let’s see, cool, great and we get w very close to 10 after running 1,000 integrations of GradientDescent. So what you see more of when you do that from exercise is that a placeholder in TensorFlow is a variable whose value you assign later. And this is a convenient way to get your training data into the cost function. And the way you get your data into the cost function is with this syntax when you’re running a training iteration to use the feed_dict to set x to be equal to the coefficients here. And if you are doing mini batch GradientDescent where on each iteration, you need to plug in a different mini batch, then on different iterations you use the feed_dict to feed in different subsets of your training sets. Different mini batches into where your cost function is expecting to see data. So hopefully this gives you a sense of what TensorFlow can do. And the thing that makes this so powerful is all you need to do is specify how to compute the cost function. And then, it takes derivatives and it can apply a gradient optimizer or an add-on optimizer or some other optimizer with just pretty much one or two lines of codes. </p>
+<p>So here’s the code again. I’ve cleaned this up just a little bit. And in case some of these functions or variables seem a little bit mysterious to use, they will become more familiar after you’ve practiced with it a couple times by working through their problem exercise. Just one last thing I want to mention. These three lines of code are quite idiomatic in TensorFlow, and what some programmers will do is use this alternative format. Which basically does the same thing. Set session to tf.Session() to start the session, and then use the session to run init, and then use the session to evaluate, say, w and then print the result. But this with construction is used in a number of TensorFlow programs as well. It more or less means the same thing as the thing on the left. <strong>But the with command in Python is a little bit better at cleaning up in cases an error in exception while executing this inner loop</strong>. So you see this is the following exercise as well. So what is this code really doing? Let’s focus on this equation. <strong>The heart of a TensorFlow program is something to compute at cost, and then TensorFlow automatically figures out the derivatives in how to minimize that costs. So what this equation or what this line of code is doing is allowing TensorFlow to construct a computation draft</strong>. And a computation draft does the following, it takes x[0][0], it takes w and then it goes w gets squared. And then x[0][0] gets multiplied with w squared, so you have x[0][0]<em>w squared, and so on, right? And eventually, you know, this gets built up to compute this xw, x[0][0]</em>w squared + x[1][0]<em>w + and so on. And so eventually, you get the cost function. And so the last term to be added would be x [2][0] where it gets added to be the cost. I won’t write other format for the cost. *</em>And the nice thing about TensorFlow is that by implementing basically four prop applications through this computation draft, the computed cost, TensorFlow already has that built in. All the necessary backward functions. So remember how training a deep neural network has a set of forward functions instead of backward functions. Programming frameworks like Tensor Flow have already built-in the necessary backward functions. Which is why by using the built-in functions to compute the forward function, it can automatically do the backward functions as well to implement back propagation through even very complicated functions and compute derivatives for you. So that’s why you don’t need to explicitly implement back prop. This is one of the things that makes the programming frameworks help you become really efficient.** If you look at the TensorFlow documentation, I just want to point out that the TensorFlow documentation uses a slightly different notation than I did for drawing the computation draft. So it uses x[0][0] w. And then, rather than writing the value, like w squared, the TensorFlow documentation tends to just write the operation. So this would be a, square operation, and then these two get combined in the multiplication operation and so on. And then, a final note, I guess that would be an addition operation where you add x to 0 to find the final value. So for the purposes of this class, I thought that this notation for the computation draft would be easier for you to understand. But if you look at the TensorFlow documentation, if you look at the computation drafts in the documentation, you see this alternative convention where the notes are labeled with the operations rather than with the value. But both of these representations represent basically the same computation draft. </p>
+<p>And there are a lot of things that you can with just one line of code in programming frameworks. For example, if you don’t want to use GradientDescent, but instead you want to use the add-on Optimizer by changing this line of code, you can very quickly swap it, swap in a better optimization algorithm. So all the modern deep learning programming framework support things like this and makes it really easy for you to code up even pretty complex neural networks. </p>
+<p>So I hope this is helpful for giving you a sense of the typical structure of a TensorFlow program. </p>
+<p>To recap the material from this week, you saw how to systematically organize the hyper parameter search process. We also talked about batch normalization and how you can use that to speed up training of your neural networks. And finally, we talked about programming frameworks of deep learning. There are many great programming frameworks. And we had this last video focusing on TensorFlow. With that, I hope you enjoyed this week’s programming exercise and that helps you gain even more familiarity with these ideas. </p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>Donate comment here.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/deep-learning/" rel="tag"><i class="fa fa-tag"></i> deep learning</a>
+              <a href="/tags/Improving-Deep-Neural-Networks/" rel="tag"><i class="fa fa-tag"></i> Improving Deep Neural Networks</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/03/02/summary_of_Improving-Deep-Neural-Networks/" rel="prev" title="summary of Improving-Deep-Neural-Networks">
+      <i class="fa fa-chevron-left"></i> summary of Improving-Deep-Neural-Networks
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/03/02/02_optimization-algorithms/" rel="next" title="02_optimization-algorithms">
+      02_optimization-algorithms <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#01-hyperparameter-tuning"><span class="nav-number">2.</span> <span class="nav-text">01_hyperparameter-tuning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-tuning-process"><span class="nav-number">2.1.</span> <span class="nav-text">01_tuning-process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-using-an-appropriate-scale-to-pick-hyperparameters"><span class="nav-number">2.2.</span> <span class="nav-text">02_using-an-appropriate-scale-to-pick-hyperparameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-hyperparameters-tuning-in-practice-pandas-vs-caviar"><span class="nav-number">2.3.</span> <span class="nav-text">03_hyperparameters-tuning-in-practice-pandas-vs-caviar</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-batch-normalization"><span class="nav-number">3.</span> <span class="nav-text">02_batch-normalization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-normalizing-activations-in-a-network"><span class="nav-number">3.1.</span> <span class="nav-text">01_normalizing-activations-in-a-network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-fitting-batch-norm-into-a-neural-network"><span class="nav-number">3.2.</span> <span class="nav-text">02_fitting-batch-norm-into-a-neural-network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-why-does-batch-norm-work"><span class="nav-number">3.3.</span> <span class="nav-text">03_why-does-batch-norm-work</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-batch-norm-at-test-time"><span class="nav-number">3.4.</span> <span class="nav-text">04_batch-norm-at-test-time</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-multi-class-classification"><span class="nav-number">4.</span> <span class="nav-text">03_multi-class-classification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-softmax-regression"><span class="nav-number">4.1.</span> <span class="nav-text">01_softmax-regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-training-a-softmax-classifier"><span class="nav-number">4.2.</span> <span class="nav-text">02_training-a-softmax-classifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Personal-Tip"><span class="nav-number">4.3.</span> <span class="nav-text">Personal Tip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-introduction-to-programming-frameworks"><span class="nav-number">5.</span> <span class="nav-text">04_introduction-to-programming-frameworks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#02-tensorflow"><span class="nav-number">5.1.</span> <span class="nav-text">02_tensorflow</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : 'feb34497f6b272cde7afe8ad400393df',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>
