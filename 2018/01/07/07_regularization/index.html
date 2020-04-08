@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
+
+<script>
+    (function(){
+        if(''){
+                         If (prompt('Please enter the article password') !== ''){
+                                 Alert('Password error!');
+                history.back();
+            }
+        }
+    })();
+</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -18,15 +29,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="NoteThis personal note is written after studying the opening course on the coursera website, Machine Learning by Andrew NG . And images, audios of this note all comes from the opening course.  The Pro">
+  <meta name="description" content="NoteThis personal note is written after studying the opening course on the coursera website, Machine Learning by Andrew NG . And images, audios of this note all comes from the opening course.The Probl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="07_regularization note7">
 <meta property="og:url" content="https://snakecoding.com/2018/01/07/07_regularization/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="NoteThis personal note is written after studying the opening course on the coursera website, Machine Learning by Andrew NG . And images, audios of this note all comes from the opening course.  The Pro">
+<meta property="og:description" content="NoteThis personal note is written after studying the opening course on the coursera website, Machine Learning by Andrew NG . And images, audios of this note all comes from the opening course.The Probl">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/1.png">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/2.png">
@@ -86,6 +97,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Machine Learning" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -154,18 +166,21 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container"></div>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div class="algolia-results">
-  <div id="algolia-stats"></div>
-  <div id="algolia-hits"></div>
-  <div id="algolia-pagination" class="algolia-pagination"></div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
 
-      
     </div>
   </div>
 
@@ -173,8 +188,11 @@
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
   <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
   <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
@@ -240,6 +258,20 @@
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>9 mins.</span>
             </span>
 
         </div>
@@ -251,58 +283,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This personal note is written after studying the opening course on <a href="https://www.coursera.org" target="_blank" rel="noopener">the coursera website</a>, <a href="https://www.coursera.org/learn/machine-learning/home/welcome" target="_blank" rel="noopener">Machine Learning by Andrew NG</a> . And images, audios of this note all comes from the opening course. </p>
-<h2 id="The-Problem-of-Overfitting"><a href="#The-Problem-of-Overfitting" class="headerlink" title="The Problem of Overfitting"></a>The Problem of Overfitting</h2><p>Consider the problem of predicting $y$ from $x ∈ R$. The leftmost figure below shows the result of fitting a $y = θ_0+θ_1x$ to a dataset. We see that the data doesn’t really lie on straight line, and so the fit is not very good.</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/1.png" alt=""></p>
-<p>Instead, if we had added an extra feature $x_2$ , and fit $y=θ<em>0+θ_1x+θ_2x^2$ , then we obtain a slightly better fit to the data (See middle figure). Naively, it might seem that the more features we add, the better. However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a $5^{th}$ order polynomial $y=\sum</em>{j=0}^{5}\theta_jx^j$ . We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (y) for different living areas(x). Without formally defining what these terms mean, we’ll say the figure on the left shows an instance of  <strong>underfitting</strong> —in which the data clearly shows structure not captured by the model—and the figure on the right is an example of *<em>overfitting *</em>. </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/2.png" alt=""></p>
-<ol>
-<li><strong>Underfitting, or high bias</strong>, <em>is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features.</em></li>
-<li>At the other extreme, <strong>overfitting, or high variance</strong>, <em>is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.</em> </li>
-</ol>
-<p><strong>This terminology is applied to both linear and logistic regression. There are two main options to address the issue of overfitting:</strong> </p>
-<p>1) Reduce the number of features: </p>
-<ul>
-<li><p>​    Manually select which features to keep.   </p>
-</li>
-<li><p>​    Use a model selection algorithm (studied later in the course, such as PCA).   </p>
-<p>2) Regularization </p>
-</li>
-<li><p>​    Keep all the features, but reduce the magnitude of parameters $θ_j$.   </p>
-</li>
-<li><p>​    Regularization works well when we have a lot of slightly useful features.</p>
-</li>
-</ul>
-<h2 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h2><p><strong>Note:</strong>    [5:18 - There is a typo. It should be $\sum_{j=1}^{n} \theta <em>j ^2$ instead of $\sum</em>{i=1}^{n} \theta _j ^2$]</p>
-<p>If we have overfitting from our hypothesis function, we can reduce the weight that some of the terms in our function carry by increasing their cost. </p>
-<p>Say we wanted to make the following function more quadratic:<br>$$<br>\theta_0 + \theta_1x + \theta_2x^2 + \theta_3x^3 + \theta_4x^4<br>$$<br>We’ll want to eliminate the influence of $θ_3x_3$ and $θ_4x_4$ . Without actually getting rid of these features or changing the form of our hypothesis, we can instead modify our</p>
-<p><strong>cost function</strong> :<br>$$<br>min_\theta\ \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2<br>$$<br>We’ve added two extra terms at the end to inflate the cost of $θ_3$ and $θ_4$. Now, in order for the cost function to get close to zero, we will have to reduce the values of $θ_3$ and $θ_4$ to near zero. This will in turn greatly reduce the values of $θ_3x_3$ and $θ_4x_4$ in our hypothesis function. As a result, we see that the new hypothesis (depicted by the pink curve) looks like a quadratic function but fits the data better due to the extra small terms $θ_3x_3$ and $θ_4x_4$.</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/3.png" alt=""></p>
-<p>We could also regularize all of our theta parameters in a single summation as:<br>$$<br>min_\theta\ \dfrac{1}{2m}\  \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2<br>$$<br>The λ, or lambda, is the  <strong>regularization parameter</strong> . It determines how much the costs of our theta parameters are inflated. </p>
-<p>Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If lambda is chosen to be too large, it may smooth out the function too much and cause underfitting. Hence, what would happen if λ=0 or is too small ?</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/4.png" alt=""></p>
-<h2 id="Regularized-Linear-Regression"><a href="#Regularized-Linear-Regression" class="headerlink" title="Regularized Linear Regression"></a>Regularized Linear Regression</h2><p><strong>Note:</strong>    [8:43 - It is said that X is non-invertible if m ≤ n. The correct statement should be that X is non-invertible if m &lt; n, and may be non-invertible if m = n. </p>
-<p>We can apply regularization to both linear regression and logistic regression. We will approach linear regression first.<br>$$<br>J(\theta)=\frac{1}{2m} \left[  \sum\limits_{i=1}^{m}\left(h_\theta(x^{(i)})-y^{(i)}\right)^2 + \lambda\sum_{j=1}^{n}\theta_j^2 \right]<br>$$</p>
-<h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h3><p>We will modify our gradient descent function to separate out θ0θ0 from the rest of the parameters because we do not want to penalize<br>$$</p>
-\begin{align*} & \text{Repeat}\ \lbrace \\ & \ \ \ \ \theta_0 := \theta_0 - \alpha\ \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\ & \ \ \ \ \theta_j := \theta_j - \alpha\ \left[ \left( \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \right) + \frac{\lambda}{m}\theta_j \right] &\ \ \ \ \ \ \ \ \ \ j \in \lbrace 1,2...n\rbrace\\ & \rbrace \end{align*}
-<p>$$<br>The term $\frac{λ}{m} θ<em>j$ performs our regularization. With some manipulation our update rule can also be represented as:<br>$$<br>\theta_j := \theta_j(1 - \alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum</em>{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}<br>$$<br>The first term in the above equation, $1−α\frac{λ}{m}$ will always be less than 1. Intuitively you can see it as reducing the value of $θ_j$ by some amount on every update. Notice that the second term is now exactly the same as it was before.</p>
-<h3 id="Normal-Equation"><a href="#Normal-Equation" class="headerlink" title="Normal Equation"></a>Normal Equation</h3><p>Now let’s approach regularization using the alternate method of the non-iterative normal equation. </p>
-<p>To add in regularization, the equation is the same as our original, except that we add another term inside the parentheses:<br>$$</p>
-\begin{align*}& \theta = \left( X^TX + \lambda \cdot L \right)^{-1} X^Ty \\ & \text{where}\ \ L = \begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1 \\\end{bmatrix}\end{align*}
-<p>$$<br>L is a matrix with 0 at the top left and 1’s down the diagonal, with 0’s everywhere else. It should have dimension (n+1)×(n+1). Intuitively, this is the identity matrix (though we are not including $x_0$), multiplied with a single real number λ. </p>
-<p>Recall that <strong>if m &lt; n, then $X^TX$ is non-invertible. However, when we add the term λ⋅L, then $X^TX + λ⋅L$ becomes invertible.(Note: which is proved)</strong></p>
-<h2 id="Regularized-Logistic-Regression"><a href="#Regularized-Logistic-Regression" class="headerlink" title="Regularized Logistic Regression"></a>Regularized Logistic Regression</h2><p>We can regularize logistic regression in a similar way that we regularize linear regression. As a result, we can avoid overfitting. The following image shows how the regularized function, displayed by the pink line, is less likely to overfit than the non-regularized function represented by the blue line:</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/5.png" alt=""></p>
-<h3 id="Cost-Function-1"><a href="#Cost-Function-1" class="headerlink" title="Cost Function"></a>Cost Function</h3><p>Recall that our cost function for logistic regression was:<br>$$<br>J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \large]<br>$$<br>We can regularize this equation by adding a term to the end:<br>$$<br>J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2<br>$$<br>The second sum, $∑_n^{j=1}θ^2_j$ <strong>means to explicitly exclude</strong> the bias term, $θ_0$. I.e. the θ vector is indexed from 0 to n (holding n+1 values, $θ_0$ through $θ_n$), and this sum explicitly skips $θ_0$, by running from 1 to n, skipping 0. Thus, when computing the equation, we should continuously update the two following equations:</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/6.png" alt=""></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">costReg</span><span class="params">(theta, X, y, learningRate)</span>:</span></span><br><span class="line">    theta = np.matrix(theta)</span><br><span class="line">    X = np.matrix(X)</span><br><span class="line">    y = np.matrix(y)</span><br><span class="line">    first = np.multiply(-y, np.log(sigmoid(X*theta.T)))</span><br><span class="line">    second = np.multiply((<span class="number">1</span> - y), np.log(<span class="number">1</span> - sigmoid(X*theta.T)))</span><br><span class="line">    reg = (learningRate / (<span class="number">2</span> * len(X)) * np.sum(np.power(theta[:,<span class="number">1</span>:theta.shape[<span class="number">1</span>]],<span class="number">2</span>))</span><br><span class="line">    <span class="keyword">return</span> np.sum(first - second) / (len(X)) + reg</span><br></pre></td></tr></table></figure>
-
-<h3 id="Advanced-optimization"><a href="#Advanced-optimization" class="headerlink" title="Advanced optimization"></a>Advanced optimization</h3><p>Let’s talk about how to get regularized linear regression to work using the more advanced optimization methods. And just to remind you for those methods what we needed to do was to define the function that’s called the cost function, that takes us input the parameter vector theta and once again in the equations we’ve been writing here we used 0 index vectors. So we had theta 0 up to theta N. But because Octave indexes the vectors starting from 1. Theta 0 is written in Octave as theta 1. Theta 1 is written in Octave as theta 2, and so on down to theta N plus 1. And what we needed to do was provide a function. Let’s provide a function called cost function that we would then pass in to what we have, what we saw earlier. We will use the <code>fminunc</code> and then you know at cost function, and so on, right. But the <code>fminunc</code> was function minimization unconstrained in Octave and this will work with <code>fminunc</code> was what will take the cost function and minimize it for us. So the two main things that the cost function needed to return were first J-val. And for that, we need to write code to compute the <code>costfunction</code> J of theta. </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/7.png" alt=""></p>
-<p>Now, when we’re using regularized logistic regression, of course the <code>costfunction</code> J of theta changes and, in particular, now a cost function needs to include this additional regularization term at the end as well. So, when you compute j of theta be sure to include that term at the end. </p>
-<p>And then, the other thing that this cost function thing needs to derive with a gradient. So gradient one needs to be set to the partial derivative of J of theta with respect to theta zero, gradient two needs to be set to that, and so on. Once again, the index is off by one. Right, because of the indexing from one Octave users. And looking at these terms. This term over here. We actually worked this out on a previous slide is actually equal to this. It doesn’t change. Because the derivative for theta zero doesn’t change. Compared to the version without regularization. And the other terms do change. And in particular the derivative respect to theta one. We worked this out on the previous slide as well. Is equal to, you know, the original term and then minus londer M times theta 1. Just so we make sure we pass this correctly. And we can add parentheses here. Right, so the summation doesn’t extend. And similarly, you know, this other term here looks like this, with this additional term that we had on the previous slide, that corresponds to the gradient from their regularization objective. So if you implement this cost function and pass this into <code>fminunc</code> or to one of those advanced optimization techniques, that will minimize the new regularized cost function J of theta. And the parameters you get out will be the ones that correspond to logistic regression with regularization. </p>
-<p>So, now you know how to implement regularized logistic regression. When I walk around Silicon Valley, I live here in Silicon Valley, there are a lot of engineers that are frankly, making a ton of money for their companies using machine learning algorithms. And I know we’ve only been, you know, studying this stuff for a little while. But if you understand linear regression, the advanced optimization algorithms and regularization, by now, frankly, you probably know quite a lot more machine learning than many, certainly now, but you probably know quite a lot more machine learning right now than frankly, many of the Silicon Valley engineers out there having very successful careers. You know, making tons of money for the companies. Or building products using machine learning algorithms. So, congratulations. You’ve actually come a long ways. And you can actually, you actually know enough to apply this stuff and get to work for many problems. So congratulations for that. But of course, there’s still a lot more that we want to teach you, and in the next set of videos after this, we’ll start to talk about a very powerful cause of non-linear classifier. So whereas linear regression, logistic regression, you know, you can form polynomial terms, but it turns out that there are much more powerful nonlinear quantifiers that can then sort of polynomial regression. And in the next set of videos after this one, I’ll start telling you about them. So that you have even more powerful learning algorithms than you have now to apply to different problems.</p>
-
+        <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This personal note is written after studying the opening course on <a href="https://www.coursera.org" target="_blank" rel="noopener">the coursera website</a>, <a href="https://www.coursera.org/learn/machine-learning/home/welcome" target="_blank" rel="noopener">Machine Learning by Andrew NG</a> . And images, audios of this note all comes from the opening course.</p><h2 id="The-Problem-of-Overfitting"><a href="#The-Problem-of-Overfitting" class="headerlink" title="The Problem of Overfitting"></a>The Problem of Overfitting</h2><p>Consider the problem of predicting $y$ from $x ∈ R$. The leftmost figure below shows the result of fitting a $y = θ_0+θ_1x$ to a dataset. We see that the data doesn’t really lie on straight line, and so the fit is not very good.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/1.png" alt=""></p><p>Instead, if we had added an extra feature $x_2$ , and fit $y=θ<em>0+θ_1x+θ_2x^2$ , then we obtain a slightly better fit to the data (See middle figure). Naively, it might seem that the more features we add, the better. However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a $5^{th}$ order polynomial $y=\sum</em>{j=0}^{5}\theta_jx^j$ . We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (y) for different living areas(x). Without formally defining what these terms mean, we’ll say the figure on the left shows an instance of <strong>underfitting</strong> —in which the data clearly shows structure not captured by the model—and the figure on the right is an example of *<em>overfitting *</em>.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/2.png" alt=""></p><ol><li><strong>Underfitting, or high bias</strong>, <em>is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features.</em></li><li>At the other extreme, <strong>overfitting, or high variance</strong>, <em>is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.</em></li></ol><p><strong>This terminology is applied to both linear and logistic regression. There are two main options to address the issue of overfitting:</strong></p><p>1) Reduce the number of features:</p><ul><li><p>​ Manually select which features to keep.</p></li><li><p>​ Use a model selection algorithm (studied later in the course, such as PCA).</p><p>2) Regularization</p></li><li><p>​ Keep all the features, but reduce the magnitude of parameters $θ_j$.</p></li><li><p>​ Regularization works well when we have a lot of slightly useful features.</p></li></ul><h2 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h2><p><strong>Note:</strong> [5:18 - There is a typo. It should be $\sum_{j=1}^{n} \theta <em>j ^2$ instead of $\sum</em>{i=1}^{n} \theta _j ^2$]</p><p>If we have overfitting from our hypothesis function, we can reduce the weight that some of the terms in our function carry by increasing their cost.</p><p>Say we wanted to make the following function more quadratic:<br>$$<br>\theta_0 + \theta_1x + \theta_2x^2 + \theta_3x^3 + \theta_4x^4<br>$$<br>We’ll want to eliminate the influence of $θ_3x_3$ and $θ_4x_4$ . Without actually getting rid of these features or changing the form of our hypothesis, we can instead modify our</p><p><strong>cost function</strong> :<br>$$<br>min_\theta\ \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2<br>$$<br>We’ve added two extra terms at the end to inflate the cost of $θ_3$ and $θ_4$. Now, in order for the cost function to get close to zero, we will have to reduce the values of $θ_3$ and $θ_4$ to near zero. This will in turn greatly reduce the values of $θ_3x_3$ and $θ_4x_4$ in our hypothesis function. As a result, we see that the new hypothesis (depicted by the pink curve) looks like a quadratic function but fits the data better due to the extra small terms $θ_3x_3$ and $θ_4x_4$.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/3.png" alt=""></p><p>We could also regularize all of our theta parameters in a single summation as:<br>$$<br>min_\theta\ \dfrac{1}{2m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2<br>$$<br>The λ, or lambda, is the <strong>regularization parameter</strong> . It determines how much the costs of our theta parameters are inflated.</p><p>Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If lambda is chosen to be too large, it may smooth out the function too much and cause underfitting. Hence, what would happen if λ=0 or is too small ?</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/4.png" alt=""></p><h2 id="Regularized-Linear-Regression"><a href="#Regularized-Linear-Regression" class="headerlink" title="Regularized Linear Regression"></a>Regularized Linear Regression</h2><p><strong>Note:</strong> [8:43 - It is said that X is non-invertible if m ≤ n. The correct statement should be that X is non-invertible if m &lt; n, and may be non-invertible if m = n.</p><p>We can apply regularization to both linear regression and logistic regression. We will approach linear regression first.<br>$$<br>J(\theta)=\frac{1}{2m} \left[ \sum\limits_{i=1}^{m}\left(h_\theta(x^{(i)})-y^{(i)}\right)^2 + \lambda\sum_{j=1}^{n}\theta_j^2 \right]<br>$$</p><h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h3><p>We will modify our gradient descent function to separate out θ0θ0 from the rest of the parameters because we do not want to penalize<br>$$</p>\begin{align*} & \text{Repeat}\ \lbrace \\ & \ \ \ \ \theta_0 := \theta_0 - \alpha\ \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\ & \ \ \ \ \theta_j := \theta_j - \alpha\ \left[ \left( \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \right) + \frac{\lambda}{m}\theta_j \right] &\ \ \ \ \ \ \ \ \ \ j \in \lbrace 1,2...n\rbrace\\ & \rbrace \end{align*}<p>$$<br>The term $\frac{λ}{m} θ<em>j$ performs our regularization. With some manipulation our update rule can also be represented as:<br>$$<br>\theta_j := \theta_j(1 - \alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum</em>{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}<br>$$<br>The first term in the above equation, $1−α\frac{λ}{m}$ will always be less than 1. Intuitively you can see it as reducing the value of $θ_j$ by some amount on every update. Notice that the second term is now exactly the same as it was before.</p><h3 id="Normal-Equation"><a href="#Normal-Equation" class="headerlink" title="Normal Equation"></a>Normal Equation</h3><p>Now let’s approach regularization using the alternate method of the non-iterative normal equation.</p><p>To add in regularization, the equation is the same as our original, except that we add another term inside the parentheses:<br>$$</p>\begin{align*}& \theta = \left( X^TX + \lambda \cdot L \right)^{-1} X^Ty \\ & \text{where}\ \ L = \begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1 \\\end{bmatrix}\end{align*}<p>$$<br>L is a matrix with 0 at the top left and 1’s down the diagonal, with 0’s everywhere else. It should have dimension (n+1)×(n+1). Intuitively, this is the identity matrix (though we are not including $x_0$), multiplied with a single real number λ.</p><p>Recall that <strong>if m &lt; n, then $X^TX$ is non-invertible. However, when we add the term λ⋅L, then $X^TX + λ⋅L$ becomes invertible.(Note: which is proved)</strong></p><h2 id="Regularized-Logistic-Regression"><a href="#Regularized-Logistic-Regression" class="headerlink" title="Regularized Logistic Regression"></a>Regularized Logistic Regression</h2><p>We can regularize logistic regression in a similar way that we regularize linear regression. As a result, we can avoid overfitting. The following image shows how the regularized function, displayed by the pink line, is less likely to overfit than the non-regularized function represented by the blue line:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/5.png" alt=""></p><h3 id="Cost-Function-1"><a href="#Cost-Function-1" class="headerlink" title="Cost Function"></a>Cost Function</h3><p>Recall that our cost function for logistic regression was:<br>$$<br>J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \large]<br>$$<br>We can regularize this equation by adding a term to the end:<br>$$<br>J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2<br>$$<br>The second sum, $∑_n^{j=1}θ^2_j$ <strong>means to explicitly exclude</strong> the bias term, $θ_0$. I.e. the θ vector is indexed from 0 to n (holding n+1 values, $θ_0$ through $θ_n$), and this sum explicitly skips $θ_0$, by running from 1 to n, skipping 0. Thus, when computing the equation, we should continuously update the two following equations:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/6.png" alt=""></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">costReg</span><span class="params">(theta, X, y, learningRate)</span>:</span></span><br><span class="line">    theta = np.matrix(theta)</span><br><span class="line">    X = np.matrix(X)</span><br><span class="line">    y = np.matrix(y)</span><br><span class="line">    first = np.multiply(-y, np.log(sigmoid(X*theta.T)))</span><br><span class="line">    second = np.multiply((<span class="number">1</span> - y), np.log(<span class="number">1</span> - sigmoid(X*theta.T)))</span><br><span class="line">    reg = (learningRate / (<span class="number">2</span> * len(X)) * np.sum(np.power(theta[:,<span class="number">1</span>:theta.shape[<span class="number">1</span>]],<span class="number">2</span>))</span><br><span class="line">    <span class="keyword">return</span> np.sum(first - second) / (len(X)) + reg</span><br></pre></td></tr></table></figure><h3 id="Advanced-optimization"><a href="#Advanced-optimization" class="headerlink" title="Advanced optimization"></a>Advanced optimization</h3><p>Let’s talk about how to get regularized linear regression to work using the more advanced optimization methods. And just to remind you for those methods what we needed to do was to define the function that’s called the cost function, that takes us input the parameter vector theta and once again in the equations we’ve been writing here we used 0 index vectors. So we had theta 0 up to theta N. But because Octave indexes the vectors starting from 1. Theta 0 is written in Octave as theta 1. Theta 1 is written in Octave as theta 2, and so on down to theta N plus 1. And what we needed to do was provide a function. Let’s provide a function called cost function that we would then pass in to what we have, what we saw earlier. We will use the <code>fminunc</code> and then you know at cost function, and so on, right. But the <code>fminunc</code> was function minimization unconstrained in Octave and this will work with <code>fminunc</code> was what will take the cost function and minimize it for us. So the two main things that the cost function needed to return were first J-val. And for that, we need to write code to compute the <code>costfunction</code> J of theta.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/7.png" alt=""></p><p>Now, when we’re using regularized logistic regression, of course the <code>costfunction</code> J of theta changes and, in particular, now a cost function needs to include this additional regularization term at the end as well. So, when you compute j of theta be sure to include that term at the end.</p><p>And then, the other thing that this cost function thing needs to derive with a gradient. So gradient one needs to be set to the partial derivative of J of theta with respect to theta zero, gradient two needs to be set to that, and so on. Once again, the index is off by one. Right, because of the indexing from one Octave users. And looking at these terms. This term over here. We actually worked this out on a previous slide is actually equal to this. It doesn’t change. Because the derivative for theta zero doesn’t change. Compared to the version without regularization. And the other terms do change. And in particular the derivative respect to theta one. We worked this out on the previous slide as well. Is equal to, you know, the original term and then minus londer M times theta 1. Just so we make sure we pass this correctly. And we can add parentheses here. Right, so the summation doesn’t extend. And similarly, you know, this other term here looks like this, with this additional term that we had on the previous slide, that corresponds to the gradient from their regularization objective. So if you implement this cost function and pass this into <code>fminunc</code> or to one of those advanced optimization techniques, that will minimize the new regularized cost function J of theta. And the parameters you get out will be the ones that correspond to logistic regression with regularization.</p><p>So, now you know how to implement regularized logistic regression. When I walk around Silicon Valley, I live here in Silicon Valley, there are a lot of engineers that are frankly, making a ton of money for their companies using machine learning algorithms. And I know we’ve only been, you know, studying this stuff for a little while. But if you understand linear regression, the advanced optimization algorithms and regularization, by now, frankly, you probably know quite a lot more machine learning than many, certainly now, but you probably know quite a lot more machine learning right now than frankly, many of the Silicon Valley engineers out there having very successful careers. You know, making tons of money for the companies. Or building products using machine learning algorithms. So, congratulations. You’ve actually come a long ways. And you can actually, you actually know enough to apply this stuff and get to work for many problems. So congratulations for that. But of course, there’s still a lot more that we want to teach you, and in the next set of videos after this, we’ll start to talk about a very powerful cause of non-linear classifier. So whereas linear regression, logistic regression, you know, you can form polynomial terms, but it turns out that there are much more powerful nonlinear quantifiers that can then sort of polynomial regression. And in the next set of videos after this one, I’ll start telling you about them. So that you have even more powerful learning algorithms than you have now to apply to different problems.</p>
     </div>
 
     
@@ -460,10 +441,6 @@
   </div>
 
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
 
     </div>
   </aside>
@@ -487,6 +464,16 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Karan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">2.1m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">32:08</span>
 </div>
 
         
@@ -535,8 +522,6 @@
 
 
 <script src="/js/next-boot.js"></script>
-
-<script src="/js/bookmark.js"></script>
 
   <script>
 var pjax = new Pjax({
@@ -606,10 +591,7 @@ window.addEventListener('pjax:success', () => {
 
 
   
-<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
-<script src="/js/algolia-search.js"></script>
-
+<script src="/js/local-search.js"></script>
 
 
 

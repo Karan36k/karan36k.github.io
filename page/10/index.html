@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<script>
+    (function(){
+        if(''){
+                         If (prompt('Please enter the article password') !== ''){
+                                 Alert('Password error!');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Refuse to Fall">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Machine Learning">
+<meta property="og:url" content="https://snakecoding.com/page/10/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="Refuse to Fall">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Karan">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://snakecoding.com/page/10/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Machine Learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">60</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/02/02/greek-letters/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/02/02/greek-letters/" class="post-title-link" itemprop="url">Greek Letters</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-02-02 18:06:02" itemprop="dateCreated datePublished" datetime="2018-02-02T18:06:02+05:30">2018-02-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:33" itemprop="dateModified" datetime="2020-04-06T20:25:33+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img src="https://upload.wikimedia.org/wikipedia/en/3/37/Greek_ext.png">
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/02/02/02_neural-networks-basics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/02/02/02_neural-networks-basics/" class="post-title-link" itemprop="url">02_logistic-regression-as-a-neural-network</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-02-02 00:00:00" itemprop="dateCreated datePublished" datetime="2018-02-02T00:00:00+05:30">2018-02-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:18" itemprop="dateModified" datetime="2020-04-06T20:25:18+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>8.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>8 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note at the 2nd week after studying the course <a href="https://www.coursera.org/learn/neural-networks-deep-learning/" target="_blank" rel="noopener">neural-networks-deep-learning</a> and the copyright belongs to <a href="https://www.deeplearning.ai/" target="_blank" rel="noopener">deeplearning.ai</a>.</p><h2 id="01-logistic-regression-as-a-neural-network"><a href="#01-logistic-regression-as-a-neural-network" class="headerlink" title="01_logistic-regression-as-a-neural-network"></a>01_logistic-regression-as-a-neural-network</h2><h3 id="01-binary-classification"><a href="#01-binary-classification" class="headerlink" title="01_binary-classification"></a>01_binary-classification</h3><h4 id="Binary-Classification"><a href="#Binary-Classification" class="headerlink" title="Binary Classification"></a>Binary Classification</h4><p>In a binary classification problem, the result is a discrete value output. For example</p><ul><li>account hacked (1) or compromised (0)</li><li>a tumor malign (1) or benign (0)</li></ul><p><strong>Example: Cat vs Non-Cat</strong><br>The goal is to train a classifier that the input is an image represented by a feature vector, $x$, and predicts whether the corresponding label $y$ is 1 or 0. In this case, whether this is a cat image (1) or a non-cat image (0).</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/1.png" alt=""></p><p>An image is store in the computer in three separate matrices corresponding to the Red, Green, and Blue color channels of the image. The three matrices have the same size as the image, for example, the resolution of the cat image is 64 pixels X 64 pixels, the three matrices (RGB) are 64 X 64 each.<br>The value in a cell represents the pixel intensity which will be used to create a feature vector of ndimension. In pattern recognition and machine learning, a feature vector represents an object, in this case, a cat or no cat.<br>To create a feature vector, $x$, the pixel intensity values will be “unroll” or “reshape” for each color. The dimension of the input feature vector $x$ is $ n_x = 64 \times 64 \times 3 = 12 288.$<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/2.png" alt=""></p><h4 id="notation"><a href="#notation" class="headerlink" title="notation"></a>notation</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/3.png" alt=""></p><h3 id="02-Logistic-Regression"><a href="#02-Logistic-Regression" class="headerlink" title="02_Logistic Regression"></a>02_Logistic Regression</h3><p>Logistic regression is a learning algorithm used in a supervised learning problem when the output $y$ are all either zero or one. The goal of logistic regression is to minimize the error between its predictions and training data.</p><h4 id="Example-Cat-vs-No-cat"><a href="#Example-Cat-vs-No-cat" class="headerlink" title="Example: Cat vs No - cat"></a>Example: Cat vs No - cat</h4><p>Given an image represented by a feature vector $x$, the algorithm will evaluate the probability of a cat being in that image.</p><p>$$\text{Civen }x, \hat{y}=P(y=1|x), \text{where } 0 \le \hat{y} \le 1$$</p><p>The parameters used in Logistic regression are:<br>• The input features vector: $x ∈ ℝ^{n_x}$, where $n_x$ is the number of features<br>• The training label: $y ∈ 0,1$<br>• The weights: $w ∈ ℝ^{n_x}$ , where $n_x$ is the number of features<br>• The threshold: $b ∈ ℝ$<br>• The output: $\hat{y} = \sigma(w^Tx+b)$<br>• Sigmoid function: $s = \sigma(w^Tx+b) = \sigma(z)= \frac{1}{1+e^{-z}}$</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/5.png" alt=""></p><p>$(w^Tx +b )$ is a linear function $(ax + b)$, but since we are looking for a probability constraint between [0,1], the sigmoid function is used. The function is bounded between [0,1] as shown in the graph above.<br>Some observations from the graph:<br>• If $z$ is a large positive number, then $\sigma(z) = 1$<br>• If $z$ is small or large negative number, then $\sigma(z) = 0$<br>• If $z$ = 0, then $\sigma(z) = 0.5$</p><h4 id="notation-1"><a href="#notation-1" class="headerlink" title="notation"></a>notation</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/4.png" alt=""></p><h3 id="03-logistic-regression-cost-function"><a href="#03-logistic-regression-cost-function" class="headerlink" title="03_logistic-regression-cost-function"></a>03_logistic-regression-cost-function</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/6.png" alt=""></p><h3 id="04-gradient-descent"><a href="#04-gradient-descent" class="headerlink" title="04_gradient-descent"></a>04_gradient-descent</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/7.png" alt=""></p><h3 id="05-06-derivatives"><a href="#05-06-derivatives" class="headerlink" title="05_06_derivatives"></a>05_06_derivatives</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/8.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/9.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/10.png" alt=""></p><h3 id="07-computation-graph"><a href="#07-computation-graph" class="headerlink" title="07_computation-graph"></a>07_computation-graph</h3><p>You’ve heard me say that the computations of a neural network are organized in terms of a forward pass or a forward propagation step, in which we compute the output of the neural network, followed by a backward pass or back propagation step, which we use to compute gradients or compute derivatives. The computation graph explains why it is organized this way.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/11.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/12.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/13.png" alt=""></p><h3 id="09-logistic-regression-gradient-descent"><a href="#09-logistic-regression-gradient-descent" class="headerlink" title="09_logistic-regression-gradient-descent"></a>09_logistic-regression-gradient-descent</h3><p>Welcome back. In this video, we’ll talk about how to compute derivatives for you to implement gradient descent for logistic regression. <strong>The key takeaways will be what you need to implement. That is, the key equations you need in order to implement gradient descent for logistic regression</strong>. In this video, I want to do this computation using the computation graph. I have to admit, using the computation graph is a little bit of an overkill for deriving gradient descent for logistic regression, but I want to start explaining things this way to get you familiar with these ideas so that, hopefully, it will make a bit more sense when we talk about fully-fledged neural networks. To that, let’s dive into gradient descent for logistic regression.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/14.png" alt=""><br>In logistic regression, what we want to do is to modify the parameters, W and B, in order to reduce this loss.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/15.png" alt=""></p><p>$$da = \frac{\partial{L}}{\partial{a}} =\frac{\partial \left{ {-(ylog(a)+(1-y)log(1-a))} \right} }{\partial{a}} = -\frac{y}{a} + \frac{1-y}{1-a} $$</p><p>$$dz=\frac{\partial{L}}{\partial{z}}=\frac{\partial{L}}{\partial{a}}\cdot \frac{\partial{a}}{\partial{z}} = \left(-\frac{y}{a} + \frac{1-y}{1-a}\right) \cdot a(1-a) = a - y$$</p><p>$$dw_1=\frac{\partial{L}}{\partial{w_1}}=\frac{\partial{L}}{\partial{z}}\cdot \frac{\partial{z}}{\partial{w_1}} = x_1\cdot dz = x_1(a-y)$$</p><p>$$dw_2=\frac{\partial{L}}{\partial{w_2}}=\frac{\partial{L}}{\partial{z}}\cdot \frac{\partial{z}}{\partial{w_2}} = x_2\cdot dz = x_2(a-y)$$</p><p>$$db=\frac{\partial{L}}{\partial{b}}=\frac{\partial{L}}{\partial{z}}\cdot \frac{\partial{z}}{\partial{b}} = 1 \cdot dz = a - y$$</p><p>$$w_1 := w_1 - \alpha dw_1$$</p><p>$$w_2 := w_2 - \alpha dw_2$$</p><p>$$b := b - \alpha db$$</p><h3 id="10-gradient-descent-on-m-examples"><a href="#10-gradient-descent-on-m-examples" class="headerlink" title="10_gradient-descent-on-m-examples"></a>10_gradient-descent-on-m-examples</h3><p>in a previous video you saw how to compute derivatives and implement gradient descent with respect to just one training example for religious regression now we want to do it for m training examples.</p><h4 id="one-single-step-gradient-descent"><a href="#one-single-step-gradient-descent" class="headerlink" title="one single step gradient descent"></a>one single step gradient descent</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/16.png" alt="one single step gradient descent"></p><h2 id="02-python-and-vectorization"><a href="#02-python-and-vectorization" class="headerlink" title="02_python-and-vectorization"></a>02_python-and-vectorization</h2><h3 id="01-vectorization"><a href="#01-vectorization" class="headerlink" title="01_vectorization"></a>01_vectorization</h3><p>Welcome back. Vectorization is basically the art of getting rid of explicit folders in your code. In the deep learning era safety in deep learning in practice, you often find yourself training on relatively large data sets, because that’s when deep learning algorithms tend to shine. And so, it’s important that your code very quickly because otherwise, if it’s running on a big data set, your code might take a long time to run then you just find yourself waiting a very long time to get the result. So in the deep learning era, I think the ability to perform vectorization has become a key skill.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/18.png" alt="what is vectorization"></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/17.png" alt="a example of the difference of run time between vectorization implementation and non-vectorization implementation"><br>Yeah. Vectorize version 1.5 milliseconds seconds and the four loop. So 481 milliseconds, again, about <strong>300 times slower</strong> to do the explicit four loop. If the engine x slows down, it’s the difference between your code taking maybe one minute to run versus taking say five hours to run. And when you are implementing deep learning algorithms, you can really get a result back faster. It will be much faster if you vectorize your code. Some of you might have heard that a lot of <strong>scaleable deep learning implementations</strong> are done on a GPU or a graphics processing unit. But all the demos I did just now in the Jupiter notebook where actually on the CPU. And it turns out that both GPU and CPU have parallelization instructions. They’re sometimes called <strong>SIMD instructions</strong>. This stands for a <strong>single instruction multiple data</strong>. But what this basically means is that, if you use built-in functions such as this np.function or other functions that don’t require you explicitly implementing a for loop. It enables Phyton Pi to take much better advantage of parallelism to do your computations much faster. And this is true both computations on CPUs and computations on GPUs. It’s just that GPUs are remarkably good at these SIMD calculations but CPU is actually also not too bad at that. Maybe just not as good as GPUs. You’re seeing how vectorization can significantly speed up your code. <strong>The rule of thumb to remember is whenever possible, avoid using explicit four loops.</strong></p><h3 id="02-more-vectorization-examples"><a href="#02-more-vectorization-examples" class="headerlink" title="02_more-vectorization-examples"></a>02_more-vectorization-examples</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/20.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/21.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/22.png" alt=""></p><h3 id="03-vectorizing-logistic-regression"><a href="#03-vectorizing-logistic-regression" class="headerlink" title="03_vectorizing-logistic-regression"></a>03_vectorizing-logistic-regression</h3><p>We have talked about how vectorization lets you speed up your code significantly. In this video, we’ll talk about how you can vectorize the implementation of logistic regression, so they can process an entire training set, that is implement a single elevation of grading descent with respect to an entire training set without using even a single explicit for loop. I’m super excited about this technique, and when we talk about neural networks later without using even a single explicit for loop.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/23.png" alt="vectorization implementation of logistic regression of forward of propagation"></p><p>Here are details of <a href="https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html" target="_blank" rel="noopener">python broadcasting</a></p><h3 id="04-vectorizing-logistic-regressions-gradient-output"><a href="#04-vectorizing-logistic-regressions-gradient-output" class="headerlink" title="04_vectorizing-logistic-regressions-gradient-output"></a>04_vectorizing-logistic-regressions-gradient-output</h3><p>In the previous video, you saw how you can use vectorization to compute their predictions. The lowercase a’s for an entire training set O at the same time. In this video, you see <strong>how you can use vectorization to also perform the gradient computations for all M training samples</strong>. Again, all sort of at the same time. And then at the end of this video, we’ll put it all together and show how you can derive a very efficient implementation of logistic regression.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/24.png" alt="vectorizing-logistic-regressions-gradient-output"></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/25.png" alt="vectorizing-logistic-regressions-gradient-output"></p><h3 id="05-broadcasting-in-python"><a href="#05-broadcasting-in-python" class="headerlink" title="05_broadcasting-in-python"></a>05_broadcasting-in-python</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/26.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/29.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/27.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/28.png" alt=""></p><p><strong>Summary: Python or Numpy automatically expands two arrays or numbers to the same dimensions and operate element-wise.</strong></p><h3 id="06-a-note-on-python-numpy-vectors"><a href="#06-a-note-on-python-numpy-vectors" class="headerlink" title="06_a-note-on-python-numpy-vectors"></a>06_a-note-on-python-numpy-vectors</h3><p>The ability of python to allow you to use broadcasting operations and more generally, <strong>the great flexibility of the python numpy program language is, I think, both a strength as well as a weakness of the programming language</strong>. I think it’s a strength because they create expressivity of the language. A great flexibility of the language lets you get a lot done even with just a single line of code. But there’s also weakness because with broadcasting and <strong>this great amount of flexibility, sometimes it’s possible you can introduce very subtle bugs or very strange looking bugs</strong>, if you’re not familiar with all of the intricacies of how broadcasting and how features like broadcasting work. <strong>For example, if you take a column vector and add it to a row vector, you would expect it to throw up a dimension mismatch or type error or something. But you might actually get back a matrix as a sum of a row vector and a column vector. So there is an internal logic to these strange effects of Python.</strong> But if you’re not familiar with Python, I’ve seen some students have very strange, very hard to find bugs. So what I want to do in this video is share with you some couple tips and tricks that have been very useful for me to eliminate or simplify and eliminate all the strange looking bugs in my own code. <strong>And I hope that with these tips and tricks, you’ll also be able to much more easily write bug-free, python and numpy code</strong>.</p><p>To illustrate one of the less intuitive effects of Python-Numpy, especially how you construct vectors in Python-Numpy, let me do a <strong>quick demo</strong>.</p><h4 id="one-rank-array"><a href="#one-rank-array" class="headerlink" title="one rank array"></a>one rank array</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/30.png" alt=""></p><h4 id="practical-tips"><a href="#practical-tips" class="headerlink" title="practical tips"></a>practical tips</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/31.png" alt=""></p><h3 id="07-quick-tour-of-jupyter-ipython-notebooks"><a href="#07-quick-tour-of-jupyter-ipython-notebooks" class="headerlink" title="07_quick-tour-of-jupyter-ipython-notebooks"></a>07_quick-tour-of-jupyter-ipython-notebooks</h3><p>With everything you’ve learned, you’re just about ready to tackle your first programming assignment. Before you do that, let me just give you a quick tour of iPython notebooks in Coursera.</p><p>Please see <a href="">the video</a> to get details.</p><h3 id="08-explanation-of-logistic-regression-cost-function-optional"><a href="#08-explanation-of-logistic-regression-cost-function-optional" class="headerlink" title="08_explanation-of-logistic-regression-cost-function-optional"></a>08_explanation-of-logistic-regression-cost-function-optional</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/32.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/02_neural-networks-basics/33.png" alt=""></p>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/02/01/01_introduction-to-deep-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/02/01/01_introduction-to-deep-learning/" class="post-title-link" itemprop="url">01_introduction-to-deep-learning</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-02-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-02-01T00:00:00+05:30">2018-02-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:13" itemprop="dateModified" datetime="2020-04-06T20:25:13+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note at the first week after studying the course <a href="https://www.coursera.org/learn/neural-networks-deep-learning/" target="_blank" rel="noopener">neural-networks-deep-learning</a> and the copyright belongs to <a href="https://www.deeplearning.ai/" target="_blank" rel="noopener">deeplearning.ai</a>.</p><h2 id="01-introduction-to-deep-learning"><a href="#01-introduction-to-deep-learning" class="headerlink" title="01_introduction-to-deep-learning"></a>01_introduction-to-deep-learning</h2><h3 id="01-What-is-neural-network"><a href="#01-What-is-neural-network" class="headerlink" title="01_What is neural network?"></a>01_What is neural network?</h3><p>It is a powerful learning algorithm inspired by how the brain works.</p><h4 id="Example-1-–-single-neural-network"><a href="#Example-1-–-single-neural-network" class="headerlink" title="Example 1 – single neural network"></a>Example 1 – single neural network</h4><p>Given data about the size of houses on the real estate market and you want to fit a function that will predict their price. It is a linear regression problem because the price as a function of size is a continuous output.<br>We know the prices can never be negative so we are creating a function called <strong>Rectified Linear Unit</strong> (ReLU) which starts at zero.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/01_introduction-to-deep-learning/1.png" alt="example of a neuron"><br>The input is the size of the house (x)<br>The output is the price (y)<br>The “neuron” implements the function ReLU (blue line)</p><h4 id="Example-2-–-Multiple-neural-network"><a href="#Example-2-–-Multiple-neural-network" class="headerlink" title="Example 2 – Multiple neural network"></a>Example 2 – Multiple neural network</h4><p>The price of a house can be affected by other features such as size, number of bedrooms, zip code andwealth. The role of the neural network is to predicted the price and it will automatically generate the hidden units. We only need to give the inputs x and the output y.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/01_introduction-to-deep-learning/2.png" alt="example of simple neural network"></p><h3 id="02-supervised-learning-with-neural-networks"><a href="#02-supervised-learning-with-neural-networks" class="headerlink" title="02_supervised-learning-with-neural-networks"></a>02_supervised-learning-with-neural-networks</h3><h4 id="Supervised-learning-for-Neural-Network"><a href="#Supervised-learning-for-Neural-Network" class="headerlink" title="Supervised learning for Neural Network"></a>Supervised learning for Neural Network</h4><p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.<br>Supervised learning problems are categorized into “<strong>regression</strong>“ and “<strong>classification</strong>“ problems. In a regression problem, we are trying to predict results within a <strong>continuous outpu</strong>t, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a <strong>discrete output</strong>. In other words, we are trying to map input variables into discrete categories.<br>Here are some examples of supervised learning.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/01_introduction-to-deep-learning/3.png" alt="some examples of supervised learning"></p><p>There are different types of neural network, for example <strong>Convolution Neural Network</strong> (CNN) used often for image application and <strong>Recurrent Neural Network</strong> (RNN) used for one-dimensional sequence data such as translating English to Chinses or a temporal component such as text transcript. As for the autonomous driving, it is a hybrid neural network architecture.</p><h4 id="Structured-vs-unstructured-data"><a href="#Structured-vs-unstructured-data" class="headerlink" title="Structured vs unstructured data"></a>Structured vs unstructured data</h4><p>Structured data refers to things that has a defined meaning such as price, age whereas unstructured data refers to thing like pixel, raw audio, text.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/01_introduction-to-deep-learning/4.png" alt="Structured data vs Unstructured data"></p><h3 id="03-why-is-deep-learning-taking-off"><a href="#03-why-is-deep-learning-taking-off" class="headerlink" title="03_why-is-deep-learning-taking-off"></a>03_why-is-deep-learning-taking-off</h3><h4 id="Why-is-deep-learning-taking-off"><a href="#Why-is-deep-learning-taking-off" class="headerlink" title="Why is deep learning taking off?"></a>Why is deep learning taking off?</h4><p>Deep learning is taking off due to a large amount of data available through the digitization of the society, faster computation and innovation in the development of neural network algorithm.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/01_introduction-to-deep-learning/5.png" alt=""></p><p>Two things have to be considered to get to the high level of performance:</p><ol><li>Being able to train a big enough neural network</li><li>Huge amount of labeled data</li></ol><p>The process of training a neural network is iterative.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/neural-networks-deep-learning/01_introduction-to-deep-learning/6.png" alt=""></p><p>It could take a good amount of time to train a neural network, which affects your productivity. Faster computation helps to iterate and improve new algorithm.</p><h3 id="04-about-this-course"><a href="#04-about-this-course" class="headerlink" title="04_about-this-course"></a>04_about-this-course</h3><h4 id="Outline-of-this-Course"><a href="#Outline-of-this-Course" class="headerlink" title="Outline of this Course"></a>Outline of this Course</h4><ul><li>Week 1: Introduction</li><li>Week 2: Basics of Neural Network programming</li><li>Week 3: One hidden layer Neural Networks</li><li>Week 4: Deep Neural Networks</li></ul>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/20/summary_of_ml-coursera-andrew-ng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/20/summary_of_ml-coursera-andrew-ng/" class="post-title-link" itemprop="url">summary of Machine Learning</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-20 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-20T00:00:00+05:30">2018-01-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:09" itemprop="dateModified" datetime="2020-04-06T20:25:09+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="The-content-table-of-Machine-Learning"><a href="#The-content-table-of-Machine-Learning" class="headerlink" title="The content table of Machine Learning"></a>The content table of Machine Learning</h2><p><a href="https://www.coursera.org/learn/machine-learning/" target="_blank" rel="noopener">This course</a> is a coursera version teached by Andrew NG, AP of Stanford University, which corresponds to the full-time campus version CS229 at Stanford university, that is increasingly difficult version.</p><p><a href="/2018/01/01/01_what-is-machine-learning/">01_introduction</a><br><a href="/2018/01/02/02_linear-regression-with-one-variable/">02_linear-regression-with-one-variable</a><br><a href="/2018/01/03/03_linear-algebra-review/">03_linear-algebra-review</a><br><a href="/2018/01/04/04_linear-regression-with-multiple-variables/">04_linear-regression-with-multiple-variables</a><br><a href="/2018/01/01/05_octave-matlab-tutorial/">05_octave-matlab-tutorial</a><br><a href="/2018/01/06/06_logistic-regression/">06_logistic-regression</a><br><a href="/2018/01/07/07_regularization/">07_regularization</a><br><a href="/2018/01/08/08_neural-networks-representation/">08_neural-networks-representation</a><br><a href="/2018/01/09/09_neural-networks-learning/">09_neural-networks-learning</a><br><a href="/2018/01/10/10_advice-for-applying-machine-learning/">10_advice-for-applying-machine-learning</a><br><a href="/2018/01/12/12_support-vector-machines/">11_machine-learning-system-design</a><br><a href="/2018/01/12/12_support-vector-machines/">12_support-vector-machines</a><br><a href="/2018/01/13/13_unsupervised-learning/">13_unsupervised-learning</a><br><a href="/2018/01/14/14_dimensionality-reduction/">14_dimensionality-reduction</a><br><a href="/2018/01/15/15_anomaly-detection/">15_anomaly-detection</a><br><a href="/2018/01/16/16_recommender-systems/">16_recommender-systems</a><br><a href="/2018/01/17/17_large-scale-machine-learning/">17_large-scale-machine-learning</a><br><a href="/2018/01/18/18_application-example-photo-ocr/">18_application-example-photo-ocr</a></p><h2 id="my-class-assignments"><a href="#my-class-assignments" class="headerlink" title="my class assignments"></a>my class assignments</h2><p><a href="https://github.com/SnailDove/Coursera-Standford-ML" target="_blank" rel="noopener">ex1 -&gt; ex8</a></p><h2 id="Conclusion-of-Andrew-NG"><a href="#Conclusion-of-Andrew-NG" class="headerlink" title="Conclusion of Andrew NG"></a>Conclusion of Andrew NG</h2><p>Welcome to the final video of this Machine Learning class. We’ve been through a lot of different videos together. In this video I would like to just quickly summarize the main topics of this course and then say a few words at the end and that will wrap up the class. So what have we done?</p><h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/40.png" alt=""><br>In this class we spent a lot of time talking about supervised learning algorithms like linear regression, logistic regression, neural networks, SVMs. for problems where you have labelled data and labelled examples like x(i), y(i) And we also spent quite a lot of time talking about unsupervised learning like K-means clustering, Principal Components Analysis for dimensionality reduction and Anomaly Detection algorithms for when you have only unlabelled data x(i) Although Anomaly Detection can also use some labelled data to evaluate the algorithm. We also spent some time talking about special applications or special topics like Recommender Systems and large scale machine learning systems including parallelized and rapid-use systems as well as some special applications like sliding windows object classification for computer vision. And finally we also spent a lot of time talking about different aspects of, sort of, advice on building a machine learning system. And this involved both trying to understand what is it that makes a machine learning algorithm work or not work. So we talked about things like bias and variance, and how regularization can help with some variance problems. And we also spent a little bit of time talking about this question of how to decide what to work on next. So, how to prioritize how you spend your time when you’re developing a machine learning system. So we talked about evaluation of learning algorithms, evaluation metrics like precision recall, F1 score as well as practical aspects of evaluation like the training, cross-validation and test sets. And we also spent a lot of time talking about debugging learning algorithms and making sure the learning algorithm is working. So we talked about diagnostics like learning curves and also talked about things like error analysis and ceiling analysis. And so all of these were different tools for helping you to decide what to do next and how to spend your valuable time when you’re developing a machine learning system. And in addition to having the tools of machine learning at your disposal so knowing the tools of machine learning like supervised learning and unsupervised learning and so on, I hope that you now not only have the tools, but that you know how to apply these tools really well to build powerful machine learning systems. So, that’s it. Those were the topics of this class and if you worked all the way through this course you should now consider yourself an expert in machine learning. As you know, machine learning is a technology that’s having huge impact on science, technology and industry. And you’re now well qualified to use these tools of machine learning to great effect.</p><h2 id="THX"><a href="#THX" class="headerlink" title="THX"></a>THX</h2><p>I hope that many of you in this class will find ways to use machine learning to build cool systems and cool applications and cool products. And I hope that you find ways to use machine learning not only to make <i>your</i> life better but maybe someday to use it to make many other people’s life better as well. I also wanted to let you know that this class has been great fun for me to teach. So, thank you for that. And before wrapping up, there’s just one last thing I wanted to say. Which is that: It was maybe not so long ago, that I was a student myself. And even today, you know, I still try to take different courses when I have time to try to learn new things. And so I know how time-consuming it is to learn this stuff. I know that you’re probably a busy person with many, many other things going on in your life. And so the fact that you still found the time or took the time to watch these videos and, you know, many of these videos just went on for hours, right? And the fact many of you took the time to go through the review questions and that many of you took the time to work through the programming exercises. And these were long and complicate programming exercises. I wanted to say thank you for that. And I know that many of you have worked hard on this class and that many of you have put a lot of time into this class, that many of you have put a lot of yourselves into this class. So I hope that you also got a lot of out this class. And I wanted to say: Thank you very much for having been a student in this class.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/41.png" alt=""></p><h2 id="My-Grades"><a href="#My-Grades" class="headerlink" title="My Grades"></a>My Grades</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/MyTotalGrade.png" alt="Overall grade of this course"><br>Here are <a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/ML-Grades.pdf" target="_blank" rel="noopener">the details of my grades</a></p>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">2.1m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">32:08</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+    </div>
+</body>
+</html>

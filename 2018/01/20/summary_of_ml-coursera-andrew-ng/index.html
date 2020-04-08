@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
+
+<script>
+    (function(){
+        if(''){
+                         If (prompt('Please enter the article password') !== ''){
+                                 Alert('Password error!');
+                history.back();
+            }
+        }
+    })();
+</script>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -18,7 +29,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="The content table of Machine LearningThis course is a coursera version teached by Andrew NG, AP of Stanford University, which corresponds to the full-time campus version CS229 at Stanford university,">
@@ -82,6 +93,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Machine Learning" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -150,18 +162,21 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container"></div>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div class="algolia-results">
-  <div id="algolia-stats"></div>
-  <div id="algolia-hits"></div>
-  <div id="algolia-pagination" class="algolia-pagination"></div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
 
-      
     </div>
   </div>
 
@@ -169,8 +184,11 @@
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
   <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
   <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
@@ -236,6 +254,20 @@
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
             </span>
 
         </div>
@@ -247,14 +279,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="The-content-table-of-Machine-Learning"><a href="#The-content-table-of-Machine-Learning" class="headerlink" title="The content table of Machine Learning"></a>The content table of Machine Learning</h2><p><a href="https://www.coursera.org/learn/machine-learning/" target="_blank" rel="noopener">This course</a> is a coursera version teached by Andrew NG, AP of Stanford University, which corresponds to the full-time campus version CS229 at Stanford university, that is increasingly difficult version.</p>
-<p><a href="/2018/01/01/01_what-is-machine-learning/">01_introduction</a><br><a href="/2018/01/02/02_linear-regression-with-one-variable/">02_linear-regression-with-one-variable</a><br><a href="/2018/01/03/03_linear-algebra-review/">03_linear-algebra-review</a><br><a href="/2018/01/04/04_linear-regression-with-multiple-variables/">04_linear-regression-with-multiple-variables</a><br><a href="/2018/01/01/05_octave-matlab-tutorial/">05_octave-matlab-tutorial</a><br><a href="/2018/01/06/06_logistic-regression/">06_logistic-regression</a><br><a href="/2018/01/07/07_regularization/">07_regularization</a><br><a href="/2018/01/08/08_neural-networks-representation/">08_neural-networks-representation</a><br><a href="/2018/01/09/09_neural-networks-learning/">09_neural-networks-learning</a><br><a href="/2018/01/10/10_advice-for-applying-machine-learning/">10_advice-for-applying-machine-learning</a><br><a href="/2018/01/12/12_support-vector-machines/">11_machine-learning-system-design</a><br><a href="/2018/01/12/12_support-vector-machines/">12_support-vector-machines</a><br><a href="/2018/01/13/13_unsupervised-learning/">13_unsupervised-learning</a><br><a href="/2018/01/14/14_dimensionality-reduction/">14_dimensionality-reduction</a><br><a href="/2018/01/15/15_anomaly-detection/">15_anomaly-detection</a><br><a href="/2018/01/16/16_recommender-systems/">16_recommender-systems</a><br><a href="/2018/01/17/17_large-scale-machine-learning/">17_large-scale-machine-learning</a><br><a href="/2018/01/18/18_application-example-photo-ocr/">18_application-example-photo-ocr</a></p>
-<h2 id="my-class-assignments"><a href="#my-class-assignments" class="headerlink" title="my class assignments"></a>my class assignments</h2><p><a href="https://github.com/SnailDove/Coursera-Standford-ML" target="_blank" rel="noopener">ex1 -&gt; ex8</a></p>
-<h2 id="Conclusion-of-Andrew-NG"><a href="#Conclusion-of-Andrew-NG" class="headerlink" title="Conclusion of Andrew NG"></a>Conclusion of Andrew NG</h2><p>Welcome to the final video of this Machine Learning class. We’ve been through a lot of different videos together. In this video I would like to just quickly summarize the main topics of this course and then say a few words at the end and that will wrap up the class. So what have we done? </p>
-<h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/40.png" alt=""><br>In this class we spent a lot of time talking about supervised learning algorithms like linear regression, logistic regression, neural networks, SVMs. for problems where you have labelled data and labelled examples like x(i), y(i) And we also spent quite a lot of time talking about unsupervised learning like K-means clustering, Principal Components Analysis for dimensionality reduction and Anomaly Detection algorithms for when you have only unlabelled data x(i) Although Anomaly Detection can also use some labelled data to evaluate the algorithm. We also spent some time talking about special applications or special topics like Recommender Systems and large scale machine learning systems including parallelized and rapid-use systems as well as some special applications like sliding windows object classification for computer vision. And finally we also spent a lot of time talking about different aspects of, sort of, advice on building a machine learning system. And this involved both trying to understand what is it that makes a machine learning algorithm work or not work. So we talked about things like bias and variance, and how regularization can help with some variance problems. And we also spent a little bit of time talking about this question of how to decide what to work on next. So, how to prioritize how you spend your time when you’re developing a machine learning system. So we talked about evaluation of learning algorithms, evaluation metrics like  precision recall, F1 score as well as practical aspects of evaluation like the training, cross-validation and test sets. And we also spent a lot of time talking about debugging learning algorithms and making sure the learning algorithm is working. So we talked about diagnostics like learning curves and also talked about things like error analysis and ceiling analysis. And so all of these were different tools for helping you to decide what to do next and how to spend your valuable time when you’re developing a machine learning system. And in addition to having the tools of machine learning at your disposal so knowing the tools of machine learning like supervised learning and unsupervised learning and so on, I hope that you now not only have the tools, but that you know how to apply these tools really well to build powerful machine learning systems. So, that’s it. Those were the topics of this class and if you worked all the way through this course you should now consider yourself an expert in machine learning. As you know, machine learning is a technology that’s having huge impact on science, technology and industry. And you’re now well qualified to use these tools of machine learning to great effect. </p>
-<h2 id="THX"><a href="#THX" class="headerlink" title="THX"></a>THX</h2><p>I hope that many of you in this class will find ways to use machine learning to build cool systems and cool applications and cool products. And I hope that you find ways to use machine learning not only to make <i>your</i> life better but maybe someday to use it to make many other people’s life better as well. I also wanted to let you know that this class has been great fun for me to teach. So, thank you for that. And before wrapping up, there’s just one last thing I wanted to say. Which is that: It was maybe not so long ago, that I was a student myself. And even today, you know, I still try to take different courses when I have time to try to learn new things. And so I know how time-consuming it is to learn this stuff. I know that you’re probably a busy person with many, many other things going on in your life. And so the fact that you still found the time or took the time to watch these videos and, you know, many of these videos just went on for hours, right? And the fact many of you took the time to go through the review questions and that many of you took the time to work through the programming exercises. And these were long and complicate programming exercises. I wanted to say thank you for that. And I know that many of you have worked hard on this class and that many of you have put a lot of time into this class, that many of you have put a lot of yourselves into this class. So I hope that you also got a lot of out this class. And I wanted to say: Thank you very much for having been a student in this class.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/41.png" alt=""></p>
-<h2 id="My-Grades"><a href="#My-Grades" class="headerlink" title="My Grades"></a>My Grades</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/MyTotalGrade.png" alt="Overall grade of this course"><br>Here are <a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/ML-Grades.pdf" target="_blank" rel="noopener">the details of my grades</a></p>
-
+        <h2 id="The-content-table-of-Machine-Learning"><a href="#The-content-table-of-Machine-Learning" class="headerlink" title="The content table of Machine Learning"></a>The content table of Machine Learning</h2><p><a href="https://www.coursera.org/learn/machine-learning/" target="_blank" rel="noopener">This course</a> is a coursera version teached by Andrew NG, AP of Stanford University, which corresponds to the full-time campus version CS229 at Stanford university, that is increasingly difficult version.</p><p><a href="/2018/01/01/01_what-is-machine-learning/">01_introduction</a><br><a href="/2018/01/02/02_linear-regression-with-one-variable/">02_linear-regression-with-one-variable</a><br><a href="/2018/01/03/03_linear-algebra-review/">03_linear-algebra-review</a><br><a href="/2018/01/04/04_linear-regression-with-multiple-variables/">04_linear-regression-with-multiple-variables</a><br><a href="/2018/01/01/05_octave-matlab-tutorial/">05_octave-matlab-tutorial</a><br><a href="/2018/01/06/06_logistic-regression/">06_logistic-regression</a><br><a href="/2018/01/07/07_regularization/">07_regularization</a><br><a href="/2018/01/08/08_neural-networks-representation/">08_neural-networks-representation</a><br><a href="/2018/01/09/09_neural-networks-learning/">09_neural-networks-learning</a><br><a href="/2018/01/10/10_advice-for-applying-machine-learning/">10_advice-for-applying-machine-learning</a><br><a href="/2018/01/12/12_support-vector-machines/">11_machine-learning-system-design</a><br><a href="/2018/01/12/12_support-vector-machines/">12_support-vector-machines</a><br><a href="/2018/01/13/13_unsupervised-learning/">13_unsupervised-learning</a><br><a href="/2018/01/14/14_dimensionality-reduction/">14_dimensionality-reduction</a><br><a href="/2018/01/15/15_anomaly-detection/">15_anomaly-detection</a><br><a href="/2018/01/16/16_recommender-systems/">16_recommender-systems</a><br><a href="/2018/01/17/17_large-scale-machine-learning/">17_large-scale-machine-learning</a><br><a href="/2018/01/18/18_application-example-photo-ocr/">18_application-example-photo-ocr</a></p><h2 id="my-class-assignments"><a href="#my-class-assignments" class="headerlink" title="my class assignments"></a>my class assignments</h2><p><a href="https://github.com/SnailDove/Coursera-Standford-ML" target="_blank" rel="noopener">ex1 -&gt; ex8</a></p><h2 id="Conclusion-of-Andrew-NG"><a href="#Conclusion-of-Andrew-NG" class="headerlink" title="Conclusion of Andrew NG"></a>Conclusion of Andrew NG</h2><p>Welcome to the final video of this Machine Learning class. We’ve been through a lot of different videos together. In this video I would like to just quickly summarize the main topics of this course and then say a few words at the end and that will wrap up the class. So what have we done?</p><h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/40.png" alt=""><br>In this class we spent a lot of time talking about supervised learning algorithms like linear regression, logistic regression, neural networks, SVMs. for problems where you have labelled data and labelled examples like x(i), y(i) And we also spent quite a lot of time talking about unsupervised learning like K-means clustering, Principal Components Analysis for dimensionality reduction and Anomaly Detection algorithms for when you have only unlabelled data x(i) Although Anomaly Detection can also use some labelled data to evaluate the algorithm. We also spent some time talking about special applications or special topics like Recommender Systems and large scale machine learning systems including parallelized and rapid-use systems as well as some special applications like sliding windows object classification for computer vision. And finally we also spent a lot of time talking about different aspects of, sort of, advice on building a machine learning system. And this involved both trying to understand what is it that makes a machine learning algorithm work or not work. So we talked about things like bias and variance, and how regularization can help with some variance problems. And we also spent a little bit of time talking about this question of how to decide what to work on next. So, how to prioritize how you spend your time when you’re developing a machine learning system. So we talked about evaluation of learning algorithms, evaluation metrics like precision recall, F1 score as well as practical aspects of evaluation like the training, cross-validation and test sets. And we also spent a lot of time talking about debugging learning algorithms and making sure the learning algorithm is working. So we talked about diagnostics like learning curves and also talked about things like error analysis and ceiling analysis. And so all of these were different tools for helping you to decide what to do next and how to spend your valuable time when you’re developing a machine learning system. And in addition to having the tools of machine learning at your disposal so knowing the tools of machine learning like supervised learning and unsupervised learning and so on, I hope that you now not only have the tools, but that you know how to apply these tools really well to build powerful machine learning systems. So, that’s it. Those were the topics of this class and if you worked all the way through this course you should now consider yourself an expert in machine learning. As you know, machine learning is a technology that’s having huge impact on science, technology and industry. And you’re now well qualified to use these tools of machine learning to great effect.</p><h2 id="THX"><a href="#THX" class="headerlink" title="THX"></a>THX</h2><p>I hope that many of you in this class will find ways to use machine learning to build cool systems and cool applications and cool products. And I hope that you find ways to use machine learning not only to make <i>your</i> life better but maybe someday to use it to make many other people’s life better as well. I also wanted to let you know that this class has been great fun for me to teach. So, thank you for that. And before wrapping up, there’s just one last thing I wanted to say. Which is that: It was maybe not so long ago, that I was a student myself. And even today, you know, I still try to take different courses when I have time to try to learn new things. And so I know how time-consuming it is to learn this stuff. I know that you’re probably a busy person with many, many other things going on in your life. And so the fact that you still found the time or took the time to watch these videos and, you know, many of these videos just went on for hours, right? And the fact many of you took the time to go through the review questions and that many of you took the time to work through the programming exercises. And these were long and complicate programming exercises. I wanted to say thank you for that. And I know that many of you have worked hard on this class and that many of you have put a lot of time into this class, that many of you have put a lot of yourselves into this class. So I hope that you also got a lot of out this class. And I wanted to say: Thank you very much for having been a student in this class.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/41.png" alt=""></p><h2 id="My-Grades"><a href="#My-Grades" class="headerlink" title="My Grades"></a>My Grades</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/MyTotalGrade.png" alt="Overall grade of this course"><br>Here are <a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/ML-Grades.pdf" target="_blank" rel="noopener">the details of my grades</a></p>
     </div>
 
     
@@ -412,10 +437,6 @@
   </div>
 
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
 
     </div>
   </aside>
@@ -439,6 +460,16 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Karan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">2.1m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">32:08</span>
 </div>
 
         
@@ -487,8 +518,6 @@
 
 
 <script src="/js/next-boot.js"></script>
-
-<script src="/js/bookmark.js"></script>
 
   <script>
 var pjax = new Pjax({
@@ -558,10 +587,7 @@ window.addEventListener('pjax:success', () => {
 
 
   
-<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
-<script src="/js/algolia-search.js"></script>
-
+<script src="/js/local-search.js"></script>
 
 
 

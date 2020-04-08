@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<script>
+    (function(){
+        if(''){
+                         If (prompt('Please enter the article password') !== ''){
+                                 Alert('Password error!');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Refuse to Fall">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Machine Learning">
+<meta property="og:url" content="https://snakecoding.com/page/14/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="Refuse to Fall">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Karan">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://snakecoding.com/page/14/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Machine Learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">60</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/06/06_logistic-regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/06/06_logistic-regression/" class="post-title-link" itemprop="url">06_logistic-regression note6</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-06T00:00:00+05:30">2018-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:23" itemprop="dateModified" datetime="2020-04-06T20:25:23+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>18k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>16 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This personal note is written after studying the opening course on <a href="https://www.coursera.org" target="_blank" rel="noopener">the coursera website</a>, <a href="https://www.coursera.org/learn/machine-learning/home/welcome" target="_blank" rel="noopener">Machine Learning by Andrew NG</a> . And images, audios of this note all comes from the opening course. </p>
+<h2 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/1.png" alt=""><br>To attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. However, this method doesn’t work well because classification is not actually a linear function. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/2.png" alt=""></p>
+<p>The classification problem is just like the regression problem, except that the values we now want to predict take on only a small number of discrete values. For now, we will focus on the <strong>binary classification problem</strong> in which $y$ can take on only two values, 0 and 1. (Most of what we say here will also generalize to the multiple-class case.) For instance, if we are trying to build a spam classifier for email, then $x^{(i)}$ may be some features of a piece of email, and $y$ may be 1 if it is a piece of spam mail, and 0 otherwise. Hence, $y∈{0,1}$ . 0 is also called the negative class, and 1 the positive class, and they are sometimes also denoted by the symbols “-” and “+” . Given $x^{(i)}$, the corresponding $y^{(i)}$ is also called the label for the training example.</p>
+<h2 id="Hypothesis-Representation"><a href="#Hypothesis-Representation" class="headerlink" title="Hypothesis Representation"></a>Hypothesis Representation</h2><p>We could approach the classification problem ignoring the fact that $y$ is discrete-valued, and use our old linear regression algorithm to try to predict $y$ given $x$. However, it is easy to construct examples where this method performs very poorly. Intuitively, it also doesn’t make sense for $h_{θ}(x)$ to take values larger than 1 or smaller than $0$ when we know that $y ∈ {0, 1}$. To fix this, let’s change the form for our hypotheses $h_{θ}(x)$ to satisfy $0≤h_{θ}(x)≤1$. This is accomplished by plugging $θ^Tx$ into the <strong>Logistic Function</strong> . </p>
+<p>Our new form uses the <strong>“Sigmoid Function”</strong> , also called the <strong>“Logistic Function”</strong> :<br>$$</p>
+\begin{align*}& h_\theta (x) = g ( \theta^T x ) \\ \\& z = \theta^T x \\& g(z) = \dfrac{1}{1 + e^{-z}}\end{align*}
+<p>$$<br>Using python to implement it :</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span><span class="params">(z)</span>:</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">1</span> / (<span class="number">1</span> + np.exp(-z))</span><br></pre></td></tr></table></figure>
+
+<p>The following image shows us what the sigmoid function looks like:</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/3.png" alt=""></p>
+<p><strong>The function $g(z)$ , shown here, maps any real number to the $(0, 1)$ interval, making it useful for transforming an arbitrary-valued function into a function better suited for classification</strong>. </p>
+<p><strong>$h_{θ}(x)$ will give us the probability that our output is 1</strong>. For example, $h_{θ}(x)=0.7$ gives us a probability of $70%$ that our output is 1. Our probability that our prediction is 0 is just the complement of our probability that it is 1 (e.g. if probability that it is 1 is $70%$, then the probability that it is 0 is $30%$).<br>$$</p>
+\begin{align*}& h_\theta(x) = P(y=1 | x ; \theta) = 1 - P(y=0 | x ; \theta) \\ & P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}
+<p>$$</p>
+<h2 id="Decision-Boundary"><a href="#Decision-Boundary" class="headerlink" title="Decision Boundary"></a>Decision Boundary</h2><p>In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:<br>$$</p>
+\begin{align*}& h_\theta(x) \geq 0.5 \rightarrow y = 1 \\ & h_\theta(x) < 0.5 \rightarrow y = 0 \\ \end{align*}
+<p>$$<br>The way our logistic function g behaves is that when its input is greater than or equal to zero, its output is greater than or equal to 0.5:<br>$$</p>
+\begin{align*}& g(z) \geq 0.5 \\ & when \; z \geq 0\end{align*}
+<p>$$<br>From these statements we can now say:<br>$$</p>
+\begin{align*}& \theta^T x \geq 0 \Rightarrow y = 1 \\ & \theta^T x < 0 \Rightarrow y = 0 \\ \end{align*}
+<p>$$<br>The <strong>decision boundary</strong>  is the line that separates the area where y = 0 and where y = 1. It is created by our hypothesis function. </p>
+<p><strong>Example</strong> :<br>$$</p>
+\begin{align*}& \theta = \begin{bmatrix}5 \\ -1 \\ 0\end{bmatrix} \\ & y = 1 \; if \; 5 + (-1) x_1 + 0 x_2 \geq 0 \\ & 5 - x_1 \geq 0 \\ & - x_1 \geq -5 \\& x_1 \leq 5 \\ \end{align*}
+<p>$$<br>In this case, our decision boundary is a straight vertical line placed on the graph where $x_1=5$ , and everything to the left of that denotes $y = 1$ , while everything to the right denotes $y = 0$ . </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/4.png" alt=""></p>
+<p>Again, the input to the sigmoid function g(z) (e.g. $θ^TX$ ) doesn’t need to be linear, and could be a function that describes a circle (e.g.  $z=θ_0+θ_1x^2_1+θ_2x^2_2$ ) or any shape to fit our data.</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/5.png" alt=""></p>
+<h2 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h2><p>We cannot use the same cost function that we use for linear regression because the Logistic Function will cause the output to be wavy, causing many local optima. In other words, it will not be a convex function. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/6.png" alt=""></p>
+<p>Instead, our cost function for logistic regression looks like:<br>$$</p>
+\begin{align*}& J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) \newline & \mathrm{Cost}(h_\theta(x),y) = -\log(h_\theta(x)) \; & \text{if y = 1} \newline & \mathrm{Cost}(h_\theta(x),y) = -\log(1-h_\theta(x)) \; & \text{if y = 0}\end{align*}
+<p>$$<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/7.png" alt=""><br>$$</p>
+\begin{align*}& \mathrm{Cost}(h_\theta(x),y) = 0 \text{ if } h_\theta(x) = y \\ & \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_\theta(x) \rightarrow 1 \\ & \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_\theta(x) \rightarrow 0 \\ \end{align*}
+<p>$$</p>
+<ol>
+<li>If our correct answer ‘y’ is 0, then the cost function will be 0 if our hypothesis function also outputs 0. If our hypothesis approaches 1, then the cost function will approach infinity. </li>
+<li>If our correct answer ‘y’ is 1, then the cost function will be 0 if our hypothesis function outputs 1. If our hypothesis approaches 0, then the cost function will approach infinity. </li>
+</ol>
+<p>Note that writing the cost function in this way guarantees that $J(θ)$ is convex for logistic regression.</p>
+<h2 id="Simplified-Cost-Function-and-Gradient-Descent"><a href="#Simplified-Cost-Function-and-Gradient-Descent" class="headerlink" title="Simplified Cost Function and Gradient Descent"></a>Simplified Cost Function and Gradient Descent</h2><p><strong>Note:</strong>    [6:53 - the gradient descent equation should have a 1/m factor] </p>
+<p> We can compress our cost function’s two conditional cases into one case:<br>$$<br>\mathrm{Cost}(h_\theta(x),y) = - y ; \log(h_\theta(x)) - (1 - y) \log(1 - h_\theta(x))<br>$$<br>Notice that when y is equal to 1, then the second term $(1−y)log(1−h_θ(x))$ will be zero and will not affect the result. If y is equal to 0, then the first term $−ylog(h_θ(x))$ will be zero and will not affect the result. </p>
+<p>We can fully write out our entire cost function as follows:</p>
+<p>$$<br>J(\theta) =  \frac{1}{m} \displaystyle \sum_{i=1}^m [-y^{(i)}\log (h_\theta (x^{(i)})) - (1 - y^{(i)})\log (1 - h_\theta(x^{(i)}))]<br>$$</p>
+<h3 id="A-vectorized-implementation"><a href="#A-vectorized-implementation" class="headerlink" title="A vectorized implementation"></a>A vectorized implementation</h3><p>$$</p>
+\begin{align*} & h = g(X\theta)\newline & J(\theta) = \frac{1}{m} \cdot \left(-y^{T}\log(h)-(1-y)^{T}\log(1-h)\right) \end{align*}
+<p>$$</p>
+<p>Using python to implement it :</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cost</span><span class="params">(theta, X, y)</span>:</span></span><br><span class="line">  theta = np.matrix(theta)</span><br><span class="line">  X = np.matrix(X)</span><br><span class="line">  y = np.matrix(y)</span><br><span class="line">  first = np.multiply(-y, np.log(sigmoid(X* theta.T)))</span><br><span class="line">  second = np.multiply((<span class="number">1</span> - y), np.log(<span class="number">1</span> - sigmoid(X* theta.T)))</span><br><span class="line">  <span class="keyword">return</span> np.sum(first - second) / (len(X))</span><br></pre></td></tr></table></figure>
+
+<h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h3><p>Remember that the general form of gradient descent is:<br>$$</p>
+\begin{align*}& Repeat \; \lbrace \\ & \; \theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j}J(\theta) \\ & \rbrace\end{align*}
+<p>$$<br>We can work out the derivative part using calculus to get:<br>$$</p>
+\begin{align*} & Repeat \; \lbrace \\ & \; \theta_j := \theta_j - \frac{\alpha}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} \\ & \rbrace \end{align*}
+<p>$$<br>The detail mathematical process :<br>$$</p>
+\begin{align*} 
+J(\theta) &= \frac{1}{m} \displaystyle \sum_{i=1}^m [-y^{(i)}\log (h_\theta (x^{(i)})) - (1 - y^{(i)})\log (1 - h_\theta(x^{(i)}))] \\
+&= -\frac{1}{m} \displaystyle \sum_{i=1}^m [{{y}^{(i)}}\log ( {h_\theta} {{x}^{(i)}} ) )+ ( 1-{{y}^{(i)}}  )\log  ( 1-{h_\theta} ( {{x}^{(i)}}  )  )] \\
+& = -\frac{1}{m} \displaystyle \sum_{i=1}^m [{{y}^{(i)}}\log ( \frac{1}{1+{{e}^{-{\theta^T}{{x}^{(i)}}}}} )+( 1-{{y}^{(i)}})\log ( 1-\frac{1}{1+{{e}^{-{\theta^T}{{x}^{(i)}}}}} )] \\
+& = -\frac{1}{m} \displaystyle \sum_{i=1}^m [ -{{y}^{(i)}}\log  ( 1+{{e}^{-{\theta^T}{{x}^{(i)}}}}  )- ( 1-{{y}^{(i)}}  )\log  ( 1+{{e}^{{\theta^T}{{x}^{(i)}}}}  )] \\
+\end{align*}
+<p>$$</p>
+<p>$$</p>
+\begin{align*}
+ \frac{\partial }{\partial {\theta_{j}}}J\left( \theta \right) &= -\frac{1}{m}\frac{\partial }{\partial {\theta_{j}}}[\sum\limits_{i=1}^{m}{[-{{y}^{(i)}}\log \left( 1+{{e}^{-{\theta^{T}}{{x}^{(i)}}}} \right)-\left( 1-{{y}^{(i)}} \right)\log \left( 1+{{e}^{{\theta^{T}}{{x}^{(i)}}}} \right)]}] \\
+& =\frac{\partial }{\partial {\theta_{j}}}[-\frac{1}{m}\sum\limits_{i=1}^{m}{[-{{y}^{(i)}}\log \left( 1+{{e}^{-{\theta^{T}}{{x}^{(i)}}}} \right)-\left( 1-{{y}^{(i)}} \right)\log \left( 1+{{e}^{{\theta^{T}}{{x}^{(i)}}}} \right)]}] \\
+& =-\frac{1}{m}\sum\limits_{i=1}^{m}{[-{{y}^{(i)}}\frac{-x_{j}^{(i)}{{e}^{-{\theta^{T}}{{x}^{(i)}}}}}{1+{{e}^{-{\theta^{T}}{{x}^{(i)}}}}}-\left( 1-{{y}^{(i)}} \right)\frac{x_j^{(i)}{{e}^{{\theta^T}{{x}^{(i)}}}}}{1+{{e}^{{\theta^T}{{x}^{(i)}}}}}}] \\
+& =-\frac{1}{m}\sum\limits_{i=1}^{m}{{y}^{(i)}}\frac{x_j^{(i)}}{1+{{e}^{{\theta^T}{{x}^{(i)}}}}}-\left( 1-{{y}^{(i)}} \right)\frac{x_j^{(i)}{{e}^{{\theta^T}{{x}^{(i)}}}}}{1+{{e}^{{\theta^T}{{x}^{(i)}}}}}] \\
+& =-\frac{1}{m}\sum\limits_{i=1}^{m}{\frac{{{y}^{(i)}}x_j^{(i)}-x_j^{(i)}{{e}^{{\theta^T}{{x}^{(i)}}}}+{{y}^{(i)}}x_j^{(i)}{{e}^{{\theta^T}{{x}^{(i)}}}}}{1+{{e}^{{\theta^T}{{x}^{(i)}}}}}} \\
+& =-\frac{1}{m}\sum\limits_{i=1}^{m}{\frac{{{y}^{(i)}}\left( 1\text{+}{{e}^{{\theta^T}{{x}^{(i)}}}} \right)-{{e}^{{\theta^T}{{x}^{(i)}}}}}{1+{{e}^{{\theta^T}{{x}^{(i)}}}}}x_j^{(i)}} \\
+& =-\frac{1}{m}\sum\limits_{i=1}^{m}{({{y}^{(i)}}-\frac{{{e}^{{\theta^T}{{x}^{(i)}}}}}{1+{{e}^{{\theta^T}{{x}^{(i)}}}}})x_j^{(i)}} \\
+& =-\frac{1}{m}\sum\limits_{i=1}^{m}{({{y}^{(i)}}-\frac{1}{1+{{e}^{-{\theta^T}{{x}^{(i)}}}}})x_j^{(i)}} \\
+& =-\frac{1}{m}\sum\limits_{i=1}^{m}{[{{y}^{(i)}}-{h_\theta}\left( {{x}^{(i)}} \right)]x_j^{(i)}} \\
+& =\frac{1}{m}\sum\limits_{i=1}^{m}{[{h_\theta}\left( {{x}^{(i)}} \right)-{{y}^{(i)}}]x_j^{(i)}} 
+\end{align*}
+<p>$$</p>
+<p>Notice that this algorithm is identical to the one we used in linear regression. We still have to simultaneously update all values in theta. </p>
+<h3 id="A-vectorized-implementation-1"><a href="#A-vectorized-implementation-1" class="headerlink" title="A vectorized implementation"></a>A vectorized implementation</h3><p>$$<br>\theta := \theta - \frac{\alpha}{m} X^{T} (g(X \theta ) - \vec{y})<br>$$</p>
+<h3 id="Note-1"><a href="#Note-1" class="headerlink" title="Note"></a>Note</h3><p><strong>The idea of feature scaling also applies to gradient descent for logistic regression. And yet we have features that are on different scale, then applying feature scaling can also make grading descent run faster for logistic regression.</strong></p>
+<h2 id="Advanced-Optimization"><a href="#Advanced-Optimization" class="headerlink" title="Advanced Optimization"></a>Advanced Optimization</h2><p><strong>Note:</strong>    [7:35 - ‘100’ should be 100 instead. The value provided should be an integer and not a character string.] </p>
+<p><strong>“Conjugate gradient”, “BFGS”, and “L-BFGS”</strong> <em>are more sophisticated, faster ways to optimize $θ$ that can be used instead of gradient descent. We suggest that you should not write these more sophisticated algorithms yourself (unless you are an expert in numerical computing) but use the libraries instead, as they’re already tested and highly optimized. Octave provides them.</em></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/8.png" alt=""></p>
+<p>These algorithms actually do more sophisticated things than just pick a good learning rate, and so they often end up converging much faster than gradient descent. These algorithms actually do more sophisticated things than just pick a good learning rate, and so they often end up converging much faster than gradient descent, but detailed discussion of exactly what they do is beyond the scope of this course. <strong>In fact, I actually used to have used these algorithms for a long time, like maybe over a decade, quite frequently, and it was only, you know, a few years ago that I actually figured out for myself the details of what conjugate gradient, BFGS and O-BFGS do. So it is actually entirely possible to use these algorithms successfully and apply to lots of different learning problems without actually understanding the inter-loop of what these algorithms do.</strong> If these algorithms have a disadvantage, I’d say that the main disadvantage is that they’re quite a lot more complex than gradient descent. And in particular, you probably should not implement these algorithms - conjugate gradient, L-BGFS, BFGS - yourself unless you’re an expert in numerical computing. Instead, just as I wouldn’t recommend that you write your own code to compute square roots of numbers or to compute inverses of matrices, for these algorithms also what I would recommend you do is just use a software library. So, you know, to take a square root what all of us do is use some function that someone else has written to compute the square roots of our numbers. And fortunately, Octave and the closely related language MATLAB - we’ll be using that - Octave has a very good. Has a pretty reasonable library implementing some of these advanced optimization algorithms. And so if you just use the built-in library, you know, you get pretty good results. I should say that there is a difference between good and bad implementations of these algorithms. And so, if you’re using a different language for your machine learning application, if you’re using C, C++, Java, and so on, you might want to try out a couple of different libraries to make sure that you find a good library for implementing these algorithms. Because there is a difference in performance between a good implementation of, you know, contour gradient or LPFGS versus less good implementation of contour gradient or LPFGS.</p>
+<p>We first need to provide a function that evaluates the following two functions for a given input value $θ$: </p>
+<p>We can write a single function that returns both of these: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function [jVal, gradient] &#x3D; costFunction(theta)</span><br><span class="line">  jVal &#x3D; [...code to compute J(theta)...];</span><br><span class="line">  gradient &#x3D; [...code to compute derivative of J(theta)...];</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>Then we can use octave’s <strong>“fminunc()”</strong> optimization algorithm along with the <strong>“optimset()”</strong> function that creates an object containing the options we want to send to “fminunc()”. (Note: the value for MaxIter should be an integer, not a character string - errata in the video at 7:30) </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">options &#x3D; optimset(&#39;GradObj&#39;, &#39;on&#39;, &#39;MaxIter&#39;, 100);</span><br><span class="line">initialTheta &#x3D; zeros(2,1);</span><br><span class="line">   [optTheta, functionVal, exitFlag] &#x3D; fminunc(@costFunction, initialTheta, options);</span><br></pre></td></tr></table></figure>
+
+<p>We give to the function <strong>“fminunc()”</strong> our cost function, our initial vector of theta values, and the “options” object that we created beforehand.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/1st_example_of_costFunction_and_fminunc_in_octave.png" alt="1st_example_of_costFunction_and_fminunc_in_octave"></p>
+<p>Having implemented this cost function, you would, you can then call the advanced optimization function called the <strong>‘fminunc’ - it stands for function minimization unconstrained in Octave</strong> -and the way you call this is as follows. </p>
+<p>You set a few options. This is a options as a data structure that stores the options you want. <em>So <strong>‘GradObj’ and ‘on’</strong> , these set the gradient objective parameter to on . It just means you are indeed going to provide a gradient to this algorithm ( which tells <code>fminunc</code> that our function returns both the cost and the gradient. This allows <code>fminunc</code> to use the gradient when minimizing the function ). I’m going to <strong>set the maximum number of iterations to</strong>, let’s say, one hundred. We’re going *<em>give it an initial guess for $\theta$ *</em>. There’s a 2 by 1 vector. And then this command calls fminunc. This *<em>‘@’ *</em> symbol presents a pointer to the cost function that we just defined up there. And if you call this, this will compute, you know, will use one of the more advanced optimization  algorithms.  And if you want to think it as just like gradient descent. But automatically choosing the learning rate alpha for so you don’t have to do so yourself. But it will then attempt to use the sort of advanced optimization algorithms. Like gradient descent on steroids. To try to find the optimal value of theta for you.</em>  </p>
+<p> Let me actually show you what this looks like in Octave. So I’ve written this cost function of theta function exactly as we had it on the previous line. It computes J-val which is the cost function. And it computes the gradient with the two elements being the partial derivatives of the cost function with respect to, you know, the two parameters, theta one and theta two. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function [jVal, gradient]&#x3D;costFunction(theta)</span><br><span class="line">　　jVal&#x3D;(theta(1)-5)^2+(theta(2)-5)^2;</span><br><span class="line">　　gradient&#x3D;zeros(2,1);</span><br><span class="line">　　gradient(1)&#x3D;2*(theta(1)-5);</span><br><span class="line">　　gradient(2)&#x3D;2*(theta(2)-5);</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>Now let’s switch to my Octave window. I’m gonna type in those commands I had just now. So, options equals optimset. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">options&#x3D;optimset(&#39;GradObj&#39;,&#39;on&#39;,&#39;MaxIter&#39;,100);</span><br><span class="line">initialTheta&#x3D;zeros(2,1);</span><br><span class="line">[optTheta, functionVal, exitFlag]&#x3D;fminunc(@costFunction, initialTheta, options);</span><br></pre></td></tr></table></figure>
+
+<p>This is the notation for setting my parameters on my options, for my optimization algorithm. And if I hit enter this will run the optimization algorithm. And it returns pretty quickly. </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/10.png" alt=""></p>
+<p>This funny formatting that’s because my line, you know, my code wrapped around. So, this funny thing is just because my command line had wrapped around. But what this says is that numerically renders, you know, think of it as gradient descent on steroids, they found the optimal value of a theta is theta 1 equals 5, theta 2 equals 5, exactly as we’re hoping for. <strong>The <code>functionValue</code> at the optimum is essentially 10-to -the-minus-30-power. So that’s essentially zero, which is also what we’re hoping for</strong> . And the <code>exitFlag</code> is 1, and this shows what the convergence status of this. And if you want you can do help <code>fminunc</code> to read the documentation for how to interpret the exit flag. But <strong>the <code>exitFlag</code> let’s you verify whether or not this algorithm thing has converged</strong>. So that’s how you run these algorithms in Octave. </p>
+<p>I should mention, by the way, that for the Octave implementation, this value of theta, your <strong>parameter : vector of theta, its dimension is at least greater than or equal to 2.</strong> So if theta is just a real number. So, if it is not at least a two-dimensional vector or some higher than two-dimensional vector, this <code>fminunc</code> may not work, so and if in case you have a one-dimensional function that you use to optimize, you can look in the octave documentation for <code>fminunc</code> for additional details. </p>
+<p>So, that’s how we optimize our trial example of this simple quick driving cost function. However, we apply this to let’s just say progression. In logistic regression we have a parameter vector theta, and I’m going to use a mix of octave notation and sort of math notation. But I hope this explanation will be clear, but our parameter vector theta comprises these parameters theta 0 through theta n because octave indexes, vectors using indexing from 1, you know, theta 0 is actually written theta 1 in octave, theta 1 is gonna be written. So, if theta 2 in octave and that’s gonna be a written theta n+1, right? And that’s because Octave indexes is vectors starting from index of 1 and so the index of 0. <strong>So what we need to do then is write a cost function that captures the cost function for logistic regression. Concretely, the cost function needs to return <code>jVal</code>, which is, you know, <code>jVal</code> as you need some codes to compute J of theta and we also need to give it the gradient.</strong> </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/11.png" alt=""></p>
+<p>So, gradient 1 is going to be some code to compute the partial derivative in respect to theta 0, the next partial derivative respect to theta 1 and so on. Once again, this is gradient 1, gradient 2 and so on, rather than gradient 0, gradient 1 because octave indexes is vectors starting from one rather than from zero. But <strong>the main concept I hope you take away from this slide is, that what you need to do, is write a function that returns the cost function and returns the gradient.</strong> And so in order to apply this to logistic regression or even to linear regression, if you want to use these optimization algorithms for linear regression. What you need to do is plug in the appropriate code to compute these things over here. So, now you know how to use these advanced optimization algorithms.</p>
+<p><strong>Because, using, because for these algorithms, you’re using a sophisticated optimization library, it makes the just a little bit more opaque and so just maybe a little bit harder to debug. But because these algorithms often run much faster than gradient descent, often quite typically whenever I have a large machine learning problem, I will use these algorithms instead of using gradient descent. And with these ideas, hopefully, you’ll be able to get logistic progression and also linear regression to work on much larger problems. So, that’s it for advanced optimization concepts.</strong> And in the next and final video on Logistic Regression, I want to tell you how to take the logistic regression algorithm that you already know about and make it work also on multi-class classification problems.</p>
+<h2 id="Multiclass-Classification-One-vs-all"><a href="#Multiclass-Classification-One-vs-all" class="headerlink" title="Multiclass Classification: One-vs-all"></a>Multiclass Classification: One-vs-all</h2><p>Now we will approach the classification of data when we have more than two categories. Instead of y = {0,1} we will expand our definition so that y = {0,1…n}.<br>$$</p>
+\begin{align*}& y \in \lbrace0, 1 ... n\rbrace \\ & h_\theta^{(0)}(x) = P(y = 0 | x ; \theta) \\ & h_\theta^{(1)}(x) = P(y = 1 | x ; \theta) \\ & \cdots \\ & h_\theta^{(n)}(x) = P(y = n | x ; \theta) \\ & \mathrm{prediction} = \max_i( h_\theta ^{(i)}(x) )\\ \end{align*}
+<p>$$<br>Since y = {0,1…n}, we divide our problem into n+1 (+1 because the index starts at 0) binary classification problems; in each one, we predict the probability that ‘y’ is a member of one of our classes.</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/06/12.png" alt=""></p>
+<p><strong>To summarize:</strong>   </p>
+<ol>
+<li>Train a logistic regression classifier $h_θ(x)$ for each class￼ to predict the probability that ￼ ￼$y = i￼ $￼. </li>
+<li>To make a prediction on a new $x$ ,  pick the class ￼that maximizes $h_θ(x)$</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/04/04_linear-regression-with-multiple-variables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/04/04_linear-regression-with-multiple-variables/" class="post-title-link" itemprop="url">04_linear-regression-with-multiple-variables note4</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-04 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-04T00:00:00+05:30">2018-01-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:23" itemprop="dateModified" datetime="2020-04-06T20:25:23+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>7.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>7 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Multiple-Features"><a href="#Multiple-Features" class="headerlink" title="Multiple Features"></a>Multiple Features</h2><p><strong>Note:</strong> [7:25 - $θ^T$ is a 1 by (n+1) matrix and not an (n+1) by 1 matrix]</p><p>Linear regression with multiple variables is also known as “multivariate linear regression”.</p><p>We now introduce notation for equations where we can have any number of input variables.</p>$$ \begin{align*}x_j^{(i)} &= \text{value of feature } j \text{ in the }i^{th}\text{ training example} \\ x^{(i)}& = \text{the input (features) of the }i^{th}\text{ training example} \\ m &= \text{the number of training examples} \\ n &= \text{the number of features} \end{align*} $$<p>The multivariable form of the hypothesis function accommodating these multiple features is as follows:</p><p>$$<br>h_\theta (x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 + \cdots + \theta_n x_n<br>$$</p><p>In order to develop intuition about this function, we can think about $θ_0$ as the basic price of a house, $θ_1$ as the price per square meter, $θ_2$ as the price per floor, etc. $x_1$ will be the number of square meters in the house, $x_2$ the number of floors, etc.</p><p>Using the definition of matrix multiplication, our multivariable hypothesis function can be concisely represented as :</p>$$ \begin{align*}h_\theta(x) =\begin{bmatrix}\theta_0 \hspace{2em} \theta_1 \hspace{2em} ... \hspace{2em} \theta_n\end{bmatrix}\begin{bmatrix}x_0 \\ x_1 \\ \vdots \\ x_n\end{bmatrix}= \theta^T x\end{align*} $$<p>This is a vectorization of our hypothesis function for one training example; see the lessons on vectorization to learn more.</p><p><strong>Remark : Note that for convenience reasons in this course we assume $x^{(i)}_0=1 \text{ for }(i∈1,…,m)$ . This allows us to do matrix operations with theta and x. Hence making the two vectors ‘ $θ$ ‘ and $x^{(i)}$ match each other element-wise (that is, have the same number of elements: n+1)</strong> .]</p><h2 id="Gradient-Descent-For-Multiple-Variables"><a href="#Gradient-Descent-For-Multiple-Variables" class="headerlink" title="Gradient Descent For Multiple Variables"></a>Gradient Descent For Multiple Variables</h2><p>The gradient descent equation itself is generally the same form; we just have to repeat it for our ‘n’ features :</p>$$ \begin{align*} & \text{repeat until convergence:} \; \lbrace \newline \; & \theta_0 := \theta_0 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_0^{(i)}\newline \; & \theta_1 := \theta_1 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_1^{(i)} \newline \; & \theta_2 := \theta_2 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_2^{(i)} \newline & \cdots \newline \rbrace \end{align*} $$<p>In other words :</p>$$ \begin{align*}& \text{repeat until convergence:} \; \lbrace \newline \; & \theta_j := \theta_j - \alpha \frac{1}{m} \sum\limits_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} \; & \text{for j := 0...n}\newline \rbrace\end{align*} $$<p>The following image compares gradient descent with one variable to gradient descent with multiple variables:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/04/gradient_descent_with_multiple_variables.png" alt="gradient_descent_with_multiple_variables"></p><h2 id="Gradient-Descent-in-Practice-I-Feature-Scaling"><a href="#Gradient-Descent-in-Practice-I-Feature-Scaling" class="headerlink" title="Gradient Descent in Practice I - Feature Scaling"></a>Gradient Descent in Practice I - Feature Scaling</h2><p><strong>Note:</strong> [6:20 - The average size of a house is 1000 but 100 is accidentally written instead]</p><p>We can speed up gradient descent by having each of our input values in roughly the same range. This is <strong>because $θ​$ will descend quickly on small ranges and slowly on large ranges, and so will oscillate inefficiently down to the optimum when the variables are very uneven.</strong></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/04/why_feature_scale.png" alt="why_feature_scale"></p><p>The way to prevent this is to modify the ranges of our input variables so that they are all roughly the same. Ideally:<br>$$<br>−1 ≤ x_{(i)} ≤ 1 \text{ or } −0.5 ≤ x_{(i)} ≤ 0.5<br>$$<br>These aren’t exact requirements; we are only trying to speed things up. The goal is to get all input variables into roughly one of these ranges, give or take a few.</p><p>Two techniques to help with this are <strong>feature scaling</strong> and <strong>mean normalization</strong> .</p><ol><li>Feature scaling involves dividing the input values by the range (i.e. the maximum value minus the minimum value) of the input variable, resulting in a new range of just 1.</li><li>Mean normalization involves subtracting the average value for an input variable from the values for that input variable resulting in a new average value for the input variable of just zero. To implement both of these techniques, adjust your input values as shown in this formula:</li></ol><p>$$<br>x_i := \dfrac{x_i - \mu_i}{s_i}<br>$$</p><p>Where $μ_i$ is the average of all the values for feature (i) and $s_i$ is the range of values (max - min), or $s_i$ is the standard deviation.</p><p>Note that dividing by the range, or dividing by the standard deviation, give different results. The quizzes in this course use range - the programming exercises use standard deviation.</p><p>For example, if $x_i$ represents housing prices with a range of 100 to 2000 and a mean value of 1000, then, $x_i := \dfrac{price-1000}{1900}$</p><h2 id="Gradient-Descent-in-Practice-II-Learning-Rate"><a href="#Gradient-Descent-in-Practice-II-Learning-Rate" class="headerlink" title="Gradient Descent in Practice II - Learning Rate"></a>Gradient Descent in Practice II - Learning Rate</h2><p><strong>Note:</strong> [5:20 - the x -axis label in the right graph should be $θ$ rather than No. of iterations ]</p><p><strong>Debugging gradient descent.</strong> Make a plot with <strong>number of iterations</strong> on the x-axis. Now plot the cost function, $J(θ)$ over the number of iterations of gradient descent. If $J(θ)$ ever increases, then you probably need to decrease $α$.</p><p><strong>Automatic convergence test.</strong> Declare convergence if $J(θ)$ decreases by less than E in one iteration, where E is some small value such as $10^{−3}$. However in practice it’s difficult to choose this threshold value.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/04/making_sure_gradient_descent_is_working_correctly.png" alt="making_sure_gradient_descent_is_working_correctly"></p><p>It has been proven that if learning rate $α$ is sufficiently small, then $J(θ)$ will decrease on every iteration.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/04/2_making_sure_gradient_descent_is_working_correctly.png" alt="2_making_sure_gradient_descent_is_working_correctly"></p><p>To summarize:</p><ol><li>If $α$ is too small: slow convergence.</li><li>If $α$ is too large: ￼$J(\theta)$ may not decrease on every iteration and thus may not converge.</li></ol><h2 id="Features-and-Polynomial-Regression"><a href="#Features-and-Polynomial-Regression" class="headerlink" title="Features and Polynomial Regression"></a>Features and Polynomial Regression</h2><p>We can improve our features and the form of our hypothesis function in a couple different ways.</p><p>We can <strong>combine</strong> multiple features into one. For example, we can combine $x_1$ and $x_2$ into a new feature $x_3$ by taking $x_1⋅x_2$ .</p><h3 id="Polynomial-Regression"><a href="#Polynomial-Regression" class="headerlink" title="Polynomial Regression"></a><strong>Polynomial Regression</strong></h3><p>Our hypothesis function need not be linear (a straight line) if that does not fit the data well.</p><p>We can <strong>change the behavior or curve</strong> of our hypothesis function by making it a quadratic, cubic or square root function (or any other form).</p><p>For example, if our hypothesis function is $h_\theta(x) = \theta_0 + \theta_1 x_1$, then we can create additional features based on $x_1$, to get the quadratic function $h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2$, or the cubic function $h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^3$ . In the cubic version, we have created new features $x_2$ and $x_3$ where $x_2=x_1^2$ and $x_3=x_1^3$.</p><p>To make it a square root function, we could do: $h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 \sqrt{x_1}$</p><p>One important thing to keep in mind is, if you choose your features this way then feature scaling becomes very important.</p><p>eg. if $x_1$ has range 1 - 1000 then range of $x_1^2$ becomes 1 - 1000000 and that of $x_1^3$ becomes 1 - 1000000000</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/04/example_of_polynomial_regression.png" alt="example_of_polynomial_regression"></p><h2 id="Normal-Equation"><a href="#Normal-Equation" class="headerlink" title="Normal Equation"></a>Normal Equation</h2><p><strong>Note:</strong> [8:00 to 8:44 - The design matrix $X$ (in the bottom right side of the slide) given in the example should have elements $x$ with subscript 1 and superscripts varying from 1 to m because for all m training sets there are only 2 features $x_0$ and $x_1$. 12:56 - The $X$ matrix is m by (n+1) and NOT n by n. ]</p><p>Gradient descent gives one way of minimizing $J$ . Let’s discuss a second way of doing so, this time performing the minimization explicitly and without resorting to an iterative algorithm. In the “Normal Equation” method, we will minimize $J$ by explicitly taking its derivatives with respect to the θj’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:<br>$$<br>\theta = (X^T X)^{-1}X^T y<br>$$<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/04/construction_of_normal_equation.png" alt="example_of_normal_equation"></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/04/construction_of_normal_equation.png" alt="construction_of_normal_equation"></p><p>There is <strong>no need</strong> to do feature scaling with the normal equation.</p><p>*<em>The following is a comparison of gradient descent and the normal equation: *</em></p><table><thead><tr><th>Gradient Descent</th><th>Normal Equation</th></tr></thead><tbody><tr><td>Need to choose alpha</td><td>No need to choose alpha</td></tr><tr><td>Needs many iterations</td><td>No need to iterate</td></tr><tr><td>O ( $kn^2$ )</td><td>O ($n^3$), need to calculate inverse of $X^TX$</td></tr><tr><td>Works well when n is large</td><td>Slow if n is very large</td></tr></tbody></table><p>With the normal equation, computing the inversion has complexity $O(n^3)$ . So if we have a very large number of features, the normal equation will be slow. <strong>In practice, when n exceeds 10,000 it might be a good time to go from a normal solution to an iterative process</strong>.</p><h2 id="Normal-Equation-Noninvertibility"><a href="#Normal-Equation-Noninvertibility" class="headerlink" title="Normal Equation Noninvertibility"></a>Normal Equation Noninvertibility</h2><p>When implementing the normal equation in octave we want to use the <code>pinv</code> function rather than <code>inv</code> The <code>pinv</code>function will give you a value of $θ$ even if $X^TX$ is not invertible. ( <strong>pinv(A) means calculating the pseudo inverse of matrix A</strong> )</p><p>If $X^TX$ is <strong>noninvertible,</strong> the common causes might be having :</p><ul><li>Redundant features, where two features are very closely related (i.e. they are linearly dependent)</li><li>Too many features (e.g. m ≤ n). In this case, delete some features or use “regularization” (to be explained in a later lesson).</li></ul><p>Solutions to the above problems include deleting a feature that is linearly dependent with another or deleting one or more features when there are too many features.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/04/solution_of_normal_equation_with_non-invertible_X%5ETX.png" alt="solution_of_normal_equation_with_non-invertible_X^TX"></p>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/03/03_linear-algebra-review/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/03/03_linear-algebra-review/" class="post-title-link" itemprop="url">03_linear-algebra-review note3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-03 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-03T00:00:00+05:30">2018-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:20" itemprop="dateModified" datetime="2020-04-06T20:25:20+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This personal note is written after studying the coursera opening course, <a href="https://www.coursera.org/learn/machine-learning/home/welcome" target="_blank" rel="noopener">Machine Learning by Andrew NG</a> . And images, audios of this note all comes from the opening course.</p><h2 id="Matrices-and-Vectors"><a href="#Matrices-and-Vectors" class="headerlink" title="Matrices and Vectors"></a>Matrices and Vectors</h2><p>Matrices are 2-dimensional arrays:</p><p>$$<br>\begin{bmatrix}<br>a&amp;b&amp;c\<br>d&amp;e&amp;f\<br>g&amp;h&amp;i\<br>j&amp;k&amp;l\<br>\end{bmatrix}<br>$$<br>The above matrix has four rows and three columns, so it is a $4 \times 3$ matrix.<br>A vector is a matrix with one column and many rows:<br>$$<br>\begin{bmatrix}<br>w\x\y\z<br>\end{bmatrix}<br>$$</p><p>So vectors are a subset of matrices. The above vector is a $4 \times 1$ matrix.</p><p><strong>Notation and terms</strong> :</p><ul><li>​ $A_{ij}$ refers to the element in the ith row and jth column of matrix A.</li><li>​ A vector with ‘n’ rows is referred to as an ‘n’-dimensional vector.</li><li>​ $v_i$ refers to the element in the ith row of the vector.</li><li>​ In general, all our vectors and matrices will be 1-indexed. Note that for some programming languages, the arrays are 0-indexed.</li><li>​ Matrices are usually denoted by uppercase names while vectors are lowercase.</li><li>​ “Scalar” means that an object is a single value, not a vector or matrix.</li><li>​ $\mathbb{R}$ refers to the set of scalar real numbers.</li><li>​ $\mathbb{R}^n$ refers to the set of n-dimensional vectors of real numbers.</li></ul><p>Run the cell below to get familiar with the commands in <strong>Octave/Matlab</strong>. Feel free to create matrices and vectors and try out different things.</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% The ; denotes we are going back to a new row.</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>; <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">% Initialize a vector </span></span><br><span class="line">v = [<span class="number">1</span>;<span class="number">2</span>;<span class="number">3</span>] </span><br><span class="line"></span><br><span class="line"><span class="comment">% Get the dimension of the matrix A where m = rows and n = columns</span></span><br><span class="line">[m,n] = <span class="built_in">size</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">% You could also store it this way</span></span><br><span class="line">dim_A = <span class="built_in">size</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">% Get the dimension of the vector v </span></span><br><span class="line">dim_v = <span class="built_in">size</span>(v)</span><br><span class="line"></span><br><span class="line"><span class="comment">% Now let's index into the 2nd row 3rd column of matrix A</span></span><br><span class="line">A_23 = A(<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure><h2 id="Addition-and-Scalar-Multiplication"><a href="#Addition-and-Scalar-Multiplication" class="headerlink" title="Addition and Scalar Multiplication"></a>Addition and Scalar Multiplication</h2><p>Addition and subtraction are <strong>element-wise</strong> , so you simply add or subtract each corresponding element:</p><p>$$<br>\begin{bmatrix} a &amp; b \ c &amp; d \ \end{bmatrix} + \begin{bmatrix} w &amp; x \ y &amp; z \ \end{bmatrix} = \begin{bmatrix} a+w &amp; b+x \ c+y &amp; d+z \ \end{bmatrix}<br>$$</p><p>Subtracting Matrices:</p><p>$$<br>\begin{bmatrix} a &amp; b \ c &amp; d \ \end{bmatrix} - \begin{bmatrix} w &amp; x \ y &amp; z \ \end{bmatrix} =\begin{bmatrix} a-w &amp; b-x \ c-y &amp; d-z \ \end{bmatrix}<br>$$</p><p>To add or subtract two matrices, their dimensions must be <strong>the same</strong> .</p><p>In scalar multiplication, we simply multiply every element by the scalar value:</p>$$ \begin{bmatrix} a & b \\ c & d \\ \end{bmatrix} * x =\begin{bmatrix} a*x & b*x \\ c*x & d*x \\ \end{bmatrix} $$<p>In scalar division, we simply divide every element by the scalar value:<br>$$<br>\begin{bmatrix} a &amp; b \ c &amp; d \ \end{bmatrix} / x =\begin{bmatrix} a /x &amp; b/x \ c /x &amp; d /x \ \end{bmatrix}<br>$$</p><p>Experiment below with the <strong>Octave/Matlab commands</strong> for matrix addition and scalar multiplication. Feel free to try out different commands. Try to write out your answers for each command before running the cell below.</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Initialize matrix A and B </span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>; <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">B = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>; <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">% Initialize constant s </span></span><br><span class="line">s = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% See how element-wise addition works</span></span><br><span class="line">add_AB = A + B </span><br><span class="line"></span><br><span class="line"><span class="comment">% See how element-wise subtraction works</span></span><br><span class="line">sub_AB = A - B</span><br><span class="line"></span><br><span class="line"><span class="comment">% See how scalar multiplication works</span></span><br><span class="line">mult_As = A * s</span><br><span class="line"></span><br><span class="line"><span class="comment">% Divide A by s</span></span><br><span class="line">div_As = A / s</span><br><span class="line"></span><br><span class="line"><span class="comment">% What happens if we have a Matrix + scalar?</span></span><br><span class="line">add_As = A + s</span><br></pre></td></tr></table></figure><h2 id="Matrix-Vector-Multiplication"><a href="#Matrix-Vector-Multiplication" class="headerlink" title="Matrix-Vector Multiplication"></a>Matrix-Vector Multiplication</h2><p>We map the column of the vector onto each row of the matrix, multiplying each element and summing the result.</p>$$ \begin{bmatrix} a & b \\ c & d \\ e & f \end{bmatrix} *\begin{bmatrix} x \\ y \\ \end{bmatrix} =\begin{bmatrix} a*x + b*y \\ c*x + d*y \\ e*x + f*y\end{bmatrix} $$<p>The result is a <strong>vector</strong>. The number of <strong>columns</strong> of the matrix must equal the number of <strong>rows</strong> of the vector.</p><p>An <strong>m x n matrix</strong> multiplied by an <strong>n x 1 vector</strong> results in an <strong>m x 1 vector</strong> .</p><p>Below is an example of a matrix-vector multiplication. Make sure you understand how the multiplication works. Feel free to try different matrix-vector multiplications.</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Initialize matrix A </span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>] </span><br><span class="line"></span><br><span class="line"><span class="comment">% Initialize vector v </span></span><br><span class="line">v = [<span class="number">1</span>; <span class="number">1</span>; <span class="number">1</span>] </span><br><span class="line"></span><br><span class="line"><span class="comment">% Multiply A * v</span></span><br><span class="line">Av = A * v</span><br></pre></td></tr></table></figure><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/03/matrix_vector_multiplication.png" alt="matrix_vector_multiplication"><br><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/03/example_of_matrix_vector_multiplication.png" alt="example_of_matrix_vector_multiplication"></p><h2 id="Matrix-Matrix-Multiplication"><a href="#Matrix-Matrix-Multiplication" class="headerlink" title="Matrix-Matrix Multiplication"></a>Matrix-Matrix Multiplication</h2><p>We multiply two matrices by breaking it into several vector multiplications and concatenating the result.</p>$$ \begin{bmatrix} a & b \\ c & d \\ e & f \end{bmatrix} *\begin{bmatrix} w & x \\ y & z \\ \end{bmatrix} =\begin{bmatrix} a*w + b*y & a*x + b*z \\ c*w + d*y & c*x + d*z \\ e*w + f*y & e*x + f*z\end{bmatrix} $$<p>An <strong>m x n matrix</strong> multiplied by an <strong>n x o matrix</strong> results in an <strong>m x o</strong> matrix. In the above example, a 3 x 2 matrix times a 2 x 2 matrix resulted in a 3 x 2 matrix.</p><p>To multiply two matrices, the number of <strong>columns</strong> of the first matrix must equal the number of <strong>rows</strong> of the second matrix.</p><p>For example:</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Initialize a 3 by 2 matrix </span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>; <span class="number">3</span>, <span class="number">4</span>;<span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">% Initialize a 2 by 1 matrix </span></span><br><span class="line">B = [<span class="number">1</span>; <span class="number">2</span>] </span><br><span class="line"></span><br><span class="line"><span class="comment">% We expect a resulting matrix of (3 by 2)*(2 by 1) = (3 by 1) </span></span><br><span class="line">mult_AB = A*B</span><br><span class="line"></span><br><span class="line"><span class="comment">% Make sure you understand why we got that result</span></span><br></pre></td></tr></table></figure><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/03/matrix_matrix_multiplication.png" alt="matrix_matrix_multiplication"></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/03/example_of_matrix_matrix_multiplication.png" alt="example_of_matrix_matrix_multiplication"></p><h2 id="Matrix-Multiplication-Properties"><a href="#Matrix-Multiplication-Properties" class="headerlink" title="Matrix Multiplication Properties"></a>Matrix Multiplication Properties</h2><ul><li>​ Matrices are not commutative: $A∗B≠B∗A,A∗B≠B∗A$</li><li>​ Matrices are associative: $(A∗B)∗C=A∗(B∗C)$</li></ul><p>The <strong>identity matrix</strong> , when multiplied by any matrix of the same dimensions, results in the original matrix. It’s just like multiplying numbers by 1. The identity matrix simply has 1’s on the diagonal (upper left to lower right diagonal) and 0’s elsewhere.<br>$$<br>\begin{bmatrix} 1 &amp; 0 &amp; 0 \ 0 &amp; 1 &amp; 0 \ 0 &amp; 0 &amp; 1 \ \end{bmatrix}<br>$$<br>When multiplying the identity matrix after some matrix (A∗I), the square identity matrix’s dimension should match the other matrix’s <strong>columns</strong>. When multiplying the identity matrix before some other matrix (I∗A), the square identity matrix’s dimension should match the other matrix’s <strong>rows</strong> .</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Initialize random matrices A and B </span></span><br><span class="line">A = [<span class="number">1</span>,<span class="number">2</span>;<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">B = [<span class="number">1</span>,<span class="number">1</span>;<span class="number">0</span>,<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">% Initialize a 2 by 2 identity matrix</span></span><br><span class="line">I = <span class="built_in">eye</span>(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% The above notation is the same as I = [1,0;0,1]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% What happens when we multiply I*A ? </span></span><br><span class="line">IA = I*A </span><br><span class="line"></span><br><span class="line"><span class="comment">% How about A*I ? </span></span><br><span class="line">AI = A*I </span><br><span class="line"></span><br><span class="line"><span class="comment">% Compute A*B </span></span><br><span class="line">AB = A*B </span><br><span class="line"></span><br><span class="line"><span class="comment">% Is it equal to B*A? </span></span><br><span class="line">BA = B*A </span><br><span class="line"></span><br><span class="line"><span class="comment">% Note that IA = AI but AB != BA</span></span><br></pre></td></tr></table></figure><h2 id="Inverse-and-Transpose"><a href="#Inverse-and-Transpose" class="headerlink" title="Inverse and Transpose"></a>Inverse and Transpose</h2><p>The <strong>inverse</strong> of a matrix $A$ is denoted $A^{−1}$. Multiplying by the inverse results in the identity matrix.</p><p>A non square matrix does not have an inverse matrix. We can compute inverses of matrices <strong>in octave</strong> with the <code>pinv(A)</code> function and <strong>in Matlab</strong> with the <code>inv(A)</code> function. Matrices that don’t have an inverse are <em>singular</em> or <em>degenerate</em> .</p><p>The <strong>transposition</strong> of a matrix is like rotating the matrix 90 <strong>°</strong> in clockwise direction and then reversing it. We can compute transposition of matrices <strong>in matlab</strong> with the <strong><em>transpose(A)</em></strong> function or <code>A&#39;</code> :<br>$$<br>A = \begin{bmatrix} a &amp; b \ c &amp; d \ e &amp; f \end{bmatrix}<br>$$</p><p>$$<br>A^T = \begin{bmatrix} a &amp; c &amp; e \ b &amp; d &amp; f \ \end{bmatrix}<br>$$</p><p>In other words:</p><p>$$<br>A_{ij} = A^T_{ji}<br>$$</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Initialize matrix A </span></span><br><span class="line">A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>;<span class="number">0</span>,<span class="number">5</span>,<span class="number">6</span>;<span class="number">7</span>,<span class="number">0</span>,<span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">% Transpose A </span></span><br><span class="line">A_trans = A' </span><br><span class="line"></span><br><span class="line"><span class="comment">% Take the inverse of A </span></span><br><span class="line">A_inv = inv(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">% What is A^(-1)*A? </span></span><br><span class="line">A_invA = inv(A)*A</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/02/02_linear-regression-with-one-variable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/02/02_linear-regression-with-one-variable/" class="post-title-link" itemprop="url">02_linear-regression-with-one-variable note2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-02 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-02T00:00:00+05:30">2018-01-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:17" itemprop="dateModified" datetime="2020-04-06T20:25:17+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>8.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>8 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This personal note is written after studying the coursera opening course, <a href="https://www.coursera.org/learn/machine-learning/home/welcome" target="_blank" rel="noopener">Machine Learning by Andrew NG</a> . And images, audios of this note all comes from the opening course.</p><h2 id="Model-Representation"><a href="#Model-Representation" class="headerlink" title="Model Representation"></a>Model Representation</h2><p>To establish notation for future use, we’ll use $x^{(i)}$ to denote the <strong>“input”variables</strong> (living area in this example), also called <strong>input features</strong>, and $y^{(i)}$ to denote <strong>the “output” or target variable</strong> that we are trying to predict(price). A pair ( $x^{(i)},y^{(i)}$ ) is called a training example, and the dataset that we’ll be using to learn—a list of m training examples ( $x^{(i)},y^{(i)} ) ;i=1,…,m$ — is called a training set. <strong>Note that the superscript “(i)” in the notation is simply an index into the training set</strong>, and has nothing to do with exponentiation. We will also use X to denote the space of input values, and Y to denote the space of output values. In this example, X = Y = ℝ.</p><p>To describe the <strong>supervised learning problem</strong> slightly more formally, <strong>our goal is, given a training set, to learn a function h : X → Y so that h(x) is a “good” predictor for the corresponding value of y</strong>. For historical reasons, this function h is called a hypothesis. Seen pictorially, the process is therefore like this:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/model_representation.png" alt="model_representation"></p><p>When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a regression problem.When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a classification problem.</p><h2 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h2><p>We can measure the accuracy of our hypothesis function by using a <strong>cost function</strong> . This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x’s and the actual output y’s.</p><p>$ J(θ<em>0,θ_1)={1\over2m}\sum\limits</em>{i=1}^m (\hat{y}<em>i−y_i)^2=\frac{1}{2m}\sum\limits</em>{i=1}^m(h_{θ(xi)}−y_i)^2$</p><p>To break it apart, it is ${1\over 2}\bar{x}$ where $\bar{x}$ is the mean of the squares of $h_{θ(xi)}−y_i$ , or the difference between the predicted value and the actual value.</p><p>This function is otherwise called the “Squared error function”, or “Mean squared error”. The mean is halved $({1\over 2})$ as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the $({1\over 2})$ term. The following image summarizes what the cost function does:<br><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/introduction_cost_function.png" alt="introduction_cost_function"></p><h2 id="Cost-Function-Intuition-I"><a href="#Cost-Function-Intuition-I" class="headerlink" title="Cost Function - Intuition I"></a>Cost Function - Intuition I</h2><p>If we try to think of it in visual terms, our training data set is scattered on the x-y plane. We are trying to make a straight line (defined by $h_{θ(x)}$ ) which passes through these scattered data points.</p><p>Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least. Ideally, the line should pass through all the points of our training data set. In such a case, the value of $J(θ_0,θ_1)$ will be $0$. The following example shows the ideal situation where we have a cost function of $0$.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_1.png" alt="cost_function_intuition_1"></p><p>​When $θ_1=1$, we get a slope of 1 which goes through every single data point in our model. Conversely, when $θ_1=0.5$, we see the vertical distance from our fit to the data points increase.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_2.png" alt="cost_function_intuition_2"></p><p>This increases our cost function to $0.58​$. Plotting several other points yields to the following graph:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_3.png" alt="cost_function_intuition_3"></p><p>Thus as a goal, we should try to minimize the cost function. In this case, $θ_1=1$ is our global minimum.</p><h2 id="Cost-Function-Intuition-II"><a href="#Cost-Function-Intuition-II" class="headerlink" title="Cost Function - Intuition II"></a>Cost Function - Intuition II</h2><p>A contour plot is a graph that contains many contour lines. A contour line of a two variable function has a constant value at all points of the same line. An example of such a graph is the one to the right below.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_2-1.png" alt=""></p><p>Taking any color and going along the ‘circle’, one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(θ_0,θ_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $θ_0 = 800$ and $θ_1= -0.15$ . Taking another $h(x)$ and plotting its contour plot, one gets the following graphs:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_2-2.png" alt=""></p><p>When $θ_0 = 360$ and $θ_1 = 0$, the value of $J(θ_0,θ_1)$ in the contour plot gets closer to the center thus reducing the cost function error. Now giving our hypothesis function a slightly positive slope results in a better fit of the data.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_2-3.png" alt=""></p><p>The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around $0.12$ and $250$ respectively. Plotting those values on our graph to the right seems to put our point in the center of the inner most ‘circle’.</p><h2 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h2><p>So we have our hypothesis function and we have a way of measuring how well it fits into the data. Now we need to estimate the parameters in the hypothesis function. That’s where gradient descent comes in.</p><p>Imagine that we graph our hypothesis function based on its fields $θ_0$ and $θ_1$ (actually we are graphing the cost function as a function of the parameter estimates). We are not graphing x and y itself, but the parameter range of our hypothesis function and the cost resulting from selecting a particular set of parameters.</p><p>We put $θ_0$ on the x axis and $θ_1$ on the y axis, with the cost function on the vertical z axis. The points on our graph will be the result of the cost function using our hypothesis with those specific theta parameters. The graph below depicts such a setup.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/gradient_descent.png" alt=""></p><p>We will know that we have succeeded when our cost function is at the very bottom of the pits in our graph, i.e. when its value is the minimum. The red arrows show the minimum points in the graph.</p><p>The way we do this is by taking the derivative (the tangential line to a function) of our cost function. The slope of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest descent. The size of each step is determined by the parameter $α$ , which is called the learning rate.</p><p>For example, the distance between each ‘star’ in the graph above represents a step determined by our parameter $α$ . A smaller $α$ would result in a smaller step and a larger $α$ results in a larger step. The direction in which the step is taken is determined by the partial derivative of $J(θ_0,θ_1)$. Depending on where one starts on the graph, one could end up at different points. The image above shows us two different starting points that end up in two different places.</p><p>The gradient descent algorithm is:<br>$$<br>\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)<br>$$<br>repeat until convergence:</p><p>where $j=0,1$ represents the feature index number.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/Gradient_Descent_Algorithm.png" alt=""></p><p>At each iteration $j$ , one should simultaneously update the parameters $θ_1,θ_2,…,θ_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/Gradient_Descent_code.png" alt=" "></p><h1 id="Gradient-Descent-Intuition"><a href="#Gradient-Descent-Intuition" class="headerlink" title="Gradient Descent Intuition"></a>Gradient Descent Intuition</h1><p>In this video we explored the scenario where we used one parameter $θ_1$ and plotted its cost function to implement a gradient descent. Our formula for a single parameter was :</p><p>Repeat until convergence:<br>$$<br>\theta_1:=\theta_1-\alpha \frac{d}{d\theta_1} J(\theta_1)<br>$$<br>Regardless of the slope’s sign for $\frac{d}{d\theta_1} J(\theta_1)$, eventually converges to its minimum value. <strong>The following graph shows that when the slope is negative, the value of $θ_1$ increases and when it is positive, the value of $θ_1$ decreases.</strong></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_2-4.png" alt=""></p><p>On a side note, we should adjust our parameter $α$ to ensure that the gradient descent algorithm converges in a reasonable time. <strong>Failure to converge or too much time to obtain the minimum value imply that our step size is wrong.</strong></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/effect_of_too_large-or-small_gradient.png" alt=""></p><h3 id="How-does-gradient-descent-converge-with-a-fixed-step-size-α"><a href="#How-does-gradient-descent-converge-with-a-fixed-step-size-α" class="headerlink" title="How does gradient descent converge with a fixed step size α?"></a>How does gradient descent converge with a fixed step size α?</h3><p>The intuition behind the convergence is that $\frac{d}{d\theta_1} J(\theta_1)$ , approaches 0 as we approach the bottom of our convex function. <strong>At the minimum, the derivative will always be 0</strong> and thus we get:<br>$$<br>\theta_1:=\theta_1-\alpha * 0<br>$$<br><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/gradient_descent_at_a_fixed_learning_rate.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/gradient_descent_at_a_local_optima.png" alt=""></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/a_example_of_gradient_descent.gif" alt=""></p><h1 id="Gradient-Descent-For-Linear-Regression"><a href="#Gradient-Descent-For-Linear-Regression" class="headerlink" title="Gradient Descent For Linear Regression"></a>Gradient Descent For Linear Regression</h1><p>​ <strong>Note:</strong> [At 6:15 “ $h(x) = -900 - 0.1x$ “ should be “ $h(x) = 900 - 0.1x$ “]</p><p>When specifically applied to the case of linear regression, a new form of the gradient descent equation can be derived. We can substitute our actual cost function and our actual hypothesis function and modify the equation to :</p>$$ \begin{align*} \text{repeat until convergence: } \lbrace & \\ \theta_0 := & \theta_0 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}(h_\theta(x_{i}) - y_{i}) \\ \theta_1 := & \theta_1 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}\left((h_\theta(x_{i}) - y_{i}) x_{i}\right) \\ \rbrace& \end{align*} $$<p>where m is the size of the training set, $θ_0$ a constant that will be changing simultaneously with $θ_1$ and $x_i,y_i$ are values of the given training set (data).</p><p>Note that we have separated out the two cases for $θ_j$ into separate equations for $θ_0$ and $θ_1$ ; and that for $θ_1$ we are multiplying $x_i$ at the end due to the derivative. The following is a derivation of $\frac{∂}{∂θ_j}J(θ)$ for a single example :</p>$$ \begin{align*} \frac{\partial}{\partial\theta_j}J(\theta) &=& \frac{\partial}{\partial\theta_j}\frac{1}{2}(h_{\theta}(x)-y)^2 \\ &=& 2 \cdot \frac{1}{2}(h_{\theta}(x)-y)\cdot \frac{\partial}{\partial\theta_j}(h_{\theta}(x)-y) \\ &=& (h_{\theta}(x)-y)\cdot\frac{\partial}{\partial\theta_j}\left(\sum\limits_{i=0}^{n}\theta_ix_i-y\right) \\ &=& (h_{\theta}(x)-y)x_j \end{align*} $$<p>The point of all this is that if we start with a guess for our hypothesis and then repeatedly apply these gradient descent equations, our hypothesis will become more and more accurate.</p><p>So, this is simply gradient descent on the original cost function J. This method looks at every example in the entire training set on every step, and is called <strong>batch gradient descent</strong> . Note that, while gradient descent can be susceptible to local minima in general, the optimization problem we have posed here for linear regression has only one global, and no other local, optima; thus gradient descent always converges (assuming the learning rate α is not too large) to the global minimum. Indeed, J is a convex quadratic function.Here is an example of gradient descent as it is run to minimize a quadratic function.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/batch_gradient_descent.png" alt=""></p><p>The ellipses shown above are the contours of a quadratic function. Also shown is the trajectory taken by gradient descent, which was initialized at $(48,30)$. The $x$’s in the figure (joined by straight lines) mark the successive values of $θ$ that gradient descent went through as it converged to its minimum.</p>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">2.1m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">32:08</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+    </div>
+</body>
+</html>
