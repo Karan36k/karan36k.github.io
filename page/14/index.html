@@ -130,14 +130,24 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-about">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">60</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -193,6 +203,93 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/07/07_regularization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/07/07_regularization/" class="post-title-link" itemprop="url">07_regularization note7</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-07 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-07T00:00:00+05:30">2018-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 20:25:24" itemprop="dateModified" datetime="2020-04-06T20:25:24+05:30">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>9 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This personal note is written after studying the opening course on <a href="https://www.coursera.org" target="_blank" rel="noopener">the coursera website</a>, <a href="https://www.coursera.org/learn/machine-learning/home/welcome" target="_blank" rel="noopener">Machine Learning by Andrew NG</a> . And images, audios of this note all comes from the opening course.</p><h2 id="The-Problem-of-Overfitting"><a href="#The-Problem-of-Overfitting" class="headerlink" title="The Problem of Overfitting"></a>The Problem of Overfitting</h2><p>Consider the problem of predicting $y$ from $x ∈ R$. The leftmost figure below shows the result of fitting a $y = θ_0+θ_1x$ to a dataset. We see that the data doesn’t really lie on straight line, and so the fit is not very good.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/1.png" alt=""></p><p>Instead, if we had added an extra feature $x_2$ , and fit $y=θ<em>0+θ_1x+θ_2x^2$ , then we obtain a slightly better fit to the data (See middle figure). Naively, it might seem that the more features we add, the better. However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a $5^{th}$ order polynomial $y=\sum</em>{j=0}^{5}\theta_jx^j$ . We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (y) for different living areas(x). Without formally defining what these terms mean, we’ll say the figure on the left shows an instance of <strong>underfitting</strong> —in which the data clearly shows structure not captured by the model—and the figure on the right is an example of *<em>overfitting *</em>.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/2.png" alt=""></p><ol><li><strong>Underfitting, or high bias</strong>, <em>is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features.</em></li><li>At the other extreme, <strong>overfitting, or high variance</strong>, <em>is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.</em></li></ol><p><strong>This terminology is applied to both linear and logistic regression. There are two main options to address the issue of overfitting:</strong></p><p>1) Reduce the number of features:</p><ul><li><p>​ Manually select which features to keep.</p></li><li><p>​ Use a model selection algorithm (studied later in the course, such as PCA).</p><p>2) Regularization</p></li><li><p>​ Keep all the features, but reduce the magnitude of parameters $θ_j$.</p></li><li><p>​ Regularization works well when we have a lot of slightly useful features.</p></li></ul><h2 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h2><p><strong>Note:</strong> [5:18 - There is a typo. It should be $\sum_{j=1}^{n} \theta <em>j ^2$ instead of $\sum</em>{i=1}^{n} \theta _j ^2$]</p><p>If we have overfitting from our hypothesis function, we can reduce the weight that some of the terms in our function carry by increasing their cost.</p><p>Say we wanted to make the following function more quadratic:<br>$$<br>\theta_0 + \theta_1x + \theta_2x^2 + \theta_3x^3 + \theta_4x^4<br>$$<br>We’ll want to eliminate the influence of $θ_3x_3$ and $θ_4x_4$ . Without actually getting rid of these features or changing the form of our hypothesis, we can instead modify our</p><p><strong>cost function</strong> :<br>$$<br>min_\theta\ \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2<br>$$<br>We’ve added two extra terms at the end to inflate the cost of $θ_3$ and $θ_4$. Now, in order for the cost function to get close to zero, we will have to reduce the values of $θ_3$ and $θ_4$ to near zero. This will in turn greatly reduce the values of $θ_3x_3$ and $θ_4x_4$ in our hypothesis function. As a result, we see that the new hypothesis (depicted by the pink curve) looks like a quadratic function but fits the data better due to the extra small terms $θ_3x_3$ and $θ_4x_4$.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/3.png" alt=""></p><p>We could also regularize all of our theta parameters in a single summation as:<br>$$<br>min_\theta\ \dfrac{1}{2m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2<br>$$<br>The λ, or lambda, is the <strong>regularization parameter</strong> . It determines how much the costs of our theta parameters are inflated.</p><p>Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If lambda is chosen to be too large, it may smooth out the function too much and cause underfitting. Hence, what would happen if λ=0 or is too small ?</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/4.png" alt=""></p><h2 id="Regularized-Linear-Regression"><a href="#Regularized-Linear-Regression" class="headerlink" title="Regularized Linear Regression"></a>Regularized Linear Regression</h2><p><strong>Note:</strong> [8:43 - It is said that X is non-invertible if m ≤ n. The correct statement should be that X is non-invertible if m &lt; n, and may be non-invertible if m = n.</p><p>We can apply regularization to both linear regression and logistic regression. We will approach linear regression first.<br>$$<br>J(\theta)=\frac{1}{2m} \left[ \sum\limits_{i=1}^{m}\left(h_\theta(x^{(i)})-y^{(i)}\right)^2 + \lambda\sum_{j=1}^{n}\theta_j^2 \right]<br>$$</p><h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h3><p>We will modify our gradient descent function to separate out θ0θ0 from the rest of the parameters because we do not want to penalize<br>$$</p>\begin{align*} & \text{Repeat}\ \lbrace \\ & \ \ \ \ \theta_0 := \theta_0 - \alpha\ \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\ & \ \ \ \ \theta_j := \theta_j - \alpha\ \left[ \left( \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \right) + \frac{\lambda}{m}\theta_j \right] &\ \ \ \ \ \ \ \ \ \ j \in \lbrace 1,2...n\rbrace\\ & \rbrace \end{align*}<p>$$<br>The term $\frac{λ}{m} θ<em>j$ performs our regularization. With some manipulation our update rule can also be represented as:<br>$$<br>\theta_j := \theta_j(1 - \alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum</em>{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}<br>$$<br>The first term in the above equation, $1−α\frac{λ}{m}$ will always be less than 1. Intuitively you can see it as reducing the value of $θ_j$ by some amount on every update. Notice that the second term is now exactly the same as it was before.</p><h3 id="Normal-Equation"><a href="#Normal-Equation" class="headerlink" title="Normal Equation"></a>Normal Equation</h3><p>Now let’s approach regularization using the alternate method of the non-iterative normal equation.</p><p>To add in regularization, the equation is the same as our original, except that we add another term inside the parentheses:<br>$$</p>\begin{align*}& \theta = \left( X^TX + \lambda \cdot L \right)^{-1} X^Ty \\ & \text{where}\ \ L = \begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1 \\\end{bmatrix}\end{align*}<p>$$<br>L is a matrix with 0 at the top left and 1’s down the diagonal, with 0’s everywhere else. It should have dimension (n+1)×(n+1). Intuitively, this is the identity matrix (though we are not including $x_0$), multiplied with a single real number λ.</p><p>Recall that <strong>if m &lt; n, then $X^TX$ is non-invertible. However, when we add the term λ⋅L, then $X^TX + λ⋅L$ becomes invertible.(Note: which is proved)</strong></p><h2 id="Regularized-Logistic-Regression"><a href="#Regularized-Logistic-Regression" class="headerlink" title="Regularized Logistic Regression"></a>Regularized Logistic Regression</h2><p>We can regularize logistic regression in a similar way that we regularize linear regression. As a result, we can avoid overfitting. The following image shows how the regularized function, displayed by the pink line, is less likely to overfit than the non-regularized function represented by the blue line:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/5.png" alt=""></p><h3 id="Cost-Function-1"><a href="#Cost-Function-1" class="headerlink" title="Cost Function"></a>Cost Function</h3><p>Recall that our cost function for logistic regression was:<br>$$<br>J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \large]<br>$$<br>We can regularize this equation by adding a term to the end:<br>$$<br>J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2<br>$$<br>The second sum, $∑_n^{j=1}θ^2_j$ <strong>means to explicitly exclude</strong> the bias term, $θ_0$. I.e. the θ vector is indexed from 0 to n (holding n+1 values, $θ_0$ through $θ_n$), and this sum explicitly skips $θ_0$, by running from 1 to n, skipping 0. Thus, when computing the equation, we should continuously update the two following equations:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/6.png" alt=""></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">costReg</span><span class="params">(theta, X, y, learningRate)</span>:</span></span><br><span class="line">    theta = np.matrix(theta)</span><br><span class="line">    X = np.matrix(X)</span><br><span class="line">    y = np.matrix(y)</span><br><span class="line">    first = np.multiply(-y, np.log(sigmoid(X*theta.T)))</span><br><span class="line">    second = np.multiply((<span class="number">1</span> - y), np.log(<span class="number">1</span> - sigmoid(X*theta.T)))</span><br><span class="line">    reg = (learningRate / (<span class="number">2</span> * len(X)) * np.sum(np.power(theta[:,<span class="number">1</span>:theta.shape[<span class="number">1</span>]],<span class="number">2</span>))</span><br><span class="line">    <span class="keyword">return</span> np.sum(first - second) / (len(X)) + reg</span><br></pre></td></tr></table></figure><h3 id="Advanced-optimization"><a href="#Advanced-optimization" class="headerlink" title="Advanced optimization"></a>Advanced optimization</h3><p>Let’s talk about how to get regularized linear regression to work using the more advanced optimization methods. And just to remind you for those methods what we needed to do was to define the function that’s called the cost function, that takes us input the parameter vector theta and once again in the equations we’ve been writing here we used 0 index vectors. So we had theta 0 up to theta N. But because Octave indexes the vectors starting from 1. Theta 0 is written in Octave as theta 1. Theta 1 is written in Octave as theta 2, and so on down to theta N plus 1. And what we needed to do was provide a function. Let’s provide a function called cost function that we would then pass in to what we have, what we saw earlier. We will use the <code>fminunc</code> and then you know at cost function, and so on, right. But the <code>fminunc</code> was function minimization unconstrained in Octave and this will work with <code>fminunc</code> was what will take the cost function and minimize it for us. So the two main things that the cost function needed to return were first J-val. And for that, we need to write code to compute the <code>costfunction</code> J of theta.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/07/7.png" alt=""></p><p>Now, when we’re using regularized logistic regression, of course the <code>costfunction</code> J of theta changes and, in particular, now a cost function needs to include this additional regularization term at the end as well. So, when you compute j of theta be sure to include that term at the end.</p><p>And then, the other thing that this cost function thing needs to derive with a gradient. So gradient one needs to be set to the partial derivative of J of theta with respect to theta zero, gradient two needs to be set to that, and so on. Once again, the index is off by one. Right, because of the indexing from one Octave users. And looking at these terms. This term over here. We actually worked this out on a previous slide is actually equal to this. It doesn’t change. Because the derivative for theta zero doesn’t change. Compared to the version without regularization. And the other terms do change. And in particular the derivative respect to theta one. We worked this out on the previous slide as well. Is equal to, you know, the original term and then minus londer M times theta 1. Just so we make sure we pass this correctly. And we can add parentheses here. Right, so the summation doesn’t extend. And similarly, you know, this other term here looks like this, with this additional term that we had on the previous slide, that corresponds to the gradient from their regularization objective. So if you implement this cost function and pass this into <code>fminunc</code> or to one of those advanced optimization techniques, that will minimize the new regularized cost function J of theta. And the parameters you get out will be the ones that correspond to logistic regression with regularization.</p><p>So, now you know how to implement regularized logistic regression. When I walk around Silicon Valley, I live here in Silicon Valley, there are a lot of engineers that are frankly, making a ton of money for their companies using machine learning algorithms. And I know we’ve only been, you know, studying this stuff for a little while. But if you understand linear regression, the advanced optimization algorithms and regularization, by now, frankly, you probably know quite a lot more machine learning than many, certainly now, but you probably know quite a lot more machine learning right now than frankly, many of the Silicon Valley engineers out there having very successful careers. You know, making tons of money for the companies. Or building products using machine learning algorithms. So, congratulations. You’ve actually come a long ways. And you can actually, you actually know enough to apply this stuff and get to work for many problems. So congratulations for that. But of course, there’s still a lot more that we want to teach you, and in the next set of videos after this, we’ll start to talk about a very powerful cause of non-linear classifier. So whereas linear regression, logistic regression, you know, you can form polynomial terms, but it turns out that there are much more powerful nonlinear quantifiers that can then sort of polynomial regression. And in the next set of videos after this one, I’ll start telling you about them. So that you have even more powerful learning algorithms than you have now to apply to different problems.</p>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -572,97 +669,10 @@ J(\theta) &= \frac{1}{m} \displaystyle \sum_{i=1}^m [-y^{(i)}\log (h_\theta (x^{
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/02/02_linear-regression-with-one-variable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Karan">
-      <meta itemprop="description" content="Refuse to Fall">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Machine Learning">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/01/02/02_linear-regression-with-one-variable/" class="post-title-link" itemprop="url">02_linear-regression-with-one-variable note2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-01-02 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-02T00:00:00+05:30">2018-01-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-06 20:25:17" itemprop="dateModified" datetime="2020-04-06T20:25:17+05:30">2020-04-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>8.9k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>8 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This personal note is written after studying the coursera opening course, <a href="https://www.coursera.org/learn/machine-learning/home/welcome" target="_blank" rel="noopener">Machine Learning by Andrew NG</a> . And images, audios of this note all comes from the opening course.</p><h2 id="Model-Representation"><a href="#Model-Representation" class="headerlink" title="Model Representation"></a>Model Representation</h2><p>To establish notation for future use, we’ll use $x^{(i)}$ to denote the <strong>“input”variables</strong> (living area in this example), also called <strong>input features</strong>, and $y^{(i)}$ to denote <strong>the “output” or target variable</strong> that we are trying to predict(price). A pair ( $x^{(i)},y^{(i)}$ ) is called a training example, and the dataset that we’ll be using to learn—a list of m training examples ( $x^{(i)},y^{(i)} ) ;i=1,…,m$ — is called a training set. <strong>Note that the superscript “(i)” in the notation is simply an index into the training set</strong>, and has nothing to do with exponentiation. We will also use X to denote the space of input values, and Y to denote the space of output values. In this example, X = Y = ℝ.</p><p>To describe the <strong>supervised learning problem</strong> slightly more formally, <strong>our goal is, given a training set, to learn a function h : X → Y so that h(x) is a “good” predictor for the corresponding value of y</strong>. For historical reasons, this function h is called a hypothesis. Seen pictorially, the process is therefore like this:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/model_representation.png" alt="model_representation"></p><p>When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a regression problem.When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a classification problem.</p><h2 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h2><p>We can measure the accuracy of our hypothesis function by using a <strong>cost function</strong> . This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x’s and the actual output y’s.</p><p>$ J(θ<em>0,θ_1)={1\over2m}\sum\limits</em>{i=1}^m (\hat{y}<em>i−y_i)^2=\frac{1}{2m}\sum\limits</em>{i=1}^m(h_{θ(xi)}−y_i)^2$</p><p>To break it apart, it is ${1\over 2}\bar{x}$ where $\bar{x}$ is the mean of the squares of $h_{θ(xi)}−y_i$ , or the difference between the predicted value and the actual value.</p><p>This function is otherwise called the “Squared error function”, or “Mean squared error”. The mean is halved $({1\over 2})$ as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the $({1\over 2})$ term. The following image summarizes what the cost function does:<br><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/introduction_cost_function.png" alt="introduction_cost_function"></p><h2 id="Cost-Function-Intuition-I"><a href="#Cost-Function-Intuition-I" class="headerlink" title="Cost Function - Intuition I"></a>Cost Function - Intuition I</h2><p>If we try to think of it in visual terms, our training data set is scattered on the x-y plane. We are trying to make a straight line (defined by $h_{θ(x)}$ ) which passes through these scattered data points.</p><p>Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least. Ideally, the line should pass through all the points of our training data set. In such a case, the value of $J(θ_0,θ_1)$ will be $0$. The following example shows the ideal situation where we have a cost function of $0$.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_1.png" alt="cost_function_intuition_1"></p><p>​When $θ_1=1$, we get a slope of 1 which goes through every single data point in our model. Conversely, when $θ_1=0.5$, we see the vertical distance from our fit to the data points increase.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_2.png" alt="cost_function_intuition_2"></p><p>This increases our cost function to $0.58​$. Plotting several other points yields to the following graph:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_3.png" alt="cost_function_intuition_3"></p><p>Thus as a goal, we should try to minimize the cost function. In this case, $θ_1=1$ is our global minimum.</p><h2 id="Cost-Function-Intuition-II"><a href="#Cost-Function-Intuition-II" class="headerlink" title="Cost Function - Intuition II"></a>Cost Function - Intuition II</h2><p>A contour plot is a graph that contains many contour lines. A contour line of a two variable function has a constant value at all points of the same line. An example of such a graph is the one to the right below.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_2-1.png" alt=""></p><p>Taking any color and going along the ‘circle’, one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(θ_0,θ_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $θ_0 = 800$ and $θ_1= -0.15$ . Taking another $h(x)$ and plotting its contour plot, one gets the following graphs:</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_2-2.png" alt=""></p><p>When $θ_0 = 360$ and $θ_1 = 0$, the value of $J(θ_0,θ_1)$ in the contour plot gets closer to the center thus reducing the cost function error. Now giving our hypothesis function a slightly positive slope results in a better fit of the data.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_2-3.png" alt=""></p><p>The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around $0.12$ and $250$ respectively. Plotting those values on our graph to the right seems to put our point in the center of the inner most ‘circle’.</p><h2 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h2><p>So we have our hypothesis function and we have a way of measuring how well it fits into the data. Now we need to estimate the parameters in the hypothesis function. That’s where gradient descent comes in.</p><p>Imagine that we graph our hypothesis function based on its fields $θ_0$ and $θ_1$ (actually we are graphing the cost function as a function of the parameter estimates). We are not graphing x and y itself, but the parameter range of our hypothesis function and the cost resulting from selecting a particular set of parameters.</p><p>We put $θ_0$ on the x axis and $θ_1$ on the y axis, with the cost function on the vertical z axis. The points on our graph will be the result of the cost function using our hypothesis with those specific theta parameters. The graph below depicts such a setup.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/gradient_descent.png" alt=""></p><p>We will know that we have succeeded when our cost function is at the very bottom of the pits in our graph, i.e. when its value is the minimum. The red arrows show the minimum points in the graph.</p><p>The way we do this is by taking the derivative (the tangential line to a function) of our cost function. The slope of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest descent. The size of each step is determined by the parameter $α$ , which is called the learning rate.</p><p>For example, the distance between each ‘star’ in the graph above represents a step determined by our parameter $α$ . A smaller $α$ would result in a smaller step and a larger $α$ results in a larger step. The direction in which the step is taken is determined by the partial derivative of $J(θ_0,θ_1)$. Depending on where one starts on the graph, one could end up at different points. The image above shows us two different starting points that end up in two different places.</p><p>The gradient descent algorithm is:<br>$$<br>\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)<br>$$<br>repeat until convergence:</p><p>where $j=0,1$ represents the feature index number.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/Gradient_Descent_Algorithm.png" alt=""></p><p>At each iteration $j$ , one should simultaneously update the parameters $θ_1,θ_2,…,θ_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/Gradient_Descent_code.png" alt=" "></p><h1 id="Gradient-Descent-Intuition"><a href="#Gradient-Descent-Intuition" class="headerlink" title="Gradient Descent Intuition"></a>Gradient Descent Intuition</h1><p>In this video we explored the scenario where we used one parameter $θ_1$ and plotted its cost function to implement a gradient descent. Our formula for a single parameter was :</p><p>Repeat until convergence:<br>$$<br>\theta_1:=\theta_1-\alpha \frac{d}{d\theta_1} J(\theta_1)<br>$$<br>Regardless of the slope’s sign for $\frac{d}{d\theta_1} J(\theta_1)$, eventually converges to its minimum value. <strong>The following graph shows that when the slope is negative, the value of $θ_1$ increases and when it is positive, the value of $θ_1$ decreases.</strong></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/cost_function_intuition_2-4.png" alt=""></p><p>On a side note, we should adjust our parameter $α$ to ensure that the gradient descent algorithm converges in a reasonable time. <strong>Failure to converge or too much time to obtain the minimum value imply that our step size is wrong.</strong></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/effect_of_too_large-or-small_gradient.png" alt=""></p><h3 id="How-does-gradient-descent-converge-with-a-fixed-step-size-α"><a href="#How-does-gradient-descent-converge-with-a-fixed-step-size-α" class="headerlink" title="How does gradient descent converge with a fixed step size α?"></a>How does gradient descent converge with a fixed step size α?</h3><p>The intuition behind the convergence is that $\frac{d}{d\theta_1} J(\theta_1)$ , approaches 0 as we approach the bottom of our convex function. <strong>At the minimum, the derivative will always be 0</strong> and thus we get:<br>$$<br>\theta_1:=\theta_1-\alpha * 0<br>$$<br><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/gradient_descent_at_a_fixed_learning_rate.png" alt=""><br><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/gradient_descent_at_a_local_optima.png" alt=""></p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/a_example_of_gradient_descent.gif" alt=""></p><h1 id="Gradient-Descent-For-Linear-Regression"><a href="#Gradient-Descent-For-Linear-Regression" class="headerlink" title="Gradient Descent For Linear Regression"></a>Gradient Descent For Linear Regression</h1><p>​ <strong>Note:</strong> [At 6:15 “ $h(x) = -900 - 0.1x$ “ should be “ $h(x) = 900 - 0.1x$ “]</p><p>When specifically applied to the case of linear regression, a new form of the gradient descent equation can be derived. We can substitute our actual cost function and our actual hypothesis function and modify the equation to :</p>$$ \begin{align*} \text{repeat until convergence: } \lbrace & \\ \theta_0 := & \theta_0 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}(h_\theta(x_{i}) - y_{i}) \\ \theta_1 := & \theta_1 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}\left((h_\theta(x_{i}) - y_{i}) x_{i}\right) \\ \rbrace& \end{align*} $$<p>where m is the size of the training set, $θ_0$ a constant that will be changing simultaneously with $θ_1$ and $x_i,y_i$ are values of the given training set (data).</p><p>Note that we have separated out the two cases for $θ_j$ into separate equations for $θ_0$ and $θ_1$ ; and that for $θ_1$ we are multiplying $x_i$ at the end due to the derivative. The following is a derivation of $\frac{∂}{∂θ_j}J(θ)$ for a single example :</p>$$ \begin{align*} \frac{\partial}{\partial\theta_j}J(\theta) &=& \frac{\partial}{\partial\theta_j}\frac{1}{2}(h_{\theta}(x)-y)^2 \\ &=& 2 \cdot \frac{1}{2}(h_{\theta}(x)-y)\cdot \frac{\partial}{\partial\theta_j}(h_{\theta}(x)-y) \\ &=& (h_{\theta}(x)-y)\cdot\frac{\partial}{\partial\theta_j}\left(\sum\limits_{i=0}^{n}\theta_ix_i-y\right) \\ &=& (h_{\theta}(x)-y)x_j \end{align*} $$<p>The point of all this is that if we start with a guess for our hypothesis and then repeatedly apply these gradient descent equations, our hypothesis will become more and more accurate.</p><p>So, this is simply gradient descent on the original cost function J. This method looks at every example in the entire training set on every step, and is called <strong>batch gradient descent</strong> . Note that, while gradient descent can be susceptible to local minima in general, the optimization problem we have posed here for linear regression has only one global, and no other local, optima; thus gradient descent always converges (assuming the learning rate α is not too large) to the global minimum. Indeed, J is a convex quadratic function.Here is an example of gradient descent as it is run to minimize a quadratic function.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/snaildove.github.io/ml-andrew-ng/02/batch_gradient_descent.png" alt=""></p><p>The ellipses shown above are the contours of a quadratic function. Also shown is the trajectory taken by gradient descent, which was initialized at $(48,30)$. The $x$’s in the figure (joined by straight lines) mark the successive values of $θ$ that gradient descent went through as it converged to its minimum.</p>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -730,17 +740,21 @@ J(\theta) &= \frac{1}{m} \displaystyle \sum_{i=1}^m [-y^{(i)}\log (h_\theta (x^{
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span>
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">11</span>
-        <span class="site-state-item-name">tags</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -799,11 +813,13 @@ J(\theta) &= \frac{1}{m} \displaystyle \sum_{i=1}^m [-y^{(i)}\log (h_\theta (x^{
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
     <span title="Symbols count total">2.1m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
     <span title="Reading time total">32:08</span>
 </div>
 
