@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<script>
+    (function(){
+        if(''){
+                         If (prompt('Please enter the article password') !== ''){
+                                 Alert('Password error!');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说明：全文摘自 Introduction to probability, 2nd Edition  一个指数型随机变量是拥有以下形式的概率密度函数：$$f_X(x)&#x3D;\cases{    \lambda e^{-\lambda x}, &amp; if $x\ge 0$ \    0, &amp; 其他情况}$$这个公式中$\lambda$ 是一个正数，这是一个符合概率归一性的定义，因为：$$\i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典摘录-指数型随机变量的均值和方差">
+<meta property="og:url" content="https://snakecoding.com/2017/08/25/exponential_random_variables/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="说明：全文摘自 Introduction to probability, 2nd Edition  一个指数型随机变量是拥有以下形式的概率密度函数：$$f_X(x)&#x3D;\cases{    \lambda e^{-\lambda x}, &amp; if $x\ge 0$ \    0, &amp; 其他情况}$$这个公式中$\lambda$ 是一个正数，这是一个符合概率归一性的定义，因为：$$\i">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/exponential-random-variable/1.png">
+<meta property="article:published_time" content="2017-08-25T14:46:00.000Z">
+<meta property="article:modified_time" content="2020-04-08T23:07:42.554Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="probability">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/exponential-random-variable/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2017/08/25/exponential_random_variables/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>经典摘录-指数型随机变量的均值和方差 | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Machine Learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/25/exponential_random_variables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          经典摘录-指数型随机变量的均值和方差
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-08-25 20:16:00" itemprop="dateCreated datePublished" datetime="2017-08-25T20:16:00+05:30">2017-08-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">中文</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>说明</strong>：全文摘自 <a href="http://www.athenasc.com/probbook.html" target="_blank" rel="noopener">Introduction to probability, 2nd Edition</a> </p>
+<p>一个指数型随机变量是拥有以下形式的<strong>概率密度函数</strong>：<br>$$<br>f_X(x)=\cases{<br>    \lambda e^{-\lambda x}, &amp; if $x\ge 0$ \<br>    0, &amp; 其他情况<br>}<br>$$<br>这个公式中<strong>$\lambda$ 是一个正数</strong>，这是一个符合概率归一性的定义，因为：<br>$$<br>\int_{-\infty}^{+\infty}f_X(x)dx=\int_{-\infty}^{+\infty}\lambda e^{-\lambda}dx=-e^{\lambda x}|<em>0^{+\infty}=1<br>$$<br>注意，指数型概率密度函数具有这样的特性：$X$ 超过某个值的概率随着这个值的增加而按指数递减<br>$$<br>\forall  a\ge 0,P(X\ge a)=\int</em>{a}^{\infty}\lambda e^{-\lambda x}dx=-e^{-\lambda x}|<em>a^{+\infty}=e^{-\lambda a}<br>$$<br>由概率密度函数得到<strong>累积分布函数</strong>：<br>$$<br>\forall x \ge 0, P(X\le x)=\int</em>{0}^{x}\lambda e^{-\lambda x}dx=1-e^{-\lambda x}<br>$$<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/exponential-random-variable/1.png" alt="The_PDF_of_an_exponential_random_variable"></p>
+<p><strong>指数型随机变量能够对直到事件发生的时间建模，例如：消息到达计算机的时间，设备的使用寿命，灯泡的寿命，事故发生的时间等等</strong>（An exponential random variable can, for example, be a good model for the amount of time until an incident of interest takes place）。将在后面的章节看到指数型随机变量与几何随机变量紧密关联，几何随机变量也与相关事件发生的（离散）时间相关联。<strong>指数型随机变量将在第六章随机过程的学习中扮演重要的角色</strong>。但是目前为止，仅仅视它为一种特殊的可分析追中的随机变量。</p>
+<p><strong>指数型随机变量的均值和方差</strong>：<br>$$<br>\begin{eqnarray}<br>E[X] &amp;=&amp; \int_{0}^{\infty}x\lambda e^{-\lambda x}dx \<br>&amp;=&amp; (-xe^{-\lambda x})|<em>0^{\infty} + \int</em>{0}^{\infty}e^{-\lambda x}dx \quad\text{这一步利用分部积分法}\<br>&amp;=&amp; 0-\frac{e^{-\lambda x}}{\lambda}|<em>0^{\infty}\<br>&amp;=&amp; \frac{1}{\lambda}<br>\end{eqnarray}<br>$$<br>在此利用分布积分法，可得到 $X$ 的二阶矩：<br>$$<br>\begin{eqnarray}<br>E[X^2] &amp;=&amp; \int</em>{0}^{\infty}x^2\lambda e^{-\lambda x}dx \<br>&amp;=&amp; (-x^2e^{-\lambda x})|<em>0^{\infty}+\int</em>{0}^{\infty}2xe^{-\lambda x}dx<br>&amp;=&amp; 0+ \frac{2}{\lambda}E[X]\<br>&amp;=&amp; \frac{2}{\lambda^2}<br>\end{eqnarray}<br>$$<br>最后利用公式 $var(x)=E[X^2]-(E[X])^2$ ，得到：<br>$$<br>var(X)=\frac{2}{\lambda^2}-\frac{1}{\lambda}=\frac{1}{\lambda^2}<br>$$</p>
+<h3 id="例3-5"><a href="#例3-5" class="headerlink" title="例3.5"></a>例3.5</h3><p>小陨石落入非洲撒哈拉沙漠的时间是遵从指数族分布的。具体地说，从某一观察者开始观察，知道发现一个陨石落到沙漠中，这个时间被模拟成指数型随机变量，其均值为 $10$ 天，现在假定，目前时间为晚上 $12$ 点整。问第二天早晨 $6:00$ 到傍晚 $6:00$ 之间陨石首次落下的概率是多少？</p>
+<p>假定 $X$ 是为了观察陨石落下所需要的等待时间。由于 $X$ 满足指数型分布，均值为 $\frac{1}{\lambda}=10$ ，由此得：$\lambda=\frac{1}{10}$ 。所求的概率为：<br>$$<br>P(\frac{1}{4}\le X \le \frac{3}{4})=P(X\ge \frac{1}{4})-P(X\ge \frac{3}{4})=e^{-\frac{1}{40}}-e^{-\frac{3}{40}}=0.0476<br>$$<br>求解这个过程中利用了连续型随机变量 $P(X\ge a)=P(X&gt; a)=e^{-\lambda a}$ 。</p>
+<h3 id="指数随机变量的无记忆性"><a href="#指数随机变量的无记忆性" class="headerlink" title="指数随机变量的无记忆性"></a>指数随机变量的无记忆性</h3><p>一个灯泡的使用寿命 $T$ 是一个指数随机变量，其参数为 $\lambda$ 。Ariadne 将灯打开后离开房间，在外面呆了一段时间以后（时间长度为 $t$），他回到房间后，灯还亮着。这相当于事件 $A={T&gt;t}$ 发生了。记 $X$ 为灯泡的剩余寿命，问 $X$ 的分布函数是什么？</p>
+<p>解答：</p>
+<p>实际上 $X$ 是在 $A$ 发生条件下的寿命，得到：<br>$$<br>\begin{eqnarray}<br>P(X&gt; x|A) &amp;=&amp; P(T&gt;t+x|T&gt;t) \<br>&amp;=&amp; \frac{P(T&gt;t+x, T &gt; t)}{P(T&gt;t)} \<br>&amp;=&amp; \frac{P(T&gt; t+x)}{P(T&gt;t)} \<br>&amp;=&amp; \frac{e^{-\lambda(t+x)}}{e^{-\lambda t}}\<br>&amp;=&amp; e^{-\lambda x}<br>\end{eqnarray}<br>$$<br>灯泡的剩余寿命 $X$ 的分布函数是指数分布，其参数也是 $\lambda$ ，这和灯泡已经亮了多少个小时是无关的。指数分布的这个性质就是<strong>分布的无记忆性</strong>。<strong>一般地，若将完成某个任务所需要的时间的分布定位指数分布。那么只要这个任务没有完成，那么要完成这个任务所需要的剩余时间的分布仍然是指数分布，并且其参数也是不变化的</strong>。</p>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>一个粗心的教授错误地将两个学生的答疑时间安排在了同一个时间段。已知两位同学的答疑时间长度是两个相互独立的并且同分布的随机变量，分布是指数分布，期望值为 $30$ 分钟，第一个学生按时到达，5分钟以后，第二个学生也到达。从第一个学生到达起直到第二个学生离开所需要时间的期望值是？</p>
+<p>解答：</p>
+<p>用 $T_{total}$ 表示教授答疑总共用时的随机变量，用 $T_{s_1}, T_{s_2} $ 表示教授分别对学生 $1$ 和学生 $2$ 答疑时间，那么<br>$$<br>E[T_{total}]=P(T_{s_1}&lt; 5) \cdot E[5+E[T_{s_2}]] + P(T_{s_1} \ge 5)(E[T_{s_1}|T_{s_1}\ge5]+E[T_{s_2}])<br>$$<br>据题目得：$E[T_{s_1}]=E[T_{s_2}]=30$ ，利用指数型随机变量的无记忆性得到：$E[T_{s_1}|T_{s_1}\ge5] = 5+E[T_{s_1}] = 35$ 。<br>$$<br>P(T_{s_1} \ge 5) = e^{-\frac{1}{30}\cdot5} \<br>P(T_{s_1} &lt; 5)=1-P(T_{s_1}\ge 5)=1-e^{-\frac{1}{30}\cdot5}\<br>$$<br>因此：<br>$$<br>E[T_{total}]=(1-e^{-\frac{1}{30}\cdot5})\cdot (5+30)+(e^{-\frac{1}{30}\cdot5})\cdot (35+30)=35+30\cdot e^{-\frac{5}{30}}=60.394<br>$$</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>No one has ever become poor by giving.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/probability/" rel="tag"><i class="fa fa-tag"></i> probability</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/08/24/the_two-envelopes_paradox/" rel="prev" title="经典摘录-两个信封的悖论">
+      <i class="fa fa-chevron-left"></i> 经典摘录-两个信封的悖论
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/08/25/mean_and_variance_of_sample_and_estimating_probability_by_simulation/" rel="next" title="经典摘录-样本均值的期望方差与模拟的方法估计概率">
+      经典摘录-样本均值的期望方差与模拟的方法估计概率 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#例3-5"><span class="nav-number">1.</span> <span class="nav-text">例3.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指数随机变量的无记忆性"><span class="nav-number">2.</span> <span class="nav-text">指数随机变量的无记忆性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#应用"><span class="nav-number">2.1.</span> <span class="nav-text">应用</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">2.2m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">34:01</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : '35d5b20ff47c01ed4c38f206d488e8e7',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

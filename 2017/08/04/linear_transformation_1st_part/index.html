@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<script>
+    (function(){
+        if(''){
+                         If (prompt('Please enter the article password') !== ''){
+                                 Alert('Password error!');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="笔记源自：清华大学公开课：线性代数2——第四讲：线性变换1 前言历史上英国数学家Arthur Cayley是为了描述线性变换的复合而引入矩阵的乘法，从而使矩阵成为数学的研究对象。线性变换是两个向量空间之间保持线性运算的映射。线性代数就是从其中心问题（求解线性方程组）出发发展起来研究向量空间、线性变换以及研究相关数学问题的数学学科。对有限维向量空间的研究总可以转化成对矩阵的研究，这是线性代数的核心特">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tsinghua linear-algebra-2 4th-lecture linear-transformation-1st-part">
+<meta property="og:url" content="https://snakecoding.com/2017/08/04/linear_transformation_1st_part/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="笔记源自：清华大学公开课：线性代数2——第四讲：线性变换1 前言历史上英国数学家Arthur Cayley是为了描述线性变换的复合而引入矩阵的乘法，从而使矩阵成为数学的研究对象。线性变换是两个向量空间之间保持线性运算的映射。线性代数就是从其中心问题（求解线性方程组）出发发展起来研究向量空间、线性变换以及研究相关数学问题的数学学科。对有限维向量空间的研究总可以转化成对矩阵的研究，这是线性代数的核心特">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/1.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/2.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/3.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/4.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/5.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/6.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/7.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/8.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/9.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/10.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/11.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/12.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/13.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/14.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/15.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/16.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/17.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/18.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/19.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/20.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/21.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/22.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/23.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/24.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/25.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/26.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/27.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/28.png">
+<meta property="article:published_time" content="2017-08-04T14:46:00.000Z">
+<meta property="article:modified_time" content="2020-04-08T23:07:42.559Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="linear_algebra">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2017/08/04/linear_transformation_1st_part/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Tsinghua linear-algebra-2 4th-lecture linear-transformation-1st-part | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Machine Learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/04/linear_transformation_1st_part/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tsinghua linear-algebra-2 4th-lecture linear-transformation-1st-part
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-08-04 20:16:00" itemprop="dateCreated datePublished" datetime="2017-08-04T20:16:00+05:30">2017-08-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">中文</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>笔记源自：清华大学公开课：线性代数2——第四讲：线性变换1</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>历史上英国数学家Arthur Cayley是为了描述线性变换的复合而引入矩阵的乘法，从而使矩阵成为数学的研究对象。线性变换是两个向量空间之间保持线性运算的映射。线性代数就是从其中心问题（求解线性方程组）出发发展起来研究向量空间、线性变换以及研究相关数学问题的数学学科。对有限维向量空间的研究总可以转化成对矩阵的研究，这是线性代数的核心特点。</p>
+<h2 id="线性变换的定义性质运算"><a href="#线性变换的定义性质运算" class="headerlink" title="线性变换的定义性质运算"></a>线性变换的定义性质运算</h2><p>回顾中学阶段学过的函数：$f(x)=2x\quad g(x)=x^{2}\quad l(x)=sin(x)$ 都是一个映射从定义域中的一个数映成值域中的一个数。推广到把向量映射到向量的映射比如f是从 $R^{3}$ 映到 $R^{2}$ 的一个映射：$f:\begin{pmatrix}x\y\z\end{pmatrix},\rightarrow,\begin{pmatrix}2x\3y-z\end{pmatrix}$，我们关心向量空间到向量空间的映射。人们发现平面上的点、空间中的点 、矩阵多项式函数、连续函数等等集合看上去不同但是它们各自的加法和数乘满足同样的性质，于是就引入了向量空间这样的一个抽象的概念来统一地研究向量空间的概念。</p>
+<h3 id="向量空间的定义"><a href="#向量空间的定义" class="headerlink" title="向量空间的定义"></a>向量空间的定义</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/1.png" alt="definition_of_vector_space"></p>
+<h3 id="线性变换的定义"><a href="#线性变换的定义" class="headerlink" title="线性变换的定义"></a>线性变换的定义</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/2.png" alt="definition_of_linear_transformation"></p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/3.png" alt="example1_of_linear_transformation"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/4.png" alt="example2_of_linear_transformation"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/5.png" alt="example3_of_linear_transformation"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/6.png" alt="example4_of_linear_transformation"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/7.png" alt="example5_of_linear_transformation"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/8.png" alt="example6_of_linear_transformation"></p>
+<p><strong>注意，由线性变换的定义 $T:V,\rightarrow,W$ 得到 $T(0)=0$</strong></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/9.png" alt="example7_of_linear_transformation"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/10.png" alt="example8_of_linear_transformation"></p>
+<h3 id="线性变换的性质"><a href="#线性变换的性质" class="headerlink" title="线性变换的性质"></a>线性变换的性质</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/11.png" alt="properties_of_linear_transformation"></p>
+<p>针对第一条证明： 如果 $T(0)\ne0$ 不满足线性变换定义 $T(cx)=cT(x)$，例如： $T(0)=1,\rightarrow,T(0)=T(c0)=1,\ne,cT(0)=c$</p>
+<p>针对第三条证明：若 $x_{1},,…,,x_{n}$ 线性相关，那么存在不全为0的数 $c_{1},,…,,c_{n}$ 满足 $c_{1}x_{1},+,…,+,c_{n}x_{n}=0$  即 $T(c_{1}x_{1},+,c_{2}x_{2},+,…,+,c_{n}x_{n})=T(0)=c_{1}f(x_{1}),+,…,+,c_{n}f(x_{n})=0$，即$T(x_{1}),,…,,T(x_{n})$ 线性相关。</p>
+<h3 id="线性变换的运算"><a href="#线性变换的运算" class="headerlink" title="线性变换的运算"></a>线性变换的运算</h3><h4 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/12.png" alt="addition_of_linear_transformation"></p>
+<h4 id="数乘"><a href="#数乘" class="headerlink" title="数乘"></a>数乘</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/13.png" alt="scalar_multiplication_of_linear_transformation"></p>
+<h4 id="乘积"><a href="#乘积" class="headerlink" title="乘积"></a>乘积</h4><p><strong>注：线性变换的乘积被定义为线性变换的复合运算</strong></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/14.png" alt="multiplication_of_linear_transformation"></p>
+<p><strong>注意：线性变换不满足乘法交换律、消去律，与矩阵乘法类似</strong></p>
+<h4 id="逆"><a href="#逆" class="headerlink" title="逆"></a>逆</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/15.png" alt="inverse_of_linear_transformation"></p>
+<h4 id="幂"><a href="#幂" class="headerlink" title="幂"></a>幂</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/16.png" alt="exponential_operation_of_linear_transformation1"></p>
+<h4 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/17.png" alt="polynomial_of_linear_transformation"></p>
+<p><strong>注：由于线性变换不满足乘法交换律，因此$(\sigma\tau)^{m}=\underbrace{(\sigma\tau)(\sigma\tau),…,(\sigma\tau)}_{m个(\sigma\tau)相乘}\ne\sigma^{m}\tau^{m}$</strong></p>
+<h2 id="线性变化的矩阵表示"><a href="#线性变化的矩阵表示" class="headerlink" title="线性变化的矩阵表示"></a>线性变化的矩阵表示</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/18.png" alt="线性变换的矩阵表示1"> </p>
+<p>由于 $T(v_{1})$,$T(v_{2})$, … , $T(v_{3}),\epsilon,W$ 这个输出空间, 因此可以进行如下：<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/19.png" alt="线性变换的矩阵表示2"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/20.png" alt="线性变换的矩阵表示3"> </p>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/21.png" alt="线性变换的矩阵表示-例子1"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/22.png" alt="线性变换的矩阵表示-例子2"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/23.png" alt="线性变换的矩阵表示-例子3"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/24.png" alt="线性变换的矩阵表示-例子4"> </p>
+<h2 id="线性变换与矩阵之间的关系"><a href="#线性变换与矩阵之间的关系" class="headerlink" title="线性变换与矩阵之间的关系"></a>线性变换与矩阵之间的关系</h2><h3 id="一一对应"><a href="#一一对应" class="headerlink" title="一一对应"></a>一一对应</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/25.png" alt="the_relation_between_transformation_and_matrix"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/26.png" alt="the_inverse_of_transformation_and_matrix"></p>
+<h3 id="线性变换的乘积与矩阵的乘积"><a href="#线性变换的乘积与矩阵的乘积" class="headerlink" title="线性变换的乘积与矩阵的乘积"></a>线性变换的乘积与矩阵的乘积</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/27.png" alt="the_product_of_transfromation_and_matrices"></p>
+<p><strong>注（极其重要）：这里线性变换的乘积（复合）对应的是矩阵的“左乘”。</strong></p>
+<h3 id="线性同构"><a href="#线性同构" class="headerlink" title="线性同构"></a>线性同构</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-4/28.png" alt="linear_isomorphism_between_matrix_and_transformation"></p>
+<p><strong>例</strong>：设线性变换$\tau,:,R^{3}\rightarrow,R^{2}$定义为$\tau(x,y,z)=(x+y,y-z)$, 线性变换$\sigma:R^{2},\rightarrow,R^{2}$定义为$\sigma(u,v)=(2u-v,u)$.求线性变换$\sigma\tau:R^{3},\rightarrow,R^{2}$在$R^{3}$与$R^{2}$标准基下的矩阵.</p>
+<p><strong>解</strong>：注意到$\sigma\tau=\sigma(\tau(x,y,z))=\sigma(x+y, y-z)=(2x+y+z, x+y)$ </p>
+<p>因此标准基下线性变化$\sigma(\tau(x,y,z)):R^{3}\to,R^{2}$:</p>
+<p>$$e_{1}=(1,0,0)^{T}, e_{2}=(0,1,0)^{T}, e_{3}=(0,0,1)^{T},\Rightarrow, I_{3}=(e_{1},e_{2},e_{3})$$</p>
+<p>$\sigma(\tau(e_{1}))=\sigma(\tau(,(1,0,0),)=\begin{pmatrix}2\1\\end{pmatrix}\quad\sigma((\tau(e_{2}))=\begin{pmatrix}1\1\\end{pmatrix}\quad\sigma(\tau(e_{3}))=\begin{pmatrix}1\0\\end{pmatrix}$</p>
+<p>$\sigma(\tau(e_{1},e_{2},e_{3}))=\sigma(\tau(I_{3}))=\underbrace{\begin{pmatrix}2&amp;1&amp;1\1&amp;1&amp;0\end{pmatrix}}_{C}$</p>
+<p>第一个线性变化$\tau(x,y,z)=(x+y,y-z):R^{3},\to,R^{2}$ :</p>
+<p>$$\tau(e_{1})=\tau(1,0,0)=(1+0,0+0)=(1,0)$$</p>
+<p>$$\tau(e_{2})=\tau(0,1,0)=(0+1,1+0)=(1,1)$$</p>
+<p>$$\tau(e_{3})=\tau(0,0,1)=(0+0,0+1)=(0,1)$$</p>
+<p>$$\tau(I_{3})=\tau(e_{1},e_{2},e_{3})=\begin{pmatrix}1&amp;1&amp;0\0&amp;1&amp;-1\end{pmatrix}=I_{2}\begin{pmatrix}1&amp;1&amp;0\0&amp;1&amp;-1\end{pmatrix}$$</p>
+<p>$$\underbrace{\begin{pmatrix}1&amp;1&amp;0\0&amp;1&amp;-1\end{pmatrix}}_{A}\begin{pmatrix}x\y\z\end{pmatrix}=\begin{pmatrix}x+y\y-z\end{pmatrix}$$</p>
+<p>第二个线性变化$\sigma(u,v)=(2u-v,u): R^{2},\to,R^{2}$:</p>
+<p>$$\delta_{1}=(1,0)^{T}, \delta_{2}=(0,1)^{T},\Rightarrow, I_{2}=(\delta_{1},\delta_{2})$$</p>
+<p>$$\sigma(\delta_{1})=\begin{pmatrix}2\1\end{pmatrix},,\sigma(\delta_{2})=\begin{pmatrix}-1\0\end{pmatrix}\Rightarrow\sigma(\delta_{1},\delta_{2})=I_{2}\begin{pmatrix}2&amp;-1\1&amp;0\end{pmatrix}$$</p>
+<p>$$\underbrace{\begin{pmatrix}2&amp;-1\1&amp;0\end{pmatrix}}_{B}\begin{pmatrix}u\v\end{pmatrix}=\begin{pmatrix}2u-v\u\end{pmatrix}$$</p>
+<p>发现$BA=C,\Rightarrow,\begin{pmatrix}2&amp;-1\1&amp;0\end{pmatrix}\begin{pmatrix}1&amp;1&amp;0\0&amp;1&amp;-1\end{pmatrix}=\begin{pmatrix}2&amp;1&amp;1\1&amp;1&amp;0\end{pmatrix}$，符合上文所说的线性变换的复合是对应矩阵的左乘。</p>
+<p>结论：<strong>有限维向量空间上的线性变换$\leftarrow\rightarrow$矩阵</strong></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>No one has ever become poor by giving.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/linear-algebra/" rel="tag"><i class="fa fa-tag"></i> linear_algebra</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/08/03/singular_values_decomposition/" rel="prev" title="Tsinghua linear-algebra-2 3rd-lecture Singular-Values-Decomposition">
+      <i class="fa fa-chevron-left"></i> Tsinghua linear-algebra-2 3rd-lecture Singular-Values-Decomposition
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/08/05/linear_transformation_2nd_part/" rel="next" title="Tsinghua linear-algebra-2 5th-lecture linear-transformation-2nd-part">
+      Tsinghua linear-algebra-2 5th-lecture linear-transformation-2nd-part <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性变换的定义性质运算"><span class="nav-number">2.</span> <span class="nav-text">线性变换的定义性质运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量空间的定义"><span class="nav-number">2.1.</span> <span class="nav-text">向量空间的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性变换的定义"><span class="nav-number">2.2.</span> <span class="nav-text">线性变换的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">2.2.1.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性变换的性质"><span class="nav-number">2.3.</span> <span class="nav-text">线性变换的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性变换的运算"><span class="nav-number">2.4.</span> <span class="nav-text">线性变换的运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加法"><span class="nav-number">2.4.1.</span> <span class="nav-text">加法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数乘"><span class="nav-number">2.4.2.</span> <span class="nav-text">数乘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#乘积"><span class="nav-number">2.4.3.</span> <span class="nav-text">乘积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆"><span class="nav-number">2.4.4.</span> <span class="nav-text">逆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#幂"><span class="nav-number">2.4.5.</span> <span class="nav-text">幂</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多项式"><span class="nav-number">2.4.6.</span> <span class="nav-text">多项式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性变化的矩阵表示"><span class="nav-number">3.</span> <span class="nav-text">线性变化的矩阵表示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子-1"><span class="nav-number">3.1.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性变换与矩阵之间的关系"><span class="nav-number">4.</span> <span class="nav-text">线性变换与矩阵之间的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一一对应"><span class="nav-number">4.1.</span> <span class="nav-text">一一对应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性变换的乘积与矩阵的乘积"><span class="nav-number">4.2.</span> <span class="nav-text">线性变换的乘积与矩阵的乘积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性同构"><span class="nav-number">4.3.</span> <span class="nav-text">线性同构</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">2.2m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">34:01</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : 'a534ce128f963716dfa5e99a4a393a0e',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

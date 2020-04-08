@@ -32,15 +32,15 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="positive definiteWhen a symmetric matrix $A$ has one of these five properties, it has them all and $A$ is positive definite:all n eigenvalue are positive.all n principal minors(n upper left determinan">
+  <meta name="description" content="positive definiteWhen a symmetric matrix $A$ has one of these five properties, it has them all and $A$ is positive definite:   all n eigenvalue are positive. all n principal minors(n upper left determ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="positive definite and least squares">
 <meta property="og:url" content="https://snakecoding.com/2017/08/01/positive_definite_and_least_square/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="positive definiteWhen a symmetric matrix $A$ has one of these five properties, it has them all and $A$ is positive definite:all n eigenvalue are positive.all n principal minors(n upper left determinan">
+<meta property="og:description" content="positive definiteWhen a symmetric matrix $A$ has one of these five properties, it has them all and $A$ is positive definite:   all n eigenvalue are positive. all n principal minors(n upper left determ">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-08-01T16:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-06T14:55:37.704Z">
+<meta property="article:modified_time" content="2020-04-08T23:07:42.564Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="linear_algebra">
 <meta name="twitter:card" content="summary">
@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">13</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">61</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -241,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-06 20:25:37" itemprop="dateModified" datetime="2020-04-06T20:25:37+05:30">2020-04-06</time>
+                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,7 +249,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -285,7 +285,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="positive-definite"><a href="#positive-definite" class="headerlink" title="positive definite"></a>positive definite</h2><p>When <strong>a symmetric matrix $A$ has one of these five properties, it has them all</strong> and $A$ is positive definite:</p><blockquote><ol><li>all <strong>n eigenvalue</strong> are positive.</li><li>all <strong>n principal minors(n upper left determinants)</strong> are positive.</li><li>all <strong>n pivots are positive</strong>.</li><li>$x^{T}Ax$ is positive except when $x = 0$ (this is usually the definition of positive definiteness and the <strong>energy-based</strong> definition).</li><li>$A$ equals $R^{T}R$ for a matrix $R$ with <strong>independent columns</strong>.</li></ol></blockquote><p>Let us prove the fifth rule. If $A = R^{T}R$, then</p><p>$$<br>\begin{eqnarray}<br>x^{T}Ax&amp;=&amp;x^{T}R^{T}Rx \nonumber\<br>&amp;=&amp;(x^{T}R^{T})Rx \nonumber\<br>&amp;=&amp;(Rx)^{T}Rx \nonumber\<br>&amp;=&amp;|Rx| \nonumber\<br>&amp;\ge&amp;0 \nonumber<br>\end{eqnarray}<br>$$</p><p>And the columns of $R$ are also independent, so $|Rx|=x^{T}Ax&gt;0$, except when $x$=0 and thus $A$ is positive definite.</p><h2 id="A-T-A"><a href="#A-T-A" class="headerlink" title="$A^{T}A$"></a>$A^{T}A$</h2><p>$A_{m\times n}$ is almost certainly not symmetric, but $A^{T}A$ is square (n by n) and symmetric. We can easily get the following equations through left multiplying $A^{T}A$ by $x^{T}$ and right multiplying $A^{T}A$ by $x$:</p><p>$$<br>\begin{eqnarray}<br>x^{T}A{^TA}x&amp;=&amp;x^{T}(A{^TA})x\nonumber\<br>&amp;=&amp;(x^{T}A^{T})Ax\nonumber\<br>&amp;=&amp;(Ax)^{T}(Ax)\nonumber\<br>&amp;=&amp;|Ax|\nonumber\<br>&amp;\ge&amp;0\nonumber<br>\end{eqnarray}<br>$$</p><p>If $A_{m\times,n}$ has rank $n$ (independent columns), then except when $x = 0$, $Ax=|Ax|=x^{T}(A{^TA})x&gt;0$ and thus $A^{T}A$ is positive definite. And vice versus.</p><p>Besides, $A^{T}A$ is invertible only if $A$ has rank $n$ (independent columns). To prove this, we assume $Ax=0$, then:</p><p>$$<br>\begin{eqnarray}<br>Ax&amp;=&amp;0\nonumber\<br>(Ax)^{T}(Ax)&amp;=&amp;0\nonumber\<br>(x^{T}A{^T})(Ax)&amp;=&amp;0\nonumber\<br>x^{T}A{^T}(Ax)&amp;=&amp;x^{T}0\nonumber\<br>(A{^TA})x&amp;=&amp;0\nonumber<br>\end{eqnarray}<br>$$</p><p>From the above equations, we know solutions of $Ax=0$ are also solutions of $(A{^TA})x=0$. Because $A_{m\times,n}$ has a full set of column rank (independent columns), $Ax=0$ only has a zero solution as well as $(A{^T}A)x=0$. Furthermore, if $A{^T}A$ is invertible, then $A_{m\times,n}$ has rank $n$ (independent columns). We also notice that if $A$ is square and invertible, then $A{^T}A$ is invertible.</p><p>Overall, <strong>if all columns of $A_{m\times,n}$ are mutual independent, then $(A{^T}A)$ is invertible and positive definite as well, and vice versus.</strong></p><h2 id="least-square"><a href="#least-square" class="headerlink" title="least square"></a>least square</h2><p>We have learned that <strong>least square</strong> comes from <strong>projection</strong> :<br>$$b-p=e\Rightarrow,A^{T}(b-A\hat{x})=0\Rightarrow,A^{T}A\hat{x}=A^{T}b$$<br>Consequently, only if $A^{T}A$ is invertible, then we can use linear regression to find approximate solutions $\hat{x}=(A^{T}A)^{-1}A^{T}b$ to unsolvable systems of linear equations.</p><p>According to the reasoning before, we know as long as all columns of $A_{m\times,n}$ are mutual independent, then $A{^T}A$ is invertible. At the same time we ought to notice that the columns of $A$ are guaranteed to be independent if they are orthoganal and even orthonormal.</p><p>In another prospective, if $A^{T}A$ is positive definite, then $A_{m\times,n}$ has rank $n$ (independent columns) and thus $A^{T}A$ is invertible.</p><p><strong>Overall, if $A^{T}A$ is positive definite or invertible, then we can find approximate solutions of least square</strong>.</p>
+        <h2 id="positive-definite"><a href="#positive-definite" class="headerlink" title="positive definite"></a>positive definite</h2><p>When <strong>a symmetric matrix $A$ has one of these five properties, it has them all</strong> and $A$ is positive definite:</p>
+<blockquote>
+<ol>
+<li>all <strong>n eigenvalue</strong> are positive.</li>
+<li>all <strong>n principal minors(n upper left determinants)</strong> are positive.</li>
+<li>all <strong>n pivots are positive</strong>.</li>
+<li>$x^{T}Ax$ is positive except when $x = 0$ (this is usually the definition of positive definiteness and the <strong>energy-based</strong> definition).</li>
+<li>$A$ equals $R^{T}R$ for a matrix $R$ with <strong>independent columns</strong>.</li>
+</ol>
+</blockquote>
+<p>Let us prove the fifth rule. If $A = R^{T}R$, then</p>
+<p>$$<br>\begin{eqnarray}<br>x^{T}Ax&amp;=&amp;x^{T}R^{T}Rx \nonumber\<br>&amp;=&amp;(x^{T}R^{T})Rx \nonumber\<br>&amp;=&amp;(Rx)^{T}Rx \nonumber\<br>&amp;=&amp;|Rx| \nonumber\<br>&amp;\ge&amp;0 \nonumber<br>\end{eqnarray}<br>$$</p>
+<p>And the columns of $R$ are also independent, so $|Rx|=x^{T}Ax&gt;0$, except when $x$=0 and thus $A$ is positive definite.</p>
+<h2 id="A-T-A"><a href="#A-T-A" class="headerlink" title="$A^{T}A$"></a>$A^{T}A$</h2><p>$A_{m\times n}$ is almost certainly not symmetric, but $A^{T}A$ is square (n by n) and symmetric. We can easily get the following equations through left multiplying $A^{T}A$ by $x^{T}$ and right multiplying $A^{T}A$ by $x$:</p>
+<p>$$<br>\begin{eqnarray}<br>x^{T}A{^TA}x&amp;=&amp;x^{T}(A{^TA})x\nonumber\<br>&amp;=&amp;(x^{T}A^{T})Ax\nonumber\<br>&amp;=&amp;(Ax)^{T}(Ax)\nonumber\<br>&amp;=&amp;|Ax|\nonumber\<br>&amp;\ge&amp;0\nonumber<br>\end{eqnarray}<br>$$</p>
+<p>If $A_{m\times,n}$ has rank $n$ (independent columns), then except when $x = 0$, $Ax=|Ax|=x^{T}(A{^TA})x&gt;0$ and thus $A^{T}A$ is positive definite. And vice versus.</p>
+<p>Besides, $A^{T}A$ is invertible only if $A$ has rank $n$ (independent columns). To prove this, we assume $Ax=0$, then:</p>
+<p>$$<br>\begin{eqnarray}<br>Ax&amp;=&amp;0\nonumber\<br>(Ax)^{T}(Ax)&amp;=&amp;0\nonumber\<br>(x^{T}A{^T})(Ax)&amp;=&amp;0\nonumber\<br>x^{T}A{^T}(Ax)&amp;=&amp;x^{T}0\nonumber\<br>(A{^TA})x&amp;=&amp;0\nonumber<br>\end{eqnarray}<br>$$</p>
+<p>From the above equations, we know solutions of $Ax=0$ are also solutions of  $(A{^TA})x=0$. Because $A_{m\times,n}$ has a full set of column rank (independent columns),  $Ax=0$ only has a zero solution as well as $(A{^T}A)x=0$. Furthermore, if $A{^T}A$ is invertible, then $A_{m\times,n}$ has rank $n$ (independent columns). We also notice that if $A$ is square and invertible, then  $A{^T}A$ is invertible. </p>
+<p>Overall, <strong>if all columns of $A_{m\times,n}$ are mutual independent, then $(A{^T}A)$ is invertible and positive definite as well, and vice versus.</strong></p>
+<h2 id="least-square"><a href="#least-square" class="headerlink" title="least square"></a>least square</h2><p>We have learned that <strong>least square</strong> comes from <strong>projection</strong> :<br>$$b-p=e\Rightarrow,A^{T}(b-A\hat{x})=0\Rightarrow,A^{T}A\hat{x}=A^{T}b$$<br>Consequently, only if $A^{T}A$ is invertible, then we can use linear regression to find approximate solutions $\hat{x}=(A^{T}A)^{-1}A^{T}b$ to unsolvable systems of linear equations. </p>
+<p>According to the reasoning before, we know as long as all columns of $A_{m\times,n}$ are mutual independent, then $A{^T}A$ is invertible. At the same time we ought to notice that the columns of $A$ are guaranteed to be independent if they are orthoganal and even orthonormal. </p>
+<p>In another prospective, if $A^{T}A$ is positive definite, then $A_{m\times,n}$ has rank $n$ (independent columns) and thus $A^{T}A$ is invertible.</p>
+<p><strong>Overall, if $A^{T}A$ is positive definite or invertible, then we can find approximate solutions of least square</strong>.</p>
+
     </div>
 
     
@@ -318,10 +342,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2017/08/15/trees_describe_the_sample_space/" rel="next" title="Trees describe the sample space">
-      Trees describe the sample space <i class="fa fa-chevron-right"></i>
+    <a href="/2017/08/01/positive_definite_matrix/" rel="prev" title="Tsinghua linear-algebra-2 1st-lecture positive-definite-matrix">
+      <i class="fa fa-chevron-left"></i> Tsinghua linear-algebra-2 1st-lecture positive-definite-matrix
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/08/02/Fourier_series/" rel="next" title="Tsinghua linear-algebra-2 10th-lecture Fourier series">
+      Tsinghua linear-algebra-2 10th-lecture Fourier series <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -398,7 +425,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -411,7 +438,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -472,13 +499,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">2.1m</span>
+    <span title="Symbols count total">2.2m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">32:08</span>
+    <span title="Reading time total">34:01</span>
 </div>
 
         

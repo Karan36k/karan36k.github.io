@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<script>
+    (function(){
+        if(''){
+                         If (prompt('Please enter the article password') !== ''){
+                                 Alert('Password error!');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说明：全文摘自 Introduction to probability, 2nd Edition 3.3 normal random variables 正态随机变量如果一个连续的随机变量 $X$ 的概率密度具有下列形式， 那么这个随机变量称为正态(normal)的或高斯(Gaussian)的。$$f_X(x)&#x3D;\frac{1}{\sqrt{2\pi}\sigma}e^{\frac{-(x-\mu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典摘录-正态随机变量">
+<meta property="og:url" content="https://snakecoding.com/2017/08/27/normal_random_variables/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="说明：全文摘自 Introduction to probability, 2nd Edition 3.3 normal random variables 正态随机变量如果一个连续的随机变量 $X$ 的概率密度具有下列形式， 那么这个随机变量称为正态(normal)的或高斯(Gaussian)的。$$f_X(x)&#x3D;\frac{1}{\sqrt{2\pi}\sigma}e^{\frac{-(x-\mu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/normal-random-variable/1.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/normal-random-variable/2.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/normal-random-variable/3.png">
+<meta property="article:published_time" content="2017-08-27T14:46:00.000Z">
+<meta property="article:modified_time" content="2020-04-08T23:07:42.563Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="probability">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/normal-random-variable/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2017/08/27/normal_random_variables/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>经典摘录-正态随机变量 | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Machine Learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/27/normal_random_variables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          经典摘录-正态随机变量
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-08-27 20:16:00" itemprop="dateCreated datePublished" datetime="2017-08-27T20:16:00+05:30">2017-08-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">中文</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>6.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>6 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>说明</strong>：全文摘自 <a href="http://www.athenasc.com/probbook.html" target="_blank" rel="noopener">Introduction to probability, 2nd Edition</a> 3.3 normal random variables</p>
+<h2 id="正态随机变量"><a href="#正态随机变量" class="headerlink" title="正态随机变量"></a>正态随机变量</h2><p>如果一个连续的随机变量 $X$ 的概率密度具有下列形式， 那么这个随机变量称为正态(normal)的或高斯(Gaussian)的。<br>$$<br>f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{\frac{-(x-\mu)^2}{2\sigma^2}}<br>$$<br>其中 $u$ 和 $\sigma$ 是密度函数的两个参数，$\sigma$ 还必须是正数。可以证明，$f_X(x)$ 满足下面的概率密度函数的归一化条件（见本章关于定理的习题）：<br>$$<br>\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{+\infty}e^{\frac{-(x-\mu)^2}{2\sigma^2}}dx=1<br>$$<br>下图是正态分布的密度函数和分布函数 $(\mu=1 \text{ 和 } \sigma^2=1)$ 。</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/normal-random-variable/1.png" alt="A_normal_PDF_and_CDF_with_u=1_and_sigmal^2=1"></p>
+<p>由图可以看出，正态随机变量的概率密度函数是相对于均值 $\mu$ 对称的钟形曲线。当 $x$ 离开 $\mu$ 的时候，概率密度函数的表达式中的项 $e^{\frac{-(x-\mu)^2}{2\sigma^2}}$ 很快地下降。在图中，概率密度函数在区间 $[-1,3]$ 之外非常接近 $0$ 。</p>
+<p>正态随机变量的均值和方差可由下列式子给出：<br>$$<br>E[X]=\mu,\quad var(X)=\sigma^2<br>$$<br>由于 $X$ 的概率密度函数相对于 $\mu$ 对称，其均值只能是 $\mu$ 。至于方差的公式，一句定义得：<br>$$<br>var(X)=\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{+\infty}(x-\mu)^2e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx<br>$$<br>将公式中的积分作积分变量替换 $y=\frac{(x-\mu)}{\sigma}$ 以及分布积分得到：<br>$$<br>\begin{eqnarray}<br>var(X) &amp;=&amp; \frac{\sigma^2}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}y^2e^{-\frac{y^2}{2}}dy \<br>&amp;=&amp; \frac{\sigma^2}{\sqrt{2\pi}}(-ye^{-\frac{y^2}{2}})|^{+\infty}<em>{-\infty}+\frac{\sigma^2}{\sqrt{2\pi}}\int</em>{-\infty}^{+\infty}e^{\frac{y^2}{2}}dy \<br>&amp;=&amp; \frac{\sigma^2}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}e^{-\frac{y^2}{2}}dy \<br>&amp;=&amp; \sigma^2<br>\end{eqnarray}<br>$$<br>上面最后的等式，是由于<br>$$<br>\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}e^{-\frac{y^2}{2}}dy=1<br>$$<br>这个公式正好是当 $\mu=0$ 和 $\sigma^2=1$ 的时候的正态随机变量的概率密度函数的归一化条件，在本章习题第14题得以证明，截图如下：</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/normal-random-variable/2.png" alt="the_normal_PDF_satisfies_the_normalization_property"></p>
+<p>正态随机变量具有若干重要的性质。下面的性质尤其重要，并且将在 第四章 Further Topics<br>on Random Variables 的第一节加以证明。</p>
+<h3 id="随机变量的正态性在线性变换之下保持不变"><a href="#随机变量的正态性在线性变换之下保持不变" class="headerlink" title="随机变量的正态性在线性变换之下保持不变"></a>随机变量的正态性在线性变换之下保持不变</h3><p>设 $X$ 是正态随机变量，其均值为 $\mu$ ，方差为 $\sigma^2$ 。若 $a\ne 0$ 和 $b$ 为两个常数，则随机变量<br>$$<br>Y=aX+b<br>$$<br>仍然是正态随机变量，其均值和方差由下式定义给出：<br>$$<br>E[Y]=a\mu+b,\quad var(Y)=a^2\sigma^2<br>$$</p>
+<h2 id="标准正态随机变量"><a href="#标准正态随机变量" class="headerlink" title="标准正态随机变量"></a>标准正态随机变量</h2><p>设正态随机变量 $Y$ 的期望为 $0$ ，方差为 $1$，则 $Y$ 称为标准正态随机变量。以 $\Phi$ 记为它的 CDF ：<br>$$<br>\Phi(y)=P(Y\le y)=P(Y&lt; y)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{y}e^{\frac{-t^2}{2}}dt<br>$$<br>通常将它的值列成一个表——标准正态累积分布表（见下表：），这是计算有关正态随机变量的概率的重要的工具。标准正态表的每一项提供了 $\Phi(y)=P(Y\le y)$ 的数值，这里 $Y$ 是一个正态随机变量，这个表中 $y\in [0,4.09]$ 。怎么使用这个表呢？举例，为了查找 $\Phi(1.71)$ 的值，查看关于 $1.7$ 所在的行和 $0.01$ 所在的列，得到 $\Phi(1.71)=0.95637$ 。</p>
+<p>注意到下表只列出当 $y &gt; 0， \Phi(y) $ 的值，可以利用标准正态随机变量的概率密度函数的对称性，可将 $y &lt; 0$ 时 $\Phi(y)$ 的值推导出来。例如：<br>$$<br>\begin{eqnarray}<br>\Phi(-0.5) &amp;=&amp; P(Y\le -0.5)=P(Y\ge 0.5)=1-P(Y &lt; 0.5) \<br>&amp;=&amp; 1- \Phi(0.5) = 1-0.69146=0.30854<br>\end{eqnarray}<br>$$<br>可推广<br>$$<br>\forall\ y&gt;0, \Phi(-y)=1-\Phi(y)<br>$$</p>
+<table>
+<thead>
+<tr>
+<th align="center">y</th>
+<th align="center">+0.00</th>
+<th align="center">+0.01</th>
+<th align="center">+0.02</th>
+<th align="center">+0.03</th>
+<th align="center">+0.04</th>
+<th align="center">+0.05</th>
+<th align="center">+0.06</th>
+<th align="center">+0.07</th>
+<th>+0.08</th>
+<th>+0.09</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0.0</td>
+<td align="center">0.50000</td>
+<td align="center">0.50399</td>
+<td align="center">0.50798</td>
+<td align="center">0.51197</td>
+<td align="center">0.51595</td>
+<td align="center">0.51994</td>
+<td align="center">0.52392</td>
+<td align="center">0.52790</td>
+<td>0.53188</td>
+<td>0.53586</td>
+</tr>
+<tr>
+<td align="center">0.1</td>
+<td align="center">0.53983</td>
+<td align="center">0.54380</td>
+<td align="center">0.54776</td>
+<td align="center">0.55172</td>
+<td align="center">0.55567</td>
+<td align="center">0.55966</td>
+<td align="center">0.56360</td>
+<td align="center">0.56749</td>
+<td>0.57142</td>
+<td>0.57535</td>
+</tr>
+<tr>
+<td align="center">0.2</td>
+<td align="center">0.57926</td>
+<td align="center">0.58317</td>
+<td align="center">0.58706</td>
+<td align="center">0.59095</td>
+<td align="center">0.59483</td>
+<td align="center">0.59871</td>
+<td align="center">0.60257</td>
+<td align="center">0.60642</td>
+<td>0.61026</td>
+<td>0.61409</td>
+</tr>
+<tr>
+<td align="center">0.3</td>
+<td align="center">0.61791</td>
+<td align="center">0.62172</td>
+<td align="center">0.62552</td>
+<td align="center">0.62930</td>
+<td align="center">0.63307</td>
+<td align="center">0.63683</td>
+<td align="center">0.64058</td>
+<td align="center">0.64431</td>
+<td>0.64803</td>
+<td>0.65173</td>
+</tr>
+<tr>
+<td align="center">0.4</td>
+<td align="center">0.65542</td>
+<td align="center">0.65910</td>
+<td align="center">0.66276</td>
+<td align="center">0.66640</td>
+<td align="center">0.67003</td>
+<td align="center">0.67364</td>
+<td align="center">0.67724</td>
+<td align="center">0.68082</td>
+<td>0.68439</td>
+<td>0.68793</td>
+</tr>
+<tr>
+<td align="center">0.5</td>
+<td align="center">0.69146</td>
+<td align="center">0.69497</td>
+<td align="center">0.69847</td>
+<td align="center">0.70194</td>
+<td align="center">0.70540</td>
+<td align="center">0.70884</td>
+<td align="center">0.71226</td>
+<td align="center">0.71566</td>
+<td>0.71904</td>
+<td>0.72240</td>
+</tr>
+<tr>
+<td align="center">0.6</td>
+<td align="center">0.72575</td>
+<td align="center">0.72907</td>
+<td align="center">0.73237</td>
+<td align="center">0.73565</td>
+<td align="center">0.73891</td>
+<td align="center">0.74215</td>
+<td align="center">0.74537</td>
+<td align="center">0.74857</td>
+<td>0.75175</td>
+<td>0.75490</td>
+</tr>
+<tr>
+<td align="center">0.7</td>
+<td align="center">0.75804</td>
+<td align="center">0.76115</td>
+<td align="center">0.76424</td>
+<td align="center">0.76730</td>
+<td align="center">0.77035</td>
+<td align="center">0.77337</td>
+<td align="center">0.77637</td>
+<td align="center">0.77935</td>
+<td>0.78230</td>
+<td>0.78524</td>
+</tr>
+<tr>
+<td align="center">0.8</td>
+<td align="center">0.78814</td>
+<td align="center">0.79103</td>
+<td align="center">0.79389</td>
+<td align="center">0.79673</td>
+<td align="center">0.79955</td>
+<td align="center">0.80234</td>
+<td align="center">0.80511</td>
+<td align="center">0.80785</td>
+<td>0.81057</td>
+<td>0.81327</td>
+</tr>
+<tr>
+<td align="center">0.9</td>
+<td align="center">0.81594</td>
+<td align="center">0.81859</td>
+<td align="center">0.82121</td>
+<td align="center">0.82381</td>
+<td align="center">0.82639</td>
+<td align="center">0.82894</td>
+<td align="center">0.83147</td>
+<td align="center">0.83398</td>
+<td>0.83646</td>
+<td>0.83891</td>
+</tr>
+<tr>
+<td align="center">1.0</td>
+<td align="center">0.84134</td>
+<td align="center">0.84375</td>
+<td align="center">0.84614</td>
+<td align="center">0.84849</td>
+<td align="center">0.85083</td>
+<td align="center">0.85314</td>
+<td align="center">0.85543</td>
+<td align="center">0.85769</td>
+<td>0.85993</td>
+<td>0.86214</td>
+</tr>
+<tr>
+<td align="center">1.1</td>
+<td align="center">0.86433</td>
+<td align="center">0.86650</td>
+<td align="center">0.86864</td>
+<td align="center">0.87076</td>
+<td align="center">0.87286</td>
+<td align="center">0.87493</td>
+<td align="center">0.87698</td>
+<td align="center">0.87900</td>
+<td>0.88100</td>
+<td>0.88298</td>
+</tr>
+<tr>
+<td align="center">1.2</td>
+<td align="center">0.88493</td>
+<td align="center">0.88686</td>
+<td align="center">0.88877</td>
+<td align="center">0.89065</td>
+<td align="center">0.89251</td>
+<td align="center">0.89435</td>
+<td align="center">0.89617</td>
+<td align="center">0.89796</td>
+<td>0.89973</td>
+<td>0.90147</td>
+</tr>
+<tr>
+<td align="center">1.3</td>
+<td align="center">0.90320</td>
+<td align="center">0.90490</td>
+<td align="center">0.90658</td>
+<td align="center">0.90824</td>
+<td align="center">0.90988</td>
+<td align="center">0.91149</td>
+<td align="center">0.91308</td>
+<td align="center">0.91466</td>
+<td>0.91621</td>
+<td>0.91774</td>
+</tr>
+<tr>
+<td align="center">1.4</td>
+<td align="center">0.91924</td>
+<td align="center">0.92073</td>
+<td align="center">0.92220</td>
+<td align="center">0.92364</td>
+<td align="center">0.92507</td>
+<td align="center">0.92647</td>
+<td align="center">0.92785</td>
+<td align="center">0.92922</td>
+<td>0.93056</td>
+<td>0.93189</td>
+</tr>
+<tr>
+<td align="center">1.5</td>
+<td align="center">0.93319</td>
+<td align="center">0.93448</td>
+<td align="center">0.93574</td>
+<td align="center">0.93699</td>
+<td align="center">0.93822</td>
+<td align="center">0.93943</td>
+<td align="center">0.94062</td>
+<td align="center">0.94179</td>
+<td>0.94295</td>
+<td>0.94408</td>
+</tr>
+<tr>
+<td align="center">1.6</td>
+<td align="center">0.94520</td>
+<td align="center">0.94630</td>
+<td align="center">0.94738</td>
+<td align="center">0.94845</td>
+<td align="center">0.94950</td>
+<td align="center">0.95053</td>
+<td align="center">0.95154</td>
+<td align="center">0.95254</td>
+<td>0.95352</td>
+<td>0.95449</td>
+</tr>
+<tr>
+<td align="center">1.7</td>
+<td align="center">0.95543</td>
+<td align="center">0.95637</td>
+<td align="center">0.95728</td>
+<td align="center">0.95818</td>
+<td align="center">0.95907</td>
+<td align="center">0.95994</td>
+<td align="center">0.96080</td>
+<td align="center">0.96164</td>
+<td>0.96246</td>
+<td>0.96327</td>
+</tr>
+<tr>
+<td align="center">1.8</td>
+<td align="center">0.96407</td>
+<td align="center">0.96485</td>
+<td align="center">0.96562</td>
+<td align="center">0.96638</td>
+<td align="center">0.96712</td>
+<td align="center">0.96784</td>
+<td align="center">0.96856</td>
+<td align="center">0.96926</td>
+<td>0.96995</td>
+<td>0.97062</td>
+</tr>
+<tr>
+<td align="center">1.9</td>
+<td align="center">0.97128</td>
+<td align="center">0.97193</td>
+<td align="center">0.97257</td>
+<td align="center">0.97320</td>
+<td align="center">0.97381</td>
+<td align="center">0.97441</td>
+<td align="center">0.97500</td>
+<td align="center">0.97558</td>
+<td>0.97615</td>
+<td>0.97670</td>
+</tr>
+<tr>
+<td align="center">2.0</td>
+<td align="center">0.97725</td>
+<td align="center">0.97778</td>
+<td align="center">0.97831</td>
+<td align="center">0.97882</td>
+<td align="center">0.97932</td>
+<td align="center">0.97982</td>
+<td align="center">0.98030</td>
+<td align="center">0.98077</td>
+<td>0.98124</td>
+<td>0.98169</td>
+</tr>
+<tr>
+<td align="center">2.1</td>
+<td align="center">0.98214</td>
+<td align="center">0.98257</td>
+<td align="center">0.98300</td>
+<td align="center">0.98341</td>
+<td align="center">0.98382</td>
+<td align="center">0.98422</td>
+<td align="center">0.98461</td>
+<td align="center">0.98500</td>
+<td>0.98537</td>
+<td>0.98574</td>
+</tr>
+<tr>
+<td align="center">2.2</td>
+<td align="center">0.98610</td>
+<td align="center">0.98645</td>
+<td align="center">0.98679</td>
+<td align="center">0.98713</td>
+<td align="center">0.98745</td>
+<td align="center">0.98778</td>
+<td align="center">0.98809</td>
+<td align="center">0.98840</td>
+<td>0.98870</td>
+<td>0.98899</td>
+</tr>
+<tr>
+<td align="center">2.3</td>
+<td align="center">0.98928</td>
+<td align="center">0.98956</td>
+<td align="center">0.98983</td>
+<td align="center">0.99010</td>
+<td align="center">0.99036</td>
+<td align="center">0.99061</td>
+<td align="center">0.99086</td>
+<td align="center">0.99111</td>
+<td>0.99134</td>
+<td>0.99158</td>
+</tr>
+<tr>
+<td align="center">2.4</td>
+<td align="center">0.99180</td>
+<td align="center">0.99202</td>
+<td align="center">0.99224</td>
+<td align="center">0.99245</td>
+<td align="center">0.99266</td>
+<td align="center">0.99286</td>
+<td align="center">0.99305</td>
+<td align="center">0.99324</td>
+<td>0.99343</td>
+<td>0.99361</td>
+</tr>
+<tr>
+<td align="center">2.5</td>
+<td align="center">0.99379</td>
+<td align="center">0.99396</td>
+<td align="center">0.99413</td>
+<td align="center">0.99430</td>
+<td align="center">0.99446</td>
+<td align="center">0.99461</td>
+<td align="center">0.99477</td>
+<td align="center">0.99492</td>
+<td>0.99506</td>
+<td>0.99520</td>
+</tr>
+<tr>
+<td align="center">2.6</td>
+<td align="center">0.99534</td>
+<td align="center">0.99547</td>
+<td align="center">0.99560</td>
+<td align="center">0.99573</td>
+<td align="center">0.99585</td>
+<td align="center">0.99598</td>
+<td align="center">0.99609</td>
+<td align="center">0.99621</td>
+<td>0.99632</td>
+<td>0.99643</td>
+</tr>
+<tr>
+<td align="center">2.7</td>
+<td align="center">0.99653</td>
+<td align="center">0.99664</td>
+<td align="center">0.99674</td>
+<td align="center">0.99683</td>
+<td align="center">0.99693</td>
+<td align="center">0.99702</td>
+<td align="center">0.99711</td>
+<td align="center">0.99720</td>
+<td>0.99728</td>
+<td>0.99736</td>
+</tr>
+<tr>
+<td align="center">2.8</td>
+<td align="center">0.99744</td>
+<td align="center">0.99752</td>
+<td align="center">0.99760</td>
+<td align="center">0.99767</td>
+<td align="center">0.99774</td>
+<td align="center">0.99781</td>
+<td align="center">0.99788</td>
+<td align="center">0.99795</td>
+<td>0.99801</td>
+<td>0.99807</td>
+</tr>
+<tr>
+<td align="center">2.9</td>
+<td align="center">0.99813</td>
+<td align="center">0.99819</td>
+<td align="center">0.99825</td>
+<td align="center">0.99831</td>
+<td align="center">0.99836</td>
+<td align="center">0.99841</td>
+<td align="center">0.99846</td>
+<td align="center">0.99851</td>
+<td>0.99856</td>
+<td>0.99861</td>
+</tr>
+<tr>
+<td align="center">3.0</td>
+<td align="center">0.99865</td>
+<td align="center">0.99869</td>
+<td align="center">0.99874</td>
+<td align="center">0.99878</td>
+<td align="center">0.99882</td>
+<td align="center">0.99886</td>
+<td align="center">0.99889</td>
+<td align="center">0.99893</td>
+<td>0.99896</td>
+<td>0.99900</td>
+</tr>
+<tr>
+<td align="center">3.1</td>
+<td align="center">0.99903</td>
+<td align="center">0.99906</td>
+<td align="center">0.99910</td>
+<td align="center">0.99913</td>
+<td align="center">0.99916</td>
+<td align="center">0.99918</td>
+<td align="center">0.99921</td>
+<td align="center">0.99924</td>
+<td>0.99926</td>
+<td>0.99929</td>
+</tr>
+<tr>
+<td align="center">3.2</td>
+<td align="center">0.99931</td>
+<td align="center">0.99934</td>
+<td align="center">0.99936</td>
+<td align="center">0.99938</td>
+<td align="center">0.99940</td>
+<td align="center">0.99942</td>
+<td align="center">0.99944</td>
+<td align="center">0.99946</td>
+<td>0.99948</td>
+<td>0.99950</td>
+</tr>
+<tr>
+<td align="center">3.3</td>
+<td align="center">0.99952</td>
+<td align="center">0.99953</td>
+<td align="center">0.99955</td>
+<td align="center">0.99957</td>
+<td align="center">0.99958</td>
+<td align="center">0.99960</td>
+<td align="center">0.99961</td>
+<td align="center">0.99962</td>
+<td>0.99964</td>
+<td>0.99965</td>
+</tr>
+<tr>
+<td align="center">3.4</td>
+<td align="center">0.99966</td>
+<td align="center">0.99968</td>
+<td align="center">0.99969</td>
+<td align="center">0.99970</td>
+<td align="center">0.99971</td>
+<td align="center">0.99972</td>
+<td align="center">0.99973</td>
+<td align="center">0.99974</td>
+<td>0.99975</td>
+<td>0.99976</td>
+</tr>
+<tr>
+<td align="center">3.5</td>
+<td align="center">0.99977</td>
+<td align="center">0.99978</td>
+<td align="center">0.99978</td>
+<td align="center">0.99979</td>
+<td align="center">0.99980</td>
+<td align="center">0.99981</td>
+<td align="center">0.99981</td>
+<td align="center">0.99982</td>
+<td>0.99983</td>
+<td>0.99983</td>
+</tr>
+<tr>
+<td align="center">3.6</td>
+<td align="center">0.99984</td>
+<td align="center">0.99985</td>
+<td align="center">0.99985</td>
+<td align="center">0.99986</td>
+<td align="center">0.99986</td>
+<td align="center">0.99987</td>
+<td align="center">0.99987</td>
+<td align="center">0.99988</td>
+<td>0.99988</td>
+<td>0.99989</td>
+</tr>
+<tr>
+<td align="center">3.7</td>
+<td align="center">0.99989</td>
+<td align="center">0.99990</td>
+<td align="center">0.99990</td>
+<td align="center">0.99990</td>
+<td align="center">0.99991</td>
+<td align="center">0.99991</td>
+<td align="center">0.99992</td>
+<td align="center">0.99992</td>
+<td>0.99992</td>
+<td>0.99992</td>
+</tr>
+<tr>
+<td align="center">3.8</td>
+<td align="center">0.99993</td>
+<td align="center">0.99993</td>
+<td align="center">0.99993</td>
+<td align="center">0.99994</td>
+<td align="center">0.99994</td>
+<td align="center">0.99994</td>
+<td align="center">0.99994</td>
+<td align="center">0.99995</td>
+<td>0.99995</td>
+<td>0.99995</td>
+</tr>
+<tr>
+<td align="center">3.9</td>
+<td align="center">0.99995</td>
+<td align="center">0.99995</td>
+<td align="center">0.99996</td>
+<td align="center">0.99996</td>
+<td align="center">0.99996</td>
+<td align="center">0.99996</td>
+<td align="center">0.99996</td>
+<td align="center">0.99996</td>
+<td>0.99997</td>
+<td>0.99997</td>
+</tr>
+<tr>
+<td align="center">4.0</td>
+<td align="center">0.99997</td>
+<td align="center">0.99997</td>
+<td align="center">0.99997</td>
+<td align="center">0.99997</td>
+<td align="center">0.99997</td>
+<td align="center">0.99997</td>
+<td align="center">0.99998</td>
+<td align="center">0.99998</td>
+<td>0.99998</td>
+<td>0.99998</td>
+</tr>
+</tbody></table>
+<p>现在用 $X$ 表示一个均值为 $\mu$ 和方差为 $\sigma^2$ 的正态随机变量。通过定义一个新的随机变量 $Y$ 来(“standardize”)标准化 $X$ ：<br>$$<br>Y=\frac{X-\mu}{\sigma}<br>$$<br>因为 $Y$ 是 $X$ 的线性函数，所以 $Y$ 也是正态随机变量。而且<br>$$<br>E[Y]=\frac{E[X]-u}{\sigma}=0,\quad var(Y)=\frac{var(X)}{\sigma^2}=1<br>$$<br>因此，$Y$ 是一个标准正态随机变量。这个事实可以让我们用 $Y$ 重新定义 $X$ 所表示的事件，然后使用标准正态表去计算。</p>
+<h4 id="使用正态分布表的例子"><a href="#使用正态分布表的例子" class="headerlink" title="使用正态分布表的例子"></a>使用正态分布表的例子</h4><p>某地区的年度降雪量是一个正态随机变量，期望为 $\mu=60$ 英寸，标准差为 $\sigma=20$ 。本年度降雪量至少为 $80$ 英寸的概率有多大？</p>
+<p>记 $X$ 为年降雪量，令<br>$$<br>Y=\frac{X-\mu}{\sigma}=\frac{X-60}{20}<br>$$<br>显然 $Y$ 是标准正态随机变量。<br>$$<br>P(X\ge 80)=P(\frac{X-60}{20} \ge \frac{80-60}{20})=P(Y\ge \frac{80-60}{20})=P(Y\ge 1)=1-\Phi(1)<br>$$<br>其中 $\Phi$ 为标准正态累积分布函数。通过查询上表得到：$\Phi(1)=0.84134$ ，因此<br>$$<br>P(X\ge 80)=1-\Phi(1)=0.15866<br>$$<br>推广这个例子中的方法，得到如下：</p>
+<h3 id="正态随机变量的累积分布函数计算"><a href="#正态随机变量的累积分布函数计算" class="headerlink" title="正态随机变量的累积分布函数计算"></a>正态随机变量的累积分布函数计算</h3><p>对于均值为 $\mu$ 方差为 $\sigma^2$ 的正态随机变量 $X$ ，使用一下步骤：</p>
+<ol>
+<li><p>标准化 $X$ ：先减去 $\mu$ 再除以 $\sigma$ 来获取标准随机变量 $Y$ 。</p>
+</li>
+<li><p>从标准正态表中读取累积分布函数值：<br>$$<br>P(X\le x)=P(\frac{X-\mu}{\sigma}\le \frac{x-\mu}{\sigma})=P(Y\le \frac{x-\mu}{\sigma})=\Phi(\frac{x-\mu}{\sigma})<br>$$<br>正态随机变量经常使用在信号处理和通信工程中去对噪音和信号失真进行建模。</p>
+</li>
+</ol>
+<h4 id="例3-8-信号侦测"><a href="#例3-8-信号侦测" class="headerlink" title="例3.8 信号侦测"></a>例3.8 信号侦测</h4><p>二进制信息用信号 $s$ 传输，这个信息要么是 $-1$ 和 $+1$ 。信号在信道传输过程中会伴随一些噪声，噪声满足均值为 $\mu=0$ ，方差为 $\sigma^2$ 的正态分布。接收器会接收到混有噪音的信号 ，如果接收到的值为小于 $0$ ，那么就认为信号为 $-1$ ，如果接收到的值为大于 $0$ ，那么就认为接收到的信号为 $+1$ 。问这种判断方法的误差有多大？</p>
+<p>误差只有出现在下面两种情况：</p>
+<ol>
+<li>实际被传输的信号为 $-1$，但是噪声变量 $N$ 值至少是 $1$ ，因此 $s+N=-1+N \ge 0$ 。 </li>
+<li>实际被传输的信号为 $+1$，但是噪声变量 $N$ 值小于 $-1$ 。因此 $s+N=1+N &lt;0$ 。</li>
+</ol>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/normal-random-variable/3.png" alt="Figure_3.11_The_signal_detection"></p>
+<p>因此这种判断方法在情况1下出现误差的概率为：<br>$$<br>\begin{eqnarray}<br>P(N\ge 1) &amp;=&amp; 1-P(N &lt; 1) = 1 - P(N&lt;1)=1-P(\frac{N-\mu}{\sigma}&lt;\frac{1-\mu}{\sigma}) \<br>&amp;=&amp; 1- \Phi(\frac{1-\mu}{\sigma}) \<br>&amp;=&amp; 1-\Phi(\frac{1}{\sigma})<br>\end{eqnarray}<br>$$<br>在第2种情况下出现误差的概率根据正态分布的对称性得到与前一种情况一样。$\Phi(\frac{1}{\sigma})$ 能够从正态分布表得到。例如对于 $\sigma=1$ ，$\Phi(\frac{1}{\sigma})=\Phi(1)=0.84134$ ，所以出现误差的概率为 $0.15864$ 。</p>
+<p>正态随机变量扮演一个重要的角色在各种广泛的概率模型中，其原因是在物理、工程和统计中，正态随机变量能够很好地模拟许多独立因素的叠加效应。数学上，关键事实是大量独立同分布的随机变量（不必为正态）的和的分布近似地服从正态分布，而这个事实与各个和项的具体的分布无关的。这个事实就是著名的中心极限定理，这个将在本书第五章详细说明。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>No one has ever become poor by giving.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/probability/" rel="tag"><i class="fa fa-tag"></i> probability</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/08/27/mean_and_variance_of_a_piecewise_constant_PDF/" rel="prev" title="经典摘录-分段常数概率密度函数的均值和方差">
+      <i class="fa fa-chevron-left"></i> 经典摘录-分段常数概率密度函数的均值和方差
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/08/28/mean_and_variance_of_Bernoulli_and_Possion_random/" rel="next" title="经典摘录 - 伯努利和泊松随机变量的均值方差">
+      经典摘录 - 伯努利和泊松随机变量的均值方差 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正态随机变量"><span class="nav-number">1.</span> <span class="nav-text">正态随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#随机变量的正态性在线性变换之下保持不变"><span class="nav-number">1.1.</span> <span class="nav-text">随机变量的正态性在线性变换之下保持不变</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准正态随机变量"><span class="nav-number">2.</span> <span class="nav-text">标准正态随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用正态分布表的例子"><span class="nav-number">2.0.1.</span> <span class="nav-text">使用正态分布表的例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正态随机变量的累积分布函数计算"><span class="nav-number">2.1.</span> <span class="nav-text">正态随机变量的累积分布函数计算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例3-8-信号侦测"><span class="nav-number">2.1.1.</span> <span class="nav-text">例3.8 信号侦测</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">2.2m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">34:01</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : '409e6001ac11be4fbda93f2bf74af6de',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

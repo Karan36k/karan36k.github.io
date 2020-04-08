@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<script>
+    (function(){
+        if(''){
+                         If (prompt('Please enter the article password') !== ''){
+                                 Alert('Password error!');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="笔记源自：清华大学公开课：线性代数2——第8讲：图和网络 简介欧姆定律Ohm’s law的向量形式 图与矩阵 关联矩阵incidence matrix 邻接矩阵adjacency matrix 拉普拉斯矩阵laplacian matrix 注： 半正定证明与刚度矩阵类似 网络和加权Laplacian矩阵 电路相关的物理定律 例子不接外部源 接外部源 带权$K&#x3D;A^TCA$ 关联矩阵的四个基本子空间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tsinghua linear-algebra-2 8th-lecture graph-and-network">
+<meta property="og:url" content="https://snakecoding.com/2017/08/08/graph_and_network/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="笔记源自：清华大学公开课：线性代数2——第8讲：图和网络 简介欧姆定律Ohm’s law的向量形式 图与矩阵 关联矩阵incidence matrix 邻接矩阵adjacency matrix 拉普拉斯矩阵laplacian matrix 注： 半正定证明与刚度矩阵类似 网络和加权Laplacian矩阵 电路相关的物理定律 例子不接外部源 接外部源 带权$K&#x3D;A^TCA$ 关联矩阵的四个基本子空间">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/1.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/2.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/3.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/4.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/5.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/6.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/7.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/8.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/9.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/10.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/11.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/12.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/13.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/14.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/15.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/16.png">
+<meta property="article:published_time" content="2017-08-08T14:46:00.000Z">
+<meta property="article:modified_time" content="2020-04-08T23:07:42.557Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="linear_algebra">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2017/08/08/graph_and_network/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Tsinghua linear-algebra-2 8th-lecture graph-and-network | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Machine Learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/08/graph_and_network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tsinghua linear-algebra-2 8th-lecture graph-and-network
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-08-08 20:16:00" itemprop="dateCreated datePublished" datetime="2017-08-08T20:16:00+05:30">2017-08-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">中文</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>笔记源自：清华大学公开课：线性代数2——第8讲：图和网络</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="欧姆定律Ohm’s-law的向量形式"><a href="#欧姆定律Ohm’s-law的向量形式" class="headerlink" title="欧姆定律Ohm’s law的向量形式"></a>欧姆定律Ohm’s law的向量形式</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/1.png" alt="matrix_of_Ohm&#39;s_law.png"></p>
+<h3 id="图与矩阵"><a href="#图与矩阵" class="headerlink" title="图与矩阵"></a>图与矩阵</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/2.png" alt="directed_graphs.png"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/3.png" alt="circute_graph"></p>
+<h4 id="关联矩阵incidence-matrix"><a href="#关联矩阵incidence-matrix" class="headerlink" title="关联矩阵incidence matrix"></a>关联矩阵incidence matrix</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/4.png" alt="incidence_matrix"></p>
+<h4 id="邻接矩阵adjacency-matrix"><a href="#邻接矩阵adjacency-matrix" class="headerlink" title="邻接矩阵adjacency matrix"></a>邻接矩阵adjacency matrix</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/5.png" alt="adjacency_matrix"></p>
+<h4 id="拉普拉斯矩阵laplacian-matrix"><a href="#拉普拉斯矩阵laplacian-matrix" class="headerlink" title="拉普拉斯矩阵laplacian matrix"></a>拉普拉斯矩阵laplacian matrix</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/6.png" alt="laplacian_matrix"></p>
+<p><strong>注： 半正定证明与刚度矩阵类似</strong></p>
+<h3 id="网络和加权Laplacian矩阵"><a href="#网络和加权Laplacian矩阵" class="headerlink" title="网络和加权Laplacian矩阵"></a>网络和加权Laplacian矩阵</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/7.png" alt="network"></p>
+<h4 id="电路相关的物理定律"><a href="#电路相关的物理定律" class="headerlink" title="电路相关的物理定律"></a>电路相关的物理定律</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/8.png" alt="typical_circuit_laws"></p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><h5 id="不接外部源"><a href="#不接外部源" class="headerlink" title="不接外部源"></a>不接外部源</h5><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/9.png" alt="1st_example_of_circuit_network_and_laplacian_matrix_without_external_sources"></p>
+<h4 id="接外部源"><a href="#接外部源" class="headerlink" title="接外部源"></a>接外部源</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/10.png" alt="2nd_example_of_circuit_network_and_laplacian_matrix"></p>
+<h4 id="带权-K-A-TCA"><a href="#带权-K-A-TCA" class="headerlink" title="带权$K=A^TCA$"></a>带权$K=A^TCA$</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/11.png" alt="K=ATCA_with_weights"></p>
+<h3 id="关联矩阵的四个基本子空间"><a href="#关联矩阵的四个基本子空间" class="headerlink" title="关联矩阵的四个基本子空间"></a>关联矩阵的四个基本子空间</h3><h4 id="N-A"><a href="#N-A" class="headerlink" title="N(A)"></a>N(A)</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/12.png" alt="N(A)_of_incidence_matrix"></p>
+<h4 id="C-A"><a href="#C-A" class="headerlink" title="C(A)"></a>C(A)</h4><p>按$C(A)$的定义得：$C(A)={Ax|x\in R^n}$ 。沿用前面使用的字母：$u$是各点电势，$e$是各边电势差，$Au=e$ ，当$Au=e$ 有解 $\Leftrightarrow e \in C(A)$</p>
+<ol>
+<li><p>去证明：$dim(C(A))=n-1$ ，即$A$ 的任意 $n-1$个列向量是线性无关的。设$A=(a_1,a_2,,…,,a_n) $，不妨假设$a_1,a_2,,…,,a_{n-1}$线性相关，那么存在$c_1, c_2,,…,,c_{n-1} \in R$ 且不全为0满足：$c_1a_1+c_2a_2+…+c_{n-1}a_{n-1}+0a_n=0\Rightarrow A\begin{pmatrix}c_1\c_2\\vdots\c_{n-1}\0\end{pmatrix}={0}\Rightarrow \begin{pmatrix}c_1\c_2\\vdots\c_{n-1}\0\end{pmatrix}\in N(A), $但与$N(A)=\left{c\begin{pmatrix}1\\vdots\1\end{pmatrix} \Bigg| c\in R \right} $ 矛盾，以此类推，得以证明$C(A)$的维数是$n-1$ ，即$A$的任意$n-1$个列向量均可作为$C(A)$的一组基。</p>
+</li>
+<li><p>发现矩阵中对应的回路：$e\in C(A)$ 如下等式有解 $Au=e\Rightarrow \begin{pmatrix}-1&amp;1&amp;0&amp;0\ -1&amp;0&amp;1&amp;0\0&amp;-1&amp;1&amp;0\0&amp;-1&amp;0&amp;1\0&amp;0&amp;-1&amp;1\end{pmatrix}\begin{pmatrix}u_1\u_2\u_3\u_4\u_5 \end{pmatrix}=\begin{pmatrix}e_1\e_2\e_3\e_4\e_5 \end{pmatrix} \Rightarrow \begin{cases}-u_1+u_2=e_1\ -u_1+u_3=e_2\ -u_2+u_3=e_3\ -u_2+u_4=e_4\ -u_3+u_4=e_5\end{cases} \Rightarrow \begin{cases}e_1-e_2+e_3=0\e_3-e_4+e_5=0\end{cases}$ ，即边1,2,3这3条边电势差之和为0，由图上可得边1,2,3恰好构成一个回路，边3,4,5也一样。这恰好是<strong>Kirchholff Voltage Law (KVL)</strong>。把这两个回路等式书写成矩阵形式$\begin{pmatrix}1&amp;-1&amp;1&amp;0&amp;0\0&amp;0&amp;1&amp;-1&amp;1 \end{pmatrix}\begin{pmatrix} e_1\e_2\e_3\e_4\e_5 \end{pmatrix}=0$ . 此时称矩阵$B =\begin{pmatrix}1&amp;-1&amp;1&amp;0&amp;0\0&amp;0&amp;1&amp;-1&amp;1 \end{pmatrix}$ 为<strong>回路矩阵</strong>，可以看到它的每一行代表一个回路且称为<strong>极小回路</strong>，每一列代表一条边。如果边的方向是逆时针方向则取为正号，否则取为负号。<strong><em>注意，此时$e\in N(B)$</em></strong>。</p>
+</li>
+<li><p>此外，$BA=\begin{pmatrix}1&amp;-1&amp;1&amp;0&amp;0\0&amp;0&amp;1&amp;-1&amp;1\end{pmatrix}\begin{pmatrix}-1&amp;1&amp;0&amp;0\ -1&amp;0&amp;1&amp;0\0&amp;-1&amp;1&amp;0\0&amp;-1&amp;0&amp;1\0&amp;0&amp;-1&amp;1\end{pmatrix}=\begin{pmatrix}0&amp;0&amp;0&amp;0\0&amp;0&amp;0&amp;0\end{pmatrix}$即$C(A) \subseteq N(B) $ 。$dim(N(B))=3, dim(C(A))=3$，因此$C(A)$就构成了$N(B)$的基。从理意义角度理解：$A$矩阵执行的操作表示求解各边电势之差，$B$各行刚好是回路，由$KVL$定律得结果必为0.</p>
+</li>
+</ol>
+<h4 id="N-A-T"><a href="#N-A-T" class="headerlink" title="$N(A^T)$"></a>$N(A^T)$</h4><ol>
+<li>由定义得：$N(A^T)={y\in R^m|A^Ty=0}$。例子中，关联矩阵$A$ 各行代表一条边，各列代表一个顶点。那么$A^T$ 的行代表顶点，列代表边。<br>$A^Ty=0\Rightarrow\begin{pmatrix}-1&amp;-1&amp;0&amp;0&amp;0\1&amp;0&amp;-1&amp;-1&amp;0\0&amp;1&amp;1&amp;0&amp;-1\0&amp;0&amp;0&amp;1&amp;1\end{pmatrix}\begin{pmatrix}y_1\y_2\y_3\y_4\y_5 \end{pmatrix}=\begin{pmatrix}0\0\0\0\0\end{pmatrix} \Rightarrow \begin{cases}-y_1-y_2=0\y_1-y_3-y_4=0\y_2+y_3-y_5=0\y_4+y_5=0\end{cases}$<br>物理意义解读：$y_i$是各第$i$边上的电流，上述等式表明每一个顶点输入输出电流和为0，即<strong>Kichhoff Current Law (KCL)</strong>。</li>
+</ol>
+<ol>
+<li>$A^Ty=0$， 由前文得到：<br>$BA=0 \Rightarrow A^TB^T=0 \Rightarrow A^TB^T=\begin{pmatrix}-1&amp;-1&amp;0&amp;0&amp;0\1&amp;0&amp;-1&amp;-1&amp;0\0&amp;1&amp;1&amp;0&amp;-1\0&amp;0&amp;0&amp;1&amp;1\end{pmatrix}\begin{pmatrix}1&amp;0\ -1&amp;0\1&amp;1\0&amp;-1\0&amp;1\end{pmatrix}=\begin{pmatrix}0&amp;0\0&amp;0\0&amp;0\0&amp;0\end{pmatrix}$<br>因此，$C(B^T) \subseteq N(A^T)$。由于$r(A)=C(A)=r=n-1, N(A^T)+C(A)=m, N(A^T)=m-r=5-3=2$， 由于$B^T$的列向量线性无关，即$B$的行向量代表回路，那么回路向量就是$N(A^T)$的一组基。</li>
+</ol>
+<h4 id="C-A-T"><a href="#C-A-T" class="headerlink" title="$C(A^T)$"></a>$C(A^T)$</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/13.png" alt="C(A^T)_of_incidence_matrix"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/14.png" alt="summary_of_4_subspaces_of_incidence_matrix"></p>
+<ul>
+<li>$N(A_{m\times n})$零空间 $Au=0$ ，$N(A)=c{(1,1,,…,,1)^T}_{n\times 1}$ ；物理意义：各点电势相等，电势差为0。</li>
+<li>$C(A_{m\times n})$列空间 $Au=e$(上文用的是x, b)，$A$ 中任意$n-1$ 列构成了$C(A)$ 的一组基；物理意义每个极小回路电势守恒，每个极小回路构成的极大回路电势依然守恒，诠释了KVL定律。</li>
+<li>$N(A^T)$左零空间 $A^Ty=0$，回路向量构成了$N(A^T)$ 的一组基；诠释了无外部电流源的KCL定律。</li>
+<li>$C(A^T)$行空间 ，$A^Ty=f$， 每个极大树子图对应关联矩阵的行向量（即边）构成了$C(A^T)$ 的一组基；诠释了有外部电流源的KCL定律。</li>
+</ul>
+<h4 id="注计"><a href="#注计" class="headerlink" title="注计"></a>注计</h4><h5 id="N-B-C-A"><a href="#N-B-C-A" class="headerlink" title="N(B)=C(A)"></a>N(B)=C(A)</h5><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/15.png" alt="N(B)=C(A)"></p>
+<p><strong>B的零空间中的任何一个向量，它都要属于A的列空间</strong>，$A$的列空间中的每一个向量的特点，比如说$A$乘上一个$x_1$到$x_n$，$x_1$到$x_n$是$n$个顶点的电势。$A$乘上这个向量得到的是各个边上的电势差，那么相应的$x_j-x_k$就是$j$和$k$两个顶点上的电势差，顶点连线，$j$和$k$连线的边上的电势差。<strong>那么我们要想说明，N(B)中的向量属于C(A)那么我们只要说明任何一个向量属于B的零空间，它最后都能写成这样一种形式，就可以了</strong>。那么设$e$属于$N(B)$，那么我们可以取定这个连通图的一个极大树子图，然后在这个极大树子图$T$上取一个顶点作为基点，那么任意的另外一个顶点$K$跟这个基点之间它们连线的路在$T$上只有一条这样的路，因为$T$是一个树，它不可能有回路，所以在$T$中有唯一的一条连接K到基点的路。<strong>定义K的电势：在这条路上各边的电势之和，各边的电势之和</strong>，我们这个$e_1$到$e_m$呢，我们可以刻画各个边上的电势，那么我们可以看到$e$属于$N(B)$我们实际上可以检查出任意边上的电势差实际上是$e_j$等$u_k$减$u_1$，那么其中的这个$k$呢为j的起点，$l$为$j$的终点，最后我们就可以得到$e=-Au$，所以$e$就属于$C(A)$就是这个地方呢，我们要使用$e$属于$N(B)$，我们才能检查出：任意边上的这个电势差等于$u_k$减$u_l$，就是要满足科尔霍夫电压定律。</p>
+<h4 id="欧拉公式Euler’s-formula"><a href="#欧拉公式Euler’s-formula" class="headerlink" title="欧拉公式Euler’s formula"></a>欧拉公式Euler’s formula</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-8/16.png" alt="Euler&#39;s_formula_of_2_dimensions"></p>
+<p>对于$B_{x \times m}\Rightarrow C(B^T)+dim(N(B))=r_B+dim(N(B))=m\Rightarrow m-r_B=dim(N(B))=dim(C(A))=n-1$</p>
+<p>又因为欧拉公式：$m-l=n-1$，得：$r_B=l$，即$B$是行满秩的，其实极小回路组对应极大线性无关组。 </p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>No one has ever become poor by giving.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/linear-algebra/" rel="tag"><i class="fa fa-tag"></i> linear_algebra</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/08/07/engineering_matrices/" rel="prev" title="Tsinghua linear-algebra-2 7th-lecture engineering-matrix">
+      <i class="fa fa-chevron-left"></i> Tsinghua linear-algebra-2 7th-lecture engineering-matrix
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/08/11/computer_graphics/" rel="next" title="Tsinghua linear-algebra-2 11th-lecture computer-graphics">
+      Tsinghua linear-algebra-2 11th-lecture computer-graphics <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#欧姆定律Ohm’s-law的向量形式"><span class="nav-number">1.1.</span> <span class="nav-text">欧姆定律Ohm’s law的向量形式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图与矩阵"><span class="nav-number">2.</span> <span class="nav-text">图与矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关联矩阵incidence-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">关联矩阵incidence matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#邻接矩阵adjacency-matrix"><span class="nav-number">2.2.</span> <span class="nav-text">邻接矩阵adjacency matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉普拉斯矩阵laplacian-matrix"><span class="nav-number">2.3.</span> <span class="nav-text">拉普拉斯矩阵laplacian matrix</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络和加权Laplacian矩阵"><span class="nav-number">3.</span> <span class="nav-text">网络和加权Laplacian矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#电路相关的物理定律"><span class="nav-number">3.1.</span> <span class="nav-text">电路相关的物理定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">3.2.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不接外部源"><span class="nav-number">3.2.1.</span> <span class="nav-text">不接外部源</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接外部源"><span class="nav-number">3.3.</span> <span class="nav-text">接外部源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带权-K-A-TCA"><span class="nav-number">3.4.</span> <span class="nav-text">带权$K&#x3D;A^TCA$</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联矩阵的四个基本子空间"><span class="nav-number">4.</span> <span class="nav-text">关联矩阵的四个基本子空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#N-A"><span class="nav-number">4.1.</span> <span class="nav-text">N(A)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-A"><span class="nav-number">4.2.</span> <span class="nav-text">C(A)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#N-A-T"><span class="nav-number">4.3.</span> <span class="nav-text">$N(A^T)$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-A-T"><span class="nav-number">4.4.</span> <span class="nav-text">$C(A^T)$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注计"><span class="nav-number">4.6.</span> <span class="nav-text">注计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#N-B-C-A"><span class="nav-number">4.6.1.</span> <span class="nav-text">N(B)&#x3D;C(A)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉公式Euler’s-formula"><span class="nav-number">4.7.</span> <span class="nav-text">欧拉公式Euler’s formula</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">2.2m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">34:01</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : 'dc1fc50a47b1f412a78126fc1b879d30',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

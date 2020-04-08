@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<script>
+    (function(){
+        if(''){
+                         If (prompt('Please enter the article password') !== ''){
+                                 Alert('Password error!');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="笔记源自：清华大学公开课：线性代数2——第七讲：工程中的矩阵 应用数学的几个原则 将非线性问题变成线性问题(Nonlinear becomes linear) 将连续问题转化为离散的(Continuous becomes discrete)  工程中的矩阵许多物理定理都是线性关系(as approximations of reality)，比如胡克定律(Hook’s law)、欧姆定律(Ohm’s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tsinghua linear-algebra-2 7th-lecture engineering-matrix">
+<meta property="og:url" content="https://snakecoding.com/2017/08/07/engineering_matrices/index.html">
+<meta property="og:site_name" content="Machine Learning">
+<meta property="og:description" content="笔记源自：清华大学公开课：线性代数2——第七讲：工程中的矩阵 应用数学的几个原则 将非线性问题变成线性问题(Nonlinear becomes linear) 将连续问题转化为离散的(Continuous becomes discrete)  工程中的矩阵许多物理定理都是线性关系(as approximations of reality)，比如胡克定律(Hook’s law)、欧姆定律(Ohm’s">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/1.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/2.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/3.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/4.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/5.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/6.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/7.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/8.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/9.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/10.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/11.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/12.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/13.png">
+<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/14.png">
+<meta property="article:published_time" content="2017-08-07T14:46:00.000Z">
+<meta property="article:modified_time" content="2020-04-08T23:07:42.552Z">
+<meta property="article:author" content="Karan">
+<meta property="article:tag" content="linear_algebra">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/1.png">
+
+<link rel="canonical" href="https://snakecoding.com/2017/08/07/engineering_matrices/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Tsinghua linear-algebra-2 7th-lecture engineering-matrix | Machine Learning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Machine Learning" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Machine Learning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/07/engineering_matrices/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tsinghua linear-algebra-2 7th-lecture engineering-matrix
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-08-07 20:16:00" itemprop="dateCreated datePublished" datetime="2017-08-07T20:16:00+05:30">2017-08-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">中文</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>笔记源自：清华大学公开课：线性代数2——第七讲：工程中的矩阵</p>
+<h2 id="应用数学的几个原则"><a href="#应用数学的几个原则" class="headerlink" title="应用数学的几个原则"></a>应用数学的几个原则</h2><ol>
+<li>将非线性问题变成线性问题(Nonlinear becomes linear)</li>
+<li>将连续问题转化为离散的(Continuous becomes discrete)</li>
+</ol>
+<h2 id="工程中的矩阵"><a href="#工程中的矩阵" class="headerlink" title="工程中的矩阵"></a>工程中的矩阵</h2><p>许多物理定理都是线性关系(as approximations of reality)，比如胡克定律(Hook’s law)、欧姆定律(Ohm’s law)、牛顿第二定律(F=ma)，讨论这些定律的向量形式。线性关系的向量形式以如下<strong>方式、框架</strong>来讨论：</p>
+<p>$(1)\ e=Au$<br>$(2)\  y=Ce$<br>$(3)\ f=A^Tw$</p>
+<p>其中$u$是起始未知量$(primary\ unknown)$，$f$是外部的输入$(input)$：</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/1.png" alt="framework_of_linear_ralation"></p>
+<p>线性问题通常是：输入$f$，求出$u$？</p>
+<p>例如：<br>胡克定律：Displacement is proportional to force  f=ku<br>欧姆定律：Current is proportional to voltage difference推广到向量形式：$f=Ku$<br>另外的例子：最小二乘法 $A^TAx=A^Tb$ ，求$x$</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/2.png" alt="framework_of_least_squares_approximations"></p>
+<h2 id="线性弹簧模型"><a href="#线性弹簧模型" class="headerlink" title="线性弹簧模型"></a>线性弹簧模型</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/3.png" alt="Line_spring_model"></p>
+<h3 id="情形-1"><a href="#情形-1" class="headerlink" title="情形(1)"></a>情形(1)</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/4.png" alt="1st_example_of_line_spring_model"></p>
+<h3 id="情形-2"><a href="#情形-2" class="headerlink" title="情形(2)"></a>情形(2)</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/5.png" alt="2nd_example_of_line_spring_model"></p>
+<h3 id="情形-3"><a href="#情形-3" class="headerlink" title="情形(3)"></a>情形(3)</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/6.png" alt="3rd_example_of_line_spring_model"></p>
+<h3 id="情形-4"><a href="#情形-4" class="headerlink" title="情形(4)"></a>情形(4)</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/7.png" alt="4th_example_of_line_spring_model"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/8.png" alt="summary_of_example_of_line_spring_model"></p>
+<p>胡克定律的向量形式把它应用到了弹性力学中，这个$u$表示的是质体的上下位移$e$是弹簧和伸长或缩短量，那么它们之间的关系呢？可以通过这样$A$这个矩阵那么A非常相似于一个差分矩阵，这样弹簧的伸长和缩短量和弹簧的弹力之间可以通过胡克定律来描述，那么这若干根弹簧它们所产生的弹力我们提升到胡克定律这样一个向量形式：C的每一个对角分量表示的是一个弹性系数（$y=Ce$）。最后弹力和外力之间：当达到平衡以后，可以通过一个矩阵去描述它们的关系，这个矩阵跟前面这个矩阵正好互为转置最后把整个过程合起来到这个矩阵$K=A^TCA$，称为刚度矩阵刚度矩阵刻划了系统受外力作用的形变程度。</p>
+<h3 id="刚度矩阵"><a href="#刚度矩阵" class="headerlink" title="刚度矩阵"></a>刚度矩阵</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/9.png" alt="4_kinds_of_stiffness_matrix"></p>
+<p><strong>注：此处老师讲解具有小的跳跃性</strong> ，渣渣注释如下：</p>
+<ul>
+<li>$K,T$是正定的：$C$ 矩阵表示弹性系数是正定的，$K=A^TCA$ ，当 $A$ 可逆的时候，$K$ 与 $C$ 合同的。</li>
+</ul>
+<blockquote>
+<p>与正定矩阵合同的对称矩阵也是正定的</p>
+<p>​    判断是实对称阵是不是正定的第一条判别法：特征值是否全正，是的话则这个实对称矩阵就是正定的。根据惯性定理，由于与正定矩阵（记为$A$）合同的矩阵（记为$B$）其特征值符号与 $A$ 一致且保持对称性，那么$B$ 的特征值也是全正的，因此 $B$ 也是正定的。</p>
+</blockquote>
+<ul>
+<li>$B, C$ 是半正定的</li>
+</ul>
+<blockquote>
+<p>  因为弹性系数矩阵 $C$ 是正定的对角阵$\Rightarrow x^TKx=x^TA^TCAx=x^TA^T ({\sqrt{C}}^T \sqrt{C}) Ax = x^TA^T {\sqrt{C}}^T \sqrt{C} Ax = ||\sqrt{C} Ax||^2 $，因为$A$是奇异的，$x^TKx\ge 0$， 因此K是半正定的。</p>
+</blockquote>
+<h4 id="性质1"><a href="#性质1" class="headerlink" title="性质1"></a>性质1</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/10.png" alt="1st_property_of_4_kinds_stiffness_matrix"></p>
+<p>注：$f_i$ 是 $i$ 个质题所受的外力，例如：重力，$f_i=m_ig,\ m_i$ 是 $i$ 个质体的质量。</p>
+<h4 id="性质2"><a href="#性质2" class="headerlink" title="性质2"></a>性质2</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/11.png" alt="2nd_property_of_4_kinds_stiffness_matrix"></p>
+<p>注：此处老师直接说一般性结论，$A, \ B$ 都正定的，那么$AB$ 可能不对称，但是$AB$ 存在正特征值。圆盘定理也是直接引用（！！渣渣工科狗表示闻所未闻！！）。</p>
+<h4 id="性质3"><a href="#性质3" class="headerlink" title="性质3"></a>性质3</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/12.png" alt="3rd_property_of_4_kinds_stiffness_matrix"></p>
+<h4 id="从离散到连续"><a href="#从离散到连续" class="headerlink" title="从离散到连续"></a>从离散到连续</h4><p><strong>$f=A^TCAu$</strong></p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/13.png" alt="discrete becomes continuous"></p>
+<p>总结：</p>
+<p>$(1)\ e=u_i-u_{i-1}=\Delta u={du\over dx}=Au\(2)y=Ce=c(x)e(x)\(3)\ f=-(y_i-y_{i-1})=-\Delta y=-{dy\over dx}=A^Ty$</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-7/14.png" alt="discrete becomes continuous"></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>No one has ever become poor by giving.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.png" alt="Karan PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/linear-algebra/" rel="tag"><i class="fa fa-tag"></i> linear_algebra</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/08/06/pseudo_inverse/" rel="prev" title="Tsinghua linear-algebra-2 6th-lecture pseudo-inverse">
+      <i class="fa fa-chevron-left"></i> Tsinghua linear-algebra-2 6th-lecture pseudo-inverse
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/08/08/graph_and_network/" rel="next" title="Tsinghua linear-algebra-2 8th-lecture graph-and-network">
+      Tsinghua linear-algebra-2 8th-lecture graph-and-network <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#应用数学的几个原则"><span class="nav-number">1.</span> <span class="nav-text">应用数学的几个原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程中的矩阵"><span class="nav-number">2.</span> <span class="nav-text">工程中的矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性弹簧模型"><span class="nav-number">3.</span> <span class="nav-text">线性弹簧模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情形-1"><span class="nav-number">3.1.</span> <span class="nav-text">情形(1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情形-2"><span class="nav-number">3.2.</span> <span class="nav-text">情形(2)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情形-3"><span class="nav-number">3.3.</span> <span class="nav-text">情形(3)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情形-4"><span class="nav-number">3.4.</span> <span class="nav-text">情形(4)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#刚度矩阵"><span class="nav-number">3.6.</span> <span class="nav-text">刚度矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#性质1"><span class="nav-number">3.6.1.</span> <span class="nav-text">性质1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性质2"><span class="nav-number">3.6.2.</span> <span class="nav-text">性质2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性质3"><span class="nav-number">3.6.3.</span> <span class="nav-text">性质3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从离散到连续"><span class="nav-number">3.6.4.</span> <span class="nav-text">从离散到连续</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Karan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Karan</p>
+  <div class="site-description" itemprop="description">Refuse to Fall</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/www.massivefile.com" title="www.massivefile.com">DataBases</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">2.2m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">34:01</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '94c94e82b4a09d1d039a',
+      clientSecret: 'd5e33f2eef896ccdbb8ea4051d59e215038ff302',
+      repo        : 'karan36k.github.io',
+      owner       : 'karan36k',
+      admin       : ['karan36k'],
+      id          : 'c9be2c71e978a40aaf6c2f39315dd240',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

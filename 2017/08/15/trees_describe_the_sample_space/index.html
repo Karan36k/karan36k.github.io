@@ -32,18 +32,18 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="This note comes from Introduction to Probability, 2nd EditionExample 1.9 Rada DetectionIf an aircraft is present in a certain area, a radar detects it and generates an alarm signal with probability 0.">
+  <meta name="description" content="This note comes from Introduction to Probability, 2nd Edition Example 1.9 Rada DetectionIf an aircraft is present in a certain area, a radar detects it and generates an alarm signal with probability 0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Trees describe the sample space">
 <meta property="og:url" content="https://snakecoding.com/2017/08/15/trees_describe_the_sample_space/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="This note comes from Introduction to Probability, 2nd EditionExample 1.9 Rada DetectionIf an aircraft is present in a certain area, a radar detects it and generates an alarm signal with probability 0.">
+<meta property="og:description" content="This note comes from Introduction to Probability, 2nd Edition Example 1.9 Rada DetectionIf an aircraft is present in a certain area, a radar detects it and generates an alarm signal with probability 0">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/trees_describe_the_sample_space/1.png">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/trees_describe_the_sample_space/2.png">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/trees_describe_the_sample_space/3.png">
 <meta property="article:published_time" content="2017-08-15T14:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-06T14:55:12.622Z">
+<meta property="article:modified_time" content="2020-04-08T23:07:42.571Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="probability">
 <meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">13</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -149,7 +149,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">61</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -245,7 +245,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-06 20:25:12" itemprop="dateModified" datetime="2020-04-06T20:25:12+05:30">2020-04-06</time>
+                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,7 +253,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -289,7 +289,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>This note comes from <a href="http://www.athenasc.com/probbook.html" target="_blank" rel="noopener">Introduction to Probability, 2nd Edition</a></p><h2 id="Example-1-9-Rada-Detection"><a href="#Example-1-9-Rada-Detection" class="headerlink" title="Example 1.9 Rada Detection"></a>Example 1.9 Rada Detection</h2><p>If an aircraft is present in a certain area, a radar detects it and generates an alarm signal with probability 0.99. If an aircraf is not present. the radar generates a (false) alarm, with probability 0.10. We assume that an aircraft is present with probability 0.05. What is the probability of no aircraf presence and a false alarm? What is the probability of aircraf presence and no detection?</p><p>$A$ sequential representation of the experiment is appropriate here, as shown in Fig. 1.9. Let $A$ and $B$ be the events $A = {an\ aircraft\ is\ present}$, $B = {the\ radar\ generates\ an\ alarm} $, and consider also their complements $A^c={an\ aircraft\ is\ not present}$$，$$B^c={the\ radar\ does\ not\ generate\ an\ alarm}$。</p><p>The given probabilities are recorded along the corresponding branches of the tree describing the sample space, as shown in Fig. 1.8. Each event of interest corresponds to a leaf of the tree and its probability is equal to the product of the probabilities associated with the branches in a path from the root to the corresponding leaf. The desired probabilities of false alarm and missed detection are</p><p>$$P(false\ alarm) = P(A^c ∩ B) = P(A^c)P(B | A^c) = 0.95 · 0.10 = 0.095$$，<br>$$P(missed\ detection) = P(A ∩ B^c) = P(A)P(B^c | A) = 0.05 · 0.01 = 0.0005$$.</p><p>Extending the preceding example, we have a general rule for calculating various probabilities in conjunction with a tree-based sequential description of an experiment. In particular:</p><ul><li>(a) We set up the tree so that an event of interest is associated with a leaf. We view the occurrence of the event as a sequence of steps, namely, the traversals of the branches along the path from the root to the leaf.</li><li>(b) We record the conditional probabilities associated with the branches of the tree.</li><li>(c) We obtain the probability of a leaf by multiplying the probabilities recorded along the corresponding path of the tree.</li></ul><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/trees_describe_the_sample_space/1.png" alt="base64_of_Sequential_description_of_the_sample_space_for_the_radar_detection"></p><h2 id="multiplication-rule"><a href="#multiplication-rule" class="headerlink" title="multiplication rule"></a>multiplication rule</h2><p>In mathematical terms, we are dealing with an event A which occurs if and only if each one of several events $A_1, . . . , A_n$ has occurred, i.e., $A = A_1 ∩ A_2 ∩ · · · ∩ A_n$. The occurrence of $A$ is viewed as an occurrence of $A_1$, followed by the occurrence of $A_2$, then of $A_3$, etc, and it is visualized as a path on the tree with $n$ branches, corresponding to the events $A_1, . . . , A_n$. The probability of $A$ is given by the following rule (see also Fig. 1.9).</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/trees_describe_the_sample_space/2.png" alt="base64_of_multiplication_rule"></p><p>The multiplication rule can be verified by writing<br>$$P(\cap^n_{i=1} A_i)=P(A_1)\frac{P(A_1\cap A_2)}{P(A_1)}\frac{P(A_1\cap A_2\cap A_3)}{P(A_1\cap A_2)}\cdots\frac{P(\cap_{i=1}^n A_i)}{P(\cap^{n-1}_{i=1} A_i)}$$,</p><p>and by using the definition of conditional probability to rewrite the right-hand side above as</p><p>$$P(A_1)P(A_2|A_1)P(A_3|A_1\cap A_2)\cdots P(A_N|\cap^{n-1}_{i=1} A_i)$$.</p><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/trees_describe_the_sample_space/3.png" alt="base64_of_visualization_of_multiplication_rule"></p><p><strong>The intersection event $A = A_1∩A_2∩· · ·∩A_n$ is associated with a path on the tree of a sequential description of the experiment. We associate the branches of this path with the events $A_1, . . . , A_n$, and we record next to the branches the corresponding conditional probabilities.</strong></p><p>The final node of the path corresponds to the intersection event $A$, and its probability is obtained by multiplying the conditional probabilities recorded along the branches of the path</p><p>$$P(A_1\cap A_2\cap\cdots\cap A_3)=P(A_1)P(A_2|A_1)\cdots P(A_n|A_1\cap A_2\cdots \cap A_{n-1}).$$</p><p><strong>Note that any intermediate node along the path also corresponds to some intersection event and its probability is obtained by multiplying the corresponding conditional probabilities up to that node.</strong> For example, the event $A_1 ∩ A_2 ∩ A_3$ corresponds to the node shown in the figure, and its probability is</p><p>$$P(A_1\cap A_2\cap A_3)=P(A_1)P(A_2|A_1)P(A_3|A_1\cap A_2).$$</p><p>For the case of just two events, A1 and A2, the multiplication rule is simply the definition of conditional probability.</p>
+        <p>This note comes from <a href="http://www.athenasc.com/probbook.html" target="_blank" rel="noopener">Introduction to Probability, 2nd Edition</a></p>
+<h2 id="Example-1-9-Rada-Detection"><a href="#Example-1-9-Rada-Detection" class="headerlink" title="Example 1.9 Rada Detection"></a>Example 1.9 Rada Detection</h2><p>If an aircraft is present in a certain area, a radar detects it and generates an alarm signal with probability 0.99. If an aircraf is not present. the radar generates a (false) alarm, with probability 0.10. We assume that an aircraft is present with probability 0.05. What is the probability of no aircraf presence and a false alarm? What is the probability of aircraf presence and no detection?</p>
+<p>$A$ sequential representation of the experiment is appropriate here, as shown in Fig. 1.9. Let $A$ and $B$ be the events $A = {an\ aircraft\ is\ present}$, $B = {the\ radar\ generates\ an\ alarm} $, and consider also their complements $A^c={an\ aircraft\ is\ not present}$$，$$B^c={the\ radar\ does\ not\ generate\ an\ alarm}$。</p>
+<p>The given probabilities are recorded along the corresponding branches of the tree describing the sample space, as shown in Fig. 1.8. Each event of interest corresponds to a leaf of the tree and its probability is equal to the product of the probabilities associated with the branches in a path from the root to the corresponding leaf. The desired probabilities of false alarm and missed detection are</p>
+<p>$$P(false\ alarm) = P(A^c ∩ B) = P(A^c)P(B | A^c) = 0.95 · 0.10 = 0.095$$，<br>$$P(missed\ detection) = P(A ∩ B^c) = P(A)P(B^c | A) = 0.05 · 0.01 = 0.0005$$. </p>
+<p>Extending the preceding example, we have a general rule for calculating various probabilities in conjunction with a tree-based sequential description of an experiment. In particular:</p>
+<ul>
+<li>(a) We set up the tree so that an event of interest is associated with a leaf. We view the occurrence of the event as a sequence of steps, namely, the traversals of the branches along the path from the root to the leaf.</li>
+<li>(b) We record the conditional probabilities associated with the branches of the tree.</li>
+<li>(c) We obtain the probability of a leaf by multiplying the probabilities recorded along the corresponding path of the tree. </li>
+</ul>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/trees_describe_the_sample_space/1.png" alt="base64_of_Sequential_description_of_the_sample_space_for_the_radar_detection"></p>
+<h2 id="multiplication-rule"><a href="#multiplication-rule" class="headerlink" title="multiplication rule"></a>multiplication rule</h2><p>In mathematical terms, we are dealing with an event A which occurs if and only if each one of several events $A_1, . . . , A_n$ has occurred, i.e., $A = A_1 ∩ A_2 ∩ · · · ∩ A_n$. The occurrence of $A$ is viewed as an occurrence of $A_1$, followed by the occurrence of $A_2$, then of $A_3$, etc, and it is visualized as a path on the tree with $n$ branches, corresponding to the events $A_1, . . . , A_n$. The probability of $A$ is given by the following rule (see also Fig. 1.9). </p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/trees_describe_the_sample_space/2.png" alt="base64_of_multiplication_rule"></p>
+<p>The multiplication rule can be verified by writing<br>$$P(\cap^n_{i=1} A_i)=P(A_1)\frac{P(A_1\cap A_2)}{P(A_1)}\frac{P(A_1\cap A_2\cap A_3)}{P(A_1\cap A_2)}\cdots\frac{P(\cap_{i=1}^n A_i)}{P(\cap^{n-1}_{i=1} A_i)}$$,</p>
+<p>and by using the definition of conditional probability to rewrite the right-hand side above as</p>
+<p>$$P(A_1)P(A_2|A_1)P(A_3|A_1\cap A_2)\cdots P(A_N|\cap^{n-1}_{i=1} A_i)$$.</p>
+<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/trees_describe_the_sample_space/3.png" alt="base64_of_visualization_of_multiplication_rule"></p>
+<p><strong>The intersection event $A = A_1∩A_2∩· · ·∩A_n$ is associated with a path on the tree of a sequential description of the experiment. We associate the branches of this path with the events $A_1, . . . , A_n$, and we record next to the branches the corresponding conditional probabilities.</strong></p>
+<p>The final node of the path corresponds to the intersection event $A$, and its probability is obtained by multiplying the conditional probabilities recorded along the branches of the path </p>
+<p>$$P(A_1\cap A_2\cap\cdots\cap A_3)=P(A_1)P(A_2|A_1)\cdots P(A_n|A_1\cap A_2\cdots \cap A_{n-1}).$$</p>
+<p><strong>Note that any intermediate node along the path also corresponds to some intersection event and its probability is obtained by multiplying the corresponding conditional probabilities up to that node.</strong> For example, the event $A_1 ∩ A_2 ∩ A_3$ corresponds to the node shown in the figure, and its probability is </p>
+<p>$$P(A_1\cap A_2\cap A_3)=P(A_1)P(A_2|A_1)P(A_3|A_1\cap A_2).$$</p>
+<p>For the case of just two events, A1 and A2, the multiplication rule is simply the definition of conditional probability. </p>
+
     </div>
 
     
@@ -323,12 +347,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/08/01/positive_definite_and_least_square/" rel="prev" title="positive definite and least squares">
-      <i class="fa fa-chevron-left"></i> positive definite and least squares
+    <a href="/2017/08/14/definition_of_expectation/" rel="prev" title="期望定义的由来">
+      <i class="fa fa-chevron-left"></i> 期望定义的由来
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/08/28/mean_and_variance_of_Bernoulli_and_Possion_random/" rel="next" title="How to Find Mean and Variance of Bernoulli and Poisson">
-      How to Find Mean and Variance of Bernoulli and Poisson <i class="fa fa-chevron-right"></i>
+    <a href="/2017/08/20/LaTeX_symbols/" rel="next" title="转载-LaTeX各种符号">
+      转载-LaTeX各种符号 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -405,7 +429,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -418,7 +442,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -479,13 +503,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">2.1m</span>
+    <span title="Symbols count total">2.2m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">32:08</span>
+    <span title="Reading time total">34:01</span>
 </div>
 
         
