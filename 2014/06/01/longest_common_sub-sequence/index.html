@@ -32,15 +32,15 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":20,"offset":15,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Algorithm overall ideaDynamic programming (Dynamic Programming) solves the entire problem by combining the solutions of sub-problems. Divide and conquer refers to dividing the problem into some indepe">
+  <meta name="description" content="Algorithm overall idea">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dynamic Programming-Longest Common Subsequence">
 <meta property="og:url" content="https://snakecoding.com/2014/06/01/longest_common_sub-sequence/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="Algorithm overall ideaDynamic programming (Dynamic Programming) solves the entire problem by combining the solutions of sub-problems. Divide and conquer refers to dividing the problem into some indepe">
+<meta property="og:description" content="Algorithm overall idea">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2014-06-01T16:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T10:49:58.226Z">
+<meta property="article:modified_time" content="2020-04-09T12:01:40.663Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="Basic Algorithm">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -244,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:19:58" itemprop="dateModified" datetime="2020-04-09T16:19:58+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:31:40" itemprop="dateModified" datetime="2020-04-09T17:31:40+05:30">2020-04-09</time>
               </span>
 
           
@@ -279,7 +279,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Algorithm-overall-idea"><a href="#Algorithm-overall-idea" class="headerlink" title="Algorithm overall idea"></a>Algorithm overall idea</h2><p>Dynamic programming (Dynamic Programming) solves the entire problem by combining the solutions of sub-problems. Divide and conquer refers to dividing the problem into some independent sub-problems, recursively solving each sub-problem, and then combining the solutions of the sub-problems to get the solution of the original problem. Unlike this, dynamic programming is applicable when the sub-problem is not independent. It is that each sub-problem contains a common sub-problem. In this case, adopting the divide-and-conquer method will do a lot of unnecessary work, that is, solving the common ground problem repeatedly. The dynamic programming algorithm only solves each sub-problem once, and saves the results in a table, so as to avoid recalculating the answer each time it encounters each sub-problem.</p>
+        <h2 id="Algorithm-overall-idea"><a href="#Algorithm-overall-idea" class="headerlink" title="Algorithm overall idea"></a>Algorithm overall idea</h2><a id="more"></a>
+<p>Dynamic programming (Dynamic Programming) solves the entire problem by combining the solutions of sub-problems. Divide and conquer refers to dividing the problem into some independent sub-problems, recursively solving each sub-problem, and then combining the solutions of the sub-problems to get the solution of the original problem. Unlike this, dynamic programming is applicable when the sub-problem is not independent. It is that each sub-problem contains a common sub-problem. In this case, adopting the divide-and-conquer method will do a lot of unnecessary work, that is, solving the common ground problem repeatedly. The dynamic programming algorithm only solves each sub-problem once, and saves the results in a table, so as to avoid recalculating the answer each time it encounters each sub-problem.</p>
 <h2 id="Basic-Elements-of-Dynamic-Programming-Algorithm"><a href="#Basic-Elements-of-Dynamic-Programming-Algorithm" class="headerlink" title="Basic Elements of Dynamic Programming Algorithm"></a>Basic Elements of Dynamic Programming Algorithm</h2><h3 id="Optimal-substructure"><a href="#Optimal-substructure" class="headerlink" title="Optimal substructure"></a>Optimal substructure</h3><p>-The optimal solution of the matrix multiplication calculation order problem contains the optimal solution of its subproblems. This property is called the optimal substructure property.<br>-When analyzing the optimal substructure properties of the problem, the method used is universal: first assume that the solution of the subproblem derived from the optimal solution of the problem is not optimal, and then try to show that the ratio can be constructed under this assumption The optimal solution of the original problem is better, which leads to contradictions.<br>-Using the optimal substructure properties of the problem, the optimal solution of the entire problem is constructed step by step from the optimal solution of the subproblem recursively in a bottom-up manner. The optimal substructure is the premise that the problem can be solved by dynamic programming algorithm.</p>
 <p>Note: There can be many ways to characterize the optimal substructure of the same problem, some of the representation methods are faster to solve (small space occupation, low dimension of the problem)</p>
 <h3 id="Overlapping-sub-questions"><a href="#Overlapping-sub-questions" class="headerlink" title="Overlapping sub-questions"></a>Overlapping sub-questions</h3><p>-When recursive algorithm solves a problem, the sub-problems generated each time are not always new problems, and some sub-problems are repeatedly calculated many times. This property is called the overlapping property of subproblems.<br>-The dynamic programming algorithm only solves each sub-problem once, and then saves the solution in a table. When the sub-problem needs to be solved again, it is simply to check the results in constant time.<br>-Usually the number of different sub-problems increases polynomially with the size of the problem. Therefore, the dynamic programming algorithm only needs polynomial time, so as to obtain a higher problem-solving efficiency.</p>
@@ -484,7 +485,7 @@ return 0;</code></pre><p>}<br>`` `<br>! [img] (<span class="exturl" data-url="aH
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -545,7 +546,7 @@ return 0;</code></pre><p>}<br>`` `<br>! [img] (<span class="exturl" data-url="aH
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

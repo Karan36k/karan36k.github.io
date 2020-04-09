@@ -32,15 +32,15 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":20,"offset":15,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="** Description **: The full text is taken from [Introduction to probability, 2nd Edition] (http:&#x2F;&#x2F;www.athenasc.com&#x2F;probbook.html)  An exponential random variable has the following form of ** probabili">
+  <meta name="description" content="** Description **: The full text is taken from [Introduction to probability, 2nd Edition] (http:&#x2F;&#x2F;www.athenasc.com&#x2F;probbook.html)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Classic Excerpts-Mean and Variance of Exponential Random Variables">
 <meta property="og:url" content="https://snakecoding.com/2017/08/25/exponential_random_variables/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="** Description **: The full text is taken from [Introduction to probability, 2nd Edition] (http:&#x2F;&#x2F;www.athenasc.com&#x2F;probbook.html)  An exponential random variable has the following form of ** probabili">
+<meta property="og:description" content="** Description **: The full text is taken from [Introduction to probability, 2nd Edition] (http:&#x2F;&#x2F;www.athenasc.com&#x2F;probbook.html)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-08-25T14:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T11:04:46.799Z">
+<meta property="article:modified_time" content="2020-04-09T12:02:42.425Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="probability">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -244,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:46" itemprop="dateModified" datetime="2020-04-09T16:34:46+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:32:42" itemprop="dateModified" datetime="2020-04-09T17:32:42+05:30">2020-04-09</time>
               </span>
 
           
@@ -279,7 +279,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>** Description **: The full text is taken from [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) </p>
+        <p>** Description **: The full text is taken from [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) <a id="more"></a> </p>
 <p>An exponential random variable has the following form of ** probability density function *<em>:<br>$$<br>f_X (x) = \ cases {<br>    \ lambda e ^ {-\ lambda x}, &amp; if $ x \ ge 0 $ \<br>    0, &amp; other situations<br>}<br>$$<br>In this formula, *</em> $ \ lambda $ is a positive number *<em>, which is a definition that conforms to probability normality because:<br>$$<br>\ int _ {-\ infty} ^ {+ \ infty} f_X (x) dx = \ int _ {-\ infty} ^ {+ \ infty} \ lambda e ^ {-\ lambda} dx = -e ^ {\ lambda x } | <em>0 ^ {+ \ infty} = 1<br>$$<br>Note that the exponential probability density function has such characteristics: $ X $ The probability of exceeding a certain value decreases exponentially as the value increases<br>$$<br>\ forall a \ ge 0, P (X \ ge a) = \ int</em> {a} ^ {\ infty} \ lambda e ^ {-\ lambda x} dx = -e ^ {-\ lambda x} | _a ^ { + \ infty} = e ^ {-\ lambda a}<br>$$<br>The *</em> cumulative distribution function ** is obtained from the probability density function:<br>$$<br>\ forall x \ ge 0, P (X \ le x) = \ int_ {0} ^ {x} \ lambda e ^ {-\ lambda x} dx = 1-e ^ {-\ lambda x}<br>$$<br>! [The_PDF_of_an_exponential_random_variable] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9pbnRyb2R1Y3Rpb24tdG8tcHJvYmFiaWxpdHkvZXhwb25lbnRpYWwtcmFuZG9tLXZhcmlhYmxlLzEucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/exponential-random-variable/1.png<i class="fa fa-external-link-alt"></i></span>)</p>
 <p>** Exponential random variables can model the time until the event occurs, for example: the time when the message reaches the computer, the service life of the device, the life of the light bulb, the time of the accident, etc. , be a good model for the amount of time until an incident of interest takes place). As we will see in later chapters, exponential random variables are closely related to geometric random variables, and geometric random variables are also related to the (discrete) time at which related events occur. ** Exponential random variables will play an important role in the study of random processes in Chapter VI **. But so far, it has only been regarded as a special kind of analyzable random variable.</p>
 <p>** Mean and variance of exponential random variables **:<br>$$<br>\ begin {eqnarray}<br>E [X] &amp; = &amp; \ int_ {0} ^ {\ infty} x \ lambda e ^ {-\ lambda x} dx \<br>&amp; = &amp; (-xe ^ {-\ lambda x}) | <em>0 ^ {\ infty} + \ int</em> {0} ^ {\ infty} e ^ {-\ lambda x} dx \ quad \ text {This step uses points Department integral method} \<br>&amp; = &amp; 0- \ frac {e ^ {-\ lambda x}} {\ lambda} | <em>0 ^ {\ infty} \<br>&amp; = &amp; \ frac {1} {\ lambda}<br>\ end {eqnarray}<br>$$<br>Using the distributed integration method, the second moment of $ X $ can be obtained:<br>$$<br>\ begin {eqnarray}<br>E [X ^ 2] &amp; = &amp; \ int</em> {0} ^ {\ infty} x ^ 2 \ lambda e ^ {-\ lambda x} dx \<br>&amp; = &amp; (-x ^ 2e ^ {-\ lambda x}) | <em>0 ^ {\ infty} + \ int</em> {0} ^ {\ infty} 2xe ^ {-\ lambda x} dx<br>&amp; = &amp; 0+ \ frac {2} {\ lambda} E [X] \<br>&amp; = &amp; \ frac {2} {\ lambda ^ 2}<br>\ end {eqnarray}<br>$$<br>Finally, using the formula $ var (x) = E [X ^ 2]-(E [X]) ^ 2 $, we get:<br>$$<br>var (X) = \ frac {2} {\ lambda ^ 2}-\ frac {1} {\ lambda} = \ frac {1} {\ lambda ^ 2}<br>$$</p>
@@ -328,12 +328,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/08/24/the_two-envelopes_paradox/" rel="prev" title="Classic Excerpt-Paradox of Two Envelope">
-      <i class="fa fa-chevron-left"></i> Classic Excerpt-Paradox of Two Envelope
+    <a href="/2017/08/25/mean_and_variance_of_sample_and_estimating_probability_by_simulation/" rel="prev" title="Classic Excerpts-Expected Variance of Sample Means and Simulation Methods to Estimate Probability">
+      <i class="fa fa-chevron-left"></i> Classic Excerpts-Expected Variance of Sample Means and Simulation Methods to Estimate Probability
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/08/25/mean_and_variance_of_sample_and_estimating_probability_by_simulation/" rel="next" title="Classic Excerpts-Expected Variance of Sample Means and Simulation Methods to Estimate Probability">
-      Classic Excerpts-Expected Variance of Sample Means and Simulation Methods to Estimate Probability <i class="fa fa-chevron-right"></i>
+    <a href="/2017/08/26/mean_and_variance_of_uniform_random_variable/" rel="next" title="Classic Excerpts-Mean and Variance of Uniform Random Variables">
+      Classic Excerpts-Mean and Variance of Uniform Random Variables <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -410,7 +410,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -471,7 +471,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

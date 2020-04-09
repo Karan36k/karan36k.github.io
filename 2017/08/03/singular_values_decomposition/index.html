@@ -32,15 +32,15 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":20,"offset":15,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="ForewordNotes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 3: Singular Value Decomposition, ** This article will list each step of the derivation in detail **. ** Summary of Tsinghua">
+  <meta name="description" content="ForewordNotes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 3: Singular Value Decomposition, ** This article will list each step of the derivation in detail **.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tsinghua linear-algebra-2 3rd-lecture Singular-Values-Decomposition">
 <meta property="og:url" content="https://snakecoding.com/2017/08/03/singular_values_decomposition/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="ForewordNotes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 3: Singular Value Decomposition, ** This article will list each step of the derivation in detail **. ** Summary of Tsinghua">
+<meta property="og:description" content="ForewordNotes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 3: Singular Value Decomposition, ** This article will list each step of the derivation in detail **.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-08-03T14:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T11:04:37.541Z">
+<meta property="article:modified_time" content="2020-04-09T11:57:59.512Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="linear_algebra">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -244,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:37" itemprop="dateModified" datetime="2020-04-09T16:34:37+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:27:59" itemprop="dateModified" datetime="2020-04-09T17:27:59+05:30">2020-04-09</time>
               </span>
 
           
@@ -280,6 +280,7 @@
 
       
         <h2 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h2><p>Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 3: Singular Value Decomposition, ** This article will list each step of the derivation in detail **.</p>
+<a id="more"></a>
 <p>** Summary of Tsinghua University Linear Algebra 2 Open Class Notes **</p>
 <p>Lecture 1: [Positive Definite Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMS9wb3NpdGl2ZV9kZWZpbml0ZV9tYXRyaXgv">https://karan36k.github.io/2017/08/01/positive_definite_matrix/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 2: [Similarity Matrix] ()<br>Lecture 3: [Singular Value Decomposition] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMy9zaW5ndWxhcl92YWx1ZXNfZGVjb21wb3NpdGlvbi8=">https://karan36k.github.io/2017/08/03/singular_values_decomposition/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 4: [Linear Transformation 1] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNC9saW5lYXJfdHJhbnNmb3JtYXRpb25fMXN0X3BhcnQv">https://karan36k.github.io/2017/08/04/linear_transformation_1st_part/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 5: [Linear Transformation 2] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNS9saW5lYXJfdHJhbnNmb3JtYXRpb25fMm5kX3BhcnQv">https://karan36k.github.io/2017/08/05/linear_transformation_2nd_part/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 6: [Pseudo-inverse] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNi9wc2V1ZG9faW52ZXJzZS8=">https://karan36k.github.io/2017/08/06/pseudo_inverse/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 7: [Matrix in Engineering] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNy9lbmdpbmVlcmluZ19tYXRyaWNlcy8=">https://karan36k.github.io/2017/08/07/engineering_matrices/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 8: [Graph and Network] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wOC9ncmFwaF9hbmRfbmV0d29yay8=">https://karan36k.github.io/2017/08/08/graph_and_network/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 9: [Markov Matrix and Positive Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNi9NYXJrb3ZfbWF0cml4Lw==">https://karan36k.github.io/2017/08/06/Markov_matrix/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 10: [Fourier Series] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMi9Gb3VyaWVyX3Nlcmllcy8=">https://karan36k.github.io/2017/08/02/Fourier_series/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 11: [Computer Image] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8xMS9jb21wdXRlcl9ncmFwaGljcy8=">https://karan36k.github.io/2017/08/11/computer_graphics/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 12: [Complex and Complex Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8xMi9jb21wbGV4X2FuZF9jb21wbGV4X21hdHJpeC8=">https://karan36k.github.io/2017/08/12/complex_and_complex_matrix/<i class="fa fa-external-link-alt"></i></span>)</p>
 <h2 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h2><p>Diagonal matrices are our favorite kind of matrix. For matrices that can be similar to diagonal matrices, the power and exponent can be easily calculated, and for square matrices that cannot be similar to diagonal matrices. In the last lesson we discussed how to find the similar standard form and the Jordan standard form that are as simple as possible. The squares discussed above are all discussed. So how do we diagonalize the m by n matrix?</p>
@@ -422,7 +423,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -483,7 +484,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

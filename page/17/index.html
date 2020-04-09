@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -210,103 +210,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/25/mean_and_variance_of_sample_and_estimating_probability_by_simulation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Karan">
-      <meta itemprop="description" content="Refuse to Fall">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Machine Learning">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/08/25/mean_and_variance_of_sample_and_estimating_probability_by_simulation/" class="post-title-link" itemprop="url">Classic Excerpts-Expected Variance of Sample Means and Simulation Methods to Estimate Probability</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2017-08-25 20:16:00" itemprop="dateCreated datePublished" datetime="2017-08-25T20:16:00+05:30">2017-08-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:41" itemprop="dateModified" datetime="2020-04-09T16:34:41+05:30">2020-04-09</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Expected-variance-of-sample-mean"><a href="#Expected-variance-of-sample-mean" class="headerlink" title="Expected variance of sample mean"></a>Expected variance of sample mean</h2><p>Excerpt from: [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) Example 2.21. Mean and Variance of the Sample Mean</p>
-<p>We hope to estimate the president’s approval rating. To this end, we randomly select n voters and ask their views. Let $ x_i $ denote the attitude of $ i $ voters asked:</p>
-<p>$$ X_i = \ cases {1, \ text {if the first voted voter supports the president} \ 0, \ text {if the first voted voter does not support the president}} $$</p>
-<p>** Assume that $ X_1, \ ldots, X_n $ are independent and identically distributed Bernoulli random variables **, whose mean is $ p $ and variance is $ p (1-p) $. Here we consider the probability that $ p $ believes voters support the president, and will average the responses to the survey, calculate the sample mean $ S_n $, and define $ S_n $ as</p>
-<p>$$ S_n = \ frac {X_1 + \ ldots + X_n} {n} $$</p>
-<p>Therefore, the random variable $ S_n $ is the support rate for sampling n voters.</p>
-<p>Since ** $ S_n $ is a linear function of $ X_1, \ ldots, X_n $ *<em>, we *</em> use the linear relationship of means ** to get,</p>
-<p>$ E [S_n] = \ sum \ limits_ {i = 1} ^ {n} E [\ frac {X_i} {n}] = \ sum \ limits_ {i = 1} ^ {n} \ frac {1} { n} E [X_i] = \ sum \ limits_ {i = 1} ^ {n} \ frac {1} {n} p = p = E [X] $</p>
-<p>Then ** using the independence of $ X_1, \ ldots, X_n $ **, you can get:</p>
-<p>$$ var (S_n) = \ sum \ limits_ {i = 1} ^ {n} var (\ frac {X_i} {n}) = \ sum \ limits_ {i = 1} ^ {n} \ frac {1} {n ^ 2} var (X_i) = \ frac {p (1-p)} {n} $$</p>
-<p>** The sample mean of $ S_n $ is considered a good estimate of the support rate, because its expected value is exactly $ p $. Then the variance reflecting the accuracy becomes smaller and smaller as the sample size $ n $ increases. **</p>
-<p>Note that even though $ X_i $ is not a Bernoulli random variable in the above example, the conclusion</p>
-<p>$$ var (S_n) = \ frac {var (X)} {n} $$</p>
-<p>It still holds true, as long as $ X_i $ is independent of each other, after all, expectations and variances have nothing to do with $ i $. Therefore, as the sample size increases, the sample mean is still a good estimate of the mean of the random variable. We will discuss these attributes of the sample mean in more detail in Chapter 5 and combine them with the law of large numbers.</p>
-<h2 id="Simulation-method-to-estimate-probability"><a href="#Simulation-method-to-estimate-probability" class="headerlink" title="Simulation method to estimate probability"></a>Simulation method to estimate probability</h2><p>Excerpt from: [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) Example 2.22. Estimating Probabilities by Simulation</p>
-<p>In many practical problems, sometimes it is very difficult to calculate the probability of an event, and then we can repeat the experiment using physical methods or computer methods. These test results can show whether the event has occurred. Using this simulation method, the probability of an event can be calculated with high accuracy. You can independently simulate the test $ n $ times, and record the number of occurrences of $ A $ in the $ n $ test $ m $. Use $ \ frac {m} {n} $ to approximate the probability $ P (A) $. For example, in the coin toss test, calculate the probability $ p = P $ (frontal appearance), independently toss $ n $ times, and use the ratio (the number of heads in the record divided by the total number of trials n) to approximate the probability $ p $.</p>
-<p>To calculate the accuracy of this method, consider $ n $ independent and identically distributed Bernoulli random variables $ X_1, \ ldots, X_n $, and the probability mass function of each $ X_i $:</p>
-<p>$$ p_ {X_i} (k) = \ cases {P (A), if \ k = 1 \ 1-P (A), if \ k = 0} $$</p>
-<p>In the simulated environment, $ X_i $ is related to the result of the $ i $ th test. If the $ i $ test result belongs to $ A $, then the value of $ X_i $ is 1, and the value of the random variable $ X = \ frac {X_1 + X_2 + \ ldots + X_n} {n} $$) is the estimated value of the probability $ P (A) $. From the results of Example 2.21, the expectation of $ X $ is $ P (A) $, and the variance is $ \ frac {P (A) (1-P (A))} {n} $. So when $ n $ is large, $ X $ provides an accurate estimate of $ P (A) $.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/25/exponential_random_variables/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -338,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:46" itemprop="dateModified" datetime="2020-04-09T16:34:46+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:32:42" itemprop="dateModified" datetime="2020-04-09T17:32:42+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -366,19 +269,101 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>** Description **: The full text is taken from [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) </p>
-<p>An exponential random variable has the following form of ** probability density function *<em>:<br>$$<br>f_X (x) = \ cases {<br>    \ lambda e ^ {-\ lambda x}, &amp; if $ x \ ge 0 $ \<br>    0, &amp; other situations<br>}<br>$$<br>In this formula, *</em> $ \ lambda $ is a positive number *<em>, which is a definition that conforms to probability normality because:<br>$$<br>\ int _ {-\ infty} ^ {+ \ infty} f_X (x) dx = \ int _ {-\ infty} ^ {+ \ infty} \ lambda e ^ {-\ lambda} dx = -e ^ {\ lambda x } | <em>0 ^ {+ \ infty} = 1<br>$$<br>Note that the exponential probability density function has such characteristics: $ X $ The probability of exceeding a certain value decreases exponentially as the value increases<br>$$<br>\ forall a \ ge 0, P (X \ ge a) = \ int</em> {a} ^ {\ infty} \ lambda e ^ {-\ lambda x} dx = -e ^ {-\ lambda x} | _a ^ { + \ infty} = e ^ {-\ lambda a}<br>$$<br>The *</em> cumulative distribution function ** is obtained from the probability density function:<br>$$<br>\ forall x \ ge 0, P (X \ le x) = \ int_ {0} ^ {x} \ lambda e ^ {-\ lambda x} dx = 1-e ^ {-\ lambda x}<br>$$<br>! [The_PDF_of_an_exponential_random_variable] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9pbnRyb2R1Y3Rpb24tdG8tcHJvYmFiaWxpdHkvZXhwb25lbnRpYWwtcmFuZG9tLXZhcmlhYmxlLzEucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/exponential-random-variable/1.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>** Exponential random variables can model the time until the event occurs, for example: the time when the message reaches the computer, the service life of the device, the life of the light bulb, the time of the accident, etc. , be a good model for the amount of time until an incident of interest takes place). As we will see in later chapters, exponential random variables are closely related to geometric random variables, and geometric random variables are also related to the (discrete) time at which related events occur. ** Exponential random variables will play an important role in the study of random processes in Chapter VI **. But so far, it has only been regarded as a special kind of analyzable random variable.</p>
-<p>** Mean and variance of exponential random variables **:<br>$$<br>\ begin {eqnarray}<br>E [X] &amp; = &amp; \ int_ {0} ^ {\ infty} x \ lambda e ^ {-\ lambda x} dx \<br>&amp; = &amp; (-xe ^ {-\ lambda x}) | <em>0 ^ {\ infty} + \ int</em> {0} ^ {\ infty} e ^ {-\ lambda x} dx \ quad \ text {This step uses points Department integral method} \<br>&amp; = &amp; 0- \ frac {e ^ {-\ lambda x}} {\ lambda} | <em>0 ^ {\ infty} \<br>&amp; = &amp; \ frac {1} {\ lambda}<br>\ end {eqnarray}<br>$$<br>Using the distributed integration method, the second moment of $ X $ can be obtained:<br>$$<br>\ begin {eqnarray}<br>E [X ^ 2] &amp; = &amp; \ int</em> {0} ^ {\ infty} x ^ 2 \ lambda e ^ {-\ lambda x} dx \<br>&amp; = &amp; (-x ^ 2e ^ {-\ lambda x}) | <em>0 ^ {\ infty} + \ int</em> {0} ^ {\ infty} 2xe ^ {-\ lambda x} dx<br>&amp; = &amp; 0+ \ frac {2} {\ lambda} E [X] \<br>&amp; = &amp; \ frac {2} {\ lambda ^ 2}<br>\ end {eqnarray}<br>$$<br>Finally, using the formula $ var (x) = E [X ^ 2]-(E [X]) ^ 2 $, we get:<br>$$<br>var (X) = \ frac {2} {\ lambda ^ 2}-\ frac {1} {\ lambda} = \ frac {1} {\ lambda ^ 2}<br>$$</p>
-<h3 id="Example-3-5"><a href="#Example-3-5" class="headerlink" title="Example 3.5"></a>Example 3.5</h3><p>The time when the small meteorites fell into the Sahara Desert in Africa followed the exponential distribution. Specifically, when an observer starts to observe, it is found that a meteorite falls into the desert. This time is simulated as an exponential random variable with an average value of $ 10 $ days. It is now assumed that the current time is at $ 12 $ in the evening. Q. What is the probability that the meteorite will fall for the first time between $ 6: 00 $ in the morning and $ 6: 00 $ in the evening?</p>
-<p>Suppose $ X $ is the waiting time required to observe the falling of the meteorite. Since $ X $ satisfies the exponential distribution, the mean value is $ \ frac {1} {\ lambda} = 10 $, which results in: $ \ lambda = \ frac {1} {10} $. The required probability is:<br>$$<br>P (\ frac {1} {4} \ le X \ le \ frac {3} {4}) = P (X \ ge \ frac {1} {4})-P (X \ ge \ frac {3} {4}) = e ^ {-\ frac {1} {40}}-e ^ {-\ frac {3} {40}} = 0.0476<br>$$<br>In this process, the continuous random variable $ P (X \ ge a) = P (X&gt; a) = e ^ {-\ lambda a} $ was used.</p>
-<h3 id="Memorylessness-of-exponential-random-variables"><a href="#Memorylessness-of-exponential-random-variables" class="headerlink" title="Memorylessness of exponential random variables"></a>Memorylessness of exponential random variables</h3><p>The lifetime of a light bulb $ T $ is an exponential random variable whose parameter is $ \ lambda $. Ariadne left the room after turning on the light, and after staying outside for a period of time (the length of time was $ t $), when he returned to the room, the light was still on. This is equivalent to the occurrence of the event $ A = \ {T&gt; t } $. Let $ X $ be the remaining life of the bulb. What is the distribution function of $ X $?</p>
-<p>answer:</p>
-<p>Actually $ X $ is the lifetime under the condition where $ A $ occurs, and we get:<br>$$<br>\ begin {eqnarray}<br>P (X&gt; x | A) &amp; = &amp; P (T&gt; t + x | T&gt; t) \<br>&amp; = &amp; \ frac {P (T&gt; t + x, T&gt; t)} {P (T&gt; t)} \<br>&amp; = &amp; \ frac {P (T&gt; t + x)} {P (T&gt; t)} \<br>&amp; = &amp; \ frac {e ^ {-\ lambda (t + x)}} {e ^ {-\ lambda t}} \<br>&amp; = &amp; e ^ {-\ lambda x}<br>\ end {eqnarray}<br>$$<br>The distribution function of the remaining life of the lamp $ X $ is an exponential distribution, and its parameter is also $ \ lambda $, which has nothing to do with how many hours the lamp has been on. This property of exponential distribution is ** memory-free distribution *<em>. *</em> In general, if the distribution of the time required to complete a certain task is located in an exponential distribution. So as long as this task is not completed, the distribution of the remaining time required to complete this task is still exponential, and its parameters are also unchanged **.</p>
-<h4 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h4><p>A careless professor mistakenly arranged the question answering time of the two students in the same time period. It is known that the length of time for the two students to answer questions is two independent and identically distributed random variables. The distribution is an exponential distribution. The expected value is $ 30 $ minutes. The first student arrives on time. After 5 minutes, the second student also arrives. . What is the expected time from the arrival of the first student until the second student leaves?</p>
-<p>answer:</p>
-<p>Use $ T_ {total} $ to indicate the total time for the professor to answer the question, and use $ T_ {s_1}, T_ {s_2} $ to indicate the time that the professor will answer the questions of student $ 1 $ and student $ 2 $, then<br>$$<br>E [T_ {total}] = P (T_ {s_1} &lt;5) \ cdot E [5 + E [T_ {s_2}]] + P (T_ {s_1} \ ge 5) (E [T_ {s_1} | T_ {s_1} \ ge5] + E [T_ {s_2}])<br>$$<br>According to the title: $ E [T_ {s_1}] = E [T_ {s_2}] = 30 $, using the memorylessness of exponential random variables: $ E [T_ {s_1} | T_ {s_1} \ ge5] = 5 + E [T_ {s_1}] = 35 $.<br>$$<br>P (T_ {s_1} \ ge 5) = e ^ {-\ frac {1} {30} \ cdot5} \<br>P (T_ {s_1} &lt;5) = 1-P (T_ {s_1} \ ge 5) = 1-e ^ {-\ frac {1} {30} \ cdot5} \<br>$$<br>therefore:<br>$$<br>E [T_ {total}] = (1-e ^ {-\ frac {1} {30} \ cdot5}) \ cdot (5 + 30) + (e ^ {-\ frac {1} {30} \ cdot5 }) \ cdot (35 + 30) = 35 + 30 \ cdot e ^ {-\ frac {5} {30}} = 60.394<br>$$</p>
+          <p>** Description **: The full text is taken from [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>)
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/08/25/exponential_random_variables/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/25/mean_and_variance_of_sample_and_estimating_probability_by_simulation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/08/25/mean_and_variance_of_sample_and_estimating_probability_by_simulation/" class="post-title-link" itemprop="url">Classic Excerpts-Expected Variance of Sample Means and Simulation Methods to Estimate Probability</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-08-25 20:16:00" itemprop="dateCreated datePublished" datetime="2017-08-25T20:16:00+05:30">2017-08-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-09 17:31:27" itemprop="dateModified" datetime="2020-04-09T17:31:27+05:30">2020-04-09</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Expected-variance-of-sample-mean"><a href="#Expected-variance-of-sample-mean" class="headerlink" title="Expected variance of sample mean"></a>Expected variance of sample mean</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/08/25/mean_and_variance_of_sample_and_estimating_probability_by_simulation/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -428,7 +413,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:35" itemprop="dateModified" datetime="2020-04-09T16:34:35+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:23:11" itemprop="dateModified" datetime="2020-04-09T17:23:11+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -457,33 +442,14 @@
 
       
           <p>This article is extracted from: [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) Example 2.18. The Two-Envelopes Paradox.  </p>
-<p>This is a widely-interested intelligence test question, which involves mathematical points about conditional expectations.</p>
-<p>The host gives you two envelopes and tells you that there is cash in the two envelopes. The money in one envelope is $ m $ times the other envelope ($ m&gt; 1 $ and an integer). When you open an envelope and see the amount of money in the envelope, you have two options. One is to accept the money in this envelope as your bonus, and the other is to give up the money in this envelope and choose another envelope. Your money as your bonus. So what good strategy can make you get more bonuses?</p>
-<p>There is a reasoning below, which proves that we should turn to choose the second envelope. Let A denote the envelope you opened, B be the envelope you might change, and $ x $ and $ y $ denote the money in envelopes A and B, respectively. The argument is as follows: since either $ y = {x \ over m} $ or $ y = mx $, and the probability of both occurrences is $ {1 \ over 2} $, the The expected value is:</p>
-<p>$$ \ frac {1} {2} \ cdot \ frac {x} {m} + \ frac {1} {2} \ cdot mx = \ frac {1} {2} (\ frac {1} {m} + m) x = \ frac {1 + m ^ 2} {2m} x&gt; x $$</p>
-<p>In this way, you should always turn to envelope B. When you randomly choose B, for the same reason, you get back to A. This is in a contradiction, because according to this reasoning, no matter which envelope is selected, another envelope must be selected as a bonus.</p>
-<p>In fact, in this paradox, two assumptions are flawed:</p>
-<ol>
-<li>For the money in the two envelopes, you cannot know in advance. When the value of $ x $ is given, what you think you know is $ y = \ frac {x} {m} $ or $ y = mx $ . And there is no reason which situation is more likely.</li>
-<li>Use the random variables $ X $ and $ Y $ to represent the money in the two envelopes. If $ E [Y | X = x]&gt; x, x \ in \ forall $ is established, then always switch to another envelope. Get more expected bonuses.</li>
-</ol>
-<p>Let us examine these two assumptions carefully:</p>
-<p>Hypothesis 1 is flawed because it relies on an incomplete certain probability model. In fact, the events of various models, including the possible values ​​of $ X $ and $ Y $, must have a certain probability. With such probability information of $ X $ $ Y $, the value of $ X $ may reveal a lot of information about the value of $ Y $. For example, suppose the following probabilistic model: a person chooses $ Z $ yuan to be placed in an envelope, the value range of $ Z $ is an integer of $ [\ underline {z}, \ overline {z}] $, and obey Probability distribution, and $ mZ $ is deposited in another envelope. Then, you randomly select an envelope from the two envelopes with equal probability, and look at the value of the amount of money inside $ X $. When the value of $ X $ is greater than the upper limit of $ Z $$ \ overline {z} $, you can be sure that the amount of money in the envelope you get is relatively large, so you do not have to change the envelope. If the amount of money you get is equal to the value of $ \ underline {z} $, then you can be sure that the money in another envelope is more than $ \ underline {z} $, so you must change the envelope. Generally speaking, if you know the range of X and the possibility of the value of X, you can judge whether the amount of money X in envelope A is relatively small or relatively large, and then make a choice accordingly.</p>
-<p>Mathematically, using an accurate probability model, we can certainly find the joint probability function of $ X $ and $ Y $. The joint probability score of $ X $ and $ Y $ can be determined by the distribution law of the smallest of the money in the two envelopes, $ Z $, as $ P_Z $, then for all $ z $, $ p_ {X, Y} (mz, z ) = p_ {X, Y} (z, mz) = \ frac {1} {2} p_Z (z) $, for $ that does not have the form of $ (mz, z) $ or $ (z, mz) $ (x, y) $, $ p_ {X, Y} (x, y) = 0 $. When $ p_ {X, Y} (x, y) $ is given, we can use this rule for changing envelopes: the necessary and sufficient condition for changing envelopes is $ E [Y | X = x]&gt; x $, according to this rule You can determine whether to change the envelope or not.</p>
-<p>The question now is: Can the envelope be converted according to certain values ​​of x according to the appeal model and conversion rules, while other values ​​cannot be changed? In general, it is possible. For example, if the value range of the $ Z $ out earlier is a bounded set, such a conversion rule can be implemented. However, the following quirky example makes you always change envelopes:</p>
-<p>Toss an even coin until the front appears. Let $ N $ be the number of coin flips. At this point, you put $ m ^ N $ into one envelope, and put $ m ^ {N-1} $ into another envelope. Let $ X $ be the amount of money in the envelope (envelope A) you opened, and $ Y $ be the amount of money in an envelope (envelope B). Now suppose there is only one dollar in A, and obviously B contains $ m $. You should change the envelope. When A contains $ m ^ n $, B contains either $ m ^ {n-1} $ or $ m ^ {n + 1} $. Since $ N $ has a geometric distribution column, we have:</p>
-<p>$$ \ frac {P (Y = m ^ {m + 1} | X = m ^ n)} {P (Y = m ^ {m-1} | X = m ^ n)} = \ frac {P ( Y = m ^ {m + 1}, X = m ^ n)} {P (Y = m ^ {m-1}, X = m ^ n)} = \ frac {P (N = n + 1)} {P (N = n)} = \ frac {1} {2} $$</p>
-<p>This way we have:</p>
-<p>$$ P (Y = m ^ {m-1} | X = m ^ n) = \ frac {2} {3}, P (Y = m ^ {m + 1} | X = m ^ n) = \ frac {1} {3} $$</p>
-<p>$$ E \ {Number of money in envelope B | x = m ^ n } = \ frac {2} {3} m ^ {n-1} + \ frac {1} {3} m ^ {n + 1 } = \ frac {2 + m ^ 2} {3m} \ cdot m ^ n $$</p>
-<p>The necessary and sufficient condition of $ \ frac {2 + m ^ 2} {3m}&gt; 1 $ is $ m ^ 2-3m + 2&gt; 0 $ or $ (m-1) (m-2)&gt; 0 $. If $ m&gt; 2 $, then:</p>
-<p>$$ E [Number of money in envelope B | X = m ^ n]&gt; m ^ n $$</p>
-<p>In this way, in order to get the maximum expected bonus, you should turn to the envelope $ B $. In this example, due to the value of $ x $ for all,</p>
-<p>$$ E [Y | X = x]&gt; x $$</p>
-<p>You choose B. Intuitively, using the total expectation theorem, there should be a conclusion $ E [Y]&gt; E [X] $. However, since $ X $ and $ Y $ have the same probability function (PMFs, probability mass function (PMF)), the conclusion $ E [Y]&gt; E [X] $ cannot be established. In fact, we have:</p>
-<p>$$ E [Y] = E [X] = \ infty $$</p>
-<p>This conclusion does not contradict $ E [Y | X = x]&gt; x, \ forall x $. When $ E [Y] = E [X] = \ infty $, using the relationship $ E [Y | X = x]&gt; x $ and converting the envelope does not improve the average bonus. Thereby solving the paradox problem.</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/08/24/the_two-envelopes_paradox/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -533,7 +499,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:40" itemprop="dateModified" datetime="2020-04-09T16:34:40+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:31:22" itemprop="dateModified" datetime="2020-04-09T17:31:22+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -562,27 +528,14 @@
 
       
           <p>This article is excerpted from [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) Example 2.17 mean_and_variance_of_the_geometric</p>
-<p>You write a piece of computer software again and again, and every time you write it there is a probability of success $ p $. Assume that each success is independent of previous historical records. Let $ X $ be the number of times you wrote until you succeeded (the last time you succeeded!) What are the expectations and variance of $ X $?</p>
-<p>Since $ X $ is a geometric random variable, then we regard $ X $ as a geometric random variable, and the probability mass function is:</p>
-<p>$$ p_X (k) = (1-p) ^ {k-1} p, k = 1, 2, …. $$</p>
-<p>Then the variance and mean of $ X $ are:</p>
-<p>$$ E [X] = \ sum \ limits_ {k = 1} ^ {\ infty} k (1-p) ^ {k-1} p, var (X) = \ sum \ limits_ {k = 1} ^ {\ infty} (kE [X]) ^ 2 (1-p) ^ {k-1} p $$</p>
-<p>But measuring these infinity and a little trouble. We use the full expectation theorem to calculate. Remember $ A_1 = \ {X = 1 } = \ {\ text {first try is a success} }, A_2 = \ {X&gt; 1 } = \ {\ text {first try is a failure} } $ . If it succeeds the first time, you get $ X = 1 $, and</p>
-<p>$$ E [X | X = 1] = \ sum \ limits _ {} ^ {} xp_ {X | X = 1} = 1p_ {1 | X = 1} = 1 $$</p>
-<p>If the first attempt fails (X&gt; 1), we will waste one attempt, we start again, because under the condition of the first failure, then the average value of the number of attempts $ X $ must be greater than 1, the remaining attempts The expectation is $ E [X] $.</p>
-<p>$$ E [X | X&gt; 1] = E [X + 1] = 1 + E [X] $$</p>
-<p>Therefore, by the expectation theorem:</p>
-<p>$$<br>\ begin {eqnarray}<br>E [X] &amp; = &amp; P [X = 1] E [X | X = 1] + P (X&gt; 1) E [X | X&gt; 1] \<br>&amp; = &amp; p + (1-p) (1 + E [X])<br>\ end {eqnarray}<br>$$<br>So you can get:</p>
-<p>$$ E [X] = \ frac {1} {p} $$</p>
-<p>Similar reasoning, we also get</p>
-<p>$$ E [X ^ 2 | X = 1] = 1, \ quad E [X ^ 2 | X&gt; 1] = E [(1 + X) ^ 2] = 1 + 2E [X] + E [X ^ 2] $$</p>
-<p>therefore,</p>
-<p>$$ E [X ^ 2] = p + (1-p) (1 + 2E [X] + E [X ^ 2]) $$</p>
-<p>Combined with $ E [X] = \ frac {1} {p} $, you get:</p>
-<p>$$ E [X ^ 2] = \ frac {2} {p ^ 2}-\ frac {1} {p} $$</p>
-<p>to sum up:</p>
-<p>$$ var (X) = E [X ^ 2]-(E [X]) ^ 2 = \ frac {2} {p ^ 2}-\ frac {1} {p}-\ frac {1} {p ^ 2} = \ frac {1-p} {p ^ 2} $$</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/08/23/mean_and_variance_of_the_geometric/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -668,7 +621,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -729,7 +682,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

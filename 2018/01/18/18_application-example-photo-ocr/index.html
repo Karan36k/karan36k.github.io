@@ -32,12 +32,12 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":20,"offset":15,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="01_photo-ocr01_problem-description-and-pipelineIn this and the next few videos, I want to tell you about a machine learning application example, or a machine learning application history centered arou">
+  <meta name="description" content="01_photo-ocr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="18_application-example-photo-ocr note18">
 <meta property="og:url" content="https://snakecoding.com/2018/01/18/18_application-example-photo-ocr/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="01_photo-ocr01_problem-description-and-pipelineIn this and the next few videos, I want to tell you about a machine learning application example, or a machine learning application history centered arou">
+<meta property="og:description" content="01_photo-ocr">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/1.png">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/2.png">
@@ -78,7 +78,7 @@
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/38.png">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/39.png">
 <meta property="article:published_time" content="2018-01-17T18:30:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T09:27:14.765Z">
+<meta property="article:modified_time" content="2020-04-09T12:04:45.033Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
@@ -187,7 +187,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -283,7 +283,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 14:57:14" itemprop="dateModified" datetime="2020-04-09T14:57:14+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:34:45" itemprop="dateModified" datetime="2020-04-09T17:34:45+05:30">2020-04-09</time>
               </span>
 
           
@@ -318,7 +318,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="01-photo-ocr"><a href="#01-photo-ocr" class="headerlink" title="01_photo-ocr"></a>01_photo-ocr</h2><h3 id="01-problem-description-and-pipeline"><a href="#01-problem-description-and-pipeline" class="headerlink" title="01_problem-description-and-pipeline"></a>01_problem-description-and-pipeline</h3><p>In this and the next few videos, I want to tell you about a machine learning application example, or a machine learning application history centered around an application called <strong>Photo OCR</strong> . There are three reasons why I want to do this, first I wanted to show you an example of how a complex machine learning system can be put together. Second, once told the concepts of a machine learning a type line and how to allocate resources when you’re trying to decide what to do next. And this can either be in the context of you working by yourself on the big application Or it can be the context of a team of developers trying to build a complex application together. And then finally, the Photo OCR problem also gives me an excuse to tell you about just a couple more interesting ideas for machine learning. One is some ideas of how to apply machine learning to computer vision problems, and second is the idea of artificial data synthesis, which we’ll see in a couple of videos. So, let’s start by talking about what is the Photo OCR problem. </p>
+        <h2 id="01-photo-ocr"><a href="#01-photo-ocr" class="headerlink" title="01_photo-ocr"></a>01_photo-ocr</h2><a id="more"></a> 
+<h3 id="01-problem-description-and-pipeline"><a href="#01-problem-description-and-pipeline" class="headerlink" title="01_problem-description-and-pipeline"></a>01_problem-description-and-pipeline</h3><p>In this and the next few videos, I want to tell you about a machine learning application example, or a machine learning application history centered around an application called <strong>Photo OCR</strong> . There are three reasons why I want to do this, first I wanted to show you an example of how a complex machine learning system can be put together. Second, once told the concepts of a machine learning a type line and how to allocate resources when you’re trying to decide what to do next. And this can either be in the context of you working by yourself on the big application Or it can be the context of a team of developers trying to build a complex application together. And then finally, the Photo OCR problem also gives me an excuse to tell you about just a couple more interesting ideas for machine learning. One is some ideas of how to apply machine learning to computer vision problems, and second is the idea of artificial data synthesis, which we’ll see in a couple of videos. So, let’s start by talking about what is the Photo OCR problem. </p>
 <p>Photo OCR stands for Photo Optical Character Recognition. With the growth of digital photography and more recently the growth of camera in our cell phones we now have tons of visual pictures that we take all over the place. And one of the things that has interested many developers is how to get our computers to understand the content of these pictures a little bit better. The photo OCR problem focuses on how to get computers to read the text to the purest in images that we take. Given an image like this it might be nice if a computer can read the text in this image so that if you’re trying to look for this picture again you type in the words, lulu bees and and have it automatically pull up this picture, so that you’re not spending lots of time digging through your photo collection Maybe hundreds of thousands of pictures in. </p>
 <p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/1.png" alt="Photo OCR"></p>
 <p><strong>The Photo OCR problem does exactly this, and it does so in several steps.</strong>  <strong>First,</strong> given the picture it has to look through the image and detect where there is text in the picture. And after it has done that or if it successfully does that it then has to look at these text regions and actually read the text in those regions, and hopefully if it reads it correctly, it’ll come up with these transcriptions of what is the text that appears in the image. Whereas OCR, or optical character recognition of scanned documents is relatively easier problem, doing OCR from photographs today is still a very difficult machine learning problem, and you can do this. Not only can this help our computers to understand the content of our though images better, there are also applications like helping blind people, for example, if you could provide to a blind person a camera that can look at what’s in front of them, and just tell them the words that my be on the street sign in front of them. With car navigation systems. For example, imagine if your car could read the street signs and help you navigate to your destination. In order to perform photo OCR, here’s what we can do. First we can go through the image and find the regions where there’s text and image. So, shown here is one example of text and image that the photo OCR system may find. </p>
@@ -482,7 +483,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -543,7 +544,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -210,475 +210,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/01/05_octave-matlab-tutorial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Karan">
-      <meta itemprop="description" content="Refuse to Fall">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Machine Learning">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/01/01/05_octave-matlab-tutorial/" class="post-title-link" itemprop="url">05_octave-matlab-tutorial note5</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-01T00:00:00+05:30">2018-01-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:07:40" itemprop="dateModified" datetime="2020-04-09T16:07:40+05:30">2020-04-09</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>52k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>47 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="5-1-Basic-operation"><a href="#5-1-Basic-operation" class="headerlink" title="5.1 Basic operation"></a>5.1 Basic operation</h2><p>In this video, I will teach you a programming language: Octave. You can use it to implement very quickly the machine learning algorithms we have already learned or will learn in this course.</p>
-<p>I have been trying to teach machine learning in different programming languages ​​in the past, including C ++, Java, Python, Numpy, and Octave. I find that when using advanced languages ​​like Octave, students can learn and master these algorithms faster and better. In fact, in Silicon Valley, I often see people working on large-scale machine learning projects using Octave.</p>
-<p>Octave is a very good prototyping language. With Octave you can quickly implement your algorithm. For the rest, you only need to configure large-scale resources. You only need to spend time using C ++ or Java These languages ​​just reimplement the algorithm. Time spent developing projects is precious, as is machine learning time. So, if you can quickly implement your learning algorithm on Octave, after the basic idea is implemented, you can rewrite it in C ++ or Java, so you can save a lot of time.</p>
-<p>As far as I can see, the most used primitive languages ​​for machine learning are Octave, MATLAB, Python, NumPy and R.</p>
-<p>Octave is good because it is open source. Of course MATLAB is also very good, but not everyone can afford it. It seems that domestic students like to use matlab for a fee. Matlab functions are much more powerful than Octave. There are various D versions on the Internet that can be downloaded. Matlab is also used for the homework of this machine learning class. If you can use MATLAB, you can also use it in this course.</p>
-<p>If you know Python, NumPy, or R, I have also seen people use R. As far as I know, these people have to give up halfway, because these languages ​​are slower in development, and because of these languages: Python, NumPy’s syntax is a bit more troublesome than Octave. Because of this, I strongly suggest not to use NumPy or R to complete the homework of this course. I recommend using Octave to write programs in this course.</p>
-<p>This video will quickly introduce a series of commands, the goal is to quickly show, through this series of Octave commands, let you know what Octave can be used for.</p>
-<p>Start Octave:</p>
-<p>Now open Octave, this is the Octave command line.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / e2c2dcc31f19ac255566fa616799d496.png)</p>
-<p>Now let me demonstrate the most basic Octave code:</p>
-<p>Enter 5 + 6, and get 11. Enter 3 – 2, 5 × 8, 1/2, 2 ^ 6, etc. to get the corresponding answer.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 6dcdf4a7c0d56787648d4a1902034150.png)</p>
-<p>These are basic mathematical operations.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / f8507899953ed2de68e6b2b83554f9ea.png)</p>
-<p>You can also do logical operations, for example, 1 == 2, the calculation result is false (false), here the percent sign command indicates a comment, 1 == 2 The calculation result is false, here with 0.</p>
-<p>Please note that ** not equal to symbol ** is written with this wavy line plus the equal sign (~ =), not equal to the exclamation point plus equal sign (! =), Which is not quite the same as in some other programming languages .</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 126b2a5c4b5bfb24e5c21cd080159530.png)</p>
-<p>Let’s look at the logical operation 1 &amp;&amp; 0, using the double &amp; symbol to indicate logical AND, 1 &amp;&amp; 0 is judged to be false, and the OR operation of 1 and 0 1 || 0, the calculation result is true.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / fec0936e2a78c0fe8c9e3ed107614a31.png)</p>
-<p>There are also XOR operations such as ** XOR (1, 0) **, whose return value is 1</p>
-<p>From left to right, the Octave 324.x version is written. It is the default Octave prompt. It displays the current Octave version and other related information.</p>
-<p>If you do n’t want to see that prompt, here is a hidden command</p>
-<p>input the command</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 8d63fe546c12a7e9eb658118d76288f7.png)</p>
-<p>The command prompt has now become simplified.</p>
-<p>Next, we will talk about Octave variables.</p>
-<p>Now write a variable, assign a value of 3 to variable A, and press the Enter key to show that variable A is equal to 3.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / a537df35ccc9ff83a3c7518362e2f729.png)</p>
-<h3 id="Print-variables"><a href="#Print-variables" class="headerlink" title="Print variables"></a>Print variables</h3><p>If you want to assign a variable, but do not want to display the result on the screen, you can add a semicolon after the command to suppress the printout **, and do not print anything after pressing Enter.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / c11786828c587189891a9ef02f041ab7.png)</p>
-<p>This command does not print anything.</p>
-<p>Now give an example of a string: the variable b is equal to “hi”.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 4b67374499c0d38ed8670ba74ff892d0.png)</p>
-<p>C equals 3 is greater than or equal to 1, so now the value of the C variable is true.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / acedf91b6b39d551e62a89f2e0955628.png)</p>
-<p>If you want to print out a variable, or display a variable, you can do as follows:</p>
-<p>Set A equal to pi, if I want to print the value, then just type A like this and it will print.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 2cdc09b8bf67e546df7284ba74601c66.png)</p>
-<p>For more complex screen output, you can also use the DISP command to display:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / dfcd1d37526824726d85a655f8951249.png)</p>
-<p>This is an old-style C language grammar. For students who have previously learned C language, you can use this basic grammar to print the results to the screen.</p>
-<p>For example ** sixf of the sprintf command **: 0.6% f, a, this should print 6 decimal places of π.</p>
-<p>There are also some shortcut commands to control the output format:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / ba8f0c3d2d8f017e0f7a611aa5be75d6.png)</p>
-<p>Next, let’s take a look at vectors and matrices:</p>
-<p>Let’s say build a matrix A</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 693ebb444501838dd9b69520fff54be0.png)</p>
-<p>Assign value to A matrix</p>
-<p>Considering that this is a matrix with three rows and two columns</p>
-<p>You can also use vectors</p>
-<p>Create a vector V and assign 1 2 3, V is a row vector, or a 3 (column) × 1 (row)<br>Vector, or a matrix with three rows and one column.</p>
-<p>If I want to assign a column vector, I can write “1; 2; 3”, and now I have a 3 row 1 column<br>Vector, and this is a column vector.</p>
-<h3 id="Construct-matrix-by-increment-or-step"><a href="#Construct-matrix-by-increment-or-step" class="headerlink" title="Construct matrix by increment or step"></a>Construct matrix by increment or step</h3><p>Here are some more useful symbols, such as:</p>
-<p><code>`octave
-V = 1: 0.1: 2</code> `</p>
-<p>How to understand this: this set V is a set of values, starting from the value 1, the ** increment ** or ** step size ** is 0.1, until it increases to 2, operate on the vector V in this way , You can get a row vector, which is a matrix of 1 row and 11 columns, the elements of the matrix are 1<br>1.1 1.2 1.3, and so on, up to the value 2.</p>
-<p><code>`octave
-V = [1: 0.5: 2; 3: 0.5: 4]</code> `</p>
-<p>I can also create a set V and assign it with the command “1: 6”, so that V is assigned six integers from 1 to 6.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 1cdbd87db83a4184098cd6d5ee3c6a87.png)</p>
-<p>Here are some other ways to generate the matrix</p>
-<h3 id="ones-amp-zeros"><a href="#ones-amp-zeros" class="headerlink" title="ones &amp; zeros"></a>ones &amp; zeros</h3><p>For example, “<code>ones (2, 3)</code>“ can also be used to generate a matrix:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 5d2b25d4078a276091b9c00812674fa9.png)</p>
-<p>The elements are all 2, two rows and three columns of matrix, you can use this command:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 21985f8690965598d4a17e3a6e7fee94.png)</p>
-<p>You can think of this method as a quick way to generate a matrix.</p>
-<p>w is a zero matrix with one row and three columns, and all the elements in the A matrix with three columns and one row are all zero:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 846b48ec79c9fcee05b20767dcc89558.png)</p>
-<p>There are many ways to generate matrices.</p>
-<p>If I assign a value to W and use the Rand command to create a matrix with one row and three columns, because the Rand command is used, the elements in each row and three columns are random values, such as the “<code>rand (3,3)</code>“ command, which A 3 × 3 matrix is ​​generated, and all its elements are random.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 0de6e7054e869a82060cefa9968cd56b.png)</p>
-<p>The value is between 0 and 1, so, precisely because of this, we can get elements with values ​​between 0 and 1.</p>
-<p>If, you know what is a Gaussian random variable, or you know what is a normally distributed random variable, you can set the set W to be equal to an N matrix with one row and three columns, and, from three values, an average Gaussian distribution of 0, variance or standard deviation equal to 1.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 048f3cac1c32e3dc56160849c4dd60b0.png)</p>
-<h3 id="linspace-amp-logspace"><a href="#linspace-amp-logspace" class="headerlink" title="linspace &amp; logspace"></a>linspace &amp; logspace</h3><p><code>linspace (x1, x2, N)</code> creates a vector of N elements, evenly distributed between x1 and x2</p>
-<p><code>logspace (x1, x2, N)</code> creates a vector of N elements, exponentially distributed between the power of 10 x1 and the power of 10 x2</p>
-<h3 id="histogram-histogram"><a href="#histogram-histogram" class="headerlink" title="histogram histogram"></a>histogram histogram</h3><p>And use the hist command to draw a histogram.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 10c06cc39058da2c5eef696d75e65a2c.png)</p>
-<h3 id="identity-matrix"><a href="#identity-matrix" class="headerlink" title="identity matrix"></a>identity matrix</h3><p>Plot the identity matrix:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 08d11f870c5b30536f1965507fa7e7dc.png)</p>
-<h3 id="help"><a href="#help" class="headerlink" title="help"></a>help</h3><p>If you are unclear about the command, it is recommended to use the help command:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 79b55d71cf434126f3d8457a3a615d18.png)</p>
-<p>The content explained above is the basic operation of Octave. I hope that you can practice some operations such as matrix, multiplication, and addition through the above explanation, and use these operations in Octave.</p>
-<p>In the next video, more complex commands will be involved, and use them to perform more operations on the data in Octave.</p>
-<h2 id="5-2-Mobile-data"><a href="#5-2-Mobile-data" class="headerlink" title="5.2 Mobile data"></a>5.2 Mobile data</h2><p>In this tutorial video about Octave, I will start to introduce how to move data in Octave.</p>
-<p>If you have a machine learning problem, how do you load data into Octave?</p>
-<p>How to store data in a matrix?</p>
-<p>How to multiply the matrix?</p>
-<p>How to save the calculation result?</p>
-<p>How to move these data and operate with the data?</p>
-<p>Enter my Octave window,</p>
-<p>I typed A to get the matrix A we built earlier, which was generated with this command:</p>
-<h3 id="size"><a href="#size" class="headerlink" title="size"></a>size</h3><p><code>A = [1 2; 3 4; 5 6]</code></p>
-<p>This is a matrix with 3 rows and 2 columns. The size () command in Octave returns the size of the matrix.</p>
-<p>So the <code>size (A)</code> command returns 3 2</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 0f1fe8638058e229f1fc6c5b9cd4520c.png)</p>
-<p>In fact, the size () command returns a 1 × 2 matrix, which we can store with sz.</p>
-<p>Set sz = size (A)</p>
-<p>So sz is a 1 × 2 matrix, the first element is 3, and the second element is 2.</p>
-<p>So if you type <code>size (sz)</code> to see the size of sz, what is returned is 1 2 which means it is a 1 × 2 matrix, and 1 and 2 respectively indicate the dimension of the matrix sz.</p>
-<p>You can also type <code>size (A, 1)</code>, which will return 3. This command will return the first element of the A matrix, the size of the first dimension of the A matrix, which is the number of rows in the A matrix.</p>
-<p>Similarly, the command <code>size (A, 2)</code> will return 2, which is the number of columns in the A matrix.</p>
-<h3 id="length"><a href="#length" class="headerlink" title="length"></a>length</h3><p>If you have a vector v, if <code>v = [1 2 3 4]</code>, and then type <code>length (v)</code>, this command will return the size of the largest dimension, returning 4.</p>
-<p>You can also type length (A). Since matrix A is a 3 × 2 matrix, the largest dimension should be 3, so this command will return 3.</p>
-<p>But usually we still use the length command for vectors, rather than the length command for matrices, such as<br><code>length ([1; 2; 3; 4; 5])</code>, returns 5.</p>
-<h3 id="Load-data-and-find-data"><a href="#Load-data-and-find-data" class="headerlink" title="Load data and find data"></a>Load data and find data</h3><p>How to load data and find data in the system:</p>
-<p>When we open Octave, we are usually in a default path. This path is where Octave is installed. The pwd command can show the current path of Octave.</p>
-<p><code>cd</code><br>Command, meaning to change the path, I can change the path to C: \ Users \ ang \ Desktop, so that the current directory becomes the desktop.</p>
-<p>If you type ls, ls comes from a Unix or Linux command, ls<br>The command will list all the paths on my desktop.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 0de527966203108b7efa1b6730bd966c.png)</p>
-<p>In fact, I have two files on my desktop: featuresX.dat and priceY.dat, which are two machine learning problems I want to solve.</p>
-<p>As shown in this window, the <code>featuresX</code> file is a file with two columns of data, which is actually my house price data. There are 47 rows in the data set. The first house sample has an area of ​​2104 square feet and has 3 bedrooms The second house has an area of ​​1600, 3 bedrooms and so on.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / e4080d69119a0e408581c81a66e133c8.png)</p>
-<p>The priceY file is the price data in the training set, so featuresX and priceY<br>It is two documents that store data, so how should the data be read into Octave? We just need to type <code>load featuresX.dat</code> so that I will load the featuresX file. Similarly I can load priceY.dat. In fact, there are many ways to complete it, if you write the command as a string<br><code>load (&#39;featureX.dat&#39;)</code> is also possible, which has the same effect as the previous command, except that the file name is written as a string, and the file name is now stored in a string. Quotes are used in Octave to denote strings.</p>
-<p>In addition, the <code>who</code> command can display all variables in my Octave workspace</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 7e85f313f721f53f3ae74664210a7a25.png)</p>
-<p>So I can type featuresX and press enter to display featuresX</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / e49f56ceddd34dce986ae1dbdc399762.png)</p>
-<p>These are the data inside.</p>
-<p>You can also type <code>size (featuresX)</code>, and the result is 47 2 which means that this is a 47 × 2 matrix.</p>
-<p>Similarly, enter <code>size (priceY)</code> and the result is 47<br>1, indicating that this is a 47-dimensional vector, a column matrix, and stores the values ​​of all prices Y in the training set.</p>
-<h3 id="who-and-whos"><a href="#who-and-whos" class="headerlink" title="who and whos"></a>who and whos</h3><p>The who function allows you to see all the variables in the current workspace, as well as another <code>whos</code> command, which can be viewed in more detail.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / e8207c74976c4443d1ea25ec2a3b8477.png)</p>
-<p>It also lists all my variables, not only that, but also the dimensions of the variables.</p>
-<p>double means double-precision floating-point type, which means that these numbers are real numbers and are floating-point numbers.</p>
-<h3 id="Delete-variable"><a href="#Delete-variable" class="headerlink" title="Delete variable"></a>Delete variable</h3><p>If you want to delete a variable, you can use the <code>clear</code> command, we type<code>clear featuresX</code>, and then enter the <code>whos</code> command, you will find that featuresX disappeared.</p>
-<p>In addition, how do we store data?</p>
-<p>We set the variable <code>v = priceY (1:10)</code></p>
-<p>This means that the first 10 elements of the vector Y are stored in v.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / a8c3b363f13820b4fc6463c7520ab58c.png)</p>
-<h3 id="save-data"><a href="#save-data" class="headerlink" title="save data"></a>save data</h3><p>If we want to save it to the hard disk, then use the <code>save hello.mat v</code> command, this command will save the variable v into a file called hello.mat, ** This command stores the data in binary form, or it is The more compressed binary form **, therefore, if v is very large data, then the compression is greater and the occupied space is smaller. If you want to save the data in a form that a person can understand, you can type:</p>
-<p><code>save hello.txt v -ascii</code></p>
-<p>** This will save the data as a text file or save the ascii code of the data as a text file. **</p>
-<p>After I typed this command, there was a hello.txt file on my desktop. If you open it, we can find that this text file stores our data.</p>
-<p>This is how to read and store data.</p>
-<p>Next, let’s talk about the method of operating data:</p>
-<p>If A is still the matrix</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / b39bf4e9212442464fe2f568dbe4fa0c.png)</p>
-<p> <code>A (3,2)</code> This will index into the (3,2) element of the A matrix.</p>
-<h3 id="Take-single-row-column-data"><a href="#Take-single-row-column-data" class="headerlink" title="Take single row / column data"></a>Take single row / column data</h3><p><code>A (2, :)</code> to return all elements of the second row, a colon indicates all elements of that row or column.</p>
-<p>Similarly, if I type <code>A (:, 2)</code>, this will return all the elements in the second column of the A matrix.</p>
-<p>You can also use these more complex indexes in operations. <code>A ([1 3], :)</code>, this command means to take the first element of the A matrix with an index value of 1 or 3, that is to say, I take the first and third rows of the A matrix. One column, the colon means to take each column element of these two rows, namely:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / d1d551d0c540449d457e312a34434355.png)</p>
-<p>Perhaps these more complex index operations you will often use.</p>
-<p>What else can we do? It is still the A matrix, and the <code>A (:, 2)</code> command returns the second column.</p>
-<p>You can also assign a value to it. I can take the second column of the A matrix, and then assign it to 10 11 12. I actually took the second column of A and then put a column vector [10; 11; 12] It is assigned to it, so now the first column of the A matrix is ​​still 1 3 5 and the second column is replaced with 10 11 12.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / f47bda45fd9beef6c600ebd48d163617.png)</p>
-<h3 id="Connection-matrix"><a href="#Connection-matrix" class="headerlink" title="Connection matrix"></a>Connection matrix</h3><h4 id="Column-append"><a href="#Column-append" class="headerlink" title="Column append"></a>Column append</h4><p><code>A = [A, [100, 101, 102]]</code>, the result of this is that a new column matrix is ​​added to the right of the original matrix, that is, the A matrix is ​​set to the original A matrix and a new one is attached to the right Added column matrix.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 2e1c68a99a23d993674f08151e77dd44.png)</p>
-<h4 id="Line-append"><a href="#Line-append" class="headerlink" title="Line append"></a>Line append</h4><p><code>A = [A; [0,0,0]]</code> </p>
-<h4 id="Splicing"><a href="#Splicing" class="headerlink" title="Splicing"></a>Splicing</h4><p>I still reset A to [1 2; 3 4; 5 6], I set another B to [11 12; 13 14; 15 16], I can create a new matrix C, C = [AB], this means That is, the two matrices are directly connected together, matrix A is on the left, and matrix B is on the right. This forms the C matrix, which is to directly combine A and B.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / e07db429512d4b3b5d641c52e606159d.png)</p>
-<p>I can also set <code>C = [A; B]</code>, where the semicolon means to put the things after the semicolon below. Therefore, the function of <code>[A; B]</code> is still to put the two matrices together, but now they are arranged up and down, so now A is on the top, B is on the bottom, and C is a 6 × 2 matrix.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 7f11aa788b1b75c5a534d030b3ebc624.png)</p>
-<p>Simply put, the semicolon means to change to the next line, so C includes the A above, then wraps to the bottom, and then put a B below.</p>
-<p>In addition, by the way, this <code>[AB]</code> command is the same as <code>[A, B]</code>, the result of these two writing methods is the same.</p>
-<h3 id="Matrix-to-vector"><a href="#Matrix-to-vector" class="headerlink" title="Matrix to vector"></a>Matrix to vector</h3><p>Finally, there is a little trick. If you enter <code>A (:)</code>, this is a very special grammatical structure, which means putting A<br>Put all the elements in a separate column vector, so we get a 9 × 1 vector, these elements are<br>The elements in A are arranged.</p>
-<p>Through the above operations, I hope you have mastered how to construct a matrix now, and hope that the commands I show will allow you to quickly learn how to put the matrix together, how to take out the matrix, and put them together to form a larger matrix.</p>
-<h2 id="5-3-Calculation-data"><a href="#5-3-Calculation-data" class="headerlink" title="5.3 Calculation data"></a>5.3 Calculation data</h2><p>Now, you have learned how to load or store data in Octave, how to store data in a matrix, and so on. In this video, I will introduce how to operate on data, and later we will use these operations to implement our learning algorithm.</p>
-<p>This is my Octave window, and I am now initializing some variables quickly. For example, set A to a 3 × 2 matrix, set B to a 3 × 2 matrix, and set C to a 2 × 2 matrix.</p>
-<h3 id="Matrix-multiplication"><a href="#Matrix-multiplication" class="headerlink" title="Matrix multiplication"></a>Matrix multiplication</h3><p>I want to calculate the product of two matrices, for example, A × C, I just type <code>A × C</code>, which is a 3 × 2 matrix multiplied by 2 × 2 matrix, to get such a 3 × 2 matrix.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 8ee5c7c05865e90f75feda99b9131319.png)</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 38c956acb3bedf4362f40e6c5e8a692f.png)</p>
-<h3 id="Element-based-operations"><a href="#Element-based-operations" class="headerlink" title="Element-based operations"></a>Element-based operations</h3><p>Generally speaking, dots in ** Octave are generally used to represent element bit operations **. You can also do a multiply operation on each element by doing the dot product operation <code>A. * B</code>, so do Octave to multiply each element in matrix A with the corresponding element in matrix B<code>A. * B</code></p>
-<p>Here, the first element 1 is multiplied by 11 to get 11, and the second element 2 is multiplied by 12 to get 24. This is the element bit operation of the two matrices.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 646de38bffd4f7f6601167d0c0686970.png)</p>
-<p>Here is a matrix A. Here I enter <code>A. ^ 2</code>, which will square each element in matrix A.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / d456e7501d7aaa9fa2ef8a89e89fa7e1.png)</p>
-<p>We set V to be a vector, and set V to [1; 2; 3] to be a column vector. You can also enter <code>1. / V</code> to get the reciprocal of each element, so in this way, 1 / V will be calculated separately 1 1/2 1/3.</p>
-<p>The matrix can also be operated in such a way that <code>1 ./ A</code> gets the reciprocal of each element in A.</p>
-<p>Similarly, the dots here indicate operations on each element.</p>
-<h4 id="Seeking-logarithm-operation"><a href="#Seeking-logarithm-operation" class="headerlink" title="Seeking logarithm operation"></a>Seeking logarithm operation</h4><p>We can also perform logarithmic operations, that is, perform logarithmic operations on each element.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 0c7c1d7726c09ffb45152cf153614003.png)</p>
-<h3 id="Power-operation"><a href="#Power-operation" class="headerlink" title="Power operation"></a>Power operation</h3><p>There is also the power operation of the natural number e, that is, the operation based on e and the power of these elements.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / a36506049248948c82e598c8c254dc31.png)</p>
-<h4 id="Absolute-value-operation"><a href="#Absolute-value-operation" class="headerlink" title="Absolute value operation"></a>Absolute value operation</h4><p>I can also use abs to find the absolute value of each element of v, of course, v is a positive number. We replaced it with another one to calculate the absolute value of each element, and the result is these non-negative elements.</p>
-<h4 id="Inverse-number-operation"><a href="#Inverse-number-operation" class="headerlink" title="Inverse number operation"></a>Inverse number operation</h4><p>There is also -v, which gives the opposite number of each element in V. This is equivalent to -1 times v. Generally, just use -v, which is actually equal to -1 * v.</p>
-<h3 id="Addition"><a href="#Addition" class="headerlink" title="Addition"></a>Addition</h3><p>We want to add 1 to each element in v, then we can do this, first construct a 1 vector of 3 rows and 1 column, and then add this 1 vector to the original vector, so the v vector is from [1 2 3 ] Increased to [2 3 4]. I used one, the <code>length (v)</code> command, so in this way, <code>ones (length (v), 1)</code> is equivalent to <code>ones (3,1)</code>, and then I do <code>v + ones (3,1)</code>, that is, add 1 to each element of v, so that each element of v is increased by 1.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 9432bbcbfde53c7e0dcb1c7317b01c0c.png)</p>
-<p>Another simpler method is to use <code>v + 1</code> directly.<code>V + 1</code> is equivalent to adding 1 to each element in v.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / e02eec3ca4688ff1cb9126c8eb13bfed.png)</p>
-<h3 id="Transpose"><a href="#Transpose" class="headerlink" title="Transpose"></a>Transpose</h3><p>Matrix A If you want to request its transpose, then the method is to use A ‘, which will result in the transpose matrix of A. Of course, if I write <code>(A &#39;)&#39;</code>, that is, A is transposed twice, then I get matrix A again.</p>
-<h3 id="Maximum"><a href="#Maximum" class="headerlink" title="Maximum"></a>Maximum</h3><p>There are also some useful functions, such as: <code>a = [1 15 2 0.5]</code>, which is a matrix with 1 row and 4 columns, and <code>val = max (a)</code>, which will return the maximum value 15 in the A matrix.</p>
-<p>I can also write <code>[val, ind] = max (a)</code>, which will return the maximum value in the a matrix to be stored in val, and the index corresponding to this value, the index value corresponding to element 15 is 2 stored in ind, so ind equals 2</p>
-<p>In particular, if you use the command <code>max (A)</code>, where A is a matrix, this is to find the maximum value for each column.</p>
-<p>We still use this example, this a matrix <code>a = [1 15 2 0.5]</code>, if you enter <code>a &lt;3</code>, this will perform element-by-element operation, so the element less than 3 returns 1; otherwise it returns 0.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / fc04d42876c9d7d7bed51bade2077649.png)</p>
-<p>Therefore, [1 1 0 1] is returned. That is to say, each element of the a matrix is ​​compared with 3, and then according to the size relationship between each element and 3, 1 and 0 are returned to indicate true and false.</p>
-<h3 id="Sort"><a href="#Sort" class="headerlink" title="Sort"></a>Sort</h3><p>** 1. ** ** Sort of data **</p>
-<p>In the MALTAB / octave language, the sort function is used to sort the data, and its use format is as follows. </p>
-<p>l The sort (X) command sorts X from small to large. When X is a vector, the X returned by the command is a vector sorted from small to large; when X is a matrix, the command returns the columns of the X matrix sorted from small to large.</p>
-<p>l sort (X, DIM) command sorts in the given dimension DIM.  </p>
-<p>l In the [Y, I] = sort (X) command, Y is the sorting result, and the element in I indicates the position of the corresponding element in Y in X. When X is a vector, then Y = X (I); when X is an m × n order matrix, the program segment “for j = 1: n, Y (:, j) = X (I (:, j), j); end “is established.</p>
-<p>\ &gt;&gt; X = [1 7 5; 6 4 2; 9 8 3] </p>
-<blockquote>
-<blockquote>
-<p>sort (X, 2)   </p>
-</blockquote>
-</blockquote>
-<p>ans = 1 5 7 </p>
-<p>2 4 6      </p>
-<p>3 8 9</p>
-<blockquote>
-<blockquote>
-<p>[Y, I] = sort (X) </p>
-</blockquote>
-</blockquote>
-<p>Y = 1 4 2  </p>
-<p>6 7 3     </p>
-<p> 9 8 5</p>
-<p> I = 1 2 2   </p>
-<p>   2 1 3      </p>
-<p>3 3 1</p>
-<p>** 2. ** Sort data by row</p>
-<p>In the MALTAB language, the sortrows function is used to sort the data by row, and its usage format is as follows. </p>
-<p>l The Y = sortrows (X) command sorts X from small to large in rows. When X is a matrix, the matrix Y is returned, and Y is the matrix generated by sorting the rows in the first column of X from small to large.</p>
-<p>l The sortrows (X, COL) command sorts the specified column COL from small to large. </p>
-<p>l [Y, I] = sortrows (X, COL) command, Y is the result of sorting, I means the element of column COL in Y is located in X. </p>
-<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>If I write <code>find (a &lt;3)</code>, this will tell me which elements in a are less than 3.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / ac9ad10f115d2d1cd15a0514c8ceeafa.png)</p>
-<p>If I enter <code>[r, c] = find (A&gt; = 7)</code>, this will find all the elements in the A matrix greater than or equal to 7, so r and c represent rows and columns respectively, which means that the first The elements in the first column of the row are greater than or equal to 7, the elements in the third row and second column are greater than or equal to 7, and the elements in the second row and third column are greater than or equal to 7.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 409a04487d1d7f039acfd61b3787f6aa.png)</p>
-<p>By the way, in fact, I never deliberately remember how this find function is used. I only need to use the help function. Whenever I am using this function and forget how to use it, I will You can use the help function and type <code>help find</code> to find the help documentation.</p>
-<h3 id="magic"><a href="#magic" class="headerlink" title="magic"></a>magic</h3><p>Set <code>A = magic (3)</code>, the magic function will return a matrix, called a magic square or magic squares (magic squares), they have the following mathematical properties: all of their rows and columns and diagonals add up Are equal to the same value.</p>
-<p>Of course, as far as I know, this is basically not used in machine learning, but I can use this method to easily generate a matrix with 3 rows and 3 columns, and this magic square matrix is ​​a magic square screen. The three numbers in each row, column, and diagonal add up to the same number.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / f8c7f4f36183ef4b36bce427be2fce6f.png)</p>
-<p>In other useful machine learning applications, this matrix is ​​of little use.</p>
-<h3 id="sum-ceil-floor"><a href="#sum-ceil-floor" class="headerlink" title="sum \ ceil \ floor"></a>sum \ ceil \ floor</h3><p>Finally, let’s talk about two things. One is the summation function, which is a matrix:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / d7221c981ecc7730465710a0d8b49b34.png)</p>
-<p>Type <code>sum (a)</code> to add all the elements in a.</p>
-<p>If I want to multiply them all, type <code>prod (a)</code>, prod means product (product), and it will return the product of these four elements.</p>
-<p><code>floor (a)</code> is rounded down, so for elements in a 0.5 will be rounded down to 0.</p>
-<p>There is also <code>ceil (a)</code>, which means rounding up, so 0.5 rounds up to the nearest integer, which is 1.</p>
-<p>Type <code>type (3)</code>, which usually results in a 3 × 3 matrix</p>
-<h3 id="Maximum-value-per-row-column"><a href="#Maximum-value-per-row-column" class="headerlink" title="Maximum value per row \ column"></a>Maximum value per row \ column</h3><p>If I enter <code>max (A, [], 1)</code>, this will get the maximum value of each column.</p>
-<p>Therefore, the maximum value of the first column is 8, the second column is 9, and the maximum value of the third column is 7, where 1 means taking the maximum value of the first dimension of the A matrix.</p>
-<p>In contrast, if I type <code>max (A, [], 2)</code>, this will get the maximum value of each line, so the maximum value of the first line is equal to 8, the maximum value of the second line is 7, the third line Is 9.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 31bc524d1a19b4e9d8ea0974517a512e.png)</p>
-<p>So you can use this method to find the maximum value of each row or each column. In addition, you should know that ** by default, <code>max (A)</code> returns the maximum value of each column *<em>, if you want To find *</em> the maximum value of the entire matrix A **, you can enter <code>max (max (A))</code>, or you can convert the A matrix into a vector and then type <code>max (A (:))</code>, like this To do this is to treat A as a vector and return the maximum value in the A vector.</p>
-<p>If you type <code>max (rand (3), rand (3))</code>, the result of doing so is to return two 3 × 3 random matrices, and ** compare element by element to get the maximum value **.</p>
-<p>Finally, let’s set A to a 9-row 9-column Rubik’s Cube. The characteristic of the Rubik’s Cube is that the sum of each row and each column and the diagonal are equal.</p>
-<h3 id="Column-row-and"><a href="#Column-row-and" class="headerlink" title="Column row and"></a>Column row and</h3><p>This is a 9 × 9 Rubik’s Cube, let’s find a <code>sum (A, 1)</code>, so that we get the sum of each column, which also verifies that a 9 × 9 Rubik’s Cube does add up to each column. Equal to 369.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 0b9753a3e10bbdce0f26c3d44d61ae26.png)</p>
-<p>Now let’s sum each line and type <code>sum (A, 2)</code>, so that the sum of each line in A adds up to 369.</p>
-<h3 id="Diagonal-elements-and"><a href="#Diagonal-elements-and" class="headerlink" title="Diagonal elements and"></a>Diagonal elements and</h3><p>Now let’s calculate the sum of the diagonal elements of A. We now construct a 9 × 9 identity matrix,</p>
-<p>Type <code>eye (9)</code> and then we need to multiply this unit matrix point by point with A, except for diagonal elements, all other elements will get 0.</p>
-<p>Type <code>sum (sum (A. * eye (9))</code> This is actually obtained, the sum of the diagonal elements of this matrix is ​​indeed 369.</p>
-<p>You can also find the sum of the other diagonal is 369: <code>sum (flipup (A) * eye (9))</code></p>
-<h3 id="Matrix-flip-up-down"><a href="#Matrix-flip-up-down" class="headerlink" title="Matrix flip up / down"></a>Matrix flip up / down</h3><p>flipup / flipud means flip up / down.</p>
-<p>Similarly, if you want to find the inverse of this matrix, type <code>pinv (A)</code>, usually called a pseudo-inverse matrix, and you will think of it as the matrix A inverse, so this is the inverse of the A matrix.</p>
-<p>Let <code>temp = pinv (A)</code>, and then multiply temp by A. This actually yields the identity matrix with a diagonal of 1 and other elements of 0.</p>
-<h2 id="5-4-Plotting-data"><a href="#5-4-Plotting-data" class="headerlink" title="5.4 Plotting data"></a>5.4 Plotting data</h2><p>When developing learning algorithms, there are often a few simple graphs that will allow you to better understand the content of the algorithm, and you can fully check whether the algorithm is operating normally and whether it achieves the purpose of the algorithm.</p>
-<p>For example, in the previous video, I talked about drawing the cost function $ J (θ) $, which can help confirm whether the gradient descent algorithm has converged. Usually, plotting the data or the output of the learning algorithm will also inspire you to improve your learning algorithm. Fortunately, Octave has very simple tools for generating a large number of different graphs. When I use learning algorithms, I find that drawing data, drawing learning algorithms, etc. are often an important part of getting ideas to improve the algorithm. In this video, I want to show you some Octave tools to draw and visualize your data.</p>
-<p>Let’s quickly generate some data for drawing.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 4514b422525aaac1e99add67e44882ee.png)</p>
-<p>If I want to plot the sine function, it is very easy, I just need to enter <code>plot (t, y1)</code>, and press Enter, this figure appears:</p>
-<p>! [(JN_G.png] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTU=">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5<i class="fa fa-external-link-alt"></i></span> % 99% A8% E5% AD% A6% E4% B9% A0 / ff08dcc5b9718aa9c744e13fcc4fd607.png)</p>
-<p>The horizontal axis is the t variable and the vertical axis is y1, which is the sine function we just output.</p>
-<p>-axis ([0.5 1 -1 1]) ** Change the coordinate axis range **, abscissa: [0.5, 1] ​​ordinate: [-1, 1]</p>
-<p>Let’s set y2</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 2d32a23ab895a8e765caf90a7679817e.png)</p>
-<p>Octave will eliminate the previous sine plot and replace it with this cosine plot, where the vertical axis cos (x) starts at 1,</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 38969cc85853190ff3eac4f06398bc1b.png)</p>
-<p>If I want to represent both sine and cosine curves. All I have to do is enter: <code>plot (t, y1)</code> to get the sine function. I use the function hold on. The function of the hold on function is to draw the new image on the old one ** Plot y2, enter: <code>plot (t, y2)</code>.</p>
-<p>I want to draw the cosine function in different colors, so I enter r with quotation marks to draw the cosine function, r indicates the color used: <code>plot (t, y2, &#39;r&#39;)</code>, plus the command <code>xlabel ( &#39;time&#39;)</code>to mark the X axis as the horizontal axis, and enter<code>ylabel (&#39;value&#39;)</code>to mark the value of the vertical axis.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 9eb4e496f34a801fd7ba5e85c4eec66b.png)</p>
-<p>At the same time, I can also ** mark the function curve, and use this command <code>legend (&#39;sin&#39;, &#39;cos&#39;)</code> ** to place this legend on the upper right to indicate what the two curves represent. Finally, enter <code>title (&#39;myplot&#39;)</code> to display the title of this ** picture ** at the top of the image.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 23594175efe66d5b9b1e687375a2dbda.png)</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / c765aeee9c53e0e77d01d1e73cabd9b4.png)</p>
-<p>If you want to ** save this image **, you enter <code>print –dpng &#39;myplot.png&#39;</code>, png is an image file format, if you do this, it will allow you to save as a file.</p>
-<p>Octave can also be saved in many other formats, you can type <code>help plot</code>.</p>
-<p>Finally, if you want to delete the image, use the command close to close the image.</p>
-<p>Octave can also let you type <code>figure (1); plot (t, y1);</code> for the image label. The first picture will be displayed with the variable t y1 drawn. Type <code>figure (2); plot (t, y2);</code> The first picture will be displayed with the variable t y2 drawn.</p>
-<h3 id="subplot"><a href="#subplot" class="headerlink" title="subplot"></a>subplot</h3><p>For the subplot command, we want to use <code>subplot (1,2,1)</code>, which divides the image into a 1 * 2 grid, which is the first two parameters, and then it uses the first grid, which is the last parameter 1. the meaning of.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / a786b8ed82ddd182f4595de2173cc84b.png)</p>
-<p>I am using the first grid now. If I type <code>plot (t, y1)</code>, now this graph is displayed in the first grid. If I type <code>subplot (1,2,2)</code>, then I will use the second grid and type <code>plot (t, y2)</code>; now y2 is displayed on the right, which is the second grid.</p>
-<p>The last command, you can change the scale of the axis, for example to [0.5 1 -1 1], enter the command: <code>axis ([0.5 1 -1 1])</code> is to set the x axis and y axis of the right figure range. Specifically, it adjusts the range of the horizontal axis in the right figure to 0.5 to 1, and the range of the vertical axis is -1 to 1.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / f13993f4784d01e7da769b4ec2545cd7.png)</p>
-<p>You don’t need to remember all these commands. If you need to change the coordinate axis, or need to know the axis command, you can use the help command in Octave to learn the details. Finally, there are several commands.</p>
-<p><code>Clf</code> (clear an image).</p>
-<p>Let’s set A equal to a 5 × 5 magic square matrix:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 82a990a5832ae2618d768551b90470dc.png)</p>
-<p>I sometimes use a clever method to visualize the matrix, that is, the imagesc (A) command. It will draw a 5 * 5 matrix and a 5 * 5 color grid. Different colors correspond to different values ​​in the A matrix.</p>
-<p>I can also use the function colorbar, which allows me to use a more complicated command imagesc (A), colorbar, colormap gray. This is actually running three commands at the same time: run <code>imagesc</code>, then run,<code>colorbar</code><br>Then run <code>colormap gray</code>.</p>
-<p>It generates a color image, a grayscale distribution map, and also adds a color bar on the right. So this color bar shows the values ​​corresponding to different shades of color.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 881986ec5af9d86b6b14b260fb3b3618.png)</p>
-<p>You can see in different squares, it corresponds to a different grayscale.</p>
-<p>Enter <code>imagesc (magic (15)), colorbar, colormap gray</code></p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 22a9a9536d4db17b6d64603fb54dce9e.png)</p>
-<p>This will be a picture of the 15 * 15 magic square matrix value.</p>
-<p>Finally, summarize this video. You see what I did was to connect the function calls using commas. If I type a = 1, b = 2, c = 3 and press Enter, in fact this is to execute these three commands at the same time, or execute the three commands one by one, it will output all three results.</p>
-<p>This is much like a = 1; b = 2; c = 3; if I use a semicolon instead of a comma, nothing is output.</p>
-<p>Here we call it ** comma-connected command or function call. **</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / c0e8b7a19ced9a1dd006ed87d6323c9b.png)</p>
-<p>Connecting with a comma is another more convenient way in Octave. Multiple commands such as imagesc colorbar colormap are written on the same line.</p>
-<p>Now you know how to draw different images in Octave. In the following video, I will show you how to write control statements in Octave, such as if<br>while for statement, and define and use functions.</p>
-<h2 id="5-5-Control-statements-for-while-if-statements"><a href="#5-5-Control-statements-for-while-if-statements" class="headerlink" title="5.5 Control statements: for, while, if statements"></a>5.5 Control statements: for, while, if statements</h2><p>In this video, I want to show you how to write control statements for your Octave program. Such as: “for” “while” “if” These statements, and how to define and use equations.</p>
-<p>Let me show you how to use “for” loops first. First, I want to set the v value to a zero vector of 10 rows and 1 column.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 26a912d550af9fd43a7ae62e3b610e97.png)</p>
-<p>Then I want to write a “for” loop to make i equal to 1 to 10, and write it as i = 1:10. I want to set the value of v (i) equal to the power of 2 to 2, and write “end” at the end of the loop. The value of vector v is such a set 2 as the first power, 2 as the second power, and so on. This is my sentence structure where i is equal to 1 to 10, let i traverse the value of 1 to 10.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 890f6ea8f857f22002f98c20d52b3bb8.png)</p>
-<p>In addition, you can do this by setting your indices to 1 through 10. At this moment<br>indices is a sequence from 1 to 10.</p>
-<p>You can also write <code>i = indices</code>, which is actually the same as when I directly write i to 1 to 10. You can write <code>disp (i)</code> and you will get the same result. So this is a “for” loop.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / fc956ae1291dc7d3b819e471d1962398.png)</p>
-<p>If you are familiar with “break” and “continue” statements, there are also “break” and “continue” statements in Octave. You can also use those loop statements in the Octave environment. But first let me tell you how a while loop works:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 1b37f81896a59145576ae996c9dd4d16.png)</p>
-<p>What does this mean: I let i start at 1, and then I want to make v (i) equal to 100, and then increment i by 1 until i is greater than 5 to stop.</p>
-<p>Looking at the results now, I have now taken the first five elements of the vector and overwritten them with 100. This is the syntax of a while loop. Now let’s analyze another example:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 279cfbda6b4d9a2ced1332f086db4d9e.png)</p>
-<p>Here I will show you how to use the break statement. Let’s say v (i) = 999, then let i = i + 1, break (stop the loop) when i equals 6, and end.</p>
-<p>Of course, this is the first time we have used an if statement, so I hope you can understand this logic, let i be equal to 1 and then start the following incremental loop, while the statement repeatedly sets v (i) equal to 999, keep increasing i, then When i reaches 6, make a command to abort the loop, and despite the while loop, the statement is aborted. So the final result is to take the first 5 elements of the vector v and set them to 999.</p>
-<p>So, this is the syntactic structure of if statements and while statements. And pay attention to the end, the first end in the above example ends with if<br>Statement, the second end is the while statement.</p>
-<p>Now let me tell you to use if-else statement:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 3fce4367c960bb6fbc492a3b8f9ddc5d.png)</p>
-<p>Finally, one thing to remind: if you need to exit Octave, you can type the <code>exit</code> command and press Enter to exit Octave, or the command<code>quit</code> can also be.</p>
-<h3 id="function"><a href="#function" class="headerlink" title="function"></a>function</h3><p>Finally, let’s talk about functions, how to define and call functions.</p>
-<p>I saved a predefined file named “squarethisnumber.m” on the desktop, which is the function defined in the Octave environment.</p>
-<p>Let’s open this file. Please note that I use Microsoft’s WordPad program to open this file. I just want to suggest that if you also use Microsoft’s Windows system, you can use the WordPad program instead of Notepad to open these files. If you have any other text editor, notepad can sometimes mess up the code. If you only have a notepad program, it will work. I suggest you use a wordpad or other text editor that can edit functions.</p>
-<p>Now let’s talk about how to define a function in Octave:</p>
-<p>This file has only three lines:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 247f96f4e7ab7a259ac9ef1eebe0b503.png)</p>
-<p>The first line reads <code>function y = squareThisNumber (x)</code>, which tells Octave that I want to return a y value, and I want to return a value, and the returned value will be stored in the variable y. In addition, it tells Octave that this function has one parameter, the parameter x, and the defined function body, that is, y is equal to the square of x.</p>
-<p>There is a more advanced feature, which is only for those who know the term “search path”. So if you want to modify<br>Octave’s search path, you can use the following part as an advanced knowledge, or study materials, only for those students who are familiar with the concept of search path in programming languages.</p>
-<p>You can use the addpath command to add a path, add the path “C: \ Users \ ang \ desktop” to add this directory to Octave’s search path, so that even if you run to another path, Octave still knows it will be in the Users \ ang \ desktop directory Find the function below. In this way, even if I am in a different directory, it still knows where to find the function “SquareThisNumber”.</p>
-<p>However, if you are not familiar with the concept of the search path, don’t worry, just make sure to use the <code>cd</code> command to set it to the directory where your function is located before executing the function, which is actually the same effect.</p>
-<p>Octave also has a concept that many other programming languages ​​do not have, that is, it ** allows you to define a function so that the return value is multiple values ​​or multiple parameters **. Here is an example, define a function called:</p>
-<p>“<code>SquareAndCubeThisNumber (x)</code>“ (square of x and cube of x)</p>
-<p>This means that the function returns two values: y1 and y2</p>
-<p>Next is that y1 is the result of being squared, and y2 is the result of being cubed, which means that the function will really return 2 values.</p>
-<p>Some students may use the programming language you use, such as C or C ++, which you may be familiar with. Usually, the return value as a function can only be one value, but Octave has a different syntax structure and can return multiple values. If I type <code>[a, b] = SquareAndCubeThisNumber (5)</code>, then a is equal to 25 and b is equal to 5 cube 125. So if you need to define a function and return multiple values, this often brings a lot of convenience.</p>
-<p>Finally, let me show you an example of a more complex function.</p>
-<p>For example, I have a data set, like this, the data points are [1,1], [2,2], [3,3], what I want to do is define an Octave function to calculate the cost function $ J ( θ) $ is to calculate the cost function value $ J $ corresponding to different $ θ $ values.</p>
-<p>First let’s put the data in Octave, I set my matrix to <code>X = [1 1; 1 2; 1 3];</code></p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 3c857152ef3f0d6b374e4863289d1c60.png)</p>
-<p>Please take a closer look at the definition of this function to make sure you understand every step of the definition.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / e01d6da07890e32d46d0616741a3fe64.png)</p>
-<p>Now when I run in Octave, I type $ J = costFunctionJJ (X, y, theta) $ and it calculates that $ j $ is equal to 0, because if my data set x is [1; 2; 3 ], Y is also [1; 2; 3] and then set $ θ_0 $ to be equal to 0 and $ θ_1 $ to be equal to 1, which gives me a slant of exactly 45 degrees, this line can fit my data set perfectly .</p>
-<p>On the contrary, if I set theta equal to [0; 0], then the assumption is that 0 is all the predicted values. As before, set $ θ_0 $ = 0, $ θ_1 $ is also equal to 0, then I calculate the cost function And the result is 2.333. In fact, he is equal to the square of 1, which is the square error of the first sample, plus the square of 2, plus the square of 3, and then divided by 2m, which is twice the number of training samples, which is 2.33.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 885b5d19c33f545292ccc1b69976c789.png)</p>
-<p>So this in turn validates our function here and calculates the correct cost function. These are the few experiments we tried with a simple training sample, which can also be used as an integrity check for our defined cost function J. It is indeed possible to calculate the correct cost function. At least based on X and y here are established. That is, our simple training sets are at least established.</p>
-<p>Now you know how to write correct control statements in the Octave environment, such as for loops, while loops, and if statements, and how to define and use functions. In the next Octave tutorial video, I will explain vectorization, which is an idea that can make your Octave program run very fast.</p>
-<h2 id="5-6-Vectorization"><a href="#5-6-Vectorization" class="headerlink" title="5.6 Vectorization"></a>5.6 Vectorization</h2><p>In this video, I will introduce the content of vectorization, whether you are using Octave or other languages, such as MATLAB or you are using Python, NumPy or Java C C ++, all of which have various linear algebra libraries These library files are built-in, easy to read and obtain. They are usually well written and highly optimized. They are usually developed by doctors or professionals in numerical calculations.</p>
-<p>And when you implement machine learning algorithms, if you can make good use of these linear algebra libraries, or numerical linear algebra libraries, and call them together, instead of doing what the function library can do by yourself. If this is the case, then usually you will find: First, it is more efficient, which means that it runs faster, and better uses some parallel hardware systems that may be on your computer, etc .; second, it also means You can use less code to achieve the functions you need. Therefore, the implementation is simpler, and the possibility of code problems is less.</p>
-<p>To give a specific example: do matrix multiplication instead of writing your own code. If you only enter a multiplied by b in Octave, it is a very effective program for multiplying two matrices. There are many examples to illustrate that if you use the appropriate vectorization method to achieve, you will have a much simpler and more efficient code.</p>
-<p>Let’s look at some examples: This is a common linear regression hypothesis function:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 0aaaa06a7640de28f6389f73f339139d.png)</p>
-<p>If you want to calculate hθ (x) and notice that the right side is a summation, then you can calculate the sum of j = 0 to j = n yourself. But to think about it another way, consider hθ (x) as $ θ ^ Tx $, then you can write it as the inner product of two vectors, where $ θ $ is $ θ_0, θ_1, θ_2 $, if you There are two feature quantities. If n = 2, and if you think of x as $ x_0, x_1, x_2 $, these two perspectives will give you two different ways of implementation.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 7fefb92d8680e4a15f947cd2ca24a9ac.png)</p>
-<p>For example, this is ** unvectorized code implementation **:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 125c07019cb39675085fe3b80b85fca5.png)</p>
-<p>The calculation of $ h_ {θ (x)} $ is not vectorized. We may first initialize the variable prediction to 0.0, and the final result of this variable prediction is hθ (x) hθ (x), and then I want to use a For loop, j takes values ​​from 0 to n + 1, and the variable prediction is updated by adding theta (j) times x (j) by itself each time. This is the code implementation of the algorithm.</p>
-<p>By the way, I have to remind that the subscript I use for the vector here is 0, so I have θ0, θ1, θ2, but because the MATLAB subscript starts from 1, in MATLAB θ0θ0, we may use theta (1) It means that the second element will eventually become, theta (2) and the third element may eventually be represented by theta (3), because the subscript in MATLAB starts from 1, which is why my for here Looping, j takes values ​​from 1 to n + 1 instead of from 0 to n. This is an unvectorized code implementation, we add n elements with a for loop.</p>
-<p>For comparison, the following is the ** vectorized code implementation **:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 829e153c119919f80c058d1bc703a08b.png)</p>
-<p>You treat x and θ as vectors, and you only need to make the variable prediction equal to theta transpose multiplied by x, and you can calculate it this way. Instead of writing all the code for these for loops, you only need one line of code. This line of code uses Octave’s highly optimized values ​​and a linear algebra algorithm to calculate the inner product of two vectors θ and x. It will also run more efficiently. This is the vectorization method that Octave does, and it can also be implemented in other programming languages.</p>
-<p>Let’s look at a C ++ example:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 987fc9372da3b167fd16d7a19722405b.png)</p>
-<p>In contrast, using a better C ++ numerical linear algebra library, you can write code like the one on the right, so it depends on the content of your numerical linear algebra library. You only need to multiply the two vectors in C ++. Depending on the value you use and the details of the linear algebra library, the final expression of the code you use may be slightly different, but the inner product is done through a library , You can get a simpler and more effective code.</p>
-<p>Now, let us look at a more complicated example, this is the update rule of gradient descent of linear regression algorithm:</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 6ad266a30f955db5b905905670aabfc5.png)</p>
-<p>We use this rule to update the object θj for all values ​​of j equal to 0, 1, 2, etc. I just use θ0, θ1, θ2 to write the equation, assuming that we have two feature quantities, so n is equal to 2, these are all We need to update θ0, θ1, θ2, these should be synchronous updates, we use a vectorized code to achieve, here are the same three equations as before, but only written a little smaller.</p>
-<p>You can imagine one of the ways to implement these three equations is to use a for loop, which is to update θj by making j equal to 0, equal to 1, and equal to 2. But let’s use vectorization to see if we can have a simpler method. Basically use three lines of code or a for loop to implement these three equations at once. Let’s see how we can use these three steps and compress them into a line of vectorized code. The practice is as follows:</p>
-<p>I plan to think of θ as a vector, and then I multiply θ-α by some other vector δ to update θ.</p>
-<p>Where δ is equal to</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / fa662ec6d5703d85c314f5e4792a7468.png)</p>
-<p>Let me explain what is going on: I want to think of θ as a vector with an n + 1-dimensional vector, α is a real number, and δ is a vector here.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 20bc912bae44e66125f8bfcec6e720c7.png)</p>
-<p>So this subtraction operation is a vector subtraction, because α times δ is a vector, so θ is the vector obtained by θ-αδ.</p>
-<p>So what is the vector δ?</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 541b9f097a8e1357c2a75e4f64e53b54.png)</p>
-<p>X (i) is a vector</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 0a03d239f2f1d1af057d492bcce276f4.png)</p>
-<p>You will get these different formulas and add them up.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 8d10103bf172a889090690a00037ffa1.png)</p>
-<p>In fact, in a previous quiz, if you want to solve this equation, we said that in order to vectorize this code, we will make <code>u = 2v + 5w</code>. Therefore, we say that the vector u is equal to 2 times the vector v plus Multiply 5 by vector w. Using this example to illustrate how to add different vectors, the summation here is the same.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / c84012101afc6836a3396893695d9669.png)</p>
-<p>This is why we can achieve linear regression in a vectorized manner.</p>
-<p>So, I hope the steps are logical. Please be sure to watch the video and make sure you can understand it. If you really cannot understand the reason for their mathematical equivalence, you can directly implement this algorithm and you can get the correct answer. So even if you do not fully understand why it is equivalent, if you only implement this algorithm, you can still implement a linear regression algorithm. If you can figure out why these two steps are equivalent, then I hope you can have a better understanding of vectorization. If you are using linear regression, use one or more feature quantities.</p>
-<p>Sometimes we use dozens or hundreds of feature quantities to calculate linear regression. When you use vectorization to achieve linear regression, the running speed is usually much faster than you used your for loop before, which is to write code to update θ0. , Θ1, θ2.</p>
-<p>So using vectorized implementation, you should be able to get a much more efficient linear regression algorithm. And when you vectorize the algorithm we will learn in later courses, this will be a good trick, whether it is for Octave or some other languages ​​such as C ++, Java to make your code run more efficiently.</p>
-<h2 id="5-7-Programming-exercises-for-work-and-submission"><a href="#5-7-Programming-exercises-for-work-and-submission" class="headerlink" title="5.7 Programming exercises for work and submission"></a>5.7 Programming exercises for work and submission</h2><p>In this video, I want to quickly introduce the process of doing homework in this course and how to use the homework submission system. This submission system can instantly verify whether the answer to your machine learning program is correct.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / feddafffd2937841222e6e8e2cfb9401.png)</p>
-<p>In the ‘ml-class-ex1’ directory, we provide a large number of files, some of which need to be edited by yourself, so the first file should meet the requirements of the pdf file in the programming exercise, one of which we asked you to write The file is warmUpExercise.m, this file is just to ensure that you are familiar with the submission system.</p>
-<p>All you need to do is submit a 5 × 5 matrix, which is <code>A = eye (5)</code>. This will modify the function to produce a 5 × 5 identity matrix. Now the equation of warmUpExercise () implements the 5x5 identity matrix. , Save it, so I have completed the first part of the assignment.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / d29dc95c23570991ae49d262ce351d7e.png)</p>
-<p>Now go back to my Octave window and now come to my directory C: \ Users \ ang \ Desktop \ ml-class-ex1 If I want to make sure I have implemented the program like this, type ‘warmUpExercise ()’ and it returns We use the code just created to create a 5x5 identity matrix</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / c1db5363de0286d223444d6a9225a393.png)</p>
-<p>I can now submit the code as follows, I will type submit () in this directory. I want to submit the first part so I choose to enter ‘1’. At this time it asks my email address, we open the course website and enter the username and password.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovLzd4dmZpci5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS8lRTUlOTAlQjQlRTYlODElQTklRTglQkUlQkUlRTYlOUMlQkElRTUlOTkl">http://7xvfir.com1.z0.glb.clouddn.com/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%<i class="fa fa-external-link-alt"></i></span> A8% E5% AD% A6% E4% B9% A0 / 3663f8b6d0612a40204450dcf0df2257.png)</p>
-<p>Press Enter, it connects to the server and submits it, and then it will tell you immediately: Congratulations! Part 1 of Assignment 1 has been successfully completed. This confirms that you have done the first part of the exercise correctly. If the answer you submitted is incorrect, it will give you a message stating that you did not answer it correctly. You can continue to use this submission password or generate a new password. Whether your password will be displayed depends on the operating system you are using.<br>This is how to submit your homework. When you finish your homework, I hope you can get it right.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/01/01_what-is-machine-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -710,7 +241,7 @@ V = [1: 0.5: 2; 3: 0.5: 4]</code> `</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 15:20:56" itemprop="dateModified" datetime="2020-04-09T15:20:56+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:38:31" itemprop="dateModified" datetime="2020-04-09T17:38:31+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -740,27 +271,95 @@ V = [1: 0.5: 2; 3: 0.5: 4]</code> `</p>
       
           <p><strong>Need to know</strong></p>
 <p>This personal note is written after studying the coursera opening course, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL21hY2hpbmUtbGVhcm5pbmcvaG9tZS93ZWxjb21l">Machine Learning by Andrew NG<i class="fa fa-external-link-alt"></i></span> . And images, audios of this note all comes from the opening course. So, the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQW5kcmV3X05n">Andrew NG<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="What-is-Machine-Learning"><a href="#What-is-Machine-Learning" class="headerlink" title="What is Machine Learning?"></a>What is Machine Learning?</h2><h3 id="Two-definitions-of-Machine-Learning-are-offered"><a href="#Two-definitions-of-Machine-Learning-are-offered" class="headerlink" title="Two definitions of Machine Learning are offered"></a>Two definitions of Machine Learning are offered</h3><ol>
-<li>Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly programmed.” This is an older, informal definition. </li>
-<li>Tom Mitchell provides a more modern definition: “A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.” </li>
-</ol>
-<p><strong>Example: playing checkers.</strong><br>E = the experience of playing many games of checkers<br>T = the task of playing checkers.<br>P = the probability that the program will win the next game. </p>
-<p><strong>In general, any machine learning problem can be assigned to one of two broad classifications:</strong> </p>
-<ol>
-<li>Supervised learning </li>
-<li>Unsupervised learning</li>
-</ol>
-<h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><p><strong>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</strong> Supervised learning problems are categorized into “regression” and “classification” problems.</p>
-<ul>
-<li><strong>In a regression problem</strong>, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. </li>
-<li><strong>In a classification problem</strong>, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories. </li>
-</ul>
-<h3 id="housing-price-prediction"><a href="#housing-price-prediction" class="headerlink" title="housing price prediction:"></a>housing price prediction:</h3><p><strong>Given data about the size of houses on the real estate market, try to predict their price.</strong> Price as a function of size is a continuous output, so this is a regression problem. </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/e:%5Ckaran36k.github.io%5C01-what-is-machine-learning.md-201851322163.png" alt="housing_price_prediction"></p>
-<p>Let’s say you want to predict housing prices. A while back, a student collected data sets from the Institute of Portland Oregon. And let’s say you plot a data set and it looks like this. Here on the horizontal axis, the size of different houses in square feet, and on the vertical axis, the price of different houses in thousands of dollars. So. Given this data, let’s say you have a friend who owns a house that is, say 750 square feet and hoping to sell the house and they want to know how much they can get for the house. So how can the learning algorithm help you? One thing a learning algorithm might be able to do is put a straight line through the data or to fit a straight line to the data and, based on that, it looks like maybe the house can be sold for maybe about 150,000 dollars . But maybe this isn’t the only learning algorithm you can use. There might be a better one. For example, instead of sending a straight line to the data, we might decide that it’s better to fit a quadratic function or a second-order polynomial to this data. And if you do that, and make a prediction here, then it looks like, well, maybe we can sell the house for closer to $200,000. One of the things we’ll talk about later is how to choose and how to decide do you want to fit a straight line to the data or do you want to fit the quadratic function to the data and there’s no fair picking whichever one gives your friend the better house to sell. But each of these would be a fine example of a learning algorithm. So this is an example of a supervised learning algorithm.<br><strong><em>We could turn this example into a classification problem by instead making our output about whether the house “sells for more or less than the asking price.” Here we are classifying the houses based on price into two discrete categories.</em></strong> </p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/01/01/01_what-is-machine-learning/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2018/01/01/05_octave-matlab-tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/01/05_octave-matlab-tutorial/" class="post-title-link" itemprop="url">05_octave-matlab-tutorial note5</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-01T00:00:00+05:30">2018-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-09 17:41:18" itemprop="dateModified" datetime="2020-04-09T17:41:18+05:30">2020-04-09</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>52k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>47 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="5-1-Basic-operation"><a href="#5-1-Basic-operation" class="headerlink" title="5.1 Basic operation"></a>5.1 Basic operation</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/01/01/05_octave-matlab-tutorial/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -815,7 +414,7 @@ V = [1: 0.5: 2; 3: 0.5: 4]</code> `</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:36" itemprop="dateModified" datetime="2020-04-09T16:34:36+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:23:38" itemprop="dateModified" datetime="2020-04-09T17:23:38+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -844,16 +443,14 @@ V = [1: 0.5: 2; 3: 0.5: 4]</code> `</p>
 
       
           <p>This article is a summary of my notes on learning linear algebra. My personal learning sequence is Netease ** MIT linear algebra open class ** combined with its textbooks, and then I use ** Tsinghua University linear algebra open class ** to do a review. Tsinghua ’s class proves more The depth is deeper (** logic ** is more strict) and the mit open class is to use its 3rd order matrix to explain the nature of the problem (the intuition is **), the two open classes use the same textbook, Textbooks, ppt, and summary of notes are the main contents of this article.</p>
-<h2 id="MIT-Open-Course-in-Linear-Algebra"><a href="#MIT-Open-Course-in-Linear-Algebra" class="headerlink" title="MIT: Open Course in Linear Algebra"></a>MIT: Open Course in Linear Algebra</h2><p>[Official website] (<span class="exturl" data-url="aHR0cHM6Ly9vY3cubWl0LmVkdS9jb3Vyc2VzL21hdGhlbWF0aWNzLzE4LTA2c2MtbGluZWFyLWFsZ2VicmEtZmFsbC0yMDExL2luZGV4Lmh0bQ==">https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/index.htm<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvQ29udGVudC1UYWJsZV9vZl9NSVRfTGluZWFyLUFsZ2VicmEucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/Content-Table_of_MIT_Linear-Algebra.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>[NetEase Open Course] (<span class="exturl" data-url="aHR0cDovL29wZW4uMTYzLmNvbS9zcGVjaWFsL29wZW5jb3Vyc2UvZGFpc2h1Lmh0bWw=">http://open.163.com/special/opencourse/daishu.html<i class="fa fa-external-link-alt"></i></span>) directory<br>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvQ29udGVudC1UYWJsZV9vZl9NSVRfTGluZWFyLUFsZ2VicmFfb25fbmV0ZWFzZS5wbmc=">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/Content-Table_of_MIT_Linear-Algebra_on_netease.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>** Use textbooks written by professors: [Introduction to Linear Algebra 4th edition] (<span class="exturl" data-url="aHR0cHM6Ly9ib29rLmRvdWJhbi5jb20vc3ViamVjdC8zNTgyMzM1Lw==">https://book.douban.com/subject/3582335/<i class="fa fa-external-link-alt"></i></span>), the official website has been updated to [Fifth Edition] (http: // math. mit.edu/~gs/linearalgebra/), bookmark the pdf in person as follows: **</p>
-<p>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvQ29udGVudC1UYWJsZV9vZl9JbnRyb2R1Y3Rpb24tdG8tTGluZWFyLUFsZ2VicmFfNHRoX2Jvb2sucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/Content-Table_of_Introduction-to-Linear-Algebra_4th_book.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<h2 id="Tsinghua-University-linear-algebra-2-open-class-notes-summary"><a href="#Tsinghua-University-linear-algebra-2-open-class-notes-summary" class="headerlink" title="Tsinghua University linear algebra 2 open class notes summary"></a>Tsinghua University linear algebra 2 open class notes summary</h2><p>Lecture 1: [Positive Definite Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMS9wb3NpdGl2ZV9kZWZpbml0ZV9tYXRyaXgv">https://karan36k.github.io/2017/08/01/positive_definite_matrix/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 2: [Similarity Matrix] ()<br>Lecture 3: [Singular Value Decomposition] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMy9zaW5ndWxhcl92YWx1ZXNfZGVjb21wb3NpdGlvbi8=">https://karan36k.github.io/2017/08/03/singular_values_decomposition/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 4: [Linear Transformation 1] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNC9saW5lYXJfdHJhbnNmb3JtYXRpb25fMXN0X3BhcnQv">https://karan36k.github.io/2017/08/04/linear_transformation_1st_part/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 5: [Linear Transformation 2] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNS9saW5lYXJfdHJhbnNmb3JtYXRpb25fMm5kX3BhcnQv">https://karan36k.github.io/2017/08/05/linear_transformation_2nd_part/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 6: [Pseudo-inverse] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNi9wc2V1ZG9faW52ZXJzZS8=">https://karan36k.github.io/2017/08/06/pseudo_inverse/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 7: [Matrix in Engineering] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNy9lbmdpbmVlcmluZ19tYXRyaWNlcy8=">https://karan36k.github.io/2017/08/07/engineering_matrices/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 8: [Graph and Network] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wOC9ncmFwaF9hbmRfbmV0d29yay8=">https://karan36k.github.io/2017/08/08/graph_and_network/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 9: [Markov Matrix and Positive Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNi9NYXJrb3ZfbWF0cml4Lw==">https://karan36k.github.io/2017/08/06/Markov_matrix/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 10: [Fourier Series] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMi9Gb3VyaWVyX3Nlcmllcy8=">https://karan36k.github.io/2017/08/02/Fourier_series/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 11: [Computer Image] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8xMS9jb21wdXRlcl9ncmFwaGljcy8=">https://karan36k.github.io/2017/08/11/computer_graphics/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 12: [Complex and Complex Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8xMi9jb21wbGV4X2FuZF9jb21wbGV4X21hdHJpeC8=">https://karan36k.github.io/2017/08/12/complex_and_complex_matrix/<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>The classroom teacher designated the reference textbook as the MIT linear algebra textbook: [Official Website] (<span class="exturl" data-url="aHR0cDovL21hdGgubWl0LmVkdS9+Z3MvbGluZWFyYWxnZWJyYS8=">http://math.mit.edu/~gs/linearalgebra/<i class="fa fa-external-link-alt"></i></span>), [Douban] (<span class="exturl" data-url="aHR0cHM6Ly9ib29rLmRvdWJhbi5jb20vc3ViamVjdC8=">https://book.douban.com/subject/<i class="fa fa-external-link-alt"></i></span> 3582335 /)</p>
-<h2 id="last-but-not-least"><a href="#last-but-not-least" class="headerlink" title="last but not least"></a>last but not least</h2><p>Personally highly recommend the ** good book ** for learning linear algebra, excerpted from the evaluation of Douban Internet users. I personally feel very pertinent. I hereby recommend it. In contrast, you will find the textbook of linear algebra for engineering in domestic universities: Tongji ’s linear algebra (Recommended review book for engineering postgraduate) Too bad.</p>
-<p>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvZG91YmFuX0ludHJvZHV0aW9uLXRvLWxpbmVhci1hbGdlYnJhLnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/douban_Introdution-to-linear-algebra.png<i class="fa fa-external-link-alt"></i></span>)</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/28/summary_of_Linear-Algebra/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -903,7 +500,7 @@ V = [1: 0.5: 2; 3: 0.5: 4]</code> `</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:42" itemprop="dateModified" datetime="2020-04-09T16:34:42+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:31:31" itemprop="dateModified" datetime="2020-04-09T17:31:31+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -931,11 +528,15 @@ V = [1: 0.5: 2; 3: 0.5: 4]</code> `</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Example-2-5-Mean-and-Variance-of-the-Bernoulli-Mean-and-Variance-of-Bernoulli-Random-Variables"><a href="#Example-2-5-Mean-and-Variance-of-the-Bernoulli-Mean-and-Variance-of-Bernoulli-Random-Variables" class="headerlink" title="Example 2.5. Mean and Variance of the Bernoulli. Mean and Variance of Bernoulli Random Variables"></a>Example 2.5. Mean and Variance of the Bernoulli. Mean and Variance of Bernoulli Random Variables</h3><p>Consider the experiment of tossing a coin, which comes up a head with probability $ p $ and a tail with probability $ 1-p $. And the Bernoulli random variable $ X $ with $ PMF $:<br>$$<br>p_X (k) = \ cases {p, &amp; if $ k = 1 $ \ 1-p, &amp; if $ k = 0 $}<br>$$<br>The mean. Second moment. And variance of $ X $ are given by the following calculations:<br>$$<br>E [X] = 1 \ cdot p + 0 \ cdot (1-p) = p, \<br>E [X ^ 2] = 1 ^ 2 \ cdot p + 0 \ cdot (1-p) = p, \<br>var (x) = E [X ^ 2]-(E [X]) ^ 2 = p-p ^ 2 = p (1-p)<br>$$</p>
-<h3 id="Example-2-7-The-Mean-of-the-Poisson-Mean-variance-of-Poisson-random-variables"><a href="#Example-2-7-The-Mean-of-the-Poisson-Mean-variance-of-Poisson-random-variables" class="headerlink" title="Example 2.7. The Mean of the Poisson. Mean variance of Poisson random variables"></a>Example 2.7. The Mean of the Poisson. Mean variance of Poisson random variables</h3><p>The mean of the Poisson $ PMF $:<br>$$<br>p_X (k) = e ^ {-\ lambda} \ frac {\ lambda ^ k} {k!}, k = 0,1,2, \ ldots<br>$$<br>can be calculated is follows:<br>$$<br>\ begin {eqnarray}<br>E [X] &amp; = &amp; \ sum \ limits ^ {\ infty} _ {k = 0} ke ^ {-\ lambda} \ frac {\ lambda ^ k} {k!} \<br>&amp; = &amp; \ sum \ limits ^ {\ infty} _ {k = 1} ke ^ {-\ lambda} \ frac {\ lambda ^ k} {k!} \ quad (\ text {k = 0 items equal 0 }) \<br>&amp; = &amp; \ lambda \ sum \ limits_ {k = 1} ^ {\ infty} e ^ {-\ lambda} \ frac {\ lambda ^ {k-1}} {k-1!} \<br>&amp; = &amp; \ lambda \ sum \ limits_ {m = 0} ^ {\ infty} e ^ {-\ lambda} \ frac {m ^ {k-1}} {m!} \ quad (\ text {让 m = k-1}) \<br>&amp; = &amp; \ lambda<br>\ end {eqnarray}<br>$$<br>The last equality is obtained by noting that is the normalization property for the Poisson $ PMF $.</p>
-<h3 id="Example-2-20-Variance-of-the-Binomial-and-the-Poisson-Variance-of-Binomial-Random-Variable-and-Poisson-Random-Variable"><a href="#Example-2-20-Variance-of-the-Binomial-and-the-Poisson-Variance-of-Binomial-Random-Variable-and-Poisson-Random-Variable" class="headerlink" title="Example 2.20. Variance of the Binomial and the Poisson. Variance of Binomial Random Variable and Poisson Random Variable"></a>Example 2.20. Variance of the Binomial and the Poisson. Variance of Binomial Random Variable and Poisson Random Variable</h3><p>We consider $ n $ independent coin tosses, with each toss having probability $ p $ of coming up a head. For each $ i $, we let $ X_i $ be the Bernoulli random variable which is equal to $ 1 $ if the $ i $ th toss comes up a head, and is 0 otherwise. Then, $ X = X_l + X_2 +… + X_n $ is a binomial random variable. Its mean is $ E [X] = np $. as derived in Example 2 . 10. By the independence of the coin tosses. The random variables $ X_1,…. X_n $ are independent, and<br>$$<br>var (X) = \ sum \ limits_ {i = 1} ^ {n} var (x_i) = np (1-p)<br>$$<br>As we discussed in Section 2.2. A Poisson random variable $ Y $ with parameter $ \ lambda $ can be viewed as the “limit” of the binomial as $ n \ rightarrow \ infty, p \ rightarrow 0 $. While $ np = \ lambda $. Thus, taking the limit of the mean and the variance of the binomial. we informally obtain the mean and variance of the Poisson: $ E [Y] = var (Y) = \ lambda $. We have indeed verified the formula $ E [Y] = \ lambda $ in Example 2.7. To verify the formula $ var (Y) = \ lambda $, we write<br>$$<br>\ begin {eqnarray}<br>E [Y ^ 2] &amp; = &amp; \ sum \ limits_ {k = 1} ^ {\ infty} k ^ 2e ^ {-\ lambda} \ frac {\ lambda ^ k} {k!} \<br>&amp; = &amp; \ lambda \ sum \ limits_ {k = 1} ^ {\ infty} k \ frac {e ^ {-\ lambda} \ lambda ^ {k-1}} {(k-1)!} \<br>&amp; = &amp; \ lambda \ sum \ limits_ {m = 0} ^ {\ infty} (m + 1) \ frac {e ^ {-\ lambda} \ lambda ^ {m}} {m!}, m = k- 1 \<br>&amp; = &amp; \ lambda [\ sum \ limits_ {m = 0} ^ {\ infty} m \ frac {e ^ {-\ lambda} \ lambda ^ {m}} {m!} + \ sum \ limits_ {m = 0} ^ {\ infty} \ frac {e ^ {-\ lambda} \ lambda ^ {m}} {m!}], \<br>&amp; = &amp; \ lambda (E [Y] +1), \<br>&amp; = &amp; \ lambda (\ lambda + 1) \<br>\ end {eqnarray}<br>$$</p>
-<p>from which<br>$$<br>var (Y) = E [Y ^ 2]-(E [Y]) ^ 2 = \ lambda (\ lambda + 1)-\ lambda ^ 2 = \ lambda<br>$$</p>
-
+          <h3 id="Example-2-5-Mean-and-Variance-of-the-Bernoulli-Mean-and-Variance-of-Bernoulli-Random-Variables"><a href="#Example-2-5-Mean-and-Variance-of-the-Bernoulli-Mean-and-Variance-of-Bernoulli-Random-Variables" class="headerlink" title="Example 2.5. Mean and Variance of the Bernoulli. Mean and Variance of Bernoulli Random Variables"></a>Example 2.5. Mean and Variance of the Bernoulli. Mean and Variance of Bernoulli Random Variables</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/08/28/mean_and_variance_of_Bernoulli_and_Possion_random%2015-03-22-849/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1021,7 +622,7 @@ V = [1: 0.5: 2; 3: 0.5: 4]</code> `</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1082,7 +683,7 @@ V = [1: 0.5: 2; 3: 0.5: 4]</code> `</p>
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

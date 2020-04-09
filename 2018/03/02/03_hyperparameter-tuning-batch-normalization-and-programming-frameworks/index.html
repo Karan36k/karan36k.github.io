@@ -72,7 +72,7 @@
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/31.png">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/32.png">
 <meta property="article:published_time" content="2018-03-01T18:30:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T09:26:57.082Z">
+<meta property="article:modified_time" content="2020-04-09T12:09:34.913Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="deep learning">
 <meta property="article:tag" content="Improving Deep Neural Networks">
@@ -182,7 +182,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -278,7 +278,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 14:56:57" itemprop="dateModified" datetime="2020-04-09T14:56:57+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:39:34" itemprop="dateModified" datetime="2020-04-09T17:39:34+05:30">2020-04-09</time>
               </span>
 
           
@@ -314,6 +314,7 @@
 
       
         <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note at the first week after studying the course <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL2RlZXAtbmV1cmFsLW5ldHdvcmsv">Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<i class="fa fa-external-link-alt"></i></span> and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
+<a id="more"></a>
 <h2 id="01-hyperparameter-tuning"><a href="#01-hyperparameter-tuning" class="headerlink" title="01_hyperparameter-tuning"></a>01_hyperparameter-tuning</h2><h3 id="01-tuning-process"><a href="#01-tuning-process" class="headerlink" title="01_tuning-process"></a>01_tuning-process</h3><p>Hi, and welcome back. You’ve seen by now that changing neural nets can involve setting a lot of different hyperparameters. Now, how do you go about finding a good setting for these hyperparameters? In this video, I want to share with you some guidelines, some tips for how to systematically organize your hyperparameter tuning process, which hopefully will make it more efficient for you to converge on a good setting of the hyperparameters. </p>
 <p>One of the painful things about training deepness is the sheer number of hyperparameters you have to deal with, ranging from the learning rate alpha to the momentum term beta, if using momentum, or the hyperparameters for the Adam Optimization Algorithm which are beta one, beta two, and epsilon. Maybe you have to pick the number of layers, maybe you have to pick the number of hidden units for the different layers, and maybe you want to use learning rate decay, so you don’t just use a single learning rate alpha. And then of course, you might need to choose the mini-batch size. So it turns out, some of these hyperparameters are more important than others.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/1.png" alt=""><br>The most learning applications I would say, alpha, <strong>the learning rate is the most important hyperparameter to tune</strong>. Other than alpha, <strong>a few other hyperparameters I tend to would maybe tune next, would be maybe the momentum term, say, 0.9 is a good default. I’d also tune the mini-batch size to make sure that the optimization algorithm is running efficiently. Often I also fiddle around with the hidden units. Of the ones I’ve circled in orange, these are really the three that I would consider second in importance to the learning rate alpha and then third in importance after fiddling around with the others, the number of layers can sometimes make a huge difference, and so can learning rate decay. And then when using the Adam algorithm I actually pretty much never tuned beta one, beta two, and epsilon. Pretty much I always use 0.9, 0.999 and tenth minus eight although you can try tuning those as well if you wish. But hopefully it does give you some rough sense of what hyperparameters might be more important than others, alpha, most important, for sure, followed maybe by the ones I’ve circle in orange, followed maybe by the ones I circled in purple. But this isn’t a hard and fast rule and I think other deep learning practitioners may well disagree with me or have different intuitions on these.</strong> </p>
 <p>Now, if you’re trying to tune some set of hyperparameters, how do you select a set of values to explore? In earlier generations of machine learning algorithms, if you had two hyperparameters, which I’m calling hyperparameter one and hyperparameter two here, it was common practice to <strong>sample the points in a grid</strong> like so and systematically explore these values. Here I am placing down a five by five grid (Tip: as the left image on the following slide). In practice, it could be more or less than the five by five grid but you try out in this example all 25 points and then pick whichever hyperparameter works best. <strong>And this practice works okay when the number of hyperparameters was relatively small</strong>.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/2.png" alt=""><br><strong>In deep learning, what we tend to do, and what I recommend you do instead, is choose the points at random</strong>. So go ahead and choose maybe of same number of points, right? 25 points and then try out the hyperparameters on this randomly chosen set of points. <strong>And the reason you do that is that it’s difficult to know in advance which hyperparameters are going to be the most important for your problem</strong>. And as you saw in the previous slide, some hyperparameters are actually much more important than others. <strong>So to take an example, let’s say hyperparameter one turns out to be alpha, the learning rate. And to take an extreme example, let’s say that hyperparameter two was that value epsilon that you have in the denominator of the Adam algorithm</strong>. So your choice of alpha matters a lot and your choice of epsilon hardly matters. <strong>So if you sample in the grid then you’ve really tried out five values of alpha and you might find that all of the different values of epsilon give you essentially the same answer. So you’ve now trained 25 models and only got into trial five values for the learning rate alpha, which I think is really important. Whereas in contrast, if you were to sample at random, then you will have tried out 25 distinct values of the learning rate alpha and therefore you be more likely to find a value that works really well</strong>. I’ve explained this example, using just two hyperparameters. In practice, you might be searching over many more hyperparameters than these, so if you have, say, three hyperparameters, I guess instead of searching over a square, you’re searching over a cube where this third dimension is hyperparameter three and then by sampling within this three-dimensional cube you get to try out a lot more values of each of your three hyperparameters.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/deep-neural-network/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/3.png" alt=""><br><strong>And in practice you might be searching over even more hyperparameters than three and sometimes it’s just hard to know in advance which ones turn out to be the really important hyperparameters for your application and sampling at random rather than in the grid shows that you are more richly exploring set of possible values for the most important hyperparameters, whatever they turn out to be</strong>. </p>
@@ -440,12 +441,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2018/03/02/02_optimization-algorithms/" rel="prev" title="02_optimization-algorithms">
-      <i class="fa fa-chevron-left"></i> 02_optimization-algorithms
+    <a href="/2018/03/02/summary_of_Improving-Deep-Neural-Networks/" rel="prev" title="summary of Improving-Deep-Neural-Networks">
+      <i class="fa fa-chevron-left"></i> summary of Improving-Deep-Neural-Networks
     </a></div>
       <div class="post-nav-item">
-    <a href="/2018/04/01/01_ml-strategy-1/" rel="next" title="01_ml-strategy-1">
-      01_ml-strategy-1 <i class="fa fa-chevron-right"></i>
+    <a href="/2018/03/02/OptimizationMethods/" rel="next" title="Optimization Methods">
+      Optimization Methods <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -522,7 +523,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -583,7 +584,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

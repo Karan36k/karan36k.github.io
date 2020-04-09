@@ -32,12 +32,12 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":20,"offset":15,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="NoteThis is my personal lecture note after studying the course nlp sequence models at the 3rd week and the copyright belongs to deeplearning.ai.## 01_various-sequence-to-sequence-architectures 01_basi">
+  <meta name="description" content="NoteThis is my personal lecture note after studying the course nlp sequence models at the 3rd week and the copyright belongs to deeplearning.ai.## 01_various-sequence-to-sequence-architectures">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sequence models attention mechanism">
 <meta property="og:url" content="https://snakecoding.com/2018/06/03/03_sequence-models-attention-mechanism/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="NoteThis is my personal lecture note after studying the course nlp sequence models at the 3rd week and the copyright belongs to deeplearning.ai.## 01_various-sequence-to-sequence-architectures 01_basi">
+<meta property="og:description" content="NoteThis is my personal lecture note after studying the course nlp sequence models at the 3rd week and the copyright belongs to deeplearning.ai.## 01_various-sequence-to-sequence-architectures">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/nlp-sequence-models/lectures/week3/images/1.png">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/nlp-sequence-models/lectures/week3/images/2.png">
@@ -72,7 +72,7 @@
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/nlp-sequence-models/lectures/week3/images/31.png">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/nlp-sequence-models/lectures/week3/images/32.png">
 <meta property="article:published_time" content="2018-06-02T18:30:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T09:27:00.778Z">
+<meta property="article:modified_time" content="2020-04-09T12:10:05.818Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="deep learning">
 <meta property="article:tag" content="nlp-sequence-models">
@@ -182,7 +182,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -278,7 +278,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 14:57:00" itemprop="dateModified" datetime="2020-04-09T14:57:00+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:40:05" itemprop="dateModified" datetime="2020-04-09T17:40:05+05:30">2020-04-09</time>
               </span>
 
           
@@ -314,6 +314,7 @@
 
       
         <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal lecture note after studying the course <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL25scC1zZXF1ZW5jZS1tb2RlbHMv">nlp sequence models<i class="fa fa-external-link-alt"></i></span> at the 3rd week and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.## 01_various-sequence-to-sequence-architectures</p>
+<a id="more"></a> 
 <h3 id="01-basic-models"><a href="#01-basic-models" class="headerlink" title="01_basic-models"></a>01_basic-models</h3><p>Hello, and welcome to this final week of this course, as well as to the final week of this sequence of five courses in the deep learning specialization. You’re nearly at the finish line. In this week, you hear about sequence-to-sequence models, which are useful for everything from machine translation to speech recognition. Let’s start with the basic models and then later this week you, hear about beam search, the attention model, and we’ll wrap up the discussion of models for audio data, like speech. Let’s get started. </p>
 <p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/nlp-sequence-models/lectures/week3/images/1.png" alt=""><br>Let’s say you want to input a French sentence like Jane visite l’Afrique en septembre, and you want to translate it to the English sentence, Jane is visiting Africa in September. As usual, let’s use x&lt;1&gt; through x, in this case &lt;5&gt;, to represent the words in the input sequence, and we’ll use y&lt;1&gt; through y&lt;6&gt; to represent the words in the output sequence. So, how can you train a new network to input the sequence x and output the sequence y? Well, here’s something you could do, and the ideas I’m about to present are mainly from these two papers due to Sutskever, Oriol Vinyals, and Quoc Le, and that one by Kyunghyun Cho, Bart van Merrienboer, Caglar Gulcehre, Dzmitry Bahdanau, Fethi Bougares, Holger Schwen, and Yoshua Bengio. First, let’s have a network, which we’re going to call the encoder network be built as a RNN, and this could be a GRU and LSTM, feed in the input French words one word at a time. And after ingesting the input sequence, the RNN then offers a vector that represents the input sentence. After that, you can build a decoder network which I’m going to draw here, which takes as input the encoding output by the encoder network shown in black on the left, and then can be trained to output the translation one word at a time until eventually it outputs say, the end of sequence or end the sentence token upon which the decoder stops and as usual we could take the generated tokens and feed them to the next [inaudible] in the sequence like we ‘re doing before when synthesizing text using the language model. One of the most remarkable recent results in deep learning is that this model works, given enough pairs of French and English sentences. If you train the model to input a French sentence and output the corresponding English translation, this will actually work decently well. And this model simply uses an encoder network, whose job it is to find an encoding of the input French sentence and then use a decoder network to then generate the corresponding English translation. </p>
 <p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/nlp-sequence-models/lectures/week3/images/2.png" alt=""><br>An architecture very similar to this also works for image captioning so given an image like the one shown here, maybe wanted to be captioned automatically as a cat sitting on a chair. So how do you train a new network to input an image and output a caption like that phrase up there? Here’s what you can do. From the earlier course on ConvNet you’ve seen how you can input an image into a convolutional network, maybe a pre-trained AlexNet, and have that learn an encoding or learn a set of features of the input image. So, this is actually the AlexNet architecture and if we get rid of this final Softmax unit, the pre-trained AlexNet can give you a 4096-dimensional feature vector of which to represent this picture of a cat. And so this pre-trained network can be the encoder network for the image and you now have a 4096-dimensional vector that represents the image. You can then take this and feed it to an RNN, whose job it is to generate the caption one word at a time. So similar to what we saw with machine translation translating from French to English, you can now input a feature vector describing the input and then have it generate an output sequence or output set of words one word at a time. And this actually works pretty well for image captioning, especially if the caption you want to generate is not too long. As far as I know, this type of model was first proposed by Junhua Mao, Wei Xu, Yi Yang, Jiang Wang, Zhiheng Huang, and Alan Yuille, although it turns out there were multiple groups coming up with very similar models independently and at about the same time. So two other groups that had done very similar work at about the same time and I think independently of Mao et al were Oriol Vinyals, Alexander Toshev, Samy Bengio, and Dumitru Erhan, as well as Andrej Karpathy and Fei-Fei Yi. </p>
@@ -498,7 +499,7 @@ $$BP = \left\{ \begin{array}{l} 1,  if{\kern 1pt} {\kern 1pt} MT\_length > refer
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -559,7 +560,7 @@ $$BP = \left\{ \begin{array}{l} 1,  if{\kern 1pt} {\kern 1pt} MT\_length > refer
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

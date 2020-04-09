@@ -32,15 +32,15 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":20,"offset":15,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 6: Pseudo-inverse Introduction! [introductory_content_of_pseudo-inverse] (http:&#x2F;&#x2F;q6gm8fomw.bkt.clouddn.com&#x2F;gitpage&#x2F;tsinghua_linear_">
+  <meta name="description" content="Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 6: Pseudo-inverse">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tsinghua linear-algebra-2 6th-lecture pseudo-inverse">
 <meta property="og:url" content="https://snakecoding.com/2017/08/06/pseudo_inverse/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 6: Pseudo-inverse Introduction! [introductory_content_of_pseudo-inverse] (http:&#x2F;&#x2F;q6gm8fomw.bkt.clouddn.com&#x2F;gitpage&#x2F;tsinghua_linear_">
+<meta property="og:description" content="Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 6: Pseudo-inverse">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-08-06T15:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T11:04:38.312Z">
+<meta property="article:modified_time" content="2020-04-09T11:58:19.092Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="linear_algebra">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -244,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:38" itemprop="dateModified" datetime="2020-04-09T16:34:38+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:28:19" itemprop="dateModified" datetime="2020-04-09T17:28:19+05:30">2020-04-09</time>
               </span>
 
           
@@ -280,6 +280,7 @@
 
       
         <p>Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 6: Pseudo-inverse</p>
+<a id="more"></a>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>! [introductory_content_of_pseudo-inverse] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS90c2luZ2h1YV9saW5lYXJfYWxnZWJyYS8yLTYvMS5wbmc=">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-6/1.png<i class="fa fa-external-link-alt"></i></span>)<br>The singular value decomposition of a matrix can be understood as a linear transformation from $ R ^ n $ to $ R ^ m $ expressed in a matrix on different bases, and then using the singular value decomposition of the matrix<br>To define the pseudo-inverse of the matrix, and then use the pseudo-inverse of the matrix to discuss the least squares solution when the linear equations Ax = b has no solution, the central problem of linear algebra is<br>Solve the linear equation system $ Ax = b $, the simplest case is if the coefficient matrix A is an invertible matrix of order n, then for any n-dimensional vector $ b $, the linear equation system $ Ax = b $ has a unique Solution, this solution is $ A ^ {-1} b $, then this is inspired to the matrix that is not invertible or for the matrix of $ A_ {m \ times n} $, let ’s define an inverse matrix of it, then this When the inverse matrix is ​​called ** pseudo-inverse ** or ** generalized inverse **.</p>
 <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>The definition of pseudo-inverse comes from [singular value decomposition] (/ 2017/08/03 / singular_values_decomposition /) (need to understand the content of singular value decomposition):<br>! [definition_of_pseudo_inverse] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS90c2luZ2h1YV9saW5lYXJfYWxnZWJyYS8yLTYvMi5wbmc=">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-6/2.png<i class="fa fa-external-link-alt"></i></span>)<br>(1) If $ A $ is reversible, that is, $ r = m = n $, then: $ A ^ {-1} = (U \ Sigma V ^ T) ^ {-1} = V \ Sigma ^ {-1} U ^ T = A ^ + $, Note: Decomposition formula by singular value $ AV = U \ Sigma, \ (v_1 , … , v_r) \ in C (A ^ T), \ (v_ {r + 1) , … , v_n) \ in N (A), \ (u_1 , … , u_r) \ in C (A), \ (u_ (r + 1) , … , u_m) \ in N (A ^ T) $ got: $ AV = U \ Sigma: C (A ^ T) \ rightarrow C (A) $, the same can be got: $ A ^ + U ^ T = V \ Sigma ^ {+}: C (A) \ rightarrow C (A ^ T) $</p>
 <p>(2) $ AA ^ + = (U \ Sigma_ {m \ times n} V ^ T) (V \ Sigma ^ + _ {n \ times m} U ^ T) = U \ Sigma_ {m \ times n} \ Sigma ^ + _ {n \ times m} U ^ T = U \ begin {pmatrix} I_r &amp; 0 \ 0 &amp; 0 \ end {pmatrix} _ {m \ times m} U ^ T $ yields the following three properties:</p>
@@ -420,7 +421,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -481,7 +482,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

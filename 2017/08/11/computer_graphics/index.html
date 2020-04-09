@@ -32,15 +32,15 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":20,"offset":15,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 11: Computer Graphics IntroductionThe basic transformations in the familiar three-dimensional space are: translation, rescaling, ro">
+  <meta name="description" content="Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 11: Computer Graphics">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tsinghua linear-algebra-2 11th-lecture computer-graphics">
 <meta property="og:url" content="https://snakecoding.com/2017/08/11/computer_graphics/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 11: Computer Graphics IntroductionThe basic transformations in the familiar three-dimensional space are: translation, rescaling, ro">
+<meta property="og:description" content="Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 11: Computer Graphics">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-08-11T14:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T11:04:50.018Z">
+<meta property="article:modified_time" content="2020-04-09T12:03:52.578Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="linear_algebra">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -244,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:50" itemprop="dateModified" datetime="2020-04-09T16:34:50+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:33:52" itemprop="dateModified" datetime="2020-04-09T17:33:52+05:30">2020-04-09</time>
               </span>
 
           
@@ -280,6 +280,7 @@
 
       
         <p>Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 11: Computer Graphics</p>
+<a id="more"></a> 
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>The basic transformations in the familiar three-dimensional space are: translation, rescaling, rotation, projection, and reflection. Now a question: The translation transformation only makes sense for points, because the translation transformation will change the coordinates of the points, but ordinary vectors have no concept of position, only size and direction. How to distinguish between points and vectors? At this time, a homogeneous coordinate system was introduced.</p>
 <p>The coordinates of any three-dimensional space point $ p $ are the coordinates of the reference (relative) base point (origin), which can be expressed as $ p = x \ vec e_1 + y \ vec e_2 + z \ vec e_3 + O = x \ begin {pmatrix} 1 \ 0 \ 0 \ end {pmatrix} + y \ begin {pmatrix} 0 \ 1 \ 0 \ end {pmatrix} + z \ begin {pmatrix} 0 \ 0 \ 1 \ end {pmatrix} + \ begin {pmatrix} 0 \ 0 \ 0 \ end {pmatrix} $, but $ \ vec {op} = x \ vec e_1 + y \ vec e_2 + z \ vec e_3 $ is not referenced For anything, in order to express and distinguish uniformly in linear algebra, put $ p = \ begin {pmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \ 0 &amp; 1 &amp; 0 &amp; 0 \ 0 &amp; 0 &amp; 1 &amp; 0 \ 0 &amp; 0 &amp; 0 &amp; 0 \ end {pmatrix} \ begin {pmatrix} x \ y \ z \ 1 \ end {pmatrix} \ quad \ vec {op} = \ begin {pmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \ 0 &amp; 1 &amp; 0 &amp; 0 \ 0 &amp; 0 &amp; 1 &amp; 0 \ 0 &amp; 0 &amp; 0 &amp; 0 \ end {pmatrix} \ begin {pmatrix} x \ y \ z \ 0 \ end {pmatrix} $, the homogeneous coordinate of a point in three-dimensional space is $ (x, y, z, 1) $ or $ \ begin {pmatrix} x \ y \ z \ 1 \ end {pmatrix} $, the homogeneous coordinate of a vector is $ (x, y, z, 0) $ or $ \ begin {pmatrix} x \ y \ z \ 0 \ end {pmatrix} $, so translate The transformation is not $ R ^ 3 \ rightarrow R ^ 3 $.</p>
 <p>Define a function $ f: R ^ n \ rightarrow R ^ N $ is a ** rigid motion **, if $ \ forall v, w \ in R ^ n, || f (v) -f ( w) || = || vw || $, that is, the distance between the internal points does not change. Theorem Rigid body motion on $ R ^ 3 $ is a combination of translation, rotation and reflection. At this time, $ f (v) = Av + ​​v_0 $, where $ A $ is a third-order orthogonal matrix. Classification of third-order orthogonal matrix: suppose $ A $ is a third-order orthogonal matrix, then there is a real invertible matrix $ P $, $ P ^ {-1} AP = \ begin {pmatrix} cos \ theta &amp; -sin \ theta &amp; 0 \ sin \ theta &amp; cos \ theta &amp; 0 \ 0 &amp; 0 &amp; \ pm 1 \ end {pmatrix} = B $, where $ P = (\ alpha_1, \ alpha_2, \ alpha_3) $, according to similar properties: $ | B | = \ pm 1 \ rightarrow | A | = \ pm 1 $, $ A $ itself is an orthogonal matrix, so $ A ^ TA = I_3 $.</p>
@@ -411,7 +412,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -472,7 +473,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

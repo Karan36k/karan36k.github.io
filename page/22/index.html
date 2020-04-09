@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -210,170 +210,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2014/06/01/longest_common_sub-sequence/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Karan">
-      <meta itemprop="description" content="Refuse to Fall">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Machine Learning">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2014/06/01/longest_common_sub-sequence/" class="post-title-link" itemprop="url">Dynamic Programming-Longest Common Subsequence</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2014-06-01 22:16:00" itemprop="dateCreated datePublished" datetime="2014-06-01T22:16:00+05:30">2014-06-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:19:58" itemprop="dateModified" datetime="2020-04-09T16:19:58+05:30">2020-04-09</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>6.8k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>6 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Algorithm-overall-idea"><a href="#Algorithm-overall-idea" class="headerlink" title="Algorithm overall idea"></a>Algorithm overall idea</h2><p>Dynamic programming (Dynamic Programming) solves the entire problem by combining the solutions of sub-problems. Divide and conquer refers to dividing the problem into some independent sub-problems, recursively solving each sub-problem, and then combining the solutions of the sub-problems to get the solution of the original problem. Unlike this, dynamic programming is applicable when the sub-problem is not independent. It is that each sub-problem contains a common sub-problem. In this case, adopting the divide-and-conquer method will do a lot of unnecessary work, that is, solving the common ground problem repeatedly. The dynamic programming algorithm only solves each sub-problem once, and saves the results in a table, so as to avoid recalculating the answer each time it encounters each sub-problem.</p>
-<h2 id="Basic-Elements-of-Dynamic-Programming-Algorithm"><a href="#Basic-Elements-of-Dynamic-Programming-Algorithm" class="headerlink" title="Basic Elements of Dynamic Programming Algorithm"></a>Basic Elements of Dynamic Programming Algorithm</h2><h3 id="Optimal-substructure"><a href="#Optimal-substructure" class="headerlink" title="Optimal substructure"></a>Optimal substructure</h3><p>-The optimal solution of the matrix multiplication calculation order problem contains the optimal solution of its subproblems. This property is called the optimal substructure property.<br>-When analyzing the optimal substructure properties of the problem, the method used is universal: first assume that the solution of the subproblem derived from the optimal solution of the problem is not optimal, and then try to show that the ratio can be constructed under this assumption The optimal solution of the original problem is better, which leads to contradictions.<br>-Using the optimal substructure properties of the problem, the optimal solution of the entire problem is constructed step by step from the optimal solution of the subproblem recursively in a bottom-up manner. The optimal substructure is the premise that the problem can be solved by dynamic programming algorithm.</p>
-<p>Note: There can be many ways to characterize the optimal substructure of the same problem, some of the representation methods are faster to solve (small space occupation, low dimension of the problem)</p>
-<h3 id="Overlapping-sub-questions"><a href="#Overlapping-sub-questions" class="headerlink" title="Overlapping sub-questions"></a>Overlapping sub-questions</h3><p>-When recursive algorithm solves a problem, the sub-problems generated each time are not always new problems, and some sub-problems are repeatedly calculated many times. This property is called the overlapping property of subproblems.<br>-The dynamic programming algorithm only solves each sub-problem once, and then saves the solution in a table. When the sub-problem needs to be solved again, it is simply to check the results in constant time.<br>-Usually the number of different sub-problems increases polynomially with the size of the problem. Therefore, the dynamic programming algorithm only needs polynomial time, so as to obtain a higher problem-solving efficiency.</p>
-<h2 id="Question-example"><a href="#Question-example" class="headerlink" title="Question example"></a>Question example</h2><h3 id="Longest-common-subsequence-LCS"><a href="#Longest-common-subsequence-LCS" class="headerlink" title="Longest common subsequence (LCS)"></a>Longest common subsequence (LCS)</h3><p>-If the given sequence $ X = \ {x_1, x_2,…, x_m } $, then another sequence $ Z = \ {z_1, z_2,…, z_k } $, which is a subsequence of $ X $ means There is a strictly increasing index sequence $ \ {i_1, i_2, …, i_k } $ such that for all $ j = 1,2, …, k $ there is: $ z_j = x_ {i} $. For example, the sequence $ Z = \ {B, C, D, B } $ is a subsequence of the sequence $ X = \ {A, B, C, B, D, A, B } $, and the corresponding increasing index The sequence is $ \ {2, 3, 5, 7 } $.<br>-Given two sequences $ X $ and $ Y $, when another sequence $ Z $ is both a subsequence of $ X $ and a subsequence of $ Y $, it is said that $ Z $ is the sequence $ X $ and $ Y The common subsequence of $.<br>-Given 2 sequences $ X = \ {x_1, x_2,…, x_m } $ and $ Y = \ {y_1, y_2,…, y_n } $, find the longest of $ X $ and $ Y $ Common subsequence.</p>
-<h3 id="Structure-of-the-longest-common-subsequence-LCS"><a href="#Structure-of-the-longest-common-subsequence-LCS" class="headerlink" title="Structure of the longest common subsequence (LCS)"></a>Structure of the longest common subsequence (LCS)</h3><p>Let the longest common subsequences of the sequences $ X = \ {x_1, x_2,…, x_m } $ and $ Y = \ {y_1, y_2,…, y_n } $ be $ Z = \ {z_1, z_2,… , z_k } $, then</p>
-<ol>
-<li>If $ x_m = y_n $, then $ z_k = x_m = y_n $, and $ z_ {k-1} $ is $ \ {x_1, \ ldots, x_ {m-1} } $ and $ \ {y_1 , \ ldots, the longest common subsequence of y_ {n-1} } $.</li>
-<li>If $ x_m ≠ y_n $ and $ z_k ≠ x_m, z_k = y_n $, then $ Z $ is the longest common child of $ \ {x_1, \ ldots, x_ {m-1} } $ and $ Y $ sequence.</li>
-<li>If $ x_m ≠ y_n $ and $ z_k ≠ y_n, z_k = x_m $, then $ Z $ is the longest common child of $ X $ and $ \ {y_1, \ ldots, y_ {n-1} } $ sequence.</li>
-</ol>
-<p>It can be seen that the longest common subsequence of the two sequences includes the longest common subsequence of the prefixes of the two sequences. Therefore, the longest common subsequence problem has optimal substructure properties.</p>
-<h2 id="LCS-time-complexity"><a href="#LCS-time-complexity" class="headerlink" title="LCS time complexity"></a>LCS time complexity</h2><p>To solve the LCS problem, the brute force search method cannot be used. A sequence of length n has 2 subsequences of the nth power, and its time complexity is exponential, and it is still the longest common subsequence of two sequences.</p>
-<h3 id="Recursive-structure-of-subproblems"><a href="#Recursive-structure-of-subproblems" class="headerlink" title="Recursive structure of subproblems"></a>Recursive structure of subproblems</h3><p>The recursive relationship of optimal values ​​of subproblems is established by the optimal substructure properties of the longest common subsequence problem. ** Use $ c [i] [j] $ to record the length of the longest common subsequence of the sequence sum. ** Among them, $ X [i] = \ {x_1, x_2,…, x_i } $; $ Y [j] = \ {y_1, y_2,…, y_j } $ When $ i = 0 $ or $ j = 0 $, the empty sequence is the longest common subsequence of $ X [i] $ and $ Y [j] $. So at this time $ c [i] [j] = 0 $. In other cases, the recursive relationship can be established from the optimal substructure properties as follows:</p>
-<p>$ c [i] [j] = \ cases {0, \ quad i = 0, j = 0 \ c [i-1] [j-1] +1 \ quad i, j&gt; 0; x_i = y_j \ \ max \ {c [i] [j-1], c [i-1] [j] } \ quad i, j&gt; 0; x_i \ ne y_j} $</p>
-<h2 id="Calculate-the-optimal-value-pseudo-code"><a href="#Calculate-the-optimal-value-pseudo-code" class="headerlink" title="Calculate the optimal value (pseudo code)"></a>Calculate the optimal value (pseudo code)</h2><p><code>`c ++
-AlgorithmlcsLength (x, y, b)
-mßx.length-1;
-nßy.length-1;
-c [i] [0] = 0;
-c [0] [i] = 0;
-for (int i = 1; i &lt;= m; i ++)
-    for (int j = 1; j &lt;= n; j ++)
-      if (x [i] == y [j])
-          c [i] [j] = c [i-1] [j-1] +1;
-          b [i] [j] = 1;
-      else if (c [i-1] [j]&gt; = c [i] [j-1])
-          c [i] [j] = c [i-1] [j];
-          b [i] [j] = 2;
-      else
-          c [i] [j] = c [i] [j-1];
-          b [i] [j] = 3;</code> `</p>
-<h2 id="Source-code-implementation-test-passed"><a href="#Source-code-implementation-test-passed" class="headerlink" title="Source code implementation (test passed)"></a>Source code implementation (test passed)</h2><p>`` `c ++<br>#include <iostream><br>#define LEN_ARR_A 20<br>#define LEN_ARR_B 12</p>
-<p>using namespace std;</p>
-<p>/ *</p>
-<ul>
-<li>brief: calculate longest common substring of two string and </li>
-<li>mark path of getting the longest common substring  </li>
-<li>parameter: lenComStr: length of common substring</li>
-<li>solutionPath: mark of path of solution</li>
-<li></li>
-<li>note: dynamic programming: caculate longest common substring between X (n)</li>
-<li>and Y (m-1), likey to caculate longest common substring between X (n) </li>
-<li>and Y (m-1) or between X (n-1) and Y (m). X (0) and Y (0) are not referenced!</li>
-<li></li>
-<li></li>
-<li>return: null</li>
-<li>/<br>template <class Type><br>void LCSLength (size_t lenStrA, size_t lenStrB, Type * strA, Type * strB, size_t ** lenComStr, size_t ** solutionPath)<br>{<br> for (size_t i = 0; i &lt;lenStrA; ++ i)<pre><code>lenComStr [i] [0] = 0;</code></pre> for (size_t i = 0; i &lt;lenStrB; ++ i)<pre><code>lenComStr [0] [i] = 0;</code></pre> for (size_t i = 1; i &lt;lenStrA; ++ i)<pre><code>for (size_t j = 1; j &lt;lenStrB; ++ j) {
-    if (strA [i] == strB [j]) {
-        lenComStr [i] [j] = lenComStr [i -1] [j-1] + 1; 
-        // global solution depends on local solution
-        solutionPath [i] [j] = 1;               
-        // mark path of getting the longest common substring 
-    }
-    else if (lenComStr [i-1] [j]&gt; = lenComStr [i] [j-1]) {
-        lenComStr [i] [j] = lenComStr [i-1] [j];  
-        // global solution depends on local solution
-        solutionPath [i] [j] = 2;
-    } else {
-        lenComStr [i] [j] = lenComStr [i] [j-1];  
-        // global solution depends on local solution
-        solutionPath [i] [j] = 3;
-    }
-}</code></pre>}<br>/ *</li>
-<li>brief: output longest common substring of two string  </li>
-<li></li>
-<li>parameter: i is beginning index of char array</li>
-<li>j is end index of char array</li>
-<li>solutionPath is the path of solution</li>
-<li></li>
-<li>note: value of solutionPath [i] [j] has 3 states  </li>
-<li></li>
-<li>return: null</li>
-<li>/<br>template <class Type><br>void LCS (size_t i, size_t j, Type * strA, size_t ** solutionPath)<br>{<br> if (i == -1 || j == -1) return;<br> if (solutionPath [i] [j] == 1) {<pre><code>LCS (i-1, j-1, strA, solutionPath); 
-cout &lt;&lt; strA [i];</code></pre> } else if (solutionPath [i] [j] == 2)<pre><code>LCS (i-1, j, strA, solutionPath);</code></pre> else {<pre><code>LCS (i, j-1, strA, solutionPath);</code></pre> }<br>}</li>
-</ul>
-<p>int main ()<br>{<br>    char strA [LEN_ARR_A] = {‘0’, ‘B’, ‘D’, ‘C’, ‘A’, ‘B’, ‘A’};<br>    char strB [LEN_ARR_B] = {‘0’, ‘A’, ‘B’, ‘C’, ‘B’, ‘D’, ‘A’, ‘B’};</p>
-<pre><code>size_t ** lenComStr = new size_t * [LEN_ARR_A];
-size_t ** solutionPath = new size_t * [LEN_ARR_A];
-for (size_t i = 0; i &lt;LEN_ARR_A; ++ i) {
-    lenComStr [i] = new size_t [LEN_ARR_B];
-    solutionPath [i] = new size_t [LEN_ARR_B];
-}
-LCSLength (LEN_ARR_A, LEN_ARR_B, strA, strB, lenComStr, solutionPath);
-LCS (LEN_ARR_A-1, LEN_ARR_B-1, strA, solutionPath);
-return 0;</code></pre><p>}<br>`` `<br>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9keW5hbWljLXByb2dyYW1taW5nLzEucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/dynamic-programming/1.png<i class="fa fa-external-link-alt"></i></span>)</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2013/05/13/stack_application_on_expression-resolution-with-braces/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -405,7 +241,7 @@ return 0;</code></pre><p>}<br>`` `<br>! [img] (<span class="exturl" data-url="aH
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:17:01" itemprop="dateModified" datetime="2020-04-09T16:17:01+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:27:54" itemprop="dateModified" datetime="2020-04-09T17:27:54+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -434,41 +270,14 @@ return 0;</code></pre><p>}<br>`` `<br>! [img] (<span class="exturl" data-url="aH
 
       
           <p>This article is based on the program written by Yan Weimin’s data structure (c language version). If necessary, go to the video first. If there are any mistakes, please welcome them to avoid harming others.</p>
-<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>Exp = a * b + (c – d / e) * f</p>
-<p>Prefix: + * ab *-c / def</p>
-<p>Infix: a * b + c–d / e * f</p>
-<p>Suffix: ab * cd e / -f * +</p>
-<h3 id="Same-point"><a href="#Same-point" class="headerlink" title="Same point"></a>Same point</h3><p>The numbers are arranged in the original formula: so the operands are stacked on the stack in order.</p>
-<h3 id="difference"><a href="#difference" class="headerlink" title="difference"></a>difference</h3><p>1: The order of operators in the suffix is ​​exactly the order of solving</p>
-<p>2: Each operator and the 2 operands that appear immediately before it and form a minimum expression</p>
-<p>The key: to find the suffix from the original expression</p>
-<h2 id="Application-steps"><a href="#Application-steps" class="headerlink" title="Application steps"></a>Application steps</h2><p>-Step1: Set up two stacks, one operator stack and the other suffix stack.<br>-Step2: Add the = sign before and after the expression to indicate the start and end of the operation expression, so in the operator, the = sign has the lowest priority.<br>-Step3: If the current character is an operand, it is sent directly to the postfix stack. Consistent with the common point mentioned above: the numbers are in the order of the original expression from left to right.<br>-Step4: The priority of the left parenthesis is higher than the operator before the left parenthesis, and the operator after the left parenthesis is higher than the left parenthesis, so as to play a role in isolation, the operator before the right parenthesis is higher than the right parenthesis, Only in this way can the parentheses isolate the inner expression!<br>-Step5: If the priority of the current operator is higher than the operator at the top of the stack, the operator stack is entered, otherwise the operator at the top of the stack that exits the operator stack and the result of the two operands taken from the top of the operand stack are used as The new operand is pushed onto the operand stack, and then the current operator is pushed onto the operator stack.</p>
-<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><p>`` `c ++<br>#include &lt;stdio.h&gt; </p>
-<p>#include &lt;malloc.h&gt; // malloc ()<br>#include &lt;process.h&gt; // exit ();<br>// Function result status code<br>#define TRUE 1<br>#define FALSE 0<br>#define OK 1<br>#define ERROR 0<br>#define INFEASIBLE -1</p>
-<p>#define STACK_INIT_SIZE 100 // Initial allocation of storage space<br>#define STACKINCREMENT 2 // Storage space allocation increment</p>
-<p>typedef int Status; // Status is the type of the function, its value is the function result status code, such as OK, etc.<br>typedef char SElemType;<br>struct SqStack<br>{<br>    SElemType * base; // Before stack construction and after destruction, the value of base is NULL<br>    SElemType * top; // pointer to the top of the stack<br>    int stacksize; // currently allocated storage space, in elements<br>};</p>
-<p>Status InitStack (SqStack &amp; S)<br>{// Construct an empty stack S<br>    if (! (S.base = (SElemType *) malloc (STACK_INIT_SIZE * sizeof (SElemType))))<br>        exit (-1); // storage allocation failed<br>    S.top = S.base;<br>    S.stacksize = STACK_INIT_SIZE;<br>    return OK;<br>}</p>
-<p>Status DestroyStack (SqStack &amp; S)<br>{// Destroy stack S, S no longer exists<br>    free (S.base);<br>    S.base = NULL;<br>    S.top = NULL;<br>    S.stacksize = 0;<br>    return OK;<br>}</p>
-<p>Status ClearStack (SqStack &amp; S)<br>{// Set S to the empty stack<br>    S.top = S.base;<br>    return OK;<br>}</p>
-<p>Status StackEmpty (SqStack S)<br>{// If stack S is empty, then return TRUE, otherwise return FALSE<br>    if (S.top == S.base)<br>        return TRUE;<br>    else<br>        return FALSE;<br>}</p>
-<p>int StackLength (SqStack S)<br>{// Return the number of elements of S, that is, the length of the stack<br>    return S.top-S.base;<br>}</p>
-<p>Status GetTop (SqStack S, SElemType &amp; e)<br>{// If the stack is not empty, use e to return the top element of S, and return OK; otherwise return ERROR<br>    if (S.top&gt; S.base)<br>    {<br>        e = * (S.top-1);<br>        return OK;<br>    }<br>    else<br>        return ERROR;<br>}</p>
-<p>Status Push (SqStack &amp; S, SElemType e)<br>{// Insert element e as the new top element<br>    if (S.top-S.base&gt; = S.stacksize) // Stack is full, additional storage space<br>    {<br>        S.base = (SElemType *) realloc (S.base, (S.stacksize + STACKINCREMENT) * sizeof (SElemType));<br>        if (! S.base)<br>            exit (-1); // storage allocation failed<br>        S.top = S.base + S.stacksize;<br>        S.stacksize + = STACKINCREMENT;<br>    }<br>    * (S.top) ++ = e;<br>    return OK;<br>}</p>
-<p>Status Pop (SqStack &amp; S, SElemType &amp; e)<br>{// If the stack is not empty, delete the top element of S, return its value with e, and return OK; otherwise return ERROR<br>    if (S.top == S.base)<br>        return ERROR;<br>    e = *-S.top;<br>    return OK;<br>}</p>
-<p>Status StackTraverse (SqStack S, Status (* visit) (SElemType))<br>{// Call the function visit () for each element in the stack from the bottom to the top of the stack.<br>    // Once visit () fails, the operation fails<br>    while (S.top&gt; S.base)<br>        visit (* S.base ++);<br>    printf (“\ n”);<br>    return OK;<br>}</p>
-<p>SElemType Precede (SElemType a, SElemType b)<br>{// judgment operator priority<br>    int i, j;<br>    char Table [8] [8] = {<br>        {‘’, ‘+’, ‘-‘, ‘<em>‘, ‘/‘, ‘(‘, ‘)’, ‘#’},<br>        {‘+’, ‘&gt;’, ‘&gt;’, ‘&lt;’, ‘&lt;’, ‘&lt;’, ‘&gt;’, ‘&gt;’},<br>        {‘-‘, ‘&gt;’, ‘&gt;’, ‘&lt;’, ‘&lt;’, ‘&lt;’, ‘&gt;’, ‘&gt;’},<br>        {‘</em>‘, ‘&gt;’, ‘&gt;’, ‘&gt;’, ‘&gt;’, ‘&lt;’, ‘&gt;’, ‘&gt;’},<br>        {‘/‘, ‘&gt;’, ‘&gt;’, ‘&gt;’, ‘&gt;’, ‘&lt;’, ‘&gt;’, ‘&gt;’},<br>        {‘(‘, ‘&lt;’, ‘&lt;’, ‘&lt;’, ‘&lt;’, ‘&lt;’, ‘=’, ‘’},<br>        {‘)’, ‘&gt;’, ‘&gt;’, ‘&gt;’, ‘&gt;’, ‘’, ‘&gt;’, ‘&gt;’},<br>        {‘#’, ‘&lt;’, ‘&lt;’, ‘&lt;’, ‘&lt;’, ‘&lt;’, ‘’, ‘=’}<br>    }; // Priority table</p>
-<pre><code>for (i = 0; i &lt;8; i ++)
-    if (Table [0] [i] == a) // Find operator a
-        break;
-for (j = 0; j &lt;8; j ++) // find operator
-    if (Table [j] [0] == b)
-        break;
-return Table [j] [i];</code></pre><p>}</p>
-<p>Status In (SElemType c)<br>{// Determine whether c is an operator<br>    switch (c)<br>    {<br>        case ‘+’:<br>        case’- ‘:<br>        case ‘*’:<br>        case ‘/‘:<br>        case ‘(‘:<br>        case ‘)’:<br>        case ‘#’: return TRUE;<br>        default: return FALSE;<br>    }<br>}</p>
-<p>SElemType Operate (SElemType a, SElemType theta, SElemType b)<br>{<br>    SElemType c;<br>    a = a-48;<br>    b = b-48;<br>    switch (theta)<br>    {<br>        case ‘+’: c = a + b + 48;<br>                break;<br>        case ‘-‘: c = a-b + 48;<br>                break;<br>        case ‘*’: c = a * b + 48;<br>                break;<br>        case ‘/‘: c = a / b + 48;<br>    }<br>    return c;<br>}</p>
-<p>SElemType EvaluateExpression () // Algorithm 3.4<br>{// Operator-first algorithm for arithmetic expression evaluation. Let OPTR and OPND be the operator stack and operand stack, respectively<br>    SqStack OPTR, OPND;<br>    SElemType a, b, c, x, theta;<br>    InitStack (OPTR);<br>    Push (OPTR, ‘#’);<br>    InitStack (OPND);<br>    c = getchar ();<br>    GetTop (OPTR, x);<br>    while (c! = ‘#’ || x! = ‘#’)<br>    {<br>        if (In (c)) // is one of 7 operators<br>            switch (Precede (c, x))<br>            {<br>                case ‘&lt;’: Push (OPTR, c); // Low priority of the top element of the stack<br>                        c = getchar ();<br>                        break;<br>                case ‘=’: Pop (OPTR, x); // Remove parentheses and receive the next character<br>                        c = getchar ();<br>                        break;<br>                case ‘&gt;’: Pop (OPTR, theta); // Unstack and put the operation result on the stack<br>                        Pop (OPND, b);<br>                        Pop (OPND, a);<br>                        Push (OPND, Operate (a, theta, b));<br>                        break;<br>            }<br>        else if (c&gt; = ‘0’ &amp;&amp; c &lt;= ‘9’) // c is the operand<br>        {<br>            Push (OPND, c);<br>            c = getchar ();<br>        }<br>        else // c is an illegal character<br>        {<br>            printf (“Illegal character \ n”);<br>            exit (-1);<br>        }<br>        GetTop (OPTR, x);<br>    }<br>    GetTop (OPND, x);<br>    return x;<br>}</p>
-<p>int main ()<br>{<br>    printf (“Please enter the arithmetic expression (the intermediate value and the final result should be between 0-9), and end with # \“ “;<br>    printf (“% c \ n”, EvaluateExpression ());<br>    return 0;<br>}<br>`` `</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/05/13/stack_application_on_expression-resolution-with-braces/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -518,7 +327,7 @@ return Table [j] [i];</code></pre><p>}</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:16:35" itemprop="dateModified" datetime="2020-04-09T16:16:35+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:27:39" itemprop="dateModified" datetime="2020-04-09T17:27:39+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -527,7 +336,7 @@ return Table [j] [i];</code></pre><p>}</p>
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.9k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -546,45 +355,15 @@ return Table [j] [i];</code></pre><p>}</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><p>Receive the user’s input program or data from the terminal, and store it in the user’s data area. Because the user inevitably makes mistakes when inputting on the terminal, it is obviously unreasonable to “store every time a character is received in the user data area” in the line editing program. A better approach is to set up a buffer to receive each line of characters entered by the user, and then store it in the user data area line by line. Allow the user to make mistakes and correct them in time if errors are found. For example, when the user finds that the character just typed is wrong, a backspace character # is added to indicate that the previous character is invalid; if the current typed line has many errors or is difficult to remedy, he can type a line backward symbol @ To indicate that the characters in the current line are invalid.</p>
-<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>Receive two lines of characters from the terminal:</p>
-<p>Whi ## ilr # e (s # * s)</p>
-<p>Outcha @ putchar (* s # ++)</p>
-<p>The following two lines are actually valid:</p>
-<p>While (* s)</p>
-<p>Putchar (* s ++)</p>
-<p>To this end, we can set up a buffer with a stack structure. When the user receives a character from the terminal, the following judgment is made: if he is neither a backspace character nor a backspace character, the character is pushed onto the stack In, if it is a backspace character, a character is deleted from the top of the stack; if it is a backspace character, the character stack is emptied.</p>
-<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><p><code>`c
-void LineEdit ()
-{// Using the character stack s, receive a line from the terminal and send it to the data area of ​​the calling process. Algorithm 3.2
-    SqStack s;
-    char ch, c;
-    InitStack (s);
-    printf (&quot;Please enter a text file, ^ Z end input: \ n&quot;);
-    ch = getchar ();
-    while (ch! = EOF)
-    {// EOF is the ^ Z key, the end of the full text
-        while (ch! = EOF &amp;&amp; ch! = &#39;\ n&#39;)
-        {
-            switch (ch)
-            {
-                case &#39;#&#39;: Pop (s, c);
-                         break; // Only when the stack is not empty
-                case &#39;@&#39;: ClearStack (s);
-                         break; // reset s to empty stack
-                default: Push (s, ch); // valid characters are pushed onto the stack
-            }
-            ch = getchar (); // Receive the next character from the terminal
-        }
-        StackTraverse (s, copy); // Transfer characters from the bottom of the stack to the top of the stack to the file
-        ClearStack (s); // reset s to empty stack
-        fputc (&#39;\ n&#39;, fp);
-        if (ch! = EOF)
-            ch = getchar ();
-    }
-    DestroyStack (s);
-}</code> `</p>
-
+          <p>Tolerant Buffer-Basic Application</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2013/05/12/stack_application_on_line-editor_or_buff_zone/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -670,7 +449,7 @@ void LineEdit ()
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -731,7 +510,7 @@ void LineEdit ()
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

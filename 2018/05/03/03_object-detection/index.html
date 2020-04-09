@@ -32,12 +32,12 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":20,"offset":15,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="NoteThis is my personal note after studying the course of the 3rd week convolutional neural networks and the copyright belongs to deeplearning.ai. 01_object-localizationHello and welcome back. This we">
+  <meta name="description" content="NoteThis is my personal note after studying the course of the 3rd week convolutional neural networks and the copyright belongs to deeplearning.ai.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="03_object-detection">
 <meta property="og:url" content="https://snakecoding.com/2018/05/03/03_object-detection/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="NoteThis is my personal note after studying the course of the 3rd week convolutional neural networks and the copyright belongs to deeplearning.ai. 01_object-localizationHello and welcome back. This we">
+<meta property="og:description" content="NoteThis is my personal note after studying the course of the 3rd week convolutional neural networks and the copyright belongs to deeplearning.ai.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/convolutional-neural-networks/lectures/week3/images/1.png">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/convolutional-neural-networks/lectures/week3/images/2.png">
@@ -68,7 +68,7 @@
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/convolutional-neural-networks/lectures/week3/images/28.png">
 <meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/convolutional-neural-networks/lectures/week3/images/29.png">
 <meta property="article:published_time" content="2018-05-02T18:30:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T09:27:00.113Z">
+<meta property="article:modified_time" content="2020-04-09T12:13:42.392Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="deep learning">
 <meta property="article:tag" content="convolutional-neural-networks">
@@ -178,7 +178,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -274,7 +274,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 14:57:00" itemprop="dateModified" datetime="2020-04-09T14:57:00+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:43:42" itemprop="dateModified" datetime="2020-04-09T17:43:42+05:30">2020-04-09</time>
               </span>
 
           
@@ -310,6 +310,8 @@
 
       
         <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note after studying the course of the 3rd week <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL2NvbnZvbHV0aW9uYWwtbmV1cmFsLW5ldHdvcmtz">convolutional neural networks<i class="fa fa-external-link-alt"></i></span> and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
+<a id="more"></a> 
+
 <h2 id="01-object-localization"><a href="#01-object-localization" class="headerlink" title="01_object-localization"></a>01_object-localization</h2><p>Hello and welcome back. This week you learn about object detection. This is one of the areas of computer vision that’s just exploding and is working so much better than just a couple of years ago. In order to build up to object detection, you first learn about object localization. </p>
 <p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/convolutional-neural-networks/lectures/week3/images/1.png" alt=""><br>Let’s start by defining what that means. You’re already familiar with the image classification task where an algorithm looks at this picture and might be responsible for saying this is a car. So that was classification. The problem you learn to build in your network to address later on this video is <strong>classification with localization</strong>. Which means <strong>not only do you have to label this as say a car but the algorithm also is responsible for putting a bounding box, or drawing a red rectangle around the position of the car in the image</strong>. So that’s called the classification with localization problem. Where the term localization refers to figuring out where in the picture is the car you’ve detective. Later this week, you then learn about the detection problem where now there might be multiple objects in the picture and you have to detect them all and and localized them all. And if you’re doing this for an autonomous driving application, then you might need to detect not just other cars, but maybe other pedestrians and motorcycles and maybe even other objects. So you’ll see that later this week. So in the terminology we’ll use this week, the classification and the classification of localization problems usually have one object. <strong>Usually one big object in the middle of the image that you’re trying to recognize or recognize and localize. In contrast, in the detection problem there can be multiple objects. And in fact, maybe even multiple objects of different categories within a single image</strong>. So the ideas you’ve learned about for image classification will be useful for classification with localization. And that the ideas you learn for localization will then turn out to be useful for detection. </p>
 <p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/convolutional-neural-networks/lectures/week3/images/2.png" alt=""><br>So let’s start by talking about classification with localization. You’re already familiar with the image classification problem, in which you might input a picture into a ConvNet with multiple layers so that’s our ConvNet. And this results in a vector features that is fed to maybe a softmax unit that outputs the predicted clause. So if you are building a self driving car, maybe your object categories are the following. Where you might have a pedestrian, or a car, or a motorcycle, or a background. This means none of the above. So if there’s no pedestrian, no car, no motorcycle, then you might have an output background. So these are your classes, they have a softmax with four possible outputs. So this is the standard classification pipeline. How about if you want to localize the car in the image as well. To do that, you can change your neural network to have a few more output units that output a bounding box. So, in particular, you can have the neural network output four more numbers, and I’m going to call them bx, by, bh, and bw. And these four numbers parameterized the bounding box of the detected object. So in these videos, I am going to use the notational convention that the upper left of the image, I’m going to denote as the coordinate (0,0), and at the lower right is (1,1). So, specifying the bounding box, <strong>the red rectangle requires specifying the midpoint. So that’s the point bx, by as well as the height, that would be bh, as well as the width, bw of this bounding box</strong>. So now if your training set contains not just the object cross label, which a neural network is trying to predict up here, but it also contains four additional numbers. Giving the bounding box then you can use supervised learning to make your algorithm outputs not just a class label but also the four parameters to tell you where is the bounding box of the object you detected. So in this example the ideal bx might be about 0.5 because this is about halfway to the right to the image. by might be about 0.7 since it’s about maybe 70% to the way down to the image. bh might be about 0.3 because the height of this red square is about 30% of the overall height of the image. And bw might be about 0.4 let’s say because the width of the red box is about 0.4 of the overall width of the entire image. So let’s formalize this a bit more in terms of how we define the target label y for this as a supervised learning task. </p>
@@ -405,12 +407,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2018/05/03/Autonomous+driving+application+-+Car+detection+-+v3/" rel="prev" title="Autonomous driving - Car detection">
-      <i class="fa fa-chevron-left"></i> Autonomous driving - Car detection
+    <a href="/2018/05/02/Keras+-+Tutorial+-+Happy+House+v2/" rel="prev" title="Keras Tutorial Happy House">
+      <i class="fa fa-chevron-left"></i> Keras Tutorial Happy House
     </a></div>
       <div class="post-nav-item">
-    <a href="/2018/05/04/Art+Generation+with+Neural+Style+Transfer+-+v3/" rel="next" title="Deep Learning & Art Neural Style Transfer">
-      Deep Learning & Art Neural Style Transfer <i class="fa fa-chevron-right"></i>
+    <a href="/2018/05/03/Autonomous+driving+application+-+Car+detection+-+v3/" rel="next" title="Autonomous driving - Car detection">
+      Autonomous driving - Car detection <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -487,7 +489,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -548,7 +550,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -241,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 14:53:47" itemprop="dateModified" datetime="2020-04-09T14:53:47+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:37:48" itemprop="dateModified" datetime="2020-04-09T17:37:48+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -327,7 +327,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 14:56:49" itemprop="dateModified" datetime="2020-04-09T14:56:49+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:38:42" itemprop="dateModified" datetime="2020-04-09T17:38:42+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -356,12 +356,6 @@
 
       
           <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note after studying the course of the 2nd week <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL2NvbnZvbHV0aW9uYWwtbmV1cmFsLW5ldHdvcmtz">convolutional neural networks<i class="fa fa-external-link-alt"></i></span> and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="01-case-studies"><a href="#01-case-studies" class="headerlink" title="01_case-studies"></a>01_case-studies</h2><h3 id="01-why-look-at-case-studies"><a href="#01-why-look-at-case-studies" class="headerlink" title="01_why-look-at-case-studies"></a>01_why-look-at-case-studies</h3><p>Hello and welcome back. <strong>This week the first thing we’ll do is show you a number of case studies of the factor convolutional neural networks</strong>. So why look at case studies? Last week we learned about the basic building blocks such as convolutional layers, proving layers and fully connected layers of conv nets. It turns out a lot of the past few years of computer vision research has been on how to put together these basic building blocks to form effective convolutional neural networks. And one of the best ways for you to get intuition yourself is to see some of these examples. I think just as many of you may have learned to write codes by reading other people’s codes, I think that a good way to get intuition on how to build conv nets is to read or to see other examples of effective conv nets. And it turns out that a net neural network architecture that works well on one computer vision task often works well on other tasks as well such as maybe on your task. So if someone else is training neural network as speak it out in your network architecture is very good at recognizing cats and dogs and people but you have a different computer vision task like maybe you’re trying to sell self-driving car. You might well be able to take someone else’s neural network architecture and apply that to your problem. And finally, after the next few videos, you’ll be able to read some of the research papers from the theater computer vision and I hope that you might find it satisfying as well. You don’t have to do this as a class but I hope you might find it satisfying to be able to read some of these seminal computer vision research paper and see yourself able to understand them. So with that, let’s get started.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/convolutional-neural-networks/lectures/week2/images/1.png" alt=""><br>As an outline of what we’ll do in the next few videos, we’ll first show you a few classic networks. </p>
-<p><strong>The LeNEt-5 network which came from, I guess, in 1980s, AlexNet which is often cited and the VGG network and these are examples of pretty effective neural networks. And some of the ideas lay the foundation for modern computer vision. And you see ideas in these papers that are probably useful for your own. And you see ideas from these papers that were probably be useful for your own work as well</strong>. </p>
-<p>Then I want to show you the ResNet or conv residual network and you might have heard that neural networks are getting deeper and deeper. The <strong>ResNet neural network</strong> trained a very, very deep 152-layer neural network that has some very interesting tricks, interesting ideas how to do that effectively. </p>
-<p>And then finally you also see a case study of the <strong>Inception neural network</strong>. After seeing these neural networks, l think you have much better intuition about how to built effective convolutional neural networks. <strong>And even if you end up not working computer vision yourself, I think you find a lot of the ideas from some of these examples, such as ResNet Inception network, many of these ideas are cross-fertilizing on making their way into other disciplines</strong>. So even if you don’t end up building computer vision applications yourself, I think you’ll find some of these ideas very interesting and helpful for your work.</p>
-<h3 id="02-classic-networks"><a href="#02-classic-networks" class="headerlink" title="02_classic-networks"></a>02_classic-networks</h3><p>In this video, you’ll learn about some of the classic neural network architecture starting with LeNet-5, and then AlexNet, and then VGGNet. Let’s take a look. </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/convolutional-neural-networks/lectures/week2/images/2.png" alt=""><br>Here is the LeNet-5 architecture. You start off with an image which say, 32 by 32 by 1. And the goal of <strong>LeNet-5</strong> was to recognize handwritten digits, so maybe an image of a digits like that. And LeNet-5 was trained on grayscale images, which is why it’s 32 by 32 by 1. This neural network architecture is actually quite similar to the last example you saw last week. In the first step, you use a set of six, 5 by 5 filters with a stride of one because you use six filters you end up with a 20 by 20 by 6 over there. And with a stride of one and no padding, the image dimensions reduces from 32 by 32 down to 28 by 28. Then the LeNet neural network applies pooling. And back then when this paper was written, people use average pooling much more. If you’re building a modern variant, you probably use max pooling instead. But in this example, you average pool and with a filter width two and a stride of two, you wind up reducing the dimensions, the height and width by a factor of two, so we now end up with a 14 by 14 by 6 volume. I guess the height and width of these volumes aren’t entirely drawn to scale. Now technically, if I were drawing these volumes to scale, the height and width would be stronger by a factor of two. Next, you apply another convolutional layer. This time you use a set of 16 filters, the 5 by 5, so you end up with 16 channels to the next volume. And back when this paper was written in 1998, people didn’t really use padding or you always using valid convolutions, which is why every time you apply convolutional layer, they heightened with strengths. So that’s why, here, you go from 14 to 14 down to 10 by 10. Then another pooling layer, so that reduces the height and width by a factor of two, then you end up with 5 by 5 over here. And if you multiply all these numbers 5 by 5 by 16, this multiplies up to 400. That’s 25 times 16 is 400. And the next layer is then a fully connected layer that fully connects each of these 400 nodes with every one of 120 neurons, so there’s a fully connected layer. And sometimes, that would draw out exclusively a layer with 400 nodes, I’m skipping that here. There’s a fully connected layer and then another a fully connected layer. And then the final step is it uses these essentially 84 features and uses it with one final output. I guess you could draw one more node here to make a prediction for ŷ. And ŷ took on 10 possible values corresponding to recognising each of the digits from 0 to 9. A modern version of this neural network, we’ll use a softmax layer with a 10 way classification output. Although back then, LeNet-5 actually use a different classifier at the output layer, one that’s useless today. So this neural network was small by modern standards, had about 60,000 parameters. And today, you often see neural networks with anywhere from 10 million to 100 million parameters, and it’s not unusual to see networks that are literally about a thousand times bigger than this network. But one thing you do see is that as you go deeper in a network, so as you go from left to right, the height and width tend to go down. So you went from 32 by 32, to 28 to 14, to 10 to 5, whereas the number of channels does increase. It goes from 1 to 6 to 16 as you go deeper into the layers of the network. One other pattern you see in this neural network that’s still often repeated today is that you might have some one or more conu layers followed by pooling layer, and then one or sometimes more than one conu layer followed by a pooling layer, and then some fully connected layers and then the outputs. So this type of arrangement of layers is quite common. </p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/05/01/02_deep-convolutional-models-case-studies/#more" rel="contents">
@@ -419,7 +413,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 14:57:42" itemprop="dateModified" datetime="2020-04-09T14:57:42+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:23:15" itemprop="dateModified" datetime="2020-04-09T17:23:15+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -448,83 +442,14 @@
 
       
           <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal summary after studying the course, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL21hY2hpbmUtbGVhcm5pbmctcHJvamVjdHM=">Structuring Machine Learning Projects<i class="fa fa-external-link-alt"></i></span> and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
-<h3 id="Content-Table-of-my-personal-notes"><a href="#Content-Table-of-my-personal-notes" class="headerlink" title="Content Table of my personal notes"></a>Content Table of my personal notes</h3><p>$1_{st}$ week: <a href="/2018-04-01/01_ml-strategy-1/">01_ml-strategy-1</a></p>
-<ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#01_introduction-to-ml-strategy">01_introduction-to-ml-strategy</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#01_why-ml-strategy">01_why-ml-strategy</a></li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#02_orthogonalization">02_orthogonalization</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#Orthogonalization">Orthogonalization</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#02_setting-up-your-goal">02_setting-up-your-goal</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#01_single-number-evaluation-metric">01_single-number-evaluation-metric</a></li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#02_satisficing-and-optimizing-metric">02_satisficing-and-optimizing-metric</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#03_train-dev-test-distributions">03_train-dev-test-distributions</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#04_size-of-the-dev-and-test-sets">04_size-of-the-dev-and-test-sets</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#Summary">Summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#05_when-to-change-dev-test-sets-and-metrics">05_when-to-change-dev-test-sets-and-metrics</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#03_comparing-to-human-level-performance">03_comparing-to-human-level-performance</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#01_why-human-level-performance">01_why-human-level-performance</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#02_avoidable-bias">02_avoidable-bias</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#03_understanding-human-level-performance">03_understanding-human-level-performance</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#Summary">Summary</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#04_surpassing-human-level-performance">04_surpassing-human-level-performance</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#05_improving-your-model-performance">05_improving-your-model-performance</a></li>
-</ul>
-<p>$2_{nd}$ week: <a href="/2018-04-02/02_ml-strategy-2/">02_ml-strategy-2</a></p>
-<ul>
-<li><a href="/2018-04-02/02_ml-strategy-2/#01_error-analysis">01_error-analysis</a><ul>
-<li><a href="/2018-04-02/02_ml-strategy-2/#01_carrying-out-error-analysis">01_carrying-out-error-analysis</a></li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#02_cleaning-up-incorrectly-labeled-data">02_cleaning-up-incorrectly-labeled-data</a></li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#03_build-your-first-system-quickly-then-iterate">03_build-your-first-system-quickly-then-iterate</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#02_mismatched-training-and-dev-test-set">02_mismatched-training-and-dev-test-set</a><ul>
-<li><a href="ns">01_training-and-testing-on-different-distributions</a></li>
-<li><a href="ns">02_bias-and-variance-with-mismatched-data-distributions</a></li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#03_addressing-data-mismatch">03_addressing-data-mismatch</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#03_learning-from-multiple-tasks">03_learning-from-multiple-tasks</a><ul>
-<li><a href="/2018-04-02/02_ml-strategy-2/#01_transfer-learning">01_transfer-learning</a></li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#02_multi-task-learning">02_multi-task-learning</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#04_end-to-end-deep-learning">04_end-to-end-deep-learning</a><ul>
-<li><a href="/2018-04-02/02_ml-strategy-2/#01_what-is-end-to-end-deep-learning">01_what-is-end-to-end-deep-learning</a></li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#02_whether-to-use-end-to-end-deep-learning">02_whether-to-use-end-to-end-deep-learning</a></li>
-</ul>
-</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/04/03/summary_of_Structuring-Machine-Learning-Projects/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -574,7 +499,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 14:56:50" itemprop="dateModified" datetime="2020-04-09T14:56:50+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:39:00" itemprop="dateModified" datetime="2020-04-09T17:39:00+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -603,9 +528,6 @@
 
       
           <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note after studying the course of the second week <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL21hY2hpbmUtbGVhcm5pbmctcHJvamVjdHM=">Structuring Machine Learning Projects<i class="fa fa-external-link-alt"></i></span> and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="01-error-analysis"><a href="#01-error-analysis" class="headerlink" title="01_error-analysis"></a>01_error-analysis</h2><h3 id="01-carrying-out-error-analysis"><a href="#01-carrying-out-error-analysis" class="headerlink" title="01_carrying-out-error-analysis"></a>01_carrying-out-error-analysis</h3><p>Hello, and welcome back. If you’re trying to get a learning algorithm to do a task that humans can do. And if your learning algorithm is not yet at the performance of a human. Then manually examining mistakes that your algorithm is making, can give you insights into what to do next. This process is called error analysis. </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/StructuringMachineLearningProjects/02_ml-strategy-2/1.png" alt=""><br>Let’s start with an example. Let’s say you’re working on your cat classifier, and you’ve achieved 90% accuracy, or equivalently 10% error, on your dev set. And let’s say this is much worse than you’re hoping to do. Maybe one of your teammates looks at some of the examples that the algorithm is misclassifying, and <strong>notices that it is miscategorizing some dogs as cats</strong>. And if you look at these two dogs, maybe they look a little bit like a cat, at least at first glance. <strong>So maybe your teammate comes to you with a proposal for how to make the algorithm do better, specifically on dogs, right? You can imagine building a focus effort, maybe to collect more dog pictures, or maybe to design features specific to dogs, or something</strong>. In order to make your cat classifier do better on dogs, so it stops misrecognizing these dogs as cats. <strong>So the question is, should you go ahead and start a project focus on the dog problem? There could be several months of works you could do in order to make your algorithm make few mistakes on dog pictures. So is that worth your effort?</strong> Well, rather than spending a few months doing this, <strong>only to risk finding out at the end that it wasn’t that helpful</strong>. </p>
-<p>Here’s an error analysis procedure that can let you very quickly tell whether or not this could be worth your effort. <strong>Here’s what I recommend you do. First</strong>, get about, say 100 mislabeled dev set examples, then examine them manually. Just count them up one at a time, to see how many of these mislabeled examples in your dev set are actually pictures of dogs. Now, suppose that it turns out that 5% of your 100 mislabeled dev set examples are pictures of dogs. So, that is, if 5 out of 100 of these mislabeled dev set examples are dogs, what this means is that of the 100 examples. Of a typical set of 100 examples you’re getting wrong, even if you completely solve the dog problem, you only get 5 out of 100 more correct. Or in other words, <strong>if only 5% of your errors are dog pictures, then the best you could easily hope to do, if you spend a lot of time on the dog problem. Is that your error might go down from 10% error, down to 9.5% error, right? So this a 5% relative decrease in error, from 10% down to 9.5%. And so you might reasonably decide that this is not the best use of your time.</strong> </p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/04/02/02_ml-strategy-2/#more" rel="contents">
@@ -699,7 +621,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -760,7 +682,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         

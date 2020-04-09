@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -210,108 +210,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/01/positive_definite_matrix/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Karan">
-      <meta itemprop="description" content="Refuse to Fall">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Machine Learning">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/08/01/positive_definite_matrix/" class="post-title-link" itemprop="url">positive definite and least squares</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2017-08-01 22:16:00" itemprop="dateCreated datePublished" datetime="2017-08-01T22:16:00+05:30">2017-08-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 15:56:06" itemprop="dateModified" datetime="2020-04-09T15:56:06+05:30">2020-04-09</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="positive-definite"><a href="#positive-definite" class="headerlink" title="positive definite"></a>positive definite</h2><p>When <strong>a symmetric matrix $A$ has one of these five properties, it has them all</strong> and $A$ is positive definite:</p>
-<blockquote>
-<ol>
-<li>all <strong>n eigenvalue</strong> are positive.</li>
-<li>all <strong>n principal minors(n upper left determinants)</strong> are positive.</li>
-<li>all <strong>n pivots are positive</strong>.</li>
-<li>$x^{T}Ax$ is positive except when $x = 0$ (this is usually the definition of positive definiteness and the <strong>energy-based</strong> definition).</li>
-<li>$A$ equals $R^{T}R$ for a matrix $R$ with <strong>independent columns</strong>.</li>
-</ol>
-</blockquote>
-<p>Let us prove the fifth rule. If $A = R^{T}R$, then</p>
-<p>$$<br>\begin{eqnarray}<br>x^{T}Ax&amp;=&amp;x^{T}R^{T}Rx \nonumber\<br>&amp;=&amp;(x^{T}R^{T})Rx \nonumber\<br>&amp;=&amp;(Rx)^{T}Rx \nonumber\<br>&amp;=&amp;|Rx| \nonumber\<br>&amp;\ge&amp;0 \nonumber<br>\end{eqnarray}<br>$$</p>
-<p>And the columns of $R$ are also independent, so $|Rx|=x^{T}Ax&gt;0$, except when $x$=0 and thus $A$ is positive definite.</p>
-<h2 id="A-T-A"><a href="#A-T-A" class="headerlink" title="$A^{T}A$"></a>$A^{T}A$</h2><p>$A_{m\times n}$ is almost certainly not symmetric, but $A^{T}A$ is square (n by n) and symmetric. We can easily get the following equations through left multiplying $A^{T}A$ by $x^{T}$ and right multiplying $A^{T}A$ by $x$:</p>
-<p>$$<br>\begin{eqnarray}<br>x^{T}A{^TA}x&amp;=&amp;x^{T}(A{^TA})x\nonumber\<br>&amp;=&amp;(x^{T}A^{T})Ax\nonumber\<br>&amp;=&amp;(Ax)^{T}(Ax)\nonumber\<br>&amp;=&amp;|Ax|\nonumber\<br>&amp;\ge&amp;0\nonumber<br>\end{eqnarray}<br>$$</p>
-<p>If $A_{m\times,n}$ has rank $n$ (independent columns), then except when $x = 0$, $Ax=|Ax|=x^{T}(A{^TA})x&gt;0$ and thus $A^{T}A$ is positive definite. And vice versus.</p>
-<p>Besides, $A^{T}A$ is invertible only if $A$ has rank $n$ (independent columns). To prove this, we assume $Ax=0$, then:</p>
-<p>$$<br>\begin{eqnarray}<br>Ax&amp;=&amp;0\nonumber\<br>(Ax)^{T}(Ax)&amp;=&amp;0\nonumber\<br>(x^{T}A{^T})(Ax)&amp;=&amp;0\nonumber\<br>x^{T}A{^T}(Ax)&amp;=&amp;x^{T}0\nonumber\<br>(A{^TA})x&amp;=&amp;0\nonumber<br>\end{eqnarray}<br>$$</p>
-<p>From the above equations, we know solutions of $Ax=0$ are also solutions of  $(A{^TA})x=0$. Because $A_{m\times,n}$ has a full set of column rank (independent columns),  $Ax=0$ only has a zero solution as well as $(A{^T}A)x=0$. Furthermore, if $A{^T}A$ is invertible, then $A_{m\times,n}$ has rank $n$ (independent columns). We also notice that if $A$ is square and invertible, then  $A{^T}A$ is invertible. </p>
-<p>Overall, <strong>if all columns of $A_{m\times,n}$ are mutual independent, then $(A{^T}A)$ is invertible and positive definite as well, and vice versus.</strong></p>
-<h2 id="least-square"><a href="#least-square" class="headerlink" title="least square"></a>least square</h2><p>We have learned that <strong>least square</strong> comes from <strong>projection</strong> :<br>$$b-p=e\Rightarrow,A^{T}(b-A\hat{x})=0\Rightarrow,A^{T}A\hat{x}=A^{T}b$$<br>Consequently, only if $A^{T}A$ is invertible, then we can use linear regression to find approximate solutions $\hat{x}=(A^{T}A)^{-1}A^{T}b$ to unsolvable systems of linear equations. </p>
-<p>According to the reasoning before, we know as long as all columns of $A_{m\times,n}$ are mutual independent, then $A{^T}A$ is invertible. At the same time we ought to notice that the columns of $A$ are guaranteed to be independent if they are orthoganal and even orthonormal. </p>
-<p>In another prospective, if $A^{T}A$ is positive definite, then $A_{m\times,n}$ has rank $n$ (independent columns) and thus $A^{T}A$ is invertible.</p>
-<p><strong>Overall, if $A^{T}A$ is positive definite or invertible, then we can find approximate solutions of least square</strong>.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2016/01/20/vim_without_widgets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -343,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 15:17:26" itemprop="dateModified" datetime="2020-04-09T15:17:26+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:23:01" itemprop="dateModified" datetime="2020-04-09T17:23:01+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -372,526 +270,14 @@
 
       
           <p>This article will be continuously updated based on experience.</p>
-<h2 id="Four-modes-of-vim"><a href="#Four-modes-of-vim" class="headerlink" title="Four modes of vim"></a>Four modes of vim</h2><ol>
-<li><p>General mode: normal mode. You can move the cursor, delete characters or entire lines, and copy and paste file data. Opening vim is to enter this mode, and the switching between the three modes is also transferred here.</p>
-</li>
-<li><p>Edit mode: In general mode, press any one of <code>i``I``o`` O</code> <code>a`` A</code> <code>r`` R</code> <code>s`` S</code> to enter this mode. You can edit the content of the file and press Esc to return to the normal mode.</p>
-<p> -<code>i`` I</code> is insert (in front of the character under the cursor and at the beginning of the line)<br> -<code>o`` O</code> is open new line (start a new line below the line where the cursor is and start a new line above the line where the cursor is<br> -<code>a`` A</code> is append (after the character under the cursor and at the end of the line where the cursor is)<br> -<code>s`` S</code> is to delete (the character where the cursor is and start inserting and the line where the cursor is and start inserting), that is, substitute replacement.<br> -<code>r`` R</code> is to replace the character under the cursor and become the replacement mode</p>
-</li>
-<li><p>Command line mode: Press <code>:</code> <code>/</code> <code>in normal mode?</code>Any one enters this mode (the meaning of these symbols will be described below). You can find data operations, read, save, replace a lot of characters, leave vim, display line number and other operations, press Esc to return to the general mode.</p>
-</li>
-<li><p>Visual mode: In general mode, press <code>v`` V</code> <code>ctr + v</code> to enter the visual mode, which is equivalent to the normal mode after highlighting the selected text, that is, in this mode, you can arbitrarily select a specific area and be The selected area is highlighted, <code>v</code> selects the unit: one character;<code>V</code> is also called the visible line mode, select the unit: line; <code>ctr + v</code> is also called the visible block mode, select the unit: square ; All three are useful, see below for details.</p>
-</li>
-</ol>
-<h2 id="Mobile"><a href="#Mobile" class="headerlink" title="Mobile"></a>Mobile</h2><p>In normal mode:</p>
-<p><code>w</code> → to the beginning of the next word<code>e</code> → to the end of the next word (words are separated by spaces by default)<br><code>W</code> → to the beginning of the next string<code>E</code> → to the end of the next string (a string refers to a string consisting of numbers, letters, and underscores)<br><code>B</code> → Go to the first character of the previous string. The<code>b</code> → “command moves the cursor to the first character of the previous word.</p>
-<blockquote>
-<p>By default, a word is composed of letters, numbers and underscores<br>If you think words are separated by blank characters, then you need to use uppercase E and W (Chen Hao: Note)</p>
-</blockquote>
-<p><code>0</code> → number zero, to the beginning of the line<br><code>^</code> → Go to the first position of the line that is not a blank character (the so-called blank character is a space, tab, line feed, carriage return, etc.)<br><code>$</code> → Go to the end of the line<br><code>g_</code> → to the last position of the line that is not a blank character<br><code>%</code> → Go to the other of the pair of brackets where the cursor is<br><code>gg</code> → first line<br><code>G</code> → last line<br><code>h`` j</code> <code>k`` l</code> (strong examples recommend using it to move the cursor, but it is not necessary) → you can also use the cursor keys (← ↓ ↑ →). Note: j extends downwards, k extends upwards</p>
-<ol>
-<li>** High frequency usage scenario 1 **: Change a variable name in the line first and move the cursor: <code>w</code> and<code>b</code>, <code>W</code> and<code>B</code> (or if the line is too long, use the following Search function) to the target word</li>
-<li>** High frequency usage scenario 2 **: Modify the indent and jump to the beginning of the line<code>^</code></li>
-<li>** High frequency usage scenario 3 **: View the completeness of the function or class or the variable scope <code>%</code></li>
-<li>** High frequency usage scenario 4 **: After splitting the screen, jump to different windows: <code>ctrl + w + (h or j or k or l)</code></li>
-<li>** High-frequency use scene 5 **: Move left (left, top, right) <code>(h, j, k, l)</code></li>
-<li>** High frequency usage scenario 6 **: Delete to the end: <code>d $</code> Delete to the beginning: <code>d ^</code></li>
-</ol>
-<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><p>Note: ** mark is to find better **, in normal mode:</p>
-<p><code>mx</code> meaning: mark x, x is the name of mark;<br><code>&#39;x</code> meaning: go to the position of x mark</p>
-<ol>
-<li>** High-frequency usage scenario 1: ** You can see how to define other functions in the function. You want to see how to define them. After you read it, you need to come back. Then mark it first, and then jump back.</li>
-</ol>
-<h3 id="Syntax-related-jumps"><a href="#Syntax-related-jumps" class="headerlink" title="Syntax related jumps"></a>Syntax related jumps</h3><p>In normal mode:</p>
-<ol>
-<li><code>gd</code> meaning: go to definition</li>
-<li>Press <code>[</code> and then <code>ctrl + d</code> to jump to #define</li>
-<li>Press <code>[</code> and then <code>ctrl + i</code> to jump to functions, variables and #define</li>
-</ol>
-<p>** Note **: The language support is not very good, you can try the language used</p>
-<h3 id="Quick-page-turning"><a href="#Quick-page-turning" class="headerlink" title="Quick page turning"></a>Quick page turning</h3><p>In normal mode:</p>
-<table>
-<thead>
-<tr>
-<th>Partner 1</th>
-<th>Partner 2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>ctr + d</code> page down</td>
-<td><code>ctr + d</code> page up</td>
-</tr>
-<tr>
-<td><code>ctr + f</code> page forward</td>
-<td><code>ctr + b</code> page back</td>
-</tr>
-</tbody></table>
-<h2 id="Action-operation-instruction"><a href="#Action-operation-instruction" class="headerlink" title="Action operation instruction"></a>Action operation instruction</h2><p>In normal mode:</p>
-<table>
-<thead>
-<tr>
-<th>Partner 1</th>
-<th>Partner 2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>d</code> ** d ** elete a character and copy to clipboard</td>
-<td><code>D</code> has been ** deleted ** from the cursor position to the end of the line</td>
-</tr>
-<tr>
-<td><code>y</code> ** c ** opy to clipboard</td>
-<td><code>Y</code> ** Copy ** one line (= <code>yy</code>)</td>
-</tr>
-<tr>
-<td><code>s</code> ** s ** ubstitue a character</td>
-<td><code>S</code> ** Replace ** the line where the cursor is located</td>
-</tr>
-<tr>
-<td><code>r</code> ** r ** eplace a character</td>
-<td><code>R</code>* Not commonly used *, which means to enter replacement mode</td>
-</tr>
-<tr>
-<td><code>c</code> ** c ** hange a character</td>
-<td><code>C</code> * Not commonly used <em>, which means *</em> modify ** the cursor position until the end of the line, the same effect as <code>S</code> rendering</td>
-</tr>
-<tr>
-<td><code>p</code> ** p ** aste after the cursor</td>
-<td><code>P</code> ** Paste ** before the cursor position (if you paste a whole line, paste to the previous line)</td>
-</tr>
-<tr>
-<td><code>u</code> ** u ** ndo a operation</td>
-<td><code>U</code> one-time ** undo ** all operations on a whole line</td>
-</tr>
-<tr>
-<td><code>x</code> cut a character</td>
-<td><code>X</code> * not commonly used <em>, *</em> cut ** to the left, ie backspace: delete the character to the left of the cursor</td>
-</tr>
-<tr>
-<td>** `** Search the word under the current cursor ** downward, and jump to the next word when found</td>
-<td><code>#</code>** Search the word under the current cursor ** upward, jump to the previous word when found</td>
-</tr>
-<tr>
-<td><code>/ word</code> ** Search the word word ** down to the full text, jump to the first word that matches, if there are multiple, continue to search down and press the n key (in the direction of the original command), up to press the N key.</td>
-<td><code>? word</code> ** Search the word word ** up the full text, jump to the first word that matches, and if there are multiple, continue to search upwards and press the n key (in the direction of the original command), down to press the N key.</td>
-</tr>
-<tr>
-<td><code>a</code> ** a ** ppend after the cursor</td>
-<td><code>A</code> is ** append ** at the end of the line where the cursor is located)</td>
-</tr>
-<tr>
-<td><code>i</code> ** i ** nsert before the cursor</td>
-<td><code>I</code> ** insert ** at the beginning of the line where the cursor is located</td>
-</tr>
-<tr>
-<td><code>o</code> Start a new line below the line under the cursor, open the new world?</td>
-<td><code>O</code> starts a new line above the line where the cursor is located</td>
-</tr>
-<tr>
-<td><code>v</code> enters ** v ** isual mode, used to select areas (can cross lines), used to cooperate with other subsequent operations (addition, deletion, and modification)</td>
-<td><code>v</code> enters visual line mode, used to select some lines, use To cooperate with other follow-up operations (addition, deletion and modification)</td>
-</tr>
-<tr>
-<td><code>f</code> ** f ** ind a character after the cursor</td>
-<td><code>F</code> ** find a character before the cursor position **</td>
-</tr>
-<tr>
-<td><code>t</code> ** t ** ill a character tx is the same as fx, the difference is to jump to the character x</td>
-<td><code>T</code> Tx and Fx are the same, the difference is to jump to the character x</td>
-</tr>
-</tbody></table>
-<h3 id="Formed-separately"><a href="#Formed-separately" class="headerlink" title="Formed separately"></a>Formed separately</h3><p><code>.</code> Repeat the operation just now<br><code>~</code> Convert case</p>
-<ol>
-<li>You can change the case of the first letter of the variable</li>
-<li>You can select a string (variable) in combination with the commands provided below, and then change the case of the entire string (variable). For example: macro definition</li>
-</ol>
-<p><code>=</code> Auto format</p>
-<ol>
-<li>Use <code>==</code> for the current line (double press = twice), or use <code>n ==</code> for multiple lines (n is a natural number) to automatically indent the next n lines from the current line</li>
-<li>Or enter the visual line mode, select some lines and then <code>=</code> for formatting, which is equivalent to the code format in the general IDE.</li>
-<li>Use <code>gg = G</code> to typeset the entire code.</li>
-</ol>
-<h3 id="Undo-and-Redo"><a href="#Undo-and-Redo" class="headerlink" title="Undo and Redo"></a>Undo and Redo</h3><ol>
-<li><code>u</code> undo undoes the operation in the previous step. Commands can be combined. For example,<code>Nu</code> N is any integer, which means undoing the N-step operation. The following is the same.</li>
-<li><code>U</code> restore the current line (that is, undo all operations on the current line at once)</li>
-<li><code>ctr + r</code> control + redo restore the previous operation that was cancelled</li>
-<li><code>CTRL-R</code> back to the previous command</li>
-</ol>
-<h3 id="Text-replacement"><a href="#Text-replacement" class="headerlink" title="Text replacement"></a>Text replacement</h3><p>Enter the replacement command in normal mode: <code>: [range] s / pattern / string / [flags]</code></p>
-<p>-pattern is the string to be replaced, which can be expressed by regexp.<br>-string Replace pattern with string.<br>-[range] has the following values:</p>
-<table>
-<thead>
-<tr>
-<th>[range]</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>None</td>
-<td>Default is the line where the cursor is</td>
-</tr>
-<tr>
-<td><code>.</code></td>
-<td>Current line of cursor</td>
-</tr>
-<tr>
-<td><code>N</code></td>
-<td>Line N</td>
-</tr>
-<tr>
-<td><code>$</code></td>
-<td>Last line</td>
-</tr>
-<tr>
-<td><code>&#39;a</code></td>
-<td>Mark the line where a (marked with ma before)</td>
-</tr>
-<tr>
-<td><code>. + 1</code></td>
-<td>The line below the current cursor line</td>
-</tr>
-<tr>
-<td><code>$ -1</code></td>
-<td>The penultimate line, you can add or subtract a value to determine the relative line</td>
-</tr>
-<tr>
-<td><code>22,33</code></td>
-<td>Lines 22 to 33</td>
-</tr>
-<tr>
-<td><code>1, $</code></td>
-<td>line 1 to last line</td>
-</tr>
-<tr>
-<td><code>1, .</code></td>
-<td>line 1 to current line</td>
-</tr>
-<tr>
-<td><code>., $</code></td>
-<td>Current line to last line</td>
-</tr>
-<tr>
-<td><code>&#39;a,&#39; b</code></td>
-<td>Mark the line where a is to Mark the line where b (before using ma and mb to mark)</td>
-</tr>
-<tr>
-<td><code>%</code></td>
-<td>All rows (equivalent to 1, $)</td>
-</tr>
-<tr>
-<td><code>? str?</code></td>
-<td>Search up from the current position to find the line of the first str (where str can be any string or regular expression)</td>
-</tr>
-<tr>
-<td><code>/ str /</code></td>
-<td>Search down from the current position to find the line of the first str (where str can be any string or regular expression)</td>
-</tr>
-<tr>
-<td>** Note that all the above methods for range can be used to set the relative offset by + and-operations. **</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>-[flags] has the following values:</p>
-<table>
-<thead>
-<tr>
-<th>flags</th>
-<th>meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>g</code></td>
-<td>Replace all matches (global) within the specified range</td>
-</tr>
-<tr>
-<td><code>c</code></td>
-<td>Request user confirmation before replacement</td>
-</tr>
-<tr>
-<td><code>e</code></td>
-<td>Ignore errors during execution</td>
-</tr>
-<tr>
-<td><code>i</code></td>
-<td>ignore case-insensitive</td>
-</tr>
-<tr>
-<td>None</td>
-<td>Only the first match in the specified range is replaced</td>
-</tr>
-</tbody></table>
-<p>** Note: All the above flags can be used in combination. For example, gc means to replace all matches within the specified range, and the user will be asked to confirm before each replacement. **</p>
-<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p>Replace some lines</p>
-<ol>
-<li><code>: 10,20s / from / to / g</code> replaces lines 10 to 20.</li>
-<li><code>: 1, $ s / from / to / g</code> replaces the contents of the first line to the last line (that is, all text)</li>
-<li><code>: 1, .s / from / to / g</code> replaces the first line to the current line.</li>
-<li><code>:., $ S / from / to / g</code> replaces the content from the current line to the last line.</li>
-<li><code>: &#39;a,&#39; bs / from / to / g</code> replaces the line between the marks a and b (including the line where a and b are located), where a and b are the marks previously made with the m command .</li>
-</ol>
-<p>Replace all lines: <code>:% s / from / to / g</code></p>
-<h2 id="Repeat-the-action"><a href="#Repeat-the-action" class="headerlink" title="Repeat the action"></a>Repeat the action</h2><p>In normal mode, any action can be repeated</p>
-<p>Note: N is a number</p>
-<p>-Numbers: <code>Nyy</code> copies N lines down from the current line,<code>Ndd</code> deletes N lines down from the current line, <code>Ngg</code> jumps to the Nth line, and<code>dNw</code> deletes from the current cursor to the first Before N words (does not contain blanks, ie delete N-1 words), <code>yNe</code> copies from the current cursor to the end of the Nth word (note:<code>yy</code> = <code>1yy`` dd</code> = <code>1dd</code>), <code>d $</code> delete to the end of the line<br>-Repeat the previous command: <code>N.</code> (N indicates the number of repetitions)</p>
-<h2 id="Block-selection"><a href="#Block-selection" class="headerlink" title="Block selection"></a>Block selection</h2><p>Note: The brackets are optional</p>
-<p>In normal mode: <code>[ctr +] v + (h or j or k or l)</code></p>
-<ol>
-<li>** High frequency usage scenario 1 *<em>: <code>[ctr +] v</code> After selecting the head of some lines, then press<code>=</code>Effect: *</em> Code format is automatically adjusted **</li>
-<li>** High frequency usage scenario 2 *<em>: <code>[ctr +] v</code> After selecting some line headers, then press<code>I</code> and then press the comment symbol (for example: <code>//</code>) and finally press <code>ESC</code> effect : All the selected lines are commented *</em> Multi-line quick comment **</li>
-<li>** High frequency usage scenario 3 *<em>: <code>[ctr +] v</code> After selecting some line headers, then press<code>A</code>, then press the contents of the comment and finally press <code>ESC</code> (for example:<code>// This is a test Code</code>) Effect: All the lines at the end of the selected lines are commented on.//This is the test code` *</em> Multi-line quick comment **</li>
-<li>** High-frequency use scenario 4 *<em>: <code>[ctr +] v</code> select some line header comments (for example:<code>//</code>), then press<code>d</code> and finally press <code>ESC</code> effect: selected All these lines are commented out. *</em> Multi-line quick delete comments **</li>
-<li>** High-frequency use scenario 5 **: After selecting certain blocks, press [ctr +] v` and then press the above-mentioned action buttons to achieve regional operation</li>
-</ol>
-<h2 id="Powerful-combination"><a href="#Powerful-combination" class="headerlink" title="Powerful combination"></a>Powerful combination</h2><h3 id="Operate-a-word-under-the-cursor"><a href="#Operate-a-word-under-the-cursor" class="headerlink" title="Operate a word under the cursor"></a>Operate a word under the cursor</h3><p>In normal mode:</p>
-<p>Action + Move [+ Number of Repeats]<br>The combination has already been used a lot in the past, continue here:</p>
-<table>
-<thead>
-<tr>
-<th>Action Operation Command + Range</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>cw or c1 or c1w</td>
-<td>change from current cursor to word end</td>
-</tr>
-<tr>
-<td>caw</td>
-<td>change whole word including current cursor</td>
-</tr>
-<tr>
-<td>dw or d1 or d1w</td>
-<td>delete from current cursor to word end</td>
-</tr>
-<tr>
-<td>daw</td>
-<td>delete whole word including current cursor</td>
-</tr>
-<tr>
-<td>yw or y1 or y1w</td>
-<td>copy from current cursor to word end</td>
-</tr>
-<tr>
-<td>yaw</td>
-<td>copy whole word including current cursor</td>
-</tr>
-<tr>
-<td>d / word</td>
-<td>delete forward until the former character of the next ‘word’</td>
-</tr>
-<tr>
-<td>d? word</td>
-<td>delete backward until the former character of the last ‘word’</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>Action Operation Command + Range</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>dtc</td>
-<td>delete until before the next ‘c’</td>
-</tr>
-<tr>
-<td>dfc</td>
-<td>delete until after the next ‘c’</td>
-</tr>
-<tr>
-<td>Scope + Action Operation Command</td>
-<td>Effect</td>
-</tr>
-<tr>
-<td>———————</td>
-<td>———-</td>
-</tr>
-<tr>
-<td><code>bve</code> or<code>BvE</code> + c / d / y</td>
-<td>manipulate a variable or string</td>
-</tr>
-</tbody></table>
-<p>The above table are high-frequency use scenarios</p>
-<h2 id="Autocomplete"><a href="#Autocomplete" class="headerlink" title="Autocomplete"></a>Autocomplete</h2><p>Press directly in insert mode: the most commonly used completion</p>
-<p><code>`
-ctrl + n
-ctrl + p</code> `</p>
-<p>Smart completion</p>
-<p><code>`
-ctrl + x // Enter completion mode</code> `</p>
-<p>-Complete line completion <code>CTRL-X`` CTRL-L</code><br>-** Complete based on keywords in the current file ** <code>CTRL-X`` CTRL-N</code><br>-** Complete according to dictionary ** <code>CTRL-X`` CTRL-K</code><br>-Completion of <code>CTRL-X`` CTRL-T</code> according to thesaurus<br>-** Complete according to keywords in header file ** <code>CTRL-X`` CTRL-I</code><br>-Complete <code>CTRL-X`` CTRL-]</code>according to tags<br>-** Complete file name ** <code>CTRL-X`` CTRL-F</code><br>-Completion of macro definition <code>CTRL-X`` CTRL-D</code><br>-Completion of vim command <code>CTRL-X`` CTRL-V</code><br>-User-defined completion method <code>CTRL-X`` CTRL-U</code><br>-** Spelling suggestions ** <code>CTRL-X`` CTRL-S</code> // For example: an English word</p>
-<h2 id="Collapse"><a href="#Collapse" class="headerlink" title="Collapse"></a>Collapse</h2><p>In normal mode:</p>
-<p><code>`
-zo (fold + open)
-zi (fold + indent)
-zc (fold + close)</code> `</p>
-<h2 id="Split-screen"><a href="#Split-screen" class="headerlink" title="Split screen"></a>Split screen</h2><p>** Split command **, in normal mode, enter</p>
-<ol>
-<li><code>vs</code> (Description: Vertically split the screen vertically)</li>
-<li><code>sp</code> (Note: split horizontally splits the screen, which is the default splitting method)</li>
-</ol>
-<p>** Screens jump to each other **</p>
-<ol>
-<li><code>ctr + w</code> and then press<code>h</code> or <code>j</code> or<code>k</code> or <code>l</code></li>
-<li>Explanation: <code>h</code>: left,<code>j</code>: down, <code>k</code>: up,<code>l</code>: right</li>
-</ol>
-<p>** Resize the split window **</p>
-<ol>
-<li><code>ctrl + w</code> before pressing<code>+</code>or<code>-</code> or <code>=</code>, of course press a number before pressing <code>+</code> or <code>-</code> or<code>=</code>to change the window height,<code>=</code>is equal The meaning of points. .</li>
-<li>In normal mode, enter <code>: resize -N</code> or<code>: resize + N</code> to explicitly specify that the window is reduced or increased by N lines</li>
-<li><code>ctrl + w</code> before pressing<code>&lt;</code>or<code>&gt;</code>or<code>=</code>, of course press a number before pressing<code>&lt;</code>or<code>&gt;</code>or<code>=</code>to change the window width,<code>=</code>is equal The meaning of points.</li>
-<li>Sometimes preview large files and feel that the split screen is too small, <code>ctrl + w</code> +<code>T</code> moves the current window to a new tab.</li>
-</ol>
-<h2 id="tab-window"><a href="#tab-window" class="headerlink" title="tab window"></a>tab window</h2><p>Vim has added the function of multi-tab switching since vim7, which is equivalent to multiple windows. Although the previous version also has a multi-file editing function, it is not as convenient as this. Usage in normal mode:</p>
-<p>-<code>: tabnew</code> [++ opt option] [＋ cmd] file Create a new tab for the specified file<br>-<code>: tabc</code> closes the current tab or<code>: q</code><br>-<code>: tabo</code> close ** other ** tab<br>-<code>: tabs</code> view ** all open ** tabs<br>-<code>: tabp</code> previous tab window<br>-<code>: tabn</code> next tab window</p>
-<p> <code>gt</code>,<code>gT</code> can switch directly between tabs. There are many other commands,: help table.</p>
-<h2 id="table-of-Contents"><a href="#table-of-Contents" class="headerlink" title="table of Contents"></a>table of Contents</h2><p>In normal mode:</p>
-<ol>
-<li><code>: Te</code> displays the current directory in the form of a tab window, then you can switch directories and open a file</li>
-<li><code>:! Ls</code> This is how vim invokes shell commands<code>:! Ls + shell_command</code>, but it does not display the current directory in the form of a tab window.</li>
-</ol>
-<h2 id="Content-operation-of-paired-symbols"><a href="#Content-operation-of-paired-symbols" class="headerlink" title="Content operation of paired symbols"></a>Content operation of paired symbols</h2><p>The following commands can operate on the content within punctuation:</p>
-<ol>
-<li><code>ci&#39;`` ci &quot;</code> <code>ci (</code> <code>ci [</code> <code>ci {</code> <code>ci &lt;</code> respectively change the text content of these paired punctuation marks</li>
-<li><code>di&#39;``di&quot;</code>di (<code>or</code>dib<code>di [</code> di {<code>or</code> diB<code></code>di &lt;` delete the text content of these paired punctuation marks respectively</li>
-<li><code>yi&#39;`` yi &quot;</code> <code>yi (</code> <code>yi [</code> <code>yi {</code> <code>yi &lt;</code> separately copy the text content of these paired punctuation marks</li>
-<li><code>vi&#39;`` vi &quot;</code> <code>vi (</code> <code>vi [</code> <code>vi {</code> <code>vi &lt;</code> respectively select the text content of these paired punctuation marks</li>
-<li><code>cit`` dit</code> <code>yit`` vit</code> separately operate the content between a pair of tags, editing html is very useful</li>
-</ol>
-<p>** In addition, if you change the above <code>i</code> to<code>a</code>, you can operate the paired punctuation and the contents of the paired punctuation at the same time **, for example:</p>
-<p>For example, the text to be operated: 111 “222” 333, move the cursor to any character of “222” and enter the command</p>
-<p>-di “, the text will become: 111” “333<br>-If you enter the command da “, the text will become: 111333</p>
-<h2 id="Clipboard"><a href="#Clipboard" class="headerlink" title="Clipboard"></a>Clipboard</h2><h3 id="1-Simple-copy-and-paste"><a href="#1-Simple-copy-and-paste" class="headerlink" title="1. Simple copy and paste"></a>1. Simple copy and paste</h3><p>vim provides 12 clipboards, their names are vim and there are 11 pasteboards, which are 0, 1, 2, …, 9, a, “. If you open the system clipboard, there will be two more + And *. Use the: reg command to view the contents of each pasteboard.</p>
-<p>In vim, simply use <code>y</code> and just copy it into the clipboard of<code>&quot;</code>, and the same thing as paste with <code>p</code> is also the content of this clipboard.</p>
-<h3 id="2-Copy-and-paste-to-the-specified-clipboard"><a href="#2-Copy-and-paste-to-the-specified-clipboard" class="headerlink" title="2. Copy and paste to the specified clipboard"></a>2. Copy and paste to the specified clipboard</h3><p>To copy the content of vim to a pasteboard, enter the normal mode, select the content to be copied, then press <code>&quot; Ny</code> to complete the copy, where N is the pasteboard number (note that you click the double quotes and then press the pasteboard number Finally, press y), for example, to copy the content to the pasteboard a, select the content and press “ay”.</p>
-<p>To paste the contents of a vim pasteboard, you need to exit the editing mode, press <code>&quot; Np</code> in the normal mode, where N is the pasteboard number. For example, you can press <code>&quot; 5p</code> to paste the contents of pasteboard No. If you paste it in, you can also press <code>&quot; + p</code> to paste the content in the system global pasteboard.</p>
-<h3 id="3-System-Clipboard"><a href="#3-System-Clipboard" class="headerlink" title="3. System Clipboard"></a>3. System Clipboard</h3><p>To view the clipboard supported by vim, enter <code>: reg</code> in normal mode</p>
-<p>How should it be used to interact with the system clipboard? When you encounter problems, the first thing you are looking for is the help document. The Clipboard is the Clipboard. View help via <code>: h clipboard</code></p>
-<p>The asterisk * and plus sign + pasteboard are system pasteboards. Under Windows, * and + clipboards are the same. For X11 systems, * the clipboard stores the selected or highlighted content, and the clipboard stores the copied or cut content. Open the clipboard option, you can access + clipboard; open xterm_clipboard, you can access * clipboard. * One function of the clipboard is that the content selected in one window of vim can be taken out in another window of vim.</p>
-<p>** Copy to system clipboard **</p>
-<p>example:</p>
-<p><code>&quot; * y</code> <code>&quot; + y</code> <code>&quot; + Nyy</code> copy N lines to the system clipboard</p>
-<p>Explanation:</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>{Visual} “+ y</td>
-<td>copy the selected text into the system clipboard</td>
-</tr>
-<tr>
-<td>“+ y {motion}</td>
-<td>copy the text specified by {motion} into the system clipboard</td>
-</tr>
-<tr>
-<td>: [range] yank +</td>
-<td>copy the text specified by [range] into the system clipboard</td>
-</tr>
-</tbody></table>
-<p>** Cut to system clipboard **</p>
-<p>example:</p>
-<p>“+ dd</p>
-<p>** Paste from system clipboard to vim **</p>
-<p>In normal mode:</p>
-<ol>
-<li><code>&quot; * p</code></li>
-<li><code>&quot; + p</code></li>
-<li><code>: put +</code> Meaning: Ex command puts contents of system clipboard on a new line</li>
-</ol>
-<p>In insert mode:</p>
-<p><code>&lt;C-r&gt; +</code> Meaning: From insert mode (or commandline mode)</p>
-<p>“+ p is better than the Ctrl-v command, it can handle the pasting of large blocks of text faster and more reliably, and can also avoid the accumulation of automatic indentation at the beginning of each line when pasting a large amount of text, because Ctrl-v The system caches stream processing, processing the pasted text line by line.</p>
-<h2 id="vim-encoding"><a href="#vim-encoding" class="headerlink" title="vim encoding"></a>vim encoding</h2><p>Vim can edit all kinds of character encoding files very well, which of course includes popular Unicode encoding methods such as UCS-2 and UTF-8.</p>
-<p>Four character encoding options, encoding, fileencoding, fileencodings, and termencoding (for possible values ​​of these options, please refer to Vim online help: help encoding-names, their meanings are as follows:</p>
-<p>-** encoding **: The character encoding used internally by Vim</p>
-<p>Including Vim’s buffer (buffer), menu text, message text, etc. The default is to choose according to your locale. The user manual recommends changing its value only in .vimrc. In fact, it seems that it only makes sense to change its value in .vimrc. You can use another encoding to edit and save the file. For example, the encoding of your vim is utf-8, and the edited file uses cp936 encoding. Understand the way), and when you write a file, it will automatically switch back to cp936 (the file save encoding).</p>
-<p>-** fileencoding **: The character encoding of the currently edited file in Vim</p>
-<p>When Vim saves the file, it will also save the file in this character encoding (regardless of whether it is a new file).</p>
-<p>-** fileencodings **: Vim will automatically detect encoding settings</p>
-<p>When starting, it will detect the character encoding mode of the file to be opened one by one according to the character encoding mode listed in it, and set fileencoding to the character encoding mode finally detected. Therefore, it is best to put the Unicode encoding at the front of this list, and the Latin encoding at the end.</p>
-<p>-** termencoding **: The character encoding method of the terminal (or Windows console window) that Vim works on</p>
-<p>If the term where vim is located is the same as the vim encoding, you do not need to set it. If it is not the case, you can use vim’s termencoding option to automatically convert to term encoding. This option is not valid for gVim in our common GUI mode under Windows, and for Console mode Vim is the code page of the Windows console, and Usually we don’t need to change it. Okay, after explaining this bunch of parameters that can easily confuse novices, let’s take a look at how Vim’s multi-character encoding support works.</p>
-<ol>
-<li>Start Vim, and set the character encoding of buffer, menu text, and message according to the encoding value set in .vimrc.</li>
-<li>Read the file to be edited and detect the file encoding method one by one according to the character encoding methods listed in fileencodings. And set fileencoding to be detected, it looks correct (Note 1) Character encoding.</li>
-<li>Compare the values ​​of fileencoding and encoding. If they are different, call iconv to convert the file content to the character encoding method described by encoding, and put the converted content into the buffer developed for this file. At this time, we can start editing This file. Note that to complete this step, you need to call external iconv.dll (Note 2). You need to ensure that this file exists in $ VIMRUNTIME or other directories listed in the PATH environment variable.</li>
-<li>When saving the file after editing, compare the values ​​of fileencoding and encoding again. If they are different, call iconv again to convert the text in the buffer to be saved to the character encoding described in fileencoding and save it to the specified file. Similarly, this requires calling iconv.dll. Because Unicode can contain characters of almost all languages, and UTF-8 encoding of Unicode is a very cost-effective encoding (space consumption is less than UCS-2), so the value of encoding is recommended. Set to utf-8. Another reason for this is that when encoding is set to utf-8, Vim automatically detects the encoding of the file to be more accurate (perhaps the main reason;). For the files we edit in Chinese Windows, in order to take into account compatibility with other software, the file encoding is still set to GB2312 / GBK, so fileencoding is recommended to be set to Chinese (chinese is an individual name, which means gb2312 in Unix and Windows cp936, which is the code page of GBK).</li>
-</ol>
-<p>For fedora, vim settings are generally placed in the / etc / vimrc file, however, it is recommended not to modify it. You can modify the ~ / .vimrc file (which does not exist by default, you can create a new one yourself) and write the desired settings.</p>
-<p>My .vimrc file is as follows:</p>
-<p><code>`
-: set encoding = utf-8
-: set fileencodings = ucs-bom, utf-8, cp936
-: set fileencoding = gb2312
-: set termencoding = utf-8</code> `</p>
-<p>Among them, the fileencoding configuration can set utf-8, but my mp3 does not seem to support utf-8 encoding, so simply, I set it to gb2312. Now it’s done, no matter whether it is in vi or mp3, it can display .txt files without garbled characters.</p>
-<h2 id="Personal-configuration"><a href="#Personal-configuration" class="headerlink" title="Personal configuration"></a>Personal configuration</h2><p>The configuration during my use of ** without plugin ** is very short. It is written in the vim configuration file. Vimrc. The configuration is configured using ** vim script **. It has its own set of syntax. For details, please click [ vim Script] (<span class="exturl" data-url="aHR0cHM6Ly93d3cudzNjc2Nob29sLmNuL3ZpbS9uY2t4MXB1MC5odG1s">https://www.w3cschool.cn/vim/nckx1pu0.html<i class="fa fa-external-link-alt"></i></span>)</p>
-<p><code>`vim
-set number; display number
-set mouse = a; setting smart mouse
-set hlsearch; high light search
-set tabstop = 4; setting tab width 4 letters
-set shiftwidth = 4; setting new line incident width
-set noexpandtab; tab doesn&#39;t expand to space
-; set list; display manipulator, example: \ n \ t \ r ......
-set encoding = utf-8
-set fileencodings = ucs-bom, utf-8, cp936
-set fileencoding = gb2312
-set termencoding = utf-8</code> `</p>
-<h2 id="Forward-and-backward-function"><a href="#Forward-and-backward-function" class="headerlink" title="Forward and backward function"></a>Forward and backward function</h2><p>Popular text editors usually have forward and backward functions, and can move back and forth between the positions that have been viewed in the file (associated with the browser), use <code>Ctrl-O</code> in vim to perform backwards, use<code>Ctrl-I</code>Execute forward, related help:<code>: help CTRL-O</code> <code>: help CTRL-I``: help jump-motions</code></p>
-<h2 id="vim-compare-files"><a href="#vim-compare-files" class="headerlink" title="vim compare files"></a>vim compare files</h2><h3 id="Starting-method"><a href="#Starting-method" class="headerlink" title="Starting method"></a>Starting method</h3><p>First ensure that the diff command is available in the system. Vim’s diff mode is dependent on the diff command.</p>
-<code>`shell
- vimdiff file1 file2 [file3 [file4]]</code> <code>or
-``</code>shell<br>vim -d file1 file2 [file3 [file4]]<br><code>`
-The window is more localized in the current tab. You cannot see the difference between a window and the windows in other tabs. In this way, multiple groups of comparison windows can be opened at the same time, and each group of differences is in a separate tab. Vim will open a window for each file and use ** vertical split ** just like the `-O` parameter. If you want to ** split horizontally **, add the `-o` parameter:</code> <code>shell
-vimdiff -o file1 file2 [file3 [file4]]
-``</code><br>If you are already in Vim, you can enter compare mode in three ways, only one is introduced:<br><code>`
-: diffs [plit] {filename}</code> <code>Open a new window for {filename}. The current and newly opened windows will have the same parameters as &quot;vimdiff&quot;. To split the window vertically, add</code>: vertical<code>in front. E.g: <dl><dt>``</code></dt><dd>vert diffsplit another_filename<br>`` `</dd></dl><h3 id="Jump-to-the-difference"><a href="#Jump-to-the-difference" class="headerlink" title="Jump to the difference"></a>Jump to the difference</h3><p>There are two commands that can be used to jump to the location of the difference text:</p>
-<ol>
-<li><code>[c</code> jumps backwards to the beginning of the last change. Count the prefix so that it repeats the corresponding times.</li>
-<li><code>] c</code> jumps forward to the beginning of the next change. Count the prefix so that it repeats the corresponding times.<br> If there is no change to which the cursor can jump, an error will be generated.</li>
-</ol>
-<h3 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h3><p>The purpose of comparison is to merge the differences and directly use the following built-in commands or troublesome methods: manually copy from one window to another.</p>
-<dl><dt>`` `<br>: [range] diffg [et] [bufspec]<br>                Use another buffer to modify the current buffer to eliminate differences. Unless there is only another<br>                For a buffer in comparison mode, [bufspec] must exist and specify that buffer.<br>                If [bufspec] specifies the current buffer, it is an empty action. [range] can refer to the following.</dt><dd>[range] diffpu [t] [bufspec]<br>                Use the current buffer to modify another buffer, eliminating differences.<br>[count] do Same as “: diffget”, but no scope. “o” means “obtain” (not available<br>                “dg” because that may be the beginning of “dgg”! ).<br>dp Same as “: diffput”, but no range. Note Not applicable in visual mode.<br>                The given [count] is used as the [bufspec] parameter of “: diffput”.</dd></dl><p>When [range] is not given, only the difference text at the current cursor position or immediately above it will be affected.<br>When [range] is specified, Vim tries to change only the lines it specifies. However, this is not always effective when there are deleted rows.<br>The parameter [bufspec] can be the serial number of the buffer, matching the pattern of the buffer name or part of the buffer name.<br>E.g:<br>        : diffget uses another buffer to enter compare mode<br>        : diffget 3 uses buffer 3<br>        : diffget v2 uses a buffer whose name matches “v2” and enters the comparison mode (for example, “file.c.v2”)<br>`` `</p>
-<h3 id="Update-comparison-and-undo-changes"><a href="#Update-comparison-and-undo-changes" class="headerlink" title="Update comparison and undo changes"></a>Update comparison and undo changes</h3><p>Compare the contents based on the buffer. Therefore, if you have made changes after loading the file, these changes will also participate in the comparison. However, you may want to use <code>: diffupdate [!]</code> From time to time. Because not all changes can be automatically updated. When <code>!</code> Is included, Vim checks whether the file has been changed externally and needs to be reloaded. Prompt for each changed file.</p>
-<p>If you want to undo the modification, you can enter the normal mode directly and press <code>u</code> as you normally do in vim editing, but you must be careful to move the cursor to the file window that needs to be undoed.</p>
-<h3 id="Expand-and-view-context"><a href="#Expand-and-view-context" class="headerlink" title="Expand and view context"></a>Expand and view context</h3><p>When comparing and merging files, it is often necessary to combine context to determine the final action to be taken. By default, Vimdiff will display 6 lines of text above and below the difference for reference. Other identical lines of text are automatically folded. If you want to modify the default number of context lines, you can set it like this:</p>
-<p> <code>`
-: set diffopt = context: 3</code> `</p>
-<h3 id="Exit-of-multiple-files"><a href="#Exit-of-multiple-files" class="headerlink" title="Exit of multiple files"></a>Exit of multiple files</h3><p>After comparing and merging to a conclusion, you can use the following commands to operate on multiple files at the same time.</p>
-<p>For example, quit at the same time: <code>: qa (quit all)</code></p>
-<p>If you want to save all files: <code>: wa (write all)</code></p>
-<p>Or a merge command of the two, save all files, and then exit: <code>: wqa (write, then quit all)</code></p>
-<p>If you do not want to save the result of any operation when you quit: <code>: qa! (Force to quit all)</code></p>
-<h3 id="vimdiff-For-details-please-refer-to"><a href="#vimdiff-For-details-please-refer-to" class="headerlink" title="vimdiff For details, please refer to"></a>vimdiff For details, please refer to</h3><ol>
-<li><code>: help diff</code> under vim</li>
-<li>[vimdiff doc] (<span class="exturl" data-url="aHR0cDovL3ZpbWNkb2Muc291cmNlZm9yZ2UubmV0L2RvYy9kaWZmLmh0bWw=">http://vimcdoc.sourceforge.net/doc/diff.html<i class="fa fa-external-link-alt"></i></span>)</li>
-</ol>
-<h2 id="vim-command-line-save-leave-and-other-commands"><a href="#vim-command-line-save-leave-and-other-commands" class="headerlink" title="vim command line save, leave and other commands:"></a>vim command line save, leave and other commands:</h2><ol>
-<li><code>: w</code> Write the edited data to the hard disk file.</li>
-<li><code>: w!</code> If the file attribute is “read-only”, write to the file forcibly. But the ability to write is also dependent on the file permissions of the file.</li>
-<li>Leave after <code>: q</code>. If it is “: wq!”, It will be forced to save and leave.</li>
-<li><code>: w [file name]</code> Save the edited data as another file.</li>
-<li><code>: r [file name]</code> Read the content of another file in the edited data and add it to the line behind the cursor.</li>
-<li><code>: n1, n2 w [file name]</code> Save the contents of lines n1 to n2 to another file.</li>
-<li><code>:! Command</code> Temporarily leave vi to display the result of executing command in command line mode.</li>
-<li><code>ZZ</code> If the file has not been changed, leave directly; if it has been changed, leave after saving.</li>
-<li><code>set num / nonum</code> displays / cancels the line number.</li>
-</ol>
-<h2 id="Macro-of-VIM"><a href="#Macro-of-VIM" class="headerlink" title="Macro of VIM"></a>Macro of VIM</h2><p>The use of macros is very powerful, go to [vim, the use of macros] (<span class="exturl" data-url="aHR0cDovL2Jsb2cuc2luYS5jb20uY24vcy9ibG9nXzY5ZTVkODQwMDEwMncxejEuaHRtbA==">http://blog.sina.com.cn/s/blog_69e5d8400102w1z1.html<i class="fa fa-external-link-alt"></i></span>)</p>
-<h2 id="Full-version-command"><a href="#Full-version-command" class="headerlink" title="Full version command"></a>Full version command</h2><p>This article only provides high-frequency scenes accumulated during personal use. For the full version, please click [here] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS92aW0vdmltX2NvbW1hbmQucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/vim/vim_command.png<i class="fa fa-external-link-alt"></i></span>), or consult the vim manual</p>
-<h2 id="Play-games-to-make-perfect"><a href="#Play-games-to-make-perfect" class="headerlink" title="Play games to make perfect"></a>Play games to make perfect</h2><p>** Use advance and retreat **, so multi-use is king. I recommend a game here: use the keyboard to control the character adventure game, familiar with VIM commands during the game: [vim-adventures] (https: // vim -adventures.com/)</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="** Reference **"></a>** Reference **</h2><ol>
-<li>[Official document] (<span class="exturl" data-url="aHR0cHM6Ly92aW0uc291cmNlZm9yZ2UuaW8vZG9jcy5waHA=">https://vim.sourceforge.io/docs.php<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>[vim doc] (<span class="exturl" data-url="aHR0cDovL3ZpbWNkb2Muc291cmNlZm9yZ2UubmV0L2RvYy9oZWxwLmh0bWw=">http://vimcdoc.sourceforge.net/doc/help.html<i class="fa fa-external-link-alt"></i></span>) Chinese</li>
-<li>[freewater blog] (<span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9mcmVld2F0ZXIvYXJjaGl2ZS8yMDExLzA4LzI2LzIxNTQ2MDIuaHRtbA==">http://www.cnblogs.com/freewater/archive/2011/08/26/2154602.html<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>[Thinking In Linux] (<span class="exturl" data-url="aHR0cDovL3d3dy5saW51eHNvbmcub3JnLzIwMTAvMDkvdmltLXF1aWNrLXNlbGVjdC1jb3B5LWRlbGV0ZS8=">http://www.linuxsong.org/2010/09/vim-quick-select-copy-delete/<i class="fa fa-external-link-alt"></i></span>)</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/01/20/vim_without_widgets/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -941,7 +327,7 @@ vimdiff -o file1 file2 [file3 [file4]]
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:28:51" itemprop="dateModified" datetime="2020-04-09T16:28:51+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:33:28" itemprop="dateModified" datetime="2020-04-09T17:33:28+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -970,66 +356,14 @@ vimdiff -o file1 file2 [file3 [file4]]
 
       
           <h2 id="Decision-tree-learning"><a href="#Decision-tree-learning" class="headerlink" title="Decision tree learning"></a>Decision tree learning</h2><p>Decision tree learning usually includes three aspects: feature selection, decision tree generation and decision tree pruning. The decision tree learning ideas mainly come from: ID algorithm proposed by Quinlan in 1986, C4.5 algorithm proposed in 1993 and CART algorithm proposed by Breiman and others in 1984.</p>
-<h2 id="Feature-selection"><a href="#Feature-selection" class="headerlink" title="Feature selection"></a>Feature selection</h2><p>In order to explain the various mathematical concepts, introduce examples</p>
-<p>Table 5.1 Sample data table for loan application (from [Li Hang “Statistical Method”] (<span class="exturl" data-url="aHR0cHM6Ly9ib29rLmRvdWJhbi5jb20vc3ViamVjdC8xMDU5MDg1Ni8=">https://book.douban.com/subject/10590856/<i class="fa fa-external-link-alt"></i></span>))</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ub25nSmlYdWVYaUZhbmdmYS9kZWNpc2lvbl90cmVlLzEucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/TongJiXueXiFangfa/decision_tree/1.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>The above table has loan sample training data D consisting of 15 sample data. The data includes 4 characteristics of loan applicants: age, whether they have a job, whether they have a house or not, and credit status. The last column of the category means: whether to agree to grant the loan. This is the final conclusion of the decision tree, that is The target attribute-whether to issue loans, that is, the leaf node at the end of the decision tree is only divided into 2 categories: loan approval and loan approval.</p>
-<h3 id="Information-entropy-entropy"><a href="#Information-entropy-entropy" class="headerlink" title="Information entropy (entropy)"></a>Information entropy (entropy)</h3><p>Introduce concepts, for the first concept to be used: information entropy in another blog-[data compression and information entropy] (<span class="exturl" data-url="aHR0cDovLzIubXlicnR6bC5zaW5hYXBwLmNvbS8lZTglYmQlYWMl">http://2.mybrtzl.sinaapp.com/%e8%bd%ac%<i class="fa fa-external-link-alt"></i></span> e6% 95% b0% e6% 8d% ae% e5% 8e% 8b% e7% bc% a9% e4% b8% 8e% e4% bf% a1% e6% 81% af% e7% 86% b5 /) It explains in detail why information entropy measures uncertainty, and it will not be described in detail below, but directly quoted.</p>
-<p>Let D be the division of training data (ie sample data) according to the target category (or target attribute), then the information entropy of D is expressed as:<br>$$ info (D) =-\ sum \ limits_ {i = 1} ^ {m} p_ilog_2 (p_i) $$</p>
-<p>Where pi represents the probability of the i-th category appearing in the entire training data, and the number of elements belonging to this category can be divided by the total number of training data (ie, sample data) as an estimate.</p>
-<p>Analyze specific issues</p>
-<p>In the above table, the target category: whether to issue loans, will be classified into one category, and the remaining six will not be classified into one category. The information entropy for such classification is:</p>
-<p>$$ H (D) =-\ frac {9} {15} log_2 \ frac {9} {15}-\ frac {6} {15} log_2 \ frac {6} {15} = 0.971 $$</p>
-<p>Note: This information entropy, which is classified according to the target category, is already known when the sample is given. According to probability statistics, it is also called empirical entropy.</p>
-<p>Now we assume that the training data D is divided according to the attribute A, then the v subsets (that is, the v branches in the tree) that are split according to the A attribute, these subsets are divided according to the target category (two types of release and no release) Expectation of the entropy corresponding to the classification (ie: the average value of the information entropy of different subsets divided by attribute A):</p>
-<p>$$ info_A (D) = \ sum \ limits_ {j = 1} ^ {v} \ frac {| D_j |} {| D |} info (D_j) $$</p>
-<p>Note: This is actually the empirical conditional entropy, because the confirmation is the expectation of the entropy that is classified according to the target category under the premise that the A attribute is divided into subsets. See below for information gain calculation.</p>
-<h3 id="Information-gain"><a href="#Information-gain" class="headerlink" title="Information gain"></a>Information gain</h3><p>Is the difference between the above two:</p>
-<p>$$ gain (A) = info (D) -info_A (D) $$</p>
-<p>Analyze specific issues</p>
-<p>-According to the age attribute (denoted as A1): youth (D1), middle age (D2), old age (D3)</p>
-<p>$$ \ begin {align} g (D, A_1) &amp; = H (D)-[\ frac {5} {15} H (D_1) + \ frac {5} {15} H (D_2) + \ frac { 5} {15} H (D_3)] \ &amp; = 0.971-[\ frac {5} {15} (-\ frac {2} {5} log_2 \ frac {2} {5}-\ frac {3} {5} log_2 \ frac {3} {5}) + \ frac {5} {15} (-\ frac {3} {5} log_2 \ frac {3} {5}-\ frac {2} {5} log_2 \ frac {2} {5}) + \ frac {5} {15} (-\ frac {4} {5} log_2 \ frac {4} {5}-\ frac {1} {5} log_2 \ frac {1} {5})] \ &amp; = 0.971-0.888 \ &amp; = 0.083 \ end {align} $$</p>
-<p>-Divided according to whether there is work (marked as A2): there is work (D1), no work (D2)</p>
-<p>$$ \ begin {align} g (D, A_2) &amp; = H (D)-[\ frac {5} {15} H (D_1) + \ frac {5} {15} H (D_2)] \ &amp; = 0.971-[\ frac {5} {15} \ times 0+ \ frac {10} {15} (-\ frac {4} {10} log_2 \ frac {4} {10}-\ frac {6} { 10} log_2 \ frac {6} {10})] \ &amp; = 0.324 \ end {align} $$</p>
-<p>-According to whether you have your own house (marked as A3): have your own house (D1), no own house (D2)</p>
-<p>$$ \ begin {align} g (D, A_3) &amp; = 0.971-[\ frac {6} {15} \ times 0+ \ frac {9} {15} (-\ frac {3} {9} log_2 \ frac {3} {9}-\ frac {6} {9} log_2 \ frac {6} {9})] \ &amp; = 0.971-0.551 \ &amp; = 0.420 \ end {align} $$</p>
-<p>-In the same way, according to the last attribute: credit situation, calculate its information gain:</p>
-<p>$$ g (D, A_4) = 0.971-0.608 = 0.363 $$</p>
-<p>So it can be seen that the information gain metric is: the reduction of information entropy, which is obtained by dividing the original data through a certain attribute. The reduction in information entropy, that is, the increase in certainty, furthermore, the number of categories is decreasing, then the possibility of determining which category is increased, so that it is easier to classify. ID3 algorithm is based on information gain to measure the ability to divide data based on attributes (ie features), and then provide principles for feature (ie attributes) selection.</p>
-<p>-### gain ratio</p>
-<p>The information gain selection method has a big flaw. It always tends to choose attributes with many attribute values. If we add a name attribute to the above data record, assuming that each person in the 15 records has a different name, then the information Gain will choose the name as the best attribute, because after splitting by name, each group contains only one record, and each record belongs to only one category (either issued or not issued), so the uncertainty is the lowest, that is, the highest purity, (Note: Why is it the highest? You can calculate it based on the derivative. The maximum value is not repeated here.) There are 15 branches under the name as the test split node. But such a classification is meaningless, it does not have any generalization ability. The gain ratio improves on this, it introduces a split message:</p>
-<p>$$ SplitInfo_R (D) =-\ sum \ limits_ {j = 1} ^ {k} \ frac {| D_j |} {D} \ times log_2 (\ frac {| D_j |} {D}) $$</p>
-<p>Note: Split information is the information entropy divided according to a certain attribute, and the entropy described earlier in this article is all the information entropy classified according to the target attribute.</p>
-<p>　　The gain ratio is defined as the ratio of information gain to split information:</p>
-<p>　$$ GainRatio (R) = \ frac {Gain (R)} {SplitInfo_R (D)} $$</p>
-<p>We find the largest attribute of GainRatio as the best split attribute. If there are many values ​​for an attribute, then SplitInfoR (D) will be large, thus making GainRatio (R) smaller. However, the gain ratio also has shortcomings. SplitInfo (D) may take 0, which does not make sense at this time; and when SplitInfo (D) tends to 0, the value of GainRatio (R) becomes unreliable. The improvement measure is to add one to the denominator Smooth, add an average of all split information here:</p>
-<p>$$ GainRatio (R) = \ frac {Gain (R)} {\ overline {SplitInfo (D)} + SplitInfo_R (D)} $$</p>
-<p>C4.5 algorithm is to calculate the classification ability of each attribute according to the information gain ratio, and then provide principles for the selection of features (ie attributes).</p>
-<p>-### Gini coefficient</p>
-<p>Definition (Gini index): In the classification problem, assuming that there are K classes, the probability that the sample point belongs to the Kth class is p (k), then the Gini index of the probability distribution is defined as</p>
-<p>$$ [Gini (p) = \ sum \ limits_ {k = 1} ^ {K} p_k (1-p_k) = 1- \ sum \ limits_ {k = 1} ^ {K} p_k ^ 2] $$</p>
-<p>For the 2 classification problem, if the probability that the sample belongs to the first category is p, then the Gini index of the probability distribution is:</p>
-<p>$$ Gini (p) = 2p (1-p) $$</p>
-<p>The Gini index for a given sample set D is:</p>
-<p>$$ Gini (D) = 1- \ sum \ limits_ {k = 1} ^ {K} \ left (\ frac {| C_k |} {| D |} \ right) ^ 2 $$</p>
-<p>Here, C (k) is the subset of samples belonging to the kth class in D, and K is the number of classes.</p>
-<p>If the sample set D is divided into two parts D1 and D2 according to whether the feature A takes a certain possible value α, that is</p>
-<p>$$ D_1 = \ {(x, y) \ in D | A (x) = a }, D_2 = D-D_1 $$</p>
-<p>Then under the condition of feature A, the Gini index of set D is defined as</p>
-<p>$$ Gini (D, A) = \ frac {| D_1 |} {| D |} Gini (D_1) + \ frac {| D_2 |} {D} Gini (D_2) $$</p>
-<p>The Gini index Gini (D) represents the uncertainty of the set D, and the Gini index Gini (D, A) represents the uncertainty of the set D after A = α division. The larger the value of the Gini index, the greater the uncertainty of the sample set, which is similar to entropy.</p>
-<h2 id="ID3-algorithm"><a href="#ID3-algorithm" class="headerlink" title="ID3 algorithm"></a>ID3 algorithm</h2><p>-### Information gain algorithm</p>
-<pre><code>(From [Li Hang &quot;Statistical Methods&quot;] (https://book.douban.com/subject/10590856/))</code></pre><p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ub25nSmlYdWVYaUZhbmdmYS9kZWNpc2lvbl90cmVlLzIucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/TongJiXueXiFangfa/decision_tree/2.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>-### ID3 algorithm</p>
-<pre><code>(From [Li Hang &quot;Statistical Methods&quot;] (https://book.douban.com/subject/10590856/))</code></pre><p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ub25nSmlYdWVYaUZhbmdmYS9kZWNpc2lvbl90cmVlLzMucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/TongJiXueXiFangfa/decision_tree/3.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>-### Example</p>
-<pre><code>(From [Li Hang &quot;Statistical Methods&quot;] (https://book.douban.com/subject/10590856/))</code></pre><p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ub25nSmlYdWVYaUZhbmdmYS9kZWNpc2lvbl90cmVlLzQucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/TongJiXueXiFangfa/decision_tree/4.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<h2 id="C4-5-Generation-Algorithm"><a href="#C4-5-Generation-Algorithm" class="headerlink" title="C4.5 Generation Algorithm"></a>C4.5 Generation Algorithm</h2><p>(From [Li Hang “Statistical Methods”] (<span class="exturl" data-url="aHR0cHM6Ly9ib29rLmRvdWJhbi5jb20vc3ViamVjdC8xMDU5MDg1Ni8=">https://book.douban.com/subject/10590856/<i class="fa fa-external-link-alt"></i></span>))</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ub25nSmlYdWVYaUZhbmdmYS9kZWNpc2lvbl90cmVlLzUucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/TongJiXueXiFangfa/decision_tree/5.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<h2 id="CART-generation-algorithm"><a href="#CART-generation-algorithm" class="headerlink" title="CART generation algorithm"></a>CART generation algorithm</h2><p>(From [Li Hang “Statistical Methods”] (<span class="exturl" data-url="aHR0cHM6Ly9ib29rLmRvdWJhbi5jb20vc3ViamVjdC8xMDU5MDg1Ni8=">https://book.douban.com/subject/10590856/<i class="fa fa-external-link-alt"></i></span>))</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ub25nSmlYdWVYaUZhbmdmYS9kZWNpc2lvbl90cmVlLzYucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/TongJiXueXiFangfa/decision_tree/6.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>###! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ub25nSmlYdWVYaUZhbmdmYS9kZWNpc2lvbl90cmVlLzcucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/TongJiXueXiFangfa/decision_tree/7.png<i class="fa fa-external-link-alt"></i></span>)</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/05/01/decision_tree/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1079,7 +413,7 @@ vimdiff -o file1 file2 [file3 [file4]]
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:18:36" itemprop="dateModified" datetime="2020-04-09T16:18:36+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 17:29:12" itemprop="dateModified" datetime="2020-04-09T17:29:12+05:30">2020-04-09</time>
               </span>
 
           <br>
@@ -1108,55 +442,100 @@ vimdiff -o file1 file2 [file3 [file4]]
 
       
           <p>PLA (Perception Learning Algorithm) is suitable for two-dimensional and high-dimensional linear divideable problems. The answer to the question is only to agree or disagree.</p>
-<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>Banks can determine whether to issue credit cards to customers based on their personal information. ** Abstract customers as a vector $ X $, including name, age, annual income, number of liabilities, etc. At the same time, the weight vector occupied by each attribute is set to $ W $. A relatively high weight is set for positively related attributes, such as annual income, and a lower weight is set for negatively related attributes, such as the number of liabilities. $ y $ indicates whether you want the user to issue a credit card. ** By taking the inner product of $ X $ and $ W $ minus a threshold, if it is positive, agree to issue a credit card, otherwise no credit card will be issued. We assume that there is a mapping $ f $ from $ X $ to $ Y $. The PLA algorithm is used to simulate this mapping, so that the function found is as similar as possible to $ f $, at least in the known data set ( That is, the sample is consistent.</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ic3Vhbi1UaWVuX0xpbi9wZXJjZXB0aW9uLWxlYXJuaW5nLWFsZ29yaXRobS8xLnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/Hsuan-Tien_Lin/perception-learning-algorithm/1.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>** PLA algorithm is used to find the vector $ W $ **, so that the judgment made by the machine in the known data is the same as the real data. When $ X $ is a two-dimensional vector, it is equivalent to drawing a straight line on a plane to divide all points into two parts, one part agrees to send, and the other part disagrees. The inner product can be expressed as:<br>$$<br>\ begin {eqnarray}<br>h (x) &amp; = &amp; sign ((\ sum \ limits_ {i = 1} ^ {d} W_i X_i) -threshold) \<br>&amp; = &amp; sign ((\ sum \ limits_ {i = 1} ^ {d} W_i X_i) + \ underbrace {(-threshold)} _ {W_0} \ times \ underbrace {(+ 1)} _ {X_0}) \<br>&amp; = &amp; sign (\ sum \ limits_ {i = 0} ^ {d} W_i X_i) \<br>&amp; = &amp; sign (W ^ TX)<br>\ end {eqnarray}<br>$$</p>
-<p>Where $ X_0 = 1, W_0 = -threshold $</p>
-<p>Value range of $ y_s $: $ \ {+ 1, -1 } $, ($ y_s $ represents the value of $ y $ in the sample, which is used to input to the algorithm for adjustment)</p>
-<p>Combined with the example in the text: $ y_s = 1 $ means that in the given sample data, a credit card is issued to the user, and $ y_s = -1 $ means that it is not issued.</p>
-<p>PLA first assumes that $ W_0 $ is a vector $ \ vec {0} $, then finds a point that does not satisfy the condition, adjusts the value of $ W $, and sequentially ** iterates all sample data ** so that the two parts can be completely separated in the end .</p>
-<h2 id="W’s-adjustment-plan"><a href="#W’s-adjustment-plan" class="headerlink" title="W’s adjustment plan"></a>W’s adjustment plan</h2><p>** Bug driver adjustment **</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ic3Vhbi1UaWVuX0xpbi9wZXJjZXB0aW9uLWxlYXJuaW5nLWFsZ29yaXRobS8yLnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/Hsuan-Tien_Lin/perception-learning-algorithm/2.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>Explain the content of ppt, there are two kinds of errors:</p>
-<ol>
-<li>The user is given data in the given known data, that is, the $ i $ data in the $ y_s (i) $ sample is $ + 1 $, but the result given by the algorithm is not issued ($ h (X_i) &lt;0 $), indicating that the inner product of the two vectors is negative, and the $ W $ vector needs to be adjusted to make the two vectors closer. At this time, the adjustment coefficient is $ y_s (i) $ of the sample, and the adjusted $ W_ {t + 1} = W_t + y_s (i) X_i $, the subscript $ t of $ W $, t + 1 $ indicates the number of adjustments, schematic diagram:</li>
-</ol>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ic3Vhbi1UaWVuX0xpbi9wZXJjZXB0aW9uLWxlYXJuaW5nLWFsZ29yaXRobS8zLnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/Hsuan-Tien_Lin/perception-learning-algorithm/3.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<ol start="2">
-<li>The user is given data in the given known data, that is, the $ i $ data in the $ y_s (i) $ sample is $ -1 $, but the result given by the algorithm is not issued ($ h (X_i)&gt; 0 $), indicating that the inner product of the two vectors is positive, and the $ W $ vector needs to be adjusted to make the two vectors farther away. At this time, the adjustment coefficient is $ y_s (i) $ of the sample, and the adjusted $ W_ {t + 1} = W_t + y_s (i) X_i $, schematic diagram:</li>
-</ol>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ic3Vhbi1UaWVuX0xpbi9wZXJjZXB0aW9uLWxlYXJuaW5nLWFsZ29yaXRobS80LnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/Hsuan-Tien_Lin/perception-learning-algorithm/4.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>** Note: The expressions for the adjustments in the two different situations are the same **</p>
-<h2 id="For-linearly-separable-data-sets-the-PLA-algorithm-is-convergent"><a href="#For-linearly-separable-data-sets-the-PLA-algorithm-is-convergent" class="headerlink" title="For linearly separable data sets, the PLA algorithm is convergent"></a>For linearly separable data sets, the PLA algorithm is convergent</h2><p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ic3Vhbi1UaWVuX0xpbi9wZXJjZXB0aW9uLWxlYXJuaW5nLWFsZ29yaXRobS81LnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/Hsuan-Tien_Lin/perception-learning-algorithm/5.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>** Increase the inner product of two vectors: **</p>
-<ol>
-<li>** The smaller the angle between the two vectors **</li>
-<li>** Or the length of the vector increases **</li>
-</ol>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ic3Vhbi1UaWVuX0xpbi9wZXJjZXB0aW9uLWxlYXJuaW5nLWFsZ29yaXRobS82LnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/Hsuan-Tien_Lin/perception-learning-algorithm/6.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>Teacher’s ppt on $ || W_ {t + 1} || ^ 2 \ le || W_t || ^ 2 + max \ {1 \ le i \ le n \ \ | \ \ || y_i X_i || ^ 2 } $ Among them, the range of $ y_i $ is $ \ {+ 1, -1 } $</p>
-<p>So $ || W_ {t + 1} || ^ 2 \ le || W_t || ^ 2 + max \ {1 \ le i \ le n \ \ | \ \ || X_i || ^ 2 } $</p>
-<p>This shows that after each adjustment, the length of the vector is limited to increase. May wish</p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ic3Vhbi1UaWVuX0xpbi9wZXJjZXB0aW9uLWxlYXJuaW5nLWFsZ29yaXRobS83LnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/Hsuan-Tien_Lin/perception-learning-algorithm/7.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>Bring in the previous formula to get:</p>
-<p>$$<br>\ begin {eqnarray}<br>\ frac {|| W_ {t + 1} || ^ 2} {|| W_ {t} || ^ 2} &amp; \ le &amp; \ frac {|| W_ {t} || ^ 2 + max || y_n x_n || ^ 2} {|| W_ {t} || ^ 2} \<br>&amp; = &amp; \ frac {|| W_ {t} || ^ 2 + max || x_n || ^ 2} {|| W_ {t} || ^ 2} \<br>&amp; = &amp; 1+ \ frac {R ^ 2} {|| W (t) || ^ 2}<br>\ end {eqnarray}<br>$$</p>
-<p>So $ W_t $ eventually converged, and so far it has been proved that the PLA algorithm can finally stop.</p>
-<h2 id="The-number-of-times-the-algorithm-needs-to-be-adjusted"><a href="#The-number-of-times-the-algorithm-needs-to-be-adjusted" class="headerlink" title="The number of times the algorithm needs to be adjusted"></a>The number of times the algorithm needs to be adjusted</h2><p>The following two inequalities can be obtained from the above process:</p>
-<p>$$<br>\ begin {eqnarray}<br>W_f ^ t W_t &amp; = &amp; W_f ^ t (W_ {t-1} + y_s (t-1) X_ {t-1}) \<br>&amp; = &amp; W_f ^ tW_ {t-1} + y_s (t-1) W_f ^ tX (t-1) \<br>&amp; \ ge &amp; W_f ^ tW_ {t-1} + min (yW_f ^ tX) \<br>&amp; \ ge &amp; W_f ^ tW_ {t-2} +2 , min (yW_f ^ tX) \<br>&amp; \ cdots &amp; \<br>&amp; \ ge &amp; W_f ^ tW_0 + t , min (yW_f ^ tX) \<br>&amp; = &amp; t , min (yW_f ^ tX)<br>\ end {eqnarray}<br>$$</p>
-<p>$$<br>\ begin {eqnarray}<br>|| W_t || ^ 2 &amp; \ le &amp; || W_ {t-1} || ^ 2 + max (|| X || ^ 2) \<br>&amp; \ le &amp; || W_ {t-2} || ^ 2 + 2 , max (|| X || ^ 2) \<br>&amp; \ cdots &amp; \<br>&amp; \ le &amp; || W_0 || ^ 2 + t , max (|| X || ^ 2) \<br>&amp; = &amp; t , max (|| X || ^ 2)<br>\ end {eqnarray}<br>$$</p>
-<p>Then look at this formula: $ \ frac {W_f ^ t W_t} {|| W_f ^ t || \ || W_t ||} \ ge \ frac {t \ min (yW_f ^ tX)} {|| W_f ^ t || \ sqrt {t , (max (|| X ||)) ^ 2}} = \ sqrt {t} , \ frac {min (yW_f ^ tX)} {|| W_f ^ t || max (|| X ||)} $  </p>
-<p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ic3Vhbi1UaWVuX0xpbi9wZXJjZXB0aW9uLWxlYXJuaW5nLWFsZ29yaXRobS84LnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/Hsuan-Tien_Lin/perception-learning-algorithm/8.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>According to the maximum cosine value of 1, you can get $ \ frac {W_f ^ tW_t} {|| W_f ^ t || \ || W_t ||} \ le 1 $, so we get the number of adjustments: $ t \ le \ frac {|| W_f ^ t || (max (|| X ||)) ^ 2} {(min (yW_f ^ tX)) ^ 2} = {R ^ 2 \ over \ rho ^ 2} $.</p>
-<h2 id="Pros-and-cons-of-PLA"><a href="#Pros-and-cons-of-PLA" class="headerlink" title="Pros and cons of PLA"></a>Pros and cons of PLA</h2><p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ic3Vhbi1UaWVuX0xpbi9wZXJjZXB0aW9uLWxlYXJuaW5nLWFsZ29yaXRobS85LnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/Hsuan-Tien_Lin/perception-learning-algorithm/9.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>On the one hand, I definitely don’t know $ W_f ^ t $ in advance, on the other hand, in order to cope with possible noise. So how to measure the current straight line can meet the requirements? We can only judge at each step whether the adjusted $ W_ {t + 1} $ ** can linearly divide more data than the previous $ W_t $, so we have the following improvements The algorithm Pocket PLA, PocketPLA is one step more than PLA when adjusting: judging whether the current correction mistake is smaller than before, which is greedy choice.</p>
-<h2 id="Pocket-PLA"><a href="#Pocket-PLA" class="headerlink" title="Pocket PLA"></a>Pocket PLA</h2><p>! [img] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9Ic3Vhbi1UaWVuX0xpbi9wZXJjZXB0aW9uLWxlYXJuaW5nLWFsZ29yaXRobS8xMC5wbmc=">http://q6gm8fomw.bkt.clouddn.com/gitpage/Hsuan-Tien_Lin/perception-learning-algorithm/10.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>reference</p>
-<ol>
-<li>[HappyAngel] (<span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9IYXBweUFuZ2VsL3AvMzQ1Njc2Mi5odG1s">http://www.cnblogs.com/HappyAngel/p/3456762.html<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>[DreamerMonkey] (<span class="exturl" data-url="aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZHJlYW1lcm1vbmtleS9hcnRpY2xlL2RldGFpbHMvNDQwNjUyNTU=">http://blog.csdn.net/dreamermonkey/article/details/44065255<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>All ppt come from the “Machine Learning Cornerstone” classroom of National Taiwan University</li>
-</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/04/24/perception_learning_algorithm/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2014/06/01/longest_common_sub-sequence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/06/01/longest_common_sub-sequence/" class="post-title-link" itemprop="url">Dynamic Programming-Longest Common Subsequence</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2014-06-01 22:16:00" itemprop="dateCreated datePublished" datetime="2014-06-01T22:16:00+05:30">2014-06-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-09 17:31:40" itemprop="dateModified" datetime="2020-04-09T17:31:40+05:30">2020-04-09</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>6.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>6 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Algorithm-overall-idea"><a href="#Algorithm-overall-idea" class="headerlink" title="Algorithm overall idea"></a>Algorithm overall idea</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2014/06/01/longest_common_sub-sequence/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1242,7 +621,7 @@ vimdiff -o file1 file2 [file3 [file4]]
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1303,7 +682,7 @@ vimdiff -o file1 file2 [file3 [file4]]
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">35:43</span>
+    <span title="Reading time total">35:40</span>
 </div>
 
         
