@@ -32,15 +32,15 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="功能接收用户的从终端输入程序或数据，并存入用户的数据区。由于用户在终端上输入难免出现差错，因此，若在行编辑程序中，“每接收一个字符即存入用户数据区”显然是不合理的。较好的做法，设立一个缓冲区，用以接收用户输入的每一行字符，然后逐行存入用户数据区。允许用户输入出错，并在发现有误时可以及时更正。例如，当用户发现刚刚键入的一个字符是错的时，补进一个退格符#，以表示前一个字符无效；如果发现当前键入的行内差">
+  <meta name="description" content="FeaturesReceive the user’s input program or data from the terminal, and store it in the user’s data area. Because the user inevitably makes mistakes when inputting on the terminal, it is obviously unr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="行编辑器&#x2F;容错缓冲区-栈的基础应用2">
+<meta property="og:title" content="Line Editor &#x2F; Fault Tolerant Buffer-Basic Application of Stack 2">
 <meta property="og:url" content="https://snakecoding.com/2013/05/12/stack_application_on_line-editor_or_buff_zone/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="功能接收用户的从终端输入程序或数据，并存入用户的数据区。由于用户在终端上输入难免出现差错，因此，若在行编辑程序中，“每接收一个字符即存入用户数据区”显然是不合理的。较好的做法，设立一个缓冲区，用以接收用户输入的每一行字符，然后逐行存入用户数据区。允许用户输入出错，并在发现有误时可以及时更正。例如，当用户发现刚刚键入的一个字符是错的时，补进一个退格符#，以表示前一个字符无效；如果发现当前键入的行内差">
+<meta property="og:description" content="FeaturesReceive the user’s input program or data from the terminal, and store it in the user’s data area. Because the user inevitably makes mistakes when inputting on the terminal, it is obviously unr">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2013-05-12T16:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-08T23:07:42.568Z">
+<meta property="article:modified_time" content="2020-04-09T10:46:35.901Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="Data Structure">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   };
 </script>
 
-  <title>行编辑器/容错缓冲区-栈的基础应用2 | Machine Learning</title>
+  <title>Line Editor / Fault Tolerant Buffer-Basic Application of Stack 2 | Machine Learning</title>
   
 
 
@@ -138,17 +138,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">15</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -199,7 +199,7 @@
   </div>
   <div class="reading-progress-bar"></div>
 
-  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <a href="#" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -227,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          行编辑器/容错缓冲区-栈的基础应用2
+          Line Editor / Fault Tolerant Buffer-Basic Application of Stack 2
         </h1>
 
         <div class="post-meta">
@@ -244,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 16:16:35" itemprop="dateModified" datetime="2020-04-09T16:16:35+05:30">2020-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,7 +252,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">中文</span></a>
+                  <a href="/categories/Data-Structure/" itemprop="url" rel="index"><span itemprop="name">Data Structure</span></a>
                 </span>
             </span>
 
@@ -269,14 +269,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>961</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -288,16 +288,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>接收用户的从终端输入程序或数据，并存入用户的数据区。由于用户在终端上输入难免出现差错，因此，若在行编辑程序中，“每接收一个字符即存入用户数据区”显然是不合理的。较好的做法，设立一个缓冲区，用以接收用户输入的每一行字符，然后逐行存入用户数据区。允许用户输入出错，并在发现有误时可以及时更正。例如，当用户发现刚刚键入的一个字符是错的时，补进一个退格符#，以表示前一个字符无效；如果发现当前键入的行内差错较多或难以补救，就可以键入一个退行符号@，以表示当前行中的字符均无效。</p>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>​         从终端接收这样两行字符：</p>
-<p>​                            whi##ilr#e(s#*s)</p>
-<p>​                                     outcha@putchar(*s#++)</p>
-<p>​          实际有效的是下列两行：</p>
-<p>​                            while(*s)</p>
-<p>​                                     putchar(*s++)</p>
-<p>​         为此，我们可以设立一个缓冲区，结构为栈，每当用户从终端接受了一个字符之后现做如下判别：如果他既不是退格符，也不是退行符，则将该字符压入栈中，如果是退格符，则从栈顶删去一个字符；如果是退行符，则将字符栈清空。</p>
-<h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LineEdit</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">//利用字符栈s，从终端接收一行并送至调用过程的数据区。算法3.2</span></span><br><span class="line">	SqStack s;</span><br><span class="line">	<span class="keyword">char</span> ch,c;</span><br><span class="line">	InitStack(s);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"请输入一个文本文件,^Z结束输入:\n"</span>);</span><br><span class="line">	ch=getchar();</span><br><span class="line">	<span class="keyword">while</span>(ch!=EOF)</span><br><span class="line">	&#123;<span class="comment">// EOF为^Z键，全文结束符</span></span><br><span class="line">		<span class="keyword">while</span>(ch!=EOF&amp;&amp;ch!=<span class="string">'\n'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">switch</span>(ch)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">'#'</span>:Pop(s,c);</span><br><span class="line">						 <span class="keyword">break</span>; <span class="comment">// 仅当栈非空时退栈</span></span><br><span class="line">				<span class="keyword">case</span> <span class="string">'@'</span>:ClearStack(s);</span><br><span class="line">						 <span class="keyword">break</span>; <span class="comment">// 重置s为空栈</span></span><br><span class="line">				<span class="keyword">default</span> :Push(s,ch); <span class="comment">// 有效字符进栈</span></span><br><span class="line">			&#125;</span><br><span class="line">			ch=getchar(); <span class="comment">// 从终端接收下一个字符</span></span><br><span class="line">		&#125;</span><br><span class="line">		StackTraverse(s,copy); <span class="comment">// 将从栈底到栈顶的栈内字符传送至文件</span></span><br><span class="line">		ClearStack(s); <span class="comment">// 重置s为空栈</span></span><br><span class="line">		fputc(<span class="string">'\n'</span>,fp);</span><br><span class="line">		<span class="keyword">if</span>(ch!=EOF)</span><br><span class="line">			ch=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	DestroyStack(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><p>Receive the user’s input program or data from the terminal, and store it in the user’s data area. Because the user inevitably makes mistakes when inputting on the terminal, it is obviously unreasonable to “store every time a character is received in the user data area” in the line editing program. A better approach is to set up a buffer to receive each line of characters entered by the user, and then store it in the user data area line by line. Allow the user to make mistakes and correct them in time if errors are found. For example, when the user finds that the character just typed is wrong, a backspace character # is added to indicate that the previous character is invalid; if the current typed line has many errors or is difficult to remedy, he can type a line backward symbol @ To indicate that the characters in the current line are invalid.</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>Receive two lines of characters from the terminal:</p>
+<p>Whi ## ilr # e (s # * s)</p>
+<p>Outcha @ putchar (* s # ++)</p>
+<p>The following two lines are actually valid:</p>
+<p>While (* s)</p>
+<p>Putchar (* s ++)</p>
+<p>To this end, we can set up a buffer with a stack structure. When the user receives a character from the terminal, the following judgment is made: if he is neither a backspace character nor a backspace character, the character is pushed onto the stack In, if it is a backspace character, a character is deleted from the top of the stack; if it is a backspace character, the character stack is emptied.</p>
+<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><p><code>`c
+void LineEdit ()
+{// Using the character stack s, receive a line from the terminal and send it to the data area of ​​the calling process. Algorithm 3.2
+    SqStack s;
+    char ch, c;
+    InitStack (s);
+    printf (&quot;Please enter a text file, ^ Z end input: \ n&quot;);
+    ch = getchar ();
+    while (ch! = EOF)
+    {// EOF is the ^ Z key, the end of the full text
+        while (ch! = EOF &amp;&amp; ch! = &#39;\ n&#39;)
+        {
+            switch (ch)
+            {
+                case &#39;#&#39;: Pop (s, c);
+                         break; // Only when the stack is not empty
+                case &#39;@&#39;: ClearStack (s);
+                         break; // reset s to empty stack
+                default: Push (s, ch); // valid characters are pushed onto the stack
+            }
+            ch = getchar (); // Receive the next character from the terminal
+        }
+        StackTraverse (s, copy); // Transfer characters from the bottom of the stack to the top of the stack to the file
+        ClearStack (s); // reset s to empty stack
+        fputc (&#39;\ n&#39;, fp);
+        if (ch! = EOF)
+            ch = getchar ();
+    }
+    DestroyStack (s);
+}</code> `</p>
 
     </div>
 
@@ -336,8 +364,8 @@
     <div class="post-nav">
       <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2013/05/13/stack_application_on_expression-resolution-with-braces/" rel="next" title="含括号的运算表达式求解-栈的基础应用3">
-      含括号的运算表达式求解-栈的基础应用3 <i class="fa fa-chevron-right"></i>
+    <a href="/2013/05/13/stack_application_on_expression-resolution-with-braces/" rel="next" title="Solving operation expressions with brackets-basic application of stack 3">
+      Solving operation expressions with brackets-basic application of stack 3 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -398,7 +426,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能"><span class="nav-number">1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源代码"><span class="nav-number">3.</span> <span class="nav-text">源代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Features"><span class="nav-number">1.</span> <span class="nav-text">Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Examples"><span class="nav-number">2.</span> <span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Source-code"><span class="nav-number">3.</span> <span class="nav-text">Source code</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -414,36 +442,27 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+        <a href="mailto:snakecoding.py@gmail.com" title="Get In Touch → mailto:snakecoding.py@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>Get In Touch</a>
       </span>
   </div>
 
@@ -478,13 +497,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">2.2m</span>
+    <span title="Symbols count total">2.4m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">33:59</span>
+    <span title="Reading time total">35:43</span>
 </div>
 
         

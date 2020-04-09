@@ -32,69 +32,18 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="笔记源自：清华大学公开课：线性代数2——第一讲：正定矩阵 引言 矩阵特征值的正负在求解微分方程和差分方程时，会影响解是否收敛，例如上图如果$\lambda_i &lt; 0$那么$e^{\lambda_i t}$ 随着$t\rightarrow \infty, e^{\lambda_it}\rightarrow0$ 主子式  实对称矩阵A正定的充要条件下列6项条件，满足任意一项即可判定实对称矩阵$">
+  <meta name="description" content="positive definiteWhen a symmetric matrix $A$ has one of these five properties, it has them all and $A$ is positive definite:   all n eigenvalue are positive. all n principal minors(n upper left determ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tsinghua linear-algebra-2 1st-lecture positive-definite-matrix">
+<meta property="og:title" content="positive definite and least squares">
 <meta property="og:url" content="https://snakecoding.com/2017/08/01/positive_definite_matrix/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="笔记源自：清华大学公开课：线性代数2——第一讲：正定矩阵 引言 矩阵特征值的正负在求解微分方程和差分方程时，会影响解是否收敛，例如上图如果$\lambda_i &lt; 0$那么$e^{\lambda_i t}$ 随着$t\rightarrow \infty, e^{\lambda_it}\rightarrow0$ 主子式  实对称矩阵A正定的充要条件下列6项条件，满足任意一项即可判定实对称矩阵$">
+<meta property="og:description" content="positive definiteWhen a symmetric matrix $A$ has one of these five properties, it has them all and $A$ is positive definite:   all n eigenvalue are positive. all n principal minors(n upper left determ">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/1.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/2.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/3.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/4-1.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/4.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/5.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/6.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/7.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/8.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/9.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/10.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/11.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/12.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/13.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/14.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/15.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/16.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/17.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/18.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/19.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/20.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/21.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/22.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/23.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/24.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/25.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/26.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/27.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/28.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/29.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/30.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/31.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/32.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/33.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/34.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/35.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/36.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/37.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/38.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/39.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/40.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/41.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/42.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/43.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/5-1.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/44.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/45.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/46.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/47.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/48.png">
-<meta property="article:published_time" content="2017-08-01T14:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-08T23:07:42.565Z">
+<meta property="article:published_time" content="2017-08-01T16:46:00.000Z">
+<meta property="article:modified_time" content="2020-04-09T10:26:06.671Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="linear_algebra">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/1.png">
 
 <link rel="canonical" href="https://snakecoding.com/2017/08/01/positive_definite_matrix/">
 
@@ -109,7 +58,7 @@
   };
 </script>
 
-  <title>Tsinghua linear-algebra-2 1st-lecture positive-definite-matrix | Machine Learning</title>
+  <title>positive definite and least squares | Machine Learning</title>
   
 
 
@@ -189,17 +138,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">15</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -250,7 +199,7 @@
   </div>
   <div class="reading-progress-bar"></div>
 
-  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <a href="#" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -278,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Tsinghua linear-algebra-2 1st-lecture positive-definite-matrix
+          positive definite and least squares
         </h1>
 
         <div class="post-meta">
@@ -288,14 +237,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2017-08-01 20:16:00" itemprop="dateCreated datePublished" datetime="2017-08-01T20:16:00+05:30">2017-08-01</time>
+              <time title="Created: 2017-08-01 22:16:00" itemprop="dateCreated datePublished" datetime="2017-08-01T22:16:00+05:30">2017-08-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 15:56:06" itemprop="dateModified" datetime="2020-04-09T15:56:06+05:30">2020-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -303,7 +252,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">中文</span></a>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
                 </span>
             </span>
 
@@ -320,7 +269,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.3k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -339,79 +288,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>笔记源自：清华大学公开课：线性代数2——第一讲：正定矩阵</p>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/1.png" alt="正定矩阵与微分方程"></p>
-<p>矩阵特征值的正负在求解微分方程和差分方程时，会影响解是否收敛，例如上图如果$\lambda_i &lt; 0$那么$e^{\lambda_i t}$ 随着$t\rightarrow \infty, e^{\lambda_it}\rightarrow0$</p>
-<h2 id="主子式"><a href="#主子式" class="headerlink" title="主子式"></a>主子式</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/2.png" alt="顺序主子式"></p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/3.png" alt="1st_example_of_principal_minor"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/4-1.png" alt="2nd_example_of_principal_minor.png"></p>
-<h2 id="实对称矩阵A正定的充要条件"><a href="#实对称矩阵A正定的充要条件" class="headerlink" title="实对称矩阵A正定的充要条件"></a>实对称矩阵A正定的充要条件</h2><p><strong>下列6项条件，满足任意一项即可判定实对称矩阵$A$为正定矩阵：</strong></p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/4.png" alt="prerequisites_of_positive_definite_matrix.png"> </p>
-<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>$(1)\Rightarrow(2):$ 对实对称矩阵$A$，那么存在正交阵$Q$，使得$AQ=Q\Lambda \rightarrow A=Q\Lambda Q^T$，其中$\Lambda=diag(\lambda_1,,…,,\lambda_n)$。于是对于<strong>任意非零向量$x$</strong>，有$x^TAx=x^TQ\Lambda Q^Tx=y^T \Lambda y=\lambda_1 {y_1}^2+,…,+\lambda_n {y_n}^2&gt;0, y=Q^Tx=(y_1,,…,,y_n) \ne\vec{0}$</p>
-<p>$(2)\Rightarrow(1):​$ 设$Ax=\lambda x(x\ne0)​$ 则$0&lt;x^TAx=x^T\lambda x=\lambda||x||^2​$，因此所有$\lambda_i&gt;0​$。</p>
-<p>$(2)\Rightarrow(3):$ 由于行列式等于矩阵特征值的乘积，故$(2)\Rightarrow(1)\Rightarrow (3)det A=\lambda_1,…,\lambda_n&gt;0$ ：</p>
-<p>$(2), 0&lt;\begin{pmatrix}x_k^T&amp;0\end{pmatrix} \begin{pmatrix}A_k&amp;*\*&amp;*\end{pmatrix}\begin{pmatrix}x_k\0\end{pmatrix}={x_k}^T A_k x_k = {x_k}^T \begin{pmatrix} \lambda_1&amp;\&amp;\ddots\&amp;&amp;\lambda_k \end{pmatrix} x,, (1 \le k \le n) \\Rightarrow  (1) \lambda_i &gt; 0,(1\le i \le k, 1 \le k \le n) \Rightarrow (3) detA_k&gt;0, (1 \le k \le n)$</p>
-<p>$(3)\Rightarrow(4)$：顺序主子式与主元有直接联系，因为第k个主元$d_k={det A_k \over det A_{k-1}}$，所以$(3) \Rightarrow (4),d_k &gt; 0$，其中$A_k$是第$k$个顺序主子矩阵（the k-th leading principal sub-matrix）。</p>
-<p>$(4) \Rightarrow (2)$：由对称矩阵的Gauss消元法得$A=LDL^T$且对角阵$D=diag(d_1,,…,d_n)$ 的对角元为A的主元，$L$是下三角矩阵，$L^T$ 是上三角矩阵，而且根据分解结果知道$L$的主对角线上全元素为1，也即$L^T$的主元全为1，即$L^T$行列式为1且是方阵，那么这俩都可逆。因为$(4):d_1,,…,,d_n$大于0，那么到：$x\ne 0\Rightarrow y=L^Tx\ne 0\Rightarrow x^TAx=x^TLDL^Tx=y^TDy=d_1y_1^2+…+d_ny_n^2&gt;0$ 。</p>
+        <h2 id="positive-definite"><a href="#positive-definite" class="headerlink" title="positive definite"></a>positive definite</h2><p>When <strong>a symmetric matrix $A$ has one of these five properties, it has them all</strong> and $A$ is positive definite:</p>
 <blockquote>
-<p>  可逆矩阵齐次方程只有零解</p>
+<ol>
+<li>all <strong>n eigenvalue</strong> are positive.</li>
+<li>all <strong>n principal minors(n upper left determinants)</strong> are positive.</li>
+<li>all <strong>n pivots are positive</strong>.</li>
+<li>$x^{T}Ax$ is positive except when $x = 0$ (this is usually the definition of positive definiteness and the <strong>energy-based</strong> definition).</li>
+<li>$A$ equals $R^{T}R$ for a matrix $R$ with <strong>independent columns</strong>.</li>
+</ol>
 </blockquote>
-<p>$(2)\Rightarrow(5)$：$A=LDL^T=L\sqrt{D}\sqrt{D}L^T=(\sqrt{D}L^T)^T(\sqrt{D}L^T)$，此时可取$R=\sqrt{D}L^T$，因为$\sqrt{D}, L^T$ 都可逆且都是方阵，由于$(2)\Rightarrow(3)\Rightarrow(4)$ ，因此$\sqrt{D}&gt;0$，且有上面推导得$|L^T|&gt;0$， 可逆矩阵乘积还是可逆。</p>
-<blockquote>
-<p>  根据行列式性质：$ |A||B|=|AB|$,  当$A,B$ 均可逆，那么$|A|&gt;0, |B|&gt;0 \rightarrow |AB|&gt;0$, 所以$AB$也可逆。</p>
-</blockquote>
-<p>或者：$A=Q\Lambda Q^T=Q\sqrt{\Lambda}\sqrt{\Lambda}Q^T=(\sqrt{\Lambda}Q^T)(\sqrt{\Lambda}Q^T)$，此时可取 $R=\sqrt{\Lambda}Q^T$ ，同理可得。</p>
-<p>$(5)\Rightarrow(2)$：$A=R^TR\Rightarrow x^TAx=x^TR^TRx=(Rx)^TRx=||Rx||^2 \ge 0$且$R$是列满秩，除了$x=0$之外，其余 $x^TAx=||Rx||^2 &gt; 0$，即$(5)\Rightarrow(2)$</p>
-<p>$(6)\Leftarrow\Rightarrow(2)$:</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/5.png" alt="how_to_check_positive_definite_matrix"> </p>
-<h4 id="典型例子"><a href="#典型例子" class="headerlink" title="典型例子"></a>典型例子</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/6.png" alt="1st_method_of_check_postive_definite"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/7.png" alt="2nd_method_of_check_postive_definite"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/8.png" alt="3rd_method_of_check_postive_definite"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/9.png" alt="4th_method_of_check_postive_definite"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/10.png" alt="5th_method_of_check_postive_definite"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/11.png" alt="6th_method_of_check_postive_definite"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/12.png" alt="7th_method_of_check_postive_definite"> </p>
-<h2 id="正定矩阵的性质"><a href="#正定矩阵的性质" class="headerlink" title="正定矩阵的性质"></a>正定矩阵的性质</h2><h3 id="如果-A-B-是正定矩阵，那么-A-B-也是正定矩阵"><a href="#如果-A-B-是正定矩阵，那么-A-B-也是正定矩阵" class="headerlink" title="如果$A,B$是正定矩阵，那么$A+B$也是正定矩阵"></a>如果$A,B$是正定矩阵，那么$A+B$也是正定矩阵</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/13.png" alt="1st_property_of_positive_definite_matrix"> </p>
-<h3 id="如果-A-为正定矩阵，则存在矩阵-C-，满足-A-C-2"><a href="#如果-A-为正定矩阵，则存在矩阵-C-，满足-A-C-2" class="headerlink" title="如果$A$为正定矩阵，则存在矩阵$C$，满足$A=C^2$"></a>如果$A$为正定矩阵，则存在矩阵$C$，满足$A=C^2$</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/14.png" alt="2nd_property_of_positive_definite_matrix"> </p>
-<h3 id="如果-A-为正定矩阵，则矩阵-A-的幂也是正定的"><a href="#如果-A-为正定矩阵，则矩阵-A-的幂也是正定的" class="headerlink" title="如果$A$为正定矩阵，则矩阵$A$的幂也是正定的"></a>如果$A$为正定矩阵，则矩阵$A$的幂也是正定的</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/15.png" alt="3rd_property_of_positive_definite_matrix">  </p>
-<h3 id="如果-A-为正定矩阵，矩阵-C-，那么-B-C-TAC-也是正定的"><a href="#如果-A-为正定矩阵，矩阵-C-，那么-B-C-TAC-也是正定的" class="headerlink" title="如果$A$为正定矩阵，矩阵$C$，那么$B=C^TAC$也是正定的"></a>如果$A$为正定矩阵，矩阵$C$，那么$B=C^TAC$也是正定的</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/16.png" alt="4th_property_of_positive_definite_matrix"> </p>
-<p><strong>注：其实B称为A的合同矩阵</strong></p>
-<h2 id="半正定矩阵的判别条件"><a href="#半正定矩阵的判别条件" class="headerlink" title="半正定矩阵的判别条件"></a>半正定矩阵的判别条件</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/17.png" alt="how_to_check_semi-positive_definite_matrix"> </p>
-<h2 id="二次型"><a href="#二次型" class="headerlink" title="二次型"></a>二次型</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/18.png" alt="definition_of_quadratic_form"></p>
-<p><strong>注意：这里证明里面 ${A-A^T\over 2}$ 是反对称矩阵，利用反对称矩阵性质，所以 $x^T{A-A^T\over 2}x=0$ 。二次型与判定正定矩阵的第二条准则密切相关。</strong></p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/19.png" alt="1st_example_of_quadratic_form"> </p>
-<h3 id="对角形"><a href="#对角形" class="headerlink" title="对角形"></a>对角形</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/20.png" alt="quadratic_form_to_diagonal_form"> </p>
-<h4 id="二次型化成对角形"><a href="#二次型化成对角形" class="headerlink" title="二次型化成对角形"></a>二次型化成对角形</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/21.png" alt="example_of_quadratic_form_to_diagonal_form"> </p>
-<p><strong>注：由于实对称矩阵$A$可以与二次型一一对应，因此，可以借助实对称矩阵研究二次型。</strong></p>
-<h3 id="主轴定理principal-axis-theorem"><a href="#主轴定理principal-axis-theorem" class="headerlink" title="主轴定理principal axis theorem"></a>主轴定理principal axis theorem</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/22.png" alt="principal_axis_theorem"> </p>
-<h3 id="有心二次型central-conic"><a href="#有心二次型central-conic" class="headerlink" title="有心二次型central_conic"></a>有心二次型central_conic</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/23.png" alt="central_conic"></p>
-<h3 id="三维空间中的二次曲面-6类基本的二次曲面"><a href="#三维空间中的二次曲面-6类基本的二次曲面" class="headerlink" title="三维空间中的二次曲面-6类基本的二次曲面"></a>三维空间中的二次曲面-6类基本的二次曲面</h3><p>$R^3$种的二次曲面的方程形如:<br>$a_{11}x^2+a_{22}y^2+a_{33}z^2+2a_{12}xy+2a_{13}xz+2a_{23}yz+b_{1}x+b_{2}y+b_{3}z+c=0$.</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/24.png" alt="ellisoid"> </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/25.png" alt="hyperboloid_of_one_sheet"> </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/26.png" alt="hyperboloid_of_two_sheets"> </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/27.png" alt="elliptic_cone"> </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/28.png" alt="elliptic_paraboloid"> </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/29.png" alt="hyperbolic_paraboloid"> </p>
-<p><strong>注：由于二次型可以与实对称对称矩阵一一对应，二次型里面又包括二次曲面，所以实对称矩阵可以跟二次曲面对应起来。</strong></p>
-<h3 id="二次型的分类"><a href="#二次型的分类" class="headerlink" title="二次型的分类"></a>二次型的分类</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/30.png" alt="classification_of_quadratic_form"> </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/31.png" alt="example_of_classification_of_quadratic_form"> </p>
-<h3 id="二次型与特征值"><a href="#二次型与特征值" class="headerlink" title="二次型与特征值"></a>二次型与特征值</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/32.png" alt="relation_between_eigenvalues_and_eigenvectors"> </p>
-<h3 id="二次型的一个应用——求二次型的几何形状"><a href="#二次型的一个应用——求二次型的几何形状" class="headerlink" title="二次型的一个应用——求二次型的几何形状"></a>二次型的一个应用——求二次型的几何形状</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/33.png" alt="get_the_geometric_shape_of_quadratic_form"> </p>
-<p><strong>把二次型的部分去化成对角形的标准型，相应的这个一次项也作了变换，于是再做配方然后去跟基本的形状做比较得出这个曲面的几何形状，这是二次型的一个应用。</strong></p>
-<h3 id="合同congruent"><a href="#合同congruent" class="headerlink" title="合同congruent"></a>合同congruent</h3><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/34.png" alt="preface_of_congruent"> </p>
-<p><strong>注：非退化矩阵即满秩矩阵</strong></p>
-<h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/35.png" alt="definition_of_congruent"> </p>
-<h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/36.png" alt="example_of_congruent"> </p>
-<h4 id="主轴定理与合同"><a href="#主轴定理与合同" class="headerlink" title="主轴定理与合同"></a>主轴定理与合同</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/37.png" alt="congruent_and_prioncipal_axis_theorem"> </p>
-<h4 id="合同的性质"><a href="#合同的性质" class="headerlink" title="合同的性质"></a>合同的性质</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/38.png" alt="properties_of_congruent"> </p>
-<p><strong>证明:</strong><br>矩阵$A$左乘可逆矩阵$C^T$相当于做初等行变换，右乘以可逆矩阵$C$相当于做初等列变换，因此根据消元法知道并不改变矩阵$A$的秩。对称性保持证明在于二次型定义可以看到。</p>
-<blockquote>
-<p>  1.利用初等变换不改变矩阵的秩，因为可逆矩阵可以表示为初等矩阵的乘积，而A乘初等矩阵相当于对A作初等变换，所以A的秩不变-。这个方法包括了可逆矩阵左乘A，右乘A，或是左右同时乘A<br>  2.利用 r(AB)</p>
-</blockquote>
-<h3 id="惯性定理Sylvester’s-law-of-inertia的证明"><a href="#惯性定理Sylvester’s-law-of-inertia的证明" class="headerlink" title="惯性定理Sylvester’s law of inertia的证明"></a>惯性定理Sylvester’s law of inertia的证明</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/39.png" alt="1st_proof_Sylvester&#39;s_law_of_inertia"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/40.png" alt="2nd_proof_Sylvester&#39;s_law_of_inertia"> </p>
-<h3 id="惯性定理的应用"><a href="#惯性定理的应用" class="headerlink" title="惯性定理的应用"></a>惯性定理的应用</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/41.png" alt="application_of_Sylvester&#39;s_law_of_inertia"> </p>
-<h3 id="正负定矩阵在函数极值中的应用"><a href="#正负定矩阵在函数极值中的应用" class="headerlink" title="正负定矩阵在函数极值中的应用"></a>正负定矩阵在函数极值中的应用</h3><p>以二元函数$f(x,y)$为例：设$(x_0,y_0)$是二元函数$f(x,y)$的一个稳定点，即：$\frac{\partial f}{\partial x}(x_0,y_0)={\partial{f}\over \partial{y}}(x_0,y_0)=0$。如果$f(x,y)$在$(x_0,y_0)$的领域里有三阶偏导数，则$f(x,y)$在$(x_0,y_0)$可展开成Talor级数：</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/42.png" alt="application_of_minimum_by_positive_definite_matrix"> </p>
-<h4 id="黑塞Hessian矩阵"><a href="#黑塞Hessian矩阵" class="headerlink" title="黑塞Hessian矩阵"></a>黑塞Hessian矩阵</h4><p>黑塞矩阵（Hessian Matrix），又译作海森矩阵、海瑟矩阵、海塞矩阵等，是一个多元函数的二阶偏导数构成的方阵，描述了函数的局部曲率。黑塞矩阵最早于19世纪由德国数学家Ludwig Otto Hesse提出，并以其名字命名。黑塞矩阵常用于<a href="https://baike.baidu.com/item/%E7%89%9B%E9%A1%BF%E6%B3%95" target="_blank" rel="noopener">牛顿法</a>解决优化问题，利用黑塞矩阵可判定多元函数的极值问题。在工程实际问题的优化设计中，所列的目标函数往往很复杂，为了使问题简化，常常将目标函数在某点邻域展开成泰勒多项式来逼近原函数，此时函数在某点泰勒展开式的矩阵形式中会涉及到黑塞矩阵。</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/43.png" alt="hessian_matrix"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/5-1.png" alt="hessian_matrix_of_quadratic_form"></p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/44.png" alt="5th_example_application_of_minimum_by_positive_definite_matrix"> </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/45.png" alt="1st_example_application_of_minimum_by_positive_definite_matrix"> </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/46.png" alt="2nd_example_application_of_minimum_by_positive_definite_matrix"> </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/47.png" alt="3rd_example_application_of_minimum_by_positive_definite_matrix"> </p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-1/48.png" alt="4th_example_application_of_minimum_by_positive_definite_matrix"> </p>
+<p>Let us prove the fifth rule. If $A = R^{T}R$, then</p>
+<p>$$<br>\begin{eqnarray}<br>x^{T}Ax&amp;=&amp;x^{T}R^{T}Rx \nonumber\<br>&amp;=&amp;(x^{T}R^{T})Rx \nonumber\<br>&amp;=&amp;(Rx)^{T}Rx \nonumber\<br>&amp;=&amp;|Rx| \nonumber\<br>&amp;\ge&amp;0 \nonumber<br>\end{eqnarray}<br>$$</p>
+<p>And the columns of $R$ are also independent, so $|Rx|=x^{T}Ax&gt;0$, except when $x$=0 and thus $A$ is positive definite.</p>
+<h2 id="A-T-A"><a href="#A-T-A" class="headerlink" title="$A^{T}A$"></a>$A^{T}A$</h2><p>$A_{m\times n}$ is almost certainly not symmetric, but $A^{T}A$ is square (n by n) and symmetric. We can easily get the following equations through left multiplying $A^{T}A$ by $x^{T}$ and right multiplying $A^{T}A$ by $x$:</p>
+<p>$$<br>\begin{eqnarray}<br>x^{T}A{^TA}x&amp;=&amp;x^{T}(A{^TA})x\nonumber\<br>&amp;=&amp;(x^{T}A^{T})Ax\nonumber\<br>&amp;=&amp;(Ax)^{T}(Ax)\nonumber\<br>&amp;=&amp;|Ax|\nonumber\<br>&amp;\ge&amp;0\nonumber<br>\end{eqnarray}<br>$$</p>
+<p>If $A_{m\times,n}$ has rank $n$ (independent columns), then except when $x = 0$, $Ax=|Ax|=x^{T}(A{^TA})x&gt;0$ and thus $A^{T}A$ is positive definite. And vice versus.</p>
+<p>Besides, $A^{T}A$ is invertible only if $A$ has rank $n$ (independent columns). To prove this, we assume $Ax=0$, then:</p>
+<p>$$<br>\begin{eqnarray}<br>Ax&amp;=&amp;0\nonumber\<br>(Ax)^{T}(Ax)&amp;=&amp;0\nonumber\<br>(x^{T}A{^T})(Ax)&amp;=&amp;0\nonumber\<br>x^{T}A{^T}(Ax)&amp;=&amp;x^{T}0\nonumber\<br>(A{^TA})x&amp;=&amp;0\nonumber<br>\end{eqnarray}<br>$$</p>
+<p>From the above equations, we know solutions of $Ax=0$ are also solutions of  $(A{^TA})x=0$. Because $A_{m\times,n}$ has a full set of column rank (independent columns),  $Ax=0$ only has a zero solution as well as $(A{^T}A)x=0$. Furthermore, if $A{^T}A$ is invertible, then $A_{m\times,n}$ has rank $n$ (independent columns). We also notice that if $A$ is square and invertible, then  $A{^T}A$ is invertible. </p>
+<p>Overall, <strong>if all columns of $A_{m\times,n}$ are mutual independent, then $(A{^T}A)$ is invertible and positive definite as well, and vice versus.</strong></p>
+<h2 id="least-square"><a href="#least-square" class="headerlink" title="least square"></a>least square</h2><p>We have learned that <strong>least square</strong> comes from <strong>projection</strong> :<br>$$b-p=e\Rightarrow,A^{T}(b-A\hat{x})=0\Rightarrow,A^{T}A\hat{x}=A^{T}b$$<br>Consequently, only if $A^{T}A$ is invertible, then we can use linear regression to find approximate solutions $\hat{x}=(A^{T}A)^{-1}A^{T}b$ to unsolvable systems of linear equations. </p>
+<p>According to the reasoning before, we know as long as all columns of $A_{m\times,n}$ are mutual independent, then $A{^T}A$ is invertible. At the same time we ought to notice that the columns of $A$ are guaranteed to be independent if they are orthoganal and even orthonormal. </p>
+<p>In another prospective, if $A^{T}A$ is positive definite, then $A_{m\times,n}$ has rank $n$ (independent columns) and thus $A^{T}A$ is invertible.</p>
+<p><strong>Overall, if $A^{T}A$ is positive definite or invertible, then we can find approximate solutions of least square</strong>.</p>
 
     </div>
 
@@ -449,12 +349,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2016/01/20/vim_without_widgets/" rel="prev" title="vim无插件使用">
-      <i class="fa fa-chevron-left"></i> vim无插件使用
+    <a href="/2017/08/01/positive_definite_and_least_square/" rel="prev" title="positive definite and least squares">
+      <i class="fa fa-chevron-left"></i> positive definite and least squares
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/08/01/positive_definite_and_least_square/" rel="next" title="positive definite and least squares">
-      positive definite and least squares <i class="fa fa-chevron-right"></i>
+    <a href="/2017/08/02/Fourier_series/" rel="next" title="Tsinghua linear-algebra-2 10th-lecture Fourier series">
+      Tsinghua linear-algebra-2 10th-lecture Fourier series <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -515,7 +415,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主子式"><span class="nav-number">2.</span> <span class="nav-text">主子式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实对称矩阵A正定的充要条件"><span class="nav-number">3.</span> <span class="nav-text">实对称矩阵A正定的充要条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#证明"><span class="nav-number">3.1.</span> <span class="nav-text">证明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#典型例子"><span class="nav-number">3.1.1.</span> <span class="nav-text">典型例子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正定矩阵的性质"><span class="nav-number">4.</span> <span class="nav-text">正定矩阵的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果-A-B-是正定矩阵，那么-A-B-也是正定矩阵"><span class="nav-number">4.1.</span> <span class="nav-text">如果$A,B$是正定矩阵，那么$A+B$也是正定矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果-A-为正定矩阵，则存在矩阵-C-，满足-A-C-2"><span class="nav-number">4.2.</span> <span class="nav-text">如果$A$为正定矩阵，则存在矩阵$C$，满足$A&#x3D;C^2$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果-A-为正定矩阵，则矩阵-A-的幂也是正定的"><span class="nav-number">4.3.</span> <span class="nav-text">如果$A$为正定矩阵，则矩阵$A$的幂也是正定的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果-A-为正定矩阵，矩阵-C-，那么-B-C-TAC-也是正定的"><span class="nav-number">4.4.</span> <span class="nav-text">如果$A$为正定矩阵，矩阵$C$，那么$B&#x3D;C^TAC$也是正定的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#半正定矩阵的判别条件"><span class="nav-number">5.</span> <span class="nav-text">半正定矩阵的判别条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二次型"><span class="nav-number">6.</span> <span class="nav-text">二次型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">6.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">6.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对角形"><span class="nav-number">6.3.</span> <span class="nav-text">对角形</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二次型化成对角形"><span class="nav-number">6.3.1.</span> <span class="nav-text">二次型化成对角形</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主轴定理principal-axis-theorem"><span class="nav-number">6.4.</span> <span class="nav-text">主轴定理principal axis theorem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有心二次型central-conic"><span class="nav-number">6.5.</span> <span class="nav-text">有心二次型central_conic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三维空间中的二次曲面-6类基本的二次曲面"><span class="nav-number">6.6.</span> <span class="nav-text">三维空间中的二次曲面-6类基本的二次曲面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二次型的分类"><span class="nav-number">6.7.</span> <span class="nav-text">二次型的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二次型与特征值"><span class="nav-number">6.8.</span> <span class="nav-text">二次型与特征值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二次型的一个应用——求二次型的几何形状"><span class="nav-number">6.9.</span> <span class="nav-text">二次型的一个应用——求二次型的几何形状</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合同congruent"><span class="nav-number">6.10.</span> <span class="nav-text">合同congruent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">6.10.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-1"><span class="nav-number">6.10.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子-1"><span class="nav-number">6.10.3.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主轴定理与合同"><span class="nav-number">6.10.4.</span> <span class="nav-text">主轴定理与合同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合同的性质"><span class="nav-number">6.10.5.</span> <span class="nav-text">合同的性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惯性定理Sylvester’s-law-of-inertia的证明"><span class="nav-number">6.11.</span> <span class="nav-text">惯性定理Sylvester’s law of inertia的证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惯性定理的应用"><span class="nav-number">6.12.</span> <span class="nav-text">惯性定理的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正负定矩阵在函数极值中的应用"><span class="nav-number">6.13.</span> <span class="nav-text">正负定矩阵在函数极值中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#黑塞Hessian矩阵"><span class="nav-number">6.13.1.</span> <span class="nav-text">黑塞Hessian矩阵</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#positive-definite"><span class="nav-number">1.</span> <span class="nav-text">positive definite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-T-A"><span class="nav-number">2.</span> <span class="nav-text">$A^{T}A$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#least-square"><span class="nav-number">3.</span> <span class="nav-text">least square</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -531,36 +431,27 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+        <a href="mailto:snakecoding.py@gmail.com" title="Get In Touch → mailto:snakecoding.py@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>Get In Touch</a>
       </span>
   </div>
 
@@ -595,13 +486,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">2.2m</span>
+    <span title="Symbols count total">2.4m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">33:59</span>
+    <span title="Reading time total">35:43</span>
 </div>
 
         

@@ -32,41 +32,18 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="笔记源自：清华大学公开课：线性代数2——第五讲：线性变换2 前言对于给定的线性变换选取适当的基底使得其矩阵表示尽可能简单，我们引入了线性变换的矩阵表示对于从$n$维的向量空间$V$到$m$维的向量空间$W$的线性变换$\sigma$，我们取定$V$的一组基$v_1$到$v_n$取定W的一组基$w_1$到$w_m$，那线性变换$σ$作用在$v_1$到$v_n$上可以被$w_1,…,w_m$线性表示，">
+  <meta name="description" content="Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 5: Linear Transformation 2 ForewordFor a given linear transformation, choose an appropriate basis to make its matrix representation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tsinghua linear-algebra-2 5th-lecture linear-transformation-2nd-part">
 <meta property="og:url" content="https://snakecoding.com/2017/08/05/linear_transformation_2nd_part/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="笔记源自：清华大学公开课：线性代数2——第五讲：线性变换2 前言对于给定的线性变换选取适当的基底使得其矩阵表示尽可能简单，我们引入了线性变换的矩阵表示对于从$n$维的向量空间$V$到$m$维的向量空间$W$的线性变换$\sigma$，我们取定$V$的一组基$v_1$到$v_n$取定W的一组基$w_1$到$w_m$，那线性变换$σ$作用在$v_1$到$v_n$上可以被$w_1,…,w_m$线性表示，">
+<meta property="og:description" content="Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 5: Linear Transformation 2 ForewordFor a given linear transformation, choose an appropriate basis to make its matrix representation">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/1.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/2.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/3.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/4.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/5.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/6.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/7.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/8.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/9.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/10.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/11.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/12.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/13.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/14.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/15.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/16.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/17.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/18.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/19.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/20.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/21.png">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/22.png">
 <meta property="article:published_time" content="2017-08-05T14:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-08T23:07:42.559Z">
+<meta property="article:modified_time" content="2020-04-09T11:04:43.784Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="linear_algebra">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/1.png">
 
 <link rel="canonical" href="https://snakecoding.com/2017/08/05/linear_transformation_2nd_part/">
 
@@ -161,17 +138,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">15</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -222,7 +199,7 @@
   </div>
   <div class="reading-progress-bar"></div>
 
-  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <a href="#" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -267,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 16:34:43" itemprop="dateModified" datetime="2020-04-09T16:34:43+05:30">2020-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,7 +252,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">中文</span></a>
+                  <a href="/categories/Machine-Learning-Maths/" itemprop="url" rel="index"><span itemprop="name">Machine Learning Maths</span></a>
                 </span>
             </span>
 
@@ -292,14 +269,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.9k</span>
+              <span>9.3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
+              <span>8 mins.</span>
             </span>
 
         </div>
@@ -311,47 +288,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>笔记源自：清华大学公开课：线性代数2——第五讲：线性变换2</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>对于给定的线性变换选取适当的基底使得其矩阵表示尽可能简单，我们引入了线性变换的矩阵表示<br>对于从$n$维的向量空间$V$到$m$维的向量空间$W$的线性变换$\sigma$，我们取定$V$的一组基$v_1$到$v_n$取定W的一组基$w_1$到$w_m$，那线性变换$σ$作用在$v_1$到$v_n$上可以被$w_1,…,w_m$线性表示，表示的系数我们被一个$m×n$的矩阵$A$去描述，那么这样线性变换$σ$就跟这个$m×n$的矩阵$A$一一对应。线性变换的矩阵表示要依赖于我们基底的选取，一般说来如果基做了改变，同一个线性变换它会有不同的矩阵表示，那我们希望找出线性变换与基底选取无关的性质，这样当我们借助矩阵来研究线性变换的这些性质的时候就可以利用好基底下面尽可能简单的矩阵表示。</p>
-<h2 id="恒等变换与基变换"><a href="#恒等变换与基变换" class="headerlink" title="恒等变换与基变换"></a>恒等变换与基变换</h2><p>恒等变换就是不变，那么不变的线性变换对应单位矩阵。</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/1.png" alt="identical_linear_transformation"> </p>
+        <p>Notes from: Tsinghua University Open Class: Linear Algebra 2-Lecture 5: Linear Transformation 2</p>
+<h2 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h2><p>For a given linear transformation, choose an appropriate basis to make its matrix representation as simple as possible, we introduce the matrix representation of linear transformation<br>For the linear transformation $ \ sigma $ from the $ n $ -dimensional vector space $ V $ to the $ m $ -dimensional vector space $ W $, we take a set of bases from $ V $ $ v_1 $ to $ v_n $ A set of bases W from $ w_1 $ to $ w_m $, then the linear transformation $ σ $ acting on $ v_1 $ to $ v_n $ can be linearly represented by $ w_1, …, w_m $, and the coefficients we express are represented by a The matrix $ A $ of n $ is described, so the linear transformation $ σ $ corresponds to the matrix $ A $ of $ m × n $. The matrix representation of the linear transformation depends on the choice of our basis. Generally speaking, if the basis is changed, it will have a different matrix representation for the same linear transformation. Then we hope to find the properties of the linear transformation that are independent of the basis selection. When we use the matrix to study these properties of the linear transformation, we can use the matrix representation as simple as possible under the base.</p>
+<h2 id="Identity-transformation-and-basis-transformation"><a href="#Identity-transformation-and-basis-transformation" class="headerlink" title="Identity transformation and basis transformation"></a>Identity transformation and basis transformation</h2><p>The identity transformation is invariant, so the invariant linear transformation corresponds to the identity matrix.</p>
+<p>! [identical_linear_transformation] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/1.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/1.png</a>) </p>
 <blockquote>
-<p>the 9th property of determinant: the determinant of $AB$ is det $A$ times det $B$: $|AB| = |A||B|$ </p>
+<p>the 9th property of determinant: the determinant of $ AB $ is det $ A $ times det $ B $: $ | AB | = | A || B | $ </p>
 </blockquote>
-<p>因此：由于$(\sigma_1,….,\sigma_n)$ 和 $(\beta_1,…,\beta_n)$ 都是基向量，因此都是列满秩，又是 $n$ 维，所以可逆，再推出$P$可逆。否则 $|\alpha_1,…,\alpha_n|\ne|\beta_1,…,\beta_n||P|$<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/2.png" alt="example_identical_linear_transformation">  </p>
-<h2 id="基变换的应用"><a href="#基变换的应用" class="headerlink" title="基变换的应用"></a>基变换的应用</h2><h3 id="一张256x256的灰度图像"><a href="#一张256x256的灰度图像" class="headerlink" title="一张256x256的灰度图像"></a>一张256x256的灰度图像</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/3.png" alt="256x256_application_of_change_of_basis"> </p>
-<p><strong>注意：$C^N$是$n$维元素可为复数的基</strong></p>
-<h3 id="图像的其中3种基底"><a href="#图像的其中3种基底" class="headerlink" title="图像的其中3种基底"></a>图像的其中3种基底</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/4.png" alt="img_basis"> </p>
-<p>小波基好求它的逆，傅里叶基也好求它的逆。如果是$4\times4$纯色图像直接用小波基或者傅里叶基的第一个分量$w_1$和$\xi_1$做基底，表示成$c_1w_1=W\begin{pmatrix}c_1\0\0\0\end{pmatrix}$和$c_1\xi_1=\xi\begin{pmatrix}c_1\0\0\0\end{pmatrix}$。而像素之间变换比较剧烈的图像可用小波基中的 $c(w_3+w_4)$ 和傅里叶基中的 $c\xi_3$ 。</p>
-<h3 id="jpeg"><a href="#jpeg" class="headerlink" title="jpeg"></a>jpeg</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/5.png" alt="jpeg_process"> </p>
-<p>图像本身是用系数矩阵$c$表示，那么所谓的压缩和传输图像也是压缩和传输这个矩阵$c$。压缩做的就是用尽可能少的信息（数据）去代表原有的信息（数据），这个过程会丢失一些不重要的信息（数据），对应到矩阵上就是$c$的非0项元素比较少（这个要求用更少数量的基底向量就能接近描述出原来的矩阵，越少越好）。由于 $c=W^{-1}x$ 因此能不能快速计算基底的逆也很重要，而小波基和傅里叶基正符合此特点。</p>
-<h2 id="线性变换在不同基下的矩阵"><a href="#线性变换在不同基下的矩阵" class="headerlink" title="线性变换在不同基下的矩阵"></a>线性变换在不同基下的矩阵</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/6.png" alt="the_same_linear_transform_of_different_bases">  </p>
-<p><strong>定理：$n$向量空间$V$上的线性变换$\sigma$在$V$的不同基下的矩阵是相似矩阵。</strong></p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/7.png" alt="the_same_linear_transform_of_different_bases_at_different_aspects"> </p>
-<p>由上图可得：<br>$I_1$ 和 $I_2$ 是恒等变换<br>$(\beta_1,…,\beta_n)=I_1(\beta_1,…,\beta_n)=(\alpha_1,…,\alpha_n)P$<br>$(\alpha_1,…,\alpha_n)=I_2(\alpha_1,…,\alpha_n)=(\beta_1,…,\beta_n)P^{-1}$<br>线性变换复合角度：$\sigma=I_2,\sigma,I_1,\rightarrow,B=P^{-1}AP$</p>
-<h2 id="同一个线性变换在不同基下的不变性"><a href="#同一个线性变换在不同基下的不变性" class="headerlink" title="同一个线性变换在不同基下的不变性"></a>同一个线性变换在不同基下的不变性</h2><p>当我们借助于矩阵来研究线性变换的时候，我们希望研究线性变换与基底选取无关的性质。由以上的讨论我们知道这个向量空间$V$到自身的线性变换在不同基下的矩阵表示是互为相似矩阵的。因此，所谓与基底选取无关的性质也就是相似变换下不变的性质，那么这样自然地研究相似不变量是线性代数中很重要的内容。我们知道对于一个矩阵而言特征多项式、特征值、迹、行列式、矩阵的秩等等都是矩阵的相似不变量，这样我们就称一个n维向量空间$V$上线性变换在$V$的一组基下的矩阵$A$，把矩阵表示$A$的特征多项式、特征值、迹行列式等等就叫做这个线性变换的特征多项式、特征值 、迹、行列式。<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/8.png" alt="properties_of_the_same_linear_transformation_of_different_bases"></p>
-<h2 id="矩阵分解与基变换"><a href="#矩阵分解与基变换" class="headerlink" title="矩阵分解与基变换"></a>矩阵分解与基变换</h2><p>给定一个$R^n$到$R^m$的线性变换$σ$，它在$R^n$中的标准基$e_1$到$e_n$和$R^m$的标准基$ẽ_1,…,ẽ_m$下的矩阵是 $A$ ，<br>$σ$作用在$e_1 … e_n$上面就等于$\tilde{e}_1,…, \tilde{e}_m$去乘以矩阵$A$，也就是说$σ$作用在$e_j$上，就等于$A$的第j列，也就是$A$去乘以$e_j$，因此这个线性变换就可以表示成对任何的$n$维向量$v$，那么$σ$作用在$v$上就是矩阵$A$去乘以$V$ ：<br>$$\sigma(e_1,…,e_n)=(\tilde{e}_1 ,…,\tilde{e}_m)A\rightarrow\sigma(e_j)=Ae_j$$</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/9.png" alt="input_space_form_of_linear_transformation"></p>
-<p>接下来做基变换，第一个改变输入基，第二个改变输出基，第三个输入输出基都改。</p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/10.png" alt="matrix_decomposition_and_basis_transformation"></p>
-<h3 id="对角化矩阵视为线性变换"><a href="#对角化矩阵视为线性变换" class="headerlink" title="对角化矩阵视为线性变换"></a>对角化矩阵视为线性变换</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/11.png" alt="vector_basis_of_linear_transformation"></p>
-<p>由上可得 $\sigma(x_1,…,x_n)=(x_1,…,x_n)\Lambda=S\Lambda$ ，$x$ 为特征向量基，另外基变换 ${id}_1(S)=S={e}S$<br>$σ$这个线性变换在A的特征向量作为的新基下面，它的矩阵表示是 $\Lambda$ 这个对角阵。而$σ$从 $R^n$ 到 $R^n$在标准基下的矩阵是$A$，$σ$在特征向量基下的矩阵表示是对角阵 $\Lambda$。那么输入$x$这组基，输出$e$这组基，这个恒同变换，它的矩阵表示是 $S$ 。如果输入$e$这组基 ，输出$x$这组基这个恒同变换，它的矩阵表示是$S^{-1}$。</p>
-<h3 id="奇异值分解视为线性变换"><a href="#奇异值分解视为线性变换" class="headerlink" title="奇异值分解视为线性变换"></a>奇异值分解视为线性变换</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/12.png" alt="SVD_decomposition_as_linear_transformation"></p>
-<h2 id="线性变换的核与像"><a href="#线性变换的核与像" class="headerlink" title="线性变换的核与像"></a>线性变换的核与像</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/13.png" alt="definition_kernel_and_image"></p>
-<h3 id="线性变换的零度与秩"><a href="#线性变换的零度与秩" class="headerlink" title="线性变换的零度与秩"></a>线性变换的零度与秩</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/14.png" alt="nullity_and_rank_of_linear_transformation"></p>
-<h4 id="线性变换秩的证明"><a href="#线性变换秩的证明" class="headerlink" title="线性变换秩的证明"></a>线性变换秩的证明</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/15.png" alt="proof_nullity_and_rank_of_linear_transformation"></p>
-<p>注：$L(\sigma(v_1),,…,,\sigma(v_n))$ 符号含义：由 $\sigma(v_1),,…,,\sigma(v_n)$ 线性张成。</p>
-<h4 id="线性变换的维度公式"><a href="#线性变换的维度公式" class="headerlink" title="线性变换的维度公式"></a>线性变换的维度公式</h4><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/16.png" alt="dim(kernel)+dim(image)=dimV.png"><br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/17.png" alt="kernel+image!=V.png"> </p>
-<h4 id="单射满射可逆"><a href="#单射满射可逆" class="headerlink" title="单射满射可逆"></a>单射满射可逆</h4><p><strong>中学学过的单射双射满射</strong></p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/18.png" alt="injective_surjective_bijective"></p>
-<p><strong>线性变换下的单射（injective），满射（surjective）与逆（inverse）</strong></p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/19.png" alt="injective_surjective_inverse_of_linear_transformation_are_equivalent"></p>
-<p>第一个等价符号证明（反证法）：如果单射无法推出核只有${0}$，那么假设$\exists,\alpha(\ne0)\in{ker,\sigma}$ 那么$\sigma(\alpha)=0$，又因为$\sigma(0)=0$,  即$\sigma(\alpha,or,0)=0$与单射矛盾。反之，如果$\sigma(v_1)=0, \sigma(v_2)=0$，根据线性变换的定义或者性质得：$\sigma(v_1-v_2)=0\rightarrow v_1-v_2\in ker,\sigma={0}\rightarrow v_1=v_2\rightarrow \sigma$ 是单射。因此：$\sigma$是单射$\Leftarrow\Rightarrow ker,\sigma={0}$</p>
-<p><strong>例子：</strong></p>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/20.png" alt="example_of_injective_surjective_inverse_of_linear_transformation_are_equivalent"></p>
-<h2 id="不变子空间"><a href="#不变子空间" class="headerlink" title="不变子空间"></a>不变子空间</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/21.png" alt="definition_of_invariant_subspace"></p>
-<h3 id="不变子空间的意义"><a href="#不变子空间的意义" class="headerlink" title="不变子空间的意义"></a>不变子空间的意义</h3><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/22.png" alt="candy_of_invariant_subspace"></p>
-<p>那从这里头我们看到，我们希望把大空间分解成不变子空间的直和，从而能够取出合适的基底，从而使得线性变换<br>在这组基底下的矩阵表示能够成为对角块的形状，那么对于线性变换的研究就转化成它限制在不变子空间上的研究<br>以此为基础，看一下幂零变换的结构。</p>
+<p>Therefore: because $ (\ sigma_1 , …. , \ sigma_n) $ and $ (\ beta_1 , … , \ beta_n) $ are both base vectors, so they are both full rank and $ n $ dimension, so reversible, then introduce $ P $ reversible. Otherwise $ | \ alpha_1 , … , \ alpha_n | \ ne | \ beta_1 , … , \ beta_n || P | $<br>! [example_identical_linear_transformation] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/2.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/2.png</a>)  </p>
+<h2 id="Application-of-base-transformation"><a href="#Application-of-base-transformation" class="headerlink" title="Application of base transformation"></a>Application of base transformation</h2><h3 id="A-256x256-grayscale-image"><a href="#A-256x256-grayscale-image" class="headerlink" title="A 256x256 grayscale image"></a>A 256x256 grayscale image</h3><p>! [256x256_application_of_change_of_basis] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/3.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/3.png</a>) </p>
+<p>** Note: $ C ^ N $ is the base of the complex number of $ n $ dimension elements **</p>
+<h3 id="Three-of-the-bases-of-the-image"><a href="#Three-of-the-bases-of-the-image" class="headerlink" title="Three of the bases of the image"></a>Three of the bases of the image</h3><p>! [img_basis] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/4.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/4.png</a>) </p>
+<p>The wavelet base is good for its inverse, and the Fourier base is good for its inverse. If it is a solid color image of $ 4 \ times4 $, the first components of wavelet base or Fourier base $ w_1 $ and $ \ xi_1 $ are used as the base, which is expressed as $ c_1w_1 = W \ begin {pmatrix} c_1 \ 0 \ 0 \ 0 \ end {pmatrix} $ and $ c_1 \ xi_1 = \ xi \ begin {pmatrix} c_1 \ 0 \ 0 \ 0 \ end {pmatrix} $. For images with more drastic transformations between pixels, you can use $ c (w_3 + w_4) $ in wavelet basis and $ c \ xi_3 $ in Fourier basis.</p>
+<h3 id="jpeg"><a href="#jpeg" class="headerlink" title="jpeg"></a>jpeg</h3><p>! [jpeg_process] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/5.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/5.png</a>) </p>
+<p>The image itself is represented by the coefficient matrix $ c $, so the so-called compressed and transmitted image is also compressed and transmitted this matrix $ c $. What compression does is use as little information (data) as possible to represent the original information (data). This process will lose some unimportant information (data). Corresponding to the non-zero element comparison of $ c $ on the matrix Less (this requires that a smaller number of basis vectors can be used to approximate the original matrix, the less the better). Because $ c = W ^ {-1} x $, it is also important to be able to quickly calculate the inverse of the base, and wavelet bases and Fourier bases fit this feature.</p>
+<h2 id="Linear-transformation-of-matrix-under-different-bases"><a href="#Linear-transformation-of-matrix-under-different-bases" class="headerlink" title="Linear transformation of matrix under different bases"></a>Linear transformation of matrix under different bases</h2><p>! [the_same_linear_transform_of_different_bases] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/6.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/6.png</a>)  </p>
+<p>** Theorem: The linear transformation of the $ n $ vector space $ V $$ \ sigma $ under different bases of $ V $ is a similar matrix. **</p>
+<p>! [the_same_linear_transform_of_different_bases_at_different_aspects] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/7.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/7.png</a>) </p>
+<p>From the above picture:<br>$ I_1 $ and $ I_2 $ are identity transformations<br>$ (\ beta_1 , … , \ beta_n) = I_1 (\ beta_1 , … , \ beta_n) = (\ alpha_1 , … , \ alpha_n) P $<br>$ (\ alpha_1 , … , \ alpha_n) = I_2 (\ alpha_1 , … , \ alpha_n) = (\ beta_1 , … , \ beta_n) P ^ {-1} $<br>Linear transformation compound angle: $ \ sigma = I_2 , \ sigma , I_1 , \ rightarrow , B = P ^ {-1} AP $</p>
+<h2 id="The-invariance-of-the-same-linear-transformation-under-different-basis"><a href="#The-invariance-of-the-same-linear-transformation-under-different-basis" class="headerlink" title="The invariance of the same linear transformation under different basis"></a>The invariance of the same linear transformation under different basis</h2><p>When we use the matrix to study the linear transformation, we hope to study the properties of the linear transformation independent of the basis selection. From the above discussion, we know that the linear transformation of this vector space $ V $ to itself under different bases is similar to each other. Therefore, the so-called unrelated property is the invariant property under similar transformation, so it is very important to study similar invariants naturally in linear algebra. We know that for a matrix, the characteristic polynomials, eigenvalues, traces, determinants, the rank of the matrix, etc. are all similar invariants of the matrix. In this way, we call an n-dimensional vector space $ V $ linearly transformed in $ V $ The matrix $ A $ under a set of bases, the characteristic polynomial, eigenvalue, trace determinant of the matrix representing $ A $ is called the linear transformation of the characteristic polynomial, eigenvalue, trace, determinant.<br>! [properties_of_the_same_linear_transformation_of_different_bases] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/8.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/8.png</a>)</p>
+<h2 id="Matrix-factorization-and-basis-transformation"><a href="#Matrix-factorization-and-basis-transformation" class="headerlink" title="Matrix factorization and basis transformation"></a>Matrix factorization and basis transformation</h2><p>Given a linear transformation $ σ $ from $ R ^ n $ to $ R ^ m $, its standard basis in $ R ^ n $ $ e_1 $ to $ e_n $ and the standard basis of $ R ^ m $ $ ẽ_1 , …, ẽ_m $ the matrix is ​​$ A $,<br>$ σ $ acting on $ e_1… e_n $ is equal to $ \ tilde {e} _1, …, \ tilde {e} _m $ multiplied by the matrix $ A $, which means that $ σ $ acts on $ e_j $ , Which is equal to the jth column of $ A $, which is $ A $ multiplied by $ e_j $, so this linear transformation can be expressed as any pair of $ n $ -dimensional vector $ v $, then $ σ $ acts on $ v $ is the matrix $ A $ multiplied by $ V $:<br>$$ \ sigma (e_1 , … , e_n) = (\ tilde {e} _1 , … , \ tilde {e} _m) A \ rightarrow \ sigma (e_j) = Ae_j $$</p>
+<p>! [input_space_form_of_linear_transformation] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/9.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/9.png</a>)</p>
+<p>Then do the base transformation, the first changes the input base, the second changes the output base, and the third input and output base changes.</p>
+<p>! [matrix_decomposition_and_basis_transformation] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/10.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/10.png</a>)</p>
+<h3 id="Diagonalizing-the-matrix-as-a-linear-transformation"><a href="#Diagonalizing-the-matrix-as-a-linear-transformation" class="headerlink" title="Diagonalizing the matrix as a linear transformation"></a>Diagonalizing the matrix as a linear transformation</h3><p>! [vector_basis_of_linear_transformation] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/11.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/11.png</a>)</p>
+<p>From the above, we can get $ \ sigma (x_1 , … , x_n) = (x_1 , … , x_n) \ Lambda = S \ Lambda $, $ x $ is the eigenvector basis, and the other base transformation {id} _1 (S) = S = \ {e } S $<br>The linear transformation of $ σ $ is under the new basis of the eigenvector of A, and its matrix representation is the diagonal matrix of $ \ Lambda $. The matrix of $ σ $ from $ R ^ n $ to $ R ^ n $ under the standard basis is $ A $, and the matrix of $ σ $ under the eigenvector basis is the diagonal matrix $ \ Lambda $. Then input the group of bases of $ x $ and output the group of bases of $ e $, the identity transformation, its matrix representation is $ S $. If you input the base group $ e $ and output the identity transformation of the base group $ x $, its matrix representation is $ S ^ {-1} $.</p>
+<h3 id="Singular-value-decomposition-as-a-linear-transformation"><a href="#Singular-value-decomposition-as-a-linear-transformation" class="headerlink" title="Singular value decomposition as a linear transformation"></a>Singular value decomposition as a linear transformation</h3><p>! [SVD_decomposition_as_linear_transformation] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/12.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/12.png</a>)</p>
+<h2 id="Linear-transformation-kernel-and-image"><a href="#Linear-transformation-kernel-and-image" class="headerlink" title="Linear transformation kernel and image"></a>Linear transformation kernel and image</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>! [definition_kernel_and_image] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/13.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/13.png</a>)</p>
+<h3 id="Zero-degree-and-rank-of-linear-transformation"><a href="#Zero-degree-and-rank-of-linear-transformation" class="headerlink" title="Zero degree and rank of linear transformation"></a>Zero degree and rank of linear transformation</h3><p>! [nullity_and_rank_of_linear_transformation] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/14.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/14.png</a>)</p>
+<h4 id="Proof-of-rank-of-linear-transformation"><a href="#Proof-of-rank-of-linear-transformation" class="headerlink" title="Proof of rank of linear transformation"></a>Proof of rank of linear transformation</h4><p>! [proof_nullity_and_rank_of_linear_transformation] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/15.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/15.png</a>)</p>
+<p>Note: $ L (\ sigma (v_1), , … \ ,, \ sigma (v_n)) $ symbol meaning: by $ \ sigma (v_1), , … \ ,, \ sigma (v_n) $ Linear Zhang Cheng.</p>
+<h4 id="Dimensional-formula-of-linear-transformation"><a href="#Dimensional-formula-of-linear-transformation" class="headerlink" title="Dimensional formula of linear transformation"></a>Dimensional formula of linear transformation</h4><p>! [dim (kernel) + dim (image) = dimV.png] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/16.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/16.png</a>)<br>! [kernel + image! = V.png] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/17.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/17.png</a>) </p>
+<h4 id="Single-shot-full-shot-reversible"><a href="#Single-shot-full-shot-reversible" class="headerlink" title="Single shot full shot reversible"></a>Single shot full shot reversible</h4><p>** Single shot double shot full shot learned in middle school **</p>
+<p>! [injective_surjective_bijective] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/18.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/18.png</a>)</p>
+<p>** Injective, surjective and inverse under linear transformation **</p>
+<p>! [injective_surjective_inverse_of_linear_transformation_are_equivalent] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/19.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/19.png</a>)</p>
+<p>The first equivalent symbol proof (counter-proof method): If the single shot cannot launch the kernel only $ \ {0 } $, then assume $ \ exists , \ alpha (\ ne0) \ in {ker , \ sigma} $ then $ \ sigma (\ alpha) = 0 $, and because $ \ sigma (0) = 0 $, that is, $ \ sigma (\ alpha , or , 0) = 0 $ contradicts injective. Conversely, if $ \ sigma (v_1) = 0, \ sigma (v_2) = 0 $, according to the definition or nature of the linear transformation: $ \ sigma (v_1-v_2) = 0 \ rightarrow v_1-v_2 \ in ker , \ sigma = \ {0 } \ rightarrow v_1 = v_2 \ rightarrow \ sigma $ is a single shot. Therefore: $ \ sigma $ is a single shot $ \ Leftarrow \ Rightarrow ker , \ sigma = \ {0 } $</p>
+<p><strong>example:</strong></p>
+<p>! [example_of_injective_surjective_inverse_of_linear_transformation_are_equivalent] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/20.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/20.png</a>)</p>
+<h2 id="invariant-subspace"><a href="#invariant-subspace" class="headerlink" title="invariant subspace"></a>invariant subspace</h2><h3 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h3><p>! [definition_of_invariant_subspace] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/21.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/21.png</a>)</p>
+<h3 id="The-meaning-of-invariant-subspace"><a href="#The-meaning-of-invariant-subspace" class="headerlink" title="The meaning of invariant subspace"></a>The meaning of invariant subspace</h3><p>! [candy_of_invariant_subspace] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/22.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/tsinghua_linear_algebra/2-5/22.png</a>)</p>
+<p>From here, we can see that we want to decompose the large space into the direct sum of invariant subspaces, so that we can take out the appropriate base, so that the linear transformation<br>The matrix representation under this set of bases can become the shape of a diagonal block, then the study of linear transformation is transformed into the study that it is limited to an invariant subspace<br>On this basis, look at the structure of the nilpotent transformation.</p>
 
     </div>
 
@@ -393,8 +370,8 @@
       <i class="fa fa-chevron-left"></i> Tsinghua linear-algebra-2 4th-lecture linear-transformation-1st-part
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/08/06/Markov_matrix/" rel="next" title="Tsinghua linear-algebra-2 9th-lecture Markov-matrix_and_positive-matrix">
-      Tsinghua linear-algebra-2 9th-lecture Markov-matrix_and_positive-matrix <i class="fa fa-chevron-right"></i>
+    <a href="/2017/08/06/pseudo_inverse/" rel="next" title="Tsinghua linear-algebra-2 6th-lecture pseudo-inverse">
+      Tsinghua linear-algebra-2 6th-lecture pseudo-inverse <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -455,7 +432,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恒等变换与基变换"><span class="nav-number">2.</span> <span class="nav-text">恒等变换与基变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基变换的应用"><span class="nav-number">3.</span> <span class="nav-text">基变换的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一张256x256的灰度图像"><span class="nav-number">3.1.</span> <span class="nav-text">一张256x256的灰度图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像的其中3种基底"><span class="nav-number">3.2.</span> <span class="nav-text">图像的其中3种基底</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jpeg"><span class="nav-number">3.3.</span> <span class="nav-text">jpeg</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性变换在不同基下的矩阵"><span class="nav-number">4.</span> <span class="nav-text">线性变换在不同基下的矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同一个线性变换在不同基下的不变性"><span class="nav-number">5.</span> <span class="nav-text">同一个线性变换在不同基下的不变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵分解与基变换"><span class="nav-number">6.</span> <span class="nav-text">矩阵分解与基变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对角化矩阵视为线性变换"><span class="nav-number">6.1.</span> <span class="nav-text">对角化矩阵视为线性变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奇异值分解视为线性变换"><span class="nav-number">6.2.</span> <span class="nav-text">奇异值分解视为线性变换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性变换的核与像"><span class="nav-number">7.</span> <span class="nav-text">线性变换的核与像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">7.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性变换的零度与秩"><span class="nav-number">7.2.</span> <span class="nav-text">线性变换的零度与秩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性变换秩的证明"><span class="nav-number">7.2.1.</span> <span class="nav-text">线性变换秩的证明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性变换的维度公式"><span class="nav-number">7.2.2.</span> <span class="nav-text">线性变换的维度公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单射满射可逆"><span class="nav-number">7.2.3.</span> <span class="nav-text">单射满射可逆</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不变子空间"><span class="nav-number">8.</span> <span class="nav-text">不变子空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-1"><span class="nav-number">8.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不变子空间的意义"><span class="nav-number">8.2.</span> <span class="nav-text">不变子空间的意义</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Foreword"><span class="nav-number">1.</span> <span class="nav-text">Foreword</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Identity-transformation-and-basis-transformation"><span class="nav-number">2.</span> <span class="nav-text">Identity transformation and basis transformation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-of-base-transformation"><span class="nav-number">3.</span> <span class="nav-text">Application of base transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-256x256-grayscale-image"><span class="nav-number">3.1.</span> <span class="nav-text">A 256x256 grayscale image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Three-of-the-bases-of-the-image"><span class="nav-number">3.2.</span> <span class="nav-text">Three of the bases of the image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jpeg"><span class="nav-number">3.3.</span> <span class="nav-text">jpeg</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-transformation-of-matrix-under-different-bases"><span class="nav-number">4.</span> <span class="nav-text">Linear transformation of matrix under different bases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-invariance-of-the-same-linear-transformation-under-different-basis"><span class="nav-number">5.</span> <span class="nav-text">The invariance of the same linear transformation under different basis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matrix-factorization-and-basis-transformation"><span class="nav-number">6.</span> <span class="nav-text">Matrix factorization and basis transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Diagonalizing-the-matrix-as-a-linear-transformation"><span class="nav-number">6.1.</span> <span class="nav-text">Diagonalizing the matrix as a linear transformation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Singular-value-decomposition-as-a-linear-transformation"><span class="nav-number">6.2.</span> <span class="nav-text">Singular value decomposition as a linear transformation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-transformation-kernel-and-image"><span class="nav-number">7.</span> <span class="nav-text">Linear transformation kernel and image</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition"><span class="nav-number">7.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Zero-degree-and-rank-of-linear-transformation"><span class="nav-number">7.2.</span> <span class="nav-text">Zero degree and rank of linear transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Proof-of-rank-of-linear-transformation"><span class="nav-number">7.2.1.</span> <span class="nav-text">Proof of rank of linear transformation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dimensional-formula-of-linear-transformation"><span class="nav-number">7.2.2.</span> <span class="nav-text">Dimensional formula of linear transformation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Single-shot-full-shot-reversible"><span class="nav-number">7.2.3.</span> <span class="nav-text">Single shot full shot reversible</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#invariant-subspace"><span class="nav-number">8.</span> <span class="nav-text">invariant subspace</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-1"><span class="nav-number">8.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-meaning-of-invariant-subspace"><span class="nav-number">8.2.</span> <span class="nav-text">The meaning of invariant subspace</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -471,36 +448,27 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+        <a href="mailto:snakecoding.py@gmail.com" title="Get In Touch → mailto:snakecoding.py@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>Get In Touch</a>
       </span>
   </div>
 
@@ -535,13 +503,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">2.2m</span>
+    <span title="Symbols count total">2.4m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">33:59</span>
+    <span title="Reading time total">35:43</span>
 </div>
 
         

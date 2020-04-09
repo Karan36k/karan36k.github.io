@@ -32,20 +32,18 @@
     var CONFIG = {"hostname":"snakecoding.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":false},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="算法总体思想动态规划（Dynamic Programming）是通过组合子问题的解而解决整个问题的。分治是指将问题划分成一些独立的子问题，递归地求解各子问题，然后合并子问题的解而得到原始问题的解，与此不同，动态规划适用于子问题不是独立的情况，也就是各个子问题包含公共的子问题。在这种情况下，采用分治法会做许多不必要的工作，即重复地求解公共地子问题。动态规划算法对每个子问题只求解一次，将其结果保存在一">
+  <meta name="description" content="Algorithm overall ideaDynamic programming (Dynamic Programming) solves the entire problem by combining the solutions of sub-problems. Divide and conquer refers to dividing the problem into some indepe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划-最长公共子序列">
+<meta property="og:title" content="Dynamic Programming-Longest Common Subsequence">
 <meta property="og:url" content="https://snakecoding.com/2014/06/01/longest_common_sub-sequence/index.html">
 <meta property="og:site_name" content="Machine Learning">
-<meta property="og:description" content="算法总体思想动态规划（Dynamic Programming）是通过组合子问题的解而解决整个问题的。分治是指将问题划分成一些独立的子问题，递归地求解各子问题，然后合并子问题的解而得到原始问题的解，与此不同，动态规划适用于子问题不是独立的情况，也就是各个子问题包含公共的子问题。在这种情况下，采用分治法会做许多不必要的工作，即重复地求解公共地子问题。动态规划算法对每个子问题只求解一次，将其结果保存在一">
+<meta property="og:description" content="Algorithm overall ideaDynamic programming (Dynamic Programming) solves the entire problem by combining the solutions of sub-problems. Divide and conquer refers to dividing the problem into some indepe">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/dynamic-programming/1.png">
 <meta property="article:published_time" content="2014-06-01T16:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-08T23:07:42.561Z">
+<meta property="article:modified_time" content="2020-04-09T10:49:58.226Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="Basic Algorithm">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q6gm8fomw.bkt.clouddn.com/gitpage/dynamic-programming/1.png">
 
 <link rel="canonical" href="https://snakecoding.com/2014/06/01/longest_common_sub-sequence/">
 
@@ -60,7 +58,7 @@
   };
 </script>
 
-  <title>动态规划-最长公共子序列 | Machine Learning</title>
+  <title>Dynamic Programming-Longest Common Subsequence | Machine Learning</title>
   
 
 
@@ -140,17 +138,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">15</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">91</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -201,7 +199,7 @@
   </div>
   <div class="reading-progress-bar"></div>
 
-  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <a href="#" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -229,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          动态规划-最长公共子序列
+          Dynamic Programming-Longest Common Subsequence
         </h1>
 
         <div class="post-meta">
@@ -246,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 04:37:42" itemprop="dateModified" datetime="2020-04-09T04:37:42+05:30">2020-04-09</time>
+                <time title="Modified: 2020-04-09 16:19:58" itemprop="dateModified" datetime="2020-04-09T16:19:58+05:30">2020-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -254,7 +252,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">中文</span></a>
+                  <a href="/categories/Data-Structure/" itemprop="url" rel="index"><span itemprop="name">Data Structure</span></a>
                 </span>
             </span>
 
@@ -271,14 +269,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.4k</span>
+              <span>6.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>4 mins.</span>
+              <span>6 mins.</span>
             </span>
 
         </div>
@@ -290,37 +288,92 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="算法总体思想"><a href="#算法总体思想" class="headerlink" title="算法总体思想"></a>算法总体思想</h2><p>动态规划（Dynamic Programming）是通过组合子问题的解而解决整个问题的。分治是指将问题划分成一些独立的子问题，递归地求解各子问题，然后合并子问题的解而得到原始问题的解，与此不同，动态规划适用于子问题不是独立的情况，也就是各个子问题包含公共的子问题。在这种情况下，采用分治法会做许多不必要的工作，即重复地求解公共地子问题。动态规划算法对每个子问题只求解一次，将其结果保存在一张表中，从而避免每次遇到各个子问题时重新计算答案。</p>
-<h2 id="动态规划算法的基本要素"><a href="#动态规划算法的基本要素" class="headerlink" title="动态规划算法的基本要素"></a>动态规划算法的基本要素</h2><h3 id="最优子结构"><a href="#最优子结构" class="headerlink" title="最优子结构"></a>最优子结构</h3><ul>
-<li>矩阵连乘计算次序问题的最优解包含着其子问题的最优解。这种性质称为最优子结构性质。</li>
-<li>在分析问题的最优子结构性质时，所用的方法具有普遍性：首先假设由问题的最优解导出的子问题的解不是最优的，然后再设法说明在这个假设下可构造出比原问题最优解更好的解，从而导致矛盾。</li>
-<li>利用问题的最优子结构性质，以自底向上的方式递归地从子问题的最优解逐步构造出整个问题的最优解。最优子结构是问题能用动态规划算法求解的前提。</li>
-</ul>
-<p>注意：同一个问题可以有多种方式刻划它的最优子结构，有些表示方法的求解速度更快（空间占用小，问题的维度低）</p>
-<h3 id="重叠子问题"><a href="#重叠子问题" class="headerlink" title="重叠子问题"></a>重叠子问题</h3><ul>
-<li>递归算法求解问题时，每次产生的子问题并不总是新问题，有些子问题被反复计算多次。这种性质称为子问题的重叠性质。</li>
-<li>动态规划算法，对每一个子问题只解一次，而后将其解保存在一个表格中，当再次需要解此子问题时，只是简单地用常数时间查看一下结果。</li>
-<li>通常不同的子问题个数随问题的大小呈多项式增长。因此用动态规划算法只需要多项式时间，从而获得较高的解题效率。 </li>
-</ul>
-<h2 id="问题举例"><a href="#问题举例" class="headerlink" title="问题举例"></a>问题举例</h2><h3 id="最长公共子序列-LCS"><a href="#最长公共子序列-LCS" class="headerlink" title="最长公共子序列(LCS)"></a>最长公共子序列(LCS)</h3><ul>
-<li>若给定序列$X={x_1,x_2,…,x_m}$，则另一序列$Z={z_1,z_2,…,z_k}$，是 $X$ 的子序列是指存在一个严格递增下标序列${i_1,i_2,…,i_k}$使得对于所有$j=1,2,…,k$ 有：$z_j=x_{i}$。例如，序列 $Z={B，C，D，B}$ 是序列 $X={A，B，C，B，D，A，B}$ 的子序列，相应的递增下标序列为${2，3，5，7}$。</li>
-<li>给定2个序列 $X$ 和 $Y$，当另一序列 $Z$ 既是 $X$ 的子序列又是 $Y$ 的子序列时，称 $Z$ 是序列 $X$ 和 $Y$ 的公共子序列。</li>
-<li>给定2个序列$X={x_1,x_2,…,x_m}$和 $Y={y_1,y_2,…,y_n}$，找出 $X$ 和 $Y$ 的最长公共子序列。</li>
-</ul>
-<h3 id="最长公共子序列的结构-LCS"><a href="#最长公共子序列的结构-LCS" class="headerlink" title="最长公共子序列的结构(LCS)"></a>最长公共子序列的结构(LCS)</h3><p>设序列$X={x_1,x_2,…,x_m}$和 $Y={y_1,y_2,…,y_n}$的最长公共子序列为 $Z={z_1,z_2,…,z_k}$ ，则</p>
+        <h2 id="Algorithm-overall-idea"><a href="#Algorithm-overall-idea" class="headerlink" title="Algorithm overall idea"></a>Algorithm overall idea</h2><p>Dynamic programming (Dynamic Programming) solves the entire problem by combining the solutions of sub-problems. Divide and conquer refers to dividing the problem into some independent sub-problems, recursively solving each sub-problem, and then combining the solutions of the sub-problems to get the solution of the original problem. Unlike this, dynamic programming is applicable when the sub-problem is not independent. It is that each sub-problem contains a common sub-problem. In this case, adopting the divide-and-conquer method will do a lot of unnecessary work, that is, solving the common ground problem repeatedly. The dynamic programming algorithm only solves each sub-problem once, and saves the results in a table, so as to avoid recalculating the answer each time it encounters each sub-problem.</p>
+<h2 id="Basic-Elements-of-Dynamic-Programming-Algorithm"><a href="#Basic-Elements-of-Dynamic-Programming-Algorithm" class="headerlink" title="Basic Elements of Dynamic Programming Algorithm"></a>Basic Elements of Dynamic Programming Algorithm</h2><h3 id="Optimal-substructure"><a href="#Optimal-substructure" class="headerlink" title="Optimal substructure"></a>Optimal substructure</h3><p>-The optimal solution of the matrix multiplication calculation order problem contains the optimal solution of its subproblems. This property is called the optimal substructure property.<br>-When analyzing the optimal substructure properties of the problem, the method used is universal: first assume that the solution of the subproblem derived from the optimal solution of the problem is not optimal, and then try to show that the ratio can be constructed under this assumption The optimal solution of the original problem is better, which leads to contradictions.<br>-Using the optimal substructure properties of the problem, the optimal solution of the entire problem is constructed step by step from the optimal solution of the subproblem recursively in a bottom-up manner. The optimal substructure is the premise that the problem can be solved by dynamic programming algorithm.</p>
+<p>Note: There can be many ways to characterize the optimal substructure of the same problem, some of the representation methods are faster to solve (small space occupation, low dimension of the problem)</p>
+<h3 id="Overlapping-sub-questions"><a href="#Overlapping-sub-questions" class="headerlink" title="Overlapping sub-questions"></a>Overlapping sub-questions</h3><p>-When recursive algorithm solves a problem, the sub-problems generated each time are not always new problems, and some sub-problems are repeatedly calculated many times. This property is called the overlapping property of subproblems.<br>-The dynamic programming algorithm only solves each sub-problem once, and then saves the solution in a table. When the sub-problem needs to be solved again, it is simply to check the results in constant time.<br>-Usually the number of different sub-problems increases polynomially with the size of the problem. Therefore, the dynamic programming algorithm only needs polynomial time, so as to obtain a higher problem-solving efficiency.</p>
+<h2 id="Question-example"><a href="#Question-example" class="headerlink" title="Question example"></a>Question example</h2><h3 id="Longest-common-subsequence-LCS"><a href="#Longest-common-subsequence-LCS" class="headerlink" title="Longest common subsequence (LCS)"></a>Longest common subsequence (LCS)</h3><p>-If the given sequence $ X = \ {x_1, x_2,…, x_m } $, then another sequence $ Z = \ {z_1, z_2,…, z_k } $, which is a subsequence of $ X $ means There is a strictly increasing index sequence $ \ {i_1, i_2, …, i_k } $ such that for all $ j = 1,2, …, k $ there is: $ z_j = x_ {i} $. For example, the sequence $ Z = \ {B, C, D, B } $ is a subsequence of the sequence $ X = \ {A, B, C, B, D, A, B } $, and the corresponding increasing index The sequence is $ \ {2, 3, 5, 7 } $.<br>-Given two sequences $ X $ and $ Y $, when another sequence $ Z $ is both a subsequence of $ X $ and a subsequence of $ Y $, it is said that $ Z $ is the sequence $ X $ and $ Y The common subsequence of $.<br>-Given 2 sequences $ X = \ {x_1, x_2,…, x_m } $ and $ Y = \ {y_1, y_2,…, y_n } $, find the longest of $ X $ and $ Y $ Common subsequence.</p>
+<h3 id="Structure-of-the-longest-common-subsequence-LCS"><a href="#Structure-of-the-longest-common-subsequence-LCS" class="headerlink" title="Structure of the longest common subsequence (LCS)"></a>Structure of the longest common subsequence (LCS)</h3><p>Let the longest common subsequences of the sequences $ X = \ {x_1, x_2,…, x_m } $ and $ Y = \ {y_1, y_2,…, y_n } $ be $ Z = \ {z_1, z_2,… , z_k } $, then</p>
 <ol>
-<li>若$x_m=y_n$，则$z_k=x_m=y_n$，且 $z_{k-1}$ 是 ${x_1,\ldots, x_{m-1}}$ 和 ${y_1, \ldots, y_{n-1}}$ 的最长公共子序列。</li>
-<li>若 $x_m≠y_n$ 且 $z_k≠x_m, z_k=y_n$，则 $Z$ 是 ${x_1,\ldots, x_{m-1}}$ 和 $Y$ 的最长公共子序列。</li>
-<li>若 $x_m≠y_n$且 $z_k≠y_n, z_k=x_m$，则 $Z$ 是 $X$ 和  ${y_1, \ldots, y_{n-1}}$ 的最长公共子序列。</li>
+<li>If $ x_m = y_n $, then $ z_k = x_m = y_n $, and $ z_ {k-1} $ is $ \ {x_1, \ ldots, x_ {m-1} } $ and $ \ {y_1 , \ ldots, the longest common subsequence of y_ {n-1} } $.</li>
+<li>If $ x_m ≠ y_n $ and $ z_k ≠ x_m, z_k = y_n $, then $ Z $ is the longest common child of $ \ {x_1, \ ldots, x_ {m-1} } $ and $ Y $ sequence.</li>
+<li>If $ x_m ≠ y_n $ and $ z_k ≠ y_n, z_k = x_m $, then $ Z $ is the longest common child of $ X $ and $ \ {y_1, \ ldots, y_ {n-1} } $ sequence.</li>
 </ol>
-<p>由此可见，2个序列的最长公共子序列包含了这2个序列的前缀的最长公共子序列。因此，最长公共子序列问题具有最优子结构性质。 </p>
-<h2 id="LCS时间复杂度"><a href="#LCS时间复杂度" class="headerlink" title="LCS时间复杂度"></a>LCS时间复杂度</h2><p>求解LCS问题，不能使用暴力搜索方法。一个长度为n的序列拥有 2的n次方个子序列，它的时间复杂度是指数阶，而且还是两个序列求最长公共子序列。</p>
-<h3 id="子问题的递归结构"><a href="#子问题的递归结构" class="headerlink" title="子问题的递归结构"></a>子问题的递归结构</h3><p>由最长公共子序列问题的最优子结构性质建立子问题最优值的递归关系。<strong>用$c[i][j]$记录序列和的最长公共子序列的长度。</strong> 其中，$X[i]={x_1,x_2,…,x_i}$；$Y[j]={y_1,y_2,…,y_j}$。当 $i=0$ 或 $j=0$ 时，空序列是 $X[i]$ 和 $Y[j]$ 的最长公共子序列。故此时 $c[i][j]=0$ 。其他情况下，由最优子结构性质可建立递归关系如下：</p>
-<p>$c[i][j]=\cases{0,\quad i=0,j=0 \ c[i-1][j-1]+1\quad i,j&gt;0;x_i=y_j \ max{c[i][j-1],c[i-1][j]}\quad i,j&gt;0;x_i\ne y_j}$</p>
-<h2 id="计算最优值（伪代码）"><a href="#计算最优值（伪代码）" class="headerlink" title="计算最优值（伪代码）"></a>计算最优值（伪代码）</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">AlgorithmlcsLength(x,y,b)</span><br><span class="line">mßx.length<span class="number">-1</span>;</span><br><span class="line">nßy.length<span class="number">-1</span>;</span><br><span class="line">c[i][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">c[<span class="number">0</span>][i]=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">1</span>; i&lt;= m;i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">      <span class="keyword">if</span>(x[i]==y[j])</span><br><span class="line">          c[i][j]=c[i<span class="number">-1</span>][j<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">          b[i][j]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(c[i<span class="number">-1</span>][j]&gt;=c[i][j<span class="number">-1</span>])</span><br><span class="line">          c[i][j]=c[i<span class="number">-1</span>][j];</span><br><span class="line">          b[i][j]=<span class="number">2</span>;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">          c[i][j]=c[i][j<span class="number">-1</span>];</span><br><span class="line">          b[i][j]=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="源代码实现（测试通过）"><a href="#源代码实现（测试通过）" class="headerlink" title="源代码实现（测试通过）"></a>源代码实现（测试通过）</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN_ARR_A  20</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN_ARR_B  12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  brief     : calculate longest common substring of two string and </span></span><br><span class="line"><span class="comment"> *              mark  path of getting the longest common substring  </span></span><br><span class="line"><span class="comment"> *	parameter : lenComStr : length of common substring</span></span><br><span class="line"><span class="comment"> *              solutionPath : mark of path of solution</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  note：      dynamic programming :caculate longest common substring between X(n)</span></span><br><span class="line"><span class="comment"> *              and Y(m-1),likey to caculate longest common substring between X(n) </span></span><br><span class="line"><span class="comment"> *              and Y(m-1) or between X(n-1) and Y(m). X(0) and Y(0) are not referenced!</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *	return :    null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">Type</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">LCSLength</span>(<span class="title">size_t</span> <span class="title">lenStrA</span>, <span class="title">size_t</span> <span class="title">lenStrB</span>, <span class="title">Type</span> *<span class="title">strA</span>, <span class="title">Type</span> *<span class="title">strB</span>, <span class="title">size_t</span> ** <span class="title">lenComStr</span>, <span class="title">size_t</span> ** <span class="title">solutionPath</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; lenStrA; ++i)</span><br><span class="line">		lenComStr[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; lenStrB; ++i)</span><br><span class="line">		lenComStr[<span class="number">0</span>][i] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">size_t</span> i = <span class="number">1</span>; i &lt; lenStrA; ++i)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">size_t</span> j = <span class="number">1</span>; j &lt; lenStrB; ++j)&#123;</span><br><span class="line">			<span class="keyword">if</span>(strA[i] == strB[j])&#123;</span><br><span class="line">				lenComStr[i][j] = lenComStr[i <span class="number">-1</span>][j - <span class="number">1</span>] + <span class="number">1</span>; </span><br><span class="line">				<span class="comment">//global solution depends on local solution</span></span><br><span class="line">				solutionPath[i][j] = <span class="number">1</span>;               </span><br><span class="line">				<span class="comment">//mark  path of getting the longest common substring </span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(lenComStr[i - <span class="number">1</span>][j] &gt;= lenComStr[i][j - <span class="number">1</span>])&#123;</span><br><span class="line">				lenComStr[i][j] = lenComStr[i - <span class="number">1</span>][j];  </span><br><span class="line">				<span class="comment">//global solution depends on local solution</span></span><br><span class="line">				solutionPath[i][j] = <span class="number">2</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				lenComStr[i][j] = lenComStr[i][j - <span class="number">1</span>];  </span><br><span class="line">				<span class="comment">//global solution depends on local solution</span></span><br><span class="line">				solutionPath[i][j] = <span class="number">3</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  brief     : output longest common substring of two string  </span></span><br><span class="line"><span class="comment"> *              </span></span><br><span class="line"><span class="comment"> *	parameter : i is beginning index of char array</span></span><br><span class="line"><span class="comment"> *              j is end index of char array</span></span><br><span class="line"><span class="comment"> *              solutionPath is the path of solution</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  note：      value of solutionPath[i][j] has 3 states  </span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *	return :    null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">Type</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">LCS</span>(<span class="title">size_t</span> <span class="title">i</span>, <span class="title">size_t</span> <span class="title">j</span>, <span class="title">Type</span> * <span class="title">strA</span>, <span class="title">size_t</span> ** <span class="title">solutionPath</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">if</span>(i == <span class="number">-1</span> || j == <span class="number">-1</span>)	<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span>(solutionPath[i][j] == <span class="number">1</span>)&#123;</span><br><span class="line">		LCS(i - <span class="number">1</span>, j - <span class="number">1</span>, strA, solutionPath); </span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; strA[i];</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(solutionPath[i][j] == <span class="number">2</span>)</span><br><span class="line">			LCS(i - <span class="number">1</span>, j, strA, solutionPath);</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">			LCS(i, j - <span class="number">1</span>, strA, solutionPath);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> strA[LEN_ARR_A] = &#123; <span class="string">'0'</span>,<span class="string">'B'</span>, <span class="string">'D'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>&#125;;</span><br><span class="line">	<span class="keyword">char</span> strB[LEN_ARR_B] = &#123; <span class="string">'0'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'B'</span>, <span class="string">'D'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">size_t</span> ** lenComStr = <span class="keyword">new</span> <span class="keyword">size_t</span>*[LEN_ARR_A];</span><br><span class="line">	<span class="keyword">size_t</span> ** solutionPath = <span class="keyword">new</span> <span class="keyword">size_t</span>*[LEN_ARR_A];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; LEN_ARR_A; ++i)	&#123;</span><br><span class="line">		lenComStr[i] = <span class="keyword">new</span> <span class="keyword">size_t</span>[LEN_ARR_B];</span><br><span class="line">		solutionPath[i] = <span class="keyword">new</span> <span class="keyword">size_t</span>[LEN_ARR_B];</span><br><span class="line">	&#125;</span><br><span class="line">	LCSLength(LEN_ARR_A, LEN_ARR_B, strA, strB, lenComStr, solutionPath);</span><br><span class="line">	LCS(LEN_ARR_A - <span class="number">1</span>, LEN_ARR_B - <span class="number">1</span>, strA, solutionPath);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/dynamic-programming/1.png" alt="img"></p>
+<p>It can be seen that the longest common subsequence of the two sequences includes the longest common subsequence of the prefixes of the two sequences. Therefore, the longest common subsequence problem has optimal substructure properties.</p>
+<h2 id="LCS-time-complexity"><a href="#LCS-time-complexity" class="headerlink" title="LCS time complexity"></a>LCS time complexity</h2><p>To solve the LCS problem, the brute force search method cannot be used. A sequence of length n has 2 subsequences of the nth power, and its time complexity is exponential, and it is still the longest common subsequence of two sequences.</p>
+<h3 id="Recursive-structure-of-subproblems"><a href="#Recursive-structure-of-subproblems" class="headerlink" title="Recursive structure of subproblems"></a>Recursive structure of subproblems</h3><p>The recursive relationship of optimal values ​​of subproblems is established by the optimal substructure properties of the longest common subsequence problem. ** Use $ c [i] [j] $ to record the length of the longest common subsequence of the sequence sum. ** Among them, $ X [i] = \ {x_1, x_2,…, x_i } $; $ Y [j] = \ {y_1, y_2,…, y_j } $ When $ i = 0 $ or $ j = 0 $, the empty sequence is the longest common subsequence of $ X [i] $ and $ Y [j] $. So at this time $ c [i] [j] = 0 $. In other cases, the recursive relationship can be established from the optimal substructure properties as follows:</p>
+<p>$ c [i] [j] = \ cases {0, \ quad i = 0, j = 0 \ c [i-1] [j-1] +1 \ quad i, j&gt; 0; x_i = y_j \ \ max \ {c [i] [j-1], c [i-1] [j] } \ quad i, j&gt; 0; x_i \ ne y_j} $</p>
+<h2 id="Calculate-the-optimal-value-pseudo-code"><a href="#Calculate-the-optimal-value-pseudo-code" class="headerlink" title="Calculate the optimal value (pseudo code)"></a>Calculate the optimal value (pseudo code)</h2><p><code>`c ++
+AlgorithmlcsLength (x, y, b)
+mßx.length-1;
+nßy.length-1;
+c [i] [0] = 0;
+c [0] [i] = 0;
+for (int i = 1; i &lt;= m; i ++)
+    for (int j = 1; j &lt;= n; j ++)
+      if (x [i] == y [j])
+          c [i] [j] = c [i-1] [j-1] +1;
+          b [i] [j] = 1;
+      else if (c [i-1] [j]&gt; = c [i] [j-1])
+          c [i] [j] = c [i-1] [j];
+          b [i] [j] = 2;
+      else
+          c [i] [j] = c [i] [j-1];
+          b [i] [j] = 3;</code> `</p>
+<h2 id="Source-code-implementation-test-passed"><a href="#Source-code-implementation-test-passed" class="headerlink" title="Source code implementation (test passed)"></a>Source code implementation (test passed)</h2><p>`` `c ++<br>#include <iostream><br>#define LEN_ARR_A 20<br>#define LEN_ARR_B 12</p>
+<p>using namespace std;</p>
+<p>/ *</p>
+<ul>
+<li>brief: calculate longest common substring of two string and </li>
+<li>mark path of getting the longest common substring  </li>
+<li>parameter: lenComStr: length of common substring</li>
+<li>solutionPath: mark of path of solution</li>
+<li></li>
+<li>note: dynamic programming: caculate longest common substring between X (n)</li>
+<li>and Y (m-1), likey to caculate longest common substring between X (n) </li>
+<li>and Y (m-1) or between X (n-1) and Y (m). X (0) and Y (0) are not referenced!</li>
+<li></li>
+<li></li>
+<li>return: null</li>
+<li>/<br>template <class Type><br>void LCSLength (size_t lenStrA, size_t lenStrB, Type * strA, Type * strB, size_t ** lenComStr, size_t ** solutionPath)<br>{<br> for (size_t i = 0; i &lt;lenStrA; ++ i)<pre><code>lenComStr [i] [0] = 0;</code></pre> for (size_t i = 0; i &lt;lenStrB; ++ i)<pre><code>lenComStr [0] [i] = 0;</code></pre> for (size_t i = 1; i &lt;lenStrA; ++ i)<pre><code>for (size_t j = 1; j &lt;lenStrB; ++ j) {
+    if (strA [i] == strB [j]) {
+        lenComStr [i] [j] = lenComStr [i -1] [j-1] + 1; 
+        // global solution depends on local solution
+        solutionPath [i] [j] = 1;               
+        // mark path of getting the longest common substring 
+    }
+    else if (lenComStr [i-1] [j]&gt; = lenComStr [i] [j-1]) {
+        lenComStr [i] [j] = lenComStr [i-1] [j];  
+        // global solution depends on local solution
+        solutionPath [i] [j] = 2;
+    } else {
+        lenComStr [i] [j] = lenComStr [i] [j-1];  
+        // global solution depends on local solution
+        solutionPath [i] [j] = 3;
+    }
+}</code></pre>}<br>/ *</li>
+<li>brief: output longest common substring of two string  </li>
+<li></li>
+<li>parameter: i is beginning index of char array</li>
+<li>j is end index of char array</li>
+<li>solutionPath is the path of solution</li>
+<li></li>
+<li>note: value of solutionPath [i] [j] has 3 states  </li>
+<li></li>
+<li>return: null</li>
+<li>/<br>template <class Type><br>void LCS (size_t i, size_t j, Type * strA, size_t ** solutionPath)<br>{<br> if (i == -1 || j == -1) return;<br> if (solutionPath [i] [j] == 1) {<pre><code>LCS (i-1, j-1, strA, solutionPath); 
+cout &lt;&lt; strA [i];</code></pre> } else if (solutionPath [i] [j] == 2)<pre><code>LCS (i-1, j, strA, solutionPath);</code></pre> else {<pre><code>LCS (i, j-1, strA, solutionPath);</code></pre> }<br>}</li>
+</ul>
+<p>int main ()<br>{<br>    char strA [LEN_ARR_A] = {‘0’, ‘B’, ‘D’, ‘C’, ‘A’, ‘B’, ‘A’};<br>    char strB [LEN_ARR_B] = {‘0’, ‘A’, ‘B’, ‘C’, ‘B’, ‘D’, ‘A’, ‘B’};</p>
+<pre><code>size_t ** lenComStr = new size_t * [LEN_ARR_A];
+size_t ** solutionPath = new size_t * [LEN_ARR_A];
+for (size_t i = 0; i &lt;LEN_ARR_A; ++ i) {
+    lenComStr [i] = new size_t [LEN_ARR_B];
+    solutionPath [i] = new size_t [LEN_ARR_B];
+}
+LCSLength (LEN_ARR_A, LEN_ARR_B, strA, strB, lenComStr, solutionPath);
+LCS (LEN_ARR_A-1, LEN_ARR_B-1, strA, solutionPath);
+return 0;</code></pre><p>}<br>`` `<br>! [img] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/dynamic-programming/1.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/dynamic-programming/1.png</a>)</p>
 
     </div>
 
@@ -358,8 +411,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2013/05/13/stack_application_on_expression-resolution-with-braces/" rel="prev" title="含括号的运算表达式求解-栈的基础应用3">
-      <i class="fa fa-chevron-left"></i> 含括号的运算表达式求解-栈的基础应用3
+    <a href="/2013/05/13/stack_application_on_expression-resolution-with-braces/" rel="prev" title="Solving operation expressions with brackets-basic application of stack 3">
+      <i class="fa fa-chevron-left"></i> Solving operation expressions with brackets-basic application of stack 3
     </a></div>
       <div class="post-nav-item">
     <a href="/2015/04/24/perception_learning_algorithm/" rel="next" title="Perception Learning Algorithm">
@@ -424,7 +477,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法总体思想"><span class="nav-number">1.</span> <span class="nav-text">算法总体思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划算法的基本要素"><span class="nav-number">2.</span> <span class="nav-text">动态规划算法的基本要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最优子结构"><span class="nav-number">2.1.</span> <span class="nav-text">最优子结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重叠子问题"><span class="nav-number">2.2.</span> <span class="nav-text">重叠子问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题举例"><span class="nav-number">3.</span> <span class="nav-text">问题举例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最长公共子序列-LCS"><span class="nav-number">3.1.</span> <span class="nav-text">最长公共子序列(LCS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最长公共子序列的结构-LCS"><span class="nav-number">3.2.</span> <span class="nav-text">最长公共子序列的结构(LCS)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LCS时间复杂度"><span class="nav-number">4.</span> <span class="nav-text">LCS时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子问题的递归结构"><span class="nav-number">4.1.</span> <span class="nav-text">子问题的递归结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算最优值（伪代码）"><span class="nav-number">5.</span> <span class="nav-text">计算最优值（伪代码）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源代码实现（测试通过）"><span class="nav-number">6.</span> <span class="nav-text">源代码实现（测试通过）</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-overall-idea"><span class="nav-number">1.</span> <span class="nav-text">Algorithm overall idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Elements-of-Dynamic-Programming-Algorithm"><span class="nav-number">2.</span> <span class="nav-text">Basic Elements of Dynamic Programming Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimal-substructure"><span class="nav-number">2.1.</span> <span class="nav-text">Optimal substructure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overlapping-sub-questions"><span class="nav-number">2.2.</span> <span class="nav-text">Overlapping sub-questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question-example"><span class="nav-number">3.</span> <span class="nav-text">Question example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Longest-common-subsequence-LCS"><span class="nav-number">3.1.</span> <span class="nav-text">Longest common subsequence (LCS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Structure-of-the-longest-common-subsequence-LCS"><span class="nav-number">3.2.</span> <span class="nav-text">Structure of the longest common subsequence (LCS)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LCS-time-complexity"><span class="nav-number">4.</span> <span class="nav-text">LCS time complexity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-structure-of-subproblems"><span class="nav-number">4.1.</span> <span class="nav-text">Recursive structure of subproblems</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculate-the-optimal-value-pseudo-code"><span class="nav-number">5.</span> <span class="nav-text">Calculate the optimal value (pseudo code)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Source-code-implementation-test-passed"><span class="nav-number">6.</span> <span class="nav-text">Source code implementation (test passed)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,36 +493,27 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://youtube.com/yourname" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+        <a href="mailto:snakecoding.py@gmail.com" title="Get In Touch → mailto:snakecoding.py@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>Get In Touch</a>
       </span>
   </div>
 
@@ -504,13 +548,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">2.2m</span>
+    <span title="Symbols count total">2.4m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">33:59</span>
+    <span title="Reading time total">35:43</span>
 </div>
 
         
