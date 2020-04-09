@@ -177,8 +177,8 @@ body {
 body {
   background: var(--body-bg-color);
   color: var(--text-color);
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 1em;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 12px;
   line-height: 2;
 }
 @media (max-width: 991px) {
@@ -193,28 +193,28 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
 }
 h1 {
-  font-size: 1.5em;
+  font-size: 21px;
 }
 h2 {
-  font-size: 1.375em;
+  font-size: 19px;
 }
 h3 {
-  font-size: 1.25em;
+  font-size: 17px;
 }
 h4 {
-  font-size: 1.125em;
+  font-size: 15px;
 }
 h5 {
-  font-size: 1em;
+  font-size: 13px;
 }
 h6 {
-  font-size: 0.875em;
+  font-size: 11px;
 }
 p {
   margin: 0 0 20px 0;
@@ -282,7 +282,7 @@ kbd {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  font-size: 0.875em;
+  font-size: 14px;
   margin: 0 0 20px 0;
   width: 100%;
 }
@@ -318,7 +318,7 @@ td {
   border-radius: 2px;
   color: var(--btn-default-color);
   display: inline-block;
-  font-size: 0.875em;
+  font-size: 14px;
   line-height: 2;
   padding: 0 20px;
   text-decoration: none;
@@ -404,7 +404,7 @@ td {
   background-image: linear-gradient(#fcfcfc, #eee);
   border: 1px solid #d5d5d5;
   border-radius: 3px;
-  font-size: 0.8125em;
+  font-size: 12.5px;
   right: 4px;
   top: 8px;
 }
@@ -448,7 +448,7 @@ code {
   background: #000;
   color: #c5c8c6;
   display: flex;
-  font-size: 0.875em;
+  font-size: 14px;
   justify-content: space-between;
   line-height: 1.2;
   padding: 0.5em;
@@ -490,7 +490,7 @@ pre {
 pre code {
   background: none;
   color: #c5c8c6;
-  font-size: 0.875em;
+  font-size: 14px;
   padding: 0;
   text-shadow: none;
 }
@@ -988,7 +988,7 @@ pre .javascript .function {
 }
 .headband {
   background: #222;
-  height: 3px;
+  height: 5px;
 }
 .site-meta {
   flex-grow: 1;
@@ -1011,14 +1011,14 @@ pre .javascript .function {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
 }
 .site-subtitle {
   color: #ddd;
-  font-size: 0.8125em;
+  font-size: 14px;
   margin: 10px 0;
 }
 .use-motion .brand {
@@ -1089,7 +1089,7 @@ pre .javascript .function {
 .menu-item span.exturl {
   border-bottom: 0;
   display: block;
-  font-size: 0.8125em;
+  font-size: 12.5px;
   transition-property: border-color;
   transition-delay: 0s;
   transition-duration: 0.2s;
@@ -1215,7 +1215,7 @@ pre .javascript .function {
 }
 .sidebar-inner {
   color: #999;
-  padding: 18px 10px;
+  padding: 20px 10px;
   text-align: center;
 }
 .cc-license {
@@ -1254,7 +1254,7 @@ pre .javascript .function {
 }
 .site-description {
   color: #999;
-  font-size: 0.8125em;
+  font-size: 12.5px;
   margin-top: 0;
   text-align: center;
 }
@@ -1265,17 +1265,14 @@ pre .javascript .function {
 .links-of-author span.exturl {
   border-bottom-color: #555;
   display: inline-block;
-  font-size: 0.8125em;
+  font-size: 12.5px;
   margin-bottom: 10px;
   margin-right: 10px;
   vertical-align: middle;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #8f91d4;
+  background: #dafff7;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1312,11 +1309,11 @@ pre .javascript .function {
   color: #fff;
 }
 .links-of-blogroll {
-  font-size: 0.8125em;
+  font-size: 12.5px;
   margin-top: 10px;
 }
 .links-of-blogroll-title {
-  font-size: 0.875em;
+  font-size: 14px;
   font-weight: 600;
   margin-top: 0;
 }
@@ -1356,7 +1353,7 @@ pre .javascript .function {
   color: var(--text-color);
   cursor: pointer;
   display: inline-block;
-  font-size: 0.875em;
+  font-size: 14px;
 }
 .sidebar-nav li.sidebar-nav-overview {
   margin-left: 10px;
@@ -1401,7 +1398,7 @@ pre .javascript .function {
   background: #fc6423;
 }
 .post-toc {
-  font-size: 0.875em;
+  font-size: 14px;
 }
 .post-toc ol {
   list-style: none;
@@ -1422,7 +1419,6 @@ pre .javascript .function {
   line-height: 1.8;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .post-toc .nav .nav-child {
   display: none;
@@ -1466,17 +1462,17 @@ pre .javascript .function {
 }
 .site-state-item-count {
   display: block;
-  font-size: 1em;
+  font-size: $font-size-medium;
   font-weight: 600;
   text-align: center;
 }
 .site-state-item-name {
   color: #999;
-  font-size: 0.8125em;
+  font-size: 12.5px;
 }
 .footer {
   color: #999;
-  font-size: 0.875em;
+  font-size: 14px;
   padding: 20px 0;
 }
 .footer.footer-fixed {
@@ -1503,7 +1499,7 @@ pre .javascript .function {
 }
 .languages {
   display: inline-block;
-  font-size: 1.125em;
+  font-size: 14px;
   position: relative;
 }
 .languages .lang-select-label span {
@@ -1689,23 +1685,23 @@ pre .javascript .function {
   top: 0;
 }
 .post-body {
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
 @media (min-width: 1200px) {
   .post-body {
-    font-size: 1.125em;
+    font-size: 14px;
   }
 }
 .post-body .exturl .fa {
-  font-size: 0.875em;
+  font-size: 14px;
   margin-left: 4px;
 }
 .post-body .image-caption,
 .post-body .figure .caption {
   color: #999;
-  font-size: 0.875em;
+  font-size: 14px;
   font-weight: bold;
   line-height: 1;
   margin: -20px auto 15px;
@@ -1744,7 +1740,7 @@ pre .javascript .function {
   }
 }
 .posts-collapse .collection-title {
-  font-size: 1.125em;
+  font-size: 14px;
   position: relative;
 }
 .posts-collapse .collection-title::before {
@@ -1761,7 +1757,7 @@ pre .javascript .function {
   width: 10px;
 }
 .posts-collapse .collection-year {
-  font-size: 1.5em;
+  font-size: $font-size-largest;
   font-weight: bold;
   margin: 60px 0;
   position: relative;
@@ -1805,7 +1801,7 @@ pre .javascript .function {
   left: 0;
   margin-left: -4px;
   position: absolute;
-  top: 0.75em;
+  top: $font-size-smallest;
   transition-property: background;
   width: 6px;
   transition-delay: 0s;
@@ -1820,7 +1816,7 @@ pre .javascript .function {
 }
 .posts-collapse .post-meta {
   display: inline;
-  font-size: 0.75em;
+  font-size: $font-size-smallest;
   margin-right: 10px;
 }
 .posts-collapse .post-title {
@@ -1832,7 +1828,7 @@ pre .javascript .function {
   color: var(--link-color);
 }
 .posts-collapse .post-title .fa-external-link-alt {
-  font-size: 0.875em;
+  font-size: 14px;
   margin-left: 5px;
 }
 .posts-collapse::before {
@@ -1848,7 +1844,7 @@ pre .javascript .function {
 .post-eof {
   background: #ccc;
   height: 1px;
-  margin: 80px auto 60px;
+  margin: 160px auto 120px;
   text-align: center;
   width: 8%;
 }
@@ -1860,12 +1856,12 @@ pre .javascript .function {
 }
 @media (min-width: 992px) {
   .post-body {
-    text-align: justify;
+    text-align: justify-all;
   }
 }
 @media (max-width: 991px) {
   .post-body {
-    text-align: justify;
+    text-align: justify-all;
   }
 }
 .post-body h1,
@@ -1946,10 +1942,10 @@ pre .javascript .function {
   margin: 0;
 }
 .posts-expand .post-header {
-  font-size: 1.125em;
+  font-size: 14px;
 }
 .posts-expand .post-title {
-  font-size: 1.5em;
+  font-size: $font-size-largest;
   font-weight: normal;
   margin: initial;
   text-align: center;
@@ -1982,18 +1978,18 @@ pre .javascript .function {
   visibility: visible;
 }
 .posts-expand .post-title-link .fa-external-link-alt {
-  font-size: 0.875em;
+  font-size: 14px;
   margin-left: 5px;
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 0.75em;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: $font-size-smallest;
   margin: 3px 0 60px 0;
   text-align: center;
 }
 .posts-expand .post-meta .post-description {
-  font-size: 0.875em;
+  font-size: 14px;
   margin-top: 2px;
 }
 .posts-expand .post-meta time {
@@ -2032,7 +2028,7 @@ pre .javascript .function {
 .post-nav-item a {
   border-bottom: none;
   display: block;
-  font-size: 0.875em;
+  font-size: 14px;
   line-height: 1.6;
   position: relative;
 }
@@ -2040,7 +2036,7 @@ pre .javascript .function {
   top: 2px;
 }
 .post-nav-item .fa {
-  font-size: 0.75em;
+  font-size: $font-size-smallest;
 }
 .post-nav-item:first-child {
   margin-right: 15px;
@@ -2078,7 +2074,7 @@ pre .javascript .function {
 }
 .post-tags a {
   display: inline-block;
-  font-size: 0.8125em;
+  font-size: 12.5px;
 }
 .post-tags a:not(:last-child) {
   margin-right: 10px;
@@ -2097,7 +2093,7 @@ pre .javascript .function {
 }
 .social-like {
   display: flex;
-  font-size: 0.875em;
+  font-size: 14px;
   justify-content: center;
   text-align: center;
 }
@@ -2323,7 +2319,7 @@ pre .javascript .function {
   }
 }
 ul.breadcrumb {
-  font-size: 0.75em;
+  font-size: $font-size-smallest;
   list-style: none;
   margin: 1em 0;
   padding: 0 2em;
@@ -2524,7 +2520,7 @@ mjx-container + br {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   box-sizing: border-box;
   padding: 20px;
-  width: calc(100% - 252px);
+  width: calc(100% - 255px);
 }
 @media (max-width: 991px) {
   .content-wrap {
@@ -2675,7 +2671,7 @@ mjx-container + br {
 }
 .sidebar-inner.affix {
   position: fixed;
-  top: 12px;
+  top: 15px;
 }
 .sidebar-inner.affix-bottom {
   position: absolute;
@@ -2713,6 +2709,7 @@ mjx-container + br {
 }
 .links-of-author-item {
   margin: 5px 0 0;
+  width: 50%;
 }
 .links-of-author-item a,
 .links-of-author-item span.exturl {
@@ -2764,13 +2761,13 @@ mjx-container + br {
 .post-block + .post-block {
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin-top: 12px;
+  margin-top: 15px;
 }
 .comments {
   background: var(--content-bg-color);
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin-top: 12px;
+  margin-top: 15px;
   padding: 20px;
 }
 .tabs-comment {
@@ -2787,7 +2784,7 @@ mjx-container + br {
   border-radius: initial;
   border-top: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin: 12px 0 0;
+  margin: 15px 0 0;
   padding: 10px 0 10px;
 }
 .pagination .prev,
@@ -2808,7 +2805,7 @@ mjx-container + br {
 }
 .sub-menu + .content .post-block {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin-top: 12px;
+  margin-top: 15px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .sub-menu + .content .post-block {
@@ -2855,20 +2852,20 @@ mjx-container + br {
     padding: 8px;
   }
   .posts-expand .post-button {
-    margin: 12px 0;
+    margin: 15px 0;
   }
   .post-block {
     border-radius: initial;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
     min-height: auto;
-    padding: 12px;
+    padding: 15px;
   }
   .post-block + .post-block {
     margin-top: 8px;
   }
   .comments {
     margin-top: 8px;
-    padding: 10px 12px;
+    padding: 10px 15px;
   }
   .pagination {
     margin: 8px 0 0;

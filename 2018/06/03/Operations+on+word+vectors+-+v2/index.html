@@ -284,7 +284,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is one of my personal programming assignments after studying the course <a href="https://www.coursera.org/learn/nlp-sequence-models/" target="_blank" rel="noopener">nlp sequence models</a> at the 2nd week and the copyright belongs to <a href="https://www.deeplearning.ai/" target="_blank" rel="noopener">deeplearning.ai</a>.</p>
+        <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is one of my personal programming assignments after studying the course <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL25scC1zZXF1ZW5jZS1tb2RlbHMv">nlp sequence models<i class="fa fa-external-link-alt"></i></span> at the 2nd week and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
 <h1 id="Operations-on-word-vectors"><a href="#Operations-on-word-vectors" class="headerlink" title="Operations on word vectors"></a>Operations on word vectors</h1><p>Welcome to your first assignment of this week! </p>
 <p>Because word embeddings are very computionally expensive to train, most ML practitioners will load a pre-trained set of embeddings. </p>
 <p><strong>After this assignment you will be able to:</strong></p>
@@ -449,7 +449,7 @@ engineer -0.0803928049452
 pilot 0.00107644989919
 computer -0.103303588739
 singer 0.185005181365</code></pre><p>Do you notice anything surprising? It is astonishing how these results reflect certain unhealthy gender stereotypes. For example, “computer” is closer to “man” while “literature” is closer to “woman”. Ouch! </p>
-<p>We’ll see below how to reduce the bias of these vectors, using an algorithm due to <a href="https://arxiv.org/abs/1607.06520" target="_blank" rel="noopener">Boliukbasi et al., 2016</a>. Note that some word pairs such as “actor”/“actress” or “grandmother”/“grandfather” should remain gender specific, while other words such as “receptionist” or “technology” should be neutralized, i.e. not be gender-related. You will have to treat these two type of words differently when debiasing.</p>
+<p>We’ll see below how to reduce the bias of these vectors, using an algorithm due to <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE2MDcuMDY1MjA=">Boliukbasi et al., 2016<i class="fa fa-external-link-alt"></i></span>. Note that some word pairs such as “actor”/“actress” or “grandmother”/“grandfather” should remain gender specific, while other words such as “receptionist” or “technology” should be neutralized, i.e. not be gender-related. You will have to treat these two type of words differently when debiasing.</p>
 <h3 id="3-1-Neutralize-bias-for-non-gender-specific-words"><a href="#3-1-Neutralize-bias-for-non-gender-specific-words" class="headerlink" title="3.1 - Neutralize bias for non-gender specific words"></a>3.1 - Neutralize bias for non-gender specific words</h3><p>The figure below should help you visualize what neutralizing does. If you’re using a 50-dimensional word embedding, the 50 dimensional space can be split into two parts: The bias-direction $g$, and the remaining 49 dimensions, which we’ll call $g_{\perp}$. In linear algebra, we say that the 49 dimensional $g_{\perp}$ is perpendicular (or “othogonal”) to $g$, meaning it is at 90 degrees to $g$. The neutralization step takes a vector such as $e_{receptionist}$ and zeros out the component in the direction of $g$, giving us $e_{receptionist}^{debiased}$. </p>
 <p>Even though $g_{\perp}$ is 49 dimensional, given the limitations of what we can draw on a screen, we illustrate it using a 1 dimensional axis below. </p>
 <img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/deeplearning.ai/nlp-sequence-models/jupter/week2/Word_Vector_Representation/images/neutral.png" style="width:800px;height:300px;">
@@ -563,7 +563,7 @@ cosine_similarity(e2, gender) =  0.700436428931</code></pre><p><strong>Expected 
 <p><strong>References</strong>:</p>
 <ul>
 <li>The debiasing algorithm is from Bolukbasi et al., 2016, <a href="https://papers.nips.cc/paper/6228-man-is-to-computer-programmer-as-woman-is-to-homemaker-debiasing-word-embeddings.pdf" target="_blank" rel="noopener">Man is to Computer Programmer as Woman is to<br>Homemaker? Debiasing Word Embeddings</a></li>
-<li>The GloVe word embeddings were due to Jeffrey Pennington, Richard Socher, and Christopher D. Manning. (<a href="https://nlp.stanford.edu/projects/glove/" target="_blank" rel="noopener">https://nlp.stanford.edu/projects/glove/</a>)</li>
+<li>The GloVe word embeddings were due to Jeffrey Pennington, Richard Socher, and Christopher D. Manning. (<span class="exturl" data-url="aHR0cHM6Ly9ubHAuc3RhbmZvcmQuZWR1L3Byb2plY3RzL2dsb3ZlLw==">https://nlp.stanford.edu/projects/glove/<i class="fa fa-external-link-alt"></i></span>)</li>
 </ul>
 
     </div>
@@ -607,8 +607,8 @@ cosine_similarity(e2, gender) =  0.700436428931</code></pre><p><strong>Expected 
       <i class="fa fa-chevron-left"></i> Emojify
     </a></div>
       <div class="post-nav-item">
-    <a href="/2018/06/05/Neural+machine+translation+with+attention+-+v4/" rel="next" title="Neural machine translation with attention">
-      Neural machine translation with attention <i class="fa fa-chevron-right"></i>
+    <a href="/2018/06/03/03_sequence-models-attention-mechanism/" rel="next" title="sequence models attention mechanism">
+      sequence models attention mechanism <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

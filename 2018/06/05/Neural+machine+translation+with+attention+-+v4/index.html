@@ -286,7 +286,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is one of my personal programming assignments after studying the course <a href="https://www.coursera.org/learn/nlp-sequence-models/" target="_blank" rel="noopener">nlp sequence models</a> at the 3rd week and the copyright belongs to <a href="https://www.deeplearning.ai/" target="_blank" rel="noopener">deeplearning.ai</a>.</p>
+        <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is one of my personal programming assignments after studying the course <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL25scC1zZXF1ZW5jZS1tb2RlbHMv">nlp sequence models<i class="fa fa-external-link-alt"></i></span> at the 3rd week and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
 <h1 id="Neural-Machine-Translation"><a href="#Neural-Machine-Translation" class="headerlink" title="Neural Machine Translation"></a>Neural Machine Translation</h1><p>Welcome to your first programming assignment for this week! </p>
 <p>You will build a Neural Machine Translation (NMT) model to translate human readable dates (“25th of June, 2009”) into machine readable dates (“2009-06-25”). You will do this using an attention model, one of the most sophisticated sequence to sequence models. </p>
 <p>This notebook was produced together with NVIDIA’s Deep Learning Institute. </p>
@@ -399,7 +399,7 @@ $$context^{<t>} = \sum_{t' = 0}^{T_x} \alpha^{<t,t'>}a^{<t'>}\tag{1}$$
 <li>Define the layer objects (as global variables for examples).</li>
 <li>Call these objects when propagating the input.</li>
 </ol>
-<p>We have defined the layers you need as global variables. Please run the following cells to create them. Please check the Keras documentation to make sure you understand what these layers are: <a href="https://keras.io/layers/core/#repeatvector" target="_blank" rel="noopener">RepeatVector()</a>, <a href="https://keras.io/layers/merge/#concatenate" target="_blank" rel="noopener">Concatenate()</a>, <a href="https://keras.io/layers/core/#dense" target="_blank" rel="noopener">Dense()</a>, <a href="https://keras.io/layers/core/#activation" target="_blank" rel="noopener">Activation()</a>, <a href="https://keras.io/layers/merge/#dot" target="_blank" rel="noopener">Dot()</a>.</p>
+<p>We have defined the layers you need as global variables. Please run the following cells to create them. Please check the Keras documentation to make sure you understand what these layers are: <span class="exturl" data-url="aHR0cHM6Ly9rZXJhcy5pby9sYXllcnMvY29yZS8jcmVwZWF0dmVjdG9y">RepeatVector()<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9rZXJhcy5pby9sYXllcnMvbWVyZ2UvI2NvbmNhdGVuYXRl">Concatenate()<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9rZXJhcy5pby9sYXllcnMvY29yZS8jZGVuc2U=">Dense()<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9rZXJhcy5pby9sYXllcnMvY29yZS8jYWN0aXZhdGlvbg==">Activation()<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9rZXJhcy5pby9sYXllcnMvbWVyZ2UvI2RvdA==">Dot()<i class="fa fa-external-link-alt"></i></span>.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Defined shared layers as global variables</span></span><br><span class="line">repeator = RepeatVector(Tx)</span><br><span class="line">concatenator = Concatenate(axis=<span class="number">-1</span>)</span><br><span class="line">densor1 = Dense(<span class="number">10</span>, activation = <span class="string">"tanh"</span>)</span><br><span class="line">densor2 = Dense(<span class="number">1</span>, activation = <span class="string">"relu"</span>)</span><br><span class="line">activator = Activation(softmax, name=<span class="string">'attention_weights'</span>) <span class="comment"># We are using a custom softmax(axis = 1) loaded in this notebook</span></span><br><span class="line">dotor = Dot(axes = <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
 <p>Now you can use these layers to implement <code>one_step_attention()</code>. In order to propagate a Keras tensor object X through one of these layers, use <code>layer(X)</code> (or <code>layer([X,Y])</code> if it requires multiple inputs.), e.g. <code>densor(X)</code> will propagate X through the <code>Dense(1)</code> layer defined above.</p>
@@ -411,7 +411,7 @@ $$context^{<t>} = \sum_{t' = 0}^{T_x} \alpha^{<t,t'>}a^{<t'>}\tag{1}$$
 
 <p>Now you can use these layers $T_y$ times in a <code>for</code> loop to generate the outputs, and their parameters will not be reinitialized. You will have to carry out the following steps: </p>
 <ol>
-<li><p>Propagate the input into a <a href="https://keras.io/layers/wrappers/#bidirectional" target="_blank" rel="noopener">Bidirectional</a> <a href="https://keras.io/layers/recurrent/#lstm" target="_blank" rel="noopener">LSTM</a></p>
+<li><p>Propagate the input into a <span class="exturl" data-url="aHR0cHM6Ly9rZXJhcy5pby9sYXllcnMvd3JhcHBlcnMvI2JpZGlyZWN0aW9uYWw=">Bidirectional<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9rZXJhcy5pby9sYXllcnMvcmVjdXJyZW50LyNsc3Rt">LSTM<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 <li><p>Iterate for $t = 0, \dots, T_y-1$: </p>
 <ol>
@@ -652,7 +652,7 @@ ________________________________________________________________________________
 </table>
 
 
-<p>As usual, after creating your model in Keras, you need to compile it and define what loss, optimizer and metrics your are want to use. Compile your model using <code>categorical_crossentropy</code> loss, a custom <a href="https://keras.io/optimizers/#adam" target="_blank" rel="noopener">Adam</a> <a href="https://keras.io/optimizers/#usage-of-optimizers" target="_blank" rel="noopener">optimizer</a> (<code>learning rate = 0.005</code>, $\beta_1 = 0.9$, $\beta_2 = 0.999$, <code>decay = 0.01</code>)  and <code>[&#39;accuracy&#39;]</code> metrics:</p>
+<p>As usual, after creating your model in Keras, you need to compile it and define what loss, optimizer and metrics your are want to use. Compile your model using <code>categorical_crossentropy</code> loss, a custom <span class="exturl" data-url="aHR0cHM6Ly9rZXJhcy5pby9vcHRpbWl6ZXJzLyNhZGFt">Adam<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9rZXJhcy5pby9vcHRpbWl6ZXJzLyN1c2FnZS1vZi1vcHRpbWl6ZXJz">optimizer<i class="fa fa-external-link-alt"></i></span> (<code>learning rate = 0.005</code>, $\beta_1 = 0.9$, $\beta_2 = 0.999$, <code>decay = 0.01</code>)  and <code>[&#39;accuracy&#39;]</code> metrics:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### START CODE HERE ### (≈2 lines)</span></span><br><span class="line">opt = Adam(lr=<span class="number">0.0005</span>, beta_1=<span class="number">0.9</span>, beta_2=<span class="number">0.999</span>, decay=<span class="number">0.01</span>);</span><br><span class="line">model.compile(loss = <span class="string">'categorical_crossentropy'</span>,optimizer=opt, metrics = [<span class="string">'accuracy'</span>]);</span><br><span class="line"><span class="comment">### END CODE HERE ###</span></span><br></pre></td></tr></table></figure>
 
 <p>The last step is to define all your inputs and outputs to fit the model:</p>
@@ -907,8 +907,8 @@ ________________________________________________________________________________
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2018/06/03/Operations+on+word+vectors+-+v2/" rel="prev" title="Operations on word vectors">
-      <i class="fa fa-chevron-left"></i> Operations on word vectors
+    <a href="/2018/06/03/03_sequence-models-attention-mechanism/" rel="prev" title="sequence models attention mechanism">
+      <i class="fa fa-chevron-left"></i> sequence models attention mechanism
     </a></div>
       <div class="post-nav-item">
     <a href="/2018/06/06/summary_of_nlp-sequence-models/" rel="next" title="summary of nlp sequence models">

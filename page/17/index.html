@@ -210,96 +210,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/25/exponential_random_variables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Karan">
-      <meta itemprop="description" content="Refuse to Fall">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Machine Learning">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/08/25/exponential_random_variables/" class="post-title-link" itemprop="url">Classic Excerpts-Mean and Variance of Exponential Random Variables</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2017-08-25 20:16:00" itemprop="dateCreated datePublished" datetime="2017-08-25T20:16:00+05:30">2017-08-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 16:34:46" itemprop="dateModified" datetime="2020-04-09T16:34:46+05:30">2020-04-09</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>5.6k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>5 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>** Description **: The full text is taken from [Introduction to probability, 2nd Edition] (<a href="http://www.athenasc.com/probbook.html" target="_blank" rel="noopener">http://www.athenasc.com/probbook.html</a>) </p>
-<p>An exponential random variable has the following form of ** probability density function *<em>:<br>$$<br>f_X (x) = \ cases {<br>    \ lambda e ^ {-\ lambda x}, &amp; if $ x \ ge 0 $ \<br>    0, &amp; other situations<br>}<br>$$<br>In this formula, *</em> $ \ lambda $ is a positive number *<em>, which is a definition that conforms to probability normality because:<br>$$<br>\ int _ {-\ infty} ^ {+ \ infty} f_X (x) dx = \ int _ {-\ infty} ^ {+ \ infty} \ lambda e ^ {-\ lambda} dx = -e ^ {\ lambda x } | <em>0 ^ {+ \ infty} = 1<br>$$<br>Note that the exponential probability density function has such characteristics: $ X $ The probability of exceeding a certain value decreases exponentially as the value increases<br>$$<br>\ forall a \ ge 0, P (X \ ge a) = \ int</em> {a} ^ {\ infty} \ lambda e ^ {-\ lambda x} dx = -e ^ {-\ lambda x} | _a ^ { + \ infty} = e ^ {-\ lambda a}<br>$$<br>The *</em> cumulative distribution function ** is obtained from the probability density function:<br>$$<br>\ forall x \ ge 0, P (X \ le x) = \ int_ {0} ^ {x} \ lambda e ^ {-\ lambda x} dx = 1-e ^ {-\ lambda x}<br>$$<br>! [The_PDF_of_an_exponential_random_variable] (<a href="http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/exponential-random-variable/1.png" target="_blank" rel="noopener">http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/exponential-random-variable/1.png</a>)</p>
-<p>** Exponential random variables can model the time until the event occurs, for example: the time when the message reaches the computer, the service life of the device, the life of the light bulb, the time of the accident, etc. , be a good model for the amount of time until an incident of interest takes place). As we will see in later chapters, exponential random variables are closely related to geometric random variables, and geometric random variables are also related to the (discrete) time at which related events occur. ** Exponential random variables will play an important role in the study of random processes in Chapter VI **. But so far, it has only been regarded as a special kind of analyzable random variable.</p>
-<p>** Mean and variance of exponential random variables **:<br>$$<br>\ begin {eqnarray}<br>E [X] &amp; = &amp; \ int_ {0} ^ {\ infty} x \ lambda e ^ {-\ lambda x} dx \<br>&amp; = &amp; (-xe ^ {-\ lambda x}) | <em>0 ^ {\ infty} + \ int</em> {0} ^ {\ infty} e ^ {-\ lambda x} dx \ quad \ text {This step uses points Department integral method} \<br>&amp; = &amp; 0- \ frac {e ^ {-\ lambda x}} {\ lambda} | <em>0 ^ {\ infty} \<br>&amp; = &amp; \ frac {1} {\ lambda}<br>\ end {eqnarray}<br>$$<br>Using the distributed integration method, the second moment of $ X $ can be obtained:<br>$$<br>\ begin {eqnarray}<br>E [X ^ 2] &amp; = &amp; \ int</em> {0} ^ {\ infty} x ^ 2 \ lambda e ^ {-\ lambda x} dx \<br>&amp; = &amp; (-x ^ 2e ^ {-\ lambda x}) | <em>0 ^ {\ infty} + \ int</em> {0} ^ {\ infty} 2xe ^ {-\ lambda x} dx<br>&amp; = &amp; 0+ \ frac {2} {\ lambda} E [X] \<br>&amp; = &amp; \ frac {2} {\ lambda ^ 2}<br>\ end {eqnarray}<br>$$<br>Finally, using the formula $ var (x) = E [X ^ 2]-(E [X]) ^ 2 $, we get:<br>$$<br>var (X) = \ frac {2} {\ lambda ^ 2}-\ frac {1} {\ lambda} = \ frac {1} {\ lambda ^ 2}<br>$$</p>
-<h3 id="Example-3-5"><a href="#Example-3-5" class="headerlink" title="Example 3.5"></a>Example 3.5</h3><p>The time when the small meteorites fell into the Sahara Desert in Africa followed the exponential distribution. Specifically, when an observer starts to observe, it is found that a meteorite falls into the desert. This time is simulated as an exponential random variable with an average value of $ 10 $ days. It is now assumed that the current time is at $ 12 $ in the evening. Q. What is the probability that the meteorite will fall for the first time between $ 6: 00 $ in the morning and $ 6: 00 $ in the evening?</p>
-<p>Suppose $ X $ is the waiting time required to observe the falling of the meteorite. Since $ X $ satisfies the exponential distribution, the mean value is $ \ frac {1} {\ lambda} = 10 $, which results in: $ \ lambda = \ frac {1} {10} $. The required probability is:<br>$$<br>P (\ frac {1} {4} \ le X \ le \ frac {3} {4}) = P (X \ ge \ frac {1} {4})-P (X \ ge \ frac {3} {4}) = e ^ {-\ frac {1} {40}}-e ^ {-\ frac {3} {40}} = 0.0476<br>$$<br>In this process, the continuous random variable $ P (X \ ge a) = P (X&gt; a) = e ^ {-\ lambda a} $ was used.</p>
-<h3 id="Memorylessness-of-exponential-random-variables"><a href="#Memorylessness-of-exponential-random-variables" class="headerlink" title="Memorylessness of exponential random variables"></a>Memorylessness of exponential random variables</h3><p>The lifetime of a light bulb $ T $ is an exponential random variable whose parameter is $ \ lambda $. Ariadne left the room after turning on the light, and after staying outside for a period of time (the length of time was $ t $), when he returned to the room, the light was still on. This is equivalent to the occurrence of the event $ A = \ {T&gt; t } $. Let $ X $ be the remaining life of the bulb. What is the distribution function of $ X $?</p>
-<p>answer:</p>
-<p>Actually $ X $ is the lifetime under the condition where $ A $ occurs, and we get:<br>$$<br>\ begin {eqnarray}<br>P (X&gt; x | A) &amp; = &amp; P (T&gt; t + x | T&gt; t) \<br>&amp; = &amp; \ frac {P (T&gt; t + x, T&gt; t)} {P (T&gt; t)} \<br>&amp; = &amp; \ frac {P (T&gt; t + x)} {P (T&gt; t)} \<br>&amp; = &amp; \ frac {e ^ {-\ lambda (t + x)}} {e ^ {-\ lambda t}} \<br>&amp; = &amp; e ^ {-\ lambda x}<br>\ end {eqnarray}<br>$$<br>The distribution function of the remaining life of the lamp $ X $ is an exponential distribution, and its parameter is also $ \ lambda $, which has nothing to do with how many hours the lamp has been on. This property of exponential distribution is ** memory-free distribution *<em>. *</em> In general, if the distribution of the time required to complete a certain task is located in an exponential distribution. So as long as this task is not completed, the distribution of the remaining time required to complete this task is still exponential, and its parameters are also unchanged **.</p>
-<h4 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h4><p>A careless professor mistakenly arranged the question answering time of the two students in the same time period. It is known that the length of time for the two students to answer questions is two independent and identically distributed random variables. The distribution is an exponential distribution. The expected value is $ 30 $ minutes. The first student arrives on time. After 5 minutes, the second student also arrives. . What is the expected time from the arrival of the first student until the second student leaves?</p>
-<p>answer:</p>
-<p>Use $ T_ {total} $ to indicate the total time for the professor to answer the question, and use $ T_ {s_1}, T_ {s_2} $ to indicate the time that the professor will answer the questions of student $ 1 $ and student $ 2 $, then<br>$$<br>E [T_ {total}] = P (T_ {s_1} &lt;5) \ cdot E [5 + E [T_ {s_2}]] + P (T_ {s_1} \ ge 5) (E [T_ {s_1} | T_ {s_1} \ ge5] + E [T_ {s_2}])<br>$$<br>According to the title: $ E [T_ {s_1}] = E [T_ {s_2}] = 30 $, using the memorylessness of exponential random variables: $ E [T_ {s_1} | T_ {s_1} \ ge5] = 5 + E [T_ {s_1}] = 35 $.<br>$$<br>P (T_ {s_1} \ ge 5) = e ^ {-\ frac {1} {30} \ cdot5} \<br>P (T_ {s_1} &lt;5) = 1-P (T_ {s_1} \ ge 5) = 1-e ^ {-\ frac {1} {30} \ cdot5} \<br>$$<br>therefore:<br>$$<br>E [T_ {total}] = (1-e ^ {-\ frac {1} {30} \ cdot5}) \ cdot (5 + 30) + (e ^ {-\ frac {1} {30} \ cdot5 }) \ cdot (35 + 30) = 35 + 30 \ cdot e ^ {-\ frac {5} {30}} = 60.394<br>$$</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/25/mean_and_variance_of_sample_and_estimating_probability_by_simulation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -359,7 +269,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Expected-variance-of-sample-mean"><a href="#Expected-variance-of-sample-mean" class="headerlink" title="Expected variance of sample mean"></a>Expected variance of sample mean</h2><p>Excerpt from: [Introduction to probability, 2nd Edition] (<a href="http://www.athenasc.com/probbook.html" target="_blank" rel="noopener">http://www.athenasc.com/probbook.html</a>) Example 2.21. Mean and Variance of the Sample Mean</p>
+          <h2 id="Expected-variance-of-sample-mean"><a href="#Expected-variance-of-sample-mean" class="headerlink" title="Expected variance of sample mean"></a>Expected variance of sample mean</h2><p>Excerpt from: [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) Example 2.21. Mean and Variance of the Sample Mean</p>
 <p>We hope to estimate the president’s approval rating. To this end, we randomly select n voters and ask their views. Let $ x_i $ denote the attitude of $ i $ voters asked:</p>
 <p>$$ X_i = \ cases {1, \ text {if the first voted voter supports the president} \ 0, \ text {if the first voted voter does not support the president}} $$</p>
 <p>** Assume that $ X_1, \ ldots, X_n $ are independent and identically distributed Bernoulli random variables **, whose mean is $ p $ and variance is $ p (1-p) $. Here we consider the probability that $ p $ believes voters support the president, and will average the responses to the survey, calculate the sample mean $ S_n $, and define $ S_n $ as</p>
@@ -373,11 +283,101 @@
 <p>Note that even though $ X_i $ is not a Bernoulli random variable in the above example, the conclusion</p>
 <p>$$ var (S_n) = \ frac {var (X)} {n} $$</p>
 <p>It still holds true, as long as $ X_i $ is independent of each other, after all, expectations and variances have nothing to do with $ i $. Therefore, as the sample size increases, the sample mean is still a good estimate of the mean of the random variable. We will discuss these attributes of the sample mean in more detail in Chapter 5 and combine them with the law of large numbers.</p>
-<h2 id="Simulation-method-to-estimate-probability"><a href="#Simulation-method-to-estimate-probability" class="headerlink" title="Simulation method to estimate probability"></a>Simulation method to estimate probability</h2><p>Excerpt from: [Introduction to probability, 2nd Edition] (<a href="http://www.athenasc.com/probbook.html" target="_blank" rel="noopener">http://www.athenasc.com/probbook.html</a>) Example 2.22. Estimating Probabilities by Simulation</p>
+<h2 id="Simulation-method-to-estimate-probability"><a href="#Simulation-method-to-estimate-probability" class="headerlink" title="Simulation method to estimate probability"></a>Simulation method to estimate probability</h2><p>Excerpt from: [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) Example 2.22. Estimating Probabilities by Simulation</p>
 <p>In many practical problems, sometimes it is very difficult to calculate the probability of an event, and then we can repeat the experiment using physical methods or computer methods. These test results can show whether the event has occurred. Using this simulation method, the probability of an event can be calculated with high accuracy. You can independently simulate the test $ n $ times, and record the number of occurrences of $ A $ in the $ n $ test $ m $. Use $ \ frac {m} {n} $ to approximate the probability $ P (A) $. For example, in the coin toss test, calculate the probability $ p = P $ (frontal appearance), independently toss $ n $ times, and use the ratio (the number of heads in the record divided by the total number of trials n) to approximate the probability $ p $.</p>
 <p>To calculate the accuracy of this method, consider $ n $ independent and identically distributed Bernoulli random variables $ X_1, \ ldots, X_n $, and the probability mass function of each $ X_i $:</p>
 <p>$$ p_ {X_i} (k) = \ cases {P (A), if \ k = 1 \ 1-P (A), if \ k = 0} $$</p>
 <p>In the simulated environment, $ X_i $ is related to the result of the $ i $ th test. If the $ i $ test result belongs to $ A $, then the value of $ X_i $ is 1, and the value of the random variable $ X = \ frac {X_1 + X_2 + \ ldots + X_n} {n} $$) is the estimated value of the probability $ P (A) $. From the results of Example 2.21, the expectation of $ X $ is $ P (A) $, and the variance is $ \ frac {P (A) (1-P (A))} {n} $. So when $ n $ is large, $ X $ provides an accurate estimate of $ P (A) $.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://snakecoding.com/2017/08/25/exponential_random_variables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Karan">
+      <meta itemprop="description" content="Refuse to Fall">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Machine Learning">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/08/25/exponential_random_variables/" class="post-title-link" itemprop="url">Classic Excerpts-Mean and Variance of Exponential Random Variables</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-08-25 20:16:00" itemprop="dateCreated datePublished" datetime="2017-08-25T20:16:00+05:30">2017-08-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-09 16:34:46" itemprop="dateModified" datetime="2020-04-09T16:34:46+05:30">2020-04-09</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.6k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>** Description **: The full text is taken from [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) </p>
+<p>An exponential random variable has the following form of ** probability density function *<em>:<br>$$<br>f_X (x) = \ cases {<br>    \ lambda e ^ {-\ lambda x}, &amp; if $ x \ ge 0 $ \<br>    0, &amp; other situations<br>}<br>$$<br>In this formula, *</em> $ \ lambda $ is a positive number *<em>, which is a definition that conforms to probability normality because:<br>$$<br>\ int _ {-\ infty} ^ {+ \ infty} f_X (x) dx = \ int _ {-\ infty} ^ {+ \ infty} \ lambda e ^ {-\ lambda} dx = -e ^ {\ lambda x } | <em>0 ^ {+ \ infty} = 1<br>$$<br>Note that the exponential probability density function has such characteristics: $ X $ The probability of exceeding a certain value decreases exponentially as the value increases<br>$$<br>\ forall a \ ge 0, P (X \ ge a) = \ int</em> {a} ^ {\ infty} \ lambda e ^ {-\ lambda x} dx = -e ^ {-\ lambda x} | _a ^ { + \ infty} = e ^ {-\ lambda a}<br>$$<br>The *</em> cumulative distribution function ** is obtained from the probability density function:<br>$$<br>\ forall x \ ge 0, P (X \ le x) = \ int_ {0} ^ {x} \ lambda e ^ {-\ lambda x} dx = 1-e ^ {-\ lambda x}<br>$$<br>! [The_PDF_of_an_exponential_random_variable] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9pbnRyb2R1Y3Rpb24tdG8tcHJvYmFiaWxpdHkvZXhwb25lbnRpYWwtcmFuZG9tLXZhcmlhYmxlLzEucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/introduction-to-probability/exponential-random-variable/1.png<i class="fa fa-external-link-alt"></i></span>)</p>
+<p>** Exponential random variables can model the time until the event occurs, for example: the time when the message reaches the computer, the service life of the device, the life of the light bulb, the time of the accident, etc. , be a good model for the amount of time until an incident of interest takes place). As we will see in later chapters, exponential random variables are closely related to geometric random variables, and geometric random variables are also related to the (discrete) time at which related events occur. ** Exponential random variables will play an important role in the study of random processes in Chapter VI **. But so far, it has only been regarded as a special kind of analyzable random variable.</p>
+<p>** Mean and variance of exponential random variables **:<br>$$<br>\ begin {eqnarray}<br>E [X] &amp; = &amp; \ int_ {0} ^ {\ infty} x \ lambda e ^ {-\ lambda x} dx \<br>&amp; = &amp; (-xe ^ {-\ lambda x}) | <em>0 ^ {\ infty} + \ int</em> {0} ^ {\ infty} e ^ {-\ lambda x} dx \ quad \ text {This step uses points Department integral method} \<br>&amp; = &amp; 0- \ frac {e ^ {-\ lambda x}} {\ lambda} | <em>0 ^ {\ infty} \<br>&amp; = &amp; \ frac {1} {\ lambda}<br>\ end {eqnarray}<br>$$<br>Using the distributed integration method, the second moment of $ X $ can be obtained:<br>$$<br>\ begin {eqnarray}<br>E [X ^ 2] &amp; = &amp; \ int</em> {0} ^ {\ infty} x ^ 2 \ lambda e ^ {-\ lambda x} dx \<br>&amp; = &amp; (-x ^ 2e ^ {-\ lambda x}) | <em>0 ^ {\ infty} + \ int</em> {0} ^ {\ infty} 2xe ^ {-\ lambda x} dx<br>&amp; = &amp; 0+ \ frac {2} {\ lambda} E [X] \<br>&amp; = &amp; \ frac {2} {\ lambda ^ 2}<br>\ end {eqnarray}<br>$$<br>Finally, using the formula $ var (x) = E [X ^ 2]-(E [X]) ^ 2 $, we get:<br>$$<br>var (X) = \ frac {2} {\ lambda ^ 2}-\ frac {1} {\ lambda} = \ frac {1} {\ lambda ^ 2}<br>$$</p>
+<h3 id="Example-3-5"><a href="#Example-3-5" class="headerlink" title="Example 3.5"></a>Example 3.5</h3><p>The time when the small meteorites fell into the Sahara Desert in Africa followed the exponential distribution. Specifically, when an observer starts to observe, it is found that a meteorite falls into the desert. This time is simulated as an exponential random variable with an average value of $ 10 $ days. It is now assumed that the current time is at $ 12 $ in the evening. Q. What is the probability that the meteorite will fall for the first time between $ 6: 00 $ in the morning and $ 6: 00 $ in the evening?</p>
+<p>Suppose $ X $ is the waiting time required to observe the falling of the meteorite. Since $ X $ satisfies the exponential distribution, the mean value is $ \ frac {1} {\ lambda} = 10 $, which results in: $ \ lambda = \ frac {1} {10} $. The required probability is:<br>$$<br>P (\ frac {1} {4} \ le X \ le \ frac {3} {4}) = P (X \ ge \ frac {1} {4})-P (X \ ge \ frac {3} {4}) = e ^ {-\ frac {1} {40}}-e ^ {-\ frac {3} {40}} = 0.0476<br>$$<br>In this process, the continuous random variable $ P (X \ ge a) = P (X&gt; a) = e ^ {-\ lambda a} $ was used.</p>
+<h3 id="Memorylessness-of-exponential-random-variables"><a href="#Memorylessness-of-exponential-random-variables" class="headerlink" title="Memorylessness of exponential random variables"></a>Memorylessness of exponential random variables</h3><p>The lifetime of a light bulb $ T $ is an exponential random variable whose parameter is $ \ lambda $. Ariadne left the room after turning on the light, and after staying outside for a period of time (the length of time was $ t $), when he returned to the room, the light was still on. This is equivalent to the occurrence of the event $ A = \ {T&gt; t } $. Let $ X $ be the remaining life of the bulb. What is the distribution function of $ X $?</p>
+<p>answer:</p>
+<p>Actually $ X $ is the lifetime under the condition where $ A $ occurs, and we get:<br>$$<br>\ begin {eqnarray}<br>P (X&gt; x | A) &amp; = &amp; P (T&gt; t + x | T&gt; t) \<br>&amp; = &amp; \ frac {P (T&gt; t + x, T&gt; t)} {P (T&gt; t)} \<br>&amp; = &amp; \ frac {P (T&gt; t + x)} {P (T&gt; t)} \<br>&amp; = &amp; \ frac {e ^ {-\ lambda (t + x)}} {e ^ {-\ lambda t}} \<br>&amp; = &amp; e ^ {-\ lambda x}<br>\ end {eqnarray}<br>$$<br>The distribution function of the remaining life of the lamp $ X $ is an exponential distribution, and its parameter is also $ \ lambda $, which has nothing to do with how many hours the lamp has been on. This property of exponential distribution is ** memory-free distribution *<em>. *</em> In general, if the distribution of the time required to complete a certain task is located in an exponential distribution. So as long as this task is not completed, the distribution of the remaining time required to complete this task is still exponential, and its parameters are also unchanged **.</p>
+<h4 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h4><p>A careless professor mistakenly arranged the question answering time of the two students in the same time period. It is known that the length of time for the two students to answer questions is two independent and identically distributed random variables. The distribution is an exponential distribution. The expected value is $ 30 $ minutes. The first student arrives on time. After 5 minutes, the second student also arrives. . What is the expected time from the arrival of the first student until the second student leaves?</p>
+<p>answer:</p>
+<p>Use $ T_ {total} $ to indicate the total time for the professor to answer the question, and use $ T_ {s_1}, T_ {s_2} $ to indicate the time that the professor will answer the questions of student $ 1 $ and student $ 2 $, then<br>$$<br>E [T_ {total}] = P (T_ {s_1} &lt;5) \ cdot E [5 + E [T_ {s_2}]] + P (T_ {s_1} \ ge 5) (E [T_ {s_1} | T_ {s_1} \ ge5] + E [T_ {s_2}])<br>$$<br>According to the title: $ E [T_ {s_1}] = E [T_ {s_2}] = 30 $, using the memorylessness of exponential random variables: $ E [T_ {s_1} | T_ {s_1} \ ge5] = 5 + E [T_ {s_1}] = 35 $.<br>$$<br>P (T_ {s_1} \ ge 5) = e ^ {-\ frac {1} {30} \ cdot5} \<br>P (T_ {s_1} &lt;5) = 1-P (T_ {s_1} \ ge 5) = 1-e ^ {-\ frac {1} {30} \ cdot5} \<br>$$<br>therefore:<br>$$<br>E [T_ {total}] = (1-e ^ {-\ frac {1} {30} \ cdot5}) \ cdot (5 + 30) + (e ^ {-\ frac {1} {30} \ cdot5 }) \ cdot (35 + 30) = 35 + 30 \ cdot e ^ {-\ frac {5} {30}} = 60.394<br>$$</p>
 
       
     </div>
@@ -456,7 +456,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>This article is extracted from: [Introduction to probability, 2nd Edition] (<a href="http://www.athenasc.com/probbook.html" target="_blank" rel="noopener">http://www.athenasc.com/probbook.html</a>) Example 2.18. The Two-Envelopes Paradox.  </p>
+          <p>This article is extracted from: [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) Example 2.18. The Two-Envelopes Paradox.  </p>
 <p>This is a widely-interested intelligence test question, which involves mathematical points about conditional expectations.</p>
 <p>The host gives you two envelopes and tells you that there is cash in the two envelopes. The money in one envelope is $ m $ times the other envelope ($ m&gt; 1 $ and an integer). When you open an envelope and see the amount of money in the envelope, you have two options. One is to accept the money in this envelope as your bonus, and the other is to give up the money in this envelope and choose another envelope. Your money as your bonus. So what good strategy can make you get more bonuses?</p>
 <p>There is a reasoning below, which proves that we should turn to choose the second envelope. Let A denote the envelope you opened, B be the envelope you might change, and $ x $ and $ y $ denote the money in envelopes A and B, respectively. The argument is as follows: since either $ y = {x \ over m} $ or $ y = mx $, and the probability of both occurrences is $ {1 \ over 2} $, the The expected value is:</p>
@@ -561,7 +561,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>This article is excerpted from [Introduction to probability, 2nd Edition] (<a href="http://www.athenasc.com/probbook.html" target="_blank" rel="noopener">http://www.athenasc.com/probbook.html</a>) Example 2.17 mean_and_variance_of_the_geometric</p>
+          <p>This article is excerpted from [Introduction to probability, 2nd Edition] (<span class="exturl" data-url="aHR0cDovL3d3dy5hdGhlbmFzYy5jb20vcHJvYmJvb2suaHRtbA==">http://www.athenasc.com/probbook.html<i class="fa fa-external-link-alt"></i></span>) Example 2.17 mean_and_variance_of_the_geometric</p>
 <p>You write a piece of computer software again and again, and every time you write it there is a probability of success $ p $. Assume that each success is independent of previous historical records. Let $ X $ be the number of times you wrote until you succeeded (the last time you succeeded!) What are the expectations and variance of $ X $?</p>
 <p>Since $ X $ is a geometric random variable, then we regard $ X $ as a geometric random variable, and the probability mass function is:</p>
 <p>$$ p_X (k) = (1-p) ^ {k-1} p, k = 1, 2, …. $$</p>
