@@ -199,22 +199,22 @@ h6 {
   margin: 20px 0 15px;
 }
 h1 {
-  font-size: 21px;
+  font-size: 23px;
 }
 h2 {
-  font-size: 19px;
+  font-size: 21px;
 }
 h3 {
-  font-size: 17px;
+  font-size: 19px;
 }
 h4 {
-  font-size: 15px;
+  font-size: 17px;
 }
 h5 {
-  font-size: 13px;
+  font-size: 15px;
 }
 h6 {
-  font-size: 11px;
+  font-size: 13px;
 }
 p {
   margin: 0 0 20px 0;
@@ -404,7 +404,7 @@ td {
   background-image: linear-gradient(#fcfcfc, #eee);
   border: 1px solid #d5d5d5;
   border-radius: 3px;
-  font-size: 12.2px;
+  font-size: 13.5px;
   right: 4px;
   top: 8px;
 }
@@ -1089,7 +1089,7 @@ pre .javascript .function {
 .menu-item span.exturl {
   border-bottom: 0;
   display: block;
-  font-size: 12.2px;
+  font-size: 13.5px;
   transition-property: border-color;
   transition-delay: 0s;
   transition-duration: 0.2s;
@@ -1254,7 +1254,7 @@ pre .javascript .function {
 }
 .site-description {
   color: #999;
-  font-size: 12.2px;
+  font-size: 13.5px;
   margin-top: 0;
   text-align: center;
 }
@@ -1265,14 +1265,14 @@ pre .javascript .function {
 .links-of-author span.exturl {
   border-bottom-color: #555;
   display: inline-block;
-  font-size: 12.2px;
+  font-size: 13.5px;
   margin-bottom: 10px;
   margin-right: 10px;
   vertical-align: middle;
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #e9e4ff;
+  background: #811bf2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1309,7 +1309,7 @@ pre .javascript .function {
   color: #fff;
 }
 .links-of-blogroll {
-  font-size: 12.2px;
+  font-size: 13.5px;
   margin-top: 10px;
 }
 .links-of-blogroll-title {
@@ -1468,7 +1468,7 @@ pre .javascript .function {
 }
 .site-state-item-name {
   color: #999;
-  font-size: 12.2px;
+  font-size: 13.5px;
 }
 .footer {
   color: #999;
@@ -1499,7 +1499,7 @@ pre .javascript .function {
 }
 .languages {
   display: inline-block;
-  font-size: 14px;
+  font-size: 14.5px;
   position: relative;
 }
 .languages .lang-select-label span {
@@ -1691,7 +1691,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .post-body {
-    font-size: 14px;
+    font-size: 14.5px;
   }
 }
 .post-body .exturl .fa {
@@ -1740,7 +1740,7 @@ pre .javascript .function {
   }
 }
 .posts-collapse .collection-title {
-  font-size: 14px;
+  font-size: 14.5px;
   position: relative;
 }
 .posts-collapse .collection-title::before {
@@ -1942,7 +1942,7 @@ pre .javascript .function {
   margin: 0;
 }
 .posts-expand .post-header {
-  font-size: 14px;
+  font-size: 14.5px;
 }
 .posts-expand .post-title {
   font-size: $font-size-largest;
@@ -2074,7 +2074,7 @@ pre .javascript .function {
 }
 .post-tags a {
   display: inline-block;
-  font-size: 12.2px;
+  font-size: 13.5px;
 }
 .post-tags a:not(:last-child) {
   margin-right: 10px;
