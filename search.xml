@@ -553,120 +553,7 @@ return Table [j] [i];</code></pre><p>}</p>
       </tags>
   </entry>
   <entry>
-    <title>summary of Structuring Machine Learning Projects</title>
-    <url>/2018/04/03/summary_of_Structuring-Machine-Learning-Projects/</url>
-    <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal summary after studying the course, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL21hY2hpbmUtbGVhcm5pbmctcHJvamVjdHM=">Structuring Machine Learning Projects<i class="fa fa-external-link-alt"></i></span> and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
-<a id="more"></a> 
-<h3 id="Content-Table-of-my-personal-notes"><a href="#Content-Table-of-my-personal-notes" class="headerlink" title="Content Table of my personal notes"></a>Content Table of my personal notes</h3><p>$1_{st}$ week: <a href="/2018-04-01/01_ml-strategy-1/">01_ml-strategy-1</a></p>
-<ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#01_introduction-to-ml-strategy">01_introduction-to-ml-strategy</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#01_why-ml-strategy">01_why-ml-strategy</a></li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#02_orthogonalization">02_orthogonalization</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#Orthogonalization">Orthogonalization</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#02_setting-up-your-goal">02_setting-up-your-goal</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#01_single-number-evaluation-metric">01_single-number-evaluation-metric</a></li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#02_satisficing-and-optimizing-metric">02_satisficing-and-optimizing-metric</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#03_train-dev-test-distributions">03_train-dev-test-distributions</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#04_size-of-the-dev-and-test-sets">04_size-of-the-dev-and-test-sets</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#Summary">Summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#05_when-to-change-dev-test-sets-and-metrics">05_when-to-change-dev-test-sets-and-metrics</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#03_comparing-to-human-level-performance">03_comparing-to-human-level-performance</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#01_why-human-level-performance">01_why-human-level-performance</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#02_avoidable-bias">02_avoidable-bias</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#03_understanding-human-level-performance">03_understanding-human-level-performance</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#Summary">Summary</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#04_surpassing-human-level-performance">04_surpassing-human-level-performance</a><ul>
-<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-01/01_ml-strategy-1/#05_improving-your-model-performance">05_improving-your-model-performance</a></li>
-</ul>
-<p>$2_{nd}$ week: <a href="/2018-04-02/02_ml-strategy-2/">02_ml-strategy-2</a></p>
-<ul>
-<li><a href="/2018-04-02/02_ml-strategy-2/#01_error-analysis">01_error-analysis</a><ul>
-<li><a href="/2018-04-02/02_ml-strategy-2/#01_carrying-out-error-analysis">01_carrying-out-error-analysis</a></li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#02_cleaning-up-incorrectly-labeled-data">02_cleaning-up-incorrectly-labeled-data</a></li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#03_build-your-first-system-quickly-then-iterate">03_build-your-first-system-quickly-then-iterate</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#02_mismatched-training-and-dev-test-set">02_mismatched-training-and-dev-test-set</a><ul>
-<li><a href="ns">01_training-and-testing-on-different-distributions</a></li>
-<li><a href="ns">02_bias-and-variance-with-mismatched-data-distributions</a></li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#03_addressing-data-mismatch">03_addressing-data-mismatch</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#03_learning-from-multiple-tasks">03_learning-from-multiple-tasks</a><ul>
-<li><a href="/2018-04-02/02_ml-strategy-2/#01_transfer-learning">01_transfer-learning</a></li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#02_multi-task-learning">02_multi-task-learning</a></li>
-</ul>
-</li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#04_end-to-end-deep-learning">04_end-to-end-deep-learning</a><ul>
-<li><a href="/2018-04-02/02_ml-strategy-2/#01_what-is-end-to-end-deep-learning">01_what-is-end-to-end-deep-learning</a></li>
-<li><a href="/2018-04-02/02_ml-strategy-2/#02_whether-to-use-end-to-end-deep-learning">02_whether-to-use-end-to-end-deep-learning</a></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>deep learning</tag>
-        <tag>Structuring Machine Learning Projects</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>summary of Linear Algebra</title>
-    <url>/2017/12/28/summary_of_Linear-Algebra/</url>
-    <content><![CDATA[<p>This article is a summary of my notes on learning linear algebra. My personal learning sequence is Netease ** MIT linear algebra open class ** combined with its textbooks, and then I use ** Tsinghua University linear algebra open class ** to do a review. Tsinghua ’s class proves more The depth is deeper (** logic ** is more strict) and the mit open class is to use its 3rd order matrix to explain the nature of the problem (the intuition is **), the two open classes use the same textbook, Textbooks, ppt, and summary of notes are the main contents of this article.</p>
-<a id="more"></a> 
-
-<h2 id="MIT-Open-Course-in-Linear-Algebra"><a href="#MIT-Open-Course-in-Linear-Algebra" class="headerlink" title="MIT: Open Course in Linear Algebra"></a>MIT: Open Course in Linear Algebra</h2><p>[Official website] (<span class="exturl" data-url="aHR0cHM6Ly9vY3cubWl0LmVkdS9jb3Vyc2VzL21hdGhlbWF0aWNzLzE4LTA2c2MtbGluZWFyLWFsZ2VicmEtZmFsbC0yMDExL2luZGV4Lmh0bQ==">https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/index.htm<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvQ29udGVudC1UYWJsZV9vZl9NSVRfTGluZWFyLUFsZ2VicmEucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/Content-Table_of_MIT_Linear-Algebra.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>[NetEase Open Course] (<span class="exturl" data-url="aHR0cDovL29wZW4uMTYzLmNvbS9zcGVjaWFsL29wZW5jb3Vyc2UvZGFpc2h1Lmh0bWw=">http://open.163.com/special/opencourse/daishu.html<i class="fa fa-external-link-alt"></i></span>) directory<br>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvQ29udGVudC1UYWJsZV9vZl9NSVRfTGluZWFyLUFsZ2VicmFfb25fbmV0ZWFzZS5wbmc=">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/Content-Table_of_MIT_Linear-Algebra_on_netease.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>** Use textbooks written by professors: [Introduction to Linear Algebra 4th edition] (<span class="exturl" data-url="aHR0cHM6Ly9ib29rLmRvdWJhbi5jb20vc3ViamVjdC8zNTgyMzM1Lw==">https://book.douban.com/subject/3582335/<i class="fa fa-external-link-alt"></i></span>), the official website has been updated to [Fifth Edition] (http: // math. mit.edu/~gs/linearalgebra/), bookmark the pdf in person as follows: **</p>
-<p>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvQ29udGVudC1UYWJsZV9vZl9JbnRyb2R1Y3Rpb24tdG8tTGluZWFyLUFsZ2VicmFfNHRoX2Jvb2sucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/Content-Table_of_Introduction-to-Linear-Algebra_4th_book.png<i class="fa fa-external-link-alt"></i></span>)</p>
-<h2 id="Tsinghua-University-linear-algebra-2-open-class-notes-summary"><a href="#Tsinghua-University-linear-algebra-2-open-class-notes-summary" class="headerlink" title="Tsinghua University linear algebra 2 open class notes summary"></a>Tsinghua University linear algebra 2 open class notes summary</h2><p>Lecture 1: [Positive Definite Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMS9wb3NpdGl2ZV9kZWZpbml0ZV9tYXRyaXgv">https://karan36k.github.io/2017/08/01/positive_definite_matrix/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 2: [Similarity Matrix] ()<br>Lecture 3: [Singular Value Decomposition] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMy9zaW5ndWxhcl92YWx1ZXNfZGVjb21wb3NpdGlvbi8=">https://karan36k.github.io/2017/08/03/singular_values_decomposition/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 4: [Linear Transformation 1] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNC9saW5lYXJfdHJhbnNmb3JtYXRpb25fMXN0X3BhcnQv">https://karan36k.github.io/2017/08/04/linear_transformation_1st_part/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 5: [Linear Transformation 2] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNS9saW5lYXJfdHJhbnNmb3JtYXRpb25fMm5kX3BhcnQv">https://karan36k.github.io/2017/08/05/linear_transformation_2nd_part/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 6: [Pseudo-inverse] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNi9wc2V1ZG9faW52ZXJzZS8=">https://karan36k.github.io/2017/08/06/pseudo_inverse/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 7: [Matrix in Engineering] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNy9lbmdpbmVlcmluZ19tYXRyaWNlcy8=">https://karan36k.github.io/2017/08/07/engineering_matrices/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 8: [Graph and Network] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wOC9ncmFwaF9hbmRfbmV0d29yay8=">https://karan36k.github.io/2017/08/08/graph_and_network/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 9: [Markov Matrix and Positive Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNi9NYXJrb3ZfbWF0cml4Lw==">https://karan36k.github.io/2017/08/06/Markov_matrix/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 10: [Fourier Series] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMi9Gb3VyaWVyX3Nlcmllcy8=">https://karan36k.github.io/2017/08/02/Fourier_series/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 11: [Computer Image] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8xMS9jb21wdXRlcl9ncmFwaGljcy8=">https://karan36k.github.io/2017/08/11/computer_graphics/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 12: [Complex and Complex Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8xMi9jb21wbGV4X2FuZF9jb21wbGV4X21hdHJpeC8=">https://karan36k.github.io/2017/08/12/complex_and_complex_matrix/<i class="fa fa-external-link-alt"></i></span>)</p>
-<p>The classroom teacher designated the reference textbook as the MIT linear algebra textbook: [Official Website] (<span class="exturl" data-url="aHR0cDovL21hdGgubWl0LmVkdS9+Z3MvbGluZWFyYWxnZWJyYS8=">http://math.mit.edu/~gs/linearalgebra/<i class="fa fa-external-link-alt"></i></span>), [Douban] (<span class="exturl" data-url="aHR0cHM6Ly9ib29rLmRvdWJhbi5jb20vc3ViamVjdC8=">https://book.douban.com/subject/<i class="fa fa-external-link-alt"></i></span> 3582335 /)</p>
-<h2 id="last-but-not-least"><a href="#last-but-not-least" class="headerlink" title="last but not least"></a>last but not least</h2><p>Personally highly recommend the ** good book ** for learning linear algebra, excerpted from the evaluation of Douban Internet users. I personally feel very pertinent. I hereby recommend it. In contrast, you will find the textbook of linear algebra for engineering in domestic universities: Tongji ’s linear algebra (Recommended review book for engineering postgraduate) Too bad.</p>
-<p>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvZG91YmFuX0ludHJvZHV0aW9uLXRvLWxpbmVhci1hbGdlYnJhLnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/douban_Introdution-to-linear-algebra.png<i class="fa fa-external-link-alt"></i></span>)</p>
-]]></content>
-      <categories>
-        <category>Machine Learning Maths</category>
-      </categories>
-      <tags>
-        <tag>linear_algebra</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>summary of Improving-Deep-Neural-Networks</title>
+    <title>Summary of Improving-Deep-Neural-Networks</title>
     <url>/2018/03/02/summary_of_Improving-Deep-Neural-Networks/</url>
     <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal summary after studying the course, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL2RlZXAtbmV1cmFsLW5ldHdvcmsv">Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<i class="fa fa-external-link-alt"></i></span>, which belongs to Deep Learning Specialization. and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
 <a id="more"></a>
@@ -745,7 +632,7 @@ return Table [j] [i];</code></pre><p>}</p>
       </tags>
   </entry>
   <entry>
-    <title>summary of convolutional neural networks</title>
+    <title>Summary of convolutional neural networks</title>
     <url>/2018/05/04/summary_of_convolutional-neural-networks/</url>
     <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal summary after studying the course, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL2NvbnZvbHV0aW9uYWwtbmV1cmFsLW5ldHdvcmtz">convolutional neural networks<i class="fa fa-external-link-alt"></i></span>, which belongs to Deep Learning Specialization. and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
 <a id="more"></a>
@@ -827,26 +714,7 @@ return Table [j] [i];</code></pre><p>}</p>
       </tags>
   </entry>
   <entry>
-    <title>summary of Machine Learning</title>
-    <url>/2018/01/20/summary_of_ml-coursera-andrew-ng/</url>
-    <content><![CDATA[<h2 id="The-content-table-of-Machine-Learning"><a href="#The-content-table-of-Machine-Learning" class="headerlink" title="The content table of Machine Learning"></a>The content table of Machine Learning</h2><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL21hY2hpbmUtbGVhcm5pbmcv">This course<i class="fa fa-external-link-alt"></i></span> is a coursera version teached by Andrew NG, AP of Stanford University, which corresponds to the full-time campus version CS229 at Stanford university, that is increasingly difficult version.</p>
-<a id="more"></a> 
-<p><a href="/2018/01/01/01_what-is-machine-learning/">01_introduction</a><br><a href="/2018/01/02/02_linear-regression-with-one-variable/">02_linear-regression-with-one-variable</a><br><a href="/2018/01/03/03_linear-algebra-review/">03_linear-algebra-review</a><br><a href="/2018/01/04/04_linear-regression-with-multiple-variables/">04_linear-regression-with-multiple-variables</a><br><a href="/2018/01/01/05_octave-matlab-tutorial/">05_octave-matlab-tutorial</a><br><a href="/2018/01/06/06_logistic-regression/">06_logistic-regression</a><br><a href="/2018/01/07/07_regularization/">07_regularization</a><br><a href="/2018/01/08/08_neural-networks-representation/">08_neural-networks-representation</a><br><a href="/2018/01/09/09_neural-networks-learning/">09_neural-networks-learning</a><br><a href="/2018/01/10/10_advice-for-applying-machine-learning/">10_advice-for-applying-machine-learning</a><br><a href="/2018/01/12/12_support-vector-machines/">11_machine-learning-system-design</a><br><a href="/2018/01/12/12_support-vector-machines/">12_support-vector-machines</a><br><a href="/2018/01/13/13_unsupervised-learning/">13_unsupervised-learning</a><br><a href="/2018/01/14/14_dimensionality-reduction/">14_dimensionality-reduction</a><br><a href="/2018/01/15/15_anomaly-detection/">15_anomaly-detection</a><br><a href="/2018/01/16/16_recommender-systems/">16_recommender-systems</a><br><a href="/2018/01/17/17_large-scale-machine-learning/">17_large-scale-machine-learning</a><br><a href="/2018/01/18/18_application-example-photo-ocr/">18_application-example-photo-ocr</a></p>
-<h2 id="my-class-assignments"><a href="#my-class-assignments" class="headerlink" title="my class assignments"></a>my class assignments</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2thcmFuMzZrL0NvdXJzZXJhLVN0YW5kZm9yZC1NTA==">ex1 -&gt; ex8<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="Conclusion-of-Andrew-NG"><a href="#Conclusion-of-Andrew-NG" class="headerlink" title="Conclusion of Andrew NG"></a>Conclusion of Andrew NG</h2><p>Welcome to the final video of this Machine Learning class. We’ve been through a lot of different videos together. In this video I would like to just quickly summarize the main topics of this course and then say a few words at the end and that will wrap up the class. So what have we done? </p>
-<h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/40.png" alt=""><br>In this class we spent a lot of time talking about supervised learning algorithms like linear regression, logistic regression, neural networks, SVMs. for problems where you have labelled data and labelled examples like x(i), y(i) And we also spent quite a lot of time talking about unsupervised learning like K-means clustering, Principal Components Analysis for dimensionality reduction and Anomaly Detection algorithms for when you have only unlabelled data x(i) Although Anomaly Detection can also use some labelled data to evaluate the algorithm. We also spent some time talking about special applications or special topics like Recommender Systems and large scale machine learning systems including parallelized and rapid-use systems as well as some special applications like sliding windows object classification for computer vision. And finally we also spent a lot of time talking about different aspects of, sort of, advice on building a machine learning system. And this involved both trying to understand what is it that makes a machine learning algorithm work or not work. So we talked about things like bias and variance, and how regularization can help with some variance problems. And we also spent a little bit of time talking about this question of how to decide what to work on next. So, how to prioritize how you spend your time when you’re developing a machine learning system. So we talked about evaluation of learning algorithms, evaluation metrics like  precision recall, F1 score as well as practical aspects of evaluation like the training, cross-validation and test sets. And we also spent a lot of time talking about debugging learning algorithms and making sure the learning algorithm is working. So we talked about diagnostics like learning curves and also talked about things like error analysis and ceiling analysis. And so all of these were different tools for helping you to decide what to do next and how to spend your valuable time when you’re developing a machine learning system. And in addition to having the tools of machine learning at your disposal so knowing the tools of machine learning like supervised learning and unsupervised learning and so on, I hope that you now not only have the tools, but that you know how to apply these tools really well to build powerful machine learning systems. So, that’s it. Those were the topics of this class and if you worked all the way through this course you should now consider yourself an expert in machine learning. As you know, machine learning is a technology that’s having huge impact on science, technology and industry. And you’re now well qualified to use these tools of machine learning to great effect. </p>
-<h2 id="THX"><a href="#THX" class="headerlink" title="THX"></a>THX</h2><p>I hope that many of you in this class will find ways to use machine learning to build cool systems and cool applications and cool products. And I hope that you find ways to use machine learning not only to make <i>your</i> life better but maybe someday to use it to make many other people’s life better as well. I also wanted to let you know that this class has been great fun for me to teach. So, thank you for that. And before wrapping up, there’s just one last thing I wanted to say. Which is that: It was maybe not so long ago, that I was a student myself. And even today, you know, I still try to take different courses when I have time to try to learn new things. And so I know how time-consuming it is to learn this stuff. I know that you’re probably a busy person with many, many other things going on in your life. And so the fact that you still found the time or took the time to watch these videos and, you know, many of these videos just went on for hours, right? And the fact many of you took the time to go through the review questions and that many of you took the time to work through the programming exercises. And these were long and complicate programming exercises. I wanted to say thank you for that. And I know that many of you have worked hard on this class and that many of you have put a lot of time into this class, that many of you have put a lot of yourselves into this class. So I hope that you also got a lot of out this class. And I wanted to say: Thank you very much for having been a student in this class.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/41.png" alt=""></p>
-<h2 id="My-Grades"><a href="#My-Grades" class="headerlink" title="My Grades"></a>My Grades</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/MyTotalGrade.png" alt="Overall grade of this course"><br>Here are <span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9tbC1hbmRyZXctbmcvTUwtR3JhZGVzLnBkZg==">the details of my grades<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Machine Learning by Andrew NG</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>summary of learning Deep Learning Specialization</title>
+    <title>Summary of learning Deep Learning Specialization</title>
     <url>/2018/06/28/summary_of_learning_of_Deep_Learning_Specializatio_on_Coursera/</url>
     <content><![CDATA[<p>This is my summary of learning <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL3NwZWNpYWxpemF0aW9ucy9kZWVwLWxlYXJuaW5n">Deep Learning Specialization<i class="fa fa-external-link-alt"></i></span> on Coursera, which consists of 5 courses as following: <a id="more"></a></p>
 <ul>
@@ -872,201 +740,6 @@ return Table [j] [i];</code></pre><p>}</p>
       </categories>
       <tags>
         <tag>deep learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>summary of neural-networks-deep-learning</title>
-    <url>/2018/02/08/summary_of_neural-networks-deep-learning/</url>
-    <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal summary after studying the course <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL25ldXJhbC1uZXR3b3Jrcy1kZWVwLWxlYXJuaW5nLw==">neural-networks-deep-learning<i class="fa fa-external-link-alt"></i></span>, which belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL3NwZWNpYWxpemF0aW9ucy9kZWVwLWxlYXJuaW5n">Deep Learning Specialization<i class="fa fa-external-link-alt"></i></span>. and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
-<a id="more"></a> 
-<h2 id="My-personal-notes"><a href="#My-personal-notes" class="headerlink" title="My personal notes"></a>My personal notes</h2><p>$1_{st}$ week: <a href="/2018/02/01/01_introduction-to-deep-learning/">introduction-to-deep-learning</a></p>
-<ul>
-<li><a href="/2018-04-02/01_introduction-to-deep-learning/#01_introduction-to-deep-learning">01_introduction-to-deep-learning</a><ul>
-<li>[01_What is neural network?](/2018-04-02/01_introduction-to-deep-learning/#01_What is neural network?)<ul>
-<li>[Example 1 – single neural network](/2018-04-02//01_introduction-to-deep-learning/#Example 1 – single neural network)</li>
-<li>[Example 2 – Multiple neural network](/2018-04-02//01_introduction-to-deep-learning/#Example 2 – Multiple neural network)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="/2018-04-02/01_introduction-to-deep-learning/#02_supervised-learning-with-neural-networks">02_supervised-learning-with-neural-networks</a><ul>
-<li>[Supervised learning for Neural Network](/2018-04-02/01_introduction-to-deep-learning/#Supervised learning for Neural Network)</li>
-<li>[Structured vs unstructured data](/2018-04-02/01_introduction-to-deep-learning/#Structured vs unstructured data)</li>
-</ul>
-</li>
-<li><a href="/2018-04-02/01_introduction-to-deep-learning/#03_why-is-deep-learning-taking-off">03_why-is-deep-learning-taking-off</a><ul>
-<li>[Why is deep learning taking off?](/2018-04-02/01_introduction-to-deep-learning/#Why is deep learning taking off?)</li>
-</ul>
-</li>
-<li><a href="/2018-04-02/01_introduction-to-deep-learning/#04_about-this-course">04_about-this-course</a><ul>
-<li>[Outline of this Course](/2018-04-02/01_introduction-to-deep-learning/#Outline of this Course)</li>
-</ul>
-</li>
-</ul>
-<p>$2_{nd}$ week: <a href="/2018/02/02/02_neural-networks-basics/">neural-networks-basics</a></p>
-<ul>
-<li><a href="/2018/02/02/02_neural-networks-basics/#01_logistic-regression-as-a-neural-network">01_logistic-regression-as-a-neural-network</a><ul>
-<li><a href="/2018/02/02/02_neural-networks-basics/#01_binary-classification">01_binary-classification</a><ul>
-<li>[Binary Classification](/2018/02/02/02_neural-networks-basics/#Binary Classification)</li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#notation">notation</a></li>
-</ul>
-</li>
-<li>[02_Logistic Regression](/2018/02/02/02_neural-networks-basics/#02_Logistic Regression)<ul>
-<li>[Example: Cat vs No - cat](/2018/02/02/02_neural-networks-basics/#Example: Cat vs No - cat)</li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#notation">notation</a></li>
-</ul>
-</li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#03_logistic-regression-cost-function">03_logistic-regression-cost-function</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#04_gradient-descent">04_gradient-descent</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#05_06_derivatives">05_06_derivatives</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#07_computation-graph">07_computation-graph</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#09_logistic-regression-gradient-descent">09_logistic-regression-gradient-descent</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#10_gradient-descent-on-m-examples">10_gradient-descent-on-m-examples</a><ul>
-<li>[one single step gradient descent](/2018/02/02/02_neural-networks-basics/#one single step gradient descent)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#02_python-and-vectorization">02_python-and-vectorization</a><ul>
-<li><a href="/2018/02/02/02_neural-networks-basics/#01_vectorization">01_vectorization</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#02_more-vectorization-examples">02_more-vectorization-examples</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#03_vectorizing-logistic-regression">03_vectorizing-logistic-regression</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#04_vectorizing-logistic-regressions-gradient-output">04_vectorizing-logistic-regressions-gradient-output</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#05_broadcasting-in-python">05_broadcasting-in-python</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#06_a-note-on-python-numpy-vectors">06_a-note-on-python-numpy-vectors</a><ul>
-<li>[one rank array](/2018/02/02/02_neural-networks-basics/#one rank array)</li>
-<li>[practical tips](/2018/02/02/02_neural-networks-basics/#practical tips)</li>
-</ul>
-</li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#07_quick-tour-of-jupyter-ipython-notebooks">07_quick-tour-of-jupyter-ipython-notebooks</a></li>
-<li><a href="/2018/02/02/02_neural-networks-basics/#08_explanation-of-logistic-regression-cost-function-optional">08_explanation-of-logistic-regression-cost-function-optional</a></li>
-</ul>
-</li>
-</ul>
-<p>$3_{rd}$ week: <a href="/2018/02/03/03_shallow-neural-networks/">shallow-neural-networks</a></p>
-<ul>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#01_neural-networks-overview">01_neural-networks-overview</a></li>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#02_neural-network-representation">02_neural-network-representation</a></li>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#03_computing-a-neural-networks-output">03_computing-a-neural-networks-output</a></li>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#04_vectorizing-across-multiple-examples">04_vectorizing-across-multiple-examples</a></li>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#05_explanation-for-vectorized-implementation">05_explanation-for-vectorized-implementation</a></li>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#06_activation-functions">06_activation-functions</a></li>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#07_why-do-you-need-non-linear-activation-functions">07_why-do-you-need-non-linear-activation-functions</a></li>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#08_derivatives-of-activation-functions">08_derivatives-of-activation-functions</a></li>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#09_gradient-descent-for-neural-networks">09_gradient-descent-for-neural-networks</a></li>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#10_backpropagation-intuition-optional">10_backpropagation-intuition-optional</a></li>
-<li><a href="/2018/02/03/03_shallow-neural-networks/#11_random-initialization">11_random-initialization</a></li>
-</ul>
-<p>$4_{th}$ week: <a href="/2018/02/04/04_deep-neural-networks/">deep-neural-networks</a></p>
-<ul>
-<li><a href="/2018/02/04/04_deep-neural-networks/#01_deep-neural-network">01_deep-neural-network</a></li>
-<li><a href="/2018/02/04/04_deep-neural-networks/#02_forward-propagation-in-a-deep-network">02_forward-propagation-in-a-deep-network</a></li>
-<li><a href="/2018/02/04/04_deep-neural-networks/#03_getting-your-matrix-dimensions-right">03_getting-your-matrix-dimensions-right</a><ul>
-<li>[one training example](/2018/02/04/04_deep-neural-networks/#one training example)</li>
-<li>[m training examples](/2018/02/04/04_deep-neural-networks/#m training examples)</li>
-</ul>
-</li>
-<li><a href="/2018/02/04/04_deep-neural-networks/#04_why-deep-representations">04_why-deep-representations</a></li>
-<li><a href="/2018/02/04/04_deep-neural-networks/#05_building-blocks-of-deep-neural-networks">05_building-blocks-of-deep-neural-networks</a></li>
-<li><a href="/2018/02/04/04_deep-neural-networks/#06_forward-and-backward-propagation">06_forward-and-backward-propagation</a></li>
-<li><a href="/2018/02/04/04_deep-neural-networks/#07_parameters-vs-hyperparameters">07_parameters-vs-hyperparameters</a></li>
-<li><a href="/2018/02/04/04_deep-neural-networks/#08_what-does-this-have-to-do-with-the-brain">08_what-does-this-have-to-do-with-the-brain</a></li>
-</ul>
-<h2 id="My-personal-programming-assignments"><a href="#My-personal-programming-assignments" class="headerlink" title="My personal programming assignments"></a>My personal programming assignments</h2><p>week 1 and week 2: <a href="/2018/02/05/logistic-regression-with-a-neural-network-mindset_week1_and_week2/">logistic-regression-with-a-neural-network-mindset</a><br>week 3: <a href="/2018/02/06/planar-data-classification-with-one-hidden%20layer_week3/">Planar data classification with a hidden layer</a><br>week 4 part 1: <a href="/2018/02/07/Building-your-Deep-Neural-Network_week4/">Building your deep neural network: Step by Step</a><br>week 4 part 2: <a href="/2018/02/07/Building-your-Deep-Neural-Network_week4/#Part-2%EF%BC%9ADeep-Neural-Network-for-Image-Classification-Application">deep-neural-network-application</a></p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>neural-networks-deep-learning</tag>
-        <tag>deep learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>summary of nlp sequence models</title>
-    <url>/2018/06/06/summary_of_nlp-sequence-models/</url>
-    <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal summary after studying the course, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL25scC1zZXF1ZW5jZS1tb2RlbHMv">nlp sequence models<i class="fa fa-external-link-alt"></i></span>, which belongs to Deep Learning Specialization. and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
-<a id="more"></a> 
-<h2 id="My-personal-note"><a href="#My-personal-note" class="headerlink" title="My personal note"></a>My personal note</h2><p>$1_{st}$ week : <a href="/2018/06/01/01_recurrent-neural-networks/">Building a Recurrent Neural Network Step by Step</a></p>
-<ul>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###01_why-sequence-models">01_why-sequence-models</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###02_notation">02_notation</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###03_recurrent-neural-network-model">03_recurrent-neural-network-model</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###04_backpropagation-through-time">04_backpropagation-through-time</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###05_different-types-of-rnns">05_different-types-of-rnns</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###06_language-model-and-sequence-generation">06_language-model-and-sequence-generation</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###07_sampling-novel-sequences">07_sampling-novel-sequences</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###08_vanishing-gradients-with-rnns">08_vanishing-gradients-with-rnns</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###09_gated-recurrent-unit-gru">09_gated-recurrent-unit-gru</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###10_long-short-term-memory-lstm">10_long-short-term-memory-lstm</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###11_bidirectional-rnn">11_bidirectional-rnn</a></li>
-<li><a href="/2018/06/01/01_recurrent-neural-networks/###12_deep-rnns">12_deep-rnns</a></li>
-</ul>
-<p>$2_{nd}$ week : <a href="/2018/06/02/02_natural-language-processing-word-embeddings/">natural language processing word embeddings</a></p>
-<ul>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/##01_introduction-to-word-embeddings">01_introduction-to-word-embeddings</a><ul>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###01_word-representation">01_word-representation</a></li>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###02_using-word-embeddings">02_using-word-embeddings</a></li>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###03_properties-of-word-embeddings">03_properties-of-word-embeddings</a></li>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###04_embedding-matrix">04_embedding-matrix</a></li>
-</ul>
-</li>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/##02_learning-word-embeddings-word2vec-glove">02_learning-word-embeddings-word2vec-glove</a><ul>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###01_learning-word-embeddings">01_learning-word-embeddings</a></li>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###02_word2vec">02_word2vec</a></li>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###03_negative-sampling">03_negative-sampling</a></li>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###04_glove-word-vectors">04_glove-word-vectors</a></li>
-</ul>
-</li>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/##03_applications-using-word-embeddings">03_applications-using-word-embeddings</a><ul>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###01_sentiment-classification">01_sentiment-classification</a></li>
-<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###02_debiasing-word-embeddings">02_debiasing-word-embeddings</a></li>
-</ul>
-</li>
-</ul>
-<p>$3_{rd}$ week : <a href="/2018/06/03/03_sequence-models-attention-mechanism/">sequence models attention mechanism</a></p>
-<ul>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/##01_various-sequence-to-sequence-architectures">01_various-sequence-to-sequence-architectures</a><ul>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###01_basic-models">01_basic-models</a></li>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###02_picking-the-most-likely-sentence">02_picking-the-most-likely-sentence</a></li>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###03_beam-search">03_beam-search</a></li>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###04_refinements-to-beam-search">04_refinements-to-beam-search</a></li>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###05_error-analysis-in-beam-search">05_error-analysis-in-beam-search</a></li>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###06_bleu-score-optional">06_bleu-score-optional</a></li>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###07_attention-model-intuition">07_attention-model-intuition</a></li>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###08_attention-model">08_attention-model</a></li>
-</ul>
-</li>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/##02_speech-recognition-audio-data">02_speech-recognition-audio-data</a><ul>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###01_speech-recognition">01_speech-recognition</a></li>
-<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###02_trigger-word-detection">02_trigger-word-detection</a></li>
-</ul>
-</li>
-</ul>
-<p><a href="/2018/06/03/03_sequence-models-attention-mechanism/###conclusion-and-thank-you">conclusion of Deep Learning Specialization and thank-you</a></p>
-<h2 id="My-personal-programming-assignments"><a href="#My-personal-programming-assignments" class="headerlink" title="My personal programming assignments"></a>My personal programming assignments</h2><p>$1_{st}$ week:</p>
-<ol>
-<li><a href="/2018/06/02/Building+a+Recurrent+Neural+Network+-+Step+by+Step+-+v3">Building a Recurrent Neural Network Step by Step</a></li>
-<li><a href="/2018/06/02/Dinosaurus+Island+--+Character+level+language+model+final+-+v3/">Dinosaurus Island Character level language model final</a></li>
-<li><a href="/2018/06/02/Improvise+a+Jazz+Solo+with+an+LSTM+Network+-+v3/">Improvise a Jazz Solo with an LSTM Network</a></li>
-</ol>
-<p>$2_{nd}$ week:</p>
-<ol>
-<li><a href="/2018/06/03/Operations+on+word+vectors+-+v2/">Word Vector Representation</a></li>
-<li><a href="/2018/06/03/Emojify+-+v2/">Emojify</a></li>
-</ol>
-<p>$3_{rd}$ week:</p>
-<ol>
-<li><a href="/2018/06/05/Neural+machine+translation+with+attention+-+v4/">machine translation</a></li>
-<li><a href="/2018/06/06/Trigger%20word%20detection%20-%20v1/">Trigger word</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>deep learning</tag>
-        <tag>nlp-sequence-models</tag>
       </tags>
   </entry>
   <entry>
@@ -1290,7 +963,7 @@ $$
       </tags>
   </entry>
   <entry>
-    <title>03_linear-algebra-review note3</title>
+    <title>Linear Algebra Review</title>
     <url>/2018/01/03/03_linear-algebra-review/</url>
     <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This personal note is written after studying the coursera opening course, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL21hY2hpbmUtbGVhcm5pbmcvaG9tZS93ZWxjb21l">Machine Learning by Andrew NG<i class="fa fa-external-link-alt"></i></span> . And images, audios of this note all comes from the opening course. </p>
 <a id="more"></a> 
@@ -1559,7 +1232,7 @@ $$
       </tags>
   </entry>
   <entry>
-    <title>07_regularization note7</title>
+    <title>Regularization note7</title>
     <url>/2018/01/07/07_regularization/</url>
     <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This personal note is written after studying the opening course on <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3Jn">the coursera website<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL21hY2hpbmUtbGVhcm5pbmcvaG9tZS93ZWxjb21l">Machine Learning by Andrew NG<i class="fa fa-external-link-alt"></i></span> . And images, audios of this note all comes from the opening course. </p>
 <a id="more"></a> 
@@ -3360,7 +3033,7 @@ _________________________________________________________________</code></pre><f
       </tags>
   </entry>
   <entry>
-    <title>03_shallow-neural-networks</title>
+    <title>Shallow Neural Networks</title>
     <url>/2018/02/03/03_shallow-neural-networks/</url>
     <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note at the third week after studying the course <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL25ldXJhbC1uZXR3b3Jrcy1kZWVwLWxlYXJuaW5nLw==">neural-networks-deep-learning<i class="fa fa-external-link-alt"></i></span> and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
 <a id="more"></a> 
@@ -5226,538 +4899,6 @@ that youn thou </code></pre><p>The RNN-Shakespeare model is very similar to the 
       <tags>
         <tag>deep learning</tag>
         <tag>nlp-sequence-models</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vim without plugins</title>
-    <url>/2016/01/20/vim_without_widgets/</url>
-    <content><![CDATA[<p>This article will be continuously updated based on experience.</p>
-<a id="more"></a> 
-<h2 id="Four-modes-of-vim"><a href="#Four-modes-of-vim" class="headerlink" title="Four modes of vim"></a>Four modes of vim</h2><ol>
-<li><p>General mode: normal mode. You can move the cursor, delete characters or entire lines, and copy and paste file data. Opening vim is to enter this mode, and the switching between the three modes is also transferred here.</p>
-</li>
-<li><p>Edit mode: In general mode, press any one of <code>i``I``o`` O</code> <code>a`` A</code> <code>r`` R</code> <code>s`` S</code> to enter this mode. You can edit the content of the file and press Esc to return to the normal mode.</p>
-<p> -<code>i`` I</code> is insert (in front of the character under the cursor and at the beginning of the line)<br> -<code>o`` O</code> is open new line (start a new line below the line where the cursor is and start a new line above the line where the cursor is<br> -<code>a`` A</code> is append (after the character under the cursor and at the end of the line where the cursor is)<br> -<code>s`` S</code> is to delete (the character where the cursor is and start inserting and the line where the cursor is and start inserting), that is, substitute replacement.<br> -<code>r`` R</code> is to replace the character under the cursor and become the replacement mode</p>
-</li>
-<li><p>Command line mode: Press <code>:</code> <code>/</code> <code>in normal mode?</code>Any one enters this mode (the meaning of these symbols will be described below). You can find data operations, read, save, replace a lot of characters, leave vim, display line number and other operations, press Esc to return to the general mode.</p>
-</li>
-<li><p>Visual mode: In general mode, press <code>v`` V</code> <code>ctr + v</code> to enter the visual mode, which is equivalent to the normal mode after highlighting the selected text, that is, in this mode, you can arbitrarily select a specific area and be The selected area is highlighted, <code>v</code> selects the unit: one character;<code>V</code> is also called the visible line mode, select the unit: line; <code>ctr + v</code> is also called the visible block mode, select the unit: square ; All three are useful, see below for details.</p>
-</li>
-</ol>
-<h2 id="Mobile"><a href="#Mobile" class="headerlink" title="Mobile"></a>Mobile</h2><p>In normal mode:</p>
-<p><code>w</code> → to the beginning of the next word<code>e</code> → to the end of the next word (words are separated by spaces by default)<br><code>W</code> → to the beginning of the next string<code>E</code> → to the end of the next string (a string refers to a string consisting of numbers, letters, and underscores)<br><code>B</code> → Go to the first character of the previous string. The<code>b</code> → “command moves the cursor to the first character of the previous word.</p>
-<blockquote>
-<p>By default, a word is composed of letters, numbers and underscores<br>If you think words are separated by blank characters, then you need to use uppercase E and W (Chen Hao: Note)</p>
-</blockquote>
-<p><code>0</code> → number zero, to the beginning of the line<br><code>^</code> → Go to the first position of the line that is not a blank character (the so-called blank character is a space, tab, line feed, carriage return, etc.)<br><code>$</code> → Go to the end of the line<br><code>g_</code> → to the last position of the line that is not a blank character<br><code>%</code> → Go to the other of the pair of brackets where the cursor is<br><code>gg</code> → first line<br><code>G</code> → last line<br><code>h`` j</code> <code>k`` l</code> (strong examples recommend using it to move the cursor, but it is not necessary) → you can also use the cursor keys (← ↓ ↑ →). Note: j extends downwards, k extends upwards</p>
-<ol>
-<li>** High frequency usage scenario 1 **: Change a variable name in the line first and move the cursor: <code>w</code> and<code>b</code>, <code>W</code> and<code>B</code> (or if the line is too long, use the following Search function) to the target word</li>
-<li>** High frequency usage scenario 2 **: Modify the indent and jump to the beginning of the line<code>^</code></li>
-<li>** High frequency usage scenario 3 **: View the completeness of the function or class or the variable scope <code>%</code></li>
-<li>** High frequency usage scenario 4 **: After splitting the screen, jump to different windows: <code>ctrl + w + (h or j or k or l)</code></li>
-<li>** High-frequency use scene 5 **: Move left (left, top, right) <code>(h, j, k, l)</code></li>
-<li>** High frequency usage scenario 6 **: Delete to the end: <code>d $</code> Delete to the beginning: <code>d ^</code></li>
-</ol>
-<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><p>Note: ** mark is to find better **, in normal mode:</p>
-<p><code>mx</code> meaning: mark x, x is the name of mark;<br><code>&#39;x</code> meaning: go to the position of x mark</p>
-<ol>
-<li>** High-frequency usage scenario 1: ** You can see how to define other functions in the function. You want to see how to define them. After you read it, you need to come back. Then mark it first, and then jump back.</li>
-</ol>
-<h3 id="Syntax-related-jumps"><a href="#Syntax-related-jumps" class="headerlink" title="Syntax related jumps"></a>Syntax related jumps</h3><p>In normal mode:</p>
-<ol>
-<li><code>gd</code> meaning: go to definition</li>
-<li>Press <code>[</code> and then <code>ctrl + d</code> to jump to #define</li>
-<li>Press <code>[</code> and then <code>ctrl + i</code> to jump to functions, variables and #define</li>
-</ol>
-<p>** Note **: The language support is not very good, you can try the language used</p>
-<h3 id="Quick-page-turning"><a href="#Quick-page-turning" class="headerlink" title="Quick page turning"></a>Quick page turning</h3><p>In normal mode:</p>
-<table>
-<thead>
-<tr>
-<th>Partner 1</th>
-<th>Partner 2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>ctr + d</code> page down</td>
-<td><code>ctr + d</code> page up</td>
-</tr>
-<tr>
-<td><code>ctr + f</code> page forward</td>
-<td><code>ctr + b</code> page back</td>
-</tr>
-</tbody></table>
-<h2 id="Action-operation-instruction"><a href="#Action-operation-instruction" class="headerlink" title="Action operation instruction"></a>Action operation instruction</h2><p>In normal mode:</p>
-<table>
-<thead>
-<tr>
-<th>Partner 1</th>
-<th>Partner 2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>d</code> ** d ** elete a character and copy to clipboard</td>
-<td><code>D</code> has been ** deleted ** from the cursor position to the end of the line</td>
-</tr>
-<tr>
-<td><code>y</code> ** c ** opy to clipboard</td>
-<td><code>Y</code> ** Copy ** one line (= <code>yy</code>)</td>
-</tr>
-<tr>
-<td><code>s</code> ** s ** ubstitue a character</td>
-<td><code>S</code> ** Replace ** the line where the cursor is located</td>
-</tr>
-<tr>
-<td><code>r</code> ** r ** eplace a character</td>
-<td><code>R</code>* Not commonly used *, which means to enter replacement mode</td>
-</tr>
-<tr>
-<td><code>c</code> ** c ** hange a character</td>
-<td><code>C</code> * Not commonly used <em>, which means *</em> modify ** the cursor position until the end of the line, the same effect as <code>S</code> rendering</td>
-</tr>
-<tr>
-<td><code>p</code> ** p ** aste after the cursor</td>
-<td><code>P</code> ** Paste ** before the cursor position (if you paste a whole line, paste to the previous line)</td>
-</tr>
-<tr>
-<td><code>u</code> ** u ** ndo a operation</td>
-<td><code>U</code> one-time ** undo ** all operations on a whole line</td>
-</tr>
-<tr>
-<td><code>x</code> cut a character</td>
-<td><code>X</code> * not commonly used <em>, *</em> cut ** to the left, ie backspace: delete the character to the left of the cursor</td>
-</tr>
-<tr>
-<td>** `** Search the word under the current cursor ** downward, and jump to the next word when found</td>
-<td><code>#</code>** Search the word under the current cursor ** upward, jump to the previous word when found</td>
-</tr>
-<tr>
-<td><code>/ word</code> ** Search the word word ** down to the full text, jump to the first word that matches, if there are multiple, continue to search down and press the n key (in the direction of the original command), up to press the N key.</td>
-<td><code>? word</code> ** Search the word word ** up the full text, jump to the first word that matches, and if there are multiple, continue to search upwards and press the n key (in the direction of the original command), down to press the N key.</td>
-</tr>
-<tr>
-<td><code>a</code> ** a ** ppend after the cursor</td>
-<td><code>A</code> is ** append ** at the end of the line where the cursor is located)</td>
-</tr>
-<tr>
-<td><code>i</code> ** i ** nsert before the cursor</td>
-<td><code>I</code> ** insert ** at the beginning of the line where the cursor is located</td>
-</tr>
-<tr>
-<td><code>o</code> Start a new line below the line under the cursor, open the new world?</td>
-<td><code>O</code> starts a new line above the line where the cursor is located</td>
-</tr>
-<tr>
-<td><code>v</code> enters ** v ** isual mode, used to select areas (can cross lines), used to cooperate with other subsequent operations (addition, deletion, and modification)</td>
-<td><code>v</code> enters visual line mode, used to select some lines, use To cooperate with other follow-up operations (addition, deletion and modification)</td>
-</tr>
-<tr>
-<td><code>f</code> ** f ** ind a character after the cursor</td>
-<td><code>F</code> ** find a character before the cursor position **</td>
-</tr>
-<tr>
-<td><code>t</code> ** t ** ill a character tx is the same as fx, the difference is to jump to the character x</td>
-<td><code>T</code> Tx and Fx are the same, the difference is to jump to the character x</td>
-</tr>
-</tbody></table>
-<h3 id="Formed-separately"><a href="#Formed-separately" class="headerlink" title="Formed separately"></a>Formed separately</h3><p><code>.</code> Repeat the operation just now<br><code>~</code> Convert case</p>
-<ol>
-<li>You can change the case of the first letter of the variable</li>
-<li>You can select a string (variable) in combination with the commands provided below, and then change the case of the entire string (variable). For example: macro definition</li>
-</ol>
-<p><code>=</code> Auto format</p>
-<ol>
-<li>Use <code>==</code> for the current line (double press = twice), or use <code>n ==</code> for multiple lines (n is a natural number) to automatically indent the next n lines from the current line</li>
-<li>Or enter the visual line mode, select some lines and then <code>=</code> for formatting, which is equivalent to the code format in the general IDE.</li>
-<li>Use <code>gg = G</code> to typeset the entire code.</li>
-</ol>
-<h3 id="Undo-and-Redo"><a href="#Undo-and-Redo" class="headerlink" title="Undo and Redo"></a>Undo and Redo</h3><ol>
-<li><code>u</code> undo undoes the operation in the previous step. Commands can be combined. For example,<code>Nu</code> N is any integer, which means undoing the N-step operation. The following is the same.</li>
-<li><code>U</code> restore the current line (that is, undo all operations on the current line at once)</li>
-<li><code>ctr + r</code> control + redo restore the previous operation that was cancelled</li>
-<li><code>CTRL-R</code> back to the previous command</li>
-</ol>
-<h3 id="Text-replacement"><a href="#Text-replacement" class="headerlink" title="Text replacement"></a>Text replacement</h3><p>Enter the replacement command in normal mode: <code>: [range] s / pattern / string / [flags]</code></p>
-<p>-pattern is the string to be replaced, which can be expressed by regexp.<br>-string Replace pattern with string.<br>-[range] has the following values:</p>
-<table>
-<thead>
-<tr>
-<th>[range]</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>None</td>
-<td>Default is the line where the cursor is</td>
-</tr>
-<tr>
-<td><code>.</code></td>
-<td>Current line of cursor</td>
-</tr>
-<tr>
-<td><code>N</code></td>
-<td>Line N</td>
-</tr>
-<tr>
-<td><code>$</code></td>
-<td>Last line</td>
-</tr>
-<tr>
-<td><code>&#39;a</code></td>
-<td>Mark the line where a (marked with ma before)</td>
-</tr>
-<tr>
-<td><code>. + 1</code></td>
-<td>The line below the current cursor line</td>
-</tr>
-<tr>
-<td><code>$ -1</code></td>
-<td>The penultimate line, you can add or subtract a value to determine the relative line</td>
-</tr>
-<tr>
-<td><code>22,33</code></td>
-<td>Lines 22 to 33</td>
-</tr>
-<tr>
-<td><code>1, $</code></td>
-<td>line 1 to last line</td>
-</tr>
-<tr>
-<td><code>1, .</code></td>
-<td>line 1 to current line</td>
-</tr>
-<tr>
-<td><code>., $</code></td>
-<td>Current line to last line</td>
-</tr>
-<tr>
-<td><code>&#39;a,&#39; b</code></td>
-<td>Mark the line where a is to Mark the line where b (before using ma and mb to mark)</td>
-</tr>
-<tr>
-<td><code>%</code></td>
-<td>All rows (equivalent to 1, $)</td>
-</tr>
-<tr>
-<td><code>? str?</code></td>
-<td>Search up from the current position to find the line of the first str (where str can be any string or regular expression)</td>
-</tr>
-<tr>
-<td><code>/ str /</code></td>
-<td>Search down from the current position to find the line of the first str (where str can be any string or regular expression)</td>
-</tr>
-<tr>
-<td>** Note that all the above methods for range can be used to set the relative offset by + and-operations. **</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>-[flags] has the following values:</p>
-<table>
-<thead>
-<tr>
-<th>flags</th>
-<th>meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>g</code></td>
-<td>Replace all matches (global) within the specified range</td>
-</tr>
-<tr>
-<td><code>c</code></td>
-<td>Request user confirmation before replacement</td>
-</tr>
-<tr>
-<td><code>e</code></td>
-<td>Ignore errors during execution</td>
-</tr>
-<tr>
-<td><code>i</code></td>
-<td>ignore case-insensitive</td>
-</tr>
-<tr>
-<td>None</td>
-<td>Only the first match in the specified range is replaced</td>
-</tr>
-</tbody></table>
-<p>** Note: All the above flags can be used in combination. For example, gc means to replace all matches within the specified range, and the user will be asked to confirm before each replacement. **</p>
-<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p>Replace some lines</p>
-<ol>
-<li><code>: 10,20s / from / to / g</code> replaces lines 10 to 20.</li>
-<li><code>: 1, $ s / from / to / g</code> replaces the contents of the first line to the last line (that is, all text)</li>
-<li><code>: 1, .s / from / to / g</code> replaces the first line to the current line.</li>
-<li><code>:., $ S / from / to / g</code> replaces the content from the current line to the last line.</li>
-<li><code>: &#39;a,&#39; bs / from / to / g</code> replaces the line between the marks a and b (including the line where a and b are located), where a and b are the marks previously made with the m command .</li>
-</ol>
-<p>Replace all lines: <code>:% s / from / to / g</code></p>
-<h2 id="Repeat-the-action"><a href="#Repeat-the-action" class="headerlink" title="Repeat the action"></a>Repeat the action</h2><p>In normal mode, any action can be repeated</p>
-<p>Note: N is a number</p>
-<p>-Numbers: <code>Nyy</code> copies N lines down from the current line,<code>Ndd</code> deletes N lines down from the current line, <code>Ngg</code> jumps to the Nth line, and<code>dNw</code> deletes from the current cursor to the first Before N words (does not contain blanks, ie delete N-1 words), <code>yNe</code> copies from the current cursor to the end of the Nth word (note:<code>yy</code> = <code>1yy`` dd</code> = <code>1dd</code>), <code>d $</code> delete to the end of the line<br>-Repeat the previous command: <code>N.</code> (N indicates the number of repetitions)</p>
-<h2 id="Block-selection"><a href="#Block-selection" class="headerlink" title="Block selection"></a>Block selection</h2><p>Note: The brackets are optional</p>
-<p>In normal mode: <code>[ctr +] v + (h or j or k or l)</code></p>
-<ol>
-<li>** High frequency usage scenario 1 *<em>: <code>[ctr +] v</code> After selecting the head of some lines, then press<code>=</code>Effect: *</em> Code format is automatically adjusted **</li>
-<li>** High frequency usage scenario 2 *<em>: <code>[ctr +] v</code> After selecting some line headers, then press<code>I</code> and then press the comment symbol (for example: <code>//</code>) and finally press <code>ESC</code> effect : All the selected lines are commented *</em> Multi-line quick comment **</li>
-<li>** High frequency usage scenario 3 *<em>: <code>[ctr +] v</code> After selecting some line headers, then press<code>A</code>, then press the contents of the comment and finally press <code>ESC</code> (for example:<code>// This is a test Code</code>) Effect: All the lines at the end of the selected lines are commented on.//This is the test code` *</em> Multi-line quick comment **</li>
-<li>** High-frequency use scenario 4 *<em>: <code>[ctr +] v</code> select some line header comments (for example:<code>//</code>), then press<code>d</code> and finally press <code>ESC</code> effect: selected All these lines are commented out. *</em> Multi-line quick delete comments **</li>
-<li>** High-frequency use scenario 5 **: After selecting certain blocks, press [ctr +] v` and then press the above-mentioned action buttons to achieve regional operation</li>
-</ol>
-<h2 id="Powerful-combination"><a href="#Powerful-combination" class="headerlink" title="Powerful combination"></a>Powerful combination</h2><h3 id="Operate-a-word-under-the-cursor"><a href="#Operate-a-word-under-the-cursor" class="headerlink" title="Operate a word under the cursor"></a>Operate a word under the cursor</h3><p>In normal mode:</p>
-<p>Action + Move [+ Number of Repeats]<br>The combination has already been used a lot in the past, continue here:</p>
-<table>
-<thead>
-<tr>
-<th>Action Operation Command + Range</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>cw or c1 or c1w</td>
-<td>change from current cursor to word end</td>
-</tr>
-<tr>
-<td>caw</td>
-<td>change whole word including current cursor</td>
-</tr>
-<tr>
-<td>dw or d1 or d1w</td>
-<td>delete from current cursor to word end</td>
-</tr>
-<tr>
-<td>daw</td>
-<td>delete whole word including current cursor</td>
-</tr>
-<tr>
-<td>yw or y1 or y1w</td>
-<td>copy from current cursor to word end</td>
-</tr>
-<tr>
-<td>yaw</td>
-<td>copy whole word including current cursor</td>
-</tr>
-<tr>
-<td>d / word</td>
-<td>delete forward until the former character of the next ‘word’</td>
-</tr>
-<tr>
-<td>d? word</td>
-<td>delete backward until the former character of the last ‘word’</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>Action Operation Command + Range</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>dtc</td>
-<td>delete until before the next ‘c’</td>
-</tr>
-<tr>
-<td>dfc</td>
-<td>delete until after the next ‘c’</td>
-</tr>
-<tr>
-<td>Scope + Action Operation Command</td>
-<td>Effect</td>
-</tr>
-<tr>
-<td>———————</td>
-<td>———-</td>
-</tr>
-<tr>
-<td><code>bve</code> or<code>BvE</code> + c / d / y</td>
-<td>manipulate a variable or string</td>
-</tr>
-</tbody></table>
-<p>The above table are high-frequency use scenarios</p>
-<h2 id="Autocomplete"><a href="#Autocomplete" class="headerlink" title="Autocomplete"></a>Autocomplete</h2><p>Press directly in insert mode: the most commonly used completion</p>
-<p><code>`
-ctrl + n
-ctrl + p</code> `</p>
-<p>Smart completion</p>
-<p><code>`
-ctrl + x // Enter completion mode</code> `</p>
-<p>-Complete line completion <code>CTRL-X`` CTRL-L</code><br>-** Complete based on keywords in the current file ** <code>CTRL-X`` CTRL-N</code><br>-** Complete according to dictionary ** <code>CTRL-X`` CTRL-K</code><br>-Completion of <code>CTRL-X`` CTRL-T</code> according to thesaurus<br>-** Complete according to keywords in header file ** <code>CTRL-X`` CTRL-I</code><br>-Complete <code>CTRL-X`` CTRL-]</code>according to tags<br>-** Complete file name ** <code>CTRL-X`` CTRL-F</code><br>-Completion of macro definition <code>CTRL-X`` CTRL-D</code><br>-Completion of vim command <code>CTRL-X`` CTRL-V</code><br>-User-defined completion method <code>CTRL-X`` CTRL-U</code><br>-** Spelling suggestions ** <code>CTRL-X`` CTRL-S</code> // For example: an English word</p>
-<h2 id="Collapse"><a href="#Collapse" class="headerlink" title="Collapse"></a>Collapse</h2><p>In normal mode:</p>
-<p><code>`
-zo (fold + open)
-zi (fold + indent)
-zc (fold + close)</code> `</p>
-<h2 id="Split-screen"><a href="#Split-screen" class="headerlink" title="Split screen"></a>Split screen</h2><p>** Split command **, in normal mode, enter</p>
-<ol>
-<li><code>vs</code> (Description: Vertically split the screen vertically)</li>
-<li><code>sp</code> (Note: split horizontally splits the screen, which is the default splitting method)</li>
-</ol>
-<p>** Screens jump to each other **</p>
-<ol>
-<li><code>ctr + w</code> and then press<code>h</code> or <code>j</code> or<code>k</code> or <code>l</code></li>
-<li>Explanation: <code>h</code>: left,<code>j</code>: down, <code>k</code>: up,<code>l</code>: right</li>
-</ol>
-<p>** Resize the split window **</p>
-<ol>
-<li><code>ctrl + w</code> before pressing<code>+</code>or<code>-</code> or <code>=</code>, of course press a number before pressing <code>+</code> or <code>-</code> or<code>=</code>to change the window height,<code>=</code>is equal The meaning of points. .</li>
-<li>In normal mode, enter <code>: resize -N</code> or<code>: resize + N</code> to explicitly specify that the window is reduced or increased by N lines</li>
-<li><code>ctrl + w</code> before pressing<code>&lt;</code>or<code>&gt;</code>or<code>=</code>, of course press a number before pressing<code>&lt;</code>or<code>&gt;</code>or<code>=</code>to change the window width,<code>=</code>is equal The meaning of points.</li>
-<li>Sometimes preview large files and feel that the split screen is too small, <code>ctrl + w</code> +<code>T</code> moves the current window to a new tab.</li>
-</ol>
-<h2 id="tab-window"><a href="#tab-window" class="headerlink" title="tab window"></a>tab window</h2><p>Vim has added the function of multi-tab switching since vim7, which is equivalent to multiple windows. Although the previous version also has a multi-file editing function, it is not as convenient as this. Usage in normal mode:</p>
-<p>-<code>: tabnew</code> [++ opt option] [＋ cmd] file Create a new tab for the specified file<br>-<code>: tabc</code> closes the current tab or<code>: q</code><br>-<code>: tabo</code> close ** other ** tab<br>-<code>: tabs</code> view ** all open ** tabs<br>-<code>: tabp</code> previous tab window<br>-<code>: tabn</code> next tab window</p>
-<p> <code>gt</code>,<code>gT</code> can switch directly between tabs. There are many other commands,: help table.</p>
-<h2 id="table-of-Contents"><a href="#table-of-Contents" class="headerlink" title="table of Contents"></a>table of Contents</h2><p>In normal mode:</p>
-<ol>
-<li><code>: Te</code> displays the current directory in the form of a tab window, then you can switch directories and open a file</li>
-<li><code>:! Ls</code> This is how vim invokes shell commands<code>:! Ls + shell_command</code>, but it does not display the current directory in the form of a tab window.</li>
-</ol>
-<h2 id="Content-operation-of-paired-symbols"><a href="#Content-operation-of-paired-symbols" class="headerlink" title="Content operation of paired symbols"></a>Content operation of paired symbols</h2><p>The following commands can operate on the content within punctuation:</p>
-<ol>
-<li><code>ci&#39;`` ci &quot;</code> <code>ci (</code> <code>ci [</code> <code>ci {</code> <code>ci &lt;</code> respectively change the text content of these paired punctuation marks</li>
-<li><code>di&#39;``di&quot;</code>di (<code>or</code>dib<code>di [</code> di {<code>or</code> diB<code></code>di &lt;` delete the text content of these paired punctuation marks respectively</li>
-<li><code>yi&#39;`` yi &quot;</code> <code>yi (</code> <code>yi [</code> <code>yi {</code> <code>yi &lt;</code> separately copy the text content of these paired punctuation marks</li>
-<li><code>vi&#39;`` vi &quot;</code> <code>vi (</code> <code>vi [</code> <code>vi {</code> <code>vi &lt;</code> respectively select the text content of these paired punctuation marks</li>
-<li><code>cit`` dit</code> <code>yit`` vit</code> separately operate the content between a pair of tags, editing html is very useful</li>
-</ol>
-<p>** In addition, if you change the above <code>i</code> to<code>a</code>, you can operate the paired punctuation and the contents of the paired punctuation at the same time **, for example:</p>
-<p>For example, the text to be operated: 111 “222” 333, move the cursor to any character of “222” and enter the command</p>
-<p>-di “, the text will become: 111” “333<br>-If you enter the command da “, the text will become: 111333</p>
-<h2 id="Clipboard"><a href="#Clipboard" class="headerlink" title="Clipboard"></a>Clipboard</h2><h3 id="1-Simple-copy-and-paste"><a href="#1-Simple-copy-and-paste" class="headerlink" title="1. Simple copy and paste"></a>1. Simple copy and paste</h3><p>vim provides 12 clipboards, their names are vim and there are 11 pasteboards, which are 0, 1, 2, …, 9, a, “. If you open the system clipboard, there will be two more + And *. Use the: reg command to view the contents of each pasteboard.</p>
-<p>In vim, simply use <code>y</code> and just copy it into the clipboard of<code>&quot;</code>, and the same thing as paste with <code>p</code> is also the content of this clipboard.</p>
-<h3 id="2-Copy-and-paste-to-the-specified-clipboard"><a href="#2-Copy-and-paste-to-the-specified-clipboard" class="headerlink" title="2. Copy and paste to the specified clipboard"></a>2. Copy and paste to the specified clipboard</h3><p>To copy the content of vim to a pasteboard, enter the normal mode, select the content to be copied, then press <code>&quot; Ny</code> to complete the copy, where N is the pasteboard number (note that you click the double quotes and then press the pasteboard number Finally, press y), for example, to copy the content to the pasteboard a, select the content and press “ay”.</p>
-<p>To paste the contents of a vim pasteboard, you need to exit the editing mode, press <code>&quot; Np</code> in the normal mode, where N is the pasteboard number. For example, you can press <code>&quot; 5p</code> to paste the contents of pasteboard No. If you paste it in, you can also press <code>&quot; + p</code> to paste the content in the system global pasteboard.</p>
-<h3 id="3-System-Clipboard"><a href="#3-System-Clipboard" class="headerlink" title="3. System Clipboard"></a>3. System Clipboard</h3><p>To view the clipboard supported by vim, enter <code>: reg</code> in normal mode</p>
-<p>How should it be used to interact with the system clipboard? When you encounter problems, the first thing you are looking for is the help document. The Clipboard is the Clipboard. View help via <code>: h clipboard</code></p>
-<p>The asterisk * and plus sign + pasteboard are system pasteboards. Under Windows, * and + clipboards are the same. For X11 systems, * the clipboard stores the selected or highlighted content, and the clipboard stores the copied or cut content. Open the clipboard option, you can access + clipboard; open xterm_clipboard, you can access * clipboard. * One function of the clipboard is that the content selected in one window of vim can be taken out in another window of vim.</p>
-<p>** Copy to system clipboard **</p>
-<p>example:</p>
-<p><code>&quot; * y</code> <code>&quot; + y</code> <code>&quot; + Nyy</code> copy N lines to the system clipboard</p>
-<p>Explanation:</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>{Visual} “+ y</td>
-<td>copy the selected text into the system clipboard</td>
-</tr>
-<tr>
-<td>“+ y {motion}</td>
-<td>copy the text specified by {motion} into the system clipboard</td>
-</tr>
-<tr>
-<td>: [range] yank +</td>
-<td>copy the text specified by [range] into the system clipboard</td>
-</tr>
-</tbody></table>
-<p>** Cut to system clipboard **</p>
-<p>example:</p>
-<p>“+ dd</p>
-<p>** Paste from system clipboard to vim **</p>
-<p>In normal mode:</p>
-<ol>
-<li><code>&quot; * p</code></li>
-<li><code>&quot; + p</code></li>
-<li><code>: put +</code> Meaning: Ex command puts contents of system clipboard on a new line</li>
-</ol>
-<p>In insert mode:</p>
-<p><code>&lt;C-r&gt; +</code> Meaning: From insert mode (or commandline mode)</p>
-<p>“+ p is better than the Ctrl-v command, it can handle the pasting of large blocks of text faster and more reliably, and can also avoid the accumulation of automatic indentation at the beginning of each line when pasting a large amount of text, because Ctrl-v The system caches stream processing, processing the pasted text line by line.</p>
-<h2 id="vim-encoding"><a href="#vim-encoding" class="headerlink" title="vim encoding"></a>vim encoding</h2><p>Vim can edit all kinds of character encoding files very well, which of course includes popular Unicode encoding methods such as UCS-2 and UTF-8.</p>
-<p>Four character encoding options, encoding, fileencoding, fileencodings, and termencoding (for possible values ​​of these options, please refer to Vim online help: help encoding-names, their meanings are as follows:</p>
-<p>-** encoding **: The character encoding used internally by Vim</p>
-<p>Including Vim’s buffer (buffer), menu text, message text, etc. The default is to choose according to your locale. The user manual recommends changing its value only in .vimrc. In fact, it seems that it only makes sense to change its value in .vimrc. You can use another encoding to edit and save the file. For example, the encoding of your vim is utf-8, and the edited file uses cp936 encoding. Understand the way), and when you write a file, it will automatically switch back to cp936 (the file save encoding).</p>
-<p>-** fileencoding **: The character encoding of the currently edited file in Vim</p>
-<p>When Vim saves the file, it will also save the file in this character encoding (regardless of whether it is a new file).</p>
-<p>-** fileencodings **: Vim will automatically detect encoding settings</p>
-<p>When starting, it will detect the character encoding mode of the file to be opened one by one according to the character encoding mode listed in it, and set fileencoding to the character encoding mode finally detected. Therefore, it is best to put the Unicode encoding at the front of this list, and the Latin encoding at the end.</p>
-<p>-** termencoding **: The character encoding method of the terminal (or Windows console window) that Vim works on</p>
-<p>If the term where vim is located is the same as the vim encoding, you do not need to set it. If it is not the case, you can use vim’s termencoding option to automatically convert to term encoding. This option is not valid for gVim in our common GUI mode under Windows, and for Console mode Vim is the code page of the Windows console, and Usually we don’t need to change it. Okay, after explaining this bunch of parameters that can easily confuse novices, let’s take a look at how Vim’s multi-character encoding support works.</p>
-<ol>
-<li>Start Vim, and set the character encoding of buffer, menu text, and message according to the encoding value set in .vimrc.</li>
-<li>Read the file to be edited and detect the file encoding method one by one according to the character encoding methods listed in fileencodings. And set fileencoding to be detected, it looks correct (Note 1) Character encoding.</li>
-<li>Compare the values ​​of fileencoding and encoding. If they are different, call iconv to convert the file content to the character encoding method described by encoding, and put the converted content into the buffer developed for this file. At this time, we can start editing This file. Note that to complete this step, you need to call external iconv.dll (Note 2). You need to ensure that this file exists in $ VIMRUNTIME or other directories listed in the PATH environment variable.</li>
-<li>When saving the file after editing, compare the values ​​of fileencoding and encoding again. If they are different, call iconv again to convert the text in the buffer to be saved to the character encoding described in fileencoding and save it to the specified file. Similarly, this requires calling iconv.dll. Because Unicode can contain characters of almost all languages, and UTF-8 encoding of Unicode is a very cost-effective encoding (space consumption is less than UCS-2), so the value of encoding is recommended. Set to utf-8. Another reason for this is that when encoding is set to utf-8, Vim automatically detects the encoding of the file to be more accurate (perhaps the main reason;). For the files we edit in Chinese Windows, in order to take into account compatibility with other software, the file encoding is still set to GB2312 / GBK, so fileencoding is recommended to be set to Chinese (chinese is an individual name, which means gb2312 in Unix and Windows cp936, which is the code page of GBK).</li>
-</ol>
-<p>For fedora, vim settings are generally placed in the / etc / vimrc file, however, it is recommended not to modify it. You can modify the ~ / .vimrc file (which does not exist by default, you can create a new one yourself) and write the desired settings.</p>
-<p>My .vimrc file is as follows:</p>
-<p><code>`
-: set encoding = utf-8
-: set fileencodings = ucs-bom, utf-8, cp936
-: set fileencoding = gb2312
-: set termencoding = utf-8</code> `</p>
-<p>Among them, the fileencoding configuration can set utf-8, but my mp3 does not seem to support utf-8 encoding, so simply, I set it to gb2312. Now it’s done, no matter whether it is in vi or mp3, it can display .txt files without garbled characters.</p>
-<h2 id="Personal-configuration"><a href="#Personal-configuration" class="headerlink" title="Personal configuration"></a>Personal configuration</h2><p>The configuration during my use of ** without plugin ** is very short. It is written in the vim configuration file. Vimrc. The configuration is configured using ** vim script **. It has its own set of syntax. For details, please click [ vim Script] (<span class="exturl" data-url="aHR0cHM6Ly93d3cudzNjc2Nob29sLmNuL3ZpbS9uY2t4MXB1MC5odG1s">https://www.w3cschool.cn/vim/nckx1pu0.html<i class="fa fa-external-link-alt"></i></span>)</p>
-<p><code>`vim
-set number; display number
-set mouse = a; setting smart mouse
-set hlsearch; high light search
-set tabstop = 4; setting tab width 4 letters
-set shiftwidth = 4; setting new line incident width
-set noexpandtab; tab doesn&#39;t expand to space
-; set list; display manipulator, example: \ n \ t \ r ......
-set encoding = utf-8
-set fileencodings = ucs-bom, utf-8, cp936
-set fileencoding = gb2312
-set termencoding = utf-8</code> `</p>
-<h2 id="Forward-and-backward-function"><a href="#Forward-and-backward-function" class="headerlink" title="Forward and backward function"></a>Forward and backward function</h2><p>Popular text editors usually have forward and backward functions, and can move back and forth between the positions that have been viewed in the file (associated with the browser), use <code>Ctrl-O</code> in vim to perform backwards, use<code>Ctrl-I</code>Execute forward, related help:<code>: help CTRL-O</code> <code>: help CTRL-I``: help jump-motions</code></p>
-<h2 id="vim-compare-files"><a href="#vim-compare-files" class="headerlink" title="vim compare files"></a>vim compare files</h2><h3 id="Starting-method"><a href="#Starting-method" class="headerlink" title="Starting method"></a>Starting method</h3><p>First ensure that the diff command is available in the system. Vim’s diff mode is dependent on the diff command.</p>
-<code>`shell
- vimdiff file1 file2 [file3 [file4]]</code> <code>or
-``</code>shell<br>vim -d file1 file2 [file3 [file4]]<br><code>`
-The window is more localized in the current tab. You cannot see the difference between a window and the windows in other tabs. In this way, multiple groups of comparison windows can be opened at the same time, and each group of differences is in a separate tab. Vim will open a window for each file and use ** vertical split ** just like the `-O` parameter. If you want to ** split horizontally **, add the `-o` parameter:</code> <code>shell
-vimdiff -o file1 file2 [file3 [file4]]
-``</code><br>If you are already in Vim, you can enter compare mode in three ways, only one is introduced:<br><code>`
-: diffs [plit] {filename}</code> <code>Open a new window for {filename}. The current and newly opened windows will have the same parameters as &quot;vimdiff&quot;. To split the window vertically, add</code>: vertical<code>in front. E.g: <dl><dt>``</code></dt><dd>vert diffsplit another_filename<br>`` `</dd></dl><h3 id="Jump-to-the-difference"><a href="#Jump-to-the-difference" class="headerlink" title="Jump to the difference"></a>Jump to the difference</h3><p>There are two commands that can be used to jump to the location of the difference text:</p>
-<ol>
-<li><code>[c</code> jumps backwards to the beginning of the last change. Count the prefix so that it repeats the corresponding times.</li>
-<li><code>] c</code> jumps forward to the beginning of the next change. Count the prefix so that it repeats the corresponding times.<br> If there is no change to which the cursor can jump, an error will be generated.</li>
-</ol>
-<h3 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h3><p>The purpose of comparison is to merge the differences and directly use the following built-in commands or troublesome methods: manually copy from one window to another.</p>
-<dl><dt>`` `<br>: [range] diffg [et] [bufspec]<br>                Use another buffer to modify the current buffer to eliminate differences. Unless there is only another<br>                For a buffer in comparison mode, [bufspec] must exist and specify that buffer.<br>                If [bufspec] specifies the current buffer, it is an empty action. [range] can refer to the following.</dt><dd>[range] diffpu [t] [bufspec]<br>                Use the current buffer to modify another buffer, eliminating differences.<br>[count] do Same as “: diffget”, but no scope. “o” means “obtain” (not available<br>                “dg” because that may be the beginning of “dgg”! ).<br>dp Same as “: diffput”, but no range. Note Not applicable in visual mode.<br>                The given [count] is used as the [bufspec] parameter of “: diffput”.</dd></dl><p>When [range] is not given, only the difference text at the current cursor position or immediately above it will be affected.<br>When [range] is specified, Vim tries to change only the lines it specifies. However, this is not always effective when there are deleted rows.<br>The parameter [bufspec] can be the serial number of the buffer, matching the pattern of the buffer name or part of the buffer name.<br>E.g:<br>        : diffget uses another buffer to enter compare mode<br>        : diffget 3 uses buffer 3<br>        : diffget v2 uses a buffer whose name matches “v2” and enters the comparison mode (for example, “file.c.v2”)<br>`` `</p>
-<h3 id="Update-comparison-and-undo-changes"><a href="#Update-comparison-and-undo-changes" class="headerlink" title="Update comparison and undo changes"></a>Update comparison and undo changes</h3><p>Compare the contents based on the buffer. Therefore, if you have made changes after loading the file, these changes will also participate in the comparison. However, you may want to use <code>: diffupdate [!]</code> From time to time. Because not all changes can be automatically updated. When <code>!</code> Is included, Vim checks whether the file has been changed externally and needs to be reloaded. Prompt for each changed file.</p>
-<p>If you want to undo the modification, you can enter the normal mode directly and press <code>u</code> as you normally do in vim editing, but you must be careful to move the cursor to the file window that needs to be undoed.</p>
-<h3 id="Expand-and-view-context"><a href="#Expand-and-view-context" class="headerlink" title="Expand and view context"></a>Expand and view context</h3><p>When comparing and merging files, it is often necessary to combine context to determine the final action to be taken. By default, Vimdiff will display 6 lines of text above and below the difference for reference. Other identical lines of text are automatically folded. If you want to modify the default number of context lines, you can set it like this:</p>
-<p> <code>`
-: set diffopt = context: 3</code> `</p>
-<h3 id="Exit-of-multiple-files"><a href="#Exit-of-multiple-files" class="headerlink" title="Exit of multiple files"></a>Exit of multiple files</h3><p>After comparing and merging to a conclusion, you can use the following commands to operate on multiple files at the same time.</p>
-<p>For example, quit at the same time: <code>: qa (quit all)</code></p>
-<p>If you want to save all files: <code>: wa (write all)</code></p>
-<p>Or a merge command of the two, save all files, and then exit: <code>: wqa (write, then quit all)</code></p>
-<p>If you do not want to save the result of any operation when you quit: <code>: qa! (Force to quit all)</code></p>
-<h3 id="vimdiff-For-details-please-refer-to"><a href="#vimdiff-For-details-please-refer-to" class="headerlink" title="vimdiff For details, please refer to"></a>vimdiff For details, please refer to</h3><ol>
-<li><code>: help diff</code> under vim</li>
-<li>[vimdiff doc] (<span class="exturl" data-url="aHR0cDovL3ZpbWNkb2Muc291cmNlZm9yZ2UubmV0L2RvYy9kaWZmLmh0bWw=">http://vimcdoc.sourceforge.net/doc/diff.html<i class="fa fa-external-link-alt"></i></span>)</li>
-</ol>
-<h2 id="vim-command-line-save-leave-and-other-commands"><a href="#vim-command-line-save-leave-and-other-commands" class="headerlink" title="vim command line save, leave and other commands:"></a>vim command line save, leave and other commands:</h2><ol>
-<li><code>: w</code> Write the edited data to the hard disk file.</li>
-<li><code>: w!</code> If the file attribute is “read-only”, write to the file forcibly. But the ability to write is also dependent on the file permissions of the file.</li>
-<li>Leave after <code>: q</code>. If it is “: wq!”, It will be forced to save and leave.</li>
-<li><code>: w [file name]</code> Save the edited data as another file.</li>
-<li><code>: r [file name]</code> Read the content of another file in the edited data and add it to the line behind the cursor.</li>
-<li><code>: n1, n2 w [file name]</code> Save the contents of lines n1 to n2 to another file.</li>
-<li><code>:! Command</code> Temporarily leave vi to display the result of executing command in command line mode.</li>
-<li><code>ZZ</code> If the file has not been changed, leave directly; if it has been changed, leave after saving.</li>
-<li><code>set num / nonum</code> displays / cancels the line number.</li>
-</ol>
-<h2 id="Macro-of-VIM"><a href="#Macro-of-VIM" class="headerlink" title="Macro of VIM"></a>Macro of VIM</h2><p>The use of macros is very powerful, go to [vim, the use of macros] (<span class="exturl" data-url="aHR0cDovL2Jsb2cuc2luYS5jb20uY24vcy9ibG9nXzY5ZTVkODQwMDEwMncxejEuaHRtbA==">http://blog.sina.com.cn/s/blog_69e5d8400102w1z1.html<i class="fa fa-external-link-alt"></i></span>)</p>
-<h2 id="Full-version-command"><a href="#Full-version-command" class="headerlink" title="Full version command"></a>Full version command</h2><p>This article only provides high-frequency scenes accumulated during personal use. For the full version, please click [here] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS92aW0vdmltX2NvbW1hbmQucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/vim/vim_command.png<i class="fa fa-external-link-alt"></i></span>), or consult the vim manual</p>
-<h2 id="Play-games-to-make-perfect"><a href="#Play-games-to-make-perfect" class="headerlink" title="Play games to make perfect"></a>Play games to make perfect</h2><p>** Use advance and retreat **, so multi-use is king. I recommend a game here: use the keyboard to control the character adventure game, familiar with VIM commands during the game: [vim-adventures] (https: // vim -adventures.com/)</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="** Reference **"></a>** Reference **</h2><ol>
-<li>[Official document] (<span class="exturl" data-url="aHR0cHM6Ly92aW0uc291cmNlZm9yZ2UuaW8vZG9jcy5waHA=">https://vim.sourceforge.io/docs.php<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>[vim doc] (<span class="exturl" data-url="aHR0cDovL3ZpbWNkb2Muc291cmNlZm9yZ2UubmV0L2RvYy9oZWxwLmh0bWw=">http://vimcdoc.sourceforge.net/doc/help.html<i class="fa fa-external-link-alt"></i></span>) Chinese</li>
-<li>[freewater blog] (<span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9mcmVld2F0ZXIvYXJjaGl2ZS8yMDExLzA4LzI2LzIxNTQ2MDIuaHRtbA==">http://www.cnblogs.com/freewater/archive/2011/08/26/2154602.html<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>[Thinking In Linux] (<span class="exturl" data-url="aHR0cDovL3d3dy5saW51eHNvbmcub3JnLzIwMTAvMDkvdmltLXF1aWNrLXNlbGVjdC1jb3B5LWRlbGV0ZS8=">http://www.linuxsong.org/2010/09/vim-quick-select-copy-delete/<i class="fa fa-external-link-alt"></i></span>)</li>
-</ol>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -12732,7 +11873,7 @@ ________________________________________________________________________________
       </tags>
   </entry>
   <entry>
-    <title>03_object-detection</title>
+    <title>Object-detection</title>
     <url>/2018/05/03/03_object-detection/</url>
     <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note after studying the course of the 3rd week <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL2NvbnZvbHV0aW9uYWwtbmV1cmFsLW5ldHdvcmtz">convolutional neural networks<i class="fa fa-external-link-alt"></i></span> and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
 <a id="more"></a> 
@@ -13707,7 +12848,7 @@ difference = 2.919335883291695e-10</code></pre><p>Congrats, the difference is sm
       </tags>
   </entry>
   <entry>
-    <title>sequence models attention mechanism</title>
+    <title>Sequence Models Attention Mechanism</title>
     <url>/2018/06/03/03_sequence-models-attention-mechanism/</url>
     <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal lecture note after studying the course <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL25scC1zZXF1ZW5jZS1tb2RlbHMv">nlp sequence models<i class="fa fa-external-link-alt"></i></span> at the 3rd week and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.## 01_various-sequence-to-sequence-architectures</p>
 <a id="more"></a> 
@@ -13929,7 +13070,7 @@ $$BP = \left\{ \begin{array}{l} 1,  if{\kern 1pt} {\kern 1pt} MT\_length > refer
       </tags>
   </entry>
   <entry>
-    <title>03_hyperparameter-tuning-batch-normalization-and-programming-frameworks</title>
+    <title>Hyperparameter-tuning-batch-normalization-and-programming-frameworks</title>
     <url>/2018/03/02/03_hyperparameter-tuning-batch-normalization-and-programming-frameworks/</url>
     <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal note at the first week after studying the course <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL2RlZXAtbmV1cmFsLW5ldHdvcmsv">Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<i class="fa fa-external-link-alt"></i></span> and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
 <a id="more"></a>
@@ -14953,6 +14094,865 @@ Here's what you should remember:
       <tags>
         <tag>deep learning</tag>
         <tag>nlp-sequence-models</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Summary of Structuring Machine Learning Projects</title>
+    <url>/2018/04/03/Summary_of_Structuring-Machine-Learning-Projects/</url>
+    <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal summary after studying the course, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL21hY2hpbmUtbGVhcm5pbmctcHJvamVjdHM=">Structuring Machine Learning Projects<i class="fa fa-external-link-alt"></i></span> and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
+<a id="more"></a> 
+<h3 id="Content-Table-of-my-personal-notes"><a href="#Content-Table-of-my-personal-notes" class="headerlink" title="Content Table of my personal notes"></a>Content Table of my personal notes</h3><p>$1_{st}$ week: <a href="/2018-04-01/01_ml-strategy-1/">01_ml-strategy-1</a></p>
+<ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#01_introduction-to-ml-strategy">01_introduction-to-ml-strategy</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#01_why-ml-strategy">01_why-ml-strategy</a></li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#02_orthogonalization">02_orthogonalization</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#Orthogonalization">Orthogonalization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#02_setting-up-your-goal">02_setting-up-your-goal</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#01_single-number-evaluation-metric">01_single-number-evaluation-metric</a></li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#02_satisficing-and-optimizing-metric">02_satisficing-and-optimizing-metric</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
+</ul>
+</li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#03_train-dev-test-distributions">03_train-dev-test-distributions</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
+</ul>
+</li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#04_size-of-the-dev-and-test-sets">04_size-of-the-dev-and-test-sets</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#Summary">Summary</a></li>
+</ul>
+</li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#05_when-to-change-dev-test-sets-and-metrics">05_when-to-change-dev-test-sets-and-metrics</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#03_comparing-to-human-level-performance">03_comparing-to-human-level-performance</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#01_why-human-level-performance">01_why-human-level-performance</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
+</ul>
+</li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#02_avoidable-bias">02_avoidable-bias</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
+</ul>
+</li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#03_understanding-human-level-performance">03_understanding-human-level-performance</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#Summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#04_surpassing-human-level-performance">04_surpassing-human-level-performance</a><ul>
+<li><a href="/2018-04-01/01_ml-strategy-1/#summary">summary</a></li>
+</ul>
+</li>
+<li><a href="/2018-04-01/01_ml-strategy-1/#05_improving-your-model-performance">05_improving-your-model-performance</a></li>
+</ul>
+<p>$2_{nd}$ week: <a href="/2018-04-02/02_ml-strategy-2/">02_ml-strategy-2</a></p>
+<ul>
+<li><a href="/2018-04-02/02_ml-strategy-2/#01_error-analysis">01_error-analysis</a><ul>
+<li><a href="/2018-04-02/02_ml-strategy-2/#01_carrying-out-error-analysis">01_carrying-out-error-analysis</a></li>
+<li><a href="/2018-04-02/02_ml-strategy-2/#02_cleaning-up-incorrectly-labeled-data">02_cleaning-up-incorrectly-labeled-data</a></li>
+<li><a href="/2018-04-02/02_ml-strategy-2/#03_build-your-first-system-quickly-then-iterate">03_build-your-first-system-quickly-then-iterate</a></li>
+</ul>
+</li>
+<li><a href="/2018-04-02/02_ml-strategy-2/#02_mismatched-training-and-dev-test-set">02_mismatched-training-and-dev-test-set</a><ul>
+<li><a href="ns">01_training-and-testing-on-different-distributions</a></li>
+<li><a href="ns">02_bias-and-variance-with-mismatched-data-distributions</a></li>
+<li><a href="/2018-04-02/02_ml-strategy-2/#03_addressing-data-mismatch">03_addressing-data-mismatch</a></li>
+</ul>
+</li>
+<li><a href="/2018-04-02/02_ml-strategy-2/#03_learning-from-multiple-tasks">03_learning-from-multiple-tasks</a><ul>
+<li><a href="/2018-04-02/02_ml-strategy-2/#01_transfer-learning">01_transfer-learning</a></li>
+<li><a href="/2018-04-02/02_ml-strategy-2/#02_multi-task-learning">02_multi-task-learning</a></li>
+</ul>
+</li>
+<li><a href="/2018-04-02/02_ml-strategy-2/#04_end-to-end-deep-learning">04_end-to-end-deep-learning</a><ul>
+<li><a href="/2018-04-02/02_ml-strategy-2/#01_what-is-end-to-end-deep-learning">01_what-is-end-to-end-deep-learning</a></li>
+<li><a href="/2018-04-02/02_ml-strategy-2/#02_whether-to-use-end-to-end-deep-learning">02_whether-to-use-end-to-end-deep-learning</a></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>deep learning</tag>
+        <tag>Structuring Machine Learning Projects</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Summary of nlp sequence models</title>
+    <url>/2018/06/06/Summary_of_nlp-sequence-models/</url>
+    <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal summary after studying the course, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL25scC1zZXF1ZW5jZS1tb2RlbHMv">nlp sequence models<i class="fa fa-external-link-alt"></i></span>, which belongs to Deep Learning Specialization. and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
+<a id="more"></a> 
+<h2 id="My-personal-note"><a href="#My-personal-note" class="headerlink" title="My personal note"></a>My personal note</h2><p>$1_{st}$ week : <a href="/2018/06/01/01_recurrent-neural-networks/">Building a Recurrent Neural Network Step by Step</a></p>
+<ul>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###01_why-sequence-models">01_why-sequence-models</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###02_notation">02_notation</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###03_recurrent-neural-network-model">03_recurrent-neural-network-model</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###04_backpropagation-through-time">04_backpropagation-through-time</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###05_different-types-of-rnns">05_different-types-of-rnns</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###06_language-model-and-sequence-generation">06_language-model-and-sequence-generation</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###07_sampling-novel-sequences">07_sampling-novel-sequences</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###08_vanishing-gradients-with-rnns">08_vanishing-gradients-with-rnns</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###09_gated-recurrent-unit-gru">09_gated-recurrent-unit-gru</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###10_long-short-term-memory-lstm">10_long-short-term-memory-lstm</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###11_bidirectional-rnn">11_bidirectional-rnn</a></li>
+<li><a href="/2018/06/01/01_recurrent-neural-networks/###12_deep-rnns">12_deep-rnns</a></li>
+</ul>
+<p>$2_{nd}$ week : <a href="/2018/06/02/02_natural-language-processing-word-embeddings/">natural language processing word embeddings</a></p>
+<ul>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/##01_introduction-to-word-embeddings">01_introduction-to-word-embeddings</a><ul>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###01_word-representation">01_word-representation</a></li>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###02_using-word-embeddings">02_using-word-embeddings</a></li>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###03_properties-of-word-embeddings">03_properties-of-word-embeddings</a></li>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###04_embedding-matrix">04_embedding-matrix</a></li>
+</ul>
+</li>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/##02_learning-word-embeddings-word2vec-glove">02_learning-word-embeddings-word2vec-glove</a><ul>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###01_learning-word-embeddings">01_learning-word-embeddings</a></li>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###02_word2vec">02_word2vec</a></li>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###03_negative-sampling">03_negative-sampling</a></li>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###04_glove-word-vectors">04_glove-word-vectors</a></li>
+</ul>
+</li>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/##03_applications-using-word-embeddings">03_applications-using-word-embeddings</a><ul>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###01_sentiment-classification">01_sentiment-classification</a></li>
+<li><a href="/2018/06/02/02_natural-language-processing-word-embeddings/###02_debiasing-word-embeddings">02_debiasing-word-embeddings</a></li>
+</ul>
+</li>
+</ul>
+<p>$3_{rd}$ week : <a href="/2018/06/03/03_sequence-models-attention-mechanism/">sequence models attention mechanism</a></p>
+<ul>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/##01_various-sequence-to-sequence-architectures">01_various-sequence-to-sequence-architectures</a><ul>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###01_basic-models">01_basic-models</a></li>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###02_picking-the-most-likely-sentence">02_picking-the-most-likely-sentence</a></li>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###03_beam-search">03_beam-search</a></li>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###04_refinements-to-beam-search">04_refinements-to-beam-search</a></li>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###05_error-analysis-in-beam-search">05_error-analysis-in-beam-search</a></li>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###06_bleu-score-optional">06_bleu-score-optional</a></li>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###07_attention-model-intuition">07_attention-model-intuition</a></li>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###08_attention-model">08_attention-model</a></li>
+</ul>
+</li>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/##02_speech-recognition-audio-data">02_speech-recognition-audio-data</a><ul>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###01_speech-recognition">01_speech-recognition</a></li>
+<li><a href="/2018/06/03/03_sequence-models-attention-mechanism/###02_trigger-word-detection">02_trigger-word-detection</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="/2018/06/03/03_sequence-models-attention-mechanism/###conclusion-and-thank-you">conclusion of Deep Learning Specialization and thank-you</a></p>
+<h2 id="My-personal-programming-assignments"><a href="#My-personal-programming-assignments" class="headerlink" title="My personal programming assignments"></a>My personal programming assignments</h2><p>$1_{st}$ week:</p>
+<ol>
+<li><a href="/2018/06/02/Building+a+Recurrent+Neural+Network+-+Step+by+Step+-+v3">Building a Recurrent Neural Network Step by Step</a></li>
+<li><a href="/2018/06/02/Dinosaurus+Island+--+Character+level+language+model+final+-+v3/">Dinosaurus Island Character level language model final</a></li>
+<li><a href="/2018/06/02/Improvise+a+Jazz+Solo+with+an+LSTM+Network+-+v3/">Improvise a Jazz Solo with an LSTM Network</a></li>
+</ol>
+<p>$2_{nd}$ week:</p>
+<ol>
+<li><a href="/2018/06/03/Operations+on+word+vectors+-+v2/">Word Vector Representation</a></li>
+<li><a href="/2018/06/03/Emojify+-+v2/">Emojify</a></li>
+</ol>
+<p>$3_{rd}$ week:</p>
+<ol>
+<li><a href="/2018/06/05/Neural+machine+translation+with+attention+-+v4/">machine translation</a></li>
+<li><a href="/2018/06/06/Trigger%20word%20detection%20-%20v1/">Trigger word</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>deep learning</tag>
+        <tag>nlp-sequence-models</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Summary of neural-networks-deep-learning</title>
+    <url>/2018/02/08/Summary_of_neural-networks-deep-learning/</url>
+    <content><![CDATA[<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>This is my personal summary after studying the course <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL25ldXJhbC1uZXR3b3Jrcy1kZWVwLWxlYXJuaW5nLw==">neural-networks-deep-learning<i class="fa fa-external-link-alt"></i></span>, which belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL3NwZWNpYWxpemF0aW9ucy9kZWVwLWxlYXJuaW5n">Deep Learning Specialization<i class="fa fa-external-link-alt"></i></span>. and the copyright belongs to <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVlcGxlYXJuaW5nLmFpLw==">deeplearning.ai<i class="fa fa-external-link-alt"></i></span>.</p>
+<a id="more"></a> 
+<h2 id="My-personal-notes"><a href="#My-personal-notes" class="headerlink" title="My personal notes"></a>My personal notes</h2><p>$1_{st}$ week: <a href="/2018/02/01/01_introduction-to-deep-learning/">introduction-to-deep-learning</a></p>
+<ul>
+<li><a href="/2018-04-02/01_introduction-to-deep-learning/#01_introduction-to-deep-learning">01_introduction-to-deep-learning</a><ul>
+<li>[01_What is neural network?](/2018-04-02/01_introduction-to-deep-learning/#01_What is neural network?)<ul>
+<li>[Example 1 – single neural network](/2018-04-02//01_introduction-to-deep-learning/#Example 1 – single neural network)</li>
+<li>[Example 2 – Multiple neural network](/2018-04-02//01_introduction-to-deep-learning/#Example 2 – Multiple neural network)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/2018-04-02/01_introduction-to-deep-learning/#02_supervised-learning-with-neural-networks">02_supervised-learning-with-neural-networks</a><ul>
+<li>[Supervised learning for Neural Network](/2018-04-02/01_introduction-to-deep-learning/#Supervised learning for Neural Network)</li>
+<li>[Structured vs unstructured data](/2018-04-02/01_introduction-to-deep-learning/#Structured vs unstructured data)</li>
+</ul>
+</li>
+<li><a href="/2018-04-02/01_introduction-to-deep-learning/#03_why-is-deep-learning-taking-off">03_why-is-deep-learning-taking-off</a><ul>
+<li>[Why is deep learning taking off?](/2018-04-02/01_introduction-to-deep-learning/#Why is deep learning taking off?)</li>
+</ul>
+</li>
+<li><a href="/2018-04-02/01_introduction-to-deep-learning/#04_about-this-course">04_about-this-course</a><ul>
+<li>[Outline of this Course](/2018-04-02/01_introduction-to-deep-learning/#Outline of this Course)</li>
+</ul>
+</li>
+</ul>
+<p>$2_{nd}$ week: <a href="/2018/02/02/02_neural-networks-basics/">neural-networks-basics</a></p>
+<ul>
+<li><a href="/2018/02/02/02_neural-networks-basics/#01_logistic-regression-as-a-neural-network">01_logistic-regression-as-a-neural-network</a><ul>
+<li><a href="/2018/02/02/02_neural-networks-basics/#01_binary-classification">01_binary-classification</a><ul>
+<li>[Binary Classification](/2018/02/02/02_neural-networks-basics/#Binary Classification)</li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#notation">notation</a></li>
+</ul>
+</li>
+<li>[02_Logistic Regression](/2018/02/02/02_neural-networks-basics/#02_Logistic Regression)<ul>
+<li>[Example: Cat vs No - cat](/2018/02/02/02_neural-networks-basics/#Example: Cat vs No - cat)</li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#notation">notation</a></li>
+</ul>
+</li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#03_logistic-regression-cost-function">03_logistic-regression-cost-function</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#04_gradient-descent">04_gradient-descent</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#05_06_derivatives">05_06_derivatives</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#07_computation-graph">07_computation-graph</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#09_logistic-regression-gradient-descent">09_logistic-regression-gradient-descent</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#10_gradient-descent-on-m-examples">10_gradient-descent-on-m-examples</a><ul>
+<li>[one single step gradient descent](/2018/02/02/02_neural-networks-basics/#one single step gradient descent)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#02_python-and-vectorization">02_python-and-vectorization</a><ul>
+<li><a href="/2018/02/02/02_neural-networks-basics/#01_vectorization">01_vectorization</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#02_more-vectorization-examples">02_more-vectorization-examples</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#03_vectorizing-logistic-regression">03_vectorizing-logistic-regression</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#04_vectorizing-logistic-regressions-gradient-output">04_vectorizing-logistic-regressions-gradient-output</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#05_broadcasting-in-python">05_broadcasting-in-python</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#06_a-note-on-python-numpy-vectors">06_a-note-on-python-numpy-vectors</a><ul>
+<li>[one rank array](/2018/02/02/02_neural-networks-basics/#one rank array)</li>
+<li>[practical tips](/2018/02/02/02_neural-networks-basics/#practical tips)</li>
+</ul>
+</li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#07_quick-tour-of-jupyter-ipython-notebooks">07_quick-tour-of-jupyter-ipython-notebooks</a></li>
+<li><a href="/2018/02/02/02_neural-networks-basics/#08_explanation-of-logistic-regression-cost-function-optional">08_explanation-of-logistic-regression-cost-function-optional</a></li>
+</ul>
+</li>
+</ul>
+<p>$3_{rd}$ week: <a href="/2018/02/03/03_shallow-neural-networks/">shallow-neural-networks</a></p>
+<ul>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#01_neural-networks-overview">01_neural-networks-overview</a></li>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#02_neural-network-representation">02_neural-network-representation</a></li>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#03_computing-a-neural-networks-output">03_computing-a-neural-networks-output</a></li>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#04_vectorizing-across-multiple-examples">04_vectorizing-across-multiple-examples</a></li>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#05_explanation-for-vectorized-implementation">05_explanation-for-vectorized-implementation</a></li>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#06_activation-functions">06_activation-functions</a></li>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#07_why-do-you-need-non-linear-activation-functions">07_why-do-you-need-non-linear-activation-functions</a></li>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#08_derivatives-of-activation-functions">08_derivatives-of-activation-functions</a></li>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#09_gradient-descent-for-neural-networks">09_gradient-descent-for-neural-networks</a></li>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#10_backpropagation-intuition-optional">10_backpropagation-intuition-optional</a></li>
+<li><a href="/2018/02/03/03_shallow-neural-networks/#11_random-initialization">11_random-initialization</a></li>
+</ul>
+<p>$4_{th}$ week: <a href="/2018/02/04/04_deep-neural-networks/">deep-neural-networks</a></p>
+<ul>
+<li><a href="/2018/02/04/04_deep-neural-networks/#01_deep-neural-network">01_deep-neural-network</a></li>
+<li><a href="/2018/02/04/04_deep-neural-networks/#02_forward-propagation-in-a-deep-network">02_forward-propagation-in-a-deep-network</a></li>
+<li><a href="/2018/02/04/04_deep-neural-networks/#03_getting-your-matrix-dimensions-right">03_getting-your-matrix-dimensions-right</a><ul>
+<li>[one training example](/2018/02/04/04_deep-neural-networks/#one training example)</li>
+<li>[m training examples](/2018/02/04/04_deep-neural-networks/#m training examples)</li>
+</ul>
+</li>
+<li><a href="/2018/02/04/04_deep-neural-networks/#04_why-deep-representations">04_why-deep-representations</a></li>
+<li><a href="/2018/02/04/04_deep-neural-networks/#05_building-blocks-of-deep-neural-networks">05_building-blocks-of-deep-neural-networks</a></li>
+<li><a href="/2018/02/04/04_deep-neural-networks/#06_forward-and-backward-propagation">06_forward-and-backward-propagation</a></li>
+<li><a href="/2018/02/04/04_deep-neural-networks/#07_parameters-vs-hyperparameters">07_parameters-vs-hyperparameters</a></li>
+<li><a href="/2018/02/04/04_deep-neural-networks/#08_what-does-this-have-to-do-with-the-brain">08_what-does-this-have-to-do-with-the-brain</a></li>
+</ul>
+<h2 id="My-personal-programming-assignments"><a href="#My-personal-programming-assignments" class="headerlink" title="My personal programming assignments"></a>My personal programming assignments</h2><p>week 1 and week 2: <a href="/2018/02/05/logistic-regression-with-a-neural-network-mindset_week1_and_week2/">logistic-regression-with-a-neural-network-mindset</a><br>week 3: <a href="/2018/02/06/planar-data-classification-with-one-hidden%20layer_week3/">Planar data classification with a hidden layer</a><br>week 4 part 1: <a href="/2018/02/07/Building-your-Deep-Neural-Network_week4/">Building your deep neural network: Step by Step</a><br>week 4 part 2: <a href="/2018/02/07/Building-your-Deep-Neural-Network_week4/#Part-2%EF%BC%9ADeep-Neural-Network-for-Image-Classification-Application">deep-neural-network-application</a></p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>neural-networks-deep-learning</tag>
+        <tag>deep learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Summary of Machine Learning</title>
+    <url>/2018/01/20/Summary_of_ml-coursera-andrew-ng/</url>
+    <content><![CDATA[<h2 id="The-content-table-of-Machine-Learning"><a href="#The-content-table-of-Machine-Learning" class="headerlink" title="The content table of Machine Learning"></a>The content table of Machine Learning</h2><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY291cnNlcmEub3JnL2xlYXJuL21hY2hpbmUtbGVhcm5pbmcv">This course<i class="fa fa-external-link-alt"></i></span> is a coursera version teached by Andrew NG, AP of Stanford University, which corresponds to the full-time campus version CS229 at Stanford university, that is increasingly difficult version.</p>
+<a id="more"></a> 
+<p><a href="/2018/01/01/01_what-is-machine-learning/">01_introduction</a><br><a href="/2018/01/02/02_linear-regression-with-one-variable/">02_linear-regression-with-one-variable</a><br><a href="/2018/01/03/03_linear-algebra-review/">03_linear-algebra-review</a><br><a href="/2018/01/04/04_linear-regression-with-multiple-variables/">04_linear-regression-with-multiple-variables</a><br><a href="/2018/01/01/05_octave-matlab-tutorial/">05_octave-matlab-tutorial</a><br><a href="/2018/01/06/06_logistic-regression/">06_logistic-regression</a><br><a href="/2018/01/07/07_regularization/">07_regularization</a><br><a href="/2018/01/08/08_neural-networks-representation/">08_neural-networks-representation</a><br><a href="/2018/01/09/09_neural-networks-learning/">09_neural-networks-learning</a><br><a href="/2018/01/10/10_advice-for-applying-machine-learning/">10_advice-for-applying-machine-learning</a><br><a href="/2018/01/12/12_support-vector-machines/">11_machine-learning-system-design</a><br><a href="/2018/01/12/12_support-vector-machines/">12_support-vector-machines</a><br><a href="/2018/01/13/13_unsupervised-learning/">13_unsupervised-learning</a><br><a href="/2018/01/14/14_dimensionality-reduction/">14_dimensionality-reduction</a><br><a href="/2018/01/15/15_anomaly-detection/">15_anomaly-detection</a><br><a href="/2018/01/16/16_recommender-systems/">16_recommender-systems</a><br><a href="/2018/01/17/17_large-scale-machine-learning/">17_large-scale-machine-learning</a><br><a href="/2018/01/18/18_application-example-photo-ocr/">18_application-example-photo-ocr</a></p>
+<h2 id="my-class-assignments"><a href="#my-class-assignments" class="headerlink" title="my class assignments"></a>my class assignments</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2thcmFuMzZrL0NvdXJzZXJhLVN0YW5kZm9yZC1NTA==">ex1 -&gt; ex8<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="Conclusion-of-Andrew-NG"><a href="#Conclusion-of-Andrew-NG" class="headerlink" title="Conclusion of Andrew NG"></a>Conclusion of Andrew NG</h2><p>Welcome to the final video of this Machine Learning class. We’ve been through a lot of different videos together. In this video I would like to just quickly summarize the main topics of this course and then say a few words at the end and that will wrap up the class. So what have we done? </p>
+<h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/40.png" alt=""><br>In this class we spent a lot of time talking about supervised learning algorithms like linear regression, logistic regression, neural networks, SVMs. for problems where you have labelled data and labelled examples like x(i), y(i) And we also spent quite a lot of time talking about unsupervised learning like K-means clustering, Principal Components Analysis for dimensionality reduction and Anomaly Detection algorithms for when you have only unlabelled data x(i) Although Anomaly Detection can also use some labelled data to evaluate the algorithm. We also spent some time talking about special applications or special topics like Recommender Systems and large scale machine learning systems including parallelized and rapid-use systems as well as some special applications like sliding windows object classification for computer vision. And finally we also spent a lot of time talking about different aspects of, sort of, advice on building a machine learning system. And this involved both trying to understand what is it that makes a machine learning algorithm work or not work. So we talked about things like bias and variance, and how regularization can help with some variance problems. And we also spent a little bit of time talking about this question of how to decide what to work on next. So, how to prioritize how you spend your time when you’re developing a machine learning system. So we talked about evaluation of learning algorithms, evaluation metrics like  precision recall, F1 score as well as practical aspects of evaluation like the training, cross-validation and test sets. And we also spent a lot of time talking about debugging learning algorithms and making sure the learning algorithm is working. So we talked about diagnostics like learning curves and also talked about things like error analysis and ceiling analysis. And so all of these were different tools for helping you to decide what to do next and how to spend your valuable time when you’re developing a machine learning system. And in addition to having the tools of machine learning at your disposal so knowing the tools of machine learning like supervised learning and unsupervised learning and so on, I hope that you now not only have the tools, but that you know how to apply these tools really well to build powerful machine learning systems. So, that’s it. Those were the topics of this class and if you worked all the way through this course you should now consider yourself an expert in machine learning. As you know, machine learning is a technology that’s having huge impact on science, technology and industry. And you’re now well qualified to use these tools of machine learning to great effect. </p>
+<h2 id="THX"><a href="#THX" class="headerlink" title="THX"></a>THX</h2><p>I hope that many of you in this class will find ways to use machine learning to build cool systems and cool applications and cool products. And I hope that you find ways to use machine learning not only to make <i>your</i> life better but maybe someday to use it to make many other people’s life better as well. I also wanted to let you know that this class has been great fun for me to teach. So, thank you for that. And before wrapping up, there’s just one last thing I wanted to say. Which is that: It was maybe not so long ago, that I was a student myself. And even today, you know, I still try to take different courses when I have time to try to learn new things. And so I know how time-consuming it is to learn this stuff. I know that you’re probably a busy person with many, many other things going on in your life. And so the fact that you still found the time or took the time to watch these videos and, you know, many of these videos just went on for hours, right? And the fact many of you took the time to go through the review questions and that many of you took the time to work through the programming exercises. And these were long and complicate programming exercises. I wanted to say thank you for that. And I know that many of you have worked hard on this class and that many of you have put a lot of time into this class, that many of you have put a lot of yourselves into this class. So I hope that you also got a lot of out this class. And I wanted to say: Thank you very much for having been a student in this class.<br><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/18/41.png" alt=""></p>
+<h2 id="My-Grades"><a href="#My-Grades" class="headerlink" title="My Grades"></a>My Grades</h2><p><img src="http://q6gm8fomw.bkt.clouddn.com/gitpage/ml-andrew-ng/MyTotalGrade.png" alt="Overall grade of this course"><br>Here are <span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9tbC1hbmRyZXctbmcvTUwtR3JhZGVzLnBkZg==">the details of my grades<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning by Andrew NG</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Summary of Linear Algebra</title>
+    <url>/2017/12/28/Summary_of_Linear-Algebra/</url>
+    <content><![CDATA[<p>This article is a summary of my notes on learning linear algebra. My personal learning sequence is Netease ** MIT linear algebra open class ** combined with its textbooks, and then I use ** Tsinghua University linear algebra open class ** to do a review. Tsinghua ’s class proves more The depth is deeper (** logic ** is more strict) and the mit open class is to use its 3rd order matrix to explain the nature of the problem (the intuition is **), the two open classes use the same textbook, Textbooks, ppt, and summary of notes are the main contents of this article.</p>
+<a id="more"></a> 
+
+<h2 id="MIT-Open-Course-in-Linear-Algebra"><a href="#MIT-Open-Course-in-Linear-Algebra" class="headerlink" title="MIT: Open Course in Linear Algebra"></a>MIT: Open Course in Linear Algebra</h2><p>[Official website] (<span class="exturl" data-url="aHR0cHM6Ly9vY3cubWl0LmVkdS9jb3Vyc2VzL21hdGhlbWF0aWNzLzE4LTA2c2MtbGluZWFyLWFsZ2VicmEtZmFsbC0yMDExL2luZGV4Lmh0bQ==">https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/index.htm<i class="fa fa-external-link-alt"></i></span>)</p>
+<p>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvQ29udGVudC1UYWJsZV9vZl9NSVRfTGluZWFyLUFsZ2VicmEucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/Content-Table_of_MIT_Linear-Algebra.png<i class="fa fa-external-link-alt"></i></span>)</p>
+<p>[NetEase Open Course] (<span class="exturl" data-url="aHR0cDovL29wZW4uMTYzLmNvbS9zcGVjaWFsL29wZW5jb3Vyc2UvZGFpc2h1Lmh0bWw=">http://open.163.com/special/opencourse/daishu.html<i class="fa fa-external-link-alt"></i></span>) directory<br>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvQ29udGVudC1UYWJsZV9vZl9NSVRfTGluZWFyLUFsZ2VicmFfb25fbmV0ZWFzZS5wbmc=">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/Content-Table_of_MIT_Linear-Algebra_on_netease.png<i class="fa fa-external-link-alt"></i></span>)</p>
+<p>** Use textbooks written by professors: [Introduction to Linear Algebra 4th edition] (<span class="exturl" data-url="aHR0cHM6Ly9ib29rLmRvdWJhbi5jb20vc3ViamVjdC8zNTgyMzM1Lw==">https://book.douban.com/subject/3582335/<i class="fa fa-external-link-alt"></i></span>), the official website has been updated to [Fifth Edition] (http: // math. mit.edu/~gs/linearalgebra/), bookmark the pdf in person as follows: **</p>
+<p>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvQ29udGVudC1UYWJsZV9vZl9JbnRyb2R1Y3Rpb24tdG8tTGluZWFyLUFsZ2VicmFfNHRoX2Jvb2sucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/Content-Table_of_Introduction-to-Linear-Algebra_4th_book.png<i class="fa fa-external-link-alt"></i></span>)</p>
+<h2 id="Tsinghua-University-linear-algebra-2-open-class-notes-summary"><a href="#Tsinghua-University-linear-algebra-2-open-class-notes-summary" class="headerlink" title="Tsinghua University linear algebra 2 open class notes summary"></a>Tsinghua University linear algebra 2 open class notes summary</h2><p>Lecture 1: [Positive Definite Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMS9wb3NpdGl2ZV9kZWZpbml0ZV9tYXRyaXgv">https://karan36k.github.io/2017/08/01/positive_definite_matrix/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 2: [Similarity Matrix] ()<br>Lecture 3: [Singular Value Decomposition] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMy9zaW5ndWxhcl92YWx1ZXNfZGVjb21wb3NpdGlvbi8=">https://karan36k.github.io/2017/08/03/singular_values_decomposition/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 4: [Linear Transformation 1] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNC9saW5lYXJfdHJhbnNmb3JtYXRpb25fMXN0X3BhcnQv">https://karan36k.github.io/2017/08/04/linear_transformation_1st_part/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 5: [Linear Transformation 2] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNS9saW5lYXJfdHJhbnNmb3JtYXRpb25fMm5kX3BhcnQv">https://karan36k.github.io/2017/08/05/linear_transformation_2nd_part/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 6: [Pseudo-inverse] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNi9wc2V1ZG9faW52ZXJzZS8=">https://karan36k.github.io/2017/08/06/pseudo_inverse/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 7: [Matrix in Engineering] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNy9lbmdpbmVlcmluZ19tYXRyaWNlcy8=">https://karan36k.github.io/2017/08/07/engineering_matrices/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 8: [Graph and Network] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wOC9ncmFwaF9hbmRfbmV0d29yay8=">https://karan36k.github.io/2017/08/08/graph_and_network/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 9: [Markov Matrix and Positive Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wNi9NYXJrb3ZfbWF0cml4Lw==">https://karan36k.github.io/2017/08/06/Markov_matrix/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 10: [Fourier Series] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8wMi9Gb3VyaWVyX3Nlcmllcy8=">https://karan36k.github.io/2017/08/02/Fourier_series/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 11: [Computer Image] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8xMS9jb21wdXRlcl9ncmFwaGljcy8=">https://karan36k.github.io/2017/08/11/computer_graphics/<i class="fa fa-external-link-alt"></i></span>)<br>Lecture 12: [Complex and Complex Matrix] (<span class="exturl" data-url="aHR0cHM6Ly9rYXJhbjM2ay5naXRodWIuaW8vMjAxNy8wOC8xMi9jb21wbGV4X2FuZF9jb21wbGV4X21hdHJpeC8=">https://karan36k.github.io/2017/08/12/complex_and_complex_matrix/<i class="fa fa-external-link-alt"></i></span>)</p>
+<p>The classroom teacher designated the reference textbook as the MIT linear algebra textbook: [Official Website] (<span class="exturl" data-url="aHR0cDovL21hdGgubWl0LmVkdS9+Z3MvbGluZWFyYWxnZWJyYS8=">http://math.mit.edu/~gs/linearalgebra/<i class="fa fa-external-link-alt"></i></span>), [Douban] (<span class="exturl" data-url="aHR0cHM6Ly9ib29rLmRvdWJhbi5jb20vc3ViamVjdC8=">https://book.douban.com/subject/<i class="fa fa-external-link-alt"></i></span> 3582335 /)</p>
+<h2 id="last-but-not-least"><a href="#last-but-not-least" class="headerlink" title="last but not least"></a>last but not least</h2><p>Personally highly recommend the ** good book ** for learning linear algebra, excerpted from the evaluation of Douban Internet users. I personally feel very pertinent. I hereby recommend it. In contrast, you will find the textbook of linear algebra for engineering in domestic universities: Tongji ’s linear algebra (Recommended review book for engineering postgraduate) Too bad.</p>
+<p>! [] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS9NSVRfTGluZWFyLUFsZ2VicmEvZG91YmFuX0ludHJvZHV0aW9uLXRvLWxpbmVhci1hbGdlYnJhLnBuZw==">http://q6gm8fomw.bkt.clouddn.com/gitpage/MIT_Linear-Algebra/douban_Introdution-to-linear-algebra.png<i class="fa fa-external-link-alt"></i></span>)</p>
+]]></content>
+      <categories>
+        <category>Machine Learning Maths</category>
+      </categories>
+      <tags>
+        <tag>linear_algebra</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vim without plugins</title>
+    <url>/2016/01/20/Vim_without_widgets/</url>
+    <content><![CDATA[<p>This article will be continuously updated based on experience.</p>
+<a id="more"></a> 
+<h2 id="Four-modes-of-vim"><a href="#Four-modes-of-vim" class="headerlink" title="Four modes of vim"></a>Four modes of vim</h2><ol>
+<li><p>General mode: normal mode. You can move the cursor, delete characters or entire lines, and copy and paste file data. Opening vim is to enter this mode, and the switching between the three modes is also transferred here.</p>
+</li>
+<li><p>Edit mode: In general mode, press any one of <code>i``I``o`` O</code> <code>a`` A</code> <code>r`` R</code> <code>s`` S</code> to enter this mode. You can edit the content of the file and press Esc to return to the normal mode.</p>
+<p> -<code>i`` I</code> is insert (in front of the character under the cursor and at the beginning of the line)<br> -<code>o`` O</code> is open new line (start a new line below the line where the cursor is and start a new line above the line where the cursor is<br> -<code>a`` A</code> is append (after the character under the cursor and at the end of the line where the cursor is)<br> -<code>s`` S</code> is to delete (the character where the cursor is and start inserting and the line where the cursor is and start inserting), that is, substitute replacement.<br> -<code>r`` R</code> is to replace the character under the cursor and become the replacement mode</p>
+</li>
+<li><p>Command line mode: Press <code>:</code> <code>/</code> <code>in normal mode?</code>Any one enters this mode (the meaning of these symbols will be described below). You can find data operations, read, save, replace a lot of characters, leave vim, display line number and other operations, press Esc to return to the general mode.</p>
+</li>
+<li><p>Visual mode: In general mode, press <code>v`` V</code> <code>ctr + v</code> to enter the visual mode, which is equivalent to the normal mode after highlighting the selected text, that is, in this mode, you can arbitrarily select a specific area and be The selected area is highlighted, <code>v</code> selects the unit: one character;<code>V</code> is also called the visible line mode, select the unit: line; <code>ctr + v</code> is also called the visible block mode, select the unit: square ; All three are useful, see below for details.</p>
+</li>
+</ol>
+<h2 id="Mobile"><a href="#Mobile" class="headerlink" title="Mobile"></a>Mobile</h2><p>In normal mode:</p>
+<p><code>w</code> → to the beginning of the next word<code>e</code> → to the end of the next word (words are separated by spaces by default)<br><code>W</code> → to the beginning of the next string<code>E</code> → to the end of the next string (a string refers to a string consisting of numbers, letters, and underscores)<br><code>B</code> → Go to the first character of the previous string. The<code>b</code> → “command moves the cursor to the first character of the previous word.</p>
+<blockquote>
+<p>By default, a word is composed of letters, numbers and underscores<br>If you think words are separated by blank characters, then you need to use uppercase E and W (Chen Hao: Note)</p>
+</blockquote>
+<p><code>0</code> → number zero, to the beginning of the line<br><code>^</code> → Go to the first position of the line that is not a blank character (the so-called blank character is a space, tab, line feed, carriage return, etc.)<br><code>$</code> → Go to the end of the line<br><code>g_</code> → to the last position of the line that is not a blank character<br><code>%</code> → Go to the other of the pair of brackets where the cursor is<br><code>gg</code> → first line<br><code>G</code> → last line<br><code>h`` j</code> <code>k`` l</code> (strong examples recommend using it to move the cursor, but it is not necessary) → you can also use the cursor keys (← ↓ ↑ →). Note: j extends downwards, k extends upwards</p>
+<ol>
+<li>** High frequency usage scenario 1 **: Change a variable name in the line first and move the cursor: <code>w</code> and<code>b</code>, <code>W</code> and<code>B</code> (or if the line is too long, use the following Search function) to the target word</li>
+<li>** High frequency usage scenario 2 **: Modify the indent and jump to the beginning of the line<code>^</code></li>
+<li>** High frequency usage scenario 3 **: View the completeness of the function or class or the variable scope <code>%</code></li>
+<li>** High frequency usage scenario 4 **: After splitting the screen, jump to different windows: <code>ctrl + w + (h or j or k or l)</code></li>
+<li>** High-frequency use scene 5 **: Move left (left, top, right) <code>(h, j, k, l)</code></li>
+<li>** High frequency usage scenario 6 **: Delete to the end: <code>d $</code> Delete to the beginning: <code>d ^</code></li>
+</ol>
+<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><p>Note: ** mark is to find better **, in normal mode:</p>
+<p><code>mx</code> meaning: mark x, x is the name of mark;<br><code>&#39;x</code> meaning: go to the position of x mark</p>
+<ol>
+<li>** High-frequency usage scenario 1: ** You can see how to define other functions in the function. You want to see how to define them. After you read it, you need to come back. Then mark it first, and then jump back.</li>
+</ol>
+<h3 id="Syntax-related-jumps"><a href="#Syntax-related-jumps" class="headerlink" title="Syntax related jumps"></a>Syntax related jumps</h3><p>In normal mode:</p>
+<ol>
+<li><code>gd</code> meaning: go to definition</li>
+<li>Press <code>[</code> and then <code>ctrl + d</code> to jump to #define</li>
+<li>Press <code>[</code> and then <code>ctrl + i</code> to jump to functions, variables and #define</li>
+</ol>
+<p>** Note **: The language support is not very good, you can try the language used</p>
+<h3 id="Quick-page-turning"><a href="#Quick-page-turning" class="headerlink" title="Quick page turning"></a>Quick page turning</h3><p>In normal mode:</p>
+<table>
+<thead>
+<tr>
+<th>Partner 1</th>
+<th>Partner 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ctr + d</code> page down</td>
+<td><code>ctr + d</code> page up</td>
+</tr>
+<tr>
+<td><code>ctr + f</code> page forward</td>
+<td><code>ctr + b</code> page back</td>
+</tr>
+</tbody></table>
+<h2 id="Action-operation-instruction"><a href="#Action-operation-instruction" class="headerlink" title="Action operation instruction"></a>Action operation instruction</h2><p>In normal mode:</p>
+<table>
+<thead>
+<tr>
+<th>Partner 1</th>
+<th>Partner 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>d</code> ** d ** elete a character and copy to clipboard</td>
+<td><code>D</code> has been ** deleted ** from the cursor position to the end of the line</td>
+</tr>
+<tr>
+<td><code>y</code> ** c ** opy to clipboard</td>
+<td><code>Y</code> ** Copy ** one line (= <code>yy</code>)</td>
+</tr>
+<tr>
+<td><code>s</code> ** s ** ubstitue a character</td>
+<td><code>S</code> ** Replace ** the line where the cursor is located</td>
+</tr>
+<tr>
+<td><code>r</code> ** r ** eplace a character</td>
+<td><code>R</code>* Not commonly used *, which means to enter replacement mode</td>
+</tr>
+<tr>
+<td><code>c</code> ** c ** hange a character</td>
+<td><code>C</code> * Not commonly used <em>, which means *</em> modify ** the cursor position until the end of the line, the same effect as <code>S</code> rendering</td>
+</tr>
+<tr>
+<td><code>p</code> ** p ** aste after the cursor</td>
+<td><code>P</code> ** Paste ** before the cursor position (if you paste a whole line, paste to the previous line)</td>
+</tr>
+<tr>
+<td><code>u</code> ** u ** ndo a operation</td>
+<td><code>U</code> one-time ** undo ** all operations on a whole line</td>
+</tr>
+<tr>
+<td><code>x</code> cut a character</td>
+<td><code>X</code> * not commonly used <em>, *</em> cut ** to the left, ie backspace: delete the character to the left of the cursor</td>
+</tr>
+<tr>
+<td>** `** Search the word under the current cursor ** downward, and jump to the next word when found</td>
+<td><code>#</code>** Search the word under the current cursor ** upward, jump to the previous word when found</td>
+</tr>
+<tr>
+<td><code>/ word</code> ** Search the word word ** down to the full text, jump to the first word that matches, if there are multiple, continue to search down and press the n key (in the direction of the original command), up to press the N key.</td>
+<td><code>? word</code> ** Search the word word ** up the full text, jump to the first word that matches, and if there are multiple, continue to search upwards and press the n key (in the direction of the original command), down to press the N key.</td>
+</tr>
+<tr>
+<td><code>a</code> ** a ** ppend after the cursor</td>
+<td><code>A</code> is ** append ** at the end of the line where the cursor is located)</td>
+</tr>
+<tr>
+<td><code>i</code> ** i ** nsert before the cursor</td>
+<td><code>I</code> ** insert ** at the beginning of the line where the cursor is located</td>
+</tr>
+<tr>
+<td><code>o</code> Start a new line below the line under the cursor, open the new world?</td>
+<td><code>O</code> starts a new line above the line where the cursor is located</td>
+</tr>
+<tr>
+<td><code>v</code> enters ** v ** isual mode, used to select areas (can cross lines), used to cooperate with other subsequent operations (addition, deletion, and modification)</td>
+<td><code>v</code> enters visual line mode, used to select some lines, use To cooperate with other follow-up operations (addition, deletion and modification)</td>
+</tr>
+<tr>
+<td><code>f</code> ** f ** ind a character after the cursor</td>
+<td><code>F</code> ** find a character before the cursor position **</td>
+</tr>
+<tr>
+<td><code>t</code> ** t ** ill a character tx is the same as fx, the difference is to jump to the character x</td>
+<td><code>T</code> Tx and Fx are the same, the difference is to jump to the character x</td>
+</tr>
+</tbody></table>
+<h3 id="Formed-separately"><a href="#Formed-separately" class="headerlink" title="Formed separately"></a>Formed separately</h3><p><code>.</code> Repeat the operation just now<br><code>~</code> Convert case</p>
+<ol>
+<li>You can change the case of the first letter of the variable</li>
+<li>You can select a string (variable) in combination with the commands provided below, and then change the case of the entire string (variable). For example: macro definition</li>
+</ol>
+<p><code>=</code> Auto format</p>
+<ol>
+<li>Use <code>==</code> for the current line (double press = twice), or use <code>n ==</code> for multiple lines (n is a natural number) to automatically indent the next n lines from the current line</li>
+<li>Or enter the visual line mode, select some lines and then <code>=</code> for formatting, which is equivalent to the code format in the general IDE.</li>
+<li>Use <code>gg = G</code> to typeset the entire code.</li>
+</ol>
+<h3 id="Undo-and-Redo"><a href="#Undo-and-Redo" class="headerlink" title="Undo and Redo"></a>Undo and Redo</h3><ol>
+<li><code>u</code> undo undoes the operation in the previous step. Commands can be combined. For example,<code>Nu</code> N is any integer, which means undoing the N-step operation. The following is the same.</li>
+<li><code>U</code> restore the current line (that is, undo all operations on the current line at once)</li>
+<li><code>ctr + r</code> control + redo restore the previous operation that was cancelled</li>
+<li><code>CTRL-R</code> back to the previous command</li>
+</ol>
+<h3 id="Text-replacement"><a href="#Text-replacement" class="headerlink" title="Text replacement"></a>Text replacement</h3><p>Enter the replacement command in normal mode: <code>: [range] s / pattern / string / [flags]</code></p>
+<p>-pattern is the string to be replaced, which can be expressed by regexp.<br>-string Replace pattern with string.<br>-[range] has the following values:</p>
+<table>
+<thead>
+<tr>
+<th>[range]</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>None</td>
+<td>Default is the line where the cursor is</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>Current line of cursor</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>Line N</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>Last line</td>
+</tr>
+<tr>
+<td><code>&#39;a</code></td>
+<td>Mark the line where a (marked with ma before)</td>
+</tr>
+<tr>
+<td><code>. + 1</code></td>
+<td>The line below the current cursor line</td>
+</tr>
+<tr>
+<td><code>$ -1</code></td>
+<td>The penultimate line, you can add or subtract a value to determine the relative line</td>
+</tr>
+<tr>
+<td><code>22,33</code></td>
+<td>Lines 22 to 33</td>
+</tr>
+<tr>
+<td><code>1, $</code></td>
+<td>line 1 to last line</td>
+</tr>
+<tr>
+<td><code>1, .</code></td>
+<td>line 1 to current line</td>
+</tr>
+<tr>
+<td><code>., $</code></td>
+<td>Current line to last line</td>
+</tr>
+<tr>
+<td><code>&#39;a,&#39; b</code></td>
+<td>Mark the line where a is to Mark the line where b (before using ma and mb to mark)</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>All rows (equivalent to 1, $)</td>
+</tr>
+<tr>
+<td><code>? str?</code></td>
+<td>Search up from the current position to find the line of the first str (where str can be any string or regular expression)</td>
+</tr>
+<tr>
+<td><code>/ str /</code></td>
+<td>Search down from the current position to find the line of the first str (where str can be any string or regular expression)</td>
+</tr>
+<tr>
+<td>** Note that all the above methods for range can be used to set the relative offset by + and-operations. **</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>-[flags] has the following values:</p>
+<table>
+<thead>
+<tr>
+<th>flags</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>g</code></td>
+<td>Replace all matches (global) within the specified range</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>Request user confirmation before replacement</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>Ignore errors during execution</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>ignore case-insensitive</td>
+</tr>
+<tr>
+<td>None</td>
+<td>Only the first match in the specified range is replaced</td>
+</tr>
+</tbody></table>
+<p>** Note: All the above flags can be used in combination. For example, gc means to replace all matches within the specified range, and the user will be asked to confirm before each replacement. **</p>
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p>Replace some lines</p>
+<ol>
+<li><code>: 10,20s / from / to / g</code> replaces lines 10 to 20.</li>
+<li><code>: 1, $ s / from / to / g</code> replaces the contents of the first line to the last line (that is, all text)</li>
+<li><code>: 1, .s / from / to / g</code> replaces the first line to the current line.</li>
+<li><code>:., $ S / from / to / g</code> replaces the content from the current line to the last line.</li>
+<li><code>: &#39;a,&#39; bs / from / to / g</code> replaces the line between the marks a and b (including the line where a and b are located), where a and b are the marks previously made with the m command .</li>
+</ol>
+<p>Replace all lines: <code>:% s / from / to / g</code></p>
+<h2 id="Repeat-the-action"><a href="#Repeat-the-action" class="headerlink" title="Repeat the action"></a>Repeat the action</h2><p>In normal mode, any action can be repeated</p>
+<p>Note: N is a number</p>
+<p>-Numbers: <code>Nyy</code> copies N lines down from the current line,<code>Ndd</code> deletes N lines down from the current line, <code>Ngg</code> jumps to the Nth line, and<code>dNw</code> deletes from the current cursor to the first Before N words (does not contain blanks, ie delete N-1 words), <code>yNe</code> copies from the current cursor to the end of the Nth word (note:<code>yy</code> = <code>1yy`` dd</code> = <code>1dd</code>), <code>d $</code> delete to the end of the line<br>-Repeat the previous command: <code>N.</code> (N indicates the number of repetitions)</p>
+<h2 id="Block-selection"><a href="#Block-selection" class="headerlink" title="Block selection"></a>Block selection</h2><p>Note: The brackets are optional</p>
+<p>In normal mode: <code>[ctr +] v + (h or j or k or l)</code></p>
+<ol>
+<li>** High frequency usage scenario 1 *<em>: <code>[ctr +] v</code> After selecting the head of some lines, then press<code>=</code>Effect: *</em> Code format is automatically adjusted **</li>
+<li>** High frequency usage scenario 2 *<em>: <code>[ctr +] v</code> After selecting some line headers, then press<code>I</code> and then press the comment symbol (for example: <code>//</code>) and finally press <code>ESC</code> effect : All the selected lines are commented *</em> Multi-line quick comment **</li>
+<li>** High frequency usage scenario 3 *<em>: <code>[ctr +] v</code> After selecting some line headers, then press<code>A</code>, then press the contents of the comment and finally press <code>ESC</code> (for example:<code>// This is a test Code</code>) Effect: All the lines at the end of the selected lines are commented on.//This is the test code` *</em> Multi-line quick comment **</li>
+<li>** High-frequency use scenario 4 *<em>: <code>[ctr +] v</code> select some line header comments (for example:<code>//</code>), then press<code>d</code> and finally press <code>ESC</code> effect: selected All these lines are commented out. *</em> Multi-line quick delete comments **</li>
+<li>** High-frequency use scenario 5 **: After selecting certain blocks, press [ctr +] v` and then press the above-mentioned action buttons to achieve regional operation</li>
+</ol>
+<h2 id="Powerful-combination"><a href="#Powerful-combination" class="headerlink" title="Powerful combination"></a>Powerful combination</h2><h3 id="Operate-a-word-under-the-cursor"><a href="#Operate-a-word-under-the-cursor" class="headerlink" title="Operate a word under the cursor"></a>Operate a word under the cursor</h3><p>In normal mode:</p>
+<p>Action + Move [+ Number of Repeats]<br>The combination has already been used a lot in the past, continue here:</p>
+<table>
+<thead>
+<tr>
+<th>Action Operation Command + Range</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cw or c1 or c1w</td>
+<td>change from current cursor to word end</td>
+</tr>
+<tr>
+<td>caw</td>
+<td>change whole word including current cursor</td>
+</tr>
+<tr>
+<td>dw or d1 or d1w</td>
+<td>delete from current cursor to word end</td>
+</tr>
+<tr>
+<td>daw</td>
+<td>delete whole word including current cursor</td>
+</tr>
+<tr>
+<td>yw or y1 or y1w</td>
+<td>copy from current cursor to word end</td>
+</tr>
+<tr>
+<td>yaw</td>
+<td>copy whole word including current cursor</td>
+</tr>
+<tr>
+<td>d / word</td>
+<td>delete forward until the former character of the next ‘word’</td>
+</tr>
+<tr>
+<td>d? word</td>
+<td>delete backward until the former character of the last ‘word’</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Action Operation Command + Range</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dtc</td>
+<td>delete until before the next ‘c’</td>
+</tr>
+<tr>
+<td>dfc</td>
+<td>delete until after the next ‘c’</td>
+</tr>
+<tr>
+<td>Scope + Action Operation Command</td>
+<td>Effect</td>
+</tr>
+<tr>
+<td>———————</td>
+<td>———-</td>
+</tr>
+<tr>
+<td><code>bve</code> or<code>BvE</code> + c / d / y</td>
+<td>manipulate a variable or string</td>
+</tr>
+</tbody></table>
+<p>The above table are high-frequency use scenarios</p>
+<h2 id="Autocomplete"><a href="#Autocomplete" class="headerlink" title="Autocomplete"></a>Autocomplete</h2><p>Press directly in insert mode: the most commonly used completion</p>
+<p><code>`
+ctrl + n
+ctrl + p</code> `</p>
+<p>Smart completion</p>
+<p><code>`
+ctrl + x // Enter completion mode</code> `</p>
+<p>-Complete line completion <code>CTRL-X`` CTRL-L</code><br>-** Complete based on keywords in the current file ** <code>CTRL-X`` CTRL-N</code><br>-** Complete according to dictionary ** <code>CTRL-X`` CTRL-K</code><br>-Completion of <code>CTRL-X`` CTRL-T</code> according to thesaurus<br>-** Complete according to keywords in header file ** <code>CTRL-X`` CTRL-I</code><br>-Complete <code>CTRL-X`` CTRL-]</code>according to tags<br>-** Complete file name ** <code>CTRL-X`` CTRL-F</code><br>-Completion of macro definition <code>CTRL-X`` CTRL-D</code><br>-Completion of vim command <code>CTRL-X`` CTRL-V</code><br>-User-defined completion method <code>CTRL-X`` CTRL-U</code><br>-** Spelling suggestions ** <code>CTRL-X`` CTRL-S</code> // For example: an English word</p>
+<h2 id="Collapse"><a href="#Collapse" class="headerlink" title="Collapse"></a>Collapse</h2><p>In normal mode:</p>
+<p><code>`
+zo (fold + open)
+zi (fold + indent)
+zc (fold + close)</code> `</p>
+<h2 id="Split-screen"><a href="#Split-screen" class="headerlink" title="Split screen"></a>Split screen</h2><p>** Split command **, in normal mode, enter</p>
+<ol>
+<li><code>vs</code> (Description: Vertically split the screen vertically)</li>
+<li><code>sp</code> (Note: split horizontally splits the screen, which is the default splitting method)</li>
+</ol>
+<p>** Screens jump to each other **</p>
+<ol>
+<li><code>ctr + w</code> and then press<code>h</code> or <code>j</code> or<code>k</code> or <code>l</code></li>
+<li>Explanation: <code>h</code>: left,<code>j</code>: down, <code>k</code>: up,<code>l</code>: right</li>
+</ol>
+<p>** Resize the split window **</p>
+<ol>
+<li><code>ctrl + w</code> before pressing<code>+</code>or<code>-</code> or <code>=</code>, of course press a number before pressing <code>+</code> or <code>-</code> or<code>=</code>to change the window height,<code>=</code>is equal The meaning of points. .</li>
+<li>In normal mode, enter <code>: resize -N</code> or<code>: resize + N</code> to explicitly specify that the window is reduced or increased by N lines</li>
+<li><code>ctrl + w</code> before pressing<code>&lt;</code>or<code>&gt;</code>or<code>=</code>, of course press a number before pressing<code>&lt;</code>or<code>&gt;</code>or<code>=</code>to change the window width,<code>=</code>is equal The meaning of points.</li>
+<li>Sometimes preview large files and feel that the split screen is too small, <code>ctrl + w</code> +<code>T</code> moves the current window to a new tab.</li>
+</ol>
+<h2 id="tab-window"><a href="#tab-window" class="headerlink" title="tab window"></a>tab window</h2><p>Vim has added the function of multi-tab switching since vim7, which is equivalent to multiple windows. Although the previous version also has a multi-file editing function, it is not as convenient as this. Usage in normal mode:</p>
+<p>-<code>: tabnew</code> [++ opt option] [＋ cmd] file Create a new tab for the specified file<br>-<code>: tabc</code> closes the current tab or<code>: q</code><br>-<code>: tabo</code> close ** other ** tab<br>-<code>: tabs</code> view ** all open ** tabs<br>-<code>: tabp</code> previous tab window<br>-<code>: tabn</code> next tab window</p>
+<p> <code>gt</code>,<code>gT</code> can switch directly between tabs. There are many other commands,: help table.</p>
+<h2 id="table-of-Contents"><a href="#table-of-Contents" class="headerlink" title="table of Contents"></a>table of Contents</h2><p>In normal mode:</p>
+<ol>
+<li><code>: Te</code> displays the current directory in the form of a tab window, then you can switch directories and open a file</li>
+<li><code>:! Ls</code> This is how vim invokes shell commands<code>:! Ls + shell_command</code>, but it does not display the current directory in the form of a tab window.</li>
+</ol>
+<h2 id="Content-operation-of-paired-symbols"><a href="#Content-operation-of-paired-symbols" class="headerlink" title="Content operation of paired symbols"></a>Content operation of paired symbols</h2><p>The following commands can operate on the content within punctuation:</p>
+<ol>
+<li><code>ci&#39;`` ci &quot;</code> <code>ci (</code> <code>ci [</code> <code>ci {</code> <code>ci &lt;</code> respectively change the text content of these paired punctuation marks</li>
+<li><code>di&#39;``di&quot;</code>di (<code>or</code>dib<code>di [</code> di {<code>or</code> diB<code></code>di &lt;` delete the text content of these paired punctuation marks respectively</li>
+<li><code>yi&#39;`` yi &quot;</code> <code>yi (</code> <code>yi [</code> <code>yi {</code> <code>yi &lt;</code> separately copy the text content of these paired punctuation marks</li>
+<li><code>vi&#39;`` vi &quot;</code> <code>vi (</code> <code>vi [</code> <code>vi {</code> <code>vi &lt;</code> respectively select the text content of these paired punctuation marks</li>
+<li><code>cit`` dit</code> <code>yit`` vit</code> separately operate the content between a pair of tags, editing html is very useful</li>
+</ol>
+<p>** In addition, if you change the above <code>i</code> to<code>a</code>, you can operate the paired punctuation and the contents of the paired punctuation at the same time **, for example:</p>
+<p>For example, the text to be operated: 111 “222” 333, move the cursor to any character of “222” and enter the command</p>
+<p>-di “, the text will become: 111” “333<br>-If you enter the command da “, the text will become: 111333</p>
+<h2 id="Clipboard"><a href="#Clipboard" class="headerlink" title="Clipboard"></a>Clipboard</h2><h3 id="1-Simple-copy-and-paste"><a href="#1-Simple-copy-and-paste" class="headerlink" title="1. Simple copy and paste"></a>1. Simple copy and paste</h3><p>vim provides 12 clipboards, their names are vim and there are 11 pasteboards, which are 0, 1, 2, …, 9, a, “. If you open the system clipboard, there will be two more + And *. Use the: reg command to view the contents of each pasteboard.</p>
+<p>In vim, simply use <code>y</code> and just copy it into the clipboard of<code>&quot;</code>, and the same thing as paste with <code>p</code> is also the content of this clipboard.</p>
+<h3 id="2-Copy-and-paste-to-the-specified-clipboard"><a href="#2-Copy-and-paste-to-the-specified-clipboard" class="headerlink" title="2. Copy and paste to the specified clipboard"></a>2. Copy and paste to the specified clipboard</h3><p>To copy the content of vim to a pasteboard, enter the normal mode, select the content to be copied, then press <code>&quot; Ny</code> to complete the copy, where N is the pasteboard number (note that you click the double quotes and then press the pasteboard number Finally, press y), for example, to copy the content to the pasteboard a, select the content and press “ay”.</p>
+<p>To paste the contents of a vim pasteboard, you need to exit the editing mode, press <code>&quot; Np</code> in the normal mode, where N is the pasteboard number. For example, you can press <code>&quot; 5p</code> to paste the contents of pasteboard No. If you paste it in, you can also press <code>&quot; + p</code> to paste the content in the system global pasteboard.</p>
+<h3 id="3-System-Clipboard"><a href="#3-System-Clipboard" class="headerlink" title="3. System Clipboard"></a>3. System Clipboard</h3><p>To view the clipboard supported by vim, enter <code>: reg</code> in normal mode</p>
+<p>How should it be used to interact with the system clipboard? When you encounter problems, the first thing you are looking for is the help document. The Clipboard is the Clipboard. View help via <code>: h clipboard</code></p>
+<p>The asterisk * and plus sign + pasteboard are system pasteboards. Under Windows, * and + clipboards are the same. For X11 systems, * the clipboard stores the selected or highlighted content, and the clipboard stores the copied or cut content. Open the clipboard option, you can access + clipboard; open xterm_clipboard, you can access * clipboard. * One function of the clipboard is that the content selected in one window of vim can be taken out in another window of vim.</p>
+<p>** Copy to system clipboard **</p>
+<p>example:</p>
+<p><code>&quot; * y</code> <code>&quot; + y</code> <code>&quot; + Nyy</code> copy N lines to the system clipboard</p>
+<p>Explanation:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{Visual} “+ y</td>
+<td>copy the selected text into the system clipboard</td>
+</tr>
+<tr>
+<td>“+ y {motion}</td>
+<td>copy the text specified by {motion} into the system clipboard</td>
+</tr>
+<tr>
+<td>: [range] yank +</td>
+<td>copy the text specified by [range] into the system clipboard</td>
+</tr>
+</tbody></table>
+<p>** Cut to system clipboard **</p>
+<p>example:</p>
+<p>“+ dd</p>
+<p>** Paste from system clipboard to vim **</p>
+<p>In normal mode:</p>
+<ol>
+<li><code>&quot; * p</code></li>
+<li><code>&quot; + p</code></li>
+<li><code>: put +</code> Meaning: Ex command puts contents of system clipboard on a new line</li>
+</ol>
+<p>In insert mode:</p>
+<p><code>&lt;C-r&gt; +</code> Meaning: From insert mode (or commandline mode)</p>
+<p>“+ p is better than the Ctrl-v command, it can handle the pasting of large blocks of text faster and more reliably, and can also avoid the accumulation of automatic indentation at the beginning of each line when pasting a large amount of text, because Ctrl-v The system caches stream processing, processing the pasted text line by line.</p>
+<h2 id="vim-encoding"><a href="#vim-encoding" class="headerlink" title="vim encoding"></a>vim encoding</h2><p>Vim can edit all kinds of character encoding files very well, which of course includes popular Unicode encoding methods such as UCS-2 and UTF-8.</p>
+<p>Four character encoding options, encoding, fileencoding, fileencodings, and termencoding (for possible values ​​of these options, please refer to Vim online help: help encoding-names, their meanings are as follows:</p>
+<p>-** encoding **: The character encoding used internally by Vim</p>
+<p>Including Vim’s buffer (buffer), menu text, message text, etc. The default is to choose according to your locale. The user manual recommends changing its value only in .vimrc. In fact, it seems that it only makes sense to change its value in .vimrc. You can use another encoding to edit and save the file. For example, the encoding of your vim is utf-8, and the edited file uses cp936 encoding. Understand the way), and when you write a file, it will automatically switch back to cp936 (the file save encoding).</p>
+<p>-** fileencoding **: The character encoding of the currently edited file in Vim</p>
+<p>When Vim saves the file, it will also save the file in this character encoding (regardless of whether it is a new file).</p>
+<p>-** fileencodings **: Vim will automatically detect encoding settings</p>
+<p>When starting, it will detect the character encoding mode of the file to be opened one by one according to the character encoding mode listed in it, and set fileencoding to the character encoding mode finally detected. Therefore, it is best to put the Unicode encoding at the front of this list, and the Latin encoding at the end.</p>
+<p>-** termencoding **: The character encoding method of the terminal (or Windows console window) that Vim works on</p>
+<p>If the term where vim is located is the same as the vim encoding, you do not need to set it. If it is not the case, you can use vim’s termencoding option to automatically convert to term encoding. This option is not valid for gVim in our common GUI mode under Windows, and for Console mode Vim is the code page of the Windows console, and Usually we don’t need to change it. Okay, after explaining this bunch of parameters that can easily confuse novices, let’s take a look at how Vim’s multi-character encoding support works.</p>
+<ol>
+<li>Start Vim, and set the character encoding of buffer, menu text, and message according to the encoding value set in .vimrc.</li>
+<li>Read the file to be edited and detect the file encoding method one by one according to the character encoding methods listed in fileencodings. And set fileencoding to be detected, it looks correct (Note 1) Character encoding.</li>
+<li>Compare the values ​​of fileencoding and encoding. If they are different, call iconv to convert the file content to the character encoding method described by encoding, and put the converted content into the buffer developed for this file. At this time, we can start editing This file. Note that to complete this step, you need to call external iconv.dll (Note 2). You need to ensure that this file exists in $ VIMRUNTIME or other directories listed in the PATH environment variable.</li>
+<li>When saving the file after editing, compare the values ​​of fileencoding and encoding again. If they are different, call iconv again to convert the text in the buffer to be saved to the character encoding described in fileencoding and save it to the specified file. Similarly, this requires calling iconv.dll. Because Unicode can contain characters of almost all languages, and UTF-8 encoding of Unicode is a very cost-effective encoding (space consumption is less than UCS-2), so the value of encoding is recommended. Set to utf-8. Another reason for this is that when encoding is set to utf-8, Vim automatically detects the encoding of the file to be more accurate (perhaps the main reason;). For the files we edit in Chinese Windows, in order to take into account compatibility with other software, the file encoding is still set to GB2312 / GBK, so fileencoding is recommended to be set to Chinese (chinese is an individual name, which means gb2312 in Unix and Windows cp936, which is the code page of GBK).</li>
+</ol>
+<p>For fedora, vim settings are generally placed in the / etc / vimrc file, however, it is recommended not to modify it. You can modify the ~ / .vimrc file (which does not exist by default, you can create a new one yourself) and write the desired settings.</p>
+<p>My .vimrc file is as follows:</p>
+<p><code>`
+: set encoding = utf-8
+: set fileencodings = ucs-bom, utf-8, cp936
+: set fileencoding = gb2312
+: set termencoding = utf-8</code> `</p>
+<p>Among them, the fileencoding configuration can set utf-8, but my mp3 does not seem to support utf-8 encoding, so simply, I set it to gb2312. Now it’s done, no matter whether it is in vi or mp3, it can display .txt files without garbled characters.</p>
+<h2 id="Personal-configuration"><a href="#Personal-configuration" class="headerlink" title="Personal configuration"></a>Personal configuration</h2><p>The configuration during my use of ** without plugin ** is very short. It is written in the vim configuration file. Vimrc. The configuration is configured using ** vim script **. It has its own set of syntax. For details, please click [ vim Script] (<span class="exturl" data-url="aHR0cHM6Ly93d3cudzNjc2Nob29sLmNuL3ZpbS9uY2t4MXB1MC5odG1s">https://www.w3cschool.cn/vim/nckx1pu0.html<i class="fa fa-external-link-alt"></i></span>)</p>
+<p><code>`vim
+set number; display number
+set mouse = a; setting smart mouse
+set hlsearch; high light search
+set tabstop = 4; setting tab width 4 letters
+set shiftwidth = 4; setting new line incident width
+set noexpandtab; tab doesn&#39;t expand to space
+; set list; display manipulator, example: \ n \ t \ r ......
+set encoding = utf-8
+set fileencodings = ucs-bom, utf-8, cp936
+set fileencoding = gb2312
+set termencoding = utf-8</code> `</p>
+<h2 id="Forward-and-backward-function"><a href="#Forward-and-backward-function" class="headerlink" title="Forward and backward function"></a>Forward and backward function</h2><p>Popular text editors usually have forward and backward functions, and can move back and forth between the positions that have been viewed in the file (associated with the browser), use <code>Ctrl-O</code> in vim to perform backwards, use<code>Ctrl-I</code>Execute forward, related help:<code>: help CTRL-O</code> <code>: help CTRL-I``: help jump-motions</code></p>
+<h2 id="vim-compare-files"><a href="#vim-compare-files" class="headerlink" title="vim compare files"></a>vim compare files</h2><h3 id="Starting-method"><a href="#Starting-method" class="headerlink" title="Starting method"></a>Starting method</h3><p>First ensure that the diff command is available in the system. Vim’s diff mode is dependent on the diff command.</p>
+<code>`shell
+ vimdiff file1 file2 [file3 [file4]]</code> <code>or
+``</code>shell<br>vim -d file1 file2 [file3 [file4]]<br><code>`
+The window is more localized in the current tab. You cannot see the difference between a window and the windows in other tabs. In this way, multiple groups of comparison windows can be opened at the same time, and each group of differences is in a separate tab. Vim will open a window for each file and use ** vertical split ** just like the `-O` parameter. If you want to ** split horizontally **, add the `-o` parameter:</code> <code>shell
+vimdiff -o file1 file2 [file3 [file4]]
+``</code><br>If you are already in Vim, you can enter compare mode in three ways, only one is introduced:<br><code>`
+: diffs [plit] {filename}</code> <code>Open a new window for {filename}. The current and newly opened windows will have the same parameters as &quot;vimdiff&quot;. To split the window vertically, add</code>: vertical<code>in front. E.g: <dl><dt>``</code></dt><dd>vert diffsplit another_filename<br>`` `</dd></dl><h3 id="Jump-to-the-difference"><a href="#Jump-to-the-difference" class="headerlink" title="Jump to the difference"></a>Jump to the difference</h3><p>There are two commands that can be used to jump to the location of the difference text:</p>
+<ol>
+<li><code>[c</code> jumps backwards to the beginning of the last change. Count the prefix so that it repeats the corresponding times.</li>
+<li><code>] c</code> jumps forward to the beginning of the next change. Count the prefix so that it repeats the corresponding times.<br> If there is no change to which the cursor can jump, an error will be generated.</li>
+</ol>
+<h3 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h3><p>The purpose of comparison is to merge the differences and directly use the following built-in commands or troublesome methods: manually copy from one window to another.</p>
+<dl><dt>`` `<br>: [range] diffg [et] [bufspec]<br>                Use another buffer to modify the current buffer to eliminate differences. Unless there is only another<br>                For a buffer in comparison mode, [bufspec] must exist and specify that buffer.<br>                If [bufspec] specifies the current buffer, it is an empty action. [range] can refer to the following.</dt><dd>[range] diffpu [t] [bufspec]<br>                Use the current buffer to modify another buffer, eliminating differences.<br>[count] do Same as “: diffget”, but no scope. “o” means “obtain” (not available<br>                “dg” because that may be the beginning of “dgg”! ).<br>dp Same as “: diffput”, but no range. Note Not applicable in visual mode.<br>                The given [count] is used as the [bufspec] parameter of “: diffput”.</dd></dl><p>When [range] is not given, only the difference text at the current cursor position or immediately above it will be affected.<br>When [range] is specified, Vim tries to change only the lines it specifies. However, this is not always effective when there are deleted rows.<br>The parameter [bufspec] can be the serial number of the buffer, matching the pattern of the buffer name or part of the buffer name.<br>E.g:<br>        : diffget uses another buffer to enter compare mode<br>        : diffget 3 uses buffer 3<br>        : diffget v2 uses a buffer whose name matches “v2” and enters the comparison mode (for example, “file.c.v2”)<br>`` `</p>
+<h3 id="Update-comparison-and-undo-changes"><a href="#Update-comparison-and-undo-changes" class="headerlink" title="Update comparison and undo changes"></a>Update comparison and undo changes</h3><p>Compare the contents based on the buffer. Therefore, if you have made changes after loading the file, these changes will also participate in the comparison. However, you may want to use <code>: diffupdate [!]</code> From time to time. Because not all changes can be automatically updated. When <code>!</code> Is included, Vim checks whether the file has been changed externally and needs to be reloaded. Prompt for each changed file.</p>
+<p>If you want to undo the modification, you can enter the normal mode directly and press <code>u</code> as you normally do in vim editing, but you must be careful to move the cursor to the file window that needs to be undoed.</p>
+<h3 id="Expand-and-view-context"><a href="#Expand-and-view-context" class="headerlink" title="Expand and view context"></a>Expand and view context</h3><p>When comparing and merging files, it is often necessary to combine context to determine the final action to be taken. By default, Vimdiff will display 6 lines of text above and below the difference for reference. Other identical lines of text are automatically folded. If you want to modify the default number of context lines, you can set it like this:</p>
+<p> <code>`
+: set diffopt = context: 3</code> `</p>
+<h3 id="Exit-of-multiple-files"><a href="#Exit-of-multiple-files" class="headerlink" title="Exit of multiple files"></a>Exit of multiple files</h3><p>After comparing and merging to a conclusion, you can use the following commands to operate on multiple files at the same time.</p>
+<p>For example, quit at the same time: <code>: qa (quit all)</code></p>
+<p>If you want to save all files: <code>: wa (write all)</code></p>
+<p>Or a merge command of the two, save all files, and then exit: <code>: wqa (write, then quit all)</code></p>
+<p>If you do not want to save the result of any operation when you quit: <code>: qa! (Force to quit all)</code></p>
+<h3 id="vimdiff-For-details-please-refer-to"><a href="#vimdiff-For-details-please-refer-to" class="headerlink" title="vimdiff For details, please refer to"></a>vimdiff For details, please refer to</h3><ol>
+<li><code>: help diff</code> under vim</li>
+<li>[vimdiff doc] (<span class="exturl" data-url="aHR0cDovL3ZpbWNkb2Muc291cmNlZm9yZ2UubmV0L2RvYy9kaWZmLmh0bWw=">http://vimcdoc.sourceforge.net/doc/diff.html<i class="fa fa-external-link-alt"></i></span>)</li>
+</ol>
+<h2 id="vim-command-line-save-leave-and-other-commands"><a href="#vim-command-line-save-leave-and-other-commands" class="headerlink" title="vim command line save, leave and other commands:"></a>vim command line save, leave and other commands:</h2><ol>
+<li><code>: w</code> Write the edited data to the hard disk file.</li>
+<li><code>: w!</code> If the file attribute is “read-only”, write to the file forcibly. But the ability to write is also dependent on the file permissions of the file.</li>
+<li>Leave after <code>: q</code>. If it is “: wq!”, It will be forced to save and leave.</li>
+<li><code>: w [file name]</code> Save the edited data as another file.</li>
+<li><code>: r [file name]</code> Read the content of another file in the edited data and add it to the line behind the cursor.</li>
+<li><code>: n1, n2 w [file name]</code> Save the contents of lines n1 to n2 to another file.</li>
+<li><code>:! Command</code> Temporarily leave vi to display the result of executing command in command line mode.</li>
+<li><code>ZZ</code> If the file has not been changed, leave directly; if it has been changed, leave after saving.</li>
+<li><code>set num / nonum</code> displays / cancels the line number.</li>
+</ol>
+<h2 id="Macro-of-VIM"><a href="#Macro-of-VIM" class="headerlink" title="Macro of VIM"></a>Macro of VIM</h2><p>The use of macros is very powerful, go to [vim, the use of macros] (<span class="exturl" data-url="aHR0cDovL2Jsb2cuc2luYS5jb20uY24vcy9ibG9nXzY5ZTVkODQwMDEwMncxejEuaHRtbA==">http://blog.sina.com.cn/s/blog_69e5d8400102w1z1.html<i class="fa fa-external-link-alt"></i></span>)</p>
+<h2 id="Full-version-command"><a href="#Full-version-command" class="headerlink" title="Full version command"></a>Full version command</h2><p>This article only provides high-frequency scenes accumulated during personal use. For the full version, please click [here] (<span class="exturl" data-url="aHR0cDovL3E2Z204Zm9tdy5ia3QuY2xvdWRkbi5jb20vZ2l0cGFnZS92aW0vdmltX2NvbW1hbmQucG5n">http://q6gm8fomw.bkt.clouddn.com/gitpage/vim/vim_command.png<i class="fa fa-external-link-alt"></i></span>), or consult the vim manual</p>
+<h2 id="Play-games-to-make-perfect"><a href="#Play-games-to-make-perfect" class="headerlink" title="Play games to make perfect"></a>Play games to make perfect</h2><p>** Use advance and retreat **, so multi-use is king. I recommend a game here: use the keyboard to control the character adventure game, familiar with VIM commands during the game: [vim-adventures] (https: // vim -adventures.com/)</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="** Reference **"></a>** Reference **</h2><ol>
+<li>[Official document] (<span class="exturl" data-url="aHR0cHM6Ly92aW0uc291cmNlZm9yZ2UuaW8vZG9jcy5waHA=">https://vim.sourceforge.io/docs.php<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>[vim doc] (<span class="exturl" data-url="aHR0cDovL3ZpbWNkb2Muc291cmNlZm9yZ2UubmV0L2RvYy9oZWxwLmh0bWw=">http://vimcdoc.sourceforge.net/doc/help.html<i class="fa fa-external-link-alt"></i></span>) Chinese</li>
+<li>[freewater blog] (<span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9mcmVld2F0ZXIvYXJjaGl2ZS8yMDExLzA4LzI2LzIxNTQ2MDIuaHRtbA==">http://www.cnblogs.com/freewater/archive/2011/08/26/2154602.html<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>[Thinking In Linux] (<span class="exturl" data-url="aHR0cDovL3d3dy5saW51eHNvbmcub3JnLzIwMTAvMDkvdmltLXF1aWNrLXNlbGVjdC1jb3B5LWRlbGV0ZS8=">http://www.linuxsong.org/2010/09/vim-quick-select-copy-delete/<i class="fa fa-external-link-alt"></i></span>)</li>
+</ol>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
 </search>
