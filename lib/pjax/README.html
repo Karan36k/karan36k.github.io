@@ -63,7 +63,7 @@ npm run build</code></pre>
 <h2 id="What-Pjax-Does"><a href="#What-Pjax-Does" class="headerlink" title="What Pjax Does"></a>What Pjax Does</h2><p><em>Under the hood, it’s just ONE HTTP request with a <code>pushState()</code> call.</em></p>
 <p>Pjax loads pages using AJAX and updates the browser’s current URL using <code>pushState()</code> <em>without</em> reloading your page’s layout or any resources (JS, CSS), giving a fast page load.</p>
 <p>It works with all permalinks and can update all the parts of the page you want (including HTML metas, title, and navigation state).</p>
-<p>In the case of <a href="http://caniuse.com/#search=pushstate" target="_blank" rel="noopener">browsers that don’t support <code>history.pushState()</code></a>, Pjax gracefully degrades and does not do anything at all.</p>
+<p>In the case of <a href="https://caniuse.com/#search=pushstate" target="_blank" rel="noopener">browsers that don’t support <code>history.pushState()</code></a>, Pjax gracefully degrades and does not do anything at all.</p>
 <p>Additionally, Pjax:</p>
 <ul>
 <li>Is not limited to one container, like jQuery-Pjax is.</li>
@@ -152,7 +152,7 @@ npm run build</code></pre>
 <li>Allows page transitions with CSS animations.</li>
 <li>Can be easily tweaked, since every method is public (and as a result, overridable).</li>
 </ul>
-<h2 id="Compatibility"><a href="#Compatibility" class="headerlink" title="Compatibility"></a>Compatibility</h2><p>Pjax only works with <a href="http://caniuse.com/#search=pushstate" target="_blank" rel="noopener">browsers that support the <code>history.pushState()</code> API</a>. When the API isn’t supported, Pjax goes into fallback mode (and it just does nothing).</p>
+<h2 id="Compatibility"><a href="#Compatibility" class="headerlink" title="Compatibility"></a>Compatibility</h2><p>Pjax only works with <a href="https://caniuse.com/#search=pushstate" target="_blank" rel="noopener">browsers that support the <code>history.pushState()</code> API</a>. When the API isn’t supported, Pjax goes into fallback mode (and it just does nothing).</p>
 <p>To see if Pjax is actually supported by your browser, use <code>Pjax.isSupported()</code>.</p>
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="new-Pjax"><a href="#new-Pjax" class="headerlink" title="new Pjax()"></a><code>new Pjax()</code></h3><p>Let’s talk more about the most basic way to get started.</p>
 <p>When instantiating <code>Pjax</code>, you can pass options into the constructor as an object:</p>
@@ -265,7 +265,7 @@ pjax.refresh(newContent);</code></pre>
 <li><code>Pjax.switches.outerHTML</code>:<br>The default behavior, replaces elements using <code>outerHTML</code>.</li>
 <li><code>Pjax.switches.innerHTML</code>:<br>Replaces elements using <code>innerHTML</code> and copies <code>className</code>.</li>
 <li><code>Pjax.switches.replaceNode</code>:<br>Replaces elements using <code>replaceChild</code></li>
-<li><code>Pjax.switches.sideBySide</code>:<br>Smart replacing that allows you to have both elements in the same parent when you want to use CSS animations. Old elements are removed when all children have been fully animated (an <a href="http://www.w3.org/TR/css3-animations/#animationend" target="_blank" rel="noopener">animationEnd</a> event is triggered).</li>
+<li><code>Pjax.switches.sideBySide</code>:<br>Smart replacing that allows you to have both elements in the same parent when you want to use CSS animations. Old elements are removed when all children have been fully animated (an <a href="https://www.w3.org/TR/css3-animations/#animationend" target="_blank" rel="noopener">animationEnd</a> event is triggered).</li>
 </ul>
 <h3 id="Creating-a-Switch-Callback"><a href="#Creating-a-Switch-Callback" class="headerlink" title="Creating a Switch Callback"></a>Creating a Switch Callback</h3><p>Your callback function can do whatever you want, but you need to:</p>
 <ol>
@@ -429,7 +429,7 @@ pjax.refresh(newContent);</code></pre>
 <li><code>pjax:success</code> - Fired after the Pjax request succeeds.</li>
 <li><code>pjax:error</code> - Fired after the Pjax request fails. The request object will be passed along as <code>event.options.request</code>.</li>
 </ul>
-<p><code>send</code> and <code>complete</code> are a good pair of events to use if you are implementing a loading indicator (eg: <a href="http://buunguyen.github.io/topbar/" target="_blank" rel="noopener">topbar</a>)</p>
+<p><code>send</code> and <code>complete</code> are a good pair of events to use if you are implementing a loading indicator (eg: <a href="https://buunguyen.github.io/topbar/" target="_blank" rel="noopener">topbar</a>)</p>
 <pre><code class="js"><span class="built_in">document</span>.addEventListener(<span class="string">'pjax:send'</span>, topbar.show)
 <span class="built_in">document</span>.addEventListener(<span class="string">'pjax:complete'</span>, topbar.hide)</code></pre>
 <h2 id="HTTP-Headers"><a href="#HTTP-Headers" class="headerlink" title="HTTP Headers"></a>HTTP Headers</h2><p>Pjax uses several custom headers when it makes and receives HTTP requests. If the requests are going to your server, you can use those headers for some meta information about the response.</p>
