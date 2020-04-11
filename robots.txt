@@ -11,5 +11,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
  
-Sitemap: https://snakecoding.com/sitemap.xml
-Sitemap: https://snakecoding.com/baidusitemap.xml
+Sitemap: https://massivefile.com/sitemap.xml
+Sitemap: https://massivefile.com/baidusitemap.xml

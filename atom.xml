@@ -5,9 +5,9 @@
   <subtitle>Data Science</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://snakecoding.com/"/>
+  <link href="https://massivefile.com/"/>
   <updated>2020-04-10T21:02:31.572Z</updated>
-  <id>https://snakecoding.com/</id>
+  <id>https://massivefile.com/</id>
   
   <author>
     <name>Karan</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Vim without plugins</title>
-    <link href="https://snakecoding.com/Vim_without_widgets/"/>
-    <id>https://snakecoding.com/Vim_without_widgets/</id>
+    <link href="https://massivefile.com/Vim_without_widgets/"/>
+    <id>https://massivefile.com/Vim_without_widgets/</id>
     <published>2020-04-05T14:46:00.000Z</published>
     <updated>2020-04-10T21:02:31.572Z</updated>
     
@@ -32,19 +32,19 @@
     </summary>
     
     
-      <category term="IDE" scheme="https://snakecoding.com/categories/IDE/"/>
+      <category term="IDE" scheme="https://massivefile.com/categories/IDE/"/>
     
     
-      <category term="linux" scheme="https://snakecoding.com/tags/linux/"/>
+      <category term="linux" scheme="https://massivefile.com/tags/linux/"/>
     
-      <category term="IDE" scheme="https://snakecoding.com/tags/IDE/"/>
+      <category term="IDE" scheme="https://massivefile.com/tags/IDE/"/>
     
   </entry>
   
   <entry>
     <title>Classic Excerpt-Normal Random Variables</title>
-    <link href="https://snakecoding.com/normal_random_variables%20/"/>
-    <id>https://snakecoding.com/normal_random_variables%20/</id>
+    <link href="https://massivefile.com/normal_random_variables%20/"/>
+    <id>https://massivefile.com/normal_random_variables%20/</id>
     <published>2017-08-27T14:46:00.000Z</published>
     <updated>2020-04-10T23:50:49.539Z</updated>
     
@@ -57,10 +57,10 @@
     </summary>
     
     
-      <category term="Machine Learning Maths" scheme="https://snakecoding.com/categories/Machine-Learning-Maths/"/>
+      <category term="Machine Learning Maths" scheme="https://massivefile.com/categories/Machine-Learning-Maths/"/>
     
     
-      <category term="probability" scheme="https://snakecoding.com/tags/probability/"/>
+      <category term="probability" scheme="https://massivefile.com/tags/probability/"/>
     
   </entry>
   
