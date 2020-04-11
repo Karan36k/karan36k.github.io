@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Classic Excerpt-Normal Random Variables</title>
-    <url>/normal_random_variables%20/</url>
+    <url>/NormalRandomVariables%20/</url>
     <content><![CDATA[<p>** Description **: The full text is taken from [Introduction to probability, 2nd Edition]<br>3.3 normal random variables</p>
 <a id="more"></a>
 <h2 id="Normal-random-variables"><a href="#Normal-random-variables" class="headerlink" title="Normal random variables"></a>Normal random variables</h2><p>If the probability density of a continuous random variable $ X $ has the following form, then the random variable is called normal or Gaussian.<br>$$<br>f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{\frac{-(x-\mu)^2}{2\sigma^2}}<br>$$<br>Among them, $ u $ and $ \ sigma $ are two parameters of the density function, and $ \ sigma $ must also be a positive number. It can be proved that $ f_X (x) $ satisfies the normalization condition of the following probability density function (see the exercises on theorems in this chapter):<br>$$<br>\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{+\infty}e^{\frac{-(x-\mu)^2}{2\sigma^2}}dx=1<br>$$<br>The figure below is the density function and distribution function of the normal distribution $ (\mu=1 \text{ and } \sigma^2=1) $.</p>
@@ -611,8 +611,8 @@ This is demonstrated in the first section of on Random Variables.
       </tags>
   </entry>
   <entry>
-    <title>Vim without plugins</title>
-    <url>/Vim_without_widgets/</url>
+    <title>Classic Vim without plugins</title>
+    <url>/Vim_no_plugins/</url>
     <content><![CDATA[<p>This article will be continuously updated based on experience.</p>
 <a id="more"></a> 
 <h2 id="Four-modes-of-vim"><a href="#Four-modes-of-vim" class="headerlink" title="Four modes of vim"></a>Four modes of vim</h2><ol>
