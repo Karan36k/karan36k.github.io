@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://massivefile.com/Vim_no_plugins/</loc>
+    
+    <lastmod>2020-04-12T15:49:28.791Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/tags/index.html</loc>
+    
+    <lastmod>2020-04-12T15:34:09.734Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/categories/index.html</loc>
+    
+    <lastmod>2020-04-12T15:33:38.746Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/about/index.html</loc>
+    
+    <lastmod>2020-04-12T15:31:43.360Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/quiz2/</loc>
+    
+    <lastmod>2020-04-12T15:02:48.178Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Quiz01/</loc>
+    
+    <lastmod>2020-04-12T15:02:34.893Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/</loc>
     
     <lastmod>2020-04-12T14:40:37.438Z</lastmod>
@@ -9,51 +51,9 @@
   </url>
   
   <url>
-    <loc>https://massivefile.com/quiz2/</loc>
-    
-    <lastmod>2020-04-12T14:38:09.827Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/Quiz01/</loc>
-    
-    <lastmod>2020-04-12T14:37:47.900Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://massivefile.com/NormalRandomVariables%20/</loc>
     
     <lastmod>2020-04-12T06:23:02.415Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/Vim_no_plugins/</loc>
-    
-    <lastmod>2020-04-12T04:20:06.089Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/about/index.html</loc>
-    
-    <lastmod>2020-04-11T04:25:36.553Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/categories/index.html</loc>
-    
-    <lastmod>2020-04-08T15:26:35.991Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/tags/index.html</loc>
-    
-    <lastmod>2020-04-08T15:14:27.868Z</lastmod>
     
   </url>
   
