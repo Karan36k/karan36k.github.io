@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://massivefile.com/Quiz01/</loc>
+    
+    <lastmod>2020-04-12T20:51:21.114Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/quiz2/</loc>
+    
+    <lastmod>2020-04-12T20:51:01.642Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Vectorization/</loc>
+    
+    <lastmod>2020-04-12T20:46:53.985Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/NormalRandomVariables%20/</loc>
+    
+    <lastmod>2020-04-12T20:46:43.603Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/</loc>
     
-    <lastmod>2020-04-12T17:42:25.580Z</lastmod>
+    <lastmod>2020-04-12T20:46:37.664Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Python_Basics_With_Numpy/</loc>
+    
+    <lastmod>2020-04-12T20:46:32.104Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://massivefile.com/Vim_no_plugins/</loc>
     
-    <lastmod>2020-04-12T15:49:28.791Z</lastmod>
+    <lastmod>2020-04-12T20:34:17.134Z</lastmod>
     
   </url>
   
@@ -33,27 +68,6 @@
     <loc>https://massivefile.com/about/index.html</loc>
     
     <lastmod>2020-04-12T15:31:43.360Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/quiz2/</loc>
-    
-    <lastmod>2020-04-12T15:02:48.178Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/Quiz01/</loc>
-    
-    <lastmod>2020-04-12T15:02:34.893Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/NormalRandomVariables%20/</loc>
-    
-    <lastmod>2020-04-12T06:23:02.415Z</lastmod>
     
   </url>
   
