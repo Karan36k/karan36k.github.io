@@ -39,9 +39,14 @@
 <meta property="og:site_name" content="Machine Learning">
 <meta property="og:description" content="Logistic Regression with a Neural Network mindset Assignment || Deeplearning.ai(Course - 1 Week - 2)|| Neural Networks and Deep(Week 2)Note - These are my notes on the second course of DeepLearning.ai">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/.../DownloadableData/LogReg_kiank.png">
+<meta property="og:image" content="https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/%3Ca%20href=">
+<meta property="og:image" content="https://lh3.googleusercontent.com/p7ly3mtv7h5Y3fl4JtiFmtb-i_iAerowOHSG4EXhu3SESUPMjmZhwIjaXxWp9GOqejyWazhp-maQ9NsyVNsruLAErIu1N7cZjBWTN5NnV43bukiGrcBmGm_k4WqWKoLdbAoYUyNgPw=w2400">
+<meta property="og:image" content="https://lh3.googleusercontent.com/kJY-tRqpPcdQ7kqF3XJfo4RZ_-pauHBMdujmOlWP6janiuhNawemEADSBrPiqlgRi8vPHLqRVNrwqoxegsWCRDWwy8ntZMiT9BHxlPFfRfa9U4QGr7lNTWB4tNFRzryQuXPGReFn1g=w2400">
+<meta property="og:image" content="https://lh3.googleusercontent.com/02H_4u-Q1y8hDW6L6nDzXAX6bE6QqP6WXfK_hrbXFYQ9Zxm4KVDJo9gEo3511OBsuvGzNo9GD6haI8auCtBkFlaEU2UDgCK6ReeVMyGqSg7brcTSQysUZr30K-Y7dTLdRzCVR67cMw=w2400">
+<meta property="og:image" content="https://lh3.googleusercontent.com/VISa3bYoaFyoyL4EnFg4OhGXPa_aIgC3M3hDJsOQP-3PK1ICbo9ZT3udg7Jp_nCRj9rxEjREN-wP83WaR6EVAV2dCC1FogwYI91awu3uX9EF0cUh3jApJxQb-0_VKQtBc0Telo5-Kw=w2400">
+<meta property="og:image" content="https://lh3.googleusercontent.com/zRQjYeR_0i0Az8BynDY35YelX_s5nomdk0mQAlOjWdhWvSe70Ey4EKZntInJN3WwEb9i9lusqNNqtsBXc15qaEj0eyH8uYlDNxr72DjbeGaqvPjE9iZqmZcTozgW157sVuTlGePc8Q=w2400">
 <meta property="article:published_time" content="2020-04-12T00:56:53.000Z">
-<meta property="article:modified_time" content="2020-04-12T16:44:29.547Z">
+<meta property="article:modified_time" content="2020-04-12T17:33:05.132Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="CNN">
 <meta property="article:tag" content=" HyperParameter Tuning">
@@ -70,7 +75,7 @@
 <meta property="article:tag" content=" Logistic Regression with a Neural Network mindset">
 <meta property="article:tag" content=" Logistic Regression]">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/.../DownloadableData/LogReg_kiank.png">
+<meta name="twitter:image" content="https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/%3Ca%20href=">
 
 <link rel="canonical" href="https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/">
 
@@ -281,7 +286,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-12 06:26:53 / Modified: 22:14:29" itemprop="dateCreated datePublished" datetime="2020-04-12T06:26:53+05:30">2020-04-12</time>
+              <time title="Created: 2020-04-12 06:26:53 / Modified: 23:03:05" itemprop="dateCreated datePublished" datetime="2020-04-12T06:26:53+05:30">2020-04-12</time>
             </span>
 
           <br>
@@ -289,13 +294,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>38k</span>
+              <span>4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>35 mins.</span>
+              <span>4 mins.</span>
             </span>
 
         </div>
@@ -346,7 +351,9 @@
 <p>Each line of your train_set_x_orig and test_set_x_orig is an array representing an image. You can visualize an example by running the following code. Feel free also to change the <code>index</code> value and re-run to see other images. </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example of a picture</span></span><br><span class="line">index = <span class="number">25</span></span><br><span class="line">example = train_set_x_orig[index]</span><br><span class="line">plt.imshow(train_set_x_orig[index])</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"y = "</span> + str(train_set_y[:, index]) + <span class="string">", it's a '"</span> + classes[np.squeeze(train_set_y[:, index])].decode(<span class="string">"utf-8"</span>) +  <span class="string">"' picture."</span>)</span><br></pre></td></tr></table></figure>
 
-<pre><code>y = [1], it&apos;s a &apos;cat&apos; picture.</code></pre><p>&lt;img src=”…/DownloadableData/Logistic_Regression_with_a_Neural_Network_mindset_8_1.png”)</img></p>
+<pre><code>y = [1], it&apos;s a &apos;cat&apos; picture.</code></pre><center><img src="<a href='https://photos.google.com/share/AF1QipOhF5oNEmJO9gTdnvulk979v26GOyVo8vVVYGV6oUfMg2_SUvn3K4DnOr_tj21-Yw?key=aFFZVlhzWFAtUDBCUHBBUC1DOWdxSzBxa000MzF3&source=ctrlq.org' target="_blank" rel="noopener"><img src='https://lh3.googleusercontent.com/p7ly3mtv7h5Y3fl4JtiFmtb-i_iAerowOHSG4EXhu3SESUPMjmZhwIjaXxWp9GOqejyWazhp-maQ9NsyVNsruLAErIu1N7cZjBWTN5NnV43bukiGrcBmGm_k4WqWKoLdbAoYUyNgPw=w2400' /></a>"</img>
+</center>
+
 <p>Many software bugs in deep learning come from having matrix/vector dimensions that don’t fit. If you can keep your matrix/vector dimensions straight you will go a long way toward eliminating many bugs. </p>
 <p><strong>Exercise:</strong> Find the values for:<br>    - m_train (number of training examples)<br>    - m_test (number of test examples)<br>    - num_px (= height = width of a training image)<br>Remember that <code>train_set_x_orig</code> is a numpy-array of shape (m_train, num_px, num_px, 3). For instance, you can access <code>m_train</code> by writing <code>train_set_x_orig.shape[0]</code>.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### START CODE HERE ### (≈ 3 lines of code)</span></span><br><span class="line">m_train = train_set_x_orig.shape[<span class="number">0</span>]</span><br><span class="line">m_test = test_set_x_orig.shape[<span class="number">0</span>]</span><br><span class="line">num_px = train_set_x_orig.shape[<span class="number">2</span>]</span><br><span class="line"><span class="comment">### END CODE HERE ###</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Number of training examples: m_train = "</span> + str(m_train))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Number of testing examples: m_test = "</span> + str(m_test))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Height/Width of each image: num_px = "</span> + str(num_px))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Each image is of size: ("</span> + str(num_px) + <span class="string">", "</span> + str(num_px) + <span class="string">", 3)"</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"train_set_x shape: "</span> + str(train_set_x_orig.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"train_set_y shape: "</span> + str(train_set_y.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"test_set_x shape: "</span> + str(test_set_x_orig.shape))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"test_set_y shape: "</span> + str(test_set_y.shape))</span><br></pre></td></tr></table></figure>
@@ -427,24 +434,18 @@ sanity check after reshaping: [17 31 56 22 33]</code></pre><p><strong>Expected O
 
 
 
-<pre><code>12288</code></pre><font color='blue'>
-**What you need to remember:**
-
+<pre><code>12288</code></pre><p><b><h4>What you need to remember:</h4></b><br><font color='blue'></p>
 <p>Common steps for pre-processing a new dataset are:</p>
 <ul>
 <li>Figure out the dimensions and shapes of the problem (m_train, m_test, num_px, …)</li>
 <li>Reshape the datasets such that each example is now a vector of size (num_px * num_px * 3, 1)</li>
 <li>“Standardize” the data</font>
-## 3 - General Architecture of the learning algorithm ##
 
 </li>
 </ul>
-<p>It’s time to design a simple algorithm to distinguish cat images from non-cat images.</p>
-<p>You will build a Logistic Regression, using a Neural Network mindset. The following Figure explains why <strong>Logistic Regression is actually a very simple Neural Network!</strong></p>
-<img src=".../DownloadableData/LogReg_kiank.png" style="width:650px;height:400px;">
-
+<h2 id="3-General-Architecture-of-the-learning-algorithm"><a href="#3-General-Architecture-of-the-learning-algorithm" class="headerlink" title="3 - General Architecture of the learning algorithm"></a>3 - General Architecture of the learning algorithm</h2><p>It’s time to design a simple algorithm to distinguish cat images from non-cat images.</p>
 <p><strong>Mathematical expression of the algorithm</strong>:</p>
-<p>For one example $x^{(i)}$:<br>$$z^{(i)} = w^T x^{(i)} + b \tag{1}$$<br>$$\hat{y}^{(i)} = a^{(i)} = sigmoid(z^{(i)})\tag{2}$$<br>$$ \mathcal{L}(a^{(i)}, y^{(i)}) =  - y^{(i)}  \log(a^{(i)}) - (1-y^{(i)} )  \log(1-a^{(i)})\tag{3}$$</p>
+<p>For one example $x^{(i)}$:<br>$$z^{(i)} = w^T x^{(i)} + b \tag{1}$$<br>$$\hat{y}^{(i)} = a^{(i)} = sigmoid(z^{(i)})\tag{2}$$<br>$$ \mathcal{L}(a^{(i)}, y^{(i)}) =  - y^{(i)}  \log(a^{(i)}) - (1-y^{(i)} )<br> \log(1-a^{(i)})\tag{3}$$</p>
 <p>The cost is then computed by summing over all training examples:<br>$$ J = \frac{1}{m} \sum_{i=1}^m \mathcal{L}(a^{(i)}, y^{(i)})\tag{6}$$</p>
 <p><strong>Key steps</strong>:<br>In this exercise, you will carry out the following steps:<br>    - Initialize the parameters of the model<br>    - Learn the parameters for the model by minimizing the cost<br>    - Use the learned parameters to make predictions (on the test set)<br>    - Analyse the results and conclude</p>
 <h2 id="4-Building-the-parts-of-our-algorithm"><a href="#4-Building-the-parts-of-our-algorithm" class="headerlink" title="4 - Building the parts of our algorithm"></a>4 - Building the parts of our algorithm</h2><p>The main steps for building a Neural Network are:</p>
@@ -592,18 +593,20 @@ predictions = [[1. 1.]]</code></pre><p><strong>Expected Output</strong>: </p>
 </table>
 
 
-<font color='blue'>
-**What to remember:**
-You've implemented several functions that:
-- Initialize (w,b)
-- Optimize the loss iteratively to learn parameters (w,b):
-    - computing the cost and its gradient 
-    - updating the parameters using gradient descent
-- Use the learned (w,b) to predict the labels for a given set of examples
-</font>
-## 5 - Merge all functions into a model ##
+<p><b><h4>What to remember </h4></b><br><font color='blue'><br>You’ve implemented several functions that:</p>
+<ul>
+<li>Initialize (w,b)</li>
+<li>Optimize the loss iteratively to learn parameters (w,b):<ul>
+<li>computing the cost and its gradient </li>
+<li>updating the parameters using gradient descent</li>
+</ul>
+</li>
+<li>Use the learned (w,b) to predict the labels for a given set of examples</font>
+<br>
 
-<p>You will now see how the overall model is structured by putting together all the building blocks (functions implemented in the previous parts) together, in the right order.</p>
+</li>
+</ul>
+<h2 id="5-Merge-all-functions-into-a-model"><a href="#5-Merge-all-functions-into-a-model" class="headerlink" title="5 - Merge all functions into a model"></a>5 - Merge all functions into a model</h2><p>You will now see how the overall model is structured by putting together all the building blocks (functions implemented in the previous parts) together, in the right order.</p>
 <p><strong>Exercise:</strong> Implement the model function. Use the following notation:<br>    - Y_prediction for your predictions on the test set<br>    - Y_prediction_train for your predictions on the train set<br>    - w, costs, grads for the outputs of optimize()</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: model</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">model</span><span class="params">(X_train, Y_train, X_test, Y_test, num_iterations = <span class="number">2000</span>, learning_rate = <span class="number">0.5</span>, print_cost = False)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Builds the logistic regression model by calling the function you've implemented previously</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    X_train -- training set represented by a numpy array of shape (num_px * num_px * 3, m_train)</span></span><br><span class="line"><span class="string">    Y_train -- training labels represented by a numpy array (vector) of shape (1, m_train)</span></span><br><span class="line"><span class="string">    X_test -- test set represented by a numpy array of shape (num_px * num_px * 3, m_test)</span></span><br><span class="line"><span class="string">    Y_test -- test labels represented by a numpy array (vector) of shape (1, m_test)</span></span><br><span class="line"><span class="string">    num_iterations -- hyperparameter representing the number of iterations to optimize the parameters</span></span><br><span class="line"><span class="string">    learning_rate -- hyperparameter representing the learning rate used in the update rule of optimize()</span></span><br><span class="line"><span class="string">    print_cost -- Set to true to print the cost every 100 iterations</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    d -- dictionary containing information about the model.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    <span class="comment"># initialize parameters with zeros (≈ 1 line of code)</span></span><br><span class="line">    w, b = initialize_with_zeros(X_train.shape[<span class="number">0</span>])</span><br><span class="line">    <span class="comment"># Gradient descent (≈ 1 line of code)</span></span><br><span class="line">    parameters, grads, costs = optimize(w, b, X_train, Y_train, num_iterations, learning_rate, print_cost)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Retrieve parameters w and b from dictionary "parameters"</span></span><br><span class="line">    w = parameters[<span class="string">"w"</span>]</span><br><span class="line">    b = parameters[<span class="string">"b"</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Predict test/train set examples (≈ 2 lines of code)</span></span><br><span class="line">    Y_prediction_test = predict(w, b, X_test)</span><br><span class="line">    Y_prediction_train = predict(w, b, X_train)</span><br><span class="line"></span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Print train/test Errors</span></span><br><span class="line">    print(<span class="string">"train accuracy: &#123;&#125; %"</span>.format(<span class="number">100</span> - np.mean(np.abs(Y_prediction_train - Y_train)) * <span class="number">100</span>))</span><br><span class="line">    print(<span class="string">"test accuracy: &#123;&#125; %"</span>.format(<span class="number">100</span> - np.mean(np.abs(Y_prediction_test - Y_test)) * <span class="number">100</span>))</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    d = &#123;<span class="string">"costs"</span>: costs,</span><br><span class="line">         <span class="string">"Y_prediction_test"</span>: Y_prediction_test, </span><br><span class="line">         <span class="string">"Y_prediction_train"</span> : Y_prediction_train, </span><br><span class="line">         <span class="string">"w"</span> : w, </span><br><span class="line">         <span class="string">"b"</span> : b,</span><br><span class="line">         <span class="string">"learning_rate"</span> : learning_rate,</span><br><span class="line">         <span class="string">"num_iterations"</span>: num_iterations&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> d</span><br></pre></td></tr></table></figure>
 
@@ -713,12 +716,15 @@ test accuracy: 70.0 %</code></pre><p><strong>Expected Output</strong>: </p>
 <p>Also, you see that the model is clearly overfitting the training data. Later in this specialization you will learn how to reduce overfitting, for example by using regularization. Using the code below (and changing the <code>index</code> variable) you can look at predictions on pictures of the test set.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example of a picture that was wrongly classified.</span></span><br><span class="line">index = <span class="number">1</span></span><br><span class="line">plt.imshow(test_set_x[:,index].reshape((num_px, num_px, <span class="number">3</span>)))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"y = "</span> + str(test_set_y[<span class="number">0</span>,index]) + <span class="string">", you predicted that it is a \""</span> + classes[int(d[<span class="string">"Y_prediction_test"</span>][<span class="number">0</span>,index])].decode(<span class="string">"utf-8"</span>) +  <span class="string">"\" picture."</span>)</span><br></pre></td></tr></table></figure>
 
-<pre><code>y = 1, you predicted that it is a &quot;cat&quot; picture.</code></pre><p>&lt;img src=”…/DownloadableData/Logistic_Regression_with_a_Neural_Network_mindset_47_1.png”)</img></p>
+<pre><code>y = 1, you predicted that it is a &quot;cat&quot; picture.</code></pre><center><a href='https://photos.google.com/share/AF1QipOUgHsTlROlQZeelQLlUDt2aOiiW1IzNklWyfOAWfvZY0cOQRFxOWOvkPY0KHVnIA?key=VTR0ZVQ0Sy1TMDdoTjhsOUVWNm5nZjU0Y3NlZm13&source=ctrlq.org' target="_blank" rel="noopener"><img src='https://lh3.googleusercontent.com/kJY-tRqpPcdQ7kqF3XJfo4RZ_-pauHBMdujmOlWP6janiuhNawemEADSBrPiqlgRi8vPHLqRVNrwqoxegsWCRDWwy8ntZMiT9BHxlPFfRfa9U4QGr7lNTWB4tNFRzryQuXPGReFn1g=w2400' /></a></center>
+
+
 <p>Let’s also plot the cost function and the gradients.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Plot learning curve (with costs)</span></span><br><span class="line">costs = np.squeeze(d[<span class="string">'costs'</span>])</span><br><span class="line">plt.plot(costs)</span><br><span class="line">plt.ylabel(<span class="string">'cost'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'iterations (per hundreds)'</span>)</span><br><span class="line">plt.title(<span class="string">"Learning rate ="</span> + str(d[<span class="string">"learning_rate"</span>]))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 
-<p>&lt;img src=”…/DownloadableData/Logistic_Regression_with_a_Neural_Network_mindset_49_0.png”)</img></p>
+<center><a href='https://photos.google.com/share/AF1QipP9rHmyux7iIhGy_N85xKMcQFohZNYDETOsVAAAvdy-Aun5j_JKS81vPiRDTMa3tQ?key=RnZaVXdSb0dFanFRb1NPUmZnTnZGbWw3TjlZdFh3&source=ctrlq.org' target="_blank" rel="noopener"><img src='https://lh3.googleusercontent.com/02H_4u-Q1y8hDW6L6nDzXAX6bE6QqP6WXfK_hrbXFYQ9Zxm4KVDJo9gEo3511OBsuvGzNo9GD6haI8auCtBkFlaEU2UDgCK6ReeVMyGqSg7brcTSQysUZr30K-Y7dTLdRzCVR67cMw=w2400' /></a></center>
+
 <p><strong>Interpretation</strong>:<br>You can see the cost decreasing. It shows that the parameters are being learned. However, you see that you could train the model even more on the training set. Try to increase the number of iterations in the cell above and rerun the cells. You might see that the training set accuracy goes up, but the test set accuracy goes down. This is called overfitting. </p>
 <h2 id="6-Further-analysis-optional-ungraded-exercise"><a href="#6-Further-analysis-optional-ungraded-exercise" class="headerlink" title="6 - Further analysis (optional/ungraded exercise)"></a>6 - Further analysis (optional/ungraded exercise)</h2><p>Congratulations on building your first image classification model. Let’s analyze it further, and examine possible choices for the learning rate $\alpha$. </p>
 <h4 id="Choice-of-learning-rate"><a href="#Choice-of-learning-rate" class="headerlink" title="Choice of learning rate"></a>Choice of learning rate</h4><p><strong>Reminder</strong>:<br>In order for Gradient Descent to work you must choose the learning rate wisely. The learning rate $\alpha$  determines how rapidly we update the parameters. If the learning rate is too large we may “overshoot” the optimal value. Similarly, if it is too small we will need too many iterations to converge to the best values. That’s why it is crucial to use a well-tuned learning rate.</p>
@@ -891,8 +897,9 @@ learning rate is: 0.0001
 train accuracy: 68.42105263157895 %
 test accuracy: 36.0 %
 
--------------------------------------------------------</code></pre><p>&lt;img src=”…/DownloadableData/Logistic_Regression_with_a_Neural_Network_mindset_53_1.png”)</img></p>
-<p><strong>Interpretation</strong>: </p>
+-------------------------------------------------------</code></pre><center><a href='https://photos.google.com/share/AF1QipMIQoAH_HanyZRG6NUD1B5ZQu8lBksMFyYPKySMpVXgKm06otmzS7ikaoGmTSd6sA?key=WF9TdjBCMlh2OFc1UnVFc29rQ2FxTTB6X29lbnJn&source=ctrlq.org' target="_blank" rel="noopener"><img src='https://lh3.googleusercontent.com/VISa3bYoaFyoyL4EnFg4OhGXPa_aIgC3M3hDJsOQP-3PK1ICbo9ZT3udg7Jp_nCRj9rxEjREN-wP83WaR6EVAV2dCC1FogwYI91awu3uX9EF0cUh3jApJxQb-0_VKQtBc0Telo5-Kw=w2400' /></a></center>
+
+<p><b>Interpretation:</b> </p>
 <ul>
 <li>Different learning rates give different costs and thus different predictions results.</li>
 <li>If the learning rate is too large (0.01), the cost may oscillate up and down. It may even diverge (though in this example, using 0.01 still eventually ends up at a good value for the cost). </li>
@@ -913,14 +920,15 @@ test accuracy: 36.0 %
 
 
 [0.30930831]
-y = 0.0, your algorithm predicts a &quot;non-cat&quot; picture.</code></pre><p>&lt;img src=”…/DownloadableData/Logistic_Regression_with_a_Neural_Network_mindset_56_2.png”)</img></p>
-<font color='blue'>
-**What to remember from this assignment:**
-1. Preprocessing the dataset is important.
-2. You implemented each function separately: initialize(), propagate(), optimize(). Then you built a model().
-3. Tuning the learning rate (which is an example of a "hyperparameter") can make a big difference to the algorithm. You will see more examples of this later in this course!
+y = 0.0, your algorithm predicts a &quot;non-cat&quot; picture.</code></pre><center><a href='https://photos.google.com/share/AF1QipPGLzNT1YMUSFC85y62mTofrREZ6t9ghgixEnRTkEHuWJeoXqsukVd_U_KVzhNblQ?key=WHRROHJzc3VCdXp5RS1XcExNeVhlcnZDOWhpcGFR&source=ctrlq.org' target="_blank" rel="noopener"><img src='https://lh3.googleusercontent.com/zRQjYeR_0i0Az8BynDY35YelX_s5nomdk0mQAlOjWdhWvSe70Ey4EKZntInJN3WwEb9i9lusqNNqtsBXc15qaEj0eyH8uYlDNxr72DjbeGaqvPjE9iZqmZcTozgW157sVuTlGePc8Q=w2400' /></a></center>
 
-<p>Finally, if you’d like, we invite you to try different things on this Notebook. Make sure you submit before trying anything. Once you submit, things you can play with include:<br>    - Play with the learning rate and the number of iterations<br>    - Try different initialization methods and compare the results<br>    - Test other preprocessings (center the data, or divide each row by its standard deviation)</p>
+<p><b><h4>What to remember from this assignment:</h4></b><br><font color='blue'></p>
+<ol>
+<li>Preprocessing the dataset is important.</li>
+<li>You implemented each function separately: initialize(), propagate(), optimize(). Then you built a model().</li>
+<li>Tuning the learning rate (which is an example of a “hyperparameter”) can make a big difference to the algorithm. You will see more examples of this later in this course!</li>
+</ol>
+<p>Finally, if you’d like, we invite you to try different things on this Notebook. Make sure you submit before trying anything. Once you submit, things you can play with include:<br>    - Play with the learning rate and the number of iterations<br>    - Try different initialization methods and compare the results<br>    - Test other preprocessings (center the data, or divide each row by its standard deviation)<br></font></p>
 <p>Bibliography:</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9zdGF0cy5zdGFja2V4Y2hhbmdlLmNvbS9xdWVzdGlvbnMvMjExNDM2L3doeS1kby13ZS1ub3JtYWxpemUtaW1hZ2VzLWJ5LXN1YnRyYWN0aW5nLXRoZS1kYXRhc2V0cy1pbWFnZS1tZWFuLWFuZC1ub3QtdGhlLWM=">https://stats.stackexchange.com/questions/211436/why-do-we-normalize-images-by-subtracting-the-datasets-image-mean-and-not-the-c<i class="fa fa-external-link-alt"></i></span></li>
@@ -1039,7 +1047,7 @@ y = 0.0, your algorithm predicts a &quot;non-cat&quot; picture.</code></pre><p>&
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logistic-Regression-with-a-Neural-Network-mindset"><span class="nav-number">2.</span> <span class="nav-text">Logistic Regression with a Neural Network mindset</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Packages"><span class="nav-number">2.1.</span> <span class="nav-text">1 - Packages</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#load-lr-utils-py"><span class="nav-number">3.</span> <span class="nav-text">load lr_utils.py</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Overview-of-the-Problem-set"><span class="nav-number">3.1.</span> <span class="nav-text">2 - Overview of the Problem set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Building-the-parts-of-our-algorithm"><span class="nav-number">3.2.</span> <span class="nav-text">4 - Building the parts of our algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Helper-functions"><span class="nav-number">3.2.1.</span> <span class="nav-text">4.1 - Helper functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Initializing-parameters"><span class="nav-number">3.2.2.</span> <span class="nav-text">4.2 - Initializing parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-Forward-and-Backward-propagation"><span class="nav-number">3.2.3.</span> <span class="nav-text">4.3 - Forward and Backward propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d-Optimization"><span class="nav-number">3.2.4.</span> <span class="nav-text">d) Optimization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Further-analysis-optional-ungraded-exercise"><span class="nav-number">3.3.</span> <span class="nav-text">6 - Further analysis (optional&#x2F;ungraded exercise)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Choice-of-learning-rate"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">Choice of learning rate</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Test-with-your-own-image-optional-ungraded-exercise"><span class="nav-number">3.4.</span> <span class="nav-text">7 - Test with your own image (optional&#x2F;ungraded exercise)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">3.4.0.0.1.</span> <span class="nav-text">Credits - Coursera,  Andrew.ng , Deeplearning.ai Course</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">3.4.0.0.2.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logistic-Regression-with-a-Neural-Network-mindset"><span class="nav-number">2.</span> <span class="nav-text">Logistic Regression with a Neural Network mindset</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Packages"><span class="nav-number">2.1.</span> <span class="nav-text">1 - Packages</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#load-lr-utils-py"><span class="nav-number">3.</span> <span class="nav-text">load lr_utils.py</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Overview-of-the-Problem-set"><span class="nav-number">3.1.</span> <span class="nav-text">2 - Overview of the Problem set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">3.1.0.1.</span> <span class="nav-text">What you need to remember:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-General-Architecture-of-the-learning-algorithm"><span class="nav-number">3.2.</span> <span class="nav-text">3 - General Architecture of the learning algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Building-the-parts-of-our-algorithm"><span class="nav-number">3.3.</span> <span class="nav-text">4 - Building the parts of our algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Helper-functions"><span class="nav-number">3.3.1.</span> <span class="nav-text">4.1 - Helper functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Initializing-parameters"><span class="nav-number">3.3.2.</span> <span class="nav-text">4.2 - Initializing parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-Forward-and-Backward-propagation"><span class="nav-number">3.3.3.</span> <span class="nav-text">4.3 - Forward and Backward propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d-Optimization"><span class="nav-number">3.3.4.</span> <span class="nav-text">d) Optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">3.3.4.1.</span> <span class="nav-text">What to remember </span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Merge-all-functions-into-a-model"><span class="nav-number">3.4.</span> <span class="nav-text">5 - Merge all functions into a model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Further-analysis-optional-ungraded-exercise"><span class="nav-number">3.5.</span> <span class="nav-text">6 - Further analysis (optional&#x2F;ungraded exercise)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Choice-of-learning-rate"><span class="nav-number">3.5.0.1.</span> <span class="nav-text">Choice of learning rate</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Test-with-your-own-image-optional-ungraded-exercise"><span class="nav-number">3.6.</span> <span class="nav-text">7 - Test with your own image (optional&#x2F;ungraded exercise)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">3.6.0.1.</span> <span class="nav-text">What to remember from this assignment:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">3.6.0.1.1.</span> <span class="nav-text">Credits - Coursera,  Andrew.ng , Deeplearning.ai Course</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">3.6.0.1.2.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1110,13 +1118,13 @@ y = 0.0, your algorithm predicts a &quot;non-cat&quot; picture.</code></pre><p>&
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">66k</span>
+    <span title="Symbols count total">32k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:01</span>
+    <span title="Reading time total">29 mins.</span>
 </div>
 
         
