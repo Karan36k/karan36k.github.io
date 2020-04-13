@@ -40,7 +40,7 @@
 <meta property="og:description" content="This article Covers everything related to be going with Vim for any beginner or intermediate.I have explained the ins and outs of Vim in briefly.This article will be continuously updated based on expe">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-05T14:46:00.000Z">
-<meta property="article:modified_time" content="2020-04-12T20:34:17.134Z">
+<meta property="article:modified_time" content="2020-04-13T10:17:40.907Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="IDE">
@@ -155,17 +155,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">10</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">6</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">7</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -261,7 +261,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-13 02:04:17" itemprop="dateModified" datetime="2020-04-13T02:04:17+05:30">2020-04-13</time>
+                <time title="Modified: 2020-04-13 15:47:40" itemprop="dateModified" datetime="2020-04-13T15:47:40+05:30">2020-04-13</time>
               </span>
 
           <br>
@@ -270,14 +270,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>26k</span>
+              <span>17k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>24 mins.</span>
+              <span>15 mins.</span>
             </span>
 
         </div>
@@ -729,88 +729,6 @@ zc (fold + close)</code> `</p>
 <p>Four character encoding options, encoding, fileencoding, fileencodings, termencoding (for possible values ​​of these options, please refer to Vim online help: help encoding-names, their meanings are as follows:</p>
 <p>-** encoding **: The character encoding used internally by Vim</p>
 <p>Including Vim’s buffer (buffer), menu text, message text, etc. The default is to choose according to your locale. The user manual recommends changing its value only in .vimrc. In fact, it seems that it only makes sense to change its value in .vimrc. You can use another encoding to edit and save the file. For example, the encoding of your vim is utf-8, and the edited file uses cp936 encoding. Vim will automatically convert the read file into utf-8 (vim can read) Understand the way), and when you write a file, it will automatically switch back to cp936 (the file save encoding).</p>
-<p>-** fileencoding **: The character encoding of the currently edited file in Vim</p>
-<p>When Vim saves the file, it will also save the file in this character encoding (regardless of whether it is a new file).</p>
-<p>-** fileencodings **: Vim will automatically detect encoding settings</p>
-<p>When starting, it will detect the character encoding method of the file to be opened one by one according to the character encoding method it lists, and set fileencoding to the character encoding method finally detected. Therefore, it is best to put the Unicode encoding method at the front of this list and the Latin encoding method latin1 at the end.</p>
-<p>-** termencoding **: The character encoding method of the terminal (or Console window of Windows) that Vim works on</p>
-<p>If the term where vim is located is the same as the vim encoding, you do not need to set it. If it is not the case, you can use vim’s termencoding option to automatically convert to term encoding. This option is not valid for gVim in our common GUI mode under Windows, and for Console mode Vim is the code page of the Windows console, and Usually we don’t need to change it. Okay, after explaining this bunch of parameters that are easy to confuse novices, let’s take a look at how Vim’s multi-character encoding support works.</p>
-<ol>
-<li>Start Vim, and set the character encoding of buffer, menu text, and message according to the encoding value set in .vimrc.</li>
-<li>Read the file to be edited, and detect the file encoding method one by one according to the character encoding methods listed in fileencodings. And set fileencoding to be detected, it seems to be the correct (Note 1) character encoding.</li>
-<li>Compare the values ​​of fileencoding and encoding. If they are different, call iconv to convert the file content to the character encoding method described by encoding, and put the converted content into the buffer developed for this file. This file. Note that to complete this step, you need to call the external iconv.dll (Note 2). You need to ensure that this file exists in $ VIMRUNTIME or other directories listed in the PATH environment variable.</li>
-<li>When saving the file after editing, compare the values ​​of fileencoding and encoding again. If different, call iconv again to convert the text in the buffer to be saved to the character encoding described by fileencoding and save it to the specified file. Similarly, this requires calling iconv.dll. Because Unicode can contain characters of almost all languages, and UTF-8 encoding of Unicode is a very cost-effective encoding (space consumption is less than UCS-2), so the value of encoding is recommended. Set to utf-8. Another reason for this is that when encoding is set to utf-8, Vim automatically detects the encoding of the file to be more accurate (perhaps this reason is the main reason;). For the files we edit in Chinese Windows, in order to take into account the compatibility with other software, the file encoding is still set to GB2312 / GBK, so fileencoding is recommended to be set to Chinese (chinese is an individual name, which means gb2312 in Unix and Windows. cp936, which is the code page of GBK).</li>
-</ol>
-<p>For fedora, vim settings are generally placed in the / etc / vimrc file, however, it is recommended not to modify it. You can modify the ~ / .vimrc file (which does not exist by default, you can create a new one yourself) and write the desired settings.</p>
-<p>My .vimrc file is as follows:</p>
-<p><code>`
-: set encoding = utf-8
-: set fileencodings = ucs-bom, utf-8, cp936
-: set fileencoding = gb2312
-: set termencoding = utf-8</code> `</p>
-<p>Among them, the fileencoding configuration can set utf-8, but my mp3 does not seem to support utf-8 encoding, so simply, I set it to gb2312. Now it’s done, no matter whether it is in vi or mp3, it can display .txt files without garbled characters.</p>
-<h2 id="Personal-configuration"><a href="#Personal-configuration" class="headerlink" title="Personal configuration"></a>Personal configuration</h2><p>The configuration during my use of ** without plugin ** is very short. It is written in the vim configuration file. Vimrc. The configuration is configured using ** vim script **. It has its own set of syntax. For details, please click [ vim Script] (<span class="exturl" data-url="aHR0cHM6Ly93d3cudzNjc2Nob29sLmNuL3ZpbS9uY2t4MXB1MC5odG1s">https://www.w3cschool.cn/vim/nckx1pu0.html<i class="fa fa-external-link-alt"></i></span>)</p>
-<p><code>`vim
-set number; display number
-set mouse = a; setting smart mouse
-set hlsearch; high light search
-set tabstop = 4; setting tab width 4 letters
-set shiftwidth = 4; setting new line incident width
-set noexpandtab; tab doesn&#39;t expand to space
-; set list; display manipulator, example: \ n \ t \ r ......
-set encoding = utf-8
-set fileencodings = ucs-bom, utf-8, cp936
-set fileencoding = gb2312
-set termencoding = utf-8</code> `</p>
-<h2 id="Forward-and-backward-function"><a href="#Forward-and-backward-function" class="headerlink" title="Forward and backward function"></a>Forward and backward function</h2><p>Popular text editors usually have forward and backward functions, and can move back and forth between the positions that have been viewed in the file (associated with the browser), use <code>Ctrl-O</code> in vim to perform backward, use<code>Ctrl-I</code>Execute forward, related help:<code>: help CTRL-O</code> <code>: help CTRL-I``: help jump-motions</code></p>
-<h2 id="vim-compare-files"><a href="#vim-compare-files" class="headerlink" title="vim compare files"></a>vim compare files</h2><h3 id="Starting-method"><a href="#Starting-method" class="headerlink" title="Starting method"></a>Starting method</h3><p>First ensure that the diff command is available in the system. Vim’s diff mode is dependent on the diff command.</p>
-<code>`shell
- vimdiff file1 file2 [file3 [file4]]</code> <code>or
-``</code>shell<br>vim -d file1 file2 [file3 [file4]]<br><code>`
-The window is more localized in the current tab. You cannot see the difference between a window and the windows in other tabs. In this way, multiple groups of comparison windows can be opened at the same time, and each group of differences is in a separate tab. Vim will open a window for each file and use ** vertical split ** just like the `-O` parameter. If you want to ** horizontal split **, add `-o` parameter:</code> <code>shell
-vimdiff -o file1 file2 [file3 [file4]]
-``</code><br>If you are already in Vim, you can enter the comparison mode in three ways, only one is introduced:<br><code>`
-: diffs [plit] {filename}</code> <code>Open a new window for {filename}. The current and newly opened windows will have the same parameters as &quot;vimdiff&quot;. To split the window vertically, add</code>: vertical<code>in front. E.g:<dl><dt>``</code></dt><dd>vert diffsplit another_filename<br>`` `</dd></dl><h3 id="Jump-to-the-difference"><a href="#Jump-to-the-difference" class="headerlink" title="Jump to the difference"></a>Jump to the difference</h3><p>There are two commands that can be used to jump to the location of the difference text:</p>
-<ol>
-<li><code>[c</code> jumps backwards to the beginning of the last change. Count the prefix so that it repeats the corresponding times.</li>
-<li><code>] c</code> jumps forward to the beginning of the next change. Count the prefix so that it repeats the corresponding times.<br> If there is no change to which the cursor can jump, an error will be generated.</li>
-</ol>
-<h3 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h3><p>The purpose of comparison is to merge the differences and directly use the following built-in commands or troublesome methods: manually copy from one window to another.</p>
-<dl><dt>`` `<br>: [range] diffg [et] [bufspec]<br>                Use another buffer to modify the current buffer to eliminate differences. Unless there is only another<br>                For a buffer in comparison mode, [bufspec] must exist and specify that buffer.<br>                If [bufspec] specifies the current buffer, it is an empty action. [range] can refer to the following.</dt><dd>[range] diffpu [t] [bufspec]<br>                Use the current buffer to modify another buffer, eliminating differences.<br>[count] do Same as “: diffget”, but without scope. “o” means “obtain” (not available<br>                “dg” because that might be the beginning of “dgg”! ).<br>dp Same as “: diffput”, but no range. Note that it does not apply to the visual mode.<br>                The given [count] is used as the [bufspec] parameter of “: diffput”.</dd></dl><p>When [range] is not given, only the difference text at or above the current cursor position will be affected.<br>When [range] is specified, Vim tries to change only the lines it specifies. However, this is not always effective when there are deleted rows.<br>The parameter [bufspec] can be the serial number of the buffer, matching the pattern of the buffer name or part of the buffer name.<br>E.g:<br>        : diffget uses another buffer to enter compare mode<br>        : diffget 3 uses buffer 3<br>        : diffget v2 uses the buffer whose name matches “v2” and enters the comparison mode (for example, “file.c.v2”)<br>`` `</p>
-<h3 id="Update-comparison-and-undo-changes"><a href="#Update-comparison-and-undo-changes" class="headerlink" title="Update comparison and undo changes"></a>Update comparison and undo changes</h3><p>Compare the contents based on the buffer. Therefore, if you have made changes after loading the file, these changes will also participate in the comparison. However, you may want to use <code>: diffupdate [!]</code> From time to time. Because not all changes can be automatically updated. When <code>!</code> Is included, Vim checks whether the file has been changed externally and needs to be reloaded. Prompt for each changed file.</p>
-<p>If you want to undo the modification, you can enter the normal mode directly and press <code>u</code> as you normally do in vim editing, but you must be careful to move the cursor to the file window that needs to be undoed.</p>
-<h3 id="Expand-and-view-context"><a href="#Expand-and-view-context" class="headerlink" title="Expand and view context"></a>Expand and view context</h3><p>When comparing and merging files, it is often necessary to combine context to determine the final action to be taken. By default, Vimdiff will display the six lines of text above and below the differences for reference. Other identical lines of text are automatically folded. If you want to modify the default number of context lines, you can set it like this:</p>
-<p> <code>`
-: set diffopt = context: 3</code> `</p>
-<h3 id="Exit-of-multiple-files"><a href="#Exit-of-multiple-files" class="headerlink" title="Exit of multiple files"></a>Exit of multiple files</h3><p>After comparing and merging to a conclusion, you can use the following commands to operate on multiple files at the same time.</p>
-<p>For example, quit at the same time: <code>: qa (quit all)</code>  </p>
-<p>If you want to save all files: <code>: wa (write all)</code></p>
-<p>Or a merge command of the two, save all files, and then exit: <code>: wqa (write, then quit all)</code></p>
-<p>If you do not want to save the result of any operation when you quit: <code>: qa! (Force to quit all)</code></p>
-<h3 id="vimdiff-For-details-please-refer-to"><a href="#vimdiff-For-details-please-refer-to" class="headerlink" title="vimdiff For details, please refer to"></a>vimdiff For details, please refer to</h3><ol>
-<li><code>: help diff</code> under vim</li>
-<li>[vimdiff doc] (<span class="exturl" data-url="aHR0cHM6Ly92aW1jZG9jLnNvdXJjZWZvcmdlLm5ldC9kb2MvZGlmZi5odG1s">https://vimcdoc.sourceforge.net/doc/diff.html<i class="fa fa-external-link-alt"></i></span>)</li>
-</ol>
-<h2 id="vim-command-line-save-leave-and-other-commands"><a href="#vim-command-line-save-leave-and-other-commands" class="headerlink" title="vim command line save, leave and other commands:"></a>vim command line save, leave and other commands:</h2><ol>
-<li><code>: w</code> Write the edited data to the hard disk file.</li>
-<li><code>: w!</code> If the file attribute is “read-only”, write to the file forcibly. But the ability to write is also dependent on the file permissions of the file.</li>
-<li>Leave after <code>: q</code>. If it is “: wq!”, It will be forced to save and leave.</li>
-<li><code>: w [file name]</code> Save the edited data as another file.</li>
-<li><code>: r [file name]</code> Read the content of another file in the edited data and add it to the line behind the cursor.</li>
-<li><code>: n1, n2 w [file name]</code> Save the contents of lines n1 to n2 to another file.</li>
-<li><code>:! Command</code> Temporarily leave vi to display the result of executing command in command line mode.</li>
-<li><code>ZZ</code> If the file has not been changed, leave directly; if it has been changed, leave after saving.</li>
-<li><code>set num / nonum</code> displays / cancels the line number.</li>
-</ol>
-<h2 id="Macro-of-VIM"><a href="#Macro-of-VIM" class="headerlink" title="Macro of VIM"></a>Macro of VIM</h2><p>The use of macros is very powerful, go to [vim, the use of macros] (<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLnNpbmEuY29tLmNuL3MvYmxvZ182OWU1ZDg0MDAxMDJ3MXoxLmh0bWw=">https://blog.sina.com.cn/s/blog_69e5d8400102w1z1.html<i class="fa fa-external-link-alt"></i></span>)</p>
-<h2 id="Full-version-command"><a href="#Full-version-command" class="headerlink" title="Full version command"></a>Full version command</h2><p>This article only provides high-frequency scenes accumulated during personal use. For the full version, please click [here] (<span class="exturl" data-url="aHR0cHM6Ly9xNmdtOGZvbXcuYmt0LmNsb3VkZG4uY29tL2dpdHBhZ2UvdmltL3ZpbV9jb21tYW5kLnBuZw==">https://q6gm8fomw.bkt.clouddn.com/gitpage/vim/vim_command.png<i class="fa fa-external-link-alt"></i></span>), or consult the vim manual</p>
-<h2 id="Play-games-to-make-perfect"><a href="#Play-games-to-make-perfect" class="headerlink" title="Play games to make perfect"></a>Play games to make perfect</h2><p>** Use advance and retreat **, so multi-use is king. I recommend a game here: use the keyboard to control the character adventure game, familiar with VIM commands during the game: [vim-adventures] (https: // vim -adventures.com/)</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="** Reference **"></a>** Reference **</h2><ol>
-<li>[Official document] (<span class="exturl" data-url="aHR0cHM6Ly92aW0uc291cmNlZm9yZ2UuaW8vZG9jcy5waHA=">https://vim.sourceforge.io/docs.php<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>[vim doc] (<span class="exturl" data-url="aHR0cHM6Ly92aW1jZG9jLnNvdXJjZWZvcmdlLm5ldC9kb2MvaGVscC5odG1s">https://vimcdoc.sourceforge.net/doc/help.html<i class="fa fa-external-link-alt"></i></span>) Chinese</li>
-<li>[freewater blog] (<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZnJlZXdhdGVyL2FyY2hpdmUvMjAxMS8wOC8yNi8yMTU0NjAyLmh0bWw=">https://www.cnblogs.com/freewater/archive/2011/08/26/2154602.html<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>[Thinking In Linux] (<span class="exturl" data-url="aHR0cHM6Ly93d3cubGludXhzb25nLm9yZy8yMDEwLzA5L3ZpbS1xdWljay1zZWxlY3QtY29weS1kZWxldGUv">https://www.linuxsong.org/2010/09/vim-quick-select-copy-delete/<i class="fa fa-external-link-alt"></i></span>)</li>
-</ol>
 
     </div>
 
@@ -911,7 +829,7 @@ vimdiff -o file1 file2 [file3 [file4]]
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Four-modes-of-vim"><span class="nav-number">1.</span> <span class="nav-text">Four modes of vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mobile"><span class="nav-number">2.</span> <span class="nav-text">Mobile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tag"><span class="nav-number">2.1.</span> <span class="nav-text">Tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax-related-jumps"><span class="nav-number">2.2.</span> <span class="nav-text">Syntax related jumps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quick-page-turning"><span class="nav-number">2.3.</span> <span class="nav-text">Quick page turning</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Action-operation-instruction"><span class="nav-number">3.</span> <span class="nav-text">Action operation instruction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Formed-separately"><span class="nav-number">3.1.</span> <span class="nav-text">Formed separately</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Undo-and-Redo"><span class="nav-number">3.2.</span> <span class="nav-text">Undo and Redo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Text-replacement"><span class="nav-number">3.3.</span> <span class="nav-text">Text replacement</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples"><span class="nav-number">3.3.1.</span> <span class="nav-text">Examples</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Repeat-the-action"><span class="nav-number">4.</span> <span class="nav-text">Repeat the action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-selection"><span class="nav-number">5.</span> <span class="nav-text">Block selection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Powerful-combination"><span class="nav-number">6.</span> <span class="nav-text">Powerful combination</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Operate-a-word-under-the-cursor"><span class="nav-number">6.1.</span> <span class="nav-text">Operate a word under the cursor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Autocomplete"><span class="nav-number">7.</span> <span class="nav-text">Autocomplete</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collapse"><span class="nav-number">8.</span> <span class="nav-text">Collapse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Split-screen"><span class="nav-number">9.</span> <span class="nav-text">Split screen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tab-window"><span class="nav-number">10.</span> <span class="nav-text">tab window</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-of-Contents"><span class="nav-number">11.</span> <span class="nav-text">table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Content-operation-of-paired-symbols"><span class="nav-number">12.</span> <span class="nav-text">Content operation of paired symbols</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clipboard"><span class="nav-number">13.</span> <span class="nav-text">Clipboard</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Simple-copy-and-paste"><span class="nav-number">13.1.</span> <span class="nav-text">1. Simple copy and paste</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Copy-and-paste-to-the-specified-clipboard"><span class="nav-number">13.2.</span> <span class="nav-text">2. Copy and paste to the specified clipboard</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-System-Clipboard"><span class="nav-number">13.3.</span> <span class="nav-text">3. System Clipboard</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-encoding"><span class="nav-number">14.</span> <span class="nav-text">vim encoding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Personal-configuration"><span class="nav-number">15.</span> <span class="nav-text">Personal configuration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Forward-and-backward-function"><span class="nav-number">16.</span> <span class="nav-text">Forward and backward function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-compare-files"><span class="nav-number">17.</span> <span class="nav-text">vim compare files</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Starting-method"><span class="nav-number">17.1.</span> <span class="nav-text">Starting method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jump-to-the-difference"><span class="nav-number">17.2.</span> <span class="nav-text">Jump to the difference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge"><span class="nav-number">17.3.</span> <span class="nav-text">Merge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-comparison-and-undo-changes"><span class="nav-number">17.4.</span> <span class="nav-text">Update comparison and undo changes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Expand-and-view-context"><span class="nav-number">17.5.</span> <span class="nav-text">Expand and view context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exit-of-multiple-files"><span class="nav-number">17.6.</span> <span class="nav-text">Exit of multiple files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vimdiff-For-details-please-refer-to"><span class="nav-number">17.7.</span> <span class="nav-text">vimdiff For details, please refer to</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-command-line-save-leave-and-other-commands"><span class="nav-number">18.</span> <span class="nav-text">vim command line save, leave and other commands:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Macro-of-VIM"><span class="nav-number">19.</span> <span class="nav-text">Macro of VIM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Full-version-command"><span class="nav-number">20.</span> <span class="nav-text">Full version command</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Play-games-to-make-perfect"><span class="nav-number">21.</span> <span class="nav-text">Play games to make perfect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">22.</span> <span class="nav-text">** Reference **</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Four-modes-of-vim"><span class="nav-number">1.</span> <span class="nav-text">Four modes of vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mobile"><span class="nav-number">2.</span> <span class="nav-text">Mobile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tag"><span class="nav-number">2.1.</span> <span class="nav-text">Tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax-related-jumps"><span class="nav-number">2.2.</span> <span class="nav-text">Syntax related jumps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quick-page-turning"><span class="nav-number">2.3.</span> <span class="nav-text">Quick page turning</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Action-operation-instruction"><span class="nav-number">3.</span> <span class="nav-text">Action operation instruction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Formed-separately"><span class="nav-number">3.1.</span> <span class="nav-text">Formed separately</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Undo-and-Redo"><span class="nav-number">3.2.</span> <span class="nav-text">Undo and Redo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Text-replacement"><span class="nav-number">3.3.</span> <span class="nav-text">Text replacement</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Examples"><span class="nav-number">3.3.1.</span> <span class="nav-text">Examples</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Repeat-the-action"><span class="nav-number">4.</span> <span class="nav-text">Repeat the action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-selection"><span class="nav-number">5.</span> <span class="nav-text">Block selection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Powerful-combination"><span class="nav-number">6.</span> <span class="nav-text">Powerful combination</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Operate-a-word-under-the-cursor"><span class="nav-number">6.1.</span> <span class="nav-text">Operate a word under the cursor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Autocomplete"><span class="nav-number">7.</span> <span class="nav-text">Autocomplete</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collapse"><span class="nav-number">8.</span> <span class="nav-text">Collapse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Split-screen"><span class="nav-number">9.</span> <span class="nav-text">Split screen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tab-window"><span class="nav-number">10.</span> <span class="nav-text">tab window</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-of-Contents"><span class="nav-number">11.</span> <span class="nav-text">table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Content-operation-of-paired-symbols"><span class="nav-number">12.</span> <span class="nav-text">Content operation of paired symbols</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clipboard"><span class="nav-number">13.</span> <span class="nav-text">Clipboard</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Simple-copy-and-paste"><span class="nav-number">13.1.</span> <span class="nav-text">1. Simple copy and paste</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Copy-and-paste-to-the-specified-clipboard"><span class="nav-number">13.2.</span> <span class="nav-text">2. Copy and paste to the specified clipboard</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-System-Clipboard"><span class="nav-number">13.3.</span> <span class="nav-text">3. System Clipboard</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-encoding"><span class="nav-number">14.</span> <span class="nav-text">vim encoding</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -927,20 +845,20 @@ vimdiff -o file1 file2 [file3 [file4]]
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -982,13 +900,13 @@ vimdiff -o file1 file2 [file3 [file4]]
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">96k</span>
+    <span title="Symbols count total">87k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:27</span>
+    <span title="Reading time total">1:19</span>
 </div>
 
         

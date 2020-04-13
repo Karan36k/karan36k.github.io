@@ -6,17 +6,15 @@
     <content><![CDATA[<p>title: Quiz 1|| Deeplearnig.ai (Course - 1 Week - 1) Neural Networks and Deep Learning (Week 1)<br><b>Note - These are my notes on the first course of DeepLearning.ai by AndrewNg</b></p>
 <a id="more"></a>
 
-<div class="pdfobject-container" data-target="../DownloadableData/quiz1.pdf" data-height="500px"></div>
+<div class="pdfobject-container" data-target="/DownloadableData/quiz1.pdf" data-height="500px"></div>
 
 
 <h5>Credits - <a href='https://www.coursera.org/' target="_blank" rel="noopener">Coursera</a>,  <a href = 'https://en.wikipedia.org/wiki/Andrew_Ng' title="Andrew_Ng">Andrew.ng</a> , <a href ='https://www.coursera.org/specializations/deep-learning?'>Deeplearning.ai Course</a><h5>]]></content>
       <categories>
-        <category>new post</category>
         <category>2020</category>
         <category>Quiz</category>
       </categories>
       <tags>
-        <tag>new post</tag>
         <tag>2020</tag>
         <tag>Quiz</tag>
       </tags>
@@ -27,18 +25,16 @@
     <content><![CDATA[<p>title: Quiz 1|| Deeplearnig.ai (Course - 1 Week - 2) Neural Networks and Deep Learning (Week 2)<br><b>Note - These are my notes on the first course of DeepLearning.ai by AndrewNg</b></p>
 <a id="more"></a>
 
-<div class="pdfobject-container" data-target="../DownloadableData/quiz2.pdf" data-height="500px"></div>
+<div class="pdfobject-container" data-target="/DownloadableData/quiz2.pdf" data-height="500px"></div>
 
 
 <h5>Credits - <a href='https://www.coursera.org/' target="_blank" rel="noopener">Coursera</a>,  <a href = 'https://en.wikipedia.org/wiki/Andrew_Ng' title="Andrew_Ng">Andrew.ng</a> , <a href ='https://www.coursera.org/specializations/deep-learning?'>Deeplearning.ai Course</a><h5>
 ]]></content>
       <categories>
-        <category>new post</category>
         <category>2020</category>
         <category>Quiz</category>
       </categories>
       <tags>
-        <tag>new post</tag>
         <tag>2020</tag>
         <tag>Quiz</tag>
       </tags>
@@ -1097,88 +1093,6 @@ zc (fold + close)</code> `</p>
 <p>Four character encoding options, encoding, fileencoding, fileencodings, termencoding (for possible values ​​of these options, please refer to Vim online help: help encoding-names, their meanings are as follows:</p>
 <p>-** encoding **: The character encoding used internally by Vim</p>
 <p>Including Vim’s buffer (buffer), menu text, message text, etc. The default is to choose according to your locale. The user manual recommends changing its value only in .vimrc. In fact, it seems that it only makes sense to change its value in .vimrc. You can use another encoding to edit and save the file. For example, the encoding of your vim is utf-8, and the edited file uses cp936 encoding. Vim will automatically convert the read file into utf-8 (vim can read) Understand the way), and when you write a file, it will automatically switch back to cp936 (the file save encoding).</p>
-<p>-** fileencoding **: The character encoding of the currently edited file in Vim</p>
-<p>When Vim saves the file, it will also save the file in this character encoding (regardless of whether it is a new file).</p>
-<p>-** fileencodings **: Vim will automatically detect encoding settings</p>
-<p>When starting, it will detect the character encoding method of the file to be opened one by one according to the character encoding method it lists, and set fileencoding to the character encoding method finally detected. Therefore, it is best to put the Unicode encoding method at the front of this list and the Latin encoding method latin1 at the end.</p>
-<p>-** termencoding **: The character encoding method of the terminal (or Console window of Windows) that Vim works on</p>
-<p>If the term where vim is located is the same as the vim encoding, you do not need to set it. If it is not the case, you can use vim’s termencoding option to automatically convert to term encoding. This option is not valid for gVim in our common GUI mode under Windows, and for Console mode Vim is the code page of the Windows console, and Usually we don’t need to change it. Okay, after explaining this bunch of parameters that are easy to confuse novices, let’s take a look at how Vim’s multi-character encoding support works.</p>
-<ol>
-<li>Start Vim, and set the character encoding of buffer, menu text, and message according to the encoding value set in .vimrc.</li>
-<li>Read the file to be edited, and detect the file encoding method one by one according to the character encoding methods listed in fileencodings. And set fileencoding to be detected, it seems to be the correct (Note 1) character encoding.</li>
-<li>Compare the values ​​of fileencoding and encoding. If they are different, call iconv to convert the file content to the character encoding method described by encoding, and put the converted content into the buffer developed for this file. This file. Note that to complete this step, you need to call the external iconv.dll (Note 2). You need to ensure that this file exists in $ VIMRUNTIME or other directories listed in the PATH environment variable.</li>
-<li>When saving the file after editing, compare the values ​​of fileencoding and encoding again. If different, call iconv again to convert the text in the buffer to be saved to the character encoding described by fileencoding and save it to the specified file. Similarly, this requires calling iconv.dll. Because Unicode can contain characters of almost all languages, and UTF-8 encoding of Unicode is a very cost-effective encoding (space consumption is less than UCS-2), so the value of encoding is recommended. Set to utf-8. Another reason for this is that when encoding is set to utf-8, Vim automatically detects the encoding of the file to be more accurate (perhaps this reason is the main reason;). For the files we edit in Chinese Windows, in order to take into account the compatibility with other software, the file encoding is still set to GB2312 / GBK, so fileencoding is recommended to be set to Chinese (chinese is an individual name, which means gb2312 in Unix and Windows. cp936, which is the code page of GBK).</li>
-</ol>
-<p>For fedora, vim settings are generally placed in the / etc / vimrc file, however, it is recommended not to modify it. You can modify the ~ / .vimrc file (which does not exist by default, you can create a new one yourself) and write the desired settings.</p>
-<p>My .vimrc file is as follows:</p>
-<p><code>`
-: set encoding = utf-8
-: set fileencodings = ucs-bom, utf-8, cp936
-: set fileencoding = gb2312
-: set termencoding = utf-8</code> `</p>
-<p>Among them, the fileencoding configuration can set utf-8, but my mp3 does not seem to support utf-8 encoding, so simply, I set it to gb2312. Now it’s done, no matter whether it is in vi or mp3, it can display .txt files without garbled characters.</p>
-<h2 id="Personal-configuration"><a href="#Personal-configuration" class="headerlink" title="Personal configuration"></a>Personal configuration</h2><p>The configuration during my use of ** without plugin ** is very short. It is written in the vim configuration file. Vimrc. The configuration is configured using ** vim script **. It has its own set of syntax. For details, please click [ vim Script] (<span class="exturl" data-url="aHR0cHM6Ly93d3cudzNjc2Nob29sLmNuL3ZpbS9uY2t4MXB1MC5odG1s">https://www.w3cschool.cn/vim/nckx1pu0.html<i class="fa fa-external-link-alt"></i></span>)</p>
-<p><code>`vim
-set number; display number
-set mouse = a; setting smart mouse
-set hlsearch; high light search
-set tabstop = 4; setting tab width 4 letters
-set shiftwidth = 4; setting new line incident width
-set noexpandtab; tab doesn&#39;t expand to space
-; set list; display manipulator, example: \ n \ t \ r ......
-set encoding = utf-8
-set fileencodings = ucs-bom, utf-8, cp936
-set fileencoding = gb2312
-set termencoding = utf-8</code> `</p>
-<h2 id="Forward-and-backward-function"><a href="#Forward-and-backward-function" class="headerlink" title="Forward and backward function"></a>Forward and backward function</h2><p>Popular text editors usually have forward and backward functions, and can move back and forth between the positions that have been viewed in the file (associated with the browser), use <code>Ctrl-O</code> in vim to perform backward, use<code>Ctrl-I</code>Execute forward, related help:<code>: help CTRL-O</code> <code>: help CTRL-I``: help jump-motions</code></p>
-<h2 id="vim-compare-files"><a href="#vim-compare-files" class="headerlink" title="vim compare files"></a>vim compare files</h2><h3 id="Starting-method"><a href="#Starting-method" class="headerlink" title="Starting method"></a>Starting method</h3><p>First ensure that the diff command is available in the system. Vim’s diff mode is dependent on the diff command.</p>
-<code>`shell
- vimdiff file1 file2 [file3 [file4]]</code> <code>or
-``</code>shell<br>vim -d file1 file2 [file3 [file4]]<br><code>`
-The window is more localized in the current tab. You cannot see the difference between a window and the windows in other tabs. In this way, multiple groups of comparison windows can be opened at the same time, and each group of differences is in a separate tab. Vim will open a window for each file and use ** vertical split ** just like the `-O` parameter. If you want to ** horizontal split **, add `-o` parameter:</code> <code>shell
-vimdiff -o file1 file2 [file3 [file4]]
-``</code><br>If you are already in Vim, you can enter the comparison mode in three ways, only one is introduced:<br><code>`
-: diffs [plit] {filename}</code> <code>Open a new window for {filename}. The current and newly opened windows will have the same parameters as &quot;vimdiff&quot;. To split the window vertically, add</code>: vertical<code>in front. E.g:<dl><dt>``</code></dt><dd>vert diffsplit another_filename<br>`` `</dd></dl><h3 id="Jump-to-the-difference"><a href="#Jump-to-the-difference" class="headerlink" title="Jump to the difference"></a>Jump to the difference</h3><p>There are two commands that can be used to jump to the location of the difference text:</p>
-<ol>
-<li><code>[c</code> jumps backwards to the beginning of the last change. Count the prefix so that it repeats the corresponding times.</li>
-<li><code>] c</code> jumps forward to the beginning of the next change. Count the prefix so that it repeats the corresponding times.<br> If there is no change to which the cursor can jump, an error will be generated.</li>
-</ol>
-<h3 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h3><p>The purpose of comparison is to merge the differences and directly use the following built-in commands or troublesome methods: manually copy from one window to another.</p>
-<dl><dt>`` `<br>: [range] diffg [et] [bufspec]<br>                Use another buffer to modify the current buffer to eliminate differences. Unless there is only another<br>                For a buffer in comparison mode, [bufspec] must exist and specify that buffer.<br>                If [bufspec] specifies the current buffer, it is an empty action. [range] can refer to the following.</dt><dd>[range] diffpu [t] [bufspec]<br>                Use the current buffer to modify another buffer, eliminating differences.<br>[count] do Same as “: diffget”, but without scope. “o” means “obtain” (not available<br>                “dg” because that might be the beginning of “dgg”! ).<br>dp Same as “: diffput”, but no range. Note that it does not apply to the visual mode.<br>                The given [count] is used as the [bufspec] parameter of “: diffput”.</dd></dl><p>When [range] is not given, only the difference text at or above the current cursor position will be affected.<br>When [range] is specified, Vim tries to change only the lines it specifies. However, this is not always effective when there are deleted rows.<br>The parameter [bufspec] can be the serial number of the buffer, matching the pattern of the buffer name or part of the buffer name.<br>E.g:<br>        : diffget uses another buffer to enter compare mode<br>        : diffget 3 uses buffer 3<br>        : diffget v2 uses the buffer whose name matches “v2” and enters the comparison mode (for example, “file.c.v2”)<br>`` `</p>
-<h3 id="Update-comparison-and-undo-changes"><a href="#Update-comparison-and-undo-changes" class="headerlink" title="Update comparison and undo changes"></a>Update comparison and undo changes</h3><p>Compare the contents based on the buffer. Therefore, if you have made changes after loading the file, these changes will also participate in the comparison. However, you may want to use <code>: diffupdate [!]</code> From time to time. Because not all changes can be automatically updated. When <code>!</code> Is included, Vim checks whether the file has been changed externally and needs to be reloaded. Prompt for each changed file.</p>
-<p>If you want to undo the modification, you can enter the normal mode directly and press <code>u</code> as you normally do in vim editing, but you must be careful to move the cursor to the file window that needs to be undoed.</p>
-<h3 id="Expand-and-view-context"><a href="#Expand-and-view-context" class="headerlink" title="Expand and view context"></a>Expand and view context</h3><p>When comparing and merging files, it is often necessary to combine context to determine the final action to be taken. By default, Vimdiff will display the six lines of text above and below the differences for reference. Other identical lines of text are automatically folded. If you want to modify the default number of context lines, you can set it like this:</p>
-<p> <code>`
-: set diffopt = context: 3</code> `</p>
-<h3 id="Exit-of-multiple-files"><a href="#Exit-of-multiple-files" class="headerlink" title="Exit of multiple files"></a>Exit of multiple files</h3><p>After comparing and merging to a conclusion, you can use the following commands to operate on multiple files at the same time.</p>
-<p>For example, quit at the same time: <code>: qa (quit all)</code>  </p>
-<p>If you want to save all files: <code>: wa (write all)</code></p>
-<p>Or a merge command of the two, save all files, and then exit: <code>: wqa (write, then quit all)</code></p>
-<p>If you do not want to save the result of any operation when you quit: <code>: qa! (Force to quit all)</code></p>
-<h3 id="vimdiff-For-details-please-refer-to"><a href="#vimdiff-For-details-please-refer-to" class="headerlink" title="vimdiff For details, please refer to"></a>vimdiff For details, please refer to</h3><ol>
-<li><code>: help diff</code> under vim</li>
-<li>[vimdiff doc] (<span class="exturl" data-url="aHR0cHM6Ly92aW1jZG9jLnNvdXJjZWZvcmdlLm5ldC9kb2MvZGlmZi5odG1s">https://vimcdoc.sourceforge.net/doc/diff.html<i class="fa fa-external-link-alt"></i></span>)</li>
-</ol>
-<h2 id="vim-command-line-save-leave-and-other-commands"><a href="#vim-command-line-save-leave-and-other-commands" class="headerlink" title="vim command line save, leave and other commands:"></a>vim command line save, leave and other commands:</h2><ol>
-<li><code>: w</code> Write the edited data to the hard disk file.</li>
-<li><code>: w!</code> If the file attribute is “read-only”, write to the file forcibly. But the ability to write is also dependent on the file permissions of the file.</li>
-<li>Leave after <code>: q</code>. If it is “: wq!”, It will be forced to save and leave.</li>
-<li><code>: w [file name]</code> Save the edited data as another file.</li>
-<li><code>: r [file name]</code> Read the content of another file in the edited data and add it to the line behind the cursor.</li>
-<li><code>: n1, n2 w [file name]</code> Save the contents of lines n1 to n2 to another file.</li>
-<li><code>:! Command</code> Temporarily leave vi to display the result of executing command in command line mode.</li>
-<li><code>ZZ</code> If the file has not been changed, leave directly; if it has been changed, leave after saving.</li>
-<li><code>set num / nonum</code> displays / cancels the line number.</li>
-</ol>
-<h2 id="Macro-of-VIM"><a href="#Macro-of-VIM" class="headerlink" title="Macro of VIM"></a>Macro of VIM</h2><p>The use of macros is very powerful, go to [vim, the use of macros] (<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLnNpbmEuY29tLmNuL3MvYmxvZ182OWU1ZDg0MDAxMDJ3MXoxLmh0bWw=">https://blog.sina.com.cn/s/blog_69e5d8400102w1z1.html<i class="fa fa-external-link-alt"></i></span>)</p>
-<h2 id="Full-version-command"><a href="#Full-version-command" class="headerlink" title="Full version command"></a>Full version command</h2><p>This article only provides high-frequency scenes accumulated during personal use. For the full version, please click [here] (<span class="exturl" data-url="aHR0cHM6Ly9xNmdtOGZvbXcuYmt0LmNsb3VkZG4uY29tL2dpdHBhZ2UvdmltL3ZpbV9jb21tYW5kLnBuZw==">https://q6gm8fomw.bkt.clouddn.com/gitpage/vim/vim_command.png<i class="fa fa-external-link-alt"></i></span>), or consult the vim manual</p>
-<h2 id="Play-games-to-make-perfect"><a href="#Play-games-to-make-perfect" class="headerlink" title="Play games to make perfect"></a>Play games to make perfect</h2><p>** Use advance and retreat **, so multi-use is king. I recommend a game here: use the keyboard to control the character adventure game, familiar with VIM commands during the game: [vim-adventures] (https: // vim -adventures.com/)</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="** Reference **"></a>** Reference **</h2><ol>
-<li>[Official document] (<span class="exturl" data-url="aHR0cHM6Ly92aW0uc291cmNlZm9yZ2UuaW8vZG9jcy5waHA=">https://vim.sourceforge.io/docs.php<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>[vim doc] (<span class="exturl" data-url="aHR0cHM6Ly92aW1jZG9jLnNvdXJjZWZvcmdlLm5ldC9kb2MvaGVscC5odG1s">https://vimcdoc.sourceforge.net/doc/help.html<i class="fa fa-external-link-alt"></i></span>) Chinese</li>
-<li>[freewater blog] (<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZnJlZXdhdGVyL2FyY2hpdmUvMjAxMS8wOC8yNi8yMTU0NjAyLmh0bWw=">https://www.cnblogs.com/freewater/archive/2011/08/26/2154602.html<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>[Thinking In Linux] (<span class="exturl" data-url="aHR0cHM6Ly93d3cubGludXhzb25nLm9yZy8yMDEwLzA5L3ZpbS1xdWljay1zZWxlY3QtY29weS1kZWxldGUv">https://www.linuxsong.org/2010/09/vim-quick-select-copy-delete/<i class="fa fa-external-link-alt"></i></span>)</li>
-</ol>
 ]]></content>
       <categories>
         <category>IDE</category>
@@ -1825,12 +1739,10 @@ y = 0.0, your algorithm predicts a &quot;non-cat&quot; picture.</code></pre><cen
 
 <h5>Credits - <a href='https://www.coursera.org/' target="_blank" rel="noopener">Coursera</a>,  <a href = 'https://en.wikipedia.org/wiki/Andrew_Ng' title="Andrew_Ng">Andrew.ng</a> , <a href ='https://www.coursera.org/specializations/deep-learning?'>Deeplearning.ai Course</a><h5>]]></content>
       <categories>
-        <category>new post</category>
         <category>2020</category>
         <category>Assignment</category>
       </categories>
       <tags>
-        <tag>new post</tag>
         <tag>2020</tag>
         <tag>Assignment</tag>
         <tag>Logistic Regression with a Neural Network mindset</tag>
@@ -1923,12 +1835,10 @@ Wall time: 317 ms</code></pre><p><img src="https://i.imgur.com/p94lp3F.png" alt=
 
 ]]></content>
       <categories>
-        <category>new post</category>
         <category>2020</category>
         <category>Assignment</category>
       </categories>
       <tags>
-        <tag>new post</tag>
         <tag>2020</tag>
         <tag>Assignment</tag>
         <tag>Vectorization</tag>
@@ -1946,7 +1856,7 @@ Wall time: 317 ms</code></pre><p><img src="https://i.imgur.com/p94lp3F.png" alt=
 <ul>
 <li>You will be using Python 3.</li>
 <li>Avoid using for-loops and while-loops, unless you are explicitly told to do so.</li>
-<li>Do not modify the (# GRADED FUNCTION [function name]) comment in some cells. Your work would not be graded if you change this. Each cell containing that comment should only contain one function.</li>
+<li>Do not modify the (GRADED FUNCTION [function name]) comment in some cells. Your work would not be graded if you change this. Each cell containing that comment should only contain one function.</li>
 <li>After coding your function, run the cell right below it to check if your result is correct.</li>
 </ul>
 <p><strong>After this assignment you will:</strong></p>
@@ -1972,7 +1882,8 @@ Wall time: 317 ms</code></pre><p><img src="https://i.imgur.com/p94lp3F.png" alt=
 - Write code in the designated areas using Python 3 only
 - Do not modify the code outside of the designated areas
 </font>
-## 1 - Building basic functions with numpy ##
+
+<h3> 1 - Building basic functions with numpy </h3>
 
 <p>Numpy is the main package for scientific computing in Python. It is maintained by a large community (<span class="exturl" data-url="aHR0cHM6Ly93d3cubnVtcHkub3Jn">https://www.numpy.org<i class="fa fa-external-link-alt"></i></span>). In this exercise you will learn several key numpy functions such as np.exp, np.log, and np.reshape. You will need to know how to use these functions for future assignments.</p>
 <h3 id="1-1-sigmoid-function-np-exp"><a href="#1-1-sigmoid-function-np-exp" class="headerlink" title="1.1 - sigmoid function, np.exp()"></a>1.1 - sigmoid function, np.exp()</h3><p>Before using np.exp(), you will use math.exp() to implement the sigmoid function. You will then see why np.exp() is preferable to math.exp().</p>
@@ -2027,7 +1938,7 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 <pre><code>[4 5 6]</code></pre><p>Any time you need more info on a numpy function, we encourage you to look at <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnNjaXB5Lm9yZy9kb2MvbnVtcHktMS4xMC4xL3JlZmVyZW5jZS9nZW5lcmF0ZWQvbnVtcHkuZXhwLmh0bWw=">the official documentation<i class="fa fa-external-link-alt"></i></span>. </p>
 <p>You can also create a new cell in the notebook and write <code>np.exp?</code> (for example) to get quick access to the documentation.</p>
 <p><strong>Exercise</strong>: Implement the sigmoid function using numpy. </p>
-<p><strong>Instructions</strong>: x could now be either a real number, a vector, or a matrix. The data structures we use in numpy to represent these shapes (vectors, matrices…) are called numpy arrays. You don’t need to know more for now.<br>$$ \text{For } x \in \mathbb{R}^n \text{,     } sigmoid(x) = sigmoid\begin{pmatrix}<br>    x_1  \<br>    x_2  \<br>    …  \<br>    x_n  \<br>\end{pmatrix} = \begin{pmatrix}<br>    \frac{1}{1+e^{-x_1}}  \<br>    \frac{1}{1+e^{-x_2}}  \<br>    …  \<br>    \frac{1}{1+e^{-x_n}}  \<br>\end{pmatrix}\tag{1} $$</p>
+<p><strong>Instructions</strong>: x could now be either a real number, a vector, or a matrix. The data structures we use in numpy to represent these shapes (vectors, matrices…) are called numpy arrays. You don’t need to know more for now.<br>$$ \text{For } x \in \mathbb{R}^n \<br>\text{,     } sigmoid(x) = \<br>sigmoid\begin{pmatrix} \<br>    x_1  \<br>    x_2  \<br>    …  \<br>    x_n  \<br>\end{pmatrix} = \begin{pmatrix}<br>    \frac{1}{1+e^{-x_1}}  \<br>    \frac{1}{1+e^{-x_2}}  \<br>    …  \<br>    \frac{1}{1+e^{-x_n}}  \<br>\end{pmatrix}\tag{1} $$</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: sigmoid</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># this means you can access numpy functions by writing np.function() instead of numpy.function()</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Compute the sigmoid of x</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    x -- A scalar or numpy array of any size</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Return:</span></span><br><span class="line"><span class="string">    s -- sigmoid(x)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ### (≈ 1 line of code)</span></span><br><span class="line">    s = <span class="number">1.</span> / (<span class="number">1</span> + np.exp(-x))</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
 
 
@@ -2046,7 +1957,7 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 
 
 <h3 id="1-2-Sigmoid-gradient"><a href="#1-2-Sigmoid-gradient" class="headerlink" title="1.2 - Sigmoid gradient"></a>1.2 - Sigmoid gradient</h3><p>As you’ve seen in lecture, you will need to compute gradients to optimize loss functions using backpropagation. Let’s code your first gradient function.</p>
-<p><strong>Exercise</strong>: Implement the function sigmoid_grad() to compute the gradient of the sigmoid function with respect to its input x. The formula is: $$sigmoid_derivative(x) = \sigma’(x) = \sigma(x) (1 - \sigma(x))\tag{2}$$<br>You often code this function in two steps:</p>
+<p><strong>Exercise</strong>: Implement the function sigmoid_grad() to compute the gradient of the sigmoid function with respect to its input x. The formula is: $$sigmoid_derivative(x) = \sigma’(x) = \<br>\sigma(x) (1 - \sigma(x))\tag{2}$$ \<br>You often code this function in two steps:</p>
 <ol>
 <li>Set s to be the sigmoid of x. You might find your sigmoid(x) function useful.</li>
 <li>Compute $\sigma’(x) = s(1-s)$</li>
@@ -2071,9 +1982,8 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 <li>X.shape is used to get the shape (dimension) of a matrix/vector X. </li>
 <li>X.reshape(…) is used to reshape X into some other dimension. </li>
 </ul>
-<p>For example, in computer science, an image is represented by a 3D array of shape $(length, height, depth = 3)$. However, when you read an image as the input of an algorithm you convert it to a vector of shape $(length<em>height</em>3, 1)$. In other words, you “unroll”, or reshape, the 3D array into a 1D vector.</p>
-<img src="images/image2vector_kiank.png" style="width:500px;height:300;">
-
+<p>For example, in computer science, an image is represented by a 3D array of shape $$ (length, height, depth = 3) $$. However, when you read an image as the input of an algorithm you convert it to a vector of shape - (length<em>height</em>3, 1) </p>
+<p>In other words, you “unroll”, or reshape, the 3D array into a 1D vector.</p>
 <p><strong>Exercise</strong>: Implement <code>image2vector()</code> that takes an input of shape (length, height, 3) and returns a vector of shape (length*height*3, 1). For example, if you would like to reshape an array v of shape (a, b, c) into a vector of shape (a*b,c) you would do:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = v.reshape((v.shape[<span class="number">0</span>]*v.shape[<span class="number">1</span>], v.shape[<span class="number">2</span>])) <span class="comment"># v.shape[0] = a ; v.shape[1] = b ; v.shape[2] = c</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -2129,7 +2039,7 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 </table>
 
 <h3 id="1-4-Normalizing-rows"><a href="#1-4-Normalizing-rows" class="headerlink" title="1.4 - Normalizing rows"></a>1.4 - Normalizing rows</h3><p>Another common technique we use in Machine Learning and Deep Learning is to normalize our data. It often leads to a better performance because gradient descent converges faster after normalization. Here, by normalization we mean changing x to $ \frac{x}{| x|} $ (dividing each row vector of x by its norm).</p>
-<p>For example, if $$x =<br>\begin{bmatrix}<br>    0 &amp; 3 &amp; 4 \<br>    2 &amp; 6 &amp; 4 \<br>\end{bmatrix}\tag{3}$$ then $$| x| = np.linalg.norm(x, axis = 1, keepdims = True) = \begin{bmatrix}<br>    5 \<br>    \sqrt{56} \<br>\end{bmatrix}\tag{4} $$and        $$ x_normalized = \frac{x}{| x|} = \begin{bmatrix}<br>    0 &amp; \frac{3}{5} &amp; \frac{4}{5} \<br>    \frac{2}{\sqrt{56}} &amp; \frac{6}{\sqrt{56}} &amp; \frac{4}{\sqrt{56}} \<br>\end{bmatrix}\tag{5}$$ Note that you can divide matrices of different sizes and it works fine: this is called broadcasting and you’re going to learn about it in part 5.</p>
+<p>For example, if $$x =<br>\begin{bmatrix}<br>    0 &amp; 3 &amp; 4 \<br>    2 &amp; 6 &amp; 4 \<br>\end{bmatrix}\tag{3}$$ then $$| x| = \<br>np.linalg.norm(x, axis = 1, keepdims = True) = \<br>\begin{bmatrix} \<br>    5 \<br>    \sqrt{56} \<br>\end{bmatrix}\tag{4} $$and<br>$$ x_normalized = \frac{x}{| x|} = \<br>\begin{bmatrix} \<br>    0 &amp; \frac{3}{5} &amp; \frac{4}{5} \<br>    \frac{2}{\sqrt{56}} &amp; \frac{6}{\sqrt{56}} &amp; \frac{4}{\sqrt{56}} \<br>\end{bmatrix}\tag{5}$$<br>Note that you can divide matrices of different sizes and it works fine: this is called broadcasting and you’re going to learn about it in part 5.</p>
 <p><strong>Exercise</strong>: Implement normalizeRows() to normalize the rows of a matrix. After applying this function to an input matrix x, each row of x should be a vector of unit length (meaning length 1).</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: normalizeRows</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalizeRows</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Implement a function that normalizes each row of the matrix x (to have unit length).</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Argument:</span></span><br><span class="line"><span class="string">    x -- A numpy matrix of shape (n, m)</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    x -- The normalized (by row) numpy matrix. You are allowed to modify x.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ### (≈ 2 lines of code)</span></span><br><span class="line">    <span class="comment"># Compute x_norm as the norm 2 of x. Use np.linalg.norm(..., ord = 2, axis = ..., keepdims = True)</span></span><br><span class="line">    x_norm = np.linalg.norm(x, ord=<span class="number">2</span>, axis=<span class="number">1</span>, keepdims=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Divide x by its norm.</span></span><br><span class="line">    x = x / x_norm</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
 
@@ -2150,7 +2060,7 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 <p><strong>Exercise</strong>: Implement a softmax function using numpy. You can think of softmax as a normalizing function used when your algorithm needs to classify two or more classes. You will learn more about softmax in the second course of this specialization.</p>
 <p><strong>Instructions</strong>:</p>
 <ul>
-<li><p>$ \text{for } x \in \mathbb{R}^{1\times n} \text{,     } softmax(x) = softmax(\begin{bmatrix}<br>  x_1  &amp;&amp;<br>  x_2 &amp;&amp;<br>  …  &amp;&amp;<br>  x_n<br>\end{bmatrix}) = \begin{bmatrix}<br>   \frac{e^{x_1}}{\sum_{j}e^{x_j}}  &amp;&amp;<br>  \frac{e^{x_2}}{\sum_{j}e^{x_j}}  &amp;&amp;<br>  …  &amp;&amp;<br>  \frac{e^{x_n}}{\sum_{j}e^{x_j}}<br>\end{bmatrix} $ </p>
+<li><p>$ \text{for } x \in \mathbb{R}^{1\times n} \<br>\text{,     } softmax(x) = \<br>softmax(\begin{bmatrix} \<br>  x_1  &amp;&amp; \<br>  x_2 &amp;&amp; \<br>  …  &amp;&amp; \<br>  x_n  \<br>\end{bmatrix}) = \begin{bmatrix} \<br>   \frac{e^{x_1}}{\sum_{j}e^{x_j}}  &amp;&amp; \<br>  \frac{e^{x_2}}{\sum_{j}e^{x_j}}  &amp;&amp; \<br>  …  &amp;&amp; \<br>  \frac{e^{x_n}}{\sum_{j}e^{x_j}} \<br>\end{bmatrix} $ \</p>
 </li>
 <li><p>$\text{for a matrix } x \in \mathbb{R}^{m \times n} \text{,  $x_{ij}$ maps to the element in the $i^{th}$ row and $j^{th}$ column of $x$, thus we have: }$  $$softmax(x) = softmax\begin{bmatrix}<br>  x_{11} &amp; x_{12} &amp; x_{13} &amp; \dots  &amp; x_{1n} \<br>  x_{21} &amp; x_{22} &amp; x_{23} &amp; \dots  &amp; x_{2n} \<br>  \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>  x_{m1} &amp; x_{m2} &amp; x_{m3} &amp; \dots  &amp; x_{mn}<br>\end{bmatrix} = \begin{bmatrix}<br>  \frac{e^{x_{11}}}{\sum_{j}e^{x_{1j}}} &amp; \frac{e^{x_{12}}}{\sum_{j}e^{x_{1j}}} &amp; \frac{e^{x_{13}}}{\sum_{j}e^{x_{1j}}} &amp; \dots  &amp; \frac{e^{x_{1n}}}{\sum_{j}e^{x_{1j}}} \<br>  \frac{e^{x_{21}}}{\sum_{j}e^{x_{2j}}} &amp; \frac{e^{x_{22}}}{\sum_{j}e^{x_{2j}}} &amp; \frac{e^{x_{23}}}{\sum_{j}e^{x_{2j}}} &amp; \dots  &amp; \frac{e^{x_{2n}}}{\sum_{j}e^{x_{2j}}} \<br>  \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>  \frac{e^{x_{m1}}}{\sum_{j}e^{x_{mj}}} &amp; \frac{e^{x_{m2}}}{\sum_{j}e^{x_{mj}}} &amp; \frac{e^{x_{m3}}}{\sum_{j}e^{x_{mj}}} &amp; \dots  &amp; \frac{e^{x_{mn}}}{\sum_{j}e^{x_{mj}}}<br>\end{bmatrix} = \begin{pmatrix}<br>  softmax\text{(first row of x)}  \<br>  softmax\text{(second row of x)} \<br>  …  \<br>  softmax\text{(last row of x)} \<br>\end{pmatrix} $$</p>
 </li>
@@ -2187,7 +2097,7 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 - numpy has efficient built-in functions
 - broadcasting is extremely useful
 </font>
-## 2) Vectorization
+<h2> 2) Vectorization </h2>
 
 
 <p>In deep learning, you deal with very large datasets. Hence, a non-computationally-optimal function can become a huge bottleneck in your algorithm and can result in a model that takes ages to run. To make sure that your code is  computationally efficient, you will use vectorization. For example, try to tell the difference between the following implementations of the dot/outer/elementwise product.</p>
@@ -2243,7 +2153,6 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
 <p><strong>Reminder</strong>:</p>
 <ul>
 <li>The loss is used to evaluate the performance of your model. The bigger your loss is, the more different your predictions ($ \hat{y} $) are from the true values ($y$). In deep learning, you use optimization algorithms like Gradient Descent to train your model and to minimize the cost.</li>
-<li>L1 loss is defined as:<br>$$\begin{align<em>} &amp; L_1(\hat{y}, y) = \sum_{i=0}^m|y^{(i)} - \hat{y}^{(i)}| \end{align</em>}\tag{6}$$</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: L1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">L1</span><span class="params">(yhat, y)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    yhat -- vector of size m (predicted labels)</span></span><br><span class="line"><span class="string">    y -- vector of size m (true labels)</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    loss -- the value of the L1 loss function defined above</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ### (≈ 1 line of code)</span></span><br><span class="line">    loss = np.sum(np.abs((y - yhat)))</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure>
 
@@ -2260,9 +2169,8 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
 
 
 <p><strong>Exercise</strong>: Implement the numpy vectorized version of the L2 loss. There are several way of implementing the L2 loss but you may find the function np.dot() useful. As a reminder, if $x = [x_1, x_2, …, x_n]$, then <code>np.dot(x,x)</code> = $\sum_{j=0}^n x_j^{2}$. </p>
-<ul>
-<li>L2 loss is defined as $$\begin{align<em>} &amp; L_2(\hat{y},y) = \sum_{i=0}^m(y^{(i)} - \hat{y}^{(i)})^2 \end{align</em>}\tag{7}$$</li>
-</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MSE</span><span class="params">(yHat, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> np.sum((yHat - y)**<span class="number">2</span>) / y.size</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MSE_prime</span><span class="params">(yHat, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> yHat - y</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: L2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">L2</span><span class="params">(yhat, y)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    yhat -- vector of size m (predicted labels)</span></span><br><span class="line"><span class="string">    y -- vector of size m (true labels)</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    loss -- the value of the L2 loss function defined above</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ### (≈ 1 line of code)</span></span><br><span class="line">    loss = np.sum(np.square(yhat - y))</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure>
 
 
@@ -2294,15 +2202,33 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
 
 ]]></content>
       <categories>
-        <category>new post</category>
         <category>2020</category>
         <category>Assignment</category>
       </categories>
       <tags>
-        <tag>new post</tag>
         <tag>2020</tag>
         <tag>Assignment</tag>
         <tag>Python Basics With Numpy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Quiz 3 || Neural Networks and Deep Learning (Week 3)</title>
+    <url>/quiz3/</url>
+    <content><![CDATA[<p>title: Quiz 3|| Deeplearnig.ai (Course - 1 Week - 3) Neural Networks and Deep Learning (Week 3)<br><b>Note - These are my notes on the first course of DeepLearning.ai by AndrewNg</b></p>
+<a id="more"></a>
+
+<div class="pdfobject-container" data-target="/DownloadableData/quiz3.pdf" data-height="500px"></div>
+
+
+<h5>Credits - <a href='https://www.coursera.org/' target="_blank" rel="noopener">Coursera</a>,  <a href = 'https://en.wikipedia.org/wiki/Andrew_Ng' title="Andrew_Ng">Andrew.ng</a> , <a href ='https://www.coursera.org/specializations/deep-learning?'>Deeplearning.ai Course</a><h5>
+]]></content>
+      <categories>
+        <category>2020</category>
+        <category>Quiz</category>
+      </categories>
+      <tags>
+        <tag>2020</tag>
+        <tag>Quiz</tag>
       </tags>
   </entry>
 </search>

@@ -39,9 +39,8 @@
 <meta property="og:site_name" content="Machine Learning">
 <meta property="og:description" content="Python Basics With Numpy || Deeplearning.ai(Course - 1 Week - 2)|| Neural Networks and Deep(Week 2)Note - These are my notes on the second course of DeepLearning.ai by AndrewNgAll Credits to the teach">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://massivefile.com/Python_Basics_With_Numpy/images/image2vector_kiank.png">
 <meta property="article:published_time" content="2020-04-08T18:30:00.000Z">
-<meta property="article:modified_time" content="2020-04-12T20:46:32.104Z">
+<meta property="article:modified_time" content="2020-04-13T13:37:03.583Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="CNN">
 <meta property="article:tag" content="HyperParameter Tuning">
@@ -74,7 +73,6 @@
 <meta property="article:tag" content="Learn Maths For Data Science">
 <meta property="article:tag" content="Learn Data Science">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://massivefile.com/Python_Basics_With_Numpy/images/image2vector_kiank.png">
 
 <link rel="canonical" href="https://massivefile.com/Python_Basics_With_Numpy/">
 
@@ -185,17 +183,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">10</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">6</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">7</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -291,7 +289,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-13 02:16:32" itemprop="dateModified" datetime="2020-04-13T02:16:32+05:30">2020-04-13</time>
+                <time title="Modified: 2020-04-13 19:07:03" itemprop="dateModified" datetime="2020-04-13T19:07:03+05:30">2020-04-13</time>
               </span>
 
           <br>
@@ -328,7 +326,7 @@
 <ul>
 <li>You will be using Python 3.</li>
 <li>Avoid using for-loops and while-loops, unless you are explicitly told to do so.</li>
-<li>Do not modify the (# GRADED FUNCTION [function name]) comment in some cells. Your work would not be graded if you change this. Each cell containing that comment should only contain one function.</li>
+<li>Do not modify the (GRADED FUNCTION [function name]) comment in some cells. Your work would not be graded if you change this. Each cell containing that comment should only contain one function.</li>
 <li>After coding your function, run the cell right below it to check if your result is correct.</li>
 </ul>
 <p><strong>After this assignment you will:</strong></p>
@@ -354,7 +352,8 @@
 - Write code in the designated areas using Python 3 only
 - Do not modify the code outside of the designated areas
 </font>
-## 1 - Building basic functions with numpy ##
+
+<h3> 1 - Building basic functions with numpy </h3>
 
 <p>Numpy is the main package for scientific computing in Python. It is maintained by a large community (<span class="exturl" data-url="aHR0cHM6Ly93d3cubnVtcHkub3Jn">https://www.numpy.org<i class="fa fa-external-link-alt"></i></span>). In this exercise you will learn several key numpy functions such as np.exp, np.log, and np.reshape. You will need to know how to use these functions for future assignments.</p>
 <h3 id="1-1-sigmoid-function-np-exp"><a href="#1-1-sigmoid-function-np-exp" class="headerlink" title="1.1 - sigmoid function, np.exp()"></a>1.1 - sigmoid function, np.exp()</h3><p>Before using np.exp(), you will use math.exp() to implement the sigmoid function. You will then see why np.exp() is preferable to math.exp().</p>
@@ -409,7 +408,7 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 <pre><code>[4 5 6]</code></pre><p>Any time you need more info on a numpy function, we encourage you to look at <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnNjaXB5Lm9yZy9kb2MvbnVtcHktMS4xMC4xL3JlZmVyZW5jZS9nZW5lcmF0ZWQvbnVtcHkuZXhwLmh0bWw=">the official documentation<i class="fa fa-external-link-alt"></i></span>. </p>
 <p>You can also create a new cell in the notebook and write <code>np.exp?</code> (for example) to get quick access to the documentation.</p>
 <p><strong>Exercise</strong>: Implement the sigmoid function using numpy. </p>
-<p><strong>Instructions</strong>: x could now be either a real number, a vector, or a matrix. The data structures we use in numpy to represent these shapes (vectors, matrices…) are called numpy arrays. You don’t need to know more for now.<br>$$ \text{For } x \in \mathbb{R}^n \text{,     } sigmoid(x) = sigmoid\begin{pmatrix}<br>    x_1  \<br>    x_2  \<br>    …  \<br>    x_n  \<br>\end{pmatrix} = \begin{pmatrix}<br>    \frac{1}{1+e^{-x_1}}  \<br>    \frac{1}{1+e^{-x_2}}  \<br>    …  \<br>    \frac{1}{1+e^{-x_n}}  \<br>\end{pmatrix}\tag{1} $$</p>
+<p><strong>Instructions</strong>: x could now be either a real number, a vector, or a matrix. The data structures we use in numpy to represent these shapes (vectors, matrices…) are called numpy arrays. You don’t need to know more for now.<br>$$ \text{For } x \in \mathbb{R}^n \<br>\text{,     } sigmoid(x) = \<br>sigmoid\begin{pmatrix} \<br>    x_1  \<br>    x_2  \<br>    …  \<br>    x_n  \<br>\end{pmatrix} = \begin{pmatrix}<br>    \frac{1}{1+e^{-x_1}}  \<br>    \frac{1}{1+e^{-x_2}}  \<br>    …  \<br>    \frac{1}{1+e^{-x_n}}  \<br>\end{pmatrix}\tag{1} $$</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: sigmoid</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># this means you can access numpy functions by writing np.function() instead of numpy.function()</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Compute the sigmoid of x</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    x -- A scalar or numpy array of any size</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Return:</span></span><br><span class="line"><span class="string">    s -- sigmoid(x)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ### (≈ 1 line of code)</span></span><br><span class="line">    s = <span class="number">1.</span> / (<span class="number">1</span> + np.exp(-x))</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
 
 
@@ -428,7 +427,7 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 
 
 <h3 id="1-2-Sigmoid-gradient"><a href="#1-2-Sigmoid-gradient" class="headerlink" title="1.2 - Sigmoid gradient"></a>1.2 - Sigmoid gradient</h3><p>As you’ve seen in lecture, you will need to compute gradients to optimize loss functions using backpropagation. Let’s code your first gradient function.</p>
-<p><strong>Exercise</strong>: Implement the function sigmoid_grad() to compute the gradient of the sigmoid function with respect to its input x. The formula is: $$sigmoid_derivative(x) = \sigma’(x) = \sigma(x) (1 - \sigma(x))\tag{2}$$<br>You often code this function in two steps:</p>
+<p><strong>Exercise</strong>: Implement the function sigmoid_grad() to compute the gradient of the sigmoid function with respect to its input x. The formula is: $$sigmoid_derivative(x) = \sigma’(x) = \<br>\sigma(x) (1 - \sigma(x))\tag{2}$$ \<br>You often code this function in two steps:</p>
 <ol>
 <li>Set s to be the sigmoid of x. You might find your sigmoid(x) function useful.</li>
 <li>Compute $\sigma’(x) = s(1-s)$</li>
@@ -453,9 +452,8 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 <li>X.shape is used to get the shape (dimension) of a matrix/vector X. </li>
 <li>X.reshape(…) is used to reshape X into some other dimension. </li>
 </ul>
-<p>For example, in computer science, an image is represented by a 3D array of shape $(length, height, depth = 3)$. However, when you read an image as the input of an algorithm you convert it to a vector of shape $(length<em>height</em>3, 1)$. In other words, you “unroll”, or reshape, the 3D array into a 1D vector.</p>
-<img src="images/image2vector_kiank.png" style="width:500px;height:300;">
-
+<p>For example, in computer science, an image is represented by a 3D array of shape $$ (length, height, depth = 3) $$. However, when you read an image as the input of an algorithm you convert it to a vector of shape - (length<em>height</em>3, 1) </p>
+<p>In other words, you “unroll”, or reshape, the 3D array into a 1D vector.</p>
 <p><strong>Exercise</strong>: Implement <code>image2vector()</code> that takes an input of shape (length, height, 3) and returns a vector of shape (length*height*3, 1). For example, if you would like to reshape an array v of shape (a, b, c) into a vector of shape (a*b,c) you would do:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v = v.reshape((v.shape[<span class="number">0</span>]*v.shape[<span class="number">1</span>], v.shape[<span class="number">2</span>])) <span class="comment"># v.shape[0] = a ; v.shape[1] = b ; v.shape[2] = c</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -511,7 +509,7 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 </table>
 
 <h3 id="1-4-Normalizing-rows"><a href="#1-4-Normalizing-rows" class="headerlink" title="1.4 - Normalizing rows"></a>1.4 - Normalizing rows</h3><p>Another common technique we use in Machine Learning and Deep Learning is to normalize our data. It often leads to a better performance because gradient descent converges faster after normalization. Here, by normalization we mean changing x to $ \frac{x}{| x|} $ (dividing each row vector of x by its norm).</p>
-<p>For example, if $$x =<br>\begin{bmatrix}<br>    0 &amp; 3 &amp; 4 \<br>    2 &amp; 6 &amp; 4 \<br>\end{bmatrix}\tag{3}$$ then $$| x| = np.linalg.norm(x, axis = 1, keepdims = True) = \begin{bmatrix}<br>    5 \<br>    \sqrt{56} \<br>\end{bmatrix}\tag{4} $$and        $$ x_normalized = \frac{x}{| x|} = \begin{bmatrix}<br>    0 &amp; \frac{3}{5} &amp; \frac{4}{5} \<br>    \frac{2}{\sqrt{56}} &amp; \frac{6}{\sqrt{56}} &amp; \frac{4}{\sqrt{56}} \<br>\end{bmatrix}\tag{5}$$ Note that you can divide matrices of different sizes and it works fine: this is called broadcasting and you’re going to learn about it in part 5.</p>
+<p>For example, if $$x =<br>\begin{bmatrix}<br>    0 &amp; 3 &amp; 4 \<br>    2 &amp; 6 &amp; 4 \<br>\end{bmatrix}\tag{3}$$ then $$| x| = \<br>np.linalg.norm(x, axis = 1, keepdims = True) = \<br>\begin{bmatrix} \<br>    5 \<br>    \sqrt{56} \<br>\end{bmatrix}\tag{4} $$and<br>$$ x_normalized = \frac{x}{| x|} = \<br>\begin{bmatrix} \<br>    0 &amp; \frac{3}{5} &amp; \frac{4}{5} \<br>    \frac{2}{\sqrt{56}} &amp; \frac{6}{\sqrt{56}} &amp; \frac{4}{\sqrt{56}} \<br>\end{bmatrix}\tag{5}$$<br>Note that you can divide matrices of different sizes and it works fine: this is called broadcasting and you’re going to learn about it in part 5.</p>
 <p><strong>Exercise</strong>: Implement normalizeRows() to normalize the rows of a matrix. After applying this function to an input matrix x, each row of x should be a vector of unit length (meaning length 1).</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: normalizeRows</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalizeRows</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Implement a function that normalizes each row of the matrix x (to have unit length).</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Argument:</span></span><br><span class="line"><span class="string">    x -- A numpy matrix of shape (n, m)</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    x -- The normalized (by row) numpy matrix. You are allowed to modify x.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ### (≈ 2 lines of code)</span></span><br><span class="line">    <span class="comment"># Compute x_norm as the norm 2 of x. Use np.linalg.norm(..., ord = 2, axis = ..., keepdims = True)</span></span><br><span class="line">    x_norm = np.linalg.norm(x, ord=<span class="number">2</span>, axis=<span class="number">1</span>, keepdims=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Divide x by its norm.</span></span><br><span class="line">    x = x / x_norm</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
 
@@ -532,7 +530,7 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 <p><strong>Exercise</strong>: Implement a softmax function using numpy. You can think of softmax as a normalizing function used when your algorithm needs to classify two or more classes. You will learn more about softmax in the second course of this specialization.</p>
 <p><strong>Instructions</strong>:</p>
 <ul>
-<li><p>$ \text{for } x \in \mathbb{R}^{1\times n} \text{,     } softmax(x) = softmax(\begin{bmatrix}<br>  x_1  &amp;&amp;<br>  x_2 &amp;&amp;<br>  …  &amp;&amp;<br>  x_n<br>\end{bmatrix}) = \begin{bmatrix}<br>   \frac{e^{x_1}}{\sum_{j}e^{x_j}}  &amp;&amp;<br>  \frac{e^{x_2}}{\sum_{j}e^{x_j}}  &amp;&amp;<br>  …  &amp;&amp;<br>  \frac{e^{x_n}}{\sum_{j}e^{x_j}}<br>\end{bmatrix} $ </p>
+<li><p>$ \text{for } x \in \mathbb{R}^{1\times n} \<br>\text{,     } softmax(x) = \<br>softmax(\begin{bmatrix} \<br>  x_1  &amp;&amp; \<br>  x_2 &amp;&amp; \<br>  …  &amp;&amp; \<br>  x_n  \<br>\end{bmatrix}) = \begin{bmatrix} \<br>   \frac{e^{x_1}}{\sum_{j}e^{x_j}}  &amp;&amp; \<br>  \frac{e^{x_2}}{\sum_{j}e^{x_j}}  &amp;&amp; \<br>  …  &amp;&amp; \<br>  \frac{e^{x_n}}{\sum_{j}e^{x_j}} \<br>\end{bmatrix} $ \</p>
 </li>
 <li><p>$\text{for a matrix } x \in \mathbb{R}^{m \times n} \text{,  $x_{ij}$ maps to the element in the $i^{th}$ row and $j^{th}$ column of $x$, thus we have: }$  $$softmax(x) = softmax\begin{bmatrix}<br>  x_{11} &amp; x_{12} &amp; x_{13} &amp; \dots  &amp; x_{1n} \<br>  x_{21} &amp; x_{22} &amp; x_{23} &amp; \dots  &amp; x_{2n} \<br>  \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>  x_{m1} &amp; x_{m2} &amp; x_{m3} &amp; \dots  &amp; x_{mn}<br>\end{bmatrix} = \begin{bmatrix}<br>  \frac{e^{x_{11}}}{\sum_{j}e^{x_{1j}}} &amp; \frac{e^{x_{12}}}{\sum_{j}e^{x_{1j}}} &amp; \frac{e^{x_{13}}}{\sum_{j}e^{x_{1j}}} &amp; \dots  &amp; \frac{e^{x_{1n}}}{\sum_{j}e^{x_{1j}}} \<br>  \frac{e^{x_{21}}}{\sum_{j}e^{x_{2j}}} &amp; \frac{e^{x_{22}}}{\sum_{j}e^{x_{2j}}} &amp; \frac{e^{x_{23}}}{\sum_{j}e^{x_{2j}}} &amp; \dots  &amp; \frac{e^{x_{2n}}}{\sum_{j}e^{x_{2j}}} \<br>  \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>  \frac{e^{x_{m1}}}{\sum_{j}e^{x_{mj}}} &amp; \frac{e^{x_{m2}}}{\sum_{j}e^{x_{mj}}} &amp; \frac{e^{x_{m3}}}{\sum_{j}e^{x_{mj}}} &amp; \dots  &amp; \frac{e^{x_{mn}}}{\sum_{j}e^{x_{mj}}}<br>\end{bmatrix} = \begin{pmatrix}<br>  softmax\text{(first row of x)}  \<br>  softmax\text{(second row of x)} \<br>  …  \<br>  softmax\text{(last row of x)} \<br>\end{pmatrix} $$</p>
 </li>
@@ -569,7 +567,7 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 - numpy has efficient built-in functions
 - broadcasting is extremely useful
 </font>
-## 2) Vectorization
+<h2> 2) Vectorization </h2>
 
 
 <p>In deep learning, you deal with very large datasets. Hence, a non-computationally-optimal function can become a huge bottleneck in your algorithm and can result in a model that takes ages to run. To make sure that your code is  computationally efficient, you will use vectorization. For example, try to tell the difference between the following implementations of the dot/outer/elementwise product.</p>
@@ -625,7 +623,6 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
 <p><strong>Reminder</strong>:</p>
 <ul>
 <li>The loss is used to evaluate the performance of your model. The bigger your loss is, the more different your predictions ($ \hat{y} $) are from the true values ($y$). In deep learning, you use optimization algorithms like Gradient Descent to train your model and to minimize the cost.</li>
-<li>L1 loss is defined as:<br>$$\begin{align<em>} &amp; L_1(\hat{y}, y) = \sum_{i=0}^m|y^{(i)} - \hat{y}^{(i)}| \end{align</em>}\tag{6}$$</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: L1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">L1</span><span class="params">(yhat, y)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    yhat -- vector of size m (predicted labels)</span></span><br><span class="line"><span class="string">    y -- vector of size m (true labels)</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    loss -- the value of the L1 loss function defined above</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ### (≈ 1 line of code)</span></span><br><span class="line">    loss = np.sum(np.abs((y - yhat)))</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure>
 
@@ -642,9 +639,8 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
 
 
 <p><strong>Exercise</strong>: Implement the numpy vectorized version of the L2 loss. There are several way of implementing the L2 loss but you may find the function np.dot() useful. As a reminder, if $x = [x_1, x_2, …, x_n]$, then <code>np.dot(x,x)</code> = $\sum_{j=0}^n x_j^{2}$. </p>
-<ul>
-<li>L2 loss is defined as $$\begin{align<em>} &amp; L_2(\hat{y},y) = \sum_{i=0}^m(y^{(i)} - \hat{y}^{(i)})^2 \end{align</em>}\tag{7}$$</li>
-</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MSE</span><span class="params">(yHat, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> np.sum((yHat - y)**<span class="number">2</span>) / y.size</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MSE_prime</span><span class="params">(yHat, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> yHat - y</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: L2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">L2</span><span class="params">(yhat, y)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    yhat -- vector of size m (predicted labels)</span></span><br><span class="line"><span class="string">    y -- vector of size m (true labels)</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    loss -- the value of the L2 loss function defined above</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ### (≈ 1 line of code)</span></span><br><span class="line">    loss = np.sum(np.square(yhat - y))</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure>
 
 
@@ -702,7 +698,6 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/new-post/" rel="tag"><i class="fa fa-tag"></i> new post</a>
               <a href="/tags/2020/" rel="tag"><i class="fa fa-tag"></i> 2020</a>
               <a href="/tags/Assignment/" rel="tag"><i class="fa fa-tag"></i> Assignment</a>
               <a href="/tags/Python-Basics-With-Numpy/" rel="tag"><i class="fa fa-tag"></i> Python Basics With Numpy</a>
@@ -779,7 +774,7 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Basics-with-Numpy-optional-assignment"><span class="nav-number">2.</span> <span class="nav-text">Python Basics with Numpy (optional assignment)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#About-iPython-Notebooks"><span class="nav-number">2.1.</span> <span class="nav-text">About iPython Notebooks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-sigmoid-function-np-exp"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 - sigmoid function, np.exp()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Sigmoid-gradient"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 - Sigmoid gradient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Reshaping-arrays"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3 - Reshaping arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-Normalizing-rows"><span class="nav-number">2.1.4.</span> <span class="nav-text">1.4 - Normalizing rows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-Broadcasting-and-the-softmax-function"><span class="nav-number">2.1.5.</span> <span class="nav-text">1.5 - Broadcasting and the softmax function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Implement-the-L1-and-L2-loss-functions"><span class="nav-number">2.1.6.</span> <span class="nav-text">2.1 Implement the L1 and L2 loss functions</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Basics-with-Numpy-optional-assignment"><span class="nav-number">2.</span> <span class="nav-text">Python Basics with Numpy (optional assignment)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#About-iPython-Notebooks"><span class="nav-number">2.1.</span> <span class="nav-text">About iPython Notebooks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">2.1.1.</span> <span class="nav-text"> 1 - Building basic functions with numpy </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-sigmoid-function-np-exp"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.1 - sigmoid function, np.exp()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Sigmoid-gradient"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.2 - Sigmoid gradient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Reshaping-arrays"><span class="nav-number">2.1.4.</span> <span class="nav-text">1.3 - Reshaping arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-Normalizing-rows"><span class="nav-number">2.1.5.</span> <span class="nav-text">1.4 - Normalizing rows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-Broadcasting-and-the-softmax-function"><span class="nav-number">2.1.6.</span> <span class="nav-text">1.5 - Broadcasting and the softmax function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">2.2.</span> <span class="nav-text"> 2) Vectorization </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Implement-the-L1-and-L2-loss-functions"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 Implement the L1 and L2 loss functions</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -795,20 +790,20 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -850,13 +845,13 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">96k</span>
+    <span title="Symbols count total">87k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:27</span>
+    <span title="Reading time total">1:19</span>
 </div>
 
         
