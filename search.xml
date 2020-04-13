@@ -6,8 +6,7 @@
     <content><![CDATA[<p>title: Quiz 1|| Deeplearnig.ai (Course - 1 Week - 1) Neural Networks and Deep Learning (Week 1)<br><b>Note - These are my notes on the first course of DeepLearning.ai by AndrewNg</b></p>
 <a id="more"></a>
 
-<iframe src="https://drive.google.com/open?id=1oNwtCqdVqw6Uv-q1IMdyCm_VmK_GQWTt" width="640" height="480"></iframe>
-
+<iframe src="https://drive.google.com/file/d/1ZznUkyDAfMTwx3V2y63slV9UivBTVdFY/preview" width="640" height="480"></iframe>
 
 <h5>Credits - <a href='https://www.coursera.org/' target="_blank" rel="noopener">Coursera</a>,  <a href = 'https://en.wikipedia.org/wiki/Andrew_Ng' title="Andrew_Ng">Andrew.ng</a> , <a href ='https://www.coursera.org/specializations/deep-learning?'>Deeplearning.ai Course</a><h5>]]></content>
       <categories>
@@ -2060,7 +2059,15 @@ TypeError: bad operand type for unary -: &apos;list&apos;</code></pre><p>In fact
 <p><strong>Exercise</strong>: Implement a softmax function using numpy. You can think of softmax as a normalizing function used when your algorithm needs to classify two or more classes. You will learn more about softmax in the second course of this specialization.</p>
 <p><strong>Instructions</strong>:</p>
 <ul>
-<li><p>$ \text{for } x \in \mathbb{R}^{1\times n} \<br>\text{,     } softmax(x) =<br>softmax(\begin{bmatrix} \<br>  x_1  &amp;&amp; \<br>  x_2 &amp;&amp; \<br>  …  &amp;&amp; \<br>  x_n  \<br>\end{bmatrix}) = $$<br>$$  \begin{bmatrix}<br>   \frac{e^{x_1}}{\sum_{j}e^{x_j}}  &amp;&amp; \<br>  \frac{e^{x_2}}{\sum_{j}e^{x_j}}  &amp;&amp; \<br>  …  &amp;&amp; \<br>  \frac{e^{x_n}}{\sum_{j}e^{x_j}} \<br>\end{bmatrix} $ \</p>
+<li><p>$ \text{for } x \in \mathbb{R}^{1\times n} \<br>\text{,     } softmax(x) =<br>softmax(\begin{bmatrix} \<br>  x_1  &amp;&amp; \<br>  x_2 &amp;&amp; \<br>  …  &amp;&amp; \<br>  x_n  \<br>\end{bmatrix}) = $</p>
+<br>
+$$  
+\begin{bmatrix} 
+   \frac{e^{x_1}}{\sum_{j}e^{x_j}}  && \\
+  \frac{e^{x_2}}{\sum_{j}e^{x_j}}  && \\
+  ...  && \\
+  \frac{e^{x_n}}{\sum_{j}e^{x_j}} \\
+\end{bmatrix} $$ 
 </li>
 <li><p>$\text{for a matrix } x \in \mathbb{R}^{m \times n} \text{,  $x_{ij}$<br>maps to the element in the $i^{th}$ row and $j^{th}$<br>column of $x$, thus we have: }$  $$softmax(x) = softmax\begin{bmatrix}<br>  x_{11} &amp; x_{12} &amp; x_{13} &amp; \dots  &amp; x_{1n} \<br>  x_{21} &amp; x_{22} &amp; x_{23} &amp; \dots  &amp; x_{2n} \<br>  \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>  x_{m1} &amp; x_{m2} &amp; x_{m3} &amp; \dots  &amp; x_{mn}<br>\end{bmatrix} = \begin{bmatrix}<br>  \frac{e^{x_{11}}}{\sum_{j}e^{x_{1j}}} &amp; \frac{e^{x_{12}}}{\sum_{j}e^{x_{1j}}} &amp; \frac{e^{x_{13}}}{\sum_{j}e^{x_{1j}}} &amp; \dots  &amp; \frac{e^{x_{1n}}}{\sum_{j}e^{x_{1j}}} \<br>  \frac{e^{x_{21}}}{\sum_{j}e^{x_{2j}}} &amp; \frac{e^{x_{22}}}{\sum_{j}e^{x_{2j}}} &amp; \frac{e^{x_{23}}}{\sum_{j}e^{x_{2j}}} &amp; \dots  &amp; \frac{e^{x_{2n}}}{\sum_{j}e^{x_{2j}}} \<br>  \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>  \frac{e^{x_{m1}}}{\sum_{j}e^{x_{mj}}} &amp; \frac{e^{x_{m2}}}{\sum_{j}e^{x_{mj}}} &amp; \frac{e^{x_{m3}}}{\sum_{j}e^{x_{mj}}} &amp; \dots  &amp; \frac{e^{x_{mn}}}{\sum_{j}e^{x_{mj}}}<br>\end{bmatrix} = \begin{pmatrix}<br>  softmax\text{(first row of x)}  \<br>  softmax\text{(second row of x)} \<br>  …  \<br>  softmax\text{(last row of x)} \<br>\end{pmatrix} $$</p>
 </li>
