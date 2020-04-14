@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://massivefile.com/quiz4/</loc>
+    
+    <lastmod>2020-04-14T19:30:55.648Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Planar_data_classification_with_one_hidden_layer/</loc>
+    
+    <lastmod>2020-04-14T19:29:28.333Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/quiz3/</loc>
+    
+    <lastmod>2020-04-14T19:28:39.605Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/quiz2/</loc>
+    
+    <lastmod>2020-04-14T19:28:34.435Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Quiz01/</loc>
+    
+    <lastmod>2020-04-14T19:28:28.916Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Python_Basics_With_Numpy/</loc>
+    
+    <lastmod>2020-04-13T16:20:05.364Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://massivefile.com/Vectorization/</loc>
     
     <lastmod>2020-04-13T14:46:52.128Z</lastmod>
@@ -9,37 +51,9 @@
   </url>
   
   <url>
-    <loc>https://massivefile.com/quiz3/</loc>
-    
-    <lastmod>2020-04-13T14:46:46.288Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/</loc>
     
     <lastmod>2020-04-13T14:46:39.787Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/Python_Basics_With_Numpy/</loc>
-    
-    <lastmod>2020-04-13T14:46:33.306Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/Quiz01/</loc>
-    
-    <lastmod>2020-04-13T14:45:24.713Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/quiz2/</loc>
-    
-    <lastmod>2020-04-13T14:44:13.558Z</lastmod>
     
   </url>
   
