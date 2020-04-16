@@ -3,14 +3,11 @@
   <entry>
     <title>Quiz 1 || Neural Networks and Deep Learning</title>
     <url>/Quiz01/</url>
-    <content><![CDATA[<p>title: Quiz 1|| Deeplearnig (C - 1 W - 1) Neural Networks and Deep Learning (W 1)<br><b>Note - Quiz on the notes on DeepLearning </b></p>
+    <content><![CDATA[<p><b><i>title: Quiz 1|| Deeplearnig (Course - 1 Week - 1) Neural Networks and Deep Learning (Week 1)<br>Note - Quiz on the notes on DeepLearning </b></i></p>
 <a id="more"></a>
 
 <iframe src="https://drive.google.com/file/d/1ZznUkyDAfMTwx3V2y63slV9UivBTVdFY/preview" width="680" height="480"></iframe>
-
-
-<h5>Credits - <a href='https://www.coursera.org/' target="_blank" rel="noopener">Coursera</a>,  <a href = 'https://en.wikipedia.org/wiki/Andrew_Ng' title="Andrew_Ng">Credits to the teacher</a> , 
-<a href ='https://www.coursera.org/specializations/deep-learning?'>Deeplearning.ai Course</a><h5>]]></content>
+]]></content>
       <categories>
         <category>2020</category>
         <category>Quiz</category>
@@ -23,13 +20,11 @@
   <entry>
     <title>Quiz 2 || Neural Networks and Deep Learning</title>
     <url>/quiz2/</url>
-    <content><![CDATA[<p>title: Quiz 1|| Deeplearnig (C - 1 W - 2) Neural Networks and Deep Learning (W 2)<br><b>Note - Quiz on the notes on DeepLearning </b></p>
+    <content><![CDATA[<p><b><i>title: Quiz 1|| Deeplearnig (Course - 1 Week - 2) Neural Networks and Deep Learning (Week 2)<br>Note - Quiz on the notes on DeepLearning </b></i></p>
 <a id="more"></a>
 
 <iframe src="https://drive.google.com/file/d/17-GwSwUnRq8uwaAwZnBqGfpR6BmmCpXf/preview" width="680" height="480"></iframe>
-
-<h5>Credits - <a href='https://www.coursera.org/' target="_blank" rel="noopener">Coursera</a>,  <a href = 'https://en.wikipedia.org/wiki/Andrew_Ng' title="Andrew_Ng">Credits to the teacher</a> , 
-<a href ='https://www.coursera.org/specializations/deep-learning?'>Deeplearning.ai Course</a><h5>]]></content>
+]]></content>
       <categories>
         <category>2020</category>
         <category>Quiz</category>
@@ -42,9 +37,7 @@
   <entry>
     <title>Classic Vim without plugins</title>
     <url>/Vim_no_plugins/</url>
-    <content><![CDATA[<p>This article Covers everything related to be going with Vim for any beginner or intermediate.<br>I have explained the ins and outs of Vim in briefly.<br>This article will be continuously updated based on experience.</p>
-<a id="more"></a> 
-
+    <content><![CDATA[<p><b><i>Vim without plugins/Widgets</i></b></p>
 <h2 id="Four-modes-of-vim"><a href="#Four-modes-of-vim" class="headerlink" title="Four modes of vim"></a>Four modes of vim</h2><ol>
 <li><p>General mode: normal mode. You can move the cursor, delete characters or entire lines, and copy and paste file data. Opening vim is to enter this mode, and the switching between the three modes is also transferred here.</p>
 </li>
@@ -56,6 +49,8 @@
 <li><p>Visual mode: In general mode, press <code>v`` V</code> <code>ctr + v</code> to enter the visual mode, which is equivalent to the normal mode after highlighting the selected text, that is, in this mode, you can arbitrarily select a specific area and be The selected area is highlighted, <code>v</code> selects the unit: one character;<code>V</code> is also called the visible line mode, select the unit: line; <code>ctr + v</code> is also called the visible block mode, select the unit: square ; All three are useful, see below for details.</p>
 </li>
 </ol>
+<a id="more"></a> 
+
 <h2 id="Mobile"><a href="#Mobile" class="headerlink" title="Mobile"></a>Mobile</h2><p>In normal mode:</p>
 <p><code>w</code> → to the beginning of the next word<code>e</code> → to the end of the next word (words are separated by spaces by default)<br><code>W</code> → to the beginning of the next string<code>E</code> → to the end of the next string (a string refers to a string consisting of numbers, letters, and underscores)<br><code>B</code> → Go to the first character of the previous string. The<code>b</code> → “command moves the cursor to the first character of the previous word.</p>
 <blockquote>
@@ -494,10 +489,9 @@ zc (fold + close)</code> `</p>
   <entry>
     <title>Logistic Regression with a Neural Network mindset</title>
     <url>/Logistic_Regression_with_a_Neural_Network_mindset/</url>
-    <content><![CDATA[<p><i>Note - These are my notes on DeepLearning Specialization Part:<br>Building your Deep Neural Network Step by Step || Deeplearning Specialization(Course- 1 Week - 2)|| Neural Networks and Deep(Week 2)</i><br>To represent color images, the red, green and blue channels (RGB) must be specified for each pixel, and so the pixel value is actually a vector of three numbers ranging from 0 to 255.One common preprocessing step in machine learning is to center and standardize your dataset, meaning that you substract the mean of the whole numpy array from each example, and then divide each example by the standard deviation of the whole numpy array. But for picture datasets, it is simpler and more convenient and works almost as well to just divide every row of the dataset by 255 (the maximum value of a pixel channel)</p>
-<a id="more"></a>
-
+    <content><![CDATA[<p><i><b>Note - These are my notes on DeepLearning Specialization Part:<br>Logistic Regression with a Neural Network mindset || (Course- 1 Week - 2) || Neural Networks and Deep Learning (Week 2)</i></b></p>
 <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1> <p><div class="lev1 toc-item"><a href="#Logistic-Regression-with-a-Neural-Network-mindset" data-toc-modified-id="Logistic-Regression-with-a-Neural-Network-mindset-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Logistic Regression with a Neural Network mindset</a></div><div class="lev2 toc-item"><a href="#1---Packages" data-toc-modified-id="1---Packages-11"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>1 - Packages</a></div><div class="lev1 toc-item"><a href="#load-lr_utils.py" data-toc-modified-id="load-lr_utils.py-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>load lr_utils.py</a></div><div class="lev2 toc-item"><a href="#2---Overview-of-the-Problem-set" data-toc-modified-id="2---Overview-of-the-Problem-set-21"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>2 - Overview of the Problem set</a></div><div class="lev2 toc-item"><a href="#3---General-Architecture-of-the-learning-algorithm" data-toc-modified-id="3---General-Architecture-of-the-learning-algorithm-22"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>3 - General Architecture of the learning algorithm</a></div><div class="lev2 toc-item"><a href="#4---Building-the-parts-of-our-algorithm" data-toc-modified-id="4---Building-the-parts-of-our-algorithm-23"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>4 - Building the parts of our algorithm</a></div><div class="lev3 toc-item"><a href="#4.1---Helper-functions" data-toc-modified-id="4.1---Helper-functions-231"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>4.1 - Helper functions</a></div><div class="lev3 toc-item"><a href="#4.2---Initializing-parameters" data-toc-modified-id="4.2---Initializing-parameters-232"><span class="toc-item-num">2.3.2&nbsp;&nbsp;</span>4.2 - Initializing parameters</a></div><div class="lev3 toc-item"><a href="#4.3---Forward-and-Backward-propagation" data-toc-modified-id="4.3---Forward-and-Backward-propagation-233"><span class="toc-item-num">2.3.3&nbsp;&nbsp;</span>4.3 - Forward and Backward propagation</a></div><div class="lev3 toc-item"><a href="#d)-Optimization" data-toc-modified-id="d)-Optimization-234"><span class="toc-item-num">2.3.4&nbsp;&nbsp;</span>d) Optimization</a></div><div class="lev2 toc-item"><a href="#5---Merge-all-functions-into-a-model" data-toc-modified-id="5---Merge-all-functions-into-a-model-24"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>5 - Merge all functions into a model</a></div><div class="lev2 toc-item"><a href="#6---Further-analysis-(optional/ungraded-exercise)" data-toc-modified-id="6---Further-analysis-(optional/ungraded-exercise)-25"><span class="toc-item-num">2.5&nbsp;&nbsp;</span>6 - Further analysis (optional/ungraded exercise)</a></div><div class="lev4 toc-item"><a href="#Choice-of-learning-rate" data-toc-modified-id="Choice-of-learning-rate-2501"><span class="toc-item-num">2.5.0.1&nbsp;&nbsp;</span>Choice of learning rate</a></div><div class="lev2 toc-item"><a href="#7---Test-with-your-own-image-(optional/ungraded-exercise)" data-toc-modified-id="7---Test-with-your-own-image-(optional/ungraded-exercise)-26"><span class="toc-item-num">2.6&nbsp;&nbsp;</span>7 - Test with your own image (optional/ungraded exercise)</a></div>
+<a id="more"></a>
 
 <h1 id="Logistic-Regression-with-a-Neural-Network-mindset"><a href="#Logistic-Regression-with-a-Neural-Network-mindset" class="headerlink" title="Logistic Regression with a Neural Network mindset"></a>Logistic Regression with a Neural Network mindset</h1><p>Welcome to your first (required) programming assignment! You will build a logistic regression classifier to recognize  cats. This assignment will step you through how to do this with a Neural Network mindset, and so will also hone your intuitions about deep learning.</p>
 <p><strong>Instructions:</strong></p>
@@ -1144,9 +1138,9 @@ y = 0.0, your algorithm predicts a &quot;non-cat&quot; picture.</code></pre><cen
   <entry>
     <title>Vectorization || Neural Networks and Deep Learning</title>
     <url>/Vectorization/</url>
-    <content><![CDATA[<p>Vectorization || Deeplearning (C - 1 W - 2)|| Neural Networks and Deep(W 2)<br><b>Note - These are my notes on DeepLearning</b></p>
-<a id="more"></a>
+    <content><![CDATA[<p><i><b>Note - These are my notes on DeepLearning Specialization Part:<br>Python Basics With Numpy  || (Course- 1 Week - 2) || Neural Networks and Deep Learning (Week 2)</i></b></p>
 <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1> <p><div class="lev1 toc-item"><a href="#Vectorization" data-toc-modified-id="Vectorization-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Vectorization</a></div><div class="lev1 toc-item"><a href="#Vectorizing-Logistic-Regression" data-toc-modified-id="Vectorizing-Logistic-Regression-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Vectorizing Logistic Regression</a></div><div class="lev1 toc-item"><a href="#Vectorizing-Logistic-Regression's-Gradient-Output" data-toc-modified-id="Vectorizing-Logistic-Regression's-Gradient-Output-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Vectorizing Logistic Regression's Gradient Output</a></div><div class="lev1 toc-item"><a href="#A-note-on-python/numpy-vectors" data-toc-modified-id="A-note-on-python/numpy-vectors-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>A note on python/numpy vectors</a></div>
+<a id="more"></a>
 
 <h1 id="Vectorization"><a href="#Vectorization" class="headerlink" title="Vectorization"></a>Vectorization</h1><p><img src="https://i.imgur.com/yz60bns.png" alt=""></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
@@ -1242,9 +1236,9 @@ Wall time: 317 ms</code></pre><p><img src="https://i.imgur.com/p94lp3F.png" alt=
   <entry>
     <title>Python Basics With Numpy</title>
     <url>/Python_Basics_With_Numpy/</url>
-    <content><![CDATA[<p>Python Basics With Numpy || Deeplearning(C - 1 W - 2)|| Neural Networks and Deep(W 2)<br><b>Note - These are my notes on DeepLearning</b></p>
-<a id="more"></a>
+    <content><![CDATA[<p><i>Note - These are my notes on DeepLearning Specialization Part:<br>Python Basics With Numpy  || (Course- 1 Week - 2) || Neural Networks and Deep Learning (Week 2)</i></p>
 <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1> <p><div class="lev1 toc-item"><a href="#Python-Basics-with-Numpy-(optional-assignment)" data-toc-modified-id="Python-Basics-with-Numpy-(optional-assignment)-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Python Basics with Numpy (optional assignment)</a></div><div class="lev2 toc-item"><a href="#About-iPython-Notebooks" data-toc-modified-id="About-iPython-Notebooks-11"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>About iPython Notebooks</a></div><div class="lev2 toc-item"><a href="#1---Building-basic-functions-with-numpy" data-toc-modified-id="1---Building-basic-functions-with-numpy-12"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>1 - Building basic functions with numpy</a></div><div class="lev3 toc-item"><a href="#1.1---sigmoid-function,-np.exp()" data-toc-modified-id="1.1---sigmoid-function,-np.exp()-121"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>1.1 - sigmoid function, np.exp()</a></div><div class="lev3 toc-item"><a href="#1.2---Sigmoid-gradient" data-toc-modified-id="1.2---Sigmoid-gradient-122"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>1.2 - Sigmoid gradient</a></div><div class="lev3 toc-item"><a href="#1.3---Reshaping-arrays" data-toc-modified-id="1.3---Reshaping-arrays-123"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span>1.3 - Reshaping arrays</a></div><div class="lev3 toc-item"><a href="#1.4---Normalizing-rows" data-toc-modified-id="1.4---Normalizing-rows-124"><span class="toc-item-num">1.2.4&nbsp;&nbsp;</span>1.4 - Normalizing rows</a></div><div class="lev3 toc-item"><a href="#1.5---Broadcasting-and-the-softmax-function" data-toc-modified-id="1.5---Broadcasting-and-the-softmax-function-125"><span class="toc-item-num">1.2.5&nbsp;&nbsp;</span>1.5 - Broadcasting and the softmax function</a></div><div class="lev2 toc-item"><a href="#2)-Vectorization" data-toc-modified-id="2)-Vectorization-13"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>2) Vectorization</a></div><div class="lev3 toc-item"><a href="#2.1-Implement-the-L1-and-L2-loss-functions" data-toc-modified-id="2.1-Implement-the-L1-and-L2-loss-functions-131"><span class="toc-item-num">1.3.1&nbsp;&nbsp;</span>2.1 Implement the L1 and L2 loss functions</a></div>
+<a id="more"></a>
 
 <h1 id="Python-Basics-with-Numpy-optional-assignment"><a href="#Python-Basics-with-Numpy-optional-assignment" class="headerlink" title="Python Basics with Numpy (optional assignment)"></a>Python Basics with Numpy (optional assignment)</h1><p>Welcome to your first assignment. This exercise gives you a brief introduction to Python. Even if you’ve used Python before, this will help familiarize you with functions we’ll need.  </p>
 <p><strong>Instructions:</strong></p>
@@ -1618,7 +1612,7 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
   <entry>
     <title>Quiz 3 || Neural Networks and Deep Learning</title>
     <url>/quiz3/</url>
-    <content><![CDATA[<p>title: Quiz 1|| Deeplearnig (C - 1 W - 3) Neural Networks and Deep Learning (W 3)<br><b>Note - Quiz on the notes on DeepLearning </b></p>
+    <content><![CDATA[<p><b><i>title: Quiz 1|| Deeplearnig (Course - 1 Week - 3) Neural Networks and Deep Learning (Week 3)<br>Note - Quiz on the notes on DeepLearning </b></i></p>
 <a id="more"></a>
 
 <iframe src="https://drive.google.com/file/d/1w3Kl4Ow8xStBNb3L3YbN52eOTVZmxM2S/preview" width="680" height="480"></iframe>]]></content>
@@ -1632,14 +1626,14 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
       </tags>
   </entry>
   <entry>
-    <title>Planar data classification with one hidden layer || Neural Networks and Deep Learning</title>
+    <title>Planar data classification with one hidden layer</title>
     <url>/Planar_data_classification_with_one_hidden_layer/</url>
-    <content><![CDATA[<p>Planar data classification with one hidden layer || Deeplearning(C - 1 W - 3)|| Neural Networks and Deep(W 3)<br><b>Note - These are my notes on DeepLearning</b></p>
-<a id="more"></a>
-
+    <content><![CDATA[<p><i><b>Note - These are my notes on DeepLearning Specialization Part:<br>Planar data classification with one hidden layer || (Course- 1 Week - 3) || Neural Networks and Deep Learning (Week 3)</i></b></p>
 <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1> <p><div class="lev1 toc-item"><a href="#Planar-data-classification-with-one-hidden-layer" data-toc-modified-id="Planar-data-classification-with-one-hidden-layer-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Planar data classification with one hidden layer</a></div><div class="lev2 toc-item"><a href="#1---Packages" data-toc-modified-id="1---Packages-11"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>1 - Packages</a></div><div class="lev2 toc-item"><a href="#2---Dataset" data-toc-modified-id="2---Dataset-12"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>2 - Dataset</a></div><div class="lev2 toc-item"><a href="#3---Simple-Logistic-Regression" data-toc-modified-id="3---Simple-Logistic-Regression-13"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>3 - Simple Logistic Regression</a></div><div class="lev2 toc-item"><a href="#4---Neural-Network-model" data-toc-modified-id="4---Neural-Network-model-14"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>4 - Neural Network model</a></div><div class="lev3 toc-item"><a href="#4.1---Defining-the-neural-network-structure" data-toc-modified-id="4.1---Defining-the-neural-network-structure-141"><span class="toc-item-num">1.4.1&nbsp;&nbsp;</span>4.1 - Defining the neural network structure</a></div><div class="lev3 toc-item"><a href="#4.2---Initialize-the-model's-parameters" data-toc-modified-id="4.2---Initialize-the-model's-parameters-142"><span class="toc-item-num">1.4.2&nbsp;&nbsp;</span>4.2 - Initialize the model's parameters</a></div><div class="lev3 toc-item"><a href="#4.3---The-Loop" data-toc-modified-id="4.3---The-Loop-143"><span class="toc-item-num">1.4.3&nbsp;&nbsp;</span>4.3 - The Loop</a></div><div class="lev3 toc-item"><a href="#4.4---Integrate-parts-4.1,-4.2-and-4.3-in-nn_model()" data-toc-modified-id="4.4---Integrate-parts-4.1,-4.2-and-4.3-in-nn_model()-144"><span class="toc-item-num">1.4.4&nbsp;&nbsp;</span>4.4 - Integrate parts 4.1, 4.2 and 4.3 in nn_model()</a></div><div class="lev3 toc-item"><a href="#4.5-Predictions" data-toc-modified-id="4.5-Predictions-145"><span class="toc-item-num">1.4.5&nbsp;&nbsp;</span>4.5 Predictions</a></div><div class="lev3 toc-item"><a href="#4.6---Tuning-hidden-layer-size-(optional/ungraded-exercise)" data-toc-modified-id="4.6---Tuning-hidden-layer-size-(optional/ungraded-exercise)-146"><span class="toc-item-num">1.4.6&nbsp;&nbsp;</span>4.6 - Tuning hidden layer size (optional/ungraded exercise)</a></div><div class="lev2 toc-item"><a href="#5)-Performance-on-other-datasets" data-toc-modified-id="5)-Performance-on-other-datasets-15"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>5) Performance on other datasets</a></div>
+<a id="more"></a>
+# Planar data classification with one hidden layer
 
-<h1 id="Planar-data-classification-with-one-hidden-layer"><a href="#Planar-data-classification-with-one-hidden-layer" class="headerlink" title="Planar data classification with one hidden layer"></a>Planar data classification with one hidden layer</h1><p>Welcome to your week 3 programming assignment. It’s time to build your first neural network, which will have a hidden layer. You will see a big difference between this model and the one you implemented using logistic regression. </p>
+<p>Welcome to your week 3 programming assignment. It’s time to build your first neural network, which will have a hidden layer. You will see a big difference between this model and the one you implemented using logistic regression. </p>
 <p><strong>You will learn how to:</strong></p>
 <ul>
 <li>Implement a 2-class classification neural network with a single hidden layer</li>
@@ -2160,7 +2154,7 @@ Nice work!
   <entry>
     <title>Quiz 4 || Neural Networks and Deep Learning</title>
     <url>/quiz4/</url>
-    <content><![CDATA[<p>title: Quiz 1|| Deeplearnig (C - 1 W - 4) Neural Networks and Deep Learning (W 4)<br><b>Note - Quiz on the notes on DeepLearning </b></p>
+    <content><![CDATA[<p><b><i>title: Quiz 1|| Deeplearnig (Course - 1 Week - 4) Neural Networks and Deep Learning (Week 4)<br>Note - Quiz on the notes on DeepLearning </b></i></p>
 <a id="more"></a>
 
 <iframe src="https://drive.google.com/file/d/1jnPSkG8QQoT6PwWJtDDojc4_X4ivoARi/preview" width="640" height="480"></iframe>
@@ -2177,14 +2171,13 @@ Nice work!
   <entry>
     <title>Deep Neural Network Application</title>
     <url>/Deep_Neural_Network_Application/</url>
-    <content><![CDATA[<p><b>Note - These are my notes on DeepLearning Specialization Part:<br>Building your Deep Neural Network Step by Step || Deeplearning Specialization(Course- 1 Week - 4)|| Neural Networks and Deep(Week 4)</b><br>You will use use the functions you’d implemented in the previous assignment to build a deep network, and apply it to cat vs non-cat classification. Hopefully, you will see an improvement in accuracy relative to your previous logistic regression implementation. You will use the same “Cat vs non-Cat” dataset as in “Logistic Regression as a Neural Network” (Assignment 2). The model you had built had 70% test accuracy on classifying cats vs non-cats images. Hopefully, your new model will perform a better!</p>
-<a id="more"></a>
-
-<h1 id="Deep-Neural-Network-for-Image-Classification-Application"><a href="#Deep-Neural-Network-for-Image-Classification-Application" class="headerlink" title="Deep Neural Network for Image Classification: Application"></a>Deep Neural Network for Image Classification: Application</h1><p>When you finish this, you will have finished the last programming assignment of Week 4, and also the last programming assignment of this course! </p>
-<p>You will use use the functions you’d implemented in the previous assignment to build a deep network, and apply it to cat vs non-cat classification. Hopefully, you will see an improvement in accuracy relative to your previous logistic regression implementation.  </p>
+    <content><![CDATA[<p><i><b>Note - These are my notes on DeepLearning Specialization Part:<br>Deep Neural Network Application  || (Course- 1 Week - 4) || Neural Networks and Deep Learning (Week 4)</i></b></p>
+<h1 id="Deep-Neural-Network-for-Image-Classification-Application"><a href="#Deep-Neural-Network-for-Image-Classification-Application" class="headerlink" title="Deep Neural Network for Image Classification: Application"></a>Deep Neural Network for Image Classification: Application</h1><p>When you finish this, you will have finished the last programming assignment of Week 4, and also the last programming assignment of this course!<br>You will use use the functions you’d implemented in the previous assignment to build a deep network, and apply it to cat vs non-cat classification. Hopefully, you will see an improvement in accuracy relative to your previous logistic regression implementation.  </p>
 <p><strong>After this assignment you will be able to:</strong></p>
 <ul>
-<li>Build and apply a deep neural network to supervised learning. </li>
+<li>Build and apply a deep neural network to supervised learning. <a id="more"></a>
+
+</li>
 </ul>
 <p>Let’s get started!</p>
 <h2 id="1-Packages"><a href="#1-Packages" class="headerlink" title="1 - Packages"></a>1 - Packages</h2><p>Let’s first import all the packages that you will need during this assignment. </p>
@@ -2465,8 +2458,7 @@ y = 1.0, your L-layer model predicts a &quot;cat&quot; picture.</code></pre><p><
   <entry>
     <title>Building your Deep Neural Network Step by Step</title>
     <url>/Building_your_Deep_Neural_Network/</url>
-    <content><![CDATA[<p><i>Note - These are my notes on DeepLearning Specialization Part:<br>Building your Deep Neural Network Step by Step || Deeplearning Specialization(Course- 1 Week - 4)|| Neural Networks and Deep(Week 4)</i><br>To build your neural network, you will be implementing several helper functions. These helper functions will be used in the next assignment to build a two-layer neural network and an L-layer neural network. Each small helper function you will implement will have detailed instructions that will walk you through the necessary steps. Here is an outline of this assignment, you will Initialize the parameters for a two-layer network and for an L-layer neural network</p>
-<a id="more"></a>
+    <content><![CDATA[<p><i><b>Note - These are my notes on DeepLearning Specialization Part:<br>Building your Deep Neural Network Step by Step || (Course- 1 Week - 4) || Neural Networks and Deep (Week 4)</i></b></p>
 <h1 id="Building-your-Deep-Neural-Network-Step-by-Step"><a href="#Building-your-Deep-Neural-Network-Step-by-Step" class="headerlink" title="Building your Deep Neural Network: Step by Step"></a>Building your Deep Neural Network: Step by Step</h1><p>Welcome to your week 4 assignment (part 1 of 2)! You have previously trained a 2-layer Neural Network (with a single hidden layer). This week, you will build a deep neural network, with as many layers as you want!</p>
 <ul>
 <li>In this notebook, you will implement all the functions required to build a deep neural network.</li>
@@ -2476,7 +2468,7 @@ y = 1.0, your L-layer model predicts a &quot;cat&quot; picture.</code></pre><p><
 <ul>
 <li>Use non-linear units like ReLU to improve your model</li>
 <li>Build a deeper neural network (with more than 1 hidden layer)</li>
-<li>Implement an easy-to-use neural network class</li>
+<li>Implement an easy-to-use neural network class<a id="more"></a></li>
 </ul>
 <p><strong>Notation</strong>:</p>
 <ul>
@@ -3054,10 +3046,10 @@ y = 1.0, your L-layer model predicts a &quot;cat&quot; picture.</code></pre><h5>
   <entry>
     <title>Classic Excerpt-Normal Random Variables</title>
     <url>/NormalRandomVariables/</url>
-    <content><![CDATA[<p><b>The full text is taken from [Introduction to probability, 2nd Edition]</b><br>3.3 normal random variables</p>
+    <content><![CDATA[<p><b><i>The full text is taken from [Introduction to probability, 2nd Edition] Chapter - normal random variables</i></b></p>
+<h2 id="Normal-random-variables"><a href="#Normal-random-variables" class="headerlink" title="Normal random variables"></a>Normal random variables</h2><p>If the probability density of a continuous random variable $ X $ has the following form, then the random variable is called normal or Gaussian.<br>$$<br>f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{\frac{-(x-\mu)^2}{2\sigma^2}}<br>$$<br>Among them, $ u $ and $ \ sigma $ are two parameters of the density function, and $ \ sigma $ must also be a positive number. It can be proved that $ f_X (x) $ satisfies the normalization condition of the following probability density function (see the exercises on theorems in this chapter):<br>$$<br>\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{+\infty}e^{\frac{-(x-\mu)^2}{2\sigma^2}}dx=1<br>$$<br>The figure below is the density function and distribution function of the normal distribution $ (\mu=1 \text{ and } \sigma^2=1) $.</p>
 <a id="more"></a>
 
-<h2 id="Normal-random-variables"><a href="#Normal-random-variables" class="headerlink" title="Normal random variables"></a>Normal random variables</h2><p>If the probability density of a continuous random variable $ X $ has the following form, then the random variable is called normal or Gaussian.<br>$$<br>f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{\frac{-(x-\mu)^2}{2\sigma^2}}<br>$$<br>Among them, $ u $ and $ \ sigma $ are two parameters of the density function, and $ \ sigma $ must also be a positive number. It can be proved that $ f_X (x) $ satisfies the normalization condition of the following probability density function (see the exercises on theorems in this chapter):<br>$$<br>\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{+\infty}e^{\frac{-(x-\mu)^2}{2\sigma^2}}dx=1<br>$$<br>The figure below is the density function and distribution function of the normal distribution $ (\mu=1 \text{ and } \sigma^2=1) $.</p>
 <center><img src='https://lh3.googleusercontent.com/Eyz-hNy4QsZEFVYqFafTXj8GDlJcZi_B509b8xlUXqU2o2lIhh_-CMyKGzR0Hgt5DETP3fI0jvwQZQpCel8XwX0jDN84KijUeCCfKrg-VcZcSZaw8Lsj8W2215kHIlJJQyow3OALQw=w2400' /> [Figure : [A_normal_PDF_and_CDF_with_u = 1_and_sigmal ^ 2 = 1]</center><br><br> 
 
 
@@ -3653,7 +3645,7 @@ This is demonstrated in the first section of on Random Variables.
 <p>= 1 - Φ( 1 − μ ) / σ)</p>
 <p>= 1 - Φ( 1 / σ)</p>
 <p>The probability of an error in the second case is obtained according to the symmetry of the normal distribution as in the previous case. $ \Phi (\frac {1} {\sigma}) $ can be obtained from the normal distribution table. For example, for $ \sigma = 1 $, $ \Phi (\frac {1} {\ sigma}) = \Phi (1) = 0.84134 $, so the probability of error is $ 0.15864 $.</p>
-<p>Normal random variables play an important role in a wide range of probabilistic models. The reason is that normal random variables can well simulate the superposition effect of many independent factors in physics, engineering and statistics. Mathematically, the key fact is that the distribution of the sum of a large number of independent and identically distributed random variables (not necessarily normal) obey the normal distribution, and this fact has nothing to do with the specific distribution of each sum. This fact is the famous central limit theorem, which will be explained in detail in Chapter 5 of this book.</p>
+<p>Normal random variables play an important role in a wide range of probabilistic models. The reason is that normal random variables can well simulate the superposition effect of many independent factors in physics, engineering and statistics. Mathematically, the key fact is that the distribution of the sum of a large number of independent and identically distributed random variables (not necessarily normal) obey the normal distribution, and this fact has nothing to do with the specific distribution of each sum. </p>
 ]]></content>
       <categories>
         <category>Machine Learning Maths</category>
