@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://massivefile.com/SettingUpOptimisation/</loc>
+    
+    <lastmod>2020-04-18T09:27:47.093Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://massivefile.com/Building_your_Deep_Neural_Network/</loc>
     
     <lastmod>2020-04-18T09:23:22.199Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://massivefile.com/Vectorization/</loc>
     
     <lastmod>2020-04-18T09:22:07.885Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/SettingUpOptimisation/</loc>
-    
-    <lastmod>2020-04-18T09:21:32.867Z</lastmod>
     
   </url>
   

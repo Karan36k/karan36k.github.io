@@ -3645,8 +3645,7 @@ This is demonstrated in the first section of on Random Variables.
   <entry>
     <title>Setting Up Optimisation (Normalization | Vanishing/Exploding Gradients , Weight Initialization , Gradient Checking)</title>
     <url>/SettingUpOptimisation/</url>
-    <content><![CDATA[<p>Setting Up Optimisation (Normalization | Vanishing/Exploding Gradients , Weight Initialization , Gradient Checking || Improving Deep Neural Networks (Week 1 - Part 1)</p>
-<p><i><b>Note - These are my notes on DeepLearning Specialization Part:<br>Planar data classification with one hidden layer || (Course- 1 Week - 3) || Neural Networks and Deep Learning (Week 3)</i></b><a id="more"></a></p>
+    <content><![CDATA[<p><i><b>Note - These are my notes on DeepLearning Specialization Course 2 Part:<br>Setting Up Optimisation (Normalization | Vanishing/Exploding Gradients , Weight Initialization , Gradient Checking || Improving Deep Neural Networks (Week 1 - Part 1)<br></i></b><a id="more"></a></p>
 <h3><b>Introduction: </b></h3>
 When training a neural network, one of the techniques that will speed up your training is if you normalize your inputs. Let's see what that means. Let's see if a training sets with two input features. So the input features x are two dimensional, and here's a scatter plot of your training set.
 <center><img src='https://lh3.googleusercontent.com/9OxDjLP6PApTrbdaOtPMTsOBqC77w1d7NxUMG_58trd9ohPA1DTFjRMR_c9wzrP3VUmCqVPk4xcRKNXVbDdzYG58GEam1OLOWvUtu9CfLWRh4nBHUoQW4Wm72kGbpF3aD4SlMlEQMw=w2400' /></center> 
