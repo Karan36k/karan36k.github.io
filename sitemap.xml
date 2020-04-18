@@ -2,30 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://massivefile.com/Vim_no_plugins/</loc>
+    <loc>https://massivefile.com/Building_your_Deep_Neural_Network/</loc>
     
-    <lastmod>2020-04-16T17:15:09.051Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/Python_Basics_With_Numpy/</loc>
-    
-    <lastmod>2020-04-16T17:14:38.625Z</lastmod>
+    <lastmod>2020-04-18T09:23:22.199Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://massivefile.com/Vectorization/</loc>
+    <loc>https://massivefile.com/Deep_Neural_Network_Application/</loc>
     
-    <lastmod>2020-04-16T17:13:47.620Z</lastmod>
+    <lastmod>2020-04-18T09:23:07.584Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/</loc>
+    
+    <lastmod>2020-04-18T09:22:57.941Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://massivefile.com/Planar_data_classification_with_one_hidden_layer/</loc>
     
-    <lastmod>2020-04-16T17:10:52.709Z</lastmod>
+    <lastmod>2020-04-18T09:22:30.800Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Python_Basics_With_Numpy/</loc>
+    
+    <lastmod>2020-04-18T09:22:18.138Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Vectorization/</loc>
+    
+    <lastmod>2020-04-18T09:22:07.885Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/SettingUpOptimisation/</loc>
+    
+    <lastmod>2020-04-18T09:21:32.867Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Vim_no_plugins/</loc>
+    
+    <lastmod>2020-04-16T17:17:56.559Z</lastmod>
     
   </url>
   
@@ -33,27 +61,6 @@
     <loc>https://massivefile.com/NormalRandomVariables/</loc>
     
     <lastmod>2020-04-16T17:10:36.229Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/</loc>
-    
-    <lastmod>2020-04-16T17:10:18.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/Deep_Neural_Network_Application/</loc>
-    
-    <lastmod>2020-04-16T17:08:17.045Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/Building_your_Deep_Neural_Network/</loc>
-    
-    <lastmod>2020-04-16T17:07:36.211Z</lastmod>
     
   </url>
   
