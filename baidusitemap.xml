@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://massivefile.com/simple_linear_regression/</loc>
+    <lastmod>2020-04-26</lastmod>
+  </url>  <url>
     <loc>https://massivefile.com/quiz5/</loc>
-    <lastmod>2020-04-25</lastmod>
+    <lastmod>2020-04-26</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/setting_up_machine_lerarning_model/</loc>
     <lastmod>2020-04-25</lastmod>
