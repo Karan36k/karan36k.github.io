@@ -5198,7 +5198,7 @@ R2-score: 0.75
   <entry>
     <title>Standardization and Normalization || Feature Scaling</title>
     <url>/Standardization_Normalization/</url>
-    <content><![CDATA[<h2 id="Feature-Scaling"><a href="#Feature-Scaling" class="headerlink" title="Feature Scaling"></a>Feature Scaling</h2><h4 id="We-have-2-important-parts-in-feature-scaling"><a href="#We-have-2-important-parts-in-feature-scaling" class="headerlink" title="We have 2 important parts in feature scaling"></a>We have 2 important parts in feature scaling</h4><ul>
+    <content><![CDATA[<h4 id="Feature-Scaling"><a href="#Feature-Scaling" class="headerlink" title="Feature Scaling"></a>Feature Scaling</h4><h5 id="We-have-2-important-parts-in-feature-scaling"><a href="#We-have-2-important-parts-in-feature-scaling" class="headerlink" title="We have 2 important parts in feature scaling"></a>We have 2 important parts in feature scaling</h5><ul>
 <li>Standardization 
 <li>Normalization
 </ul>
@@ -5239,14 +5239,13 @@ R2-score: 0.75
     <li> Importing Libraries </li>
     <li> Creating Dataset </li>
     <li> EDA on Dataset </li>
-    <li> Find Missing Values </li>
+    <li> Find Missing Values </li><a id="more"></a>
     <li> Replace The Missing Values </li>
     <li> Visualizing Data </li>
     <li> Categorical variables </li>
     <li> Splitting the dataset to train and test dataset</li>
     <li> Feature Scaling </li></p>
 
-<a id="more"></a>
 </div>
 </div>
 </div>
