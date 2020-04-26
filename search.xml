@@ -5242,18 +5242,18 @@ R2-score: 0.75
     <li> Find Missing Values </li>
     <li> Replace The Missing Values </li>
     <li> Visualizing Data </li>
+    <li> Categorical variables </li>
     <li> Splitting the dataset to train and test dataset</li>
-    <li> Taking Care of Categorical variables </li>
     <li> Feature Scaling </li></p>
-<a id="more"></a>
 
+<a id="more"></a>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Importing-Some-Important-Libraries">Importing Some Important Libraries<a class="anchor-link" href="#Importing-Some-Important-Libraries">&#182;</a></h2>
+<h2 id="Importing-Libraries">Importing Libraries<a class="anchor-link" href="#Importing-Libraries">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -5276,7 +5276,7 @@ R2-score: 0.75
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Creating-MY-Own-dataset">Creating MY Own dataset<a class="anchor-link" href="#Creating-MY-Own-dataset">&#182;</a></h2>
+<h2 id="Creating-Dataset">Creating Dataset<a class="anchor-link" href="#Creating-Dataset">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -5448,7 +5448,7 @@ max    50.000000  83000.000000
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a2256a890&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a204dd910&gt;</pre>
 </div>
 
 </div>
@@ -5510,7 +5510,7 @@ dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Replace-The-Missing-Values-by-Mean-of-the-Column">Replace The Missing Values by Mean of the Column<a class="anchor-link" href="#Replace-The-Missing-Values-by-Mean-of-the-Column">&#182;</a></h2>
+<h2 id="Replace-The-Missing-Values">Replace The Missing Values<a class="anchor-link" href="#Replace-The-Missing-Values">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -5558,7 +5558,7 @@ dtype: int64
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a2622e1d0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a241a1150&gt;</pre>
 </div>
 
 </div>
@@ -5585,8 +5585,15 @@ dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="We-can-also-use-imputer-to-do-the-same-task">We can also use imputer to do the same task<a class="anchor-link" href="#We-can-also-use-imputer-to-do-the-same-task">&#182;</a></h5><p>Here is the Code for the same</p>
-<h1 id="from-sklearn.impute-import-SimpleImputer">from sklearn.impute import SimpleImputer<a class="anchor-link" href="#from-sklearn.impute-import-SimpleImputer">&#182;</a></h1><h1 id="imputer-=-SimpleImputer(missing_values-=-np.nan,-strategy-=-'mean',verbose=0)">imputer = SimpleImputer(missing_values = np.nan, strategy = 'mean',verbose=0)<a class="anchor-link" href="#imputer-=-SimpleImputer(missing_values-=-np.nan,-strategy-=-'mean',verbose=0)">&#182;</a></h1><h1 id="imputer-=-imputer.fit(X.iloc[:,-1:3])">imputer = imputer.fit(X.iloc[:, 1:3])<a class="anchor-link" href="#imputer-=-imputer.fit(X.iloc[:,-1:3])">&#182;</a></h1><h1 id="X.iloc[:,-1:3]-=-imputer.transform(X.iloc[:,-1:3])">X.iloc[:, 1:3] = imputer.transform(X.iloc[:, 1:3])<a class="anchor-link" href="#X.iloc[:,-1:3]-=-imputer.transform(X.iloc[:,-1:3])">&#182;</a></h1><h1 id="imputer-=-imputer.fit(df.iloc[:-,-1:3])">imputer = imputer.fit(df.iloc[: , 1:3])<a class="anchor-link" href="#imputer-=-imputer.fit(df.iloc[:-,-1:3])">&#182;</a></h1><h1 id="df.iloc[:,1:3]-=-imputer.transform(df.iloc[:,-1:3])">df.iloc[:,1:3] = imputer.transform(df.iloc[:, 1:3])<a class="anchor-link" href="#df.iloc[:,1:3]-=-imputer.transform(df.iloc[:,-1:3])">&#182;</a></h1><p>.</p>
+<h5 id="We-can-also-use-imputer-to-do-the-same-task">We can also use imputer to do the same task<a class="anchor-link" href="#We-can-also-use-imputer-to-do-the-same-task">&#182;</a></h5><p>Here is the Code for the same: <br><br>
+from sklearn.impute import SimpleImputer<br>
+imputer = SimpleImputer(missing_values = np.nan, strategy = 'mean',verbose=0)<br><br>
+imputer = imputer.fit(X.iloc[:, 1:3])<br>
+X.iloc[:, 1:3] = imputer.transform(X.iloc[:, 1:3])<br><br>
+imputer = imputer.fit(df.iloc[: , 1:3])<br><br>
+df.iloc[:,1:3] = imputer.transform(df.iloc[:, 1:3])
+<br></p>
+<p>.</p>
 
 </div>
 </div>
@@ -5957,26 +5964,26 @@ dtype: int64
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>x_train:  [[1.0 0.0 0.0 44.0 72000.0]
- [0.0 0.0 1.0 27.0 48000.0]
+<pre>x_train:  [[0.0 0.0 1.0 27.0 48000.0]
  [0.0 1.0 0.0 30.0 54000.0]
  [0.0 0.0 1.0 38.0 61000.0]
+ [0.0 1.0 0.0 40.0 63777.77777777778]
  [1.0 0.0 0.0 35.0 58000.0]
  [0.0 0.0 1.0 38.77777777777778 52000.0]
- [0.0 1.0 0.0 48.0 79000.0]] 
- y_train:  [[0]
+ [1.0 0.0 0.0 37.0 67000.0]] 
+ y_train:  [[1]
+ [0]
+ [0]
  [1]
- [0]
- [0]
  [1]
  [0]
  [1]] 
- x_test:  [[0.0 1.0 0.0 40.0 63777.77777777778]
- [0.0 0.0 1.0 50.0 83000.0]
- [1.0 0.0 0.0 37.0 67000.0]] 
- y_test:  [[1]
- [0]
- [1]]
+ x_test:  [[1.0 0.0 0.0 44.0 72000.0]
+ [0.0 1.0 0.0 48.0 79000.0]
+ [0.0 0.0 1.0 50.0 83000.0]] 
+ y_test:  [[0]
+ [1]
+ [0]]
 </pre>
 </div>
 </div>
@@ -6088,13 +6095,13 @@ So feature Scaling should be applyed to the model but not to the dummy variable 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[1.0 0.0 0.0 0.9874539580429079 1.1028452198143448]
- [0.0 0.0 1.0 -1.5009300162252197 -1.2131297417957794]
- [0.0 1.0 0.0 -1.0618034325308443 -0.6341360013932484]
- [0.0 0.0 1.0 0.109200790654157 0.04135669574303783]
- [1.0 0.0 0.0 -0.32992579304021846 -0.2481401744582277]
- [0.0 0.0 1.0 0.22304842346381 -0.8271339148607587]
- [0.0 1.0 0.0 1.5729560696354086 1.778337916950631]]
+<pre>[[0.0 0.0 1.0 -1.8060709482255894 -1.5457062438816012]
+ [0.0 1.0 0.0 -1.13807210436133 -0.5878751616074286]
+ [0.0 0.0 1.0 0.6432581459433618 0.5295944343791061]
+ [0.0 1.0 0.0 1.0885907085195348 0.9730347502467791]
+ [1.0 0.0 0.0 -0.02474069792089762 0.0506788932420198]
+ [0.0 0.0 1.0 0.8164430313896515 -0.9071521890321528]
+ [1.0 0.0 0.0 0.42059186465527537 1.4874255166532786]]
 </pre>
 </div>
 </div>
@@ -6145,9 +6152,9 @@ So feature Scaling should be applyed to the model but not to the dummy variable 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[0.0 1.0 0.0 0.4019518464504073 0.30940935333680253]
- [0.0 0.0 1.0 1.8657071254316588 2.164333743885652]
- [1.0 0.0 0.0 -0.037174737243968164 0.6203504361455688]]
+<pre>[[1.0 0.0 0.0 1.9792558336718808 2.285618085215089]
+ [0.0 1.0 0.0 2.8699209588242267 3.4030876812016237]
+ [0.0 0.0 1.0 3.3152535214003995 4.041641736051072]]
 </pre>
 </div>
 </div>
