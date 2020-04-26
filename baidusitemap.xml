@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://massivefile.com/quiz5/</loc>
+    <lastmod>2020-04-25</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/setting_up_machine_lerarning_model/</loc>
+    <lastmod>2020-04-25</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/quiz4/</loc>
+    <lastmod>2020-04-25</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/quiz3/</loc>
+    <lastmod>2020-04-25</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/quiz2/</loc>
+    <lastmod>2020-04-25</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Planar_data_classification_with_one_hidden_layer/</loc>
+    <lastmod>2020-04-25</lastmod>
+  </url>  <url>
     <loc>https://massivefile.com/regularizarion_all_info/</loc>
     <lastmod>2020-04-20</lastmod>
   </url>  <url>
@@ -16,9 +34,6 @@
     <loc>https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/</loc>
     <lastmod>2020-04-18</lastmod>
   </url>  <url>
-    <loc>https://massivefile.com/Planar_data_classification_with_one_hidden_layer/</loc>
-    <lastmod>2020-04-18</lastmod>
-  </url>  <url>
     <loc>https://massivefile.com/Python_Basics_With_Numpy/</loc>
     <lastmod>2020-04-18</lastmod>
   </url>  <url>
@@ -32,15 +47,6 @@
     <lastmod>2020-04-16</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/Quiz01/</loc>
-    <lastmod>2020-04-16</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/quiz4/</loc>
-    <lastmod>2020-04-16</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/quiz3/</loc>
-    <lastmod>2020-04-16</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/quiz2/</loc>
     <lastmod>2020-04-16</lastmod>
   </url>
 </urlset>
