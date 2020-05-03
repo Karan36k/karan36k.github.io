@@ -2,23 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://massivefile.com/Standardization_Normalization/</loc>
+    <loc>https://massivefile.com/multiple_linear_regression/</loc>
     
-    <lastmod>2020-04-26T17:53:18.600Z</lastmod>
+    <lastmod>2020-05-03T02:14:37.403Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://massivefile.com/data_preprocessing_feature/</loc>
+    <loc>https://massivefile.com/Theory_RSquared/</loc>
     
-    <lastmod>2020-04-26T17:52:47.933Z</lastmod>
+    <lastmod>2020-05-02T23:08:50.507Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Theory_hypothesis/</loc>
+    
+    <lastmod>2020-05-02T23:07:30.683Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://massivefile.com/simple_linear_regression/</loc>
     
-    <lastmod>2020-04-26T00:58:41.170Z</lastmod>
+    <lastmod>2020-05-02T23:03:46.299Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/data_preprocessing_feature/</loc>
+    
+    <lastmod>2020-05-02T23:03:38.233Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Standardization_Normalization/</loc>
+    
+    <lastmod>2020-04-26T17:53:18.600Z</lastmod>
     
   </url>
   
