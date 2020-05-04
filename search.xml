@@ -5215,7 +5215,7 @@ R2-score: 0.75
 <h3 id="Therefore-we-should-only-apply-feature-scaling-to-the-non-dummy-values-ie-the-values-that-are-numbers"><a href="#Therefore-we-should-only-apply-feature-scaling-to-the-non-dummy-values-ie-the-values-that-are-numbers" class="headerlink" title="Therefore we should only apply feature scaling to the non dummy values ie the values that are numbers"></a>Therefore we should only apply feature scaling to the non dummy values ie the values that are numbers</h3>]]></content>
       <categories>
         <category>2020</category>
-        <category>Q &amp; A</category>
+        <category>ML From Scratch</category>
       </categories>
       <tags>
         <tag>2020</tag>
@@ -6250,7 +6250,7 @@ Please find Implementation <a href = 'https://massivefile.com/multiple_linear_re
       </tags>
   </entry>
   <entry>
-    <title>R Squared Hypothesis || Evaluating Model Features</title>
+    <title>R Squared Intution || Evaluating Model Features</title>
     <url>/Theory_RSquared/</url>
     <content><![CDATA[<body>
 <b>What is R Squared ? <br> What is Adjusted R-Squared ? <br> How to calculate R Squared ?<br> How to Calculate Adjusted R Squared ?<br> Which Method is Better ?</b>
@@ -6320,7 +6320,7 @@ Please find Implementation <a href = 'https://massivefile.com/multiple_linear_re
       </tags>
   </entry>
   <entry>
-    <title>Multiple Linear regression</title>
+    <title>Multiple Linear regression Implementation</title>
     <url>/multiple_linear_regression/</url>
     <content><![CDATA[<body>
 <b>Note - Multiple Linear Regression Full Implementation with the dataset EDA and Other Techniques.
@@ -6931,6 +6931,8 @@ Try to use a multiple linear regression with the same dataset but this time use 
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
 <span class="c1">#import statsmodels.api as sm</span>
 
+<span class="c1">print('r2_score is :', r2_score(y_hat,y_test))</span>
+
 <span class="c1">#x2 = sm.add_constant(x)</span>
 <span class="c1">#est = sm.OLS(y, x2)</span>
 <span class="c1">#est2 = est.fit()</span>
@@ -6953,6 +6955,8 @@ Try to use a multiple linear regression with the same dataset but this time use 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Root Mean Squared Error : 23.09064357449966
 </pre>
+<pre>r2_score is : 0.8299022074881567
+</pre>
 </div>
 </div>
 
@@ -6968,8 +6972,8 @@ This will give us the p-value and the r2 score too. We can elinimate the values 
 consider the features which have the p-value more than 0.05 which is our significance level.
 We should run this test till we have all the features with p-value less than 0.05 eliminated.</b></p>
 <p><h2> More on topic</h2><br>
-Please find Context 1 &lt;a href = '<a href="https://massivefile.com/Theory_hypothesis/">https://massivefile.com/Theory_hypothesis/</a>' , target="_blank"&gt; Null Hypothesis &lt;/a&gt;
-Please find Context 2 &lt;a href = '<a href="https://massivefile.com/Theory_RSquared/">https://massivefile.com/Theory_RSquared/</a>' , target="_blank"&gt; R Squared &lt;/a&gt;</p>
+Please find Context <a href="https://massivefile.com/Theory_hypothesis/" target="_blank"> Null Hypothesis </a><br>
+Please find Context <a href="https://massivefile.com/Theory_RSquared/" target="_blank"> R Squared </a>
 
 </div>
 </div>

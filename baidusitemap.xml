@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://massivefile.com/multiple_linear_regression/</loc>
+    <lastmod>2020-05-04</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Standardization_Normalization/</loc>
     <lastmod>2020-05-03</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/Theory_RSquared/</loc>
-    <lastmod>2020-05-02</lastmod>
+    <lastmod>2020-05-03</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/Theory_hypothesis/</loc>
     <lastmod>2020-05-02</lastmod>
@@ -15,9 +18,6 @@
   </url>  <url>
     <loc>https://massivefile.com/data_preprocessing_feature/</loc>
     <lastmod>2020-05-02</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/Standardization_Normalization/</loc>
-    <lastmod>2020-04-26</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/quiz5/</loc>
     <lastmod>2020-04-26</lastmod>
