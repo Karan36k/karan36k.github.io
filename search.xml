@@ -7918,7 +7918,7 @@ print("R2-score: %.2f" % r2_score(y_hat , test_y) )
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://www.bigdatauniversity.com" target="_blank" rel="noopener"><img src="https://ibm.box.com/shared/static/cw2c7r3o20w9zn8gkecaeyjhgw3xdgbj.png" width="400" align="center"></a></p>
+
 <h1><center>Polynomial Regression</center></h1><p><h4>About this Notebook</h4>
 In this notebook, we learn how to use scikit-learn for Polynomial regression. We download a dataset that is related to fuel consumption and Carbon dioxide emission of cars. Then, we split our data into training and test sets, create a model using training set, evaluate our model using test set, and finally use model to predict unknown value.</p>
 
