@@ -2,21 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://massivefile.com/ML0101EN-Reg-NoneLinearRegression-py-v1/</loc>
-    
-    <lastmod>2020-05-04T01:37:22.930Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://massivefile.com/multiple_linear_regression/</loc>
     
-    <lastmod>2020-05-04T01:32:10.979Z</lastmod>
+    <lastmod>2020-05-04T01:56:08.370Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://massivefile.com/ML0101EN-Reg-Polynomial-Regression-Co2-py-v1/</loc>
+    <loc>https://massivefile.com/NoneLinearRegression/</loc>
+    
+    <lastmod>2020-05-04T01:55:51.417Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/PolynomialRegression/</loc>
     
     <lastmod>2020-05-04T01:31:52.900Z</lastmod>
     
