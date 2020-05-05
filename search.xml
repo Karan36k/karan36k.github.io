@@ -2698,7 +2698,8 @@ So you've seen how by taking a two sided difference, you can numerically verify 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Here-is-how-Random-Forest-looks-like:">Here is how Random Forest looks like:<a class="anchor-link" href="#Here-is-how-Random-Forest-looks-like:">&#182;</a></h3>
+<h3 id="Here-is-how-Random-Forest-looks-like:">Here is how Random Forest looks like:<a id="more"></a>
+<a class="anchor-link" href="#Here-is-how-Random-Forest-looks-like:">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -3655,7 +3656,7 @@ We do not care about the points in the tube whereas we care about the points out
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here is how a SVR looks like: 
 <br>
-<img src = 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Svm_max_sep_hyperplane_with_margin.png'  width="400" height="100"/>
+<img src = 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Svm_max_sep_hyperplane_with_margin.png'  width="400" height="300"/>
 <br>
 <br>
 <br>
