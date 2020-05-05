@@ -9,7 +9,6 @@
 <iframe src="https://drive.google.com/file/d/1ZznUkyDAfMTwx3V2y63slV9UivBTVdFY/preview" width="680" height="480"></iframe>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Quiz</category>
       </categories>
       <tags>
@@ -79,7 +78,6 @@ Please find Implementation <a href = 'https://massivefile.com/multiple_linear_re
 </body>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
@@ -106,7 +104,6 @@ Please find Implementation <a href = 'https://massivefile.com/multiple_linear_re
 <p>Simply as the goal of Standardization is to transform your data and get them in the range generally (-3 , +3) But here we have mostly the data in 0s and 1s after we have converted them using ColumnTransformer, OneHotEncoder and LabelEncoder.<br><br>And there is nothing extra to be done here. <br><br>Moreever here standardization will convert the values to -3 and +3 which will worsen out understanding of the data as we will not be able to understand the nonsense numerical values.<br>Feature Scaling on the dataset makes the model better but when we do the same on the dummy variabe it makes the data not redable and we can not relate the country to the salary etc.<br>So feature Scaling should be applyed to the model but not to the dummy variable as they are already encoded before using ColumnTransformer, OneHotEncoder and LabelEncoder.</p>
 <h3 id="Therefore-we-should-only-apply-feature-scaling-to-the-non-dummy-values-ie-the-values-that-are-numbers"><a href="#Therefore-we-should-only-apply-feature-scaling-to-the-non-dummy-values-ie-the-values-that-are-numbers" class="headerlink" title="Therefore we should only apply feature scaling to the non dummy values ie the values that are numbers"></a>Therefore we should only apply feature scaling to the non dummy values ie the values that are numbers</h3>]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
@@ -124,7 +121,6 @@ Please find Implementation <a href = 'https://massivefile.com/multiple_linear_re
 <iframe src="https://drive.google.com/file/d/17-GwSwUnRq8uwaAwZnBqGfpR6BmmCpXf/preview" width="680" height="480"></iframe>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Quiz</category>
       </categories>
       <tags>
@@ -220,7 +216,6 @@ Wall time: 317 ms</code></pre><p><img src="https://i.imgur.com/p94lp3F.png" alt=
 <a href ='https://www.coursera.org/specializations/deep-learning?' target=”_blank>Deeplearning.ai Course</a><h5>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Assignment</category>
       </categories>
       <tags>
@@ -238,7 +233,6 @@ Wall time: 317 ms</code></pre><p><img src="https://i.imgur.com/p94lp3F.png" alt=
 <iframe src="https://drive.google.com/file/d/1jnPSkG8QQoT6PwWJtDDojc4_X4ivoARi/preview" width="640" height="480"></iframe>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Quiz</category>
       </categories>
       <tags>
@@ -254,7 +248,6 @@ Wall time: 317 ms</code></pre><p><img src="https://i.imgur.com/p94lp3F.png" alt=
 
 <iframe src="https://drive.google.com/file/d/1w3Kl4Ow8xStBNb3L3YbN52eOTVZmxM2S/preview" width="680" height="480"></iframe>]]></content>
       <categories>
-        <category>2020</category>
         <category>Quiz</category>
       </categories>
       <tags>
@@ -271,7 +264,6 @@ Wall time: 317 ms</code></pre><p><img src="https://i.imgur.com/p94lp3F.png" alt=
 <iframe src="https://drive.google.com/file/d/1DtvdJ1Z7Uasyn72J_Tx3WHF2DCcdzEM_/preview" width="680" height="480"></iframe>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Quiz</category>
       </categories>
       <tags>
@@ -953,7 +945,6 @@ Please find Implementation <a href = 'https://massivefile.com/multiple_linear_re
 
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
@@ -1705,7 +1696,6 @@ zc (fold + close)</code> `</p>
 </body>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Improving Deep Neural Networks</category>
       </categories>
       <tags>
@@ -1990,7 +1980,6 @@ y = 1.0, your L-layer model predicts a &quot;cat&quot; picture.</code></pre><p><
 <a href ='https://www.coursera.org/specializations/deep-learning?' target=”_blank>Deeplearning.ai Course</a><h5>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Assignment</category>
       </categories>
       <tags>
@@ -2365,7 +2354,6 @@ gdot = [19.74599905 16.58699591 26.1890302 ]
 <a href ='https://www.coursera.org/specializations/deep-learning?' target=”_blank>Deeplearning.ai Course</a><h5>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Assignment</category>
       </categories>
       <tags>
@@ -2432,7 +2420,6 @@ So you've seen how by taking a two sided difference, you can numerically verify 
 <a href ='https://www.coursera.org/specializations/deep-learning?' target=”_blank>Deeplearning.ai Course</a><h5>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Improving Deep Neural Networks</category>
       </categories>
       <tags>
@@ -2661,7 +2648,6 @@ So you've seen how by taking a two sided difference, you can numerically verify 
   </div>
 </body>]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
@@ -2932,12 +2918,11 @@ So you've seen how by taking a two sided difference, you can numerically verify 
   </div>
 </body>]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
         <tag>2020</tag>
-        <tag>Non Linear Regression</tag>
+        <tag>Random Forest Regression</tag>
       </tags>
   </entry>
   <entry>
@@ -3453,7 +3438,6 @@ Nice work!
 <a href ='https://www.coursera.org/specializations/deep-learning?' target=”_blank>Deeplearning.ai Course</a><h5>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Assignment</category>
       </categories>
       <tags>
@@ -3601,7 +3585,6 @@ things you could try are more complicated to think about. Rather than using earl
 <a href ='https://www.coursera.org/specializations/deep-learning?' target=”_blank>Deeplearning.ai Course</a><h5>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Improving Deep Neural Networks</category>
       </categories>
       <tags>
@@ -4247,7 +4230,6 @@ y = 0.0, your algorithm predicts a &quot;non-cat&quot; picture.</code></pre><cen
 <a href ='https://www.coursera.org/specializations/deep-learning?' target=”_blank>Deeplearning.ai Course</a><h5>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Assignment</category>
       </categories>
       <tags>
@@ -4664,7 +4646,6 @@ The kernel we mostly use in the non linear support vecotor is RBF kernel.</p>
   </div>
 </body>]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
@@ -5254,7 +5235,6 @@ y = 1.0, your L-layer model predicts a &quot;cat&quot; picture.</code></pre><h5>
 <a href ='https://www.coursera.org/specializations/deep-learning?' target=”_blank>Deeplearning.ai Course</a><h5>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>Assignment</category>
       </categories>
       <tags>
@@ -5926,7 +5906,6 @@ Please find Context <a href="https://massivefile.com/Theory_RSquared/" target="_
   </div>
 </body>]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
@@ -6878,7 +6857,6 @@ So feature Scaling should be applyed to the model but not to the dummy variable 
 </body>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
@@ -7327,12 +7305,11 @@ Try to use a polynomial regression with the dataset but this time with degree th
 
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
         <tag>2020</tag>
-        <tag>Polynomial Regression Regression</tag>
+        <tag>Polynomial Regression</tag>
       </tags>
   </entry>
   <entry>
@@ -8344,7 +8321,6 @@ R2-score: 0.75
 </html>
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
@@ -9257,7 +9233,6 @@ print("R2-score: %.2f" % r2_score(y_hat , test_y) )
 
 ]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
@@ -10514,7 +10489,6 @@ Please click on these links below<br></p>
   </div>
 </body>]]></content>
       <categories>
-        <category>2020</category>
         <category>ML From Scratch</category>
       </categories>
       <tags>
