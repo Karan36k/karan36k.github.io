@@ -9292,8 +9292,9 @@ Models we will cover:</p>
 <li>Decision Trees</li>
 <li>Random Forest</li>
 </ul>
+<a id="more"></a>
 <p>Download the data from here - <span class="exturl" data-url="aHR0cHM6Ly9hcmNoaXZlLmljcy51Y2kuZWR1L21sL2RhdGFzZXRzL0NvbWJpbmVkK0N5Y2xlK1Bvd2VyK1BsYW50">https://archive.ics.uci.edu/ml/datasets/Combined+Cycle+Power+Plant<i class="fa fa-external-link-alt"></i></span></p>
-<p>Here is an example of a regression model for refresh of your memory :) <br><a id="more"></a>
+<p>Here is an example of a regression model for refresh of your memory :) <br>
 <img src = 'https://lh3.googleusercontent.com/proxy/6uQ_IUyxG98KI0wS6nmfETVbFdKD795i6SMiFWgkcLA8r0olkshE2SElk4Knk16oCJuvcY_BXh1vqetBII07_mmC6VE19ZuImEuaxshSTZKpU0r4boUE'/></p>
 
 </div>
