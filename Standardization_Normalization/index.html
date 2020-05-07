@@ -40,7 +40,7 @@
 <meta property="og:description" content="Feature ScalingWe have 2 important parts in feature scaling Standardization  Normalization">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-26T00:56:53.000Z">
-<meta property="article:modified_time" content="2020-05-05T23:23:16.870Z">
+<meta property="article:modified_time" content="2020-05-05T23:34:00.071Z">
 <meta property="article:author" content="Karan">
 <meta property="article:tag" content="Standardization">
 <meta property="article:tag" content=" Normalization">
@@ -165,17 +165,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">27</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">6</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">28</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">29</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -271,7 +271,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-06 04:53:16" itemprop="dateModified" datetime="2020-05-06T04:53:16+05:30">2020-05-06</time>
+                <time title="Modified: 2020-05-06 05:04:00" itemprop="dateModified" datetime="2020-05-06T05:04:00+05:30">2020-05-06</time>
               </span>
 
           <br>
@@ -280,7 +280,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.9k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -313,7 +313,8 @@
 <p>We must standardize the data only after the split and the scaler should be only be fitted to the x_train set because if we do that we get the mean and standard of the values in the x_test which should be hidden to us. So we will only fit the scaler to the test set and then we will transform the scaler to x_test</p>
 <h2 id="One-Very-Important-Question-is"><a href="#One-Very-Important-Question-is" class="headerlink" title="One Very Important Question is"></a>One Very Important Question is</h2><h4 id="Do-we-have-to-apply-standardization-to-the-dummy-variables-to-the-matrix-of-features"><a href="#Do-we-have-to-apply-standardization-to-the-dummy-variables-to-the-matrix-of-features" class="headerlink" title="Do we have to apply/standardization to the dummy variables to the matrix of features ? "></a><b>Do we have to apply/standardization to the dummy variables to the matrix of features ? <br></b></h4><p><b>Answer is no<br></b></p>
 <p>Simply as the goal of Standardization is to transform your data and get them in the range generally (-3 , +3) But here we have mostly the data in 0s and 1s after we have converted them using ColumnTransformer, OneHotEncoder and LabelEncoder.<br><br>And there is nothing extra to be done here. <br><br>Moreever here standardization will convert the values to -3 and +3 which will worsen out understanding of the data as we will not be able to understand the nonsense numerical values.<br>Feature Scaling on the dataset makes the model better but when we do the same on the dummy variabe it makes the data not redable and we can not relate the country to the salary etc.<br>So feature Scaling should be applyed to the model but not to the dummy variable as they are already encoded before using ColumnTransformer, OneHotEncoder and LabelEncoder.</p>
-<h3 id="Therefore-we-should-only-apply-feature-scaling-to-the-non-dummy-values-ie-the-values-that-are-numbers"><a href="#Therefore-we-should-only-apply-feature-scaling-to-the-non-dummy-values-ie-the-values-that-are-numbers" class="headerlink" title="Therefore we should only apply feature scaling to the non dummy values ie the values that are numbers"></a>Therefore we should only apply feature scaling to the non dummy values ie the values that are numbers</h3>
+<h3 id="Therefore-we-should-only-apply-feature-scaling-to-the-non-dummy-values-ie-the-values-that-are-numbers"><a href="#Therefore-we-should-only-apply-feature-scaling-to-the-non-dummy-values-ie-the-values-that-are-numbers" class="headerlink" title="Therefore we should only apply feature scaling to the non dummy values ie the values that are numbers"></a>Therefore we should only apply feature scaling to the non dummy values ie the values that are numbers</h3>  <p>Learn About Data Preprocessing : <a href = "https://massivefile.com/data_preprocessing_feature/" target="_blank"> Click Here </a></p>
+
     </div>
 
     
@@ -352,12 +353,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/setting_up_machine_lerarning_model/" rel="prev" title="Setting Up Machine Learning Model">
-      <i class="fa fa-chevron-left"></i> Setting Up Machine Learning Model
+    <a href="/data_preprocessing_feature/" rel="prev" title="Data Preprocessing || Feature Scaling (With Code Implementation)">
+      <i class="fa fa-chevron-left"></i> Data Preprocessing || Feature Scaling (With Code Implementation)
     </a></div>
       <div class="post-nav-item">
-    <a href="/Theory_RSquared/" rel="next" title="R Squared Intution || Evaluating Model Features">
-      R Squared Intution || Evaluating Model Features <i class="fa fa-chevron-right"></i>
+    <a href="/simple_linear_regression/" rel="next" title="Simple Linear regression">
+      Simple Linear regression <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -434,20 +435,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -489,13 +490,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">298k</span>
+    <span title="Symbols count total">314k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:31</span>
+    <span title="Reading time total">4:45</span>
 </div>
 
         
