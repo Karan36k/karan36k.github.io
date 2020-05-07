@@ -10559,7 +10559,7 @@ Please click on these links below<br></p>
         <li><a href="#preprocessing">Data pre-processing and selection</a></li>
         <li><a href="#modeling">Modeling (Logistic Regression with Scikit-learn)</a></li>
         <li><a href="#evaluation">Evaluation</a></li>
-        <li><a href="#practice">Practice</a></li>
+        <li><a href="#practice">Practice</a></li><a id="more"></a> 
     </ol>
 </div>
 <br></p>
@@ -11813,7 +11813,7 @@ Try to build Logistic Regression model again for the same dataset, but this time
   </div>
 <p>
 Find all about Confusion Matrix by 
-  <a href = 'https://towardsdatascience.com/demystifying-confusion-matrix-confusion-9e82201592fd'> Clicking here </a></p>
+  <a href = 'https://towardsdatascience.com/demystifying-confusion-matrix-confusion-9e82201592fd' target="_blank"> Clicking here </a></p>
 </body>]]></content>
       <categories>
         <category>ML From Scratch</category>
