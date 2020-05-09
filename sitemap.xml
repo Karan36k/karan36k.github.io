@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://massivefile.com/randomforestclassifier/</loc>
+    
+    <lastmod>2020-05-09T23:58:05.117Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/decisiontreeclassifier/</loc>
+    
+    <lastmod>2020-05-09T23:57:56.302Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/kNearestNeighboursclassification/</loc>
+    
+    <lastmod>2020-05-09T23:55:26.181Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://massivefile.com/logisticRegressionimp/</loc>
     
-    <lastmod>2020-05-07T22:49:23.610Z</lastmod>
+    <lastmod>2020-05-07T22:52:54.790Z</lastmod>
     
   </url>
   
