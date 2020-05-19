@@ -2,44 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://massivefile.com/randomforestclassifier/</loc>
+    <loc>https://massivefile.com/contentBasedFiletring_RE/</loc>
     
-    <lastmod>2020-05-10T00:04:49.996Z</lastmod>
+    <lastmod>2020-05-19T23:17:28.645Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://massivefile.com/NaiveBayesClassifier/</loc>
+    <loc>https://massivefile.com/Apriori_Association/</loc>
     
-    <lastmod>2020-05-10T00:02:59.651Z</lastmod>
+    <lastmod>2020-05-19T23:17:13.801Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Density_Based_Clustering/</loc>
+    
+    <lastmod>2020-05-19T23:15:15.460Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Hierarchical_Clustering/</loc>
+    
+    <lastmod>2020-05-19T23:14:51.248Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/k_means_clustering/</loc>
+    
+    <lastmod>2020-05-19T23:14:30.576Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/SVC_classification/</loc>
+    
+    <lastmod>2020-05-19T23:14:02.693Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://massivefile.com/decisiontreeclassifier/</loc>
     
-    <lastmod>2020-05-09T23:57:56.302Z</lastmod>
+    <lastmod>2020-05-19T23:13:09.825Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/randomforestclassifier/</loc>
+    
+    <lastmod>2020-05-19T23:12:16.833Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://massivefile.com/kNearestNeighboursclassification/</loc>
     
-    <lastmod>2020-05-09T23:55:26.181Z</lastmod>
+    <lastmod>2020-05-19T23:11:38.123Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/NaiveBayesClassifier/</loc>
+    
+    <lastmod>2020-05-19T23:11:05.657Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://massivefile.com/logisticRegressionimp/</loc>
     
-    <lastmod>2020-05-07T22:52:54.790Z</lastmod>
+    <lastmod>2020-05-19T23:10:18.517Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/supportvectorregression/</loc>
+    
+    <lastmod>2020-05-19T23:09:28.921Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/randomforestregression/</loc>
+    
+    <lastmod>2020-05-19T23:07:54.393Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://massivefile.com/ChoosingBestRegressionModel/</loc>
     
-    <lastmod>2020-05-06T21:40:38.341Z</lastmod>
+    <lastmod>2020-05-19T23:06:34.445Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/decisiontreeregression/</loc>
+    
+    <lastmod>2020-05-19T22:56:48.291Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/data_preprocessing_feature/</loc>
+    
+    <lastmod>2020-05-19T22:56:16.237Z</lastmod>
     
   </url>
   
@@ -58,13 +128,6 @@
   </url>
   
   <url>
-    <loc>https://massivefile.com/supportvectorregression/</loc>
-    
-    <lastmod>2020-05-05T23:34:06.983Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://massivefile.com/Standardization_Normalization/</loc>
     
     <lastmod>2020-05-05T23:34:00.071Z</lastmod>
@@ -75,13 +138,6 @@
     <loc>https://massivefile.com/simple_linear_regression/</loc>
     
     <lastmod>2020-05-05T23:33:52.118Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/randomforestregression/</loc>
-    
-    <lastmod>2020-05-05T23:33:41.477Z</lastmod>
     
   </url>
   
@@ -124,20 +180,6 @@
     <loc>https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/</loc>
     
     <lastmod>2020-05-05T23:32:59.912Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/decisiontreeregression/</loc>
-    
-    <lastmod>2020-05-05T23:32:22.061Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/data_preprocessing_feature/</loc>
-    
-    <lastmod>2020-05-05T23:29:09.739Z</lastmod>
     
   </url>
   
