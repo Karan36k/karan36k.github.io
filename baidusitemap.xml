@@ -1,52 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://massivefile.com/Apriori_Association/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/contentBasedFiletring_RE/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Building_your_Deep_Neural_Network/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Deep_Neural_Network_Application/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/quiz4/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Planar_data_classification_with_one_hidden_layer/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/quiz3/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Vectorization/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/NormalRandomVariables/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Vim_no_plugins/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/decisiontreeregression/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/ChoosingBestRegressionModel/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/logisticRegressionimp/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/supportvectorregression/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/NaiveBayesClassifier/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/kNearestNeighboursclassification/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/randomforestclassifier/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/decisiontreeclassifier/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/SVC_classification/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/k_means_clustering/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Hierarchical_Clustering/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Density_Based_Clustering/</loc>
+    <lastmod>2020-12-17</lastmod>
+  </url>  <url>
     <loc>https://massivefile.com/hand_recognition/</loc>
     <lastmod>2020-05-22</lastmod>
   </url>  <url>
-    <loc>https://massivefile.com/contentBasedFiletring_RE/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/Apriori_Association/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/Density_Based_Clustering/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/Hierarchical_Clustering/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/k_means_clustering/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/SVC_classification/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/decisiontreeclassifier/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/randomforestclassifier/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/kNearestNeighboursclassification/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/NaiveBayesClassifier/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/logisticRegressionimp/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/supportvectorregression/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
     <loc>https://massivefile.com/randomforestregression/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/ChoosingBestRegressionModel/</loc>
-    <lastmod>2020-05-19</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/decisiontreeregression/</loc>
     <lastmod>2020-05-19</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/data_preprocessing_feature/</loc>
@@ -70,19 +97,10 @@
     <loc>https://massivefile.com/PolynomialRegression/</loc>
     <lastmod>2020-05-05</lastmod>
   </url>  <url>
-    <loc>https://massivefile.com/Planar_data_classification_with_one_hidden_layer/</loc>
-    <lastmod>2020-05-05</lastmod>
-  </url>  <url>
     <loc>https://massivefile.com/NoneLinearRegression/</loc>
     <lastmod>2020-05-05</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/multiple_linear_regression/</loc>
-    <lastmod>2020-05-05</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/Logistic_Regression_with_a_Neural_Network_mindset/</loc>
-    <lastmod>2020-05-05</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/Vectorization/</loc>
     <lastmod>2020-05-05</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/SettingUpOptimisation/</loc>
@@ -97,28 +115,10 @@
     <loc>https://massivefile.com/quiz5/</loc>
     <lastmod>2020-05-05</lastmod>
   </url>  <url>
-    <loc>https://massivefile.com/quiz4/</loc>
-    <lastmod>2020-05-05</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/quiz3/</loc>
-    <lastmod>2020-05-05</lastmod>
-  </url>  <url>
     <loc>https://massivefile.com/quiz2/</loc>
     <lastmod>2020-05-05</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/Quiz01/</loc>
     <lastmod>2020-05-05</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/Deep_Neural_Network_Application/</loc>
-    <lastmod>2020-05-05</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/Building_your_Deep_Neural_Network/</loc>
-    <lastmod>2020-05-05</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/Vim_no_plugins/</loc>
-    <lastmod>2020-04-16</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/NormalRandomVariables/</loc>
-    <lastmod>2020-04-16</lastmod>
   </url>
 </urlset>
