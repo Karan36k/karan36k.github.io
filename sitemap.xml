@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://massivefile.com/k_means_clustering/</loc>
+    
+    <lastmod>2021-03-29T07:42:28.668Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://massivefile.com/Apriori_Association/</loc>
     
-    <lastmod>2020-12-17T15:02:01.997Z</lastmod>
+    <lastmod>2021-03-29T07:41:14.714Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://massivefile.com/contentBasedFiletring_RE/</loc>
     
-    <lastmod>2020-12-17T15:01:41.597Z</lastmod>
+    <lastmod>2021-03-29T07:38:54.426Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://massivefile.com/Density_Based_Clustering/</loc>
+    
+    <lastmod>2021-03-29T07:38:21.191Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://massivefile.com/Building_your_Deep_Neural_Network/</loc>
     
-    <lastmod>2020-12-17T15:00:13.191Z</lastmod>
+    <lastmod>2021-03-29T07:37:47.852Z</lastmod>
     
   </url>
   
@@ -142,23 +156,9 @@
   </url>
   
   <url>
-    <loc>https://massivefile.com/k_means_clustering/</loc>
-    
-    <lastmod>2020-12-17T14:48:48.176Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://massivefile.com/Hierarchical_Clustering/</loc>
     
     <lastmod>2020-12-17T14:48:40.137Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://massivefile.com/Density_Based_Clustering/</loc>
-    
-    <lastmod>2020-12-17T14:48:25.522Z</lastmod>
     
   </url>
   

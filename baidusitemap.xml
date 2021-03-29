@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://massivefile.com/k_means_clustering/</loc>
+    <lastmod>2021-03-29</lastmod>
+  </url>  <url>
     <loc>https://massivefile.com/Apriori_Association/</loc>
-    <lastmod>2020-12-17</lastmod>
+    <lastmod>2021-03-29</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/contentBasedFiletring_RE/</loc>
-    <lastmod>2020-12-17</lastmod>
+    <lastmod>2021-03-29</lastmod>
+  </url>  <url>
+    <loc>https://massivefile.com/Density_Based_Clustering/</loc>
+    <lastmod>2021-03-29</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/Building_your_Deep_Neural_Network/</loc>
-    <lastmod>2020-12-17</lastmod>
+    <lastmod>2021-03-29</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/Deep_Neural_Network_Application/</loc>
     <lastmod>2020-12-17</lastmod>
@@ -61,13 +67,7 @@
     <loc>https://massivefile.com/SVC_classification/</loc>
     <lastmod>2020-12-17</lastmod>
   </url>  <url>
-    <loc>https://massivefile.com/k_means_clustering/</loc>
-    <lastmod>2020-12-17</lastmod>
-  </url>  <url>
     <loc>https://massivefile.com/Hierarchical_Clustering/</loc>
-    <lastmod>2020-12-17</lastmod>
-  </url>  <url>
-    <loc>https://massivefile.com/Density_Based_Clustering/</loc>
     <lastmod>2020-12-17</lastmod>
   </url>  <url>
     <loc>https://massivefile.com/hand_recognition/</loc>
