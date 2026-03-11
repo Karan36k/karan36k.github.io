@@ -238,428 +238,446 @@
     <div class="post-body" itemprop="articleBody">
 
 
+<body>
 
-     <body><span id="more"></span>
+<span id="more"></span>
 
-<p><b><i>Multi-Layer Perceptrons in Large Language Models<br> </b></i></p>
-<div class="container">
+<style>
 
-<div class="meta">
-Published: February 3, 2026
-</div>
+.mcp-article{
+max-width:900px;
+margin:auto;
+font-size:16px;
+line-height:1.8;
+}
+
+.mcp-article h1{
+font-size:34px;
+margin-top:20px;
+border-bottom:3px solid #eee;
+padding-bottom:10px;
+}
+
+.mcp-article h2{
+margin-top:40px;
+color:#222;
+}
+
+.mcp-article h3{
+margin-top:25px;
+}
+
+.mcp-article img{
+display:block;
+margin:25px auto;
+max-width:100%;
+border-radius:6px;
+}
+
+.mcp-article blockquote{
+background:#fafafa;
+border-left:4px solid #ccc;
+padding:15px;
+}
+
+.mcp-article pre{
+background:#111;
+color:#eee;
+padding:18px;
+border-radius:6px;
+overflow-x:auto;
+}
+
+</style>
+
+<div class="mcp-article">
+
+<h1>Model Context Protocol (MCP): Architecture and Design of Tool-Connected Language Models</h1>
+
+<p><b>Date:</b> Feb 3, 2026</p>
 
 <p>
 
-Large Language Models (LLMs) such as GPT-style architectures,
-PaLM, and LLaMA rely on the transformer framework.
-While the attention mechanism often receives most of the
-public attention, the feed-forward neural network component,
-commonly implemented as a Multi-Layer Perceptron (MLP),
-constitutes a major portion of the model's parameter count
-and computational workload.
+Large Language Models have rapidly evolved from text generation systems into
+general-purpose reasoning engines capable of interacting with software
+systems. However, traditional LLM architectures operate within a static prompt
+context and cannot directly interact with external tools, APIs, or databases.
 
-In modern transformer models, the MLP layer performs
-nonlinear feature transformations that allow the model to
-capture complex patterns in language. In fact, empirical
-analysis of transformer architectures shows that more than
-half of the total parameters in large models belong to the
-feed-forward layers rather than the attention mechanism.
+The <b>Model Context Protocol (MCP)</b> introduces a standardized interface that
+enables language models to securely access tools, data sources, and external
+applications. Instead of implementing ad-hoc integrations for each system,
+MCP provides a unified framework for connecting models to contextual
+resources.
 
-This article presents a research-oriented explanation of
-MLPs within transformer architectures, including the
-mathematical formulation, architectural design principles,
-activation functions, computational characteristics,
-and emerging research directions.
+This article presents a detailed explanation of MCP, including its
+architecture, protocol design, system components, security considerations,
+and research foundations.
 
 </p>
 
-<div class="section">
+<hr>
 
-<h2>1. Historical Context of Multi-Layer Perceptrons</h2>
+<h2>1. Motivation Behind MCP</h2>
 
 <p>
 
-The concept of the perceptron was introduced in the late
-1950s by Frank Rosenblatt. The original perceptron was a
-single-layer linear classifier capable of learning basic
-decision boundaries.
+Modern AI systems increasingly require interaction with external
+infrastructure. Examples include querying structured databases, retrieving
+documents, accessing software development environments, and performing
+actions across enterprise systems.
 
-The limitations of single layer models were later addressed
-by multi-layer neural networks trained using the
-backpropagation algorithm. The multi-layer perceptron
-became the standard architecture for deep feed-forward
-neural networks.
+Without a standardized protocol, every LLM integration must be implemented
+manually, leading to fragmented infrastructure and inconsistent interfaces.
 
-When transformer architectures were proposed in 2017,
-the design incorporated a position-wise feed-forward
-network inside each transformer block. This network is
-effectively a two-layer MLP applied independently to each
-token representation.
+Model Context Protocol was designed to address these challenges by defining
+a structured communication framework between language models and external
+capabilities.
 
 </p>
 
-</div>
-
-<div class="section">
-
-<h2>2. Transformer Block Structure</h2>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Client-server-model.svg">
 
 <p>
 
-A standard transformer block consists of two primary
-components:
+The protocol effectively introduces a client-server architecture where
+language models interact with tools through well-defined interfaces rather
+than direct system access.
 
 </p>
 
-<ul>
+<hr>
 
-<li>Multi-Head Self Attention</li>
-<li>Feed-Forward Network (MLP)</li>
-
-</ul>
+<h2>2. High-Level Architecture</h2>
 
 <p>
 
-The attention module enables contextual communication
-between tokens, allowing the model to learn relationships
-between words across the sequence.
-
-The MLP layer then performs nonlinear transformations on
-each token representation independently, increasing the
-model's representational capacity.
-
-</p>
-
-<img src="https://substackcdn.com/image/fetch/$s_!nhB6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6fa4f653-3985-40ac-932d-3eb023be2eb0_2723x1332.png">
-
-</div>
-
-<div class="section">
-
-<h2>3. Mathematical Formulation</h2>
-
-<p>
-
-Let the input token representation be:
-
-</p>
-
-<p>
-
-$$x \in \mathbb{R}^{d_{model}}$$
-
-</p>
-
-<p>
-
-The feed-forward MLP performs two linear transformations
-with a nonlinear activation between them.
-
-</p>
-
-<p>
-
-$$h = W_1 x + b_1$$
-
-</p>
-
-<p>
-
-$$a = \phi(h)$$
-
-</p>
-
-<p>
-
-$$y = W_2 a + b_2$$
-
-</p>
-
-<p>
-
-Where:
+At a high level, MCP introduces three primary system components.
 
 </p>
 
 <ul>
 
-<li>W₁ expands the dimensionality</li>
-<li>W₂ projects back to the original dimension</li>
-<li>φ represents a nonlinear activation function</li>
+<li>Language Model Runtime</li>
+<li>MCP Client Interface</li>
+<li>MCP Server providing tools and resources</li>
 
 </ul>
 
-</div>
-
-<div class="section">
-
-<h2>4. Hidden Layer Expansion</h2>
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*O6LZ8xQW2N1DbStO2Qd6hw.png">
 
 <p>
 
-A defining characteristic of transformer feed-forward
-networks is the expansion of the hidden layer dimension.
+The language model communicates with an MCP client responsible for
+discovering available tools and interacting with MCP servers that expose
+capabilities.
 
-Most architectures expand the dimension by a factor
-between four and eight.
+This design allows the model to remain isolated from direct system
+interaction while still accessing powerful external services.
 
 </p>
 
-<p>
+<hr>
 
-$$d_{ff} = r \times d_{model}$$
+<h2>3. Core Components of the Protocol</h2>
 
-</p>
-
-<p>
-
-Where r is the expansion ratio.
-
-</p>
+<h3>MCP Client</h3>
 
 <p>
 
-Typical values include:
+The MCP client acts as the communication layer between the model and the
+external environment. It performs several responsibilities:
 
 </p>
 
 <ul>
 
-<li>BERT: r = 4</li>
-<li>GPT-3: r = 4</li>
-<li>PaLM: r ≈ 4</li>
-<li>LLaMA models: r ≈ 4</li>
+<li>Tool discovery</li>
+<li>Capability negotiation</li>
+<li>Protocol communication</li>
+<li>Context management</li>
 
 </ul>
 
-</div>
-
-<div class="section">
-
-<h2>5. Activation Functions</h2>
+<h3>MCP Server</h3>
 
 <p>
 
-The nonlinear activation used in the MLP layer significantly
-influences model performance.
+The MCP server exposes tools and contextual resources. Each server publishes
+metadata describing available capabilities so that the language model can
+understand what operations are possible.
 
 </p>
 
-<h3>ReLU</h3>
+<h3>Resources</h3>
 
 <p>
 
-$$ReLU(x) = max(0,x)$$
-
-</p>
-
-<h3>GELU</h3>
-
-<p>
-
-$$GELU(x) = x \Phi(x)$$
-
-</p>
-
-<p>
-
-where Φ(x) is the cumulative Gaussian distribution.
-
-</p>
-
-<h3>SwiGLU</h3>
-
-<p>
-
-$$SwiGLU(x) = (W_1x) \cdot \sigma(W_2x)$$
-
-</p>
-
-<p>
-
-SwiGLU and related gated activations are widely used in
-recent large language models due to improved training
-stability and performance.
-
-</p>
-
-</div>
-
-<div class="section">
-
-<h2>6. Parameter Distribution in LLMs</h2>
-
-<p>
-
-Analysis of modern transformer architectures reveals that
-MLP layers account for the majority of parameters in the
-network.
+Resources represent structured data sources accessible to the model.
+Examples include:
 
 </p>
 
 <ul>
 
-<li>Attention layers: approximately 30–40%</li>
-<li>MLP layers: approximately 50–60%</li>
-<li>Embedding and normalization layers: remaining parameters</li>
+<li>Knowledge bases</li>
+<li>Document repositories</li>
+<li>Source code collections</li>
+<li>Database tables</li>
 
 </ul>
 
-<p>
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*GytSgYx2oyWZMhUlCT3VkQ.png">
 
-This observation has motivated extensive research on
-improving the efficiency of feed-forward networks.
+<hr>
 
-</p>
-
-</div>
-
-<div class="section">
-
-<h2>7. Mixture-of-Experts Feed-Forward Networks</h2>
+<h2>4. Tools in MCP</h2>
 
 <p>
 
-One approach to scaling transformer capacity involves
-Mixture-of-Experts (MoE) architectures.
+Tools represent executable capabilities exposed by MCP servers. These tools
+can perform tasks such as querying data, executing code, retrieving
+documents, or interacting with APIs.
 
-Instead of using a single MLP layer, multiple expert
-networks are created, and a routing function determines
-which experts process each token.
+Each tool is described using a schema that defines its parameters and
+expected output format.
 
 </p>
+
+<pre>
+{
+  "name": "search_documents",
+  "description": "Search internal documentation",
+  "parameters": {
+    "query": "string"
+  }
+}
+</pre>
 
 <p>
 
-$$y = \sum_{i=1}^{N} g_i(x) f_i(x)$$
+The schema allows language models to reason about tool usage and invoke the
+appropriate operations during problem solving.
 
 </p>
+
+<hr>
+
+<h2>5. Context Resources</h2>
 
 <p>
 
-Where
+Context resources allow language models to retrieve structured information
+beyond the prompt window. Instead of embedding large documents directly in
+the prompt, the model can dynamically access information through the MCP
+framework.
 
 </p>
 
-<ul>
-
-<li>fᵢ(x) represents expert networks</li>
-<li>gᵢ(x) represents routing weights</li>
-
-</ul>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Information_flow_diagram.png">
 
 <p>
 
-This method enables extremely large model capacity while
-keeping the computational cost manageable.
+This mechanism allows systems to scale beyond the token limitations of the
+model's context window.
 
 </p>
 
-</div>
+<hr>
 
-<div class="section">
-
-<h2>8. Computational Complexity</h2>
+<h2>6. Request Lifecycle</h2>
 
 <p>
 
-The computational complexity of the feed-forward MLP layer
-is approximately:
+An MCP interaction typically follows a sequence of operations.
 
 </p>
+
+<ol>
+
+<li>The model determines a required capability.</li>
+<li>The MCP client discovers available tools.</li>
+<li>The model generates a tool invocation request.</li>
+<li>The MCP server executes the request.</li>
+<li>The result is returned to the model.</li>
+
+</ol>
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*4nPjP6KyHRxY6z3n0JVpQg.png">
 
 <p>
 
-$$O(d_{model} \times d_{ff})$$
+This cycle allows the model to combine reasoning with tool execution in an
+iterative process.
 
 </p>
 
-<p>
+<hr>
 
-Because the hidden dimension is significantly larger than
-the model dimension, the MLP often becomes the dominant
-computational component of transformer models.
-
-</p>
-
-</div>
-
-<div class="section">
-
-<h2>9. Example Implementation</h2>
+<h2>7. Example MCP Server Implementation</h2>
 
 <pre>
 
-import torch
-import torch.nn as nn
+from mcp.server import MCPServer
 
-class TransformerMLP(nn.Module):
+server = MCPServer()
 
-    def __init__(self, d_model, expansion=4):
+@server.tool
+def get_weather(city: str):
 
-        super().__init__()
+    return weather_api(city)
 
-        d_ff = d_model * expansion
-
-        self.layer = nn.Sequential(
-            nn.Linear(d_model, d_ff),
-            nn.GELU(),
-            nn.Linear(d_ff, d_model)
-        )
-
-    def forward(self, x):
-        return self.layer(x)
+server.start()
 
 </pre>
 
-</div>
+<p>
 
-<div class="section">
+In this example, a simple weather lookup function is exposed as a tool that
+any compatible language model client can invoke.
 
-<h2>10. Key Research Literature</h2>
+</p>
 
-<ul>
+<hr>
 
-<li>Vaswani et al., 2017 — Attention Is All You Need</li>
-
-<li>Shazeer et al., 2017 — Sparsely Gated Mixture of Experts</li>
-
-<li>Fedus et al., 2021 — Switch Transformers</li>
-
-<li>Shazeer, 2020 — GLU Variants Improve Transformer</li>
-
-<li>Touvron et al., 2023 — LLaMA: Open and Efficient Foundation Models</li>
-
-</ul>
-
-</div>
-
-<div class="section">
-
-<h2>11. Conclusion</h2>
+<h2>8. Security Considerations</h2>
 
 <p>
 
-Although attention mechanisms define the transformer
-architecture, the feed-forward MLP layers provide the
-nonlinear representational power required for large
-language models to learn complex linguistic patterns.
+Because MCP enables models to interact with external systems, security is a
+critical aspect of the protocol design.
 
-As models continue to scale, research on improving
-feed-forward networks—including gated activations,
-sparse expert routing, and efficient parameterization—
-remains an important direction in deep learning research.
+Important mechanisms include:
+
+</p>
+
+<ul>
+
+<li>Authentication</li>
+<li>Permission boundaries</li>
+<li>Sandboxed execution</li>
+<li>Audit logging</li>
+
+</ul>
+
+<p>
+
+These safeguards ensure that models cannot perform unauthorized operations
+even when interacting with powerful tools.
+
+</p>
+
+<hr>
+
+<h2>9. Relationship to AI Agent Systems</h2>
+
+<p>
+
+Model Context Protocol plays a significant role in the development of
+AI agent architectures. Agents often require access to multiple tools,
+knowledge bases, and execution environments.
+
+MCP provides a standardized infrastructure for building such systems.
+
+</p>
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*8hW7UZ5EKeosFVJeFt3PcQ.png">
+
+<p>
+
+Agent frameworks can leverage MCP servers to orchestrate complex workflows
+involving multiple external systems.
+
+</p>
+
+<hr>
+
+<h2>10. Advantages of MCP</h2>
+
+<ul>
+
+<li>Standardized tool interfaces</li>
+<li>Improved interoperability across AI systems</li>
+<li>Reduced engineering complexity</li>
+<li>Scalable architecture for enterprise AI</li>
+
+</ul>
+
+<hr>
+
+<h2>11. Research Foundations</h2>
+
+<p>
+
+Several research directions influenced the design of the Model Context
+Protocol.
+
+</p>
+
+<ul>
+
+<li>Toolformer: Language Models Can Teach Themselves to Use Tools</li>
+<li>ReAct: Combining Reasoning and Acting in Language Models</li>
+<li>Retrieval Augmented Generation architectures</li>
+<li>Agent-based AI systems</li>
+
+</ul>
+
+<p>
+
+These works demonstrated that language models achieve stronger performance
+when combined with external capabilities.
+
+</p>
+
+<hr>
+
+<h2>12. Future of AI Tool Protocols</h2>
+
+<p>
+
+As language models become integrated into software systems, protocols such
+as MCP may form the backbone of AI-native infrastructure.
+
+Future developments may include:
+
+</p>
+
+<ul>
+
+<li>Multi-agent communication protocols</li>
+<li>Distributed reasoning architectures</li>
+<li>AI-native operating systems</li>
+<li>Autonomous workflow orchestration</li>
+
+</ul>
+
+<p>
+
+The Model Context Protocol represents an early step toward a standardized
+ecosystem where language models interact seamlessly with the broader
+computational environment.
+
+</p>
+
+<hr>
+
+<h2>Conclusion</h2>
+
+<p>
+
+The Model Context Protocol introduces a structured approach for connecting
+language models with external tools and contextual resources. By separating
+the model runtime from external capabilities, MCP enables scalable,
+secure, and interoperable AI systems.
+
+As the ecosystem of AI applications continues to expand, standardized
+interfaces such as MCP will play a critical role in shaping the
+infrastructure of next-generation intelligent systems.
 
 </p>
 
 </div>
 
-
-    </div>
-
-    
-    
-    
 
       <footer class="post-footer">
         
