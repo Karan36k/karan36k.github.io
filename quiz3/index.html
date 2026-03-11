@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
+<meta name="theme-color" content="#f7f5f5">
 <meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -22,17 +22,13 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="Quiz 3 || Neural Networks and Deep Learning">
-<meta property="og:url" content="https://massivefile.com/quiz3/index.html">
 <meta property="og:site_name" content="Massivefile.com - Blog">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2018-04-22T18:30:00.000Z">
-<meta property="article:modified_time" content="2021-10-18T00:17:11.095Z">
+<meta property="article:published_time" content="2026-02-03T18:30:00.000Z">
+<meta property="article:modified_time" content="2026-02-03T00:17:03.306Z">
 <meta property="article:author" content="Karan Arora">
-<meta property="article:tag" content="Quiz">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://massivefile.com/quiz3/">
 
 
 <script id="page-configurations">
@@ -44,8 +40,6 @@
     lang   : 'en'
   };
 </script>
-
-  <title>Quiz 3 || Neural Networks and Deep Learning | Massivefile.com - Blog</title>
   
     <script>
       function sendPageView() {
@@ -194,7 +188,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://massivefile.com/quiz3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -207,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Quiz 3 || Neural Networks and Deep Learning
+          Diffusion Models: Architecture and Theory Behind Modern Generative AI
         </h1>
 
         <div class="post-meta">
@@ -217,7 +210,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2018-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2018-04-23T00:00:00+05:30">2018-04-23</time>
+              <time title="Created: 2025-11-14 00:00:00" itemprop="dateCreated datePublished" datetime="2025-11-14T00:00:00+05:30">2025-11-14</time>
             </span>
 
           <br>
@@ -226,14 +219,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>109</span>
+              <span>4127</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>38 mins.</span>
             </span>
 
         </div>
@@ -244,47 +237,418 @@
     
     <div class="post-body" itemprop="articleBody">
 
-      
-        <body><span id="more"></span>
+<body>
 
-<p><b><i>title: Quiz 3|| Deeplearnig (Course - 1 Week - 3) Neural Networks and Deep Learning (Week 3)<br>Note - Quiz on the notes on DeepLearning </b></i></p>
-<iframe src="https://drive.google.com/file/d/1w3Kl4Ow8xStBNb3L3YbN52eOTVZmxM2S/preview" width="680" height="480"></iframe>
-    </div>
+<span id="more"></span>
 
-    
-    
-    
+<style>
 
-      <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/Quiz/" rel="tag"><i class="fa fa-tag"></i> Quiz</a>
-          </div>
+.mcp-article{
+max-width:900px;
+margin:auto;
+font-size:16px;
+line-height:1.8;
+}
 
-        
+.mcp-article h1{
+font-size:34px;
+margin-top:20px;
+border-bottom:3px solid #eee;
+padding-bottom:10px;
+}
 
+.mcp-article h2{
+margin-top:40px;
+color:#222;
+}
 
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/quiz2/" rel="prev" title="Quiz 2 || Neural Networks and Deep Learning">
-      <i class="fa fa-chevron-left"></i> Quiz 2 || Neural Networks and Deep Learning
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/quiz5/" rel="next" title="Quiz 1 || Regularization">
-      Quiz 1 || Regularization <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
+.mcp-article h3{
+margin-top:25px;
+}
 
+.mcp-article img{
+display:block;
+margin:25px auto;
+max-width:100%;
+border-radius:6px;
+}
 
+.mcp-article blockquote{
+background:#fafafa;
+border-left:4px solid #ccc;
+padding:15px;
+}
 
-          </div>
+.mcp-article pre{
+background:#111;
+color:#eee;
+padding:18px;
+border-radius:6px;
+overflow-x:auto;
+}
+
+</style>
+
+<div class="mcp-article">
+
+<h3>Retrieval Augmented Generation (RAG): Improving Accuracy of Large Language Models</h3>
+
+<p>
+
+Retrieval Augmented Generation (RAG) is a powerful architecture that combines
+large language models with external knowledge retrieval systems. While
+traditional language models rely solely on information learned during
+training, RAG systems dynamically retrieve relevant documents during
+inference.
+
+This hybrid approach allows models to produce responses that are more
+accurate, up-to-date, and grounded in factual information.
+
+RAG architectures have become a central component of modern AI systems,
+particularly in enterprise search, question answering, and knowledge
+assistant platforms.
+
+</p>
+
+<hr>
+
+<h3>1. Why Retrieval is Needed</h3>
+
+<p>
+
+Although large language models possess impressive capabilities, they suffer
+from several limitations:
+
+</p>
+
+<ul>
+
+<li>Knowledge is frozen at training time</li>
+<li>Models may hallucinate incorrect information</li>
+<li>Training data cannot easily be updated</li>
+<li>Large models cannot store all world knowledge</li>
+
+</ul>
+
+<p>
+
+Retrieval Augmented Generation addresses these problems by allowing the
+model to access external knowledge sources such as document databases,
+websites, or enterprise knowledge bases.
+
+</p>
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20250210184749053767/What-is-RAG_.webp">
+
+<hr>
+
+<h3>2. Core Idea Behind RAG</h3>
+
+<p>
+
+The central idea behind RAG is simple: instead of relying entirely on
+internal parameters, the model retrieves relevant documents from an
+external database and incorporates them into the generation process.
+
+</p>
+
+<p>
+
+A typical workflow involves three stages:
+
+</p>
+
+<ol>
+
+<li>User query is converted into an embedding vector</li>
+<li>Relevant documents are retrieved from a vector database</li>
+<li>The language model generates an answer using retrieved context</li>
+
+</ol>
+
+<p>
+
+This architecture significantly improves the reliability of model outputs.
+
+</p>
+
+<hr>
+
+<h3>3. Embedding Models</h3>
+
+<p>
+
+Before documents can be retrieved efficiently, they must be transformed
+into numerical vector representations called embeddings.
+
+These vectors capture semantic meaning of text so that similar concepts are
+located close together in vector space.
+
+</p>
+
+<pre>
+
+embedding = model.encode(document)
+
+</pre>
+
+<p>
+
+Embeddings enable efficient similarity search across millions of
+documents.
+
+</p>
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*J7vyY3EjY46AlduMvr9FbQ.png">
+
+<hr>
+
+<h3>4. Vector Databases</h3>
+
+<p>
+
+Vector databases are specialized storage systems designed to efficiently
+search high-dimensional embedding vectors.
+
+</p>
+
+<p>
+
+Popular vector search techniques include:
+
+</p>
+
+<ul>
+
+<li>Approximate nearest neighbor search</li>
+<li>Hierarchical navigable small world graphs (HNSW)</li>
+<li>Product quantization</li>
+
+</ul>
+
+<p>
+
+These techniques allow real-time retrieval even for datasets containing
+millions or billions of vectors.
+
+</p>
+
+<hr>
+
+<h3>5. Retrieval Step</h3>
+
+<p>
+
+When a user submits a question, the query is converted into an embedding
+vector.
+
+The system then finds the most similar vectors stored in the database.
+
+</p>
+
+<pre>
+
+similar_docs = vector_db.search(query_embedding)
+
+</pre>
+
+<p>
+
+The retrieved documents become context for the language model.
+
+</p>
+
+<hr>
+
+<h3>6. Augmented Generation</h3>
+
+<p>
+
+After retrieval, the system combines the query and retrieved documents into
+a prompt.
+
+The language model then generates an answer grounded in that context.
+
+</p>
+
+<pre>
+
+prompt = query + retrieved_documents
+response = LLM(prompt)
+
+</pre>
+
+<p>
+
+This ensures the response is based on real documents rather than purely
+model memory.
+
+</p>
+
+<img src="https://cas-bridge.xethub.hf.co/xet-bridge-us/65a692cbc2cf664a51691728/e6c4355d192fdbd0353a8ce2806e3559064bf2ee3c7e74515b1d303943a284f7?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260311%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260311T165520Z&X-Amz-Expires=3600&X-Amz-Signature=5e54147644b99ee25c027a53815ae175e1c67960e1e83c95d28d67dc98e96e4d&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27RAG_workflow.png%3B+filename%3D%22RAG_workflow.png%22%3B&response-content-type=image%2Fpng&x-amz-checksum-mode=ENABLED&x-id=GetObject&Expires=1773251720&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI1MTcyMH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NWE2OTJjYmMyY2Y2NjRhNTE2OTE3MjgvZTZjNDM1NWQxOTJmZGJkMDM1M2E4Y2UyODA2ZTM1NTkwNjRiZjJlZTNjN2U3NDUxNWIxZDMwMzk0M2EyODRmNyoifV19&Signature=DvLUXyBPM14lV1jy6LoknAjb6jk7xOkKl94tIl%7EX2ePWBUU2OgIM-z8bBbtKchw5P5pyao8gLcftzjZ%7EMprJ7H1ddCeFXMxPD9ZgHhl7ie14HX39iHl8LPobkwWlAIyJ3I%7EVVtapUTqxc-akxmXAVpt1uaAjwg9XQMtqD%7Er5RLlO4GWPyF8ZHkRW2wiQH2dNvr38hJwnAQmRV9xWoJC9EZQfXEg7xwgtqbR1-q4zWAGhBpI1UysvvgFyOLq4K00b%7E9dSYFtQb3-HPwg1cW3%7EDs1IFzvQ%7ELeP9NRs6ARjwiywgMiYMyN8DZmeBRyoMCIJF7JzvO5tyisn-up-0P-kgA__&Key-Pair-Id=K2L8F4GPSG1IFC">
+
+<hr>
+
+<h3>7. Example Pipeline</h3>
+
+<p>
+
+A simplified RAG pipeline might look like the following:
+
+</p>
+
+<pre>
+
+documents -> chunking
+          -> embeddings
+          -> vector database
+
+user query -> embedding
+           -> vector search
+           -> retrieved context
+           -> language model
+           -> generated answer
+
+</pre>
+
+<p>
+
+This modular design allows each component to be improved independently.
+
+</p>
+
+<hr>
+
+<h3>8. Benefits of RAG</h3>
+
+<ul>
+
+<li>Reduces hallucinations</li>
+<li>Provides up-to-date knowledge</li>
+<li>Improves factual accuracy</li>
+<li>Allows integration with private datasets</li>
+<li>Reduces need for frequent model retraining</li>
+
+</ul>
+
+<hr>
+
+<h3>9. Enterprise Applications</h3>
+
+<p>
+
+Retrieval augmented generation is widely used across industries.
+
+</p>
+
+<ul>
+
+<li>Enterprise document search</li>
+<li>Customer support assistants</li>
+<li>Legal document analysis</li>
+<li>Medical knowledge assistants</li>
+<li>Research tools</li>
+
+</ul>
+
+<p>
+
+Organizations can build domain-specific AI systems by connecting LLMs to
+their internal knowledge repositories.
+
+</p>
+
+<hr>
+
+<h3>10. Example Python Pseudocode</h3>
+
+<pre>
+
+query = "What is retrieval augmented generation?"
+
+query_embedding = embed_model.encode(query)
+
+docs = vector_db.search(query_embedding)
+
+context = concatenate(docs)
+
+response = llm.generate(query + context)
+
+print(response)
+
+</pre>
+
+<p>
+
+This simplified example illustrates how retrieval and generation components
+work together.
+
+</p>
+
+<hr>
+
+<h3>11. Challenges</h3>
+
+<p>
+
+Despite its advantages, RAG systems still face several challenges.
+
+</p>
+
+<ul>
+
+<li>Retrieval quality heavily affects performance</li>
+<li>Context window limitations</li>
+<li>Latency from database queries</li>
+<li>Chunking strategy complexity</li>
+
+</ul>
+
+<hr>
+
+<h3>12. Future Developments</h3>
+
+<p>
+
+Research in retrieval augmented generation is progressing rapidly.
+
+Future improvements may include:
+
+</p>
+
+<ul>
+
+<li>Adaptive retrieval mechanisms</li>
+<li>Long context transformer models</li>
+<li>Hybrid search systems</li>
+<li>Self-updating knowledge bases</li>
+
+</ul>
+
+<p>
+
+These innovations will make AI systems more reliable and capable of
+handling real-world knowledge tasks.
+
+</p>
+
+<hr>
+
+<h3>Conclusion</h3>
+
+<p>
+
+Retrieval Augmented Generation represents a major step toward building
+trustworthy and scalable AI systems. By combining large language models
+with powerful retrieval mechanisms, RAG systems provide accurate,
+context-aware responses grounded in real knowledge sources.
+
+As AI continues to evolve, RAG architectures will likely remain a key
+building block for intelligent assistants and enterprise AI platforms.
+
+</p>
+
+</div>
           
 
 <script>
@@ -413,10 +777,6 @@
       <span class="post-meta-item-text">Reading time total &asymp;</span>
     <span title="Reading time total">6:17</span>
 </div>
-
-        
-
-
 
 
 
@@ -629,9 +989,9 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 
     
-
+	</article>
   
 
-    </div>
+    </div>	
+	
 </body>
-</html>
