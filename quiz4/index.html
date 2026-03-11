@@ -1,64 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#f7f5f5">
+<meta name="generator" content="Hexo 5.4.0">
 
-<title>Large Language Models (LLMs): Architecture and Training</title>
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+<link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<meta property="article:published_time" content="2026-01-24T00:00:00+05:30">
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Massivefile.com - Blog">
+<meta property="og:locale" content="en_US">
+
+<meta property="article:published_time" content="2026-01-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-24T00:00:00.000Z">
+<meta property="article:author" content="Karan Arora">
+
+<meta name="twitter:card" content="summary">
+
+</head>
+
+<body>
+
+<article class="post-block">
+
+<header class="post-header">
+
+<h1 class="post-title">
+Understanding Large Language Models (LLMs): Architecture, Training and Applications
+</h1>
+
+<div class="post-meta">
+
+<span>
+<i class="far fa-calendar"></i>
+Posted on
+<time datetime="2026-01-24">2026-01-24</time>
+</span>
+
+<br>
+
+<span>
+<i class="far fa-file-word"></i>
+Symbols count in article: 3180
+</span>
+
+<span>
+<i class="far fa-clock"></i>
+Reading time ≈ 22 mins.
+</span>
+
+</div>
+
+</header>
+
+
+<div class="post-body">
+
+<span id="more"></span>
 
 <style>
 
-body{
-font-family:Arial, sans-serif;
-background:#f7f7f7;
-margin:0;
-padding:0;
-}
-
-.article-container{
+.mcp-article{
 max-width:900px;
-margin:40px auto;
-background:white;
-padding:40px;
-border-radius:6px;
-box-shadow:0 0 10px rgba(0,0,0,0.08);
-line-height:1.8;
+margin:auto;
 font-size:16px;
+line-height:1.8;
 }
 
-.article-container h1{
-font-size:36px;
-margin-bottom:10px;
-border-bottom:3px solid #eee;
-padding-bottom:10px;
-}
-
-.article-meta{
-color:#777;
-margin-bottom:30px;
-}
-
-.article-container h2{
+.mcp-article h2{
 margin-top:40px;
 }
 
-.article-container h3{
-margin-top:25px;
-}
-
-.article-container img{
+.mcp-article img{
 display:block;
 margin:25px auto;
 max-width:100%;
 border-radius:6px;
 }
 
-.article-container pre{
+.mcp-article pre{
 background:#111;
 color:#eee;
 padding:18px;
@@ -66,216 +96,231 @@ border-radius:6px;
 overflow-x:auto;
 }
 
-.article-container blockquote{
-background:#fafafa;
-border-left:4px solid #ccc;
-padding:15px;
-}
-
-.article-container ul{
-margin-left:20px;
-}
-
 </style>
 
-</head>
+<div class="mcp-article">
 
-<body>
-
-<div class="article-container">
-
-<h1>Large Language Models (LLMs): Architecture, Training and Applications</h1>
-
-<div class="article-meta">
-Posted on: January 24, 2026 • Reading Time ≈ 20 minutes
-</div>
+<h2>Introduction</h2>
 
 <p>
 
-Large Language Models (LLMs) are a class of artificial intelligence models
-designed to understand and generate human language. These models are trained
-on extremely large datasets consisting of books, articles, code repositories,
-and web pages.
+Large Language Models (LLMs) represent one of the most significant
+advancements in artificial intelligence and natural language processing.
+These models are capable of understanding, generating, and reasoning over
+human language with remarkable accuracy.
 
-LLMs have become the foundation of modern AI systems including chatbots,
-coding assistants, search engines, and document analysis tools.
-
-Instead of relying on hand-written linguistic rules, these models learn
-language patterns through deep neural networks trained on billions or even
-trillions of tokens.
+LLMs are trained on massive datasets containing books, research papers,
+websites, and other textual information. By learning statistical patterns
+within this data, they develop the ability to perform a wide range of tasks
+such as text generation, translation, summarization, and coding assistance.
 
 </p>
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Artificial_neural_network.svg/1024px-Artificial_neural_network.svg.png">
+
 <hr>
 
-<h2>1. What Are Large Language Models?</h2>
+<h2>What Are Large Language Models?</h2>
 
 <p>
 
-Large Language Models are neural networks designed to model the probability
-distribution of language. They predict the next word in a sequence based on
-previous context.
+A Large Language Model is a deep neural network designed to predict the
+probability distribution of sequences of words.
 
-For example, given the sentence:
+Given a sequence of tokens, the model predicts the most likely next token.
 
 </p>
 
 <pre>
-"The capital of France is"
+
+P(w_t | w_1 , w_2 , ... , w_{t-1})
+
 </pre>
 
 <p>
 
-the model predicts the next token as "Paris" with high probability.
-
-Through this simple prediction task, LLMs learn grammar, facts, reasoning
-patterns, and semantic relationships.
+Through this simple objective, the model gradually learns grammar,
+semantics, factual knowledge, and reasoning abilities.
 
 </p>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Transformer_architecture.png">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Transformer_architecture.svg/1280px-Transformer_architecture.svg.png">
 
 <hr>
 
-<h2>2. Transformer Architecture</h2>
+<h2>Transformer Architecture</h2>
 
 <p>
 
-Modern large language models are based on the Transformer architecture,
-introduced in the research paper:
+Most modern LLMs are based on the Transformer architecture introduced in
+the landmark paper "Attention Is All You Need".
+
+Transformers replace recurrent neural networks with attention mechanisms
+that allow models to process entire sequences simultaneously.
 
 </p>
 
-<blockquote>
-Attention Is All You Need (Vaswani et al., 2017)
-</blockquote>
-
 <p>
 
-Transformers allow models to process entire sequences simultaneously and
-capture relationships between words regardless of their position.
-
-Core components include:
+Key components include:
 
 </p>
 
 <ul>
 
 <li>Token embeddings</li>
+<li>Positional encodings</li>
 <li>Self-attention layers</li>
-<li>Feed-forward neural networks</li>
-<li>Residual connections</li>
+<li>Feedforward neural networks</li>
 <li>Layer normalization</li>
 
 </ul>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Transformer_self_attention_visualization.png">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Attention_mechanism.svg/1280px-Attention_mechanism.svg.png">
 
 <hr>
 
-<h2>3. Tokenization</h2>
+<h2>Self-Attention Mechanism</h2>
 
 <p>
 
-Before text can be processed by a neural network, it must first be converted
-into tokens.
-
-Tokens represent smaller units of text such as words, characters, or
-subwords.
-
-</p>
-
-<pre>
-
-Sentence:
-"Machine learning models are powerful"
-
-Tokenized Output:
-
-["Machine", "learning", "models", "are", "powerful"]
-
-</pre>
-
-<p>
-
-Each token is converted into a numerical vector called an embedding.
-
-</p>
-
-<hr>
-
-<h2>4. Self-Attention Mechanism</h2>
-
-<p>
-
-The self-attention mechanism allows the model to understand relationships
-between words in a sentence.
+Self-attention enables each word in a sentence to focus on other relevant
+words while processing.
 
 For example, in the sentence:
 
 </p>
 
-<pre>
-"The animal didn't cross the road because it was tired."
-</pre>
+<blockquote>
+
+"The animal didn't cross the street because it was too tired."
+
+</blockquote>
 
 <p>
 
-The word "it" refers to "animal". Self-attention allows the model to detect
-this relationship.
+The model learns that the word "it" refers to "animal".
 
 </p>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Self-attention.png">
-
-<hr>
-
-<h2>5. Training Objective</h2>
-
 <p>
 
-Large language models are trained using a simple but powerful objective:
-predict the next token in a sequence.
+Mathematically, attention is computed using query, key, and value vectors.
 
 </p>
 
 <pre>
 
-Input:
-"The sky is"
-
-Target:
-"blue"
+Attention(Q,K,V) = softmax(QK^T / sqrt(d_k)) V
 
 </pre>
 
+<hr>
+
+<h2>Training Large Language Models</h2>
+
 <p>
 
-The model learns by minimizing the difference between predicted tokens and
-actual tokens.
+Training an LLM involves several stages.
 
-This training process is repeated across billions of sentences.
+</p>
+
+<h3>1. Pretraining</h3>
+
+<p>
+
+The model is trained on massive unlabeled text datasets using next-token
+prediction.
+
+</p>
+
+<h3>2. Fine-tuning</h3>
+
+<p>
+
+After pretraining, the model is refined using curated datasets for specific
+tasks such as dialogue or code generation.
+
+</p>
+
+<h3>3. Alignment</h3>
+
+<p>
+
+Modern systems use Reinforcement Learning from Human Feedback (RLHF) to
+align model responses with human preferences.
+
+</p>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Reinforcement_learning_diagram.svg/1280px-Reinforcement_learning_diagram.svg.png">
+
+<hr>
+
+<h2>Scaling Laws</h2>
+
+<p>
+
+One of the most important discoveries in modern AI is that model
+performance improves predictably with scale.
+
+Increasing:
+
+</p>
+
+<ul>
+
+<li>Model parameters</li>
+<li>Training data</li>
+<li>Compute resources</li>
+
+</ul>
+
+<p>
+
+leads to significant improvements in performance.
 
 </p>
 
 <hr>
 
-<h2>6. Example Implementation (Simplified)</h2>
+<h2>Applications of LLMs</h2>
+
+<ul>
+
+<li>Conversational AI</li>
+<li>Automated coding assistance</li>
+<li>Document summarization</li>
+<li>Language translation</li>
+<li>Research assistance</li>
+<li>Content generation</li>
+
+</ul>
+
+<p>
+
+LLMs are now integrated into many software platforms and enterprise
+applications.
+
+</p>
+
+<hr>
+
+<h2>Example PyTorch Implementation</h2>
 
 <pre>
 
 import torch
 import torch.nn as nn
 
-class SimpleLLM(nn.Module):
+class TinyLanguageModel(nn.Module):
 
-    def __init__(self,vocab_size,embed_dim):
+    def __init__(self,vocab_size,hidden):
 
         super().__init__()
 
-        self.embedding = nn.Embedding(vocab_size,embed_dim)
+        self.embedding = nn.Embedding(vocab_size,hidden)
 
-        self.linear = nn.Linear(embed_dim,vocab_size)
+        self.linear = nn.Linear(hidden,vocab_size)
 
     def forward(self,x):
 
@@ -285,110 +330,46 @@ class SimpleLLM(nn.Module):
 
         return x
 
+model = TinyLanguageModel(50000,512)
+
 </pre>
 
-<p>
-
-This simplified model demonstrates the core idea behind language modeling:
-mapping tokens into vector space and predicting the next token.
-
-</p>
-
 <hr>
 
-<h2>7. Pretraining and Fine-Tuning</h2>
-
-<p>
-
-Training an LLM typically occurs in two phases.
-
-</p>
+<h2>Limitations</h2>
 
 <ul>
 
-<li><b>Pretraining</b> – training on massive text datasets</li>
-<li><b>Fine-tuning</b> – adapting the model for specific tasks</li>
-
-</ul>
-
-<p>
-
-Fine-tuning allows models to specialize in tasks such as coding assistance,
-medical reasoning, or legal document analysis.
-
-</p>
-
-<hr>
-
-<h2>8. Applications of LLMs</h2>
-
-<p>
-
-Large language models have many practical applications.
-
-</p>
-
-<ul>
-
-<li>Conversational AI</li>
-<li>Code generation</li>
-<li>Document summarization</li>
-<li>Language translation</li>
-<li>Question answering systems</li>
-<li>Research assistants</li>
-
-</ul>
-
-<hr>
-
-<h2>9. Limitations</h2>
-
-<p>
-
-Despite their capabilities, LLMs still have several limitations.
-
-</p>
-
-<ul>
-
-<li>Hallucinated answers</li>
 <li>High computational cost</li>
-<li>Bias from training data</li>
-<li>Limited reasoning ability in some domains</li>
+<li>Potential hallucinations</li>
+<li>Bias in training data</li>
+<li>Large memory requirements</li>
 
 </ul>
 
-<p>
-
-Researchers are actively developing new techniques to address these issues.
-
-</p>
-
 <hr>
 
-<h2>10. Future Directions</h2>
+<h2>Future of LLMs</h2>
 
 <p>
 
-The future of large language models includes several promising research
-directions.
+Research is actively exploring improvements including:
 
 </p>
 
 <ul>
 
-<li>Multimodal AI systems</li>
-<li>Efficient model architectures</li>
-<li>Retrieval-augmented models</li>
-<li>AI agent systems</li>
-<li>Smaller but more capable models</li>
+<li>Multimodal models combining text, images, and video</li>
+<li>Efficient training techniques</li>
+<li>Long-context reasoning</li>
+<li>Autonomous AI agents</li>
 
 </ul>
 
 <p>
 
-These developments may transform how humans interact with information and
-software systems.
+These developments will further expand the capabilities of large language
+models across science, engineering, and industry.
 
 </p>
 
@@ -398,17 +379,32 @@ software systems.
 
 <p>
 
-Large Language Models have fundamentally transformed the field of artificial
-intelligence. By combining massive datasets with powerful neural network
-architectures, these systems can understand and generate human language at
-an unprecedented scale.
+Large Language Models have fundamentally transformed natural language
+processing. Their ability to understand and generate human language makes
+them one of the most powerful tools in modern artificial intelligence.
 
-As research continues, LLMs will likely become a core component of future
-AI-driven technologies and digital infrastructure.
+As models continue to scale and new training techniques emerge, LLMs will
+likely play a central role in the next generation of intelligent systems.
 
 </p>
 
 </div>
+
+</div>
+
+</article>
+
+<footer class="footer">
+
+<div class="copyright">
+
+© 2026 Karan Arora  
+| Symbols count total: 7790000  
+| Reading time total ≈ 64:17 days
+
+</div>
+
+</footer>
 
 </body>
 </html>
